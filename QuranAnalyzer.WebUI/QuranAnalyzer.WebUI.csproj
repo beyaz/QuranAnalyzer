@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\QuranAnalyzer\QuranAnalyzer.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="ReactWithDotNet">
+        <HintPath>..\ThirdPartyReferences\ReactWithDotNet.dll</HintPath>
+      </Reference>
+      <Reference Include="ReactWithDotNet.Libraries">
+        <HintPath>..\ThirdPartyReferences\ReactWithDotNet.Libraries.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+
+</Project>
