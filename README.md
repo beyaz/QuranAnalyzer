@@ -1,0 +1,2 @@
+# QuranAnalyzer
+Quran Analyzer
