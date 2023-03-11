@@ -53,18 +53,6 @@ jobs:
          # If not specified, defaults to true.
          skip-build: false
 
-
-    - name: Script
-      run: |
-        Remove-Item 'packages/ReactWithDotNet.Libraries.pdb'
-        Remove-Item 'packages/ReactWithDotNet.Libraries.xml'
-        Remove-Item 'packages/ReactWithDotNet.pdb'
-        Remove-Item 'packages/ReactWithDotNet.xml'
-        Remove-Item 'packages/QuranAnalyzer.WebUI.pdb'
-        Remove-Item 'packages/QuranAnalyzer.pdb'
-      shell: pwsh
-
-
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
