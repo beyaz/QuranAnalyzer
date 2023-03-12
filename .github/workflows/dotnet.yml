@@ -29,7 +29,7 @@ jobs:
         New-Item -ItemType Directory -Force -Path 'FinalWebApp'
         
         Copy-Item -Path 'QuranAnalyzer.WebUI/PageId.cs' -Destination 'FinalWebApp/' -Force
-        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/ReactWithDotNet.dll' -Destination 'FinalWebApp/'  -Force -Recurse
+        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/debug/net6.0/ReactWithDotNet.dll' -Destination 'FinalWebApp/'  -Force -Recurse
 
         Get-ChildItem -Path 'FinalWebApp'
       shell: pwsh
