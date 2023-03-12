@@ -33,4 +33,4 @@ jobs:
         #Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.dll' -Destination 'FinalWebApp\' -Force -Recurse
 
         Get-ChildItem -Path 'FinalWebApp'
-    shell: pwsh
+      shell: pwsh
