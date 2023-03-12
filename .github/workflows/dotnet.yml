@@ -29,29 +29,22 @@ jobs:
         set-location QuranAnalyzer.WebUI/wwwroot/
         npm install
         npm run-script build
+        Remove-Item 'node_modules'      -Recurse
         Remove-Item 'react-with-dotnet' -Recurse
         Remove-Item 'package.json'
         Remove-Item 'package-lock.json'
         Remove-Item 'index.jsx'
       shell: pwsh
 
-    - uses: EasyDesk/action-dotnet-publish@v1
-      with:
-         # (Optional) The path to the project that should be published.
-         # If not specified, defaults to '.'.
-         path: 'QuranAnalyzer.WebUI/'
-
-         # (Optional) Additional command line arguments to be passed to 'dotnet test'.
-         # If not specified, defaults to 'packages'.
-         #output-dir: 'packages'
-
-         # (Optional) The build configuration.
-         # If not specified, defaults to 'Release'.
-         #build-configuration: Release
-
-         # (Optional) Whether to skip the build using the '--no-build' flag.
-         # If not specified, defaults to true.
-         skip-build: false
+    - name: Script
+      run: |
+        New-Item -ItemType Directory -Force -Path 'FinalWebApp'
+        Copy-Item -Path 'QuranAnalyzer.WebUI/wwwroot/'                               -Destination 'FinalWebApp\wwwroot\' -Force -Recurse
+        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/debug/net6.0/*.dll*'                -Destination 'FinalWebApp\'         -Force -Recurse
+        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/debug/net6.0/*.exe'                 -Destination 'FinalWebApp\'         -Force -Recurse
+        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/debug/net6.0/*.runtimeconfig.json'  -Destination 'FinalWebApp\'         -Force -Recurse
+        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/debug/net6.0/*.deps.json'           -Destination 'FinalWebApp\'         -Force -Recurse
+      shell: pwsh
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
@@ -59,5 +52,5 @@ jobs:
         server: win5173.site4now.net
         username: ${{ secrets.FTP_USER_NAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: packages/
+        local-dir: FinalWebApp/
         server-dir: 19sisteminedir/
