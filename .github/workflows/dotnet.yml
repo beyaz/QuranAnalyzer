@@ -58,6 +58,7 @@ jobs:
       run: |
         Remove-Item 'FinalWebApp/*.pdb'
         Remove-Item 'FinalWebApp/*.xml'
+        Copy-Item -Path 'QuranAnalyzer/quran-uthmani.xml' -Destination 'FinalWebApp/' -Force
       shell: pwsh
 
       # 👉 D E P L O Y    R E M O T E    F T P 👈 #
