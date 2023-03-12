@@ -24,7 +24,9 @@ jobs:
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
 
-    # 👉 P r e p a t e    w w w r o o t    f o l d e r 👈 #
+      #################################
+      # 👉 PREPARE wwwroot FOLDER 👈 #
+      #################################
     - name: Script
       run: |
         set-location QuranAnalyzer.WebUI/wwwroot/
@@ -36,7 +38,9 @@ jobs:
         Remove-Item 'index.jsx'
       shell: pwsh
 
-      # 👉 P U B L I S H 👈 #
+      ##################
+      # 👉 PUBLISH 👈 #
+      ##################
     - uses: EasyDesk/action-dotnet-publish@v1
       with:
          # (Optional) The path to the project that should be published.
@@ -65,7 +69,9 @@ jobs:
         Copy-Item -Path 'QuranAnalyzer/quran-uthmani.xml' -Destination 'FinalWebApp/' -Force
       shell: pwsh
 
-      # 👉 D E P L O Y    R E M O T E    F T P 👈 #
+      ############################
+      # 👉 DEPLOY REMOTE FTP 👈 #
+      ############################
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
