@@ -29,7 +29,7 @@ jobs:
         set-location QuranAnalyzer.WebUI/wwwroot/
         npm install
         npm run-script build
-        Remove-Item 'node_modules'      -Recurse
+        
         Remove-Item 'react-with-dotnet' -Recurse
         Remove-Item 'package.json'
         Remove-Item 'package-lock.json'
