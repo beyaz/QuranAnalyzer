@@ -42,21 +42,22 @@ jobs:
         Copy-Item -Path 'QuranAnalyzer.WebUI/wwwroot/'                               -Destination 'FinalWebApp\wwwroot\' -Force -Recurse
 
         
+        Get-ChildItem
         Get-ChildItem -Path 'QuranAnalyzer.WebUI/'
         Get-ChildItem -Path 'QuranAnalyzer.WebUI/bin'
-        Get-ChildItem
+        
 
-        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.dll*'                -Destination 'FinalWebApp\'         -Force -Recurse
-        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.exe'                 -Destination 'FinalWebApp\'         -Force -Recurse
-        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.runtimeconfig.json'  -Destination 'FinalWebApp\'         -Force -Recurse
-        Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.deps.json'           -Destination 'FinalWebApp\'         -Force -Recurse
+        #Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.dll*'                -Destination 'FinalWebApp\'         -Force -Recurse
+        #Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.exe'                 -Destination 'FinalWebApp\'         -Force -Recurse
+        #Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.runtimeconfig.json'  -Destination 'FinalWebApp\'         -Force -Recurse
+        #Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.deps.json'           -Destination 'FinalWebApp\'         -Force -Recurse
       shell: pwsh
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.2
-      with:
-        server: win5173.site4now.net
-        username: ${{ secrets.FTP_USER_NAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: FinalWebApp/
-        server-dir: 19sisteminedir/
+    #- name: 📂 Sync files
+    #  uses: SamKirkland/FTP-Deploy-Action@4.3.2
+    #  with:
+    #    server: win5173.site4now.net
+    #    username: ${{ secrets.FTP_USER_NAME }}
+    #    password: ${{ secrets.FTP_PASSWORD }}
+    #    local-dir: FinalWebApp/
+    #    server-dir: 19sisteminedir/
