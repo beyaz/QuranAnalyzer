@@ -906,6 +906,36 @@
                 Preformatted text
             </summary>
         </member>
+        <member name="T:ReactWithDotNet.code">
+            <summary>
+                Define some text as computer code in a document
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.code.#ctor">
+            <summary>
+                Define some text as computer code in a document
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.code.#ctor(ReactWithDotNet.IModifier[])">
+            <summary>
+                Define some text as computer code in a document
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.code.#ctor(System.String)">
+            <summary>
+                Define some text as computer code in a document
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.code.op_Implicit(System.String)~ReactWithDotNet.code">
+            <summary>
+                Define some text as computer code in a document
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.code.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Define some text as computer code in a document
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.ol">
             <summary>
                 Ordered list
