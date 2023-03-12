@@ -24,6 +24,7 @@ jobs:
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
 
+    # 👉 P r e p a t e    w w w r o o t    f o l d e r 👈 #
     - name: Script
       run: |
         set-location QuranAnalyzer.WebUI/wwwroot/
@@ -35,6 +36,7 @@ jobs:
         Remove-Item 'index.jsx'
       shell: pwsh
 
+      # 👉 P U B L I S H 👈 #
     - uses: EasyDesk/action-dotnet-publish@v1
       with:
          # (Optional) The path to the project that should be published.
@@ -53,7 +55,9 @@ jobs:
          # If not specified, defaults to true.
          skip-build: false
 
-
+      ##############################
+      # 👉 REMOVE UNUSED FILES 👈 #
+      ##############################
     - name: Script
       run: |
         Remove-Item 'FinalWebApp/*.pdb'
