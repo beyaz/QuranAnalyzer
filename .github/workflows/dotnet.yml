@@ -32,7 +32,7 @@ jobs:
 
          # (Optional) Additional command line arguments to be passed to 'dotnet test'.
          # If not specified, defaults to 'packages'.
-         #output-dir: 'FinalWebApp'
+         output-dir: 'FinalWebApp'
 
          # (Optional) The build configuration.
          # If not specified, defaults to 'Release'.
