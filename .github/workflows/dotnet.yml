@@ -41,7 +41,10 @@ jobs:
         New-Item -ItemType Directory -Force -Path 'FinalWebApp'
         Copy-Item -Path 'QuranAnalyzer.WebUI/wwwroot/'                               -Destination 'FinalWebApp\wwwroot\' -Force -Recurse
 
-        Get-ChildItem -Path 'QuranAnalyzer.WebUI/bin/'
+        
+        Get-ChildItem -Path 'QuranAnalyzer.WebUI/'
+        Get-ChildItem -Path 'QuranAnalyzer.WebUI/bin'
+        Get-ChildItem
 
         Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.dll*'                -Destination 'FinalWebApp\'         -Force -Recurse
         Copy-Item -Path 'QuranAnalyzer.WebUI/bin/release/net6.0/*.exe'                 -Destination 'FinalWebApp\'         -Force -Recurse
