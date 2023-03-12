@@ -24,6 +24,17 @@ jobs:
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
 
+    - name: Script
+      run: |
+        set-location QuranAnalyzer.WebUI/wwwroot/
+        npm install
+        npm run-script build
+        Remove-Item 'react-with-dotnet' -Recurse
+        Remove-Item 'package.json'
+        Remove-Item 'package-lock.json'
+        Remove-Item 'index.jsx'
+      shell: pwsh
+
     - uses: EasyDesk/action-dotnet-publish@v1
       with:
          # (Optional) The path to the project that should be published.
@@ -45,5 +56,16 @@ jobs:
 
     - name: Script
       run: |
-        Get-ChildItem -Path 'FinalWebApp'
+        Remove-Item 'FinalWebApp/*.pdb'
+        Remove-Item 'FinalWebApp/*.xml'
       shell: pwsh
+
+      # 👉 D E P L O Y    R E M O T E    F T P 👈 #
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      with:
+        server: win5173.site4now.net
+        username: ${{ secrets.FTP_USER_NAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: packages/
+        server-dir: 19sisteminedir/
