@@ -67,5 +67,5 @@ jobs:
         server: win5173.site4now.net
         username: ${{ secrets.FTP_USER_NAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: packages/
+        local-dir: FinalWebApp/
         server-dir: 19sisteminedir/
