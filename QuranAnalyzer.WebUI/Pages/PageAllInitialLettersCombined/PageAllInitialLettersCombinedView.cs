@@ -15,7 +15,7 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
                 "Peki bu geçiş adetlerini yan yana yazsak acaba önümüze nasıl bir rakam çıkar?"
             },
 
-            seperation,
+            separation,
 
             "Mesela Kaf harfi iki surede olmak üzere toplamda 114 defa geçer.",
             new br(),
@@ -25,7 +25,7 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
 
             new br(),
             "Yukarıdaki geçiş adetlerinden herhangi birini değiştirmeyi deneyebilirsiniz. Hesaplama gerçek zamanlı olarak çalışmaktadır.",
-            seperation,
+            separation,
 
             "2. olarak bu geçiş adetlerini daha detaylı olarak yazalım. ",
             "Mesela Mim harfi toplamda 17 surede olmak üzere 8659 defa geçer. ",
@@ -34,7 +34,7 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             raisePanel(new TotalCountsWithDetail()),
             new br(),
             "Yukarıdaki geçiş adetlerinden herhangi birini değiştirmeyi deneyebilirsiniz.",
-            seperation,
+            separation,
 
             "Son olarak olayı daha da zorlaştıralım. İlaveten sure numaraları da dahil edelim. ",
             "Mesela Mim harfi toplamda 17 surede olmak üzere 8659 defa geçer. ",
@@ -42,7 +42,7 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             raisePanel(new TotalCountsWithDetail { IncludeChapterNumbers = true }),
             new br(),
             "Yukarıdaki geçiş adetlerinden herhangi birini değiştirmeyi deneyebilirsiniz. Hesaplama gerçek zamanlı olarak çalışmaktadır.",
-            seperation,
+            separation,
 
             new SubTitle("Sonuç"),
             new p
@@ -89,7 +89,7 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             }
         };
 
-        static Element seperation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
 
         static Element raisePanel(Element element) => new div
         {

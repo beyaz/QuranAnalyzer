@@ -1,6 +1,6 @@
 ﻿namespace QuranAnalyzer.WebUI;
 
-class MainLayout : ReactComponent
+class MainLayout : ReactPureComponent
 {
     public Element Page { get; set; }
 

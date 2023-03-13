@@ -57,7 +57,7 @@ public class PageAdditionalVerses : ReactPureComponent
                 "Hasılı iki kapak arasına girdikten sonra mesele kapanıyor."
             },
 
-            seperation,
+            separation,
 
             "Peki konunun 19 sistemi ile ne ilgisi var?",
             new p
@@ -82,13 +82,13 @@ public class PageAdditionalVerses : ReactPureComponent
                 "Burasını maalesef karıştırıyorlar."
             },
 
-            seperation,
+            separation,
             new p
             {
                 "Reşad Halife'nin elçilik meselesini zihninizde bir yere oturtmadıysanız bu meseleyi de bir yere oturtmanız oldukça zor.",
                 "Ben burada meseleyi özetlemeye çalıştım. Karar vermek size kalan bir mesele."
             },
-            seperation,
+            separation,
 
             new p
             {
@@ -110,13 +110,13 @@ public class PageAdditionalVerses : ReactPureComponent
                 "Üstelik madem koruma olayını biz elimizdeki mushaf olarak görüyor isek, dünyada farklı farklı bir çok mushaf var. Her bir mushafda yazım farklılıkları var.",
                 "Bu durumda Allah  Kuranı harf bazında koruyamadı gibi bir sonuca da gitmeliyiz."
             },
-            seperation,
+            separation,
             new p
             {
                 "Ben gene de Kurandan iki ayeti red etmeyeyim diye düşünebilirsiniz. ",
                 "Ama meseleyi tersden ele alır iseniz Kuranda olmayan iki cümleye Allah sözü muamelesi yapmış da olabilirsiniz."
             },
-            seperation,
+            separation,
             new p
             {
                 "Kuranda bütün surelerin başında besmele vardır. Sadece bir tek surenin başında besmele yoktur.",
@@ -128,7 +128,7 @@ public class PageAdditionalVerses : ReactPureComponent
                 "bu Kuranın bizzat kendisi tarafından korunduğunu insanlara göstermek istemiş. ",
                 "Bu sebeple bu sureye dikkat çekmek için ve Allah kelamı olmayan iki söz olduğu için başına besmele koymamıştır."
             },
-            seperation,
+            separation,
             new p
             {
                 "Mesele etrafında dönen tartışmayı aktarmaya çalıştım. Umarım faydalı olmuştur.",
@@ -141,6 +141,6 @@ public class PageAdditionalVerses : ReactPureComponent
             }
         };
 
-        static Element seperation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
     }
 }

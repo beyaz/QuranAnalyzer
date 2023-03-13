@@ -33,7 +33,7 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
                 (b)"Not:", "Komut satırları gerçek zamanlı olarak çalışmaktadır. İsterseniz komut satırlarında değişiklik yaparak farklı aramalar yapabilirsiniz."
             },
 
-            seperation,
+            separation,
 
             "Aşağıdaki program verilen harflerin sayısal değerini (aynen Roma rakamlarında olduğu gibi Arap harflerinin sayısal karşılığını) verir.",
             raisePanel(new NumericValueCalculator
@@ -44,7 +44,7 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             "Eğer 693 sayısını görüyor iseniz hesaplamalarımız doğru gidiyor demektir. ",
             "İlk bakışta bu rakam pek bir şey ifade etmiyor gibi gelebilir ama şimdilik aklınızın bir köşesinde tutun.",
 
-            seperation,
+            separation,
 
             "Peki bu 14 başlangıç harfinin tamamını içeren ayet sayısı acaba kaçtır? Aşağıdaki program yardımı ile hesaplayalım.",
             VSpace(10),
@@ -60,7 +60,7 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             "114 Kuran'daki toplam sure sayısıdır. ",
             "Bulunan ilk ayet ise 2. surenin 19. ayeti olması gibi  başka detaylar da var ama detayda boğulmamak için derine girmiyorum.",
 
-            seperation,
+            separation,
 
             "Gelelim son hesaplamaya. Bu geçişlerin sure ve ayet numaralarını topladığımızda karşımıza hangi sayı çıkıyor.",
 
@@ -99,6 +99,6 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             "Özetle burada bir ilginçlik var mı? yok mu? Artık bu soru ile başbaşa olan sizsiniz. :)"
         };
 
-        static Element seperation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
     }
 }

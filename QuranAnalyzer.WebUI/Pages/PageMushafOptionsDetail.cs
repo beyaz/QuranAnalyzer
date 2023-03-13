@@ -2,7 +2,7 @@
 
 namespace QuranAnalyzer.WebUI.Pages;
 
-public class PageMushafOptionsDetail : ReactComponent
+public class PageMushafOptionsDetail : ReactPureComponent
 {
     protected override Element render()
     {
@@ -31,7 +31,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
             },
 
             new br(),
-            seperation,
+            separation,
             new p
             {
                 "Eski mushafları dijital ortama aktarmayı amaçlayan bir çalışma var. ",
@@ -43,7 +43,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
                     new a { href = "http://elktb.net/Mushaflar/MushafGoruntule", text = "El Kitab" }
                 }
             },
-            seperation,
+            separation,
 
             new p
             {
@@ -58,7 +58,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
                 "Oradaki harfin hangisi olduğu üzerine tartışma var. Kimisi sin diye yazılır Sad diye okunur demiş. Elbette başka yorumlar da var.",
             },
 
-            seperation,
+            separation,
 
             "2000'li yılların başında bilgisayar teknolojisindaki hızlı gelişme ile beraber Kuran elektronik ortama aktarılmış. Bu konuda çoğunlukla kullanılan elektronik mushaf ", new a { text = "tanzil.net", href = "https://tanzil.net/docs/tanzil_project" },
             " in hazırlamış olduğu çalışmadır. Bu sitede tanzil.net den indirdiğim mushafı kullandım.",
@@ -174,6 +174,6 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
             }
         };
 
-        static Element seperation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
     }
 }

@@ -156,7 +156,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                         {
                             new FlexRow(AlignItemsCenter, Gap(5))
                             {
-                                CreateSeperationSwitch,
+                                CreateSeparationSwitch,
                                 "Geçiş adetlerini göster"
                             }
                         },
@@ -338,7 +338,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
 
     static string Id(int chapterNumber, string letter) => $"HaMimSeparated-{chapterNumber}-{letter}";
 
-    Element CreateSeperationSwitch()
+    Element CreateSeparationSwitch()
     {
         var query = HttpUtility.ParseQueryString(Context.QueryAsString);
 

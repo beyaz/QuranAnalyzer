@@ -15,7 +15,7 @@ class PageCountOfAllahView : ReactPureComponent
                 "İşte bu yazıda aşağıdaki programlar yardımı ile bu bilgi incelenecektir."
             },
 
-            seperation,
+            separation,
 
             "Aşağıdaki program verilen kelimeleri arar. Bulunan kelimelerin geçtiği sure ve ayetlerin toplamını ve kaç adet olduğunu gösterir. ",
             new br(),
@@ -44,7 +44,7 @@ class PageCountOfAllahView : ReactPureComponent
 
             "Sonuçlardan da görüldüğü üzere bu toplamlarda herhangi bir ilginçlik yok.",
 
-            seperation,
+            separation,
 
             "Şimdi ise üzerinde tartışmanın döndüğü konu olan 9. surenin 128 ve 129 nolu cümleleri çıkarıp sayalım.",
             VSpace(10),
@@ -77,7 +77,7 @@ class PageCountOfAllahView : ReactPureComponent
             }
         };
 
-        static Element seperation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
 
         static Element raisePanel(Element element) => new div
         {

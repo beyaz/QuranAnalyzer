@@ -22,7 +22,7 @@ public class PageAboutEdipYuksel : ReactPureComponent
                 new br(),
                 new br(),
                 "Edip'in eleştiriye maruz kaldığı noktalar ise şu şekilde;",
-                seperation,
+                separation,
 
                 "Temsil konumunda olan birinin biraz daha dikkatli davranması gerekiyor.",
                 new br(),
@@ -31,20 +31,20 @@ public class PageAboutEdipYuksel : ReactPureComponent
                 " Haliyle kimine göre bu tavır itici olarak gelebiliyor ve Edip'in söylediği bazı sözlerin-fikirlerin de otomatikman kulak ardı edilmesine sebep oluyor.",
 
                 " Yahut Edip'in yalnızca Kuran söyleminin yanlış anlaşılmasına sebep olabiliyor.",
-                seperation,
+                separation,
 
                 "Sanki Edip, Reşad'ın bir numaralı talebesi imiş gibi, her yönü ile Reşad'ın fikirlerini aktaran biriymiş gibi anlaşılabiliyor.",
                 " Halbuki iki ayrı insan iki ayrı fıtrat.",
                 " Edip; Reşad'ın yanında 1-1.5 yıl kadar kalıyor.",
-                seperation,
+                separation,
 
                 "Reşad Halife nin yaptığı ingilizce çeviriyi bir kenara koyup kendi çeviri yapması biraz tezat oluşturuyor. ",
-                seperation,
+                separation,
 
                 "Edip'in Reşad Halifenin ölümü ardından Reşad'ın tavsiyelerini uygulayanlara sizler Reşad'ı putlaştırıyorsunuz muamelesi var.",
-                seperation,
+                separation,
                 "Namazın 3 vakit olduğu fikrini savunması, Atatürk ile 19 meselesi arasında bağ kurması gibi konular var.",
-                seperation,
+                separation,
 
                 "Demiyorum ki Edip full hatalı veya full doğru. ",
                 "Bu yazıda sadece Edip üzerinde ve onun 19 ile olan yönü üzerine yaptığım gözlemlerimin bir kısmını paylaştım.",
@@ -53,6 +53,6 @@ public class PageAboutEdipYuksel : ReactPureComponent
             }
         };
 
-        static Element seperation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
     }
 }
