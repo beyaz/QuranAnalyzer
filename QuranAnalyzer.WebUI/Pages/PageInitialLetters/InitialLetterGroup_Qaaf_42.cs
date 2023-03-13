@@ -50,7 +50,7 @@ class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
             {
                 @"42. surede yine ", AsLetter(Qaaf), " başlangıç harfi vardır.",
                 " Bu surede toplamda ", 57.AsMultipleOf19(), " adet ", AsLetter(Qaaf), " harfi vardır.",
-                new br(), new br(),
+                br, br,
                 " Özetlemek gerekirse Kuranda ", AsLetter(Qaaf), " başlangıç harfi içeren iki tane sure vardır.",
                 "  Bu iki sure de kendi içlerinde eşit sayıda yani ", 57.AsMultipleOf19(), " adet ", AsLetter(Qaaf), " harfi içerir."
             },

@@ -22,10 +22,10 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             {
                 "Toplamda 14 tane başlangıç harfi vardır. ",
                 "Kur’an’ın 29 suresinin 30 ayetinde bu başlangıç harfleri farklı kombinasyonlar oluşturacak şekilde surelerin başlarında bulunmaktadır.",
-                new br(),
-                new br(),
+                br,
+                br,
                 "Peki bu 14 başlangıç harfinin hepsini birden içeren ayetlerde bir ilginçlik olabilir mi?",
-                new br(),
+                br,
                 "İşte bu yazıda aşağıdaki programlar yardımı ile bu bilgi incelenecektir."
             },
             new FlexRow(Gap(3))
@@ -72,9 +72,9 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             }),
 
             "Eğer sonuç olarak 9702 rakamını görüyor iseniz. Bu rakamı biraz inceleyelim. Bu rakam şu iki sayının çarpımından oluşmaktadır.",
-            new br(),
+            br,
             new FlexRowCentered { "14 x 693 = 9702" },
-            new br(),
+            br,
             "Toplam 14 tane başlangıç harfi vardır ve bu 14 harfin sayısal toplamının 693 olduğunu yazının ilk başında zaten hesaplamıştık. ",
             "Bu harflerin tamamını barındıran ayetlerin sure ve ayet numaraları toplamının da bu iki rakamın çarpımını(9702) vermesi oldukça ilginç.",
 
@@ -82,20 +82,20 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             (b)"Sonuç: ",
             "Açıkçası herhangi bir kitapta buna benzer bir hesaplama ile önümüze böyle rakamlar koyulsa haklı olarak pek dikkate almayabilirdik. ",
             "Sırf işine gelen rakamı bulmak için zorlamışsın diyebilirdik.",
-            new br(),
+            br,
             "Elbette ki eleştirmek isteyen her türlü bir yol bulabilir. Mesela niye rakamları çarpmak yerine topladın? ",
             "Neden harfin sayısal karşılığını aldın da sırasını almadın? ",
             "Benimde önüme bir kitap ver bende bazı şeyleri çarpar böler sana istediğin rakamı veriririm. Buna benzer şeyler söyleyebilirdik. ",
-            "Yahut tam tersi", new br(),
+            "Yahut tam tersi", br,
             "Evet burada bir gariplik var  toplamda 114 sure olması ve bu başlangıç harflerini içeren toplamda 114 tane ayet olması vesaire vesaire...",
-            new br(),
-            new br(),
+            br,
+            br,
             "Burada önemli olan olay şu: Eğer bir kitapta buna benzer 1-2 tane değil, ",
             "düzinelerce ilginç ve hep aynı rakama yani 19 rakamına işaret eden verilerin olmasıdır. ",
             "Üstelik bu başlangıç harflerinden hemen sonraki cümlelerin şöyle başladığını hatırlayın.",
             (b)"'Bu harfler kitabın kanıtlarıdır...'",
-            new br(),
-            new br(),
+            br,
+            br,
             "Özetle burada bir ilginçlik var mı? yok mu? Artık bu soru ile başbaşa olan sizsiniz. :)"
         };
 

@@ -11,7 +11,7 @@ class MainPageContent : ReactPureComponent
             new p
             {
                 @"Bir kaç yıl önce Kuran hakkında 19 Sistemi - 19 Mucizesi benzeri isimlerle duyduğum bir konu üzerine vakit buldukça araştırma yapma fırsatım oldu.",
-                new br(),
+                br,
 
                 "Elimden geldiğince aklımın yettiği ölçüde nedir ne değildir inceledim.",
                 " Bu konu etrafında doğru yanlış bir çok şey duydum ve okudum.",

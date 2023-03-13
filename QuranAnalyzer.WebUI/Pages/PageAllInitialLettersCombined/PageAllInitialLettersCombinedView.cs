@@ -11,19 +11,19 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             new p
             {
                 "Başlangıç harflerinin içinde bulunduğu sure ile ilişkili olduğunu 'Başlangıç Harfleri' sayfasında detaylı olarak incelenmişti.",
-                new br(),
+                br,
                 "Peki bu geçiş adetlerini yan yana yazsak acaba önümüze nasıl bir rakam çıkar?"
             },
 
             separation,
 
             "Mesela Kaf harfi iki surede olmak üzere toplamda 114 defa geçer.",
-            new br(),
+            br,
             "Başlangıç harflerinin ait oldukları surelerdeki toplam geçiş adetlerini yan yana yazınca oluşan büyük rakam 19'un tam katıdır.",
-            new br(),
+            br,
             raisePanel(new TotalCounts()),
 
-            new br(),
+            br,
             "Yukarıdaki geçiş adetlerinden herhangi birini değiştirmeyi deneyebilirsiniz. Hesaplama gerçek zamanlı olarak çalışmaktadır.",
             separation,
 
@@ -32,7 +32,7 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             "Bu 17 suredeki geçiş adetlerini de bu toplamın önüne ekleyelim ve oluşan sayıyı inceleyelim. ",
             "Aşağıda bulunan paneldeki hesapla düğmesine basarak bu işlemi hesaplayabilirsiniz.",
             raisePanel(new TotalCountsWithDetail()),
-            new br(),
+            br,
             "Yukarıdaki geçiş adetlerinden herhangi birini değiştirmeyi deneyebilirsiniz.",
             separation,
 
@@ -40,7 +40,7 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             "Mesela Mim harfi toplamda 17 surede olmak üzere 8659 defa geçer. ",
             "Bu 17 suredeki ", (strong)"sure no, o suredeki toplam geçiş adeti ", " şeklinde yan yana yazalım. Aşağıda bu işlemi hesaplayabilirsiniz.",
             raisePanel(new TotalCountsWithDetail { IncludeChapterNumbers = true }),
-            new br(),
+            br,
             "Yukarıdaki geçiş adetlerinden herhangi birini değiştirmeyi deneyebilirsiniz. Hesaplama gerçek zamanlı olarak çalışmaktadır.",
             separation,
 
@@ -49,9 +49,9 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             {
                 "Elbette ki herhangi bir sayının 19'a bölünme ihtimali 19 da 1 dir. ",
                 "Sayının ne kadar büyük olduğunun bir önemi yoktur.",
-                new br(),
+                br,
                 "Burada insanı hayrete düşüren olayı bir örnek ile açıklayalım.",
-                new br(),
+                br,
                 "Sadece ", AsLetter(ArabicLetter.Miim), " harfini ele alalım. Bu başlangıç harfi ile başlayan 17 surelerde toplamda 8659 adet geçer. ",
 
                 "Eğer 46. suredeki ", AsLetter(ArabicLetter.Miim), " harfi bir fazla veya eksik olsaydı  hem bu yukarıda hesaplanan  büyük rakamlar 19'un katı olmazdı. ",
@@ -71,9 +71,9 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             },
 
             new div { "Neden 19?", TextAlignCenter },
-            new br(),
+            br,
             "Elbette her şeyin sayısını bilen Allah istese bunu 19 değil 29 rakamı ile de yapabilirdi. Eğer bu örüntü 29 üzerine olsaydı neden 29 diye sorulacaktı. ",
-            new br(),
+            br,
             new ul
             {
                 (li)"Kuranın kapağını açtığınızda karşınıza çıkan ilk çümle yani Besmele 19 harftir.",

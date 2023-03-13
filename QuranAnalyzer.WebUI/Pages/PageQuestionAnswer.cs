@@ -12,16 +12,16 @@ public class PageQuestionAnswer : ReactPureComponent
             {
                 @"Bu bölümde 19 meselesi etrafında dönen tartışmalı konuları ele aldım. 
 Elimden geldiğince tartışılan konuları en kısa ve tarafsız bir şekilde özetlemeye çalıştım.",
-                new br(),
-                new br(),
+                br,
+                br,
                 @"Tekrar hatırlatmakta fayda görüyorum.",
-                new br(),
-                new br(),
+                br,
+                br,
                 @"Aşağıdaki soruların cevaplarının doğru olup olmadığı siz okuyucuya bırakılmıştır. 
 İmana dair bir meselenin üzerinde düşünülüp içselleştirilmedikten sonra bir faydasının olmayacağına inanıyorum.
 Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söylediğini aktarayım sonrasında üzerine düşünmek-araştırmak ve bir karara varmak size kalsın.",
             },
-            new br(),
+            br,
             new FlexColumn
             {
                 new QuestionLink

@@ -12,32 +12,32 @@ public class PageMushafOptionsDetail : ReactPureComponent
 
             @"Kuran günümüze farklı mushaflar üzerinden gelmiştir. 
 En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushafı'nı örnek verebiliriz.",
-            new br(),
-            new br(),
+            br,
+            br,
             "Peki farklı mushaf ne demek? ",
-            new br(),
+            br,
             "Kuran farklı coğrafyalara dağılırken noktalama işaretleri eklenerek yayıldı. ",
             "El ile yazılarak çoğaltıldığını da hesaba katınız. Hatta o devirdeki Araplar aynen Roma rakamlarında olduğu gibi harfleri aynı zamanda rakam olarak kullanıyorlar. ",
             "En başta yapılacak küçük bir hata otomatik olarak çoğaltılan kopyalara da yansımış olacaktır. ",
             "Mesela Türkiye'ye en yakın coğrafyalardan biri olan İran'dan bir Kuran ile Türkiyedeki diyanetin bastırmış olduğu Kuranını önünüze açın ve Elif(ﺍ) harflerini inceleyin arada bazı Elif(ﺍ) harflerinin birbirini tutmadığını kendiniz de gözlemleyebilirsiniz. ",
-            new br(),
-            new br(),
+            br,
+            br,
             "Dileyenler yazım farkları konusunu daha detaylı inceleyebilirler. Aşağıda örnek bir çalışmayı paylaşıyorum. ",
-            new br(),
+            br,
             new img
             {
                 src   = FileAtImgFolder("MushafDifferences.jpg"),
                 style = { width = "100%", height = "auto", display = "block", marginLeftRight = "auto" }
             },
 
-            new br(),
+            br,
             separation,
             new p
             {
                 "Eski mushafları dijital ortama aktarmayı amaçlayan bir çalışma var. ",
                 "Hangi kelimenin hangi mushafta nasıl yazıldığına ait detaylı olarak bu siteden de inceleyebilirsiniz. ",
                 "Eğer mushaftaki yapraklar oldukça hasarlı ise maalesef o kısımlar elektronik ortama aktarılamamış oluyor.",
-                new br(),
+                br,
                 new FlexRowCentered
                 {
                     new a { href = "http://elktb.net/Mushaflar/MushafGoruntule", text = "El Kitab" }
@@ -62,22 +62,22 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
 
             "2000'li yılların başında bilgisayar teknolojisindaki hızlı gelişme ile beraber Kuran elektronik ortama aktarılmış. Bu konuda çoğunlukla kullanılan elektronik mushaf ", new a { text = "tanzil.net", href = "https://tanzil.net/docs/tanzil_project" },
             " in hazırlamış olduğu çalışmadır. Bu sitede tanzil.net den indirdiğim mushafı kullandım.",
-            new br(),
-            new br(),
+            br,
+            br,
             "Tanzil.net 'den de önce bu bilgisayara aktarma işlemini ilk olarak Reşad Halife 1970 li yıllarda yapmış. ",
             "Düşünün ki 70 li yıllarda zaten bilgisayar herkesin erişebileceği bir alet değil. Hatta o zamanki yazılım dünyasında Arap harleri dahi yok. ",
             "Reşad Halife farklı mushafları da önüne dizip tek tek inceleyip Arap alfabesine karşılık gelen herbir harf için İngilizce harf karşılığını mesela Arapçadaki ", AsLetter(Miim), " yerine İngilizcedeki M harfini yazarak tüm Kuranı bilgisayara aktarıyor ve bu başlangıç harflerini araştırmaya koyuluyor.",
-            new br(),
-            new br(),
+            br,
+            br,
             "Bu konuyu araştırırken bulabildiği tek elektronik mushaf olan tanzil.net 'den aldığım mushafı kullandım.",
             "İşte harf arama olaylarını yaparken bu mushaf farklılıklarını da göz önüne alarak yapmak mecburiyetindesiniz. ",
             "Bundan dolayıdırki bu ayarları kullabilirsiniz. ",
             "Mesela Elif(ﺍ) harfleri için isterseniz tanzil.net'i referans alarak sayımlar yapın isterseniz Reşad Halifenin Elif sayımlarını baz alarak yapın. ",
             "Tanzil.net deki mushafı da 'Hamid Zarrabi-Zadeh' adında İranlı bir öğretim üyesi bilgisayara aktarmış. Sonuçta ikisi de insan :) ",
-            new br(),
-            new br(),
+            br,
+            br,
             new SubTitle("Ayarlar"),
-            new br(),
+            br,
 
             new FlexColumn(Gap(40))
             {

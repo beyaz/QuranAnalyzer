@@ -11,16 +11,16 @@ class PageCountOfAllahView : ReactPureComponent
             new p
             {
                 "Acaba Kuranda geçen her bir 'Allah' kelimesinin geçiş yerleri ile ilgili bir şey olabilir mi?",
-                new br(),
+                br,
                 "İşte bu yazıda aşağıdaki programlar yardımı ile bu bilgi incelenecektir."
             },
 
             separation,
 
             "Aşağıdaki program verilen kelimeleri arar. Bulunan kelimelerin geçtiği sure ve ayetlerin toplamını ve kaç adet olduğunu gösterir. ",
-            new br(),
+            br,
             "Önce basit bir arama yapalım ve programın nasıl çalıştığını gözlemleyelim.",
-            new br(),
+            br,
             "Mesela 2. surenin 60 ila 62. ayetleri arasında geçen 'Allah' kelimelerini aratalım.",
 
             raisePanel(new Calculator
@@ -58,14 +58,14 @@ class PageCountOfAllahView : ReactPureComponent
             "Sanırım çok fazla söze gerek yok.",
             br,
             "Burada dikkat edilmesi gereken nokta şu;",
-            new br(),
+            br,
             "Herhangi bir surenin herhangi bir cümlesini  çıkarsanız veya herhangi bir sureye fazladan bir 'Allah' kelimesi ekleseniz bu tablo bozulurdu.",
             " İşte 19 sisteminin Kuranı koruması böyle oluyor.",
             " Herhangi iki ayet değil özellikle bu bahsi geçen üzerinde bazı şüphelerin tartışmaların olduğu iki cümle çıkarılınca bu tablonun oluşması çok ilginç.",
             " Özetle Kurandaki her bir 'Allah' kelimesinin geçiş yerleri dahi bir öneme sahiptir.",
 
-            new br(),
-            new br(),
+            br,
+            br,
             "İşte 'sırf 19 rakamına uymuyor diye Kurandan ayet atılıyor' iddiasının aslı budur.",
             " Tabii şunu da belirtmem gerekiyor. Reşad bunun gibi 70 den fazla matematiksel veri de sunuyor.",
 

@@ -138,7 +138,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                             new div(TextAlignCenter, MaxWidth(300))
                             {
                                 "Yukarıdaki geçiş adetlerinin rakamları toplamı ", (span)"59" + Color(firstColor), "'dur",
-                                new br(),
+                                br,
                                 (small)"59 = (6+4 + 3+8+0 + 4+8 + 2+7+6 + 5+3 + 3+0+0)"
                             }
                         },
@@ -173,7 +173,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                             new div(TextAlignCenter, MaxWidth(300))
                             {
                                 "Aşağıdaki geçiş adetlerinin rakamları toplamı ", (span)"54" + Color(firstColor), "'dür",
-                                new br(),
+                                br,
                                 (small)"54 = (4+4 + 3+2+4 + 1+6 + 1+5+0 + 3+1 + 2+0+0 + 3+6 + 2+2+5)"
                             }
                         },
@@ -310,7 +310,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
             {
                 @" Başlangıç harfleri genelde surelerin ilk ayetinde olur. Bunun tek istisnası 42. suredir. ",
                 " 42. sure diğerlerinden farklı olarak 2. ayetinde de başlangıç harfi barındırır.",
-                new br(),
+                br,
                 " Şekilden de görüldüğü üzere 42. suredeki bu olay farklı bir ahenk daha katar. ",
                 " Sanki bu 7 surede var olan ", AsLetter(Haa), " - ", AsLetter(Miim), " tablosunu 19.un katları şeklinde ikiye bölüyormuş gibi düşünebilirsiniz. ",
                 "Hatta bu iki şemadaki sayımların rakamları toplamı dahi kendi çarpanı vermektedir."

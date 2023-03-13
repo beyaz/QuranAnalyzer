@@ -11,11 +11,11 @@ public class PageAdditionalVerses : ReactPureComponent
             new p
             {
                 "19 sisteminin olması için Kurandan iki ayet atılması gerekiyormuş. Yoksa sistem çöküyormuş. ",
-                new br(),
+                br,
                 "Konuyu pek araştırmayan insanlar üzerinde etki bırakan bir söz. ",
                 "Çünkü insanlar bu sözü duyunca otomatikman şöyle düşünürler, ",
                 (b)" isterse dünyanın en süper bilgisi olsun bana ayeti dolayısıyla Kuranı reddettirecek bir şey ise benim için mesele başlamadan bitmiş demektir. Peşinen reddederim.",
-                new br(),
+                br,
                 "Peki nedir bu meselenin aslı?"
             },
             new p
@@ -23,7 +23,7 @@ public class PageAdditionalVerses : ReactPureComponent
                 "Önce net bir şekilde cevabı verelim.",
                 (b)"19 sisteminin en majör bileşeni başlangıç harfleri üzerine olan sistemdir. ",
                 "Bu en majör bileşen olan başlangıç harflerinin, Tevbe suresinin toplamda 127 ayet mi yoksa 129 ayet mi olması ile hiç bir ilgisi yoktur.",
-                new br(),
+                br,
                 "Hatta böyle bir kafa karışıklığına mahal vermemesi için ben bu sitede yaptığım tüm sayımları  ",
                 "klasik elinize aldığınız bir kuran mushafı ile aynı olan Tanzil.net den aldığım mushaf ile yaptım."
             },
@@ -40,8 +40,8 @@ public class PageAdditionalVerses : ReactPureComponent
                 " Hasılı bu sözü de delil getirerek Süveybenin şahitliği iki kişi gibi sayılır ve bu iki söz Kurana eklenir.",
                 " Üstelik Tevbe suresindeki tüm ayetler Medine dönemine aitken sadece bu sonraki iki ayet Mekke dönemine aittir.",
 
-                new br(),
-                new br(),
+                br,
+                br,
                 "Tarihi rivayet olarak durum böyle. Elbette ki bu sözü şöyle yorumlayanlar da var. ",
                 "Aslında oradaki herkes bu iki sözün Kurandan olduğunu biliyordu fakat yazılı olarak ellerinde yoktu.",
                 "Burada rivayet tenkidi-yorumlaması yapmayacağım ben sadece böyle bir rivayeti aktardım.",
@@ -51,9 +51,9 @@ public class PageAdditionalVerses : ReactPureComponent
                 "İlk toplanan muashafın yakılması vesaire ister istemez konu üzerinde soru işaretleri bırakmış olabilir.",
                 "Herkim ki tevbe suresi 128.129 uncu ayetleri şu vakitlerde okur ise ona şöyle sevap yazılır şeklinde rivayetlerin olması da bir garip.",
                 "Özellikle 128-129 un seçilmiş olması biraz garip.",
-                new br(),
+                br,
                 "Hiç bir yerde Rahman Rahim gibi sıfatlar Allah dışında kullanılmaz iken sadece burada Muhammed peygamber için kullanılmış",
-                new br(),
+                br,
                 "Hasılı iki kapak arasına girdikten sonra mesele kapanıyor."
             },
 
@@ -77,7 +77,7 @@ public class PageAdditionalVerses : ReactPureComponent
             new p
             {
                 "Özetlemek gerekir ise ", (b)" Bu bilgi Cebrail aracılığı ile geliyor. Ardından matematikle destekleniyor.",
-                new br(),
+                br,
                 "Dünyada hiç bir kimse kendi kutsal saydığı kitaptan matematiğe uymuyor diye ayet atmaz. Reşad o kadar da aptal biri değil. ",
                 "Burasını maalesef karıştırıyorlar."
             },
@@ -96,16 +96,16 @@ public class PageAdditionalVerses : ReactPureComponent
                 "Hani Allah Kuranı korumuştu? Eğer Tevbe 128-129 Kurandan değil ise nasıl oldu da Kuran mushafları arasına girebildi? " +
                 "Demek ki mantık olarak çöküyor.",
 
-                new br(),
-                new br(),
+                br,
+                br,
                 "İşte bu fikre karşı arguman olarak da şu söyleniyor. Aslında halihazırda ayet gerçekleşmiş durumda.",
                 "Allah koruyacağını söyledi ve 19 kodu ile bunu koruduğunu bizzat gösterdi.",
                 "Eğer bir odada 10 kişi olalım ve elimizde şöyle bir bilgi olsun 'Bu odaya giren olur ise dayak yer'.",
                 "Eğer hiç kimse girmez ise kimse dayak yemez ve 'odaya giren dayak yer' bilgisi sadece kuru - emin olmadığımız bir bilgi olarak kalır.",
                 "Ne zamanki biri odaya girer ve dayağı yer ancak bu durumda bu bilgi netlik kazanır. ",
-                new br(),
+                br,
                 "Durum biraz buna benziyor. Allah bu kitabı koruyacağını söylüyor? Bu bilginin kaynağı ne ? Kim söylüyor? Cevap: Bu kitap",
-                new br(),
+                br,
                 "Bu da mantık hatasına yol açıyor.",
                 "Üstelik madem koruma olayını biz elimizdeki mushaf olarak görüyor isek, dünyada farklı farklı bir çok mushaf var. Her bir mushafda yazım farklılıkları var.",
                 "Bu durumda Allah  Kuranı harf bazında koruyamadı gibi bir sonuca da gitmeliyiz."
@@ -132,11 +132,11 @@ public class PageAdditionalVerses : ReactPureComponent
             new p
             {
                 "Mesele etrafında dönen tartışmayı aktarmaya çalıştım. Umarım faydalı olmuştur.",
-                new br(),
+                br,
                 "Ufak da olsa kendi anlayışımı ifade istiyorum. ",
                 "Açıkçası hayatında Kuran olmayan birinin Tevbe 128-129 Kuran'dandır veya değildir demesinin bence bir anlamı yok. ",
                 "Yılan adamı yarı beline kadar yutmuş fakat adam az önce ensesinden ısıran sivri sineğin derdine düşmüş. ",
-                new br(),
+                br,
                 "Örnek biraz saçma gelebilir ama malesef durum böyle.  "
             }
         };

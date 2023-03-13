@@ -19,8 +19,8 @@ public class PageContact : ReactPureComponent
                 "öğrenmeyi, düşünmeyi seviyorum. ",
                 "Vaktim olduğu sürece bu üç konu üzerine istediğiniz kadar fikir alışverişine açığım. ",
                 "Aşağıdaki mail adresinden bana ulaşabilirsiniz",
-                new br(),
-                new br(),
+                br,
+                br,
                 "beyaz1404@gmail.com"
             },
             new FlexRowCentered
@@ -31,7 +31,7 @@ public class PageContact : ReactPureComponent
             {
                 "Bu sitede kullanılan tüm kodları aşağıda belirttiğim linkten inceleyebilirsiniz. ",
                 "Eğer programlama biliyorsanız bu kodları kullanarak kendi analizlerinizi yapabilirsiniz.",
-                new br(),
+                br,
                 new FlexRowCentered
                 {
                     new a { href = "https://github.com/beyaz/QuranAnalyzer", text = "github" }

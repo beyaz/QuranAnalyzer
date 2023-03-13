@@ -152,11 +152,11 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
             {
                 AsLetter(Haa), " ve ", AsLetter(Miim), @" ile başlayan 7 tane sure vardır.",
                 " Bu iki harfin bu 7 suredeki geçiş adeti ise ", 2147.AsMultipleOf19(), "'tür.",
-                new br(),
+                br,
                 " Bu 7 sure neredeyse Kuranın 5 de 1'ine tekabül eder.",
                 " Eğer bu iki harften bir tanesi fazla veya eksik olsaydı yukarıdaki şekildeki gibi bir ahenk olmazdı.",
-                new br(),
-                new br(),
+                br,
+                br,
                 "Mesela Mekke şehri bu surelerde 'Mekke' yerine 'Bekke' şeklinde yazılmıştır.",
                 " Neden Bekke şeklinde yazıldığı ile ilgili başka yorumlar da elbet var. Ama Yukarıdaki şekil incelendiğinde sanırım nedeni daha net anlaşılıyor.",
                 " Eğer Mekke şeklinde yazılsaydı ", AsLetter(Miim), " harfleri bir fazla olurdu ve bu şekildeki ahenk olmazdı."

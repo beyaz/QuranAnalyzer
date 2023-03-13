@@ -15,17 +15,17 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
             new p
             {
                 @"Gayet haklı bir soru.",
-                new br(),
+                br,
                 "Tarih boyu en karlı sömürülerden biri de din üzerinden yapılan sömürüdür. ",
                 "Tüm medyatik din adamlarının tek amacı insanları sömürmektir gibi saçma bir cümle elbet kurmayacağım. ",
                 "Medyadaki din adamları insanlara onların istedikleri şeyleri anlatıyorlar. ",
                 "Halk nazarında ise ayet, hadis, rivayet, Arap kültürü ve kendi örf adeti birbirine girdiği için kendi merak ettiği soruları soruyor.",
-                new br(),
-                new br(),
+                br,
+                br,
                 "Sakız orucu bozar mı?",
-                new br(),
+                br,
                 "Midye yemek günah mı?",
-                new br(),
+                br,
                 "Böyle soruları mutlaka duymuşsunuzdur. Çoğunluk böyle sorular ile meşgul ise cevap verenler ne yapsın.",
                 " Burada şunun özellikle altını çiziyorum. Halkı - çoğunluğu küçümsemek gibi bir niyetim yok.",
                 " Ben de bu halkın içinde yaşıyorum. Şunu kabul edelim. Kuran evlerimizde duvarların en güzel yerinde asılıdır.",
@@ -36,7 +36,7 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
             new p
             {
                 @"Madalyonun diğer yüzünde ise şu var.",
-                new br(),
+                br,
                 "Bu 19 meselesinin sonu Reşad Halifenin elçiliğine çıkma ihtimali var.",
                 " Rivayetleri bırakıp Yalnız Kuran demek maalesef bir çoğunun işine gelmez.",
                 " Haliyle hiç bir hoca bu meseleyi açıp da kariyerinden, işinden gücünden olmak istemez.",
@@ -47,7 +47,7 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
             new p
             {
                 @"Peki medyatik olmayan Youtube vesaire bir çok ortamdaki araştıran insanlar ne durumdalar?",
-                new br(),
+                br,
                 "Açıkçası burada biraz yelpaze geniş. Kimi insanlar evet Kuranda 19 vardır ama Reşad elçi değildir derler.",
                 " Kimisi bir yerde yapılan yanlış bir sayımı tüm sisteme mal edip her şeyi çöpe atıyor.",
                 " Kimisi gerçek 19 sistemi o değil benim bulduğumdur.",
