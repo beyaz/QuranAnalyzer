@@ -19,7 +19,7 @@ class LeftMenu : ReactPureComponent
             PageId.AdditionalVerses,
             PageId.WhereIsTheProblem,
             PageId.CountOfAllah,
-            PageId.IsHeMessanger,
+            PageId.IsHeMessenger,
             PageId.IsThereAnyCommunity
         }),
         ("İletişim", new[] { PageId.Contact }),

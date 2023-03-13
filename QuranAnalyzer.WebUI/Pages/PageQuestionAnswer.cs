@@ -46,7 +46,7 @@ Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söyledi�
                     Url = GetPageLink(PageId.AdditionalVerses)
                 },
 
-                new QuestionLink { Question = "Reşad Halife kendini peygamber ilan etmiş doğru mu ?", Url = GetPageLink(PageId.IsHeMessanger) },
+                new QuestionLink { Question = "Reşad Halife kendini peygamber ilan etmiş doğru mu ?", Url = GetPageLink(PageId.IsHeMessenger) },
 
                 new QuestionLink
                 {

@@ -62,7 +62,7 @@ class PageMainWindowView : ReactPureComponent
                 PageId.CountOfAllah => new PageCountOfAllahView(),
                 PageId.AllInitialLettersCombined => new PageAllInitialLettersCombinedView(),
                 PageId.WhereIsTheProblem => new PageWhereIsTheProblem(),
-                PageId.IsHeMessanger => new PageIsHeMessanger(),
+                PageId.IsHeMessenger => new PageIsHeMessenger(),
                 PageId.IsThereAnyCommunity => new PageIsThereAnyCommunity(),
                 _ => new MainPageContent()
             };

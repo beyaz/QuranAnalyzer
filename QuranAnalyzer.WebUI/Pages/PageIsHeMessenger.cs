@@ -1,6 +1,6 @@
 ﻿namespace QuranAnalyzer.WebUI.Pages;
 
-public class PageIsHeMessanger : ReactPureComponent
+public class PageIsHeMessenger : ReactPureComponent
 {
     protected override Element render()
     {
