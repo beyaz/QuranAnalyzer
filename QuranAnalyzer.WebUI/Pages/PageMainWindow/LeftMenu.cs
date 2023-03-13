@@ -47,7 +47,7 @@ class LeftMenu : ReactPureComponent
             return new a(Href(GetPageLink(MenuItems[index].pageIdList[0])))
             {
                 DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(10),
-                PositionRelative,
+                //PositionRelative,
                 TextDecorationNone,
 
                 // C i r c l e
@@ -67,15 +67,15 @@ class LeftMenu : ReactPureComponent
                     When(!isSelected, Hover(Color("rgb(51 51 51)")))
                 },
 
-                // V e r t i c l e   L i n e
-                new div
-                {
-                    PositionAbsolute,
-                    MarginTop(-55),
-                    Height(60),
-                    Left(3.5),
-                    When(index > 0, BorderLeft("1px solid rgb(238, 238, 238)"))
-                }
+                //// V e r t i c l e   L i n e
+                //new div
+                //{
+                //    PositionAbsolute,
+                //    MarginTop(-55),
+                //    Height(60),
+                //    Left(3.5),
+                //    When(index > 0, BorderLeft("1px solid rgb(238, 238, 238)"))
+                //}
             };
         }
     }
