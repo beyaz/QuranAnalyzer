@@ -33,7 +33,7 @@ class LeftMenu : ReactPureComponent
 
     protected override Element render()
     {
-        return new FlexColumn(Gap(40))
+        return new FlexColumn(Gap(100))
         {
             MenuItems.Select((_, i) => createText(i, i == SelectedIndex))
         };
