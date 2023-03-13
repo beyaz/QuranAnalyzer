@@ -30,7 +30,7 @@ class PageCountOfAllahView : ReactPureComponent
                 ShowDetails  = true
             }),
             VSpace(10),
-            "Böylece programın neyi hesapladığını kısa bir veri üzerinde görmüş olduk. ",
+            "Böylece programın neyi hesapladığını kısa bir veri üzerinde görmüş olduk. İsterseniz değerleri değiştirip daha detaylı öğrenebilirsiniz.",
 
             new p
             {
@@ -55,7 +55,9 @@ class PageCountOfAllahView : ReactPureComponent
                 SearchScript = "*, -9:128, -9:129"
             }),
 
-            "Sanırım çok fazla söze gerek yok. Burada dikkat edilmesi gereken nokta şu;",
+            "Sanırım çok fazla söze gerek yok.",
+            br,
+            "Burada dikkat edilmesi gereken nokta şu;",
             new br(),
             "Herhangi bir surenin herhangi bir cümlesini  çıkarsanız veya herhangi bir sureye fazladan bir 'Allah' kelimesi ekleseniz bu tablo bozulurdu.",
             " İşte 19 sisteminin Kuranı koruması böyle oluyor.",
