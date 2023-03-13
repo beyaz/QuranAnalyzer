@@ -1793,11 +1793,6 @@ RegisterCoreFunction("SetCookie", function (cookieName, cookieValue, expiredays)
     document.cookie = cookieName + "=" + escape(cookieValue) + ((expiredays == null) ? "" : "; expires=" + exdate.toUTCString());
 });
 
-RegisterCoreFunction("PushHistory", function (title, url)
-{
-    window.history.replaceState({}, title, url);
-});
-
 RegisterCoreFunction("HistoryBack", function ()
 {
     window.history.back();
@@ -1809,6 +1804,14 @@ RegisterCoreFunction("HistoryForward", function ()
 RegisterCoreFunction("HistoryGo", function (delta)
 {
     window.history.go(delta);
+});
+RegisterCoreFunction("HistoryReplaceState", function (stateObj, title, url)
+{
+    if (stateObj == null)
+    {
+        stateObj = {};
+    }
+    window.history.replaceState(stateObj, title, url);
 });
 
 RegisterCoreFunction("GotoMethod", function (timeout, remoteMethodName, remoteMethodArguments)

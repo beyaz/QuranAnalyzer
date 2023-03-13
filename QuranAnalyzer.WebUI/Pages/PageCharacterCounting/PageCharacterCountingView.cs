@@ -297,7 +297,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         if (state.IsBlocked == false)
         {
             state.IsBlocked = true;
-            Client.PushHistory("", $"/?{QueryKey.Page}={PageId.CharacterCounting}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.IncludeBizmillah}={state.IncludeBismillah.AsNumber()}");
+            Client.HistoryReplaceState(null,"", $"/?{QueryKey.Page}={PageId.CharacterCounting}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.IncludeBizmillah}={state.IncludeBismillah.AsNumber()}");
             Client.GotoMethod(OnCaclculateClicked);
             return;
         }
