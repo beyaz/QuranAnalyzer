@@ -24,5 +24,6 @@ static class PageId
     public const string AllInitialLettersCombined          = "19";
     public const string IsHeMessenger                      = "20";
     public const string IsThereAnyCommunity                = "21";
+    public const string MobileMenu                         = "22";
     // @formatter:on
 }

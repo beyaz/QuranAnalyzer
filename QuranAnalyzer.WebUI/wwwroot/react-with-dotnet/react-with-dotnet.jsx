@@ -1798,6 +1798,19 @@ RegisterCoreFunction("PushHistory", function (title, url)
     window.history.replaceState({}, title, url);
 });
 
+RegisterCoreFunction("HistoryBack", function ()
+{
+    window.history.back();
+});
+RegisterCoreFunction("HistoryForward", function ()
+{
+    window.history.forward();
+});
+RegisterCoreFunction("HistoryGo", function (delta)
+{
+    window.history.go(delta);
+});
+
 RegisterCoreFunction("GotoMethod", function (timeout, remoteMethodName, remoteMethodArguments)
 {
     const component = this;

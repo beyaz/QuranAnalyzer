@@ -64,6 +64,7 @@ class PageMainWindowView : ReactPureComponent
                 PageId.WhereIsTheProblem => new PageWhereIsTheProblem(),
                 PageId.IsHeMessenger => new PageIsHeMessenger(),
                 PageId.IsThereAnyCommunity => new PageIsThereAnyCommunity(),
+                PageId.MobileMenu => new LeftMenu{SelectedPageId = SelectedPageId},
                 _ => new MainPageContent()
             };
         }

@@ -15,6 +15,8 @@ class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
         Client.OnMainContentDivScrollChangedOverZero(mainDivScrollY => state.MainDivScrollY = mainDivScrollY);
     }
 
+    bool IsMenuVisible => Context.Query[QueryKey.Page] == PageId.MobileMenu;
+
     protected override Element render()
     {
         var top = new FlexColumn(JustifyContentCenter)
@@ -33,32 +35,11 @@ class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
             {
                 new nav(DisplayFlex, FlexDirectionRow, JustifyContentSpaceBetween, AlignItemsCenter)
                 {
-                    new SiteTitle() + MarginLeft(30),
+                    new SiteTitle() + MarginLeft(20),
 
-                    new div(PositionRelative)
+                    new div(DisplayNone, MediaQueryOnMobile(new Style { DisplayBlock }), MarginRight(15))
                     {
-                        DisplayNone, MediaQueryOnMobile(new Style { DisplayBlock }),
-                        MarginRight(30),
-                        OnClick(_ => state.IsMenuVisible = !state.IsMenuVisible),
-                        new SvgHamburgerIcon() + When(state.IsMenuVisible, DisplayNone),
-
-                        new MenuCloseIcon() + DisplayNone + When(state.IsMenuVisible, DisplayBlock),
-
-                        new div(PositionAbsolute)
-                        {
-                            DisplayNone, When(state.IsMenuVisible, DisplayBlock),
-
-                            Background("white"),
-                            MarginLeft(-200), MarginTop(-10),
-                            Zindex(3),
-                            BoxShadow("0px 0px 8px rgb(0 0 0 / 20%)"),
-                            Padding(30),
-                            BorderRadiusForPanels,
-                            new LeftMenu
-                            {
-                                SelectedPageId = Context.Query[QueryKey.Page]
-                            }
-                        }
+                        HamburgerMenuLink
                     }
                 }
             }
@@ -71,5 +52,15 @@ class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
         }
 
         return top;
+    }
+
+    Element HamburgerMenuLink()
+    {
+        if (IsMenuVisible)
+        {
+            return new a { new MenuCloseIcon(), Href("#"), OnClick(_ => Client.HistoryGo(-2)) };
+        }
+
+        return new a { new SvgHamburgerIcon(), Href(GetPageLink(PageId.MobileMenu)) };
     }
 }
