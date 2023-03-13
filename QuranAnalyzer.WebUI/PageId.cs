@@ -14,7 +14,7 @@ static class PageId
     public const string AlternativeSystems                 = "9";
     public const string SimpleDefinition                   = "10";
     public const string MushafOptionsDetail                = "11";
-    public const string WhoIsReshadKhalifePage             = "12";
+    public const string WhoIsRashadKhalifaPage             = "12";
     public const string VerseListContainsAllInitialLetters = "13";
     public const string WhyFamousPeopleAreSilent           = "14";
     public const string AboutEdipYuksel                    = "15";

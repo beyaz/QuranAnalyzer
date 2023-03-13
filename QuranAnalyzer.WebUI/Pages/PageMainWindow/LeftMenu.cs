@@ -13,7 +13,7 @@ class LeftMenu : ReactPureComponent
         {
             PageId.QuestionAnswer,
             PageId.AlternativeSystems,
-            PageId.WhoIsReshadKhalifePage,
+            PageId.WhoIsRashadKhalifaPage,
             PageId.AboutEdipYuksel,
             PageId.WhyFamousPeopleAreSilent,
             PageId.AdditionalVerses,

@@ -54,7 +54,7 @@ class PageMainWindowView : ReactPureComponent
                 PageId.AlternativeSystems => new PageAlternativeSystems(),
                 PageId.SimpleDefinition => new PageSimpleDefinition(),
                 PageId.MushafOptionsDetail => new PageMushafOptionsDetail(),
-                PageId.WhoIsReshadKhalifePage => new PageWhoIsReshadKhalife(),
+                PageId.WhoIsRashadKhalifaPage => new PageWhoIsRashadKhalifa(),
                 PageId.WhyFamousPeopleAreSilent => new PageWhyFamousPeopleAreSilent(),
                 PageId.AboutEdipYuksel => new PageAboutEdipYuksel(),
                 PageId.VerseListContainsAllInitialLetters => new PageVerseListContainsAllInitialLettersView(),

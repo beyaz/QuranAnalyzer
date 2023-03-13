@@ -27,7 +27,7 @@ Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söyledi�
                 new QuestionLink
                 {
                     Question = "19 sistemini ilk keşfeden kişi (Reşad Halife) kimdir? Ne söylüyor?",
-                    Url      = GetPageLink(PageId.WhoIsReshadKhalifePage)
+                    Url      = GetPageLink(PageId.WhoIsRashadKhalifaPage)
                 },
                 new QuestionLink
                 {
