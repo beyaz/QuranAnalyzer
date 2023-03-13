@@ -46,8 +46,9 @@ class LeftMenu : ReactPureComponent
 
             return new a(Href(GetPageLink(MenuItems[index].pageIdList[0])))
             {
-                DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(10),
-                PositionRelative,
+                DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(10), Padding(15),
+                ComponentBorder,
+                BorderRadiusForPanels,
                 TextDecorationNone,
 
                 // C i r c l e
@@ -65,18 +66,56 @@ class LeftMenu : ReactPureComponent
                     Text(text),
                     Color(textColor),
                     When(!isSelected, Hover(Color("rgb(51 51 51)")))
-                },
-
-                // V e r t i c l e   L i n e
-                new div
-                {
-                    PositionAbsolute,
-                    MarginTop(-55),
-                    Height(60),
-                    Left(3.5),
-                    When(index > 0, BorderLeft("1px solid rgb(238, 238, 238)"))
                 }
             };
         }
     }
+    //protected override Element render()
+    //{
+    //    return new FlexColumn(Gap(40))
+    //    {
+    //        MenuItems.Select((_, i) => createText(i, i == SelectedIndex))
+    //    };
+
+    //    static Element createText(int index, bool isSelected)
+    //    {
+    //        var text = MenuItems[index].text;
+
+    //        var textColor = isSelected ? "rgb(30 167 253)" : "rgb(173 164 164)";
+
+    //        return new a(Href(GetPageLink(MenuItems[index].pageIdList[0])))
+    //        {
+    //            DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(10),
+    //            PositionRelative,
+    //            TextDecorationNone,
+
+    //            // C i r c l e
+    //            new div
+    //            {
+    //                wh(8),
+    //                Background(isSelected ? "rgb(30 167 253)" : "rgb(221 221 221)"),
+    //                BorderRadius("1em"),
+    //                Zindex(1)
+    //            },
+
+    //            // T e x t
+    //            new FlexRowCentered
+    //            {
+    //                Text(text),
+    //                Color(textColor),
+    //                When(!isSelected, Hover(Color("rgb(51 51 51)")))
+    //            },
+
+    //            // V e r t i c l e   L i n e
+    //            new div
+    //            {
+    //                PositionAbsolute,
+    //                MarginTop(-55),
+    //                Height(60),
+    //                Left(3.5),
+    //                When(index > 0, BorderLeft("1px solid rgb(238, 238, 238)"))
+    //            }
+    //        };
+    //    }
+    //}
 }
