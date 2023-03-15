@@ -2122,8 +2122,10 @@ function IsTwoStringHasValueAndSame(a, b)
         return false;
     }
 
-    a = a.replaceAll(' ', '').replaceAll('\n', '').replaceAll('\r', '');
-    b = b.replaceAll(' ', '').replaceAll('\n', '').replaceAll('\r', '');
+    var anyWhiteSpaceRegex = /\s/g;
+
+    a = a.replace(anyWhiteSpaceRegex, '');
+    b = b.replace(anyWhiteSpaceRegex, '');
 
     return a === b;
 }
