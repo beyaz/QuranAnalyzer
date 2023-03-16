@@ -39,8 +39,8 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                 "En azından kendi evlatlarımın okuyabileceği Tevhidi merkez alan bir çeviri yapma niyeti ile çeviriye başladığını kendisi söylüyor. ",
                 "Bir ayetin manasını tam anlamadan ötekine  geçmeyeceğine dair kendine de şart koşuyor. ",
                 "1. sureyi çevirdikten sonra 2. sureye geliyor ve sure başındaki elif-lam-mim harflerine gelince takılıyor. ",
-                "Çalıştığı şirket çalışanlarını yazılım kursuna gönderiyor kendisi de bu sayede yazılım öğrenmiş. ",
-                "Acaba Kuranda bu başlangıç harfleri ile ilgili verileri bilgisayar yazılımı ile incelemek istiyor. ",
+                "Çalıştığı şirket çalışanlarını yazılım kursuna gönderiyor. Kendisi de bu sayede yazılım öğrenmiş. ",
+                "Acaba Kuranda bu başlangıç harfleri ile ilgili bazı veriler olabilir mi diye düşünüp bilgisayar yazılımı ile incelemek istiyor. ",
                 "Ardından farklı kuran mushaflarını inceleyerek Arapçadaki her bir harfe karşılık İngilizce bir harf ile Kuranı bilgisayara aktarıyor.",
                 " Açıkçası oldukça zahmetli bir iş olsa gerek :) "
             },
@@ -85,7 +85,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                         }
                     },
 
-                    "Özetle şeytan aynen Hristiyanlara yaptığı gibi sizi de tamda sevdiğiniz damarınızdan yani Muhammed peygambere olan sevginiz-saygınız üzerinden yakalamış durumda ve maalesef farkında değilsiniz. ",
+                    "Özetle şeytan aynen Hristiyanlara yaptığı gibi sizi de tam da sevdiğiniz damarınızdan yani Muhammed peygambere olan sevginiz-saygınız üzerinden yakalamış durumda ve maalesef farkında değilsiniz. ",
                     "Hatta bu putlaştırma olayı sadece peygamber ile de sınırlı değil. Tarikat şeyhlerini cemaat liderlerini putlaştırmaya kadar gidiyor."
                 }
             },
@@ -135,7 +135,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     " Sürekli biz insanoğlunu iyilik için yarıştırıyor.",
                     br,
                     br,
-                    "- Türkiye'de doğan Mehmet Müslüman olduğu için eninde sonunda cennete gidecek fakat Almanya'da doğup büyüyen Hans, Müslüman olmadığı için cehenneme gidecek? ",
+                    "- Türkiye'de doğan Mehmet Müslüman olduğu için eninde sonunda cennete gidecek fakat Almanya'da doğup büyüyen Hans, Müslüman olmadığı için cehenneme gidecek. ",
                     "Hans Ortadoğu’da bir yerde doğsaydı o da muhtemelen Müslüman olacaktı. ",
                     "Burada bir adaletsizlik yok mu?",
                     br,
@@ -171,7 +171,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     "Kurandan verdiği referanslar ile niçin burada olduğumuz ile ilgili, yaratılış ile ilgili çok güzel bir açıklama yapıyor.",
                     br,
                     "Bu açıklamayı kasti olarak burada vermiyorum. Çünkü verilen ayetleri tek tek inceleyip o kurguyu kendi zihninizde yapmanız gerekiyor.",
-                    " Zaten  yaratılış kurgusunu zihninizde oturtmadığınız durumda Kurandaki bazı noktaları da daha iyi anlamış olacaksınız. " +
+                    " Zaten  yaratılış kurgusunu zihninizde iyice oturttuğunuz durumda Kurandaki bazı noktaları da daha iyi anlamış olacaksınız. " +
                     " Yukarıda verilen ve benim  yıllarımı yiyen bu sorular artık çıtır çerez gibi gelebilir.",
                     " Aşağıda Reşad Halife tarafından yapılan çevirinin linkini ekliyorum dileyen kitabın başında detaylı olarak anlatılan bu konuyu inceleyebilir.",
                     br,
@@ -197,11 +197,36 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     br,
                     "Not: Genel gözlemim burada karıştırılan bir durum vardır. Bu Yalnız Kuran fikrini savunan insanlara 'Hadis İnkarcısı' etiketi yapıştırılıyor. ",
                     "Hadisleri o dönemin şartlarını gözlemleyebilmek adına tarihi birer veri olarak değerlendirebilirsiniz ama dinde hüküm koyucu yapamazsınız. ",
-                    "Bir örnek ile açıklayayım. Kuranda abdest 4 adımda anlatılmıştır. ",
-                    "İşte Reşad şunu söylüyor; Kuranda abdest 4 adımda diyor ise 4 adımdır. ",
+                    "Bir örnek ile açıklayayım. Kuranda abdest 4 aşamada anlatılmıştır. ",
+                    "İşte Reşad şunu söylüyor; Kuranda abdest 4 aşama diyor ise 4 aşamadır. ",
                     "Fazladan ensemi yıkayayım, burnuma su çekeyim dersen, sen Kuranın öğretisini değil başka bir öğretiyi takip etmiş olursun. ",
-                    "Özetle Kuranda bir şeyin hükmü var ise onu takip et, eğer bir şeyin detayları verilmemiş ise demek ki Yaratıcı bu kadarını uygun görmüştür. ",
-                    " Çünkü detayın peşine düşersen bu Kuran eksiksizdir, detaylıdır, tamdır cümlelerini boşa çıkarmış, dikkate almamış olursun demektir. "
+                    "Özetle Kuranda bir şeyin hükmü anlatılıyor ise o şekilde yapılmalıdır.",
+                    " Yukarıdaki örnekte olduğu gibi abdest için 4 yerinizi yıkamanız gerekiyor ise 4 yerinizi yıkayın. Bu kadar basit.",
+                    " Çünkü detayın peşine düşersen bu Kuran eksiksizdir, detaylıdır, tamdır cümlelerini boşa çıkarmış, dikkate almamış olursun demektir.",
+                    br,
+                    br,
+                    "- Madem dine dair herşey Kuranda var o zaman bana öğlen namazının nasıl kılınacağını göster?",
+                    br,
+                    "Bu soru klasik bir soru olduğu için buna da değinmek istiyorum.",
+                    br,
+                    "Bu soruyu soran kişilere genelde şöyle cevap veriyorum. " ,
+                    br,br,
+                    "- Velevki Kuranda namaz anlatılmış olsaydı yine de detay sormayacağına emin misin?",
+                    " Kuranı yetiremeyen bir kişi muhtemelen yine şu soruları soracak. Oturuşta işaret parmağı kaldırılacak mı? kaldırılmayacak mı? kaldırılacak ise kaç saniye kaldırılacak? " ,
+                    " 4 rekatlı namazda ilk oturuşta mı yoksa ikinci oturuşda mı kaldırılacak? gibi gibi..",
+                    br,
+                    br,
+                    "-Namaz ibrahim peygamber aracılığı ile gelen ibadet pratiklerindendir. ",
+                    " Hatta yahudilerin namaz kılma şeklini inceleyin. Müslümanlarınkine çok benzerdir.",
+                    br,br,
+                    "- Benzetmek biraz garip olcak ama şöyle hayal edin.",
+                    " Mahalledeki çocukların önüne top atıp 'maç oynayın' dediğinizde size şöyle soru soran bir çocuğa hiç denk geldiniz mi?",
+                    " Maç kaç kişilik oynanır? Kale nedir? topa elimizle mi vuracağız ayağımızla mı?",
+                    br,
+                    "Bu örnek size komik gelebilir ama namaz hakkında oruç hakkında sorulan soruların çoğu bu şekildedir.",
+                    " Bakara suresindeki meşhur olayı hatırlayın. Musa halkına bir buzağı kesmesini söylüyor, İsrailoğulları sürekli detaya iniyor.",
+                    " Buzağının rengi ne? Allah cevap veriyor ardından İsrailoğulları tekrar soruyor buzağı genç mi? yaşlı mı?",
+                    " Allah bu olayları hikaye olsun diye anlatmıyor. Tam da biz müslümanlara öğüt veriyor."
                 }
             },
 
@@ -259,11 +284,11 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
 
                 " Bu adamın çok baskın bir tevhid anlayışı var. Allah'ı çok farklı ve güzel ve Kurandan referanslar ile anlatıyor.",
                 " Bende sıradan bir yurdum insanıyım. Allah hakkında bir sürü hikaye dinledim. Kuran okudukça fark ediyorum ki bu hikayelerin çoğu kurandan değilmiş.",
-                " Yani zihninizdeki Allah ile gerçekteki Allah farklı olabilir. Dolayısı ile Allah'ı Kuran üzerinden tanımak mecburiyetindeyiz. ",
+                (b)" Zihninizdeki Allah ile gerçekteki Allah farklı olabilir. Dolayısı ile Allah'ı Kuran üzerinden tanımak mecburiyetindeyiz. ",
                 " Bu konuda Reşad oldukça iyi bir eğitmen. Tevhid mesajını en yüksek tonda seslendirmeye çalışan biri.",
 
                 " Dinden kazanç sağlamıyor olması benim için önemli. Kazanç sadece para ile olmaz. Bazen şöhret ile de olur. ",
-                " 19 sistemini ilk bulduğunda popülaritesi varken istese bu fikirlerini pek duyurmayıp o popülaritenin kaymağını yiyebilirdir.",
+                " 19 sistemini ilk bulduğunda popülaritesi varken istese bu fikirlerini pek duyurmayıp o popülaritenin kaymağını yiyebilirdi.",
                 " Fakat o tam tersini yapıyor. Emeklilik parası ile gidip mescit kuruyor. ",
                 " Hadisleri dinin kaynağı olarak görmediğini ve dinin tek kaynağının kuran olduğunu üzerine basa basa tekrarlıyor.",
                 " Bu uğurda şöhreti elden gidiyor. Ölüm tehditleri aldığı halde geri adım atmıyor. Hatta bir videoda kamera yanlışlıkla kayıyor arkasında toplamda 10 kişilik bir saf bile yok.",

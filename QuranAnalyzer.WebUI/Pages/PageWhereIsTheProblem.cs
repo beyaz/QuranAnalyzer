@@ -34,7 +34,7 @@ public class PageWhereIsTheProblem : ReactPureComponent
                 "Mesela bazı cümleler bazı mushaflarda atıyorum 5 elif içerirken başka mushafda 6 elif harfi içerebilir. ",
                 "Özetle burada şu soru haklı olarak soruluyor. Ne malum Reşad'ın Elif harfini doğru saydığı? ",
                 "Neden onun sayımlarını doğru kabul edelim ki? ",
-                "Belki sırf 19 s uydurmak için fazladan elif harfi saymış olabilir? ",
+                "Belki sırf 19 'a uydurmak için fazladan elif harfi saymış olabilir? ",
 
                 br,
                 br,

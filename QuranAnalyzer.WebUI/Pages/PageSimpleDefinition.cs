@@ -93,6 +93,16 @@ public class PageSimpleDefinition : ReactPureComponent
                 " Bir Olan'ın Kuran üzerindeki matematiksel imzasıdır diyebiliriz."
             },
 
+            "19 sisteminin en çok dikkat çeken özelliklerine örnek verecek olur isek;",
+            new ul
+            {
+                (li)"Anlaşılması kolay taklidi imkansızdır.",
+                br,
+                (li)"Koruma özelliği vardır. Mesela 7:67 ve 2:245 numaralı ayetlerde bulunan 'bestaten' ve 'yebsitu' kelimelerindeki Sad-Sin harf karışıklığının giderilmesi buna örnek olarak verilebilir.",
+                br,
+                (li)"Kuran'ın Allah'dan geldiğine dair kuvvetli bir kanıt olmasıdır."
+            },
+
             new p
             {
                 " İddia kısaca bu şekildedir. Gelin bu iddiayı beraber inceleyelim. Yalnız başımıza karar verelim.",

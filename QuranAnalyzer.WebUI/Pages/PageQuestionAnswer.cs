@@ -55,7 +55,7 @@ Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söyledi�
 
                 new QuestionLink
                 {
-                    Question = "Paralel 19 sistemleri", Url = GetPageLink(PageId.AlternativeSystems)
+                    Question = "Alternatif 19 sistemleri", Url = GetPageLink(PageId.AlternativeSystems)
                 },
 
                 new QuestionLink

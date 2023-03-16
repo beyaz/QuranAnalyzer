@@ -222,7 +222,7 @@ public class PageIsHeMessenger : ReactPureComponent
                 "Önümüze hangi mucize konur ise konsun illüzyon deyip geçebilirdik. ",
                 "Suda yürüyenden tutun havada uçana kadar her türlü illüzyon var.", br,
                 "Haliyle Reşad’a verilen bu matematiksel mucize biraz daha anlam kazanıyor. ",
-                "Tamda matematiğin – bilimin- bilgisayarın patlama yaptığı bir çağda bu tarz bir mucizenin ortaya çıkması oldukça mantıklı."
+                "Tam da matematiğin – bilimin- bilgisayarın patlama yaptığı bir çağda bu tarz bir mucizenin ortaya çıkması oldukça mantıklı."
             },
             new p
             {
