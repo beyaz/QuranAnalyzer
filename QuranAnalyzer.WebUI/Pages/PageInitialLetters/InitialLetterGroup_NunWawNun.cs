@@ -46,7 +46,13 @@ class InitialLetterGroup_NunWawNun : InitialLetterGroup
                 }
             },
 
-            new Arrow { start = Id(68, Nun), end = IdOfCountingResult, StartAnchorFromRight = true }
+            new Arrow { start = Id(68, Nun), end = IdOfCountingResult, StartAnchorFromRight = true },
+
+            new Note
+            {
+                "Bu surenin başlangıç harfinin tek ", AsLetter(Nun)," değil ",AsLetter(Nun),AsLetter(Waaw),AsLetter(Nun), " şeklinde yazıldığı iddiası vardır.",
+                " Soru-cevap kısmında açıklanmıştır."
+            }
         };
     }
 
