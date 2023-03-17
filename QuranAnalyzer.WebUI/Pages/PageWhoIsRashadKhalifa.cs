@@ -224,6 +224,12 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     " Maç kaç kişilik oynanır? Kale nedir? topa elimizle mi vuracağız ayağımızla mı?",
                     br,
                     "Bu örnek size komik gelebilir ama namaz hakkında oruç hakkında sorulan soruların çoğu bu şekildedir.",
+                    br,br,
+                    "Nasıl ki çocuklar ‘gol nedir’, ‘korner nedir’ sormuyorsa insanlar da İbrahim’e öğretilen ve o zamandan bu yana binlerce yıldır devam eden namazın şekli hakkında soru sormadılar." ,
+                    " İlk inen namaz ayeti namaz hakkında hiçbir bilgi vermediği gibi insanların bu ayete verdikleri tepki de ‘namaz nedir’ gibi  sorular olmadı. Çünkü biliniyordu.",
+
+
+                    br,br,
                     " Bakara suresindeki meşhur olayı hatırlayın. Musa halkına bir buzağı kesmesini söylüyor, İsrailoğulları sürekli detaya iniyor.",
                     " Buzağının rengi ne? Allah cevap veriyor ardından İsrailoğulları tekrar soruyor buzağı genç mi? yaşlı mı?",
                     " Allah bu olayları hikaye olsun diye anlatmıyor. Tam da biz müslümanlara öğüt veriyor."
