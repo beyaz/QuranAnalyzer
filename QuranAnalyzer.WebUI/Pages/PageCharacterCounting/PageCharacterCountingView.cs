@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using System.Threading.Tasks;
 using QuranAnalyzer.WebUI.Pages.Shared;
 
 namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
@@ -22,13 +21,6 @@ public class PageCharacterCountingViewModel
 
 class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
 {
-    protected override Task componentDidMount()
-    {
-        Client.OnArabicKeyboardPressed(ArabicKeyboardPressed);
-
-        return Task.CompletedTask;
-    }
-
     protected override void constructor()
     {
         state = new PageCharacterCountingViewModel();
@@ -44,13 +36,15 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                 return;
             }
 
-            state.SearchScript = parseResponse.Value.AsReadibleString();
+            state.SearchScript = parseResponse.Value.AsReadableString();
         }
 
-        if (Context.Query[QueryKey.IncludeBizmillah] == "0")
+        if (Context.Query[QueryKey.IncludeBismillah] == "0")
         {
             state.IncludeBismillah = false;
         }
+
+        Client.OnArabicKeyboardPressed(ArabicKeyboardPressed);
     }
 
     protected override Element render()
@@ -72,27 +66,27 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                     new ErrorText { Text = state.SearchScriptErrorMessage }
                 },
 
-                Space(3),
+                Space(10),
 
-                new FlexRow(AlignItemsCenter, Gap(30))
+                new FlexRow(AlignItemsFlexStart)
                 {
                     new CharacterCountingOptionView { MushafOption = state.MushafOption, MushafOptionChanged = MushafOptionChanged },
-
-                    new SwitchWithLabel
+                    
+                    new FlexRowCentered
                     {
-                        Label       = "Besmele'yi dahil et",
-                        Value       = state.IncludeBismillah,
-                        ValueChange = OnIncludeBismillahChanged
+                        new ReactWithDotNet.Libraries.mui.material.Switch
+                        {
+                            @checked = state.IncludeBismillah,
+                            onChange = OnIncludeBismillahChanged,
+                            value    = (!state.IncludeBismillah).ToString()
+                        },
+                        new div{ "Besmele'yi dahil et" , WhiteSpaceNoWrap , MediaQuery("(max-width: 500px)", WhiteSpaceNormal)}
                     }
                 },
 
-                Space(20),
-
-                new FlexRow(JustifyContentSpaceBetween)
+                new FlexRow(JustifyContentFlexEnd)
                 {
-                    new Helpcomponent { ShowHelpMessageForLetterSearch = true },
-
-                    new ActionButton { Label = "Ara", OnClick = OnCaclculateClicked, IsProcessing = state.IsBlocked } + Height(22)
+                    new ActionButton { Label = "Ara", OnClick = OnCalculateClicked, IsProcessing = state.IsBlocked } + Height(22)
                 }
             }
         };
@@ -134,17 +128,8 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                     };
                 }
 
-                foreach (var summaryInfo in searchLetters.AsListOf(getSummaryInfo))
-                {
-                    if (summaries.Any(x => x.Name == summaryInfo.Name))
-                    {
-                        summaries.First(x => x.Name == summaryInfo.Name).Count += summaryInfo.Count;
-                        continue;
-                    }
-
-                    summaries.Add(summaryInfo);
-                }
-
+                summaries.AddRange(searchLetters.AsListOf(getSummaryInfo));
+                
                 foreach (var verse in filteredVerses)
                 {
                     var analyzedTextOfVerse = state.IncludeBismillah ? verse.TextWithBismillahAnalyzed : verse.TextAnalyzed;
@@ -271,7 +256,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         state.MushafOption = mushafOption;
     }
 
-    void OnCaclculateClicked()
+    void OnCalculateClicked()
     {
         state.SearchScriptErrorMessage = null;
 
@@ -297,8 +282,8 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         if (state.IsBlocked == false)
         {
             state.IsBlocked = true;
-            Client.HistoryReplaceState(null,"", $"/?{QueryKey.Page}={PageId.CharacterCounting}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.IncludeBizmillah}={state.IncludeBismillah.AsNumber()}");
-            Client.GotoMethod(OnCaclculateClicked);
+            Client.HistoryReplaceState(null,"", $"/?{QueryKey.Page}={PageId.CharacterCounting}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.IncludeBismillah}={state.IncludeBismillah.AsNumber()}");
+            Client.GotoMethod(OnCalculateClicked);
             return;
         }
 

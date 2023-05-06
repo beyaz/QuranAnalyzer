@@ -37,7 +37,8 @@ public static class Analyzer
             if (item != null)
             {
                 items.Add(item);
-                cursor += ArabicLetter.AllArabicLetters[item.ArabicLetterIndex].Length;
+                // cursor += ArabicLetter.AllArabicLetters[item.ArabicLetterIndex].Length;
+                cursor += item.MatchedLetter.Length;
                 continue;
             }
 

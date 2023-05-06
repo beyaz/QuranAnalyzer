@@ -18,7 +18,7 @@ public class PageAboutEdipYuksel : ReactPureComponent
             {
                 "Hayatını kısaca okuduğunuzu varsayıyorum. Hapis yatması, kardeşinin öldürülmesi, Amerika'ya gitmek zorunda kalması, Reşad Halife ile tanışması falan oldukça ilginç bir hayatı olmuş. ",
                 "Gerçekten de cesaretine, zekasına hayran bırakıyor. ",
-                "Sosyal medyada 7 yaşından tut 70 yaşındakilerle bile oturup konuşması vesaire gerçekten iyi.",
+                "Sosyal medyada yediden yetmişe herkesle oturup konuşması vesaire gerçekten iyi.",
                 br,
                 br,
                 "Edip'in eleştiriye maruz kaldığı noktalar ise şu şekilde;",

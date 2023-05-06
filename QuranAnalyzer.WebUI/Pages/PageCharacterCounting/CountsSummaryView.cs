@@ -104,19 +104,31 @@ class CountsSummaryView : ReactPureComponent
 
     static Element MultipleOf(int total, int specialNumber)
     {
-        return new legend
+        var parsedVersion = new List<Element>
         {
-            children =
+            new div(specialNumber.ToString()),
+            (small)"x"
+        };
+
+        if (total / specialNumber % 19 == 0)
+        {
+            parsedVersion.Add((small)"19");
+            parsedVersion.Add((small)"x");
+            parsedVersion.Add((small)(total / specialNumber / 19).ToString());
+        }
+        else
+        {
+            parsedVersion.Add((small)(total / specialNumber).ToString());
+        }
+
+        return new legend(DisplayFlex,FlexDirectionRow, Id("GrandTotal"))
+        {
+            new div { innerHTML = $"Toplam: <strong>{total}</strong> (" },
+            new FlexRow(MarginLeftRight(5), AlignItemsCenter, Color("red"), Gap(3))
             {
-                new div { innerHTML = $"Toplam: <strong>{total}</strong> (" },
-                new FlexRow(MarginLeftRight(5), AlignItemsCenter, Color("red"))
-                {
-                    new div(specialNumber.ToString()), (small)$"x {total / specialNumber}" + MarginLeftRight(3)
-                },
-                new div { innerText = ")" }
+                parsedVersion
             },
-            style = { display = "flex", flexDirection = "row" },
-            id    = "GrandTotal"
+            new div { innerText = ")" }
         };
     }
 

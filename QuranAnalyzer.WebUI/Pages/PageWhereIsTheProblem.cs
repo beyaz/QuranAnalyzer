@@ -10,7 +10,9 @@ public class PageWhereIsTheProblem : ReactPureComponent
 
             new p
             {
-                @"Madem bu başlangıç harflerindeki olay bu kadar şahane. İnsanın nefesi kesiliyor. Peki reddedenler niye reddediyorlar."
+                @"Madem bu başlangıç harflerindeki olay bu kadar şahane. İnsanın nefesi kesiliyor." ,
+                " Mesela Ha-Mim tablosunu görüp de şaşırmamak çok zor.",
+                " Peki reddedenler niye reddediyorlar."
             },
             new p
             {
@@ -45,7 +47,8 @@ public class PageWhereIsTheProblem : ReactPureComponent
                 "Buna rağmen 2:81 de biri 8 elif saymış diğeri 7 elif saymış.",
                 " Eğer kandırma yoluna gidecek biri kısa ayetler yerine uzun cümlelerde bu şekilde bir oynamaya giderdi.",
                 " Tam 81 farklı ayette Reşad ve Tanzil.net Elif harfini farklı saymışlar.",
-                " Tabii bu fark maksimum 1-2 olacak şekilde bir fark. Mesela Bakara suresinin 282.inci ayetinde biri 108 öteki 107 elif harfi saymış.",
+                " Tabii bu fark maksimum 1-2 olacak şekilde bir fark." ,
+                " Mesela Bakara suresinin 282.inci ayetinde biri 108 öteki 107 elif harfi saymış.",
                 br,
                 br,
                 "- İşte bu Elif harfinin sayımları konusunda başka veriler Reşad'ın doğru saydığını gösteriyor diye düşünüyorum.",
@@ -74,10 +77,10 @@ public class PageWhereIsTheProblem : ReactPureComponent
                 " Dilerseniz daha detaylı araştırabilirsiniz.",
                 br,
                 "Özetle 68. suredeki NuN olayı ve Elif sayımları üzerinde tartışılan noktalardır. ",
-                " Belki de burası ilerde daha netlik kazanacak şimdilik bunun imtihan kısmıdır. ",
+                " Belki de burası ilerde daha netlik kazanacak. Bence şimdilik bunun imtihan kısmıdır. ",
                 " Yalnız Kuran fikrini kabullenemeyenler bu açık kapılardan çıkıp gidiyorlar. ",
                 " 19 üzerinde muhteşem veriler varken Elif harfine takılıyor tüm sistemi çöpe atıyor. ",
-                " Umarım üzerinde tartışma yaşanan kısmını anlatabilmişimdir. Tercih sizin. "
+                " Umarım üzerinde tartışma yaşanan kısmını anlatabilmişimdir."
             }
         };
     }

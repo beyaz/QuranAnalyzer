@@ -48,11 +48,11 @@ class PageInitialLettersView : ReactPureComponent
             Children(Tabs.Select((x, i) => CreateTabHeader(x.TabHeader, i)))
         };
 
-        return new FlexRow(WidthMaximized, Border($"1px solid {BorderColor}"), PositionRelative)
+        return new FlexRow(WidthMaximized, Border(Solid(1, ColorForBorder)), PositionRelative)
         {
             headers,
             contentContainer,
-            new div { PositionAbsolute, Top(0), Bottom(0), Width(1), MarginLeft(100 + 10 + 10 + 1), BackgroundColor(BorderColor) }
+            new div { PositionAbsolute, Top(0), Bottom(0), Width(1), MarginLeft(100 + 10 + 10 + 1), BackgroundColor(ColorForBorder) }
         };
     }
 
@@ -80,7 +80,7 @@ class PageInitialLettersView : ReactPureComponent
                 Color("rgba(0, 0, 0, 0.6)"),
                 Padding(10),
                 TextDecorationNone,
-                When(isSelected, BorderRight($"1px solid {(isSelected ? BluePrimary : BorderColor)}")),
+                When(isSelected, BorderRight($"1px solid {(isSelected ? BluePrimary : ColorForBorder)}")),
                 When(isSelected, Background("#deecf9"), Color(BluePrimary))
             }
         };

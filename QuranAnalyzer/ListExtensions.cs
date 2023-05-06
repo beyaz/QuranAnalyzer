@@ -78,7 +78,7 @@ public static class ListExtensions
         return tuple.value;
     }
 
-    static Response<TAccumulate> Aggregate<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TSource, Response<TAccumulate>> func, Func<TAccumulate, TAccumulate, TAccumulate> acumulate)
+    static Response<TAccumulate> Aggregate<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TSource, Response<TAccumulate>> func, Func<TAccumulate, TAccumulate, TAccumulate> accumulate)
     {
         if (source == null)
         {
@@ -99,7 +99,7 @@ public static class ListExtensions
                 return response.Errors.ToArray();
             }
 
-            result = acumulate(result, response.Value);
+            result = accumulate(result, response.Value);
         }
 
         return result;

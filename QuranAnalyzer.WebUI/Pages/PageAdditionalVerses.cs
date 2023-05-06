@@ -46,11 +46,12 @@ public class PageAdditionalVerses : ReactPureComponent
                 "Aslında oradaki herkes bu iki sözün Kurandan olduğunu biliyordu fakat yazılı olarak ellerinde yoktu.",
                 "Burada rivayet tenkidi-yorumlaması yapmayacağım ben sadece böyle bir rivayeti aktardım.",
 
-                "Hatta başka bir rivayette Ali'nin evinden belli bir süre çıkmadığı bunun sebebini soranlara da Kurana söz eklendi diye durumu boykot ettiğine dair rivayetler var.",
-                "İşine gelince rivayetlere sarılıyorsun gibi haklı bir eleştiri yapabilirsiniz ama benim burada aktarmak istediğim şey şu. Burada bir duman tütüyor.",
-                "İlk toplanan muashafın yakılması vesaire ister istemez konu üzerinde soru işaretleri bırakmış olabilir.",
-                "Herkim ki tevbe suresi 128.129 uncu ayetleri şu vakitlerde okur ise ona şöyle sevap yazılır şeklinde rivayetlerin olması da bir garip.",
-                "Özellikle 128-129 un seçilmiş olması biraz garip.",
+                " Hatta başka bir rivayette Ali'nin evinden belli bir süre çıkmadığı bunun sebebini soranlara da Kurana söz eklendi diye durumu boykot ettiğine dair rivayetler var.",
+                " İşine gelince rivayetlere sarılıyorsun gibi haklı bir eleştiri yapabilirsiniz ama benim burada aktarmak istediğim şey şu." ,
+                " Burada bir duman tütüyor.",
+                " İlk toplanan muashafın yakılması vesaire ister istemez konu üzerinde soru işaretleri bırakmış olabilir.",
+                " Hatta herkim ki tevbe suresi 128. 129 uncu ayetleri şu vakitlerde okur ise ona şöyle sevap yazılır şeklinde rivayetlerin olması da bir garip.",
+                " Özellikle 128-129 un seçilmiş olması biraz garip.",
                 br,
                 "Hiç bir yerde Rahman Rahim gibi sıfatlar Allah dışında kullanılmaz iken sadece burada Muhammed peygamber için kullanılmış",
                 br,
@@ -63,12 +64,12 @@ public class PageAdditionalVerses : ReactPureComponent
             new p
             {
                 "19 sistemini ilk keşfeden kişi Reşad yaptığı ilk sayımlarda tevbe suresine 128-129 dahil ederek sayımları yapıyor.",
-                "Ama bilgisayar Allah kelimesi sayımlarını bir fazla vermesi gerekirken bir eksik veriyor.",
-                "Hatta ilk kitabın ilk baskısında bu haliyle çıkıyor. ",
-                "Daha sonrasında Reşad bizzat Cebrail aracılığı ile bu bilgi kendisine veriliyor. Özetle Tevbe suresindeki 128. 129. sözler Kurana ait değildir bilgisini alıyor.",
-                "Aynı zamanda sayımları tekrar gözden geçiriyor ve normalde bir fazla vermesi gereken Allah kelimesi bilgisayar tarafından bir eksik verildiğini görüyor. Kendisi de şaşırıyor.",
-                "Bunun üzerine Bu iki sözün Kurandan olmadığına dair matemaiksel olarak da gösteriyor.",
-                "Ben sadece bu örneklerden bir tanesini aşağıdaki link üzerinde gösterdim. Dileyen var ise inceleyebilir. aşağıdaki örnek gibi 50 den fazla örnek var.",
+                " Ama bilgisayar Allah kelimesi sayımlarını bir fazla vermesi gerekirken bir eksik veriyor.",
+                " Hatta ilk kitabın ilk baskısında bu haliyle çıkıyor.",
+                " Daha sonrasında Reşad bizzat Cebrail aracılığı ile bu bilgi kendisine veriliyor. Özetle Tevbe suresindeki 128. 129'uncu sözler Kurana ait değildir bilgisini alıyor.",
+                " Aynı zamanda sayımları tekrar gözden geçiriyor ve normalde bir fazla vermesi gereken Allah kelimesi bilgisayar tarafından bir eksik verildiğini görüyor. Kendisi de şaşırıyor.",
+                " Bunun üzerine bu iki sözün Kurandan olmadığına dair matemaiksel veriler de gösteriyor.",
+                " Ben sadece bu örneklerden bir tanesini aşağıdaki link üzerinde gösterdim. Dileyen var ise inceleyebilir. Aşağıdaki örnek gibi 70 den fazla örnek var."
             },
             new FlexRowCentered
             {
@@ -78,37 +79,38 @@ public class PageAdditionalVerses : ReactPureComponent
             {
                 "Özetlemek gerekir ise ", (b)" Bu bilgi Cebrail aracılığı ile geliyor. Ardından matematikle destekleniyor.",
                 br,
-                "Dünyada hiç bir kimse kendi kutsal saydığı kitaptan matematiğe uymuyor diye ayet atmaz. Reşad o kadar da aptal biri değil. ",
-                "Burasını maalesef karıştırıyorlar."
+                "Dünyada hiç bir kimse kendi kutsal saydığı kitaptan matematiğe uymuyor diye ayet atmaz." ,
+                " Reşad o kadar da aptal biri değil. Kuran çevirisi üzerine 20 yıla yakın uğraşan birinden bahsediyoruz.",
+                " Burasını maalesef karıştırıyorlar."
             },
 
             separation,
             new p
             {
                 "Reşad Halife'nin elçilik meselesini zihninizde bir yere oturtmadıysanız bu meseleyi de bir yere oturtmanız oldukça zor.",
-                "Ben burada meseleyi özetlemeye çalıştım. Karar vermek size kalan bir mesele."
+                " Ben burada meseleyi özetlemeye çalıştım. Karar vermek size kalan bir mesele."
             },
             separation,
 
             new p
             {
                 "Kuranda bu kitabın Allah tarfından korunduğuna dair net ifadeler var. Bu durumda haklı olarak şu soruyu sormalıyız.",
-                "Hani Allah Kuranı korumuştu? Eğer Tevbe 128-129 Kurandan değil ise nasıl oldu da Kuran mushafları arasına girebildi? " +
-                "Demek ki mantık olarak çöküyor.",
+                " Hani Allah Kuranı korumuştu? Eğer Tevbe 128-129 Kurandan değil ise nasıl oldu da Kuran mushafları arasına girebildi?" ,
+                " Demek ki mantık olarak çöküyor.",
 
                 br,
                 br,
                 "İşte bu fikre karşı arguman olarak da şu söyleniyor. Aslında halihazırda ayet gerçekleşmiş durumda.",
-                "Allah koruyacağını söyledi ve 19 kodu ile bunu koruduğunu bizzat gösterdi.",
-                "Eğer bir odada 10 kişi olalım ve elimizde şöyle bir bilgi olsun 'Bu odaya giren olur ise dayak yer'.",
-                "Eğer hiç kimse girmez ise kimse dayak yemez ve 'odaya giren dayak yer' bilgisi sadece kuru - emin olmadığımız bir bilgi olarak kalır.",
-                "Ne zamanki biri odaya girer ve dayağı yer ancak bu durumda bu bilgi netlik kazanır. ",
+                " Allah koruyacağını söyledi ve 19 kodu ile bunu koruduğunu bizzat gösterdi.",
+                " Eğer bir odada 10 kişi olalım ve elimizde şöyle bir bilgi olsun 'Bu odaya giren olur ise dayak yer'.",
+                " Eğer hiç kimse girmez ise kimse dayak yemez ve 'odaya giren dayak yer' bilgisi sadece kuru - emin olmadığımız bir bilgi olarak kalır.",
+                " Ne zamanki biri odaya girer ve dayağı yer ancak bu durumda bu bilgi netlik kazanır.",
                 br,
                 "Durum biraz buna benziyor. Allah bu kitabı koruyacağını söylüyor? Bu bilginin kaynağı ne ? Kim söylüyor? Cevap: Bu kitap",
                 br,
                 "Bu da mantık hatasına yol açıyor.",
-                "Üstelik madem koruma olayını biz elimizdeki mushaf olarak görüyor isek, dünyada farklı farklı bir çok mushaf var. Her bir mushafda yazım farklılıkları var.",
-                "Bu durumda Allah  Kuranı harf bazında koruyamadı gibi bir sonuca da gitmeliyiz."
+                " Üstelik madem koruma olayını biz elimizdeki mushaf olarak görüyor isek, dünyada farklı farklı bir çok mushaf var. Her bir mushafda yazım farklılıkları var.",
+                " Bu durumda Allah  Kuranı harf bazında koruyamadı gibi bir sonuca da gitmeliyiz. Kuran ve mushaf kavramları birbirine karıştırılıyor."
             },
             separation,
             new p
@@ -120,13 +122,13 @@ public class PageAdditionalVerses : ReactPureComponent
             new p
             {
                 "Kuranda bütün surelerin başında besmele vardır. Sadece bir tek surenin başında besmele yoktur.",
-                "Sanki kitabın yazarı özellikle buraya dikkat çekiyor. ",
-                "Bunun sebebini araştırdığınızda ise çünkü bu surede inanmayanlara ültimatom veriliyor ondan dolayı başında besmele yok.",
-                "Yahut neden bir tek bu surenin başında besmele yok diye sorduğunuzda cevap olarak 'çünkü yok' deniliyor.",
-                "Bu veilen cevaplar sizi ne kadar tatmin eder orasını size kalmış. 19 sistemi işte burada şu açıklamayı yapar ",
+                " Sanki kitabın yazarı özellikle buraya dikkat çekiyor.",
+                " Bunun sebebini araştırdığınızda ise 'çünkü bu surede inanmayanlara ültimatom veriliyor ondan dolayı başında besmele yok' şeklinde cevaplar bulabilirsiniz.",
+                " Yahut neden bir tek bu surenin başında besmele yok diye sorduğunuzda cevap olarak 'çünkü yok' deniliyor.",
+                " Bu veilen cevaplar sizi ne kadar tatmin eder orasını size kalmış. 19 sistemi işte burada şu açıklamayı yapar;",
                 " Çünkü 'Her Şeyde Tam Kontrol Durumunda Olan' bu surenin içine fazladan iki söz eklenmesine müsade etmiştir. Müsada etmiş ki ",
-                "bu Kuranın bizzat kendisi tarafından korunduğunu insanlara göstermek istemiş. ",
-                "Bu sebeple bu sureye dikkat çekmek için ve Allah kelamı olmayan iki söz olduğu için başına besmele koymamıştır."
+                "bu Kuranın bizzat kendisi tarafından korunduğunu insanlara göstermek istemiş.",
+                " Bu sebeple bu sureye dikkat çekmek için ve Allah kelamı olmayan iki söz olduğu için başına besmele koymamıştır."
             },
             separation,
             new p

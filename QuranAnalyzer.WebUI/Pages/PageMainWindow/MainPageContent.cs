@@ -10,16 +10,18 @@ class MainPageContent : ReactPureComponent
 
             new p
             {
-                @"Bir kaç yıl önce Kuran hakkında 19 Sistemi - 19 Mucizesi benzeri isimlerle duyduğum bir konu üzerine vakit buldukça araştırma yapma fırsatım oldu.",
-                br,
-
-                "Elimden geldiğince aklımın yettiği ölçüde nedir ne değildir inceledim.",
+                @"Yasin suresi, Taha suresi, Kaf suresi gibi sure isimlerini muhtemelen daha önce duymuşsunuzdur.",
+                " Kuranda bazı surelerin başında ya-sin gibi, ta-ha gibi  harfler var. Elbette bu başlangıç harfleri hakkında bir çok yorum var.",
+                " Bu konu ile ilgili olarak bir kaç yıl önce Kuran hakkında 19 Sistemi - 19 Mucizesi benzeri isimlerle duyduğum bir konu üzerine vakit buldukça araştırma yapma fırsatım oldu."
+            },
+            new p
+            {
+                "Elimden geldiğince aklımın yettiği ölçüde nedir ne değildir incelemeye çalıştım.",
                 " Bu konu etrafında doğru yanlış bir çok şey duydum ve okudum.",
                 " Konuyu incelemek ve konu etrafında dönen doğru yanlış şeylere kendimce verdiğim cevapları ve yazdığım programları paylaşmak istedim.",
                 " Böylelikle konuyu araştıran kişiler için tarafsız bir gözlem sunmak niyetindeyim.",
             },
-
-            (p)"Bu siteyi hazırlarken aşağıdaki konulara dikkat ettim;",
+            (p)"Bu siteyi hazırlarken aşağıdaki konulara özellikle dikkat ettim;",
 
             new ul
             {
@@ -38,7 +40,7 @@ class MainPageContent : ReactPureComponent
                 {
                     new p
                     {
-                        "Her ne kadar düşünen insan sayısı az olsa da düşünebilen her insanın bir beyni olduğuna inanıyorum. ",
+                        "Düşünebilen her insanın bir beyni olduğuna inanıyorum. ",
                         "Bu sebeple doğru şudur veya şu yanlıştır gibi ifadelerden uzak durmaya çalıştım. ",
                         "Konu etrafında dönen zıt fikirleri elimden geldiğince tarafsız bir biçimde aktarmaya çalıştım. ",
                         "Karar verme yorum yapma işini ise elimden geldiğince okuyucuya bırakmaya çalıştım.",
@@ -58,12 +60,12 @@ class MainPageContent : ReactPureComponent
                 {
                     new p
                     {
-                        "Hesaplamasını yapmadığım herhangi bir veriyi paylaşmadım."
+                        "Hesaplamasını yapıp göstermediğim herhangi bir veriyi paylaşmadım."
                     }
                 }
             },
 
-            (p)"Lütfen konunun anlaşılması için soldaki menüyü sırası ile takip ediniz."
+            (p)"Lütfen konunun anlaşılması için menüyü sırası ile takip ediniz."
         };
     }
 }

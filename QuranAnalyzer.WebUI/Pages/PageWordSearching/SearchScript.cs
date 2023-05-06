@@ -58,7 +58,7 @@ class SearchScript
         static string clearText(string str) => Regex.Replace(str, @"\s+", string.Empty);
     }
 
-    public string AsReadibleString()
+    public string AsReadableString()
     {
         var sb = new StringBuilder();
 

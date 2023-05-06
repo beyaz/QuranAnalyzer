@@ -1,4 +1,4 @@
-﻿namespace QuranAnalyzer.WebUI;
+﻿namespace QuranAnalyzer.WebUI.Layouts;
 
 class MainLayout : ReactPureComponent
 {

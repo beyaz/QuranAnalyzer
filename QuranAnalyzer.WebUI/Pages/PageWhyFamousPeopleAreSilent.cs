@@ -26,10 +26,10 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
                 br,
                 "Midye yemek günah mı?",
                 br,
-                "Böyle soruları mutlaka duymuşsunuzdur. Çoğunluk böyle sorular ile meşgul ise cevap verenler ne yapsın.",
+                "Böyle soruları mutlaka duymuşsunuzdur. Çoğunluk böyle sorular ile meşgul ise cevap verenler ne yapsın. :)",
                 " Burada şunun özellikle altını çiziyorum. Halkı - çoğunluğu küçümsemek gibi bir niyetim yok.",
                 " Ben de bu halkın içinde yaşıyorum. Şunu kabul edelim. Kuran evlerimizde duvarların en güzel yerinde asılıdır.",
-                " Eline alıp okuyan insanımız ise 'Arapçasından okumazsam sevap olmaz' diyerek anlamadığı bir dil ile okuyor sonrasında katpatıp yerine koyuyor.",
+                " Eline alıp okuyan insanımız ise 'Arapçasından okumazsam sevap olmaz' diyerek anlamadığı bir dil ile okuyor sonrasında kapatıp yerine koyuyor.",
                 " Yaradan bu kitapta ne diyor deyip de bir tercüme okuyan sayısı oldukça az. Burada çuvaldızı kendime batırmaktan da gocunmuyorum.",
                 " Ben de sözde bu ülkede üniversite mezunu mürekkep yalamış tayfayım benim dahi Kuran ile tanışmam 35 li yaşlarımda oldu."
             },
@@ -48,10 +48,10 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
             {
                 @"Peki medyatik olmayan Youtube vesaire bir çok ortamdaki araştıran insanlar ne durumdalar?",
                 br,
-                "Açıkçası burada biraz yelpaze geniş. Kimi insanlar evet Kuranda 19 vardır ama Reşad elçi değildir derler.",
+                "Açıkçası burada yelpaze biraz geniş. Kimi insanlar evet Kuranda 19 vardır ama Reşad elçi değildir derler.",
                 " Kimisi bir yerde yapılan yanlış bir sayımı tüm sisteme mal edip her şeyi çöpe atıyor.",
-                " Kimisi gerçek 19 sistemi o değil benim bulduğumdur.",
-                " Özetle maalesef burada her türlü açılım var. Zaten bu siteyi kurma amacım da buydu."
+                " Kimisi 'gerçek 19 sistemi o değil benim bulduğumdur' der.",
+                " Özetle maalesef burada her türlü açılım var. Zaten bu siteyi kurma amacım da buydu. Meselenin özüne ışık tutmaktı."
             }
         };
     }

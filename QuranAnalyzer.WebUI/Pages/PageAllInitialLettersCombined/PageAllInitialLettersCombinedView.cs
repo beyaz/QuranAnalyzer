@@ -77,13 +77,21 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             new ul
             {
                 (li)"Kuranın kapağını açtığınızda karşınıza çıkan ilk çümle yani Besmele 19 harftir.",
-                (li)"Kuranda bahsi geçen tüm rakamların toplamı 19'un katıdır. Mesela Nuh'un yaşı ifade edilirken 1000 yıldan 50 eksik gibi bir ifade kullanılmış."
+                (li)"Kuranda toplam 114 (19x4) adet sure vardır.",
+                (li)"İlk vahyedilen Alak suresi 19 ayettir.",
+                (li)"Vahid(tek) kelimesinin sayısal karşılığı 19 dur.",
+                (li)"Kuranda bahsi geçen tüm rakamların toplamı 19'un katıdır.",
+                " Nuh'un yaşı ifade edilirken neden 1000 yıldan 50 eksik gibi bir ifade kullanıldığını sanırım şimdi daha iyi anlamışsınızdır.",
+                (li)"Başlangıç harfli surelerde o harfler 19'un katı şeklinde geçer."
             },
             new p
             {
-                " Buna benzer daha bir çok örnek verilebilir. ",
+                "Hatta 74. surede bizzat 19 diye bir konudan bahsediliyor, imanlıların imanını artıracağını söylüyor.",
+                " Artık 19 meselesini öğrendiğinize göre 74. sureyi bu gözle tekrar incelemenizi öneririm.",
+                br,
+                " Bunlara benzer daha bir çok örnek verilebilir. ",
                 " Mühim olan buradaki tasarımı görebilmektir. ",
-                " Böylelikle Allah var mı? yok mu? Kuran Allah kelamı mı değil mi ? gibi şüpheler giderilmiş olacak.",
+                " Böylelikle Allah var mı? yok mu? Kuran Allah kelamı mı değil mi? gibi şüpheler giderilmiş olacak.",
                 " Kuran'ın Allah'tan geldiğine olan inancımızı sağlam bir zemine oturmuş olacağız. ",
                 " Artık bir sonraki aşamaya yani Kuranı anlama ve hayatımıza uygulama aşamasına geçebiliriz."
             }

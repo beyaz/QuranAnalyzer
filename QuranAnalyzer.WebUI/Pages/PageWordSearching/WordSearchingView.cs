@@ -42,7 +42,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                 return;
             }
 
-            state.SearchScript = parseResponse.Value.AsReadibleString();
+            state.SearchScript = parseResponse.Value.AsReadableString();
         }
 
         state.SearchOption = Context.Query[QueryKey.SearchOption] ?? WordSearchOption.Same;
@@ -57,7 +57,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
             new h4 { text = "Kelime Arama", style = { textAlign = "center" } },
 
-            new FlexColumn
+            new FlexColumn(Gap(15))
             {
                 new FlexColumn
                 {
@@ -68,14 +68,14 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                     new ErrorText { Text = state.SearchScriptErrorMessage }
                 },
 
-                Space(15),
                 PartOption,
-                Space(15),
 
+                new div{"Not: Kelime aramalarında 'besmele' dahil edilmeden arama yapılmaktadır."}+ FontSize(0.9|rem),
+                
                 new FlexRow(JustifyContentSpaceBetween)
                 {
-                    new Helpcomponent(),
-                    new ActionButton { Label = "Ara", OnClick = OnCaclculateClicked } + Height(22)
+                    new HelpComponent(),
+                    new ActionButton { Label = "Ara", OnClick = OnCalculateClicked } + Height(22)
                 }
             }
         };
@@ -244,7 +244,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         state.SearchScriptErrorMessage = null;
     }
 
-    void OnCaclculateClicked()
+    void OnCalculateClicked()
     {
         state.SearchScriptErrorMessage = null;
         if (state.SearchScript.HasNoValue())
@@ -270,7 +270,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         {
             state.IsBlocked = true;
             Client.HistoryReplaceState(null,"", $"/?{QueryKey.Page}={PageId.WordSearching}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.SearchOption}={state.SearchOption}");
-            Client.GotoMethod(OnCaclculateClicked);
+            Client.GotoMethod(OnCalculateClicked);
             return;
         }
 

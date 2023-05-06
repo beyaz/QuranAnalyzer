@@ -128,6 +128,17 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
             new Arrow { start = Id(28, Taa_), end = IdOfCountingResult, StartAnchorFromTop   = true },
             new Arrow { start = Id(28, Siin), end = IdOfCountingResult, StartAnchorFromTop   = true },
             new Arrow { start = Id(28, Miim), end = IdOfCountingResult, StartAnchorFromTop   = true },
+
+            new Note
+            {
+                AsLetter(Taa_), " harfi başlangıç harfi olarak ilk defa 20. surede karşımıza çıkar.",
+                " Kuranda bulunan tüm ", AsLetter(Taa_), " harflerinin tam ortasındadır. Solunda toplamda 636 tane ",
+                AsLetter(Taa_)," sağında toplamda 636 tane ", 
+                AsLetter(Taa_), " harfi bulunur.",
+                br,
+                "Ta-Sin-Mim grubu Kurandaki diğer başlangıç harf gruplarına pek benzemiyor." ,
+                " Belki ileride burası ile ilgili daha başka veriler açığa çıkabilir diye düşünüyorum."
+            },
         };
     }
 

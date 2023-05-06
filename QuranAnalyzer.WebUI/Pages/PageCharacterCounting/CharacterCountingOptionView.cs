@@ -1,13 +1,8 @@
-﻿namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
+﻿using QuranAnalyzer.WebUI.Pages.Shared;
 
-class CharacterCountingOptionState
-{
-    public bool? ShowKeyborad { get; set; }
+namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
 
-    public bool? ShowMushafOptions { get; set; }
-}
-
-class CharacterCountingOptionView : ReactComponent<CharacterCountingOptionState>
+class CharacterCountingOptionView : ReactComponent
 {
     public MushafOption MushafOption { get; set; } = new();
 
@@ -16,93 +11,55 @@ class CharacterCountingOptionView : ReactComponent<CharacterCountingOptionState>
 
     protected override Element render()
     {
-        var iconSize = 23;
-
-        var headerColor = "#1976d2";
-
-        return new FlexColumn(Role(nameof(CharacterCountingOptionView)))
+        var key = Key("content");
+        
+        return new FlexColumn(Gap(10))
         {
-            // Header
-            new FlexRow(Color("rgba(0, 0, 0, 0.6)"), TextAlignCenter, CursorPointer, Gap(10))
+            new CollapseContainer
             {
-                new FlexRowCentered
-                {
-                    onClick = KeyboardClicked,
-                    children =
-                    {
-                        new img
-                        {
-                            src    = FileAtImgFolder("Keyboard.svg"),
-                            width  = iconSize,
-                            height = iconSize
-                        },
-                        new div(Text("Arapça Klavye"))
-                        {
-                            style =
-                            {
-                                Padding(10),
-                                Color(headerColor),
-                                Hover(Color("rgb(40 15 229)"))
-                            }
-                        },
-                    },
-                    style = { opacity = state.ShowKeyborad == true ? "0.2" : null }
-                },
-
-                new FlexRowCentered
-                {
-                    onClick = OnMushafOptionClicked,
-                    children =
-                    {
-                        new img
-                        {
-                            src    = FileAtImgFolder("Options.svg"),
-                            width  = iconSize,
-                            height = iconSize
-                        },
-                        new div(Text("Mushaf Ayarları"))
-                        {
-                            style =
-                            {
-                                Padding(10),
-                                Color(headerColor),
-                                Hover(Color("rgb(40 15 229)"))
-                            }
-                        }
-                    },
-                    style = { opacity = state.ShowMushafOptions == true ? "0.2" : null }
-                }
+                ContentOnOpened = arabicKeyBoard(true),
+                ContentOnClosed = arabicKeyBoard(false)
             },
-
-            // content
-            new div(PaddingLeft(20))
+            new HelpComponent { ShowHelpMessageForLetterSearch = true },
+            new CollapseContainer
             {
-                new div
-                {
-                    style    = { display = state.ShowKeyborad == true ? null : "none" },
-                    children = { new ArabicKeyboard() }
-                },
-                new div
-                {
-                    style    = { display = state.ShowMushafOptions == true ? null : "none" },
-                    children = { new MushafOptionsView { Model = MushafOption, MushafOptionChanged = OnMushafOptionChanged } }
-                }
+                ContentOnOpened = mushafOption(isOpen: true),
+                ContentOnClosed = mushafOption(isOpen: false)
             }
         };
-    }
-
-    void KeyboardClicked(MouseEvent e)
-    {
-        if (state.ShowKeyborad == true)
+        
+        Element arabicKeyBoard(bool isOpen)
         {
-            state.ShowKeyborad = null;
+            return new Fragment(key)
+            {
+                new FlexRow(JustifyContentFlexStart)
+                {
+                    new div { "Arapça Klavye", CursorDefault },
+                    new ArrowUpDownIcon { IsArrowUp = isOpen }
+                },
+                new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
+                {
+                    AnimateHeightAndOpacity(isOpen),
+                    new ArabicKeyboard()
+                }
+            };
         }
-        else
+        Element mushafOption(bool isOpen)
         {
-            state.ShowKeyborad = true;
+            return new Fragment(key)
+            {
+                new FlexRow(JustifyContentFlexStart)
+                {
+                    new div { "Mushaf Ayarları", CursorDefault },
+                    new ArrowUpDownIcon { IsArrowUp = isOpen }
+                },
+                new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
+                {
+                    AnimateHeightAndOpacity(isOpen),
+                    new MushafOptionsView { Model = MushafOption, MushafOptionChanged = OnMushafOptionChanged }
+                }
+            };
         }
-
-        state.ShowMushafOptions = null;
     }
 
     void OnMushafOptionChanged(MushafOption mushafOption)
@@ -110,18 +67,5 @@ class CharacterCountingOptionView : ReactComponent<CharacterCountingOptionState>
         MushafOption = mushafOption;
         DispatchEvent(() => MushafOptionChanged, mushafOption);
     }
-
-    void OnMushafOptionClicked(MouseEvent e)
-    {
-        if (state.ShowMushafOptions == true)
-        {
-            state.ShowMushafOptions = null;
-        }
-        else
-        {
-            state.ShowMushafOptions = true;
-        }
-
-        state.ShowKeyborad = null;
-    }
+    
 }

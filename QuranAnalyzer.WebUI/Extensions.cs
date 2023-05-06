@@ -2,13 +2,22 @@
 
 static class Extensions
 {
-    public static string BorderColor = "#dee2e6";
+    public static StyleModifier AnimateHeightAndOpacity(bool isVisible)
+    {
+        return Transition(nameof(Style.all), 300) +
+               Transition(nameof(Style.opacity), 300) +
+               (isVisible
+                   ? VisibilityVisible + Opacity1 + HeightAuto
+                   : VisibilityCollapse + Opacity0 + Height0);
+    }
+    
+    public static string ColorForBorder = "#dee2e6";
 
     public static string BluePrimary => "#1976d2";
 
     public static StyleModifier BorderRadiusForPanels => BorderRadius(5);
 
-    public static StyleModifier ComponentBorder => Border($"1px solid {BorderColor}");
+    public static StyleModifier ComponentBorder => Border(Solid(1, ColorForBorder));
     public static StyleModifier FontFamily_Lateef => FontFamily("Lateef, cursive");
 
     public static int AsNumber(this bool value) =>

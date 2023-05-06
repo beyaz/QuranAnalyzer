@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Net.Http.Headers;
+using QuranAnalyzer.WebUI.Layouts;
 using QuranAnalyzer.WebUI.Pages.PageMainWindow;
 using ReactWithDotNet.UIDesigner;
 

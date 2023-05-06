@@ -38,7 +38,7 @@ Böylelikle herhangi 11 haneden oluşan bir sayının TC kimlik numarası olup o
 "
             },
 
-            new LargeTitle("IBAN"),
+            new LargeTitle("IBAN")+ MarginTop(50),
 
             new p { "Bankanızın size vermiş oluğu IBAN bilgisinde buna benzer bir şey olabilir mi?" },
             new img { src = FileAtImgFolder("IBAN.jpg"), alt = "iban", style = { width = "100%", maxWidth = "600px", height = "auto", display = "block", marginLeftRight = "auto" } },
@@ -53,7 +53,7 @@ rastgele oluşturulmuş bir sayı değildir.
             (p)@"Hatta mobil şubenizden bir ibana para gönderirken ibandaki herhangi bir rakamı bilerek yanlış girin.
 Muhtemelen hatalı iban diye size uyarı verecektir.",
 
-            (p)"Peki bu ibanın hatalı olup olmadığını nasıl bilinebiliyor ?",
+            (p)"Peki bu ibanın hatalı olup olmadığını nasıl bilinebiliyor?",
 
             new div { text = "İbanın doğrulaması şu şekilde yapılıyor." },
 
@@ -66,7 +66,7 @@ Muhtemelen hatalı iban diye size uyarı verecektir.",
 
             new div { text = "İşte bu yukarıdaki resimde gördüğünüz iki hane olan kontrol rakamları(check digits) bu Mod97 hesaplamasından 1 sonucu gelecek şekilde ayarlanıyor." },
 
-            new LargeTitle("Parity Bit") + mt(15),
+            new LargeTitle("Parity Bit") + MarginTop(50),
 
             new p { text = "Şuan bu yazıları okuduğunuz cihaz internetten aldığı verileri sizce nasıl kontrol ediyor?" },
             new div
@@ -96,15 +96,15 @@ Para transferleri, bitcoin, QR ile yapılan işlemlerden tutun okuduğunuz şu y
                 (strong)"Doğrulama bilgisi veri içinde beraber gönderiliyor."
             },
 
-            new p(FontWeight600)
+            new p(FontWeight600,MarginTop(50))
             {
                 " İyi de bu anlatılanların Kuran ile 19 ile ne alakası var?"
             },
 
             new p
             {
-                @"Aynen burada bahsedilen örneklerde olduğu gibi bir doğrulama kodu Kuran içinde olabilir mi ? 
-Bu sayede Kuran'ın Yaratıcıdan gelen bir kitap olduğunu daha iyi anlayabilelim diye Kuran'ın içine bir doğrulama kodu-sayısı-anahtarı olabilir mi ?"
+                @"Aynen burada bahsedilen örneklerde olduğu gibi bir doğrulama kodu Kuran içinde olabilir mi? 
+Bu sayede Kuran'ın Yaratıcıdan gelen bir kitap olduğunu daha iyi anlayabilelim diye Kuran'ın içine bir doğrulama kodu-sayısı-anahtarı olabilir mi?"
             }
         };
     }

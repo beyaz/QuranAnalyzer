@@ -11,7 +11,7 @@ public static class DataAccess
 
     static DataAccess()
     {
-        AllChapters = ReadAllChaptersFromJsonfile(GetFilePath());
+        AllChapters = ReadAllChaptersFromXmlFile(GetFilePath());
 
         static string GetFilePath()
         {
@@ -33,7 +33,7 @@ public static class DataAccess
         }
     }
 
-    static IReadOnlyList<Chapter> ReadAllChaptersFromJsonfile(string xmlFilePath)
+    static IReadOnlyList<Chapter> ReadAllChaptersFromXmlFile(string xmlFilePath)
     {
         var chapters = ReadChaptersFromXmlFile(xmlFilePath);
 
@@ -46,27 +46,32 @@ public static class DataAccess
 
         static Verse toVerse(Sura chapter, Aya v)
         {
-            var textWithBismillah = v.Bismillah + " " + v.Text;
-
-            var analyzedFullText = AnalyzeText(textWithBismillah);
-
-            var analyzedText = AnalyzeText(v.Text);
-
-            return new Verse
-            {
-                Index                     = v.Index,
-                IndexAsNumber             = int.Parse(v.Index),
-                Bismillah                 = v.Bismillah,
-                Text                      = v.Text,
-                TextAnalyzed              = analyzedText,
-                TextWordList              = analyzedText.GetWords(),
-                ChapterNumber             = int.Parse(chapter.Index),
-                Id                        = $"{chapter.Index}:{v.Index}",
-                TextWithBismillahWordList = analyzedFullText.GetWords(),
-                TextWithBismillahAnalyzed = analyzedFullText,
-                TextWithBismillah         = textWithBismillah
-            };
+            return ToVerse(int.Parse(chapter.Index), int.Parse(v.Index), v.Text, v.Bismillah);
         }
+    }
+
+    public static Verse ToVerse(int chapterNumber, int verseNumber, string text, string bismillah)
+    {
+        var textWithBismillah = bismillah + " " + text;
+
+        var analyzedFullText = AnalyzeText(textWithBismillah);
+
+        var analyzedText = AnalyzeText(text);
+
+        return new Verse
+        {
+            Index                     = verseNumber.ToString(),
+            IndexAsNumber             = verseNumber,
+            Bismillah                 = bismillah,
+            Text                      = text,
+            TextAnalyzed              = analyzedText,
+            TextWordList              = analyzedText.GetWords(),
+            ChapterNumber             = chapterNumber,
+            Id                        = $"{chapterNumber}:{verseNumber}",
+            TextWithBismillahWordList = analyzedFullText.GetWords(),
+            TextWithBismillahAnalyzed = analyzedFullText,
+            TextWithBismillah         = textWithBismillah
+        };
     }
 
     static IReadOnlyList<Sura> ReadChaptersFromXmlFile(string xmlFilePath)

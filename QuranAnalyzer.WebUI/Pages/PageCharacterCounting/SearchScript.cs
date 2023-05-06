@@ -31,7 +31,7 @@ class SearchScript
 
         static IEnumerable<string> parseToLines(string value)
         {
-            value = value.Replace(Environment.NewLine, ";");
+            value = value.Replace('\n', ';');
 
             return value.Split(';', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim());
         }
@@ -46,7 +46,7 @@ class SearchScript
 
             var letterInfoList = Analyzer.AnalyzeText(clearText(arr[1]));
 
-            var letters = letterInfoList.Where(Analyzer.IsArabicLetter).GroupBy(x => x.ArabicLetterIndex).Select(grp => grp.FirstOrDefault()).Distinct().ToList();
+            var letters = letterInfoList.Where(Analyzer.IsArabicLetter).ToList();
             if (letters.Count == 0)
             {
                 return "Arama komutunda yanlışlık var. Arap alfabesine ait olmayan bir karakter kullanılmış. Örnek: 3. suredeki Mim(م) harfini aratmak için şöyle yazabilirsiniz. 3:*|م";
@@ -58,7 +58,7 @@ class SearchScript
         static string clearText(string str) => Regex.Replace(str, @"\s+", string.Empty);
     }
 
-    public string AsReadibleString()
+    public string AsReadableString()
     {
         var sb = new StringBuilder();
 

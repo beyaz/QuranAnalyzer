@@ -13,7 +13,7 @@ class TotalCountsWithDetail : ReactComponent
 
     public IReadOnlyList<InitialLetterCountInfo> Records { get; set; } = AllInitialLetterTotalCounts;
 
-    static StyleModifier InputBorder => Border($"0.1px solid {BorderColor}");
+    static StyleModifier InputBorder => Border(Solid(0.1, ColorForBorder));
 
     protected override Element render()
     {
@@ -275,8 +275,8 @@ class TotalCountsWithDetail : ReactComponent
 
     string GetIdOf(bool isBegin, int recordIndex, int? detailIndex)
     {
-        var seperator = IncludeChapterNumbers ? "-" : ".";
-        return string.Join(seperator,
+        var separator = IncludeChapterNumbers ? "-" : ".";
+        return string.Join(separator,
                            nameof(TotalCountsWithDetail),
                            isBegin ? "begin" : "end",
                            nameof(recordIndex),

@@ -60,7 +60,7 @@ class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
         {
             return new a { new MenuCloseIcon(), Href("#"), OnClick(_ => Client.HistoryGo(-2)) };
         }
-
-        return new a { new SvgHamburgerIcon(), Href(GetPageLink(PageId.MobileMenu)) };
+        
+        return new a { new SvgHamburgerIcon(), Href(GetPageLink(PageId.MobileMenu) + $"&{QueryKey.SenderPage}={Context.Query[QueryKey.Page] ?? PageId.MainWindow}") };
     }
 }

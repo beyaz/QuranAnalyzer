@@ -69,11 +69,12 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
             "Reşad Halife farklı mushafları da önüne dizip tek tek inceleyip Arap alfabesine karşılık gelen herbir harf için İngilizce harf karşılığını mesela Arapçadaki ", AsLetter(Miim), " yerine İngilizcedeki M harfini yazarak tüm Kuranı bilgisayara aktarıyor ve bu başlangıç harflerini araştırmaya koyuluyor.",
             br,
             br,
-            "Bu konuyu araştırırken bulabildiği tek elektronik mushaf olan tanzil.net 'den aldığım mushafı kullandım.",
-            "İşte harf arama olaylarını yaparken bu mushaf farklılıklarını da göz önüne alarak yapmak mecburiyetindesiniz. ",
+            "Bu konuyu araştırırken bulabildiğim tek elektronik mushaf olan tanzil.net 'den aldığım mushafı kullandım.",
+            " İşte harf arama olaylarını yaparken bu mushaf farklılıklarını da göz önüne alarak yapmak mecburiyetindesiniz. ",
             "Bundan dolayıdırki bu ayarları kullabilirsiniz. ",
             "Mesela Elif(ﺍ) harfleri için isterseniz tanzil.net'i referans alarak sayımlar yapın isterseniz Reşad Halifenin Elif sayımlarını baz alarak yapın. ",
             "Tanzil.net deki mushafı da 'Hamid Zarrabi-Zadeh' adında İranlı bir öğretim üyesi bilgisayara aktarmış. Sonuçta ikisi de insan :) ",
+            br,
             br,
             br,
             new SubTitle("Ayarlar"),
@@ -90,8 +91,9 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
                         IsDisabled    = true
                     },
 
-                    "Bu seçeneği seçerseniz Tanzil.netdeki Elif sayımlarını referans alır. ",
-                    "Seçmez iseniz Reşad Halife'nin Elif sayımlarını referans alır."
+                    "Bu seçeneği seçerseniz Tanzil.netdeki Elif sayımlarını referans alır.",
+                    " Seçmez iseniz Reşad Halife'nin Elif sayımlarını referans alır.",
+                    " Eğer elif sayımında farklılık var ise elif harfinin yanında + - şeklinde belirtilmiştir."
                 },
 
                 new FlexColumn(Gap(10))
@@ -104,7 +106,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
                     },
 
                     "Bu bahsi geçen iki kelime farklı mushaflarda farklı yazılmış. Kimisinde sin harfi kullanılmış kimisinde sin harfi olan yerde sad harfi kullanılmış.",
-                    "Eğer bu seçeneği seçerseniz bu iki yerdeki iki harf farklılığında Sad harfini tercih etmiş olursunuz."
+                    " Eğer bu seçeneği seçerseniz bu iki yerdeki iki harf farklılığında Sad harfini tercih etmiş olursunuz."
                 },
 
                 new FlexColumn(Gap(10))
@@ -141,7 +143,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
                         IsDisabled    = true
                     },
 
-                    "6:5 ve 26:6 numaralı ayetlerdeki [enba'u] kelimesi bazı mushaflarda vav'lı yazılmış bazılarında ise vav hardi olmadan yazılmış. ",
+                    "6:5 ve 26:6 numaralı ayetlerdeki [enba'u] kelimesi bazı mushaflarda vav'lı yazılmış bazılarında ise vav harfi olmadan yazılmış. ",
                     "Bu vav harfinin başlangıç harfleri ile ilgisi yoktur. ",
                     "Kuran üzerindeki verileri incelerken böyle bir ayara ihtiyacım olduğu için ekledim."
                 },
@@ -156,7 +158,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
                     },
 
                     "75:13 nolu ayetide bulunan  [yunebbeu](يُنَبَّؤُ) kelimesi bazı mushaflarda vav'lı bazılarında vav'sız yazılıyor.",
-                    "Bu vav harfinin başlangıç harfleri ile ilgisi yoktur. ",
+                    " Bu vav harfinin başlangıç harfleri ile ilgisi yoktur. ",
                     "Kuran üzerindeki verileri incelerken böyle bir ayara ihtiyacım olduğu için ekledim."
                 }
             },

@@ -116,7 +116,7 @@ class TotalCounts : ReactComponent
 
     Element CreateInput(Expression<Func<string>> bindingExpression, HtmlElementModifier htmlElementModifier, int delay)
     {
-        var element = new input(Width(40), TextAlignCenter, Border($"0.1px solid {BorderColor}"))
+        var element = new input(Width(40), TextAlignCenter, Border( Solid(0.1, ColorForBorder)))
         {
             type                     = "text",
             valueBind                = bindingExpression,

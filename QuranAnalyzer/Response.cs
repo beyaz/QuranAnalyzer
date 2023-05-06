@@ -311,6 +311,21 @@ public static class FpExtensions
         return nextFunc(response.Value);
     }
 
+    public static Response<C> Then<A, B, C>(this (Response<A> a, Response<B> b) response, Func<A, B, Response<C>> nextFunc)
+    {
+        if (response.a.IsFail)
+        {
+            return response.a.Errors.ToArray();
+        }
+
+        if (response.b.IsFail)
+        {
+            return response.b.Errors.ToArray();
+        }
+
+        return nextFunc(response.a.Value, response.b.Value);
+    }
+
     public static Response<B> Then<A, B>(this Response<A> response, Func<A, B> nextFunc)
     {
         if (response.IsFail)
@@ -349,6 +364,16 @@ public static class FpExtensions
         }
 
         return successFunc(response.Value.Item1, response.Value.Item2, response.Value.Item3);
+    }
+
+    public static Response<IReadOnlyList<A>> ToReadOnlyList<A>(this Response<A> response)
+    {
+        if (response.IsFail)
+        {
+            return response.ErrorsAsArray;
+        }
+
+        return new List<A> { response.Value };
     }
 
     static Response<T> Try<T>(Func<T> func)

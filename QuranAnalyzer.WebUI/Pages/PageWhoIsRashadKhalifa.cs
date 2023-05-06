@@ -33,13 +33,13 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
             },
             new p
             {
-                "30'lu yaşlarda Amerika'ya gelince bir yandan doktorasını tamamlarken bir yandan da İngilizce yazılmış kuran meallerinin çoğunu okuyor. ",
+                "30'lu yaşlarda Amerika'ya gelince bir yandan doktorasını tamamlarken bir yandan da İngilizce yazılmış Kuran meallerinin çoğunu okuyor. ",
                 "Eski tefsirleri zaten Mısırdayken inceleyen biri. Anadili zaten Arapça. ",
-                "Yazılan İngilizce Kuran çevirilerini inceledikten sonra fark ediyor ki bu çevirilerdeki eksik gördüğü veya tevhide uymayan fikirler olduğunu görüyor. ",
+                "Yazılan İngilizce Kuran çevirilerini inceledikten sonra fark ediyor ki bu çevirilerdeki eksik gördüğü ve tevhide uymayan fikirler olduğunu görüyor. ",
                 "En azından kendi evlatlarımın okuyabileceği Tevhidi merkez alan bir çeviri yapma niyeti ile çeviriye başladığını kendisi söylüyor. ",
                 "Bir ayetin manasını tam anlamadan ötekine  geçmeyeceğine dair kendine de şart koşuyor. ",
                 "1. sureyi çevirdikten sonra 2. sureye geliyor ve sure başındaki elif-lam-mim harflerine gelince takılıyor. ",
-                "Çalıştığı şirket çalışanlarını yazılım kursuna gönderiyor. Kendisi de bu sayede yazılım öğrenmiş. ",
+                "Çalıştığı şirket zamanında çalışanlarını yazılım kursuna göndermiş. Kendisi de bu sayede yazılım öğrenmiş. ",
                 "Acaba Kuranda bu başlangıç harfleri ile ilgili bazı veriler olabilir mi diye düşünüp bilgisayar yazılımı ile incelemek istiyor. ",
                 "Ardından farklı kuran mushaflarını inceleyerek Arapçadaki her bir harfe karşılık İngilizce bir harf ile Kuranı bilgisayara aktarıyor.",
                 " Açıkçası oldukça zahmetli bir iş olsa gerek :) "
@@ -110,7 +110,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     " Bu kitapların Allah'tan mı olduğuna dair şüphelerinizi giderecek ", (b)" fiziksel ", "bir kanıt gelmiş durumdadır.",
                     " Bu kitaplardan sonuncusu olan Kuran'ın Allah'tan geldiğine dair fiziksel delil (19 mucizesi) bilgisayar yardımı ile ortaya çıkmıştır.",
                     " Kurandaki en önemli mesele olan Tevhid-Şirk meselesine kulak verin İsa'yı, Meryem'i, Muhammed'i putlaştırmaktan vazgeçin.",
-                    " Tanrı'nın varlığı üzerine son kutsal kitapta (Kuran) yazılanların doğru olup olmadığı hakkında artık bir bahaneniz kalmamış durumdadır."
+                    " Yaratıcı'nın'nın varlığı üzerine ve son kutsal kitapta (Kuran) yazılanların doğru olup olmadığı hakkında artık bir bahaneniz kalmamış durumdadır."
                 }
             },
 
@@ -132,7 +132,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     br,
                     br,
                     "- Bizler Tanrının oyuncakları mıyız? Ne yani önünde eğilenleri cennete koyan eğilmeyenleri cehenneme atan bir Tanrı figürü pek de hoş değil gibi",
-                    " Sürekli biz insanoğlunu iyilik için yarıştırıyor.",
+                    " sürekli biz insanoğlunu iyilik için yarıştırıyor.",
                     br,
                     br,
                     "- Türkiye'de doğan Mehmet Müslüman olduğu için eninde sonunda cennete gidecek fakat Almanya'da doğup büyüyen Hans, Müslüman olmadığı için cehenneme gidecek. ",
@@ -145,11 +145,11 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     " Daha çok puan alan cennette daha üst konuma gitseydi",
                     br,
                     br,
-                    "- Kutsal yazılarda bahsedildiğine göre Koskoca Tanrı ne diye şeytan gibi  yarattığı birini kendine rakip miş gibi  görüp de biz insanoğluna ",
+                    "- Kutsal yazılarda bahsedildiğine göre Koskoca Tanrı ne diye şeytan gibi  yarattığı birini kendine rakipmiş gibi  görüp de biz insanoğluna ",
                     " ya şeytanı seçersiniz ya beni seçersiniz gibi bir seçim ile karşı karşıya bırakıyor? Tanrı neden şeytanı kendine muhatap kabul etsin ki?",
                     br,
                     br,
-                    " - Ortalama 70 yıl yaşıyorum. 20 li yaşlara kadar zaten çocukluk -  eğitim vesaire ile geçiyor. ",
+                    " - Ortalama 70 yıl yaşıyorum. 20 li yaşlara kadar zaten çocukluk - ergenlik - eğitim vesaire ile geçiyor. ",
                     " 60-70 den sonrasını zaten sayma istesen de günaha giremiyorsun. Zihnen de geriliyorsun. Özetle bu kadar kısacık bir yaşam için sonsuz bir cehennem ne kadar adaletli?",
                     " Hani Tanrı en merhametliydi?",
                     br,
@@ -185,21 +185,21 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                 {
                     (b)"Yalnız Kuran!",
                     br,
-                    "Ey İslam dünyası!. Sizler Allah'ın yüce kelamı dururken Muhammed peygambere ait olup olmadığı belli olmayan rivayetlere sarılıyorsunuz. ",
+                    "Ey İslam dünyası! Sizler Allah'ın yüce kelamı dururken Muhammed peygambere ait olup olmadığı belli olmayan rivayetlere sarılıyorsunuz. ",
                     "Dinin tek bir hüküm kaynağı vardır o da Kurandır. ",
                     "Eğer bir şey Kuranda belirtilmiş ise o bizim için bağlayıcıdır eğer detayı verilmemiş ise demek ki 'En Bilge Olan' o kadarını uygun görmüştür. ",
                     " Çünkü Kuranda üzerine basa basa şu ifadeler vardır. ",
                     br,
                     "Kuran tamdır. Detaylıdır. Bu kitaptan hesaba çekileceksiniz. ",
                     br,
-                    "Eğer siz Kurandan başka bir öğreti takip ederseniz Kuranın tam ve eksiksiz olduğu gerçeğini göz ardı etmiş olursunuz. ",
+                    "Eğer siz Kurandan başka bir öğreti takip ederseniz Kuran'ın tam ve eksiksiz olduğu gerçeğini göz ardı etmiş olursunuz. ",
                     br,
                     br,
                     "Not: Genel gözlemim burada karıştırılan bir durum vardır. Bu Yalnız Kuran fikrini savunan insanlara 'Hadis İnkarcısı' etiketi yapıştırılıyor. ",
                     "Hadisleri o dönemin şartlarını gözlemleyebilmek adına tarihi birer veri olarak değerlendirebilirsiniz ama dinde hüküm koyucu yapamazsınız. ",
                     "Bir örnek ile açıklayayım. Kuranda abdest 4 aşamada anlatılmıştır. ",
                     "İşte Reşad şunu söylüyor; Kuranda abdest 4 aşama diyor ise 4 aşamadır. ",
-                    "Fazladan ensemi yıkayayım, burnuma su çekeyim dersen, sen Kuranın öğretisini değil başka bir öğretiyi takip etmiş olursun. ",
+                    "Fazladan ensemi yıkayayım, burnuma su çekeyim dersen, sen Kuran'ın öğretisini değil başka bir öğretiyi takip etmiş olursun. ",
                     "Özetle Kuranda bir şeyin hükmü anlatılıyor ise o şekilde yapılmalıdır.",
                     " Yukarıdaki örnekte olduğu gibi abdest için 4 yerinizi yıkamanız gerekiyor ise 4 yerinizi yıkayın. Bu kadar basit.",
                     " Çünkü detayın peşine düşersen bu Kuran eksiksizdir, detaylıdır, tamdır cümlelerini boşa çıkarmış, dikkate almamış olursun demektir.",
@@ -232,7 +232,23 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     br,br,
                     " Bakara suresindeki meşhur olayı hatırlayın. Musa halkına bir buzağı kesmesini söylüyor, İsrailoğulları sürekli detaya iniyor.",
                     " Buzağının rengi ne? Allah cevap veriyor ardından İsrailoğulları tekrar soruyor buzağı genç mi? yaşlı mı?",
-                    " Allah bu olayları hikaye olsun diye anlatmıyor. Tam da biz müslümanlara öğüt veriyor."
+                    " Allah bu olayları hikaye olsun diye anlatmıyor. Tam da biz müslümanlara öğüt veriyor.",
+                    
+                    br,
+                    br,
+                    "-'Madem Haidisleri inkar ediyorsunuz ama",
+                    " Kuran da aynı kişiler tarafından aktarıldı o halde Kuran'ı da inkar etmelisiniz',",
+                    " 'Nakilde sorunu olmayan ama Kurana ters mantığa ters hadisleri ne yapacağız?' gibi bir çok tartışmalı konu var.",
+                    br,
+                    "Özetle şunun tekrar altını çizmek istiyorum; Yalnız Kuran fikri hadisleri inkar etmiyor, dinin tek kaynağının Kuran olduğunu savunuyor.",
+                    " Bu ikisi genelde karıştırılıyor.",
+                    br,
+                    br,
+                    "Burada kendi tavsiyemi şöyle söyleyeyim;",
+                    " Elinize bir kağıt kalem alıp Yalnız Kuran ve Geleneksel Anlayış diye iki başlık atın.",
+                    " Geçmiş önyargılarınızı bir kenara bırakıp bu konu etrafında yapılan tartışma ve söyleşileri dinleyin referans verilen ayetleri, hadisleri not edin inceleyin.",
+                    " Sürecin başından sonuna kadar en çok yapmanız gereken en önemli olan şeyi yani Allah'dan rehberlik dilemeyi unutmayın.",
+                    " Unutmayınız ki Einstein'den on kat daha zeki olsanız bile Allah'ın rehberliği olmadığı sürece bir adım dahi yol alamazsınız."
                 }
             },
 
@@ -240,7 +256,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
             {
                 new li
                 {
-                    (b)"Zamanınızın çoğunda sizin zihninizi kim veya ne meşgul ediyor ise sizin tanrınız odur.",
+                    (b)"Zamanınızın çoğunda sizin zihninizi kim veya ne meşgul ediyor ise sizin ilahınız odur.",
                     br,
                     "Kuranda bir çok ayette Allah'ı sık sık anın, Onu gece gündüz yüceltin. Ayaktayken anın, yan yatarken anın gibi ifadeler geçer. ",
                     "Açıkçası oldum olası bu ısrarın sebebini anlamış değildim.",
@@ -256,7 +272,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     "Bir elmayı ısırdığınızda zihninizi o elmaya verin.",
                     " 'En Merhametli Olan', milyon kilometre öteye adına güneş dediğimiz bir gezegen koymuş.",
                     " Bu elma için milyon km öteden ısı göndermiş ışık göndermiş.",
-                    " Toprağın altında milyarlarca bakteri topraktaki besinleri ayrıştırmış",
+                    " Toprağın altında milyarlarca bakteri topraktaki besinleri ayrıştırmış.",
                     " Ağaç ise bu vitaminleri gözle görülmeyecek kadar küçük borular ile  milim milim, damla damla bu meyveye doldurmuş.",
                     " Elmanın suyu ağzınızda akarken verdiği o lezzeti fark edebilmemiz için dilimizde bir sürü farklı hücre yerleştirmiş.",
                     " İşte bütün bu şartları sağlayan 'En Lutufkar Olan'a şükürler olsun.",
@@ -265,10 +281,10 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     "Özetle; bizler Allah'a zarar veremeyiz. Yarar da veremeyiz.",
                     " Yaratıcı ile bağlantılı zihin durumu  ve ibadetler ile ancak kendimize fayda sağlamış oluruz.",
                     " Elbette bu zihin durumuna geçmek zaman alacak bir süreç. Ama madalyonun diğer yüzünde şu var.",
-                    " Bizler Allaha inanınca cennete gideceğimizi sanıyoruz. Fakat kuran bunu garanti etmiyor.",
+                    " Bizler Allaha inanınca cennete gideceğimizi sanıyoruz. Fakat Kuran bunu garanti etmiyor.",
                     " Çünkü Kuranda kesin olarak belirtiliyor ki her ne iyilik yaparsan yap, her ne kadar ibadet edersen et eğer şirk içinde bir ömür yaşadı isen ",
                     " 'Azabı En Şiddetli Olan' şirki asla affetmeyeceğini belirtiyor.",
-                    " Ayrıca iman edenlerin çoğunun da bunu puta tapma suçunu işlemeden yapmayacağını belirtiyor."
+                    " Ayrıca iman edenlerin çoğunun, bunu şirk suçunu işlemeden yapmayacağı Kuranda belirtiyor."
                 }
             },
 
@@ -277,8 +293,11 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                 (b)"Sonuç olarak;",
                 br,
                 "Bu yukarıdaki belirtilen fikirler size doğru veya yanlış gelebilir.",
-                " Reşad Halife daha başka şeyler de söylüyor ama burada hepsine yer vermem mümkün değil.",
-                " Reşad Halife ısrarla şunu da söylüyor 'Eğer benden Kuranda referansı olmayan bir söz duyarsanız onu çöpe atabilirsiniz'.",
+                " Reşad Halife yaratılış, nefs, evrenin büyüklüğü ve daha başka bir çok konuda açıklamalar yapıyor ama burada hepsine yer vermem mümkün değil.",
+                " Israrla şunu da söylüyor;" ,
+                br,
+                (b)"'Eğer benden Kuranda referansı olmayan dini bir söz duyarsanız onu çöpe atabilirsiniz'.",
+                br,
                 " Reşad 80'li yıllarda sanki bu zamandaki youtube-sosyal medya olaylarını tahmin etmiş gibi:)",
                 " bu fikirlerin bir kısmını cuma hutbelerinde bir kısmını kamera karşısına geçerek tek tek anlatmış.",
                 " Doğru namazın nasıl kılınacağı için video çekmiş.",
@@ -289,14 +308,14 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                 " Reşad Halife de gördüğüm durumlar şunlar.",
 
                 " Bu adamın çok baskın bir tevhid anlayışı var. Allah'ı çok farklı ve güzel ve Kurandan referanslar ile anlatıyor.",
-                " Bende sıradan bir yurdum insanıyım. Allah hakkında bir sürü hikaye dinledim. Kuran okudukça fark ediyorum ki bu hikayelerin çoğu kurandan değilmiş.",
+                " Sıradan bir yurdum insanıyım. Allah hakkında bir sürü hikaye dinledim. Kuran okudukça fark ediyorum ki bu hikayelerin çoğu Kurandan değilmiş.",
                 (b)" Zihninizdeki Allah ile gerçekteki Allah farklı olabilir. Dolayısı ile Allah'ı Kuran üzerinden tanımak mecburiyetindeyiz. ",
                 " Bu konuda Reşad oldukça iyi bir eğitmen. Tevhid mesajını en yüksek tonda seslendirmeye çalışan biri.",
 
                 " Dinden kazanç sağlamıyor olması benim için önemli. Kazanç sadece para ile olmaz. Bazen şöhret ile de olur. ",
                 " 19 sistemini ilk bulduğunda popülaritesi varken istese bu fikirlerini pek duyurmayıp o popülaritenin kaymağını yiyebilirdi.",
                 " Fakat o tam tersini yapıyor. Emeklilik parası ile gidip mescit kuruyor. ",
-                " Hadisleri dinin kaynağı olarak görmediğini ve dinin tek kaynağının kuran olduğunu üzerine basa basa tekrarlıyor.",
+                " Hadisleri dinin kaynağı olarak görmediğini ve dinin tek kaynağının Kuran olduğunu üzerine basa basa tekrarlıyor.",
                 " Bu uğurda şöhreti elden gidiyor. Ölüm tehditleri aldığı halde geri adım atmıyor. Hatta bir videoda kamera yanlışlıkla kayıyor arkasında toplamda 10 kişilik bir saf bile yok.",
                 " Zaten bu fikirleri yüzünden de 55 yaşında sabah namazında öldürülüyor.",
 

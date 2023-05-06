@@ -78,10 +78,99 @@ public class WordSearchingTests
         VerseFilter.GetVerseList("*").Value.Sum(v => v.TextWithBismillahWordList.Last().EndsWith(nunVavNun).Count).Unwrap().Should().Be(133);
     }
 
+
+    [TestMethod]
+    public void CommonCounts()
+    {
+        
+        // zikr
+        CountShouldBe("ذكري", 11);
+        CountShouldBe("وذكري", 7);
+        CountShouldBe("الذكري", 6);
+        CountShouldBe("لذكري", 3);
+
+        // chnm
+        CountShouldBe("جهنم", 72);
+        CountShouldBe("بجهنم", 2);
+        CountShouldBe("لجهنم", 3);
+        
+        // dny
+        CountShouldBe("الدّنيا", 115);
+
+
+
+        // ahrt
+        CountShouldBe("ٱلْـَٔاخِرَةُ", 71);
+        CountShouldBe("بِٱلْـَٔاخِرَةِ", 21);
+        CountShouldBe("وَٱلْـَٔاخِرَةِ", 19);
+        CountShouldBe("وَلَلْـَٔاخِرَةُ", 2);
+        CountShouldBe("وَبِٱلْـَٔاخِرَةِ", 1);
+        CountShouldBe("لَلْـَٔاخِرَةَ", 1);
+
+        // nur
+        CountShouldBe("النّور", 10);
+        CountShouldBe("نورا", 9);
+        CountShouldBe("نور", 8);
+        CountShouldBe("ونور", 2);
+        CountShouldBe("والنّور", 3);
+        CountShouldBe("بنور", 1);
+        
+        
+        // şems
+        CountShouldBe("الشمس", 20);
+        CountShouldBe("والشمس", 9);
+        CountShouldBe("بالشمس", 1);
+        CountShouldBe("للشمس", 2);
+        CountShouldBe("شمسا", 1);
+        
+        
+        // kamer
+        CountShouldBe("والقمر", 20);
+        CountShouldBe("القمر", 5);
+        CountShouldBe("وقمرا", 1);
+        CountShouldBe("للقمر", 1);
+        
+        
+        // şhr
+        CountShouldBe("شهر", 4);
+        CountShouldBe("الشهر", 4);
+        CountShouldBe("شهرا", 2);
+        CountShouldBe("بالشهر", 1);
+        CountShouldBe("والشهر", 1);
+        
+        
+        // rahim
+        CountShouldBe("ٱلرَّحِيمِ", 34);
+        CountShouldBe("رَّحِيمٌ", 61);
+        CountShouldBe("رَّحِيمًا", 20);
+        
+        // rahman
+        //CountShouldBe("الرحمن", 45);
+        CountShouldBe("للرحمن", 9);
+        CountShouldBe("بالرحمن", 3);
+        
+        // Allah
+        CountShouldBe("الله", 2153);
+        CountShouldBe("والله", 240);
+        CountShouldBe("بالله", 139);
+        CountShouldBe("لله", 116);
+        CountShouldBe("ولله", 27);
+        CountShouldBe("تالله", 8);
+        CountShouldBe("فالله", 6);
+        CountShouldBe("فلله", 6);
+        CountShouldBe("ءالله", 2);
+        CountShouldBe("ابالله", 1);
+        CountShouldBe("وتالله", 1);
+        
+    }
     static void CountShouldBe(string searchWord, int expected)
     {
         var search = AnalyzeText(searchWord);
 
-        VerseFilter.GetVerseList("*").Value.Sum(v => v.TextWithBismillahWordList.Count(w => w.Same(search))).Value.Should().Be(expected);
+        var verses = VerseFilter.GetVerseList("*").Unwrap();
+
+        int matchCountOfSameAsExactly(Verse v) => v.TextWordList.Count(w => w.Same(search));
+
+        verses.Sum(matchCountOfSameAsExactly).Should().Be(expected);
     }
 }

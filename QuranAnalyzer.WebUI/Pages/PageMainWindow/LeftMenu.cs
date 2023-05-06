@@ -8,14 +8,14 @@ class LeftMenuButtonForMobile : ReactPureComponent
 
     protected override Element render()
     {
-        var textColor = IsSelected ? "rgb(30 167 253)" : "rgb(173 164 164)";
+        var textColor = IsSelected ? "rgb(30 167 253)" : "rgb(77 65 79)";
         return new a(Href(Href))
         {
             DisplayFlex, FlexDirectionRow, JustifyContentCenter, Gap(10), Padding(10),
             ComponentBorder,
             BorderRadiusForPanels,
             TextDecorationNone,
-            Background("linear-gradient(180deg, white 0%, whitesmoke 100%)"),
+            Background("linear-gradient(180deg, white 0%, #eff2f7 100%)"),
             Text(Text),
             Color(textColor),
         };
@@ -55,6 +55,10 @@ class LeftMenu : ReactPureComponent
 
     protected override Element render()
     {
+        if (SelectedPageId == PageId.MobileMenu)
+        {
+            SelectedPageId = Context.Query[QueryKey.SenderPage] ?? SelectedPageId;
+        }
         return new Fragment
         {
             // wide screen menu

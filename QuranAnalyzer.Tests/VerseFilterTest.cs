@@ -20,6 +20,42 @@ public class VerseFilterTest
     }
 
     [TestMethod]
+    public void FilterWithSpecificRange()
+    {
+        var records = VerseFilter.GetVerseList(" 42 : 3 ").Value;
+
+        records[0].Text.Should().Be("كَذَٰلِكَ يُوحِىٓ إِلَيْكَ وَإِلَى ٱلَّذِينَ مِن قَبْلِكَ ٱللَّهُ ٱلْعَزِيزُ ٱلْحَكِيمُ");
+
+        records[0].Text.Length.Should().Be(87);
+
+        records = VerseFilter.GetVerseList(" 42  : 3[1..] ").Value;
+
+        records[0].Text.Should().Be("كَذَٰلِكَ يُوحِىٓ إِلَيْكَ وَإِلَى ٱلَّذِينَ مِن قَبْلِكَ ٱللَّهُ ٱلْعَزِيزُ ٱلْحَكِيمُ");
+
+        records[0].Text.Length.Should().Be(87);
+
+        records = VerseFilter.GetVerseList(" 42  : 3[2..] ").Value;
+
+        records[0].Text.Length.Should().Be(86);
+
+        records = VerseFilter.GetVerseList(" 42  : 3[1..87] ").Value;
+        records[0].Text.Length.Should().Be(87);
+
+        records = VerseFilter.GetVerseList(" 42  : 3[1..86] ").Value;
+        records[0].Text.Length.Should().Be(86);
+
+        records = VerseFilter.GetVerseList(" 42  : 3[..86] ").Value;
+        records[0].Text.Length.Should().Be(86);
+
+        records = VerseFilter.GetVerseList(" 42  : 3[..4] ").Value;
+        records[0].Text.Length.Should().Be(4);
+
+
+        records = VerseFilter.GetVerseList(" 42 : 3[50..] -->  42 : 4[..5]").Value;
+        records[1].Text.Length.Should().Be(5);
+    }
+
+    [TestMethod]
     public void FilterWithStar()
     {
         var records = VerseFilter.GetVerseList(" 42  : * ").Value;

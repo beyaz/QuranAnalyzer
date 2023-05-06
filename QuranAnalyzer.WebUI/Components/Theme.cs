@@ -18,7 +18,7 @@ class LargeTitle : ReactPureComponent
     {
         return new div
         {
-            style = { FontSize18, TextAlignCenter },
+            style = { FontSize19, TextAlignCenter },
             text  = text
         };
     }

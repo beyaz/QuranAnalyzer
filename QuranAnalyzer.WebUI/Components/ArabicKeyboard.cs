@@ -39,9 +39,9 @@ class ArabicKeyboard : ReactPureComponent
         return Content;
     }
 
-    static Element LetterToElement(string arabicLetter, string englistText)
+    static Element LetterToElement(string arabicLetter, string englishText)
     {
-        return new ArabicKeyboardLetterView { ArabicLetter = arabicLetter, English = englistText };
+        return new ArabicKeyboardLetterView { ArabicLetter = arabicLetter, English = englishText };
     }
 }
 
@@ -94,7 +94,7 @@ class ArabicKeyboardLetterView : ReactComponent
                 FlexDirectionColumn,
                 AlignItemsCenter,
                 Margin(5),
-                Border($"1px solid {BorderColor}"),
+                Border(Solid(1,ColorForBorder)),
                 BorderRadius(5),
                 Background("rgb(248 249 251)"),
                 CursorPointer,
@@ -117,6 +117,7 @@ class ArabicKeyboardLetterView : ReactComponent
     }
 
     [CacheThisMethod]
+    [ReactStopPropagation]
     void OnArabicKeyboardLetterClicked(MouseEvent e)
     {
         Client.ArabicKeyboardPressed(ArabicLetter);

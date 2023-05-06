@@ -12,7 +12,7 @@ public class PageSimpleDefinition : ReactPureComponent
 
             new p
             {
-                " Yüzyıllar boyu Kuranda bu başlangıç harfleri için farklı farklı bir çok fikir ortaya atılmıştır.",
+                " Yüzyıllar boyu Kuranda bazı surelerin başında bulunan bu başlangıç harfleri için farklı farklı bir çok fikir ortaya atılmıştır.",
                 " Kimi alim bu harfler sureleri birbirinden ayırt etmek içindir demiş. ",
                 " Bazı alimler bu harfler Allah'ın isimlerinin bazılarının anahtarlarıdır demiş. ",
                 " Bazı alimler bu harflerin sayısal değerleri ilerde olacak olan olayların tarihlerini verir demiş. ",
@@ -33,7 +33,7 @@ public class PageSimpleDefinition : ReactPureComponent
 
             new p
             {
-                "Durumumuz bu örneğe çok benziyor. Elimizde bir mektuplar - bilgilendirme yazıları var.",
+                "Durumumuz bu örneğe çok benziyor. Elimizde mektuplar veya bilgilendirme yazıları diyebileceğimiz yazıları var.",
                 " Bu mektuplardan bazılarının isimleri şöyle: Tevrat, İncil, Kuran.",
             },
 
@@ -66,8 +66,8 @@ public class PageSimpleDefinition : ReactPureComponent
 
             new p
             {
-                " Hatta daha da ileri gidip şu soruyu soralım. Neden atalarımızdan gelen her bilgiyi peşinen doğru kabul ediyoruz ? ",
-                " Ya onlar bazı konularda yanıldılarsa ?"
+                " Hatta daha da ileri gidip şu soruyu soralım. Neden atalarımızdan gelen her bilgiyi peşinen doğru kabul ediyoruz? ",
+                " Ya onlar bazı konularda yanıldılarsa?"
             },
 
             new p
@@ -85,14 +85,16 @@ public class PageSimpleDefinition : ReactPureComponent
             {
                 "İşte bu sorunun cevabı yine Kuranın kendisinden çıkmış durumda.",
                 " Bilgeler Bilgesi olan  Kuranın üzerine biz insanların anlayabileceği kolaylıkta fakat taklit edemeyeceği zorlukta bir sayısal harmoni-örüntü-imza-desen eklemiş. ",
-                " Eklemiş ki bu kitabın kendisinden gelen bir kitap olduğuna emin olunsun ve içerisindeki dehşetli uyarılara kulak asılsın, verilen müjdeler için çaba sarf edilsin.",
-                " Bilim ve teknolojinin patlama yaptığı bu çağda 'Bilgeler Bilgesi' biz insanoğluna yine çağın diline uygun olarak teknoloji üzerinden bilgisayar ile bir mesaj veriyor.",
+                " Eklemiş ki bu kitabın kendisinden gelen bir kitap olduğuna emin olunsun ve içerisindeki dehşetli uyarılara kulak asılsın, verilen müjdeler için çaba sarf edilsin."
+            },
+            new p
+            {
+                "Bilim ve teknolojinin patlama yaptığı bu çağda 'Bilgeler Bilgesi' biz insanoğluna yine çağın diline uygun olarak teknoloji üzerinden bilgisayar ile bir mesaj veriyor.",
                 " Tanrı'nın bu matematiksel imzası 19 sayısı üzerine kuruludur.",
                 " Kurandaki bir çok matematiksel verinin 19 rakamı ile ilişkili olmasıdır.",
                 " Bu matematiksel veriler öyle bir derecedeki insanoğlunun günümüz bilgisayarları ile yapabileceğinden çok daha üst seviyededir. ",
                 " Bir Olan'ın Kuran üzerindeki matematiksel imzasıdır diyebiliriz."
             },
-
             "19 sisteminin en çok dikkat çeken özelliklerine örnek verecek olur isek;",
             new ul
             {

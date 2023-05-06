@@ -14,7 +14,7 @@ public class PageAlternativeSystems : ReactPureComponent
 Kuran üzerinde 19 ile ilgili bilgiler duyulmaya başladıkça başka insanlar da 19 üzerine çalışma yapmaya başladılar. 
 Bu kişiler de günümüz bilgisayar yazılımlarını kullanarak bazı sayımlar yapıyorlar ve 19'un katı olan bazı sayılar elde ediyorlar. 
 Duruma göre bu kişilerin çalışmalarını da inceleyebilirsiniz. İmran Akdemir, Gökmen Altay, İki Sayının Sahibi gibi isimler de çalışma yapıyorlar. 
-Bu isimlerin ortaya attıkları iddiaları incelerken muhtemelen ilk duyacağınız cümle şu olacaktır. 'Uyduruk 19 sistemi', 'Sahte 19 sistemi' benzeri kelimler söyledikten sonra 19 ile ilgili kendi buldukları verilerin gerçek 19 sistemi olduğunu ileri sürüyorlar. 
+Bu isimlerin ortaya attıkları iddiaları incelerken muhtemelen ilk duyacağınız cümle şu olacaktır. 'Uyduruk 19 sistemi', 'Sahte 19 sistemi' benzeri kelimeler söyledikten sonra 19 ile ilgili kendi buldukları verilerin gerçek 19 sistemi olduğunu ileri sürüyorlar. 
 Bu kişilerin ortaya attıkları iddialara karşı cevaplar da var onları da dinlemenizi öneririm."
             },
 
@@ -29,7 +29,7 @@ Bu kişilerin ortaya attıkları iddialara karşı cevaplar da var onları da di
             {
                 @"Hatta sinema filmlerinin bir sahnesinde geçen bir arabaların plaka numaralarını toplayıp çarparak Kurandan 19 ve 238 sayıları ile ilgili veriler bulan bile var.
 Şaka değil konuyu araştırırken gerçekten böyle videolara denk geldim. 
-Hatta Mustafa Kemal Atatürk'ün hayatındaki olan olayların tarihleri ile  19 rakamı arasında ilişkiler kurmaya çalışanlara bile denk gelebilirsiniz."
+Hatta Mustafa Kemal Atatürk'ün hayatındaki olayların tarihleri ile  19 rakamı arasında ilişkiler kurmaya çalışanlara bile denk gelebilirsiniz."
             },
             
             new p
@@ -72,7 +72,16 @@ Bu saydığım isimler sadece Türkiye'de olan resim. Elbette başka ülkelerde 
                 (b)"Not: ", "Bu sitede sadece Reşad Halife tarafından keşfedilen 19 sisteminin ", (b)"en majör noktası", @" olan başlangıç harfleri üzerindeki veriler incelenmiştir.",
                 " Dilerseniz bu sitede kullanılan sayım programlarını kullanabilir ve alternatif iddiaları inceleyebilirsiniz.",
                 " Açıkçası Kuran ile ilgili hangi rakamı duydu isem ekledim.",
-                " Hatta başka verileri de incelenebilsin diye sonuç kısmı 1230, 505, 7, 238 gibi  rakamların katları olan bir rakam olur ise onu özellikle belirtmeye çalıştım. "
+                " Başka verileri de incelenebilsin diye sonuç kısmı 1230, 505, 7, 238 gibi  rakamların katları olan bir rakam olur ise onu özellikle belirtmeye çalıştım. "
+            },
+
+            new p
+            {
+                "Ayrıca bu alternatif incelemelerden bağımsız olarak şunu da belirtmem gerekiyor.",
+                " Bazen bir şeyin ne olmadığını bilmek onun ne olduğunu bilmemize yardımcı olur.",
+                " Kuran'daki bazı ayetler ve onların sayısal değerleri kullanılarak tarihdeki olmuş olan olaylar arasında bağlantı kurulması meselesi var.",
+                " Bazı verileri çarpıp bölüp İstanbulun fethi 1453 rakamını bulmak gibi.",
+                " 19 meselesinin böyle bir şey ", (span)"olmadığını" + TextDecorationUnderline, " sanırım anlatmama gerek yok."
             },
 
             new p

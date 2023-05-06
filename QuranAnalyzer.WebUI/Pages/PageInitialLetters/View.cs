@@ -22,12 +22,12 @@ class InitialLetter : ReactPureComponent
             color = "red";
         }
 
-        var pronuncation = GetPronunciationOfArabicLetter(Letter);
+        var pronunciation = GetPronunciationOfArabicLetter(Letter);
 
         return new FlexColumn(Id(Id), TextAlignCenter, Border($"{(IsSelected ? 2 : 1)}px solid {color}"), BorderRadius("0.5rem"), Padding("5px"))
         {
             new div(Text(Letter)),
-            new div(pronuncation) { FontSize("70%"), FontWeight600 },
+            new div(pronunciation) { FontSize("70%"), FontWeight600 },
 
             When(Count.count.HasValue, new a(Text(Count.count.ToString()), Href(Count.url), Color(Count.color), FontSize("70%"), FontWeight600, TextDecorationUnderline))
         };
@@ -108,7 +108,7 @@ class Arrow : ReactPureComponent
     public string end;
     public string start;
 
-    public bool dashness { get; set; }
+    
     public bool StartAnchorFromRight { get; set; }
 
     public bool StartAnchorFromTop { get; set; }
@@ -244,9 +244,9 @@ class InitialLetterGroup_Saad : InitialLetterGroup
                 " Eğer 19.surede bir tane fazla ", AsLetter(Saad), " harfi olsaydı bu ahenk bozulurdu."
             },
 
-            new Arrow { start = Id(7, Saad), end  = IdOfCountingResult, dashness = true, StartAnchorFromRight = true },
-            new Arrow { start = Id(19, Saad), end = IdOfCountingResult, dashness = true, StartAnchorFromRight = true },
-            new Arrow { start = Id(38, Saad), end = IdOfCountingResult, dashness = true, StartAnchorFromRight = true },
+            new Arrow { start = Id(7, Saad), end  = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(19, Saad), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(38, Saad), end = IdOfCountingResult, StartAnchorFromRight = true },
         };
     }
 
