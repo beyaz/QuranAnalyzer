@@ -11,9 +11,9 @@ public static class DataAccess
 
     static DataAccess()
     {
-        AllChapters = ReadAllChaptersFromXmlFile(GetFilePath());
+        AllChapters = ReadAllChaptersFromXmlFile(getFilePath());
 
-        static string GetFilePath()
+        static string getFilePath()
         {
             var path = Path.GetDirectoryName(typeof(DataAccess).Assembly.Location) + Path.DirectorySeparatorChar;
 
@@ -76,7 +76,7 @@ public static class DataAccess
 
     static IReadOnlyList<Sura> ReadChaptersFromXmlFile(string xmlFilePath)
     {
-        Quran quran = null;
+        Quran quran;
 
         using (var reader = XmlReader.Create(xmlFilePath))
         {
