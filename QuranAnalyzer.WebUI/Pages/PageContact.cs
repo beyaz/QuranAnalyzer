@@ -21,9 +21,9 @@ public class PageContact : ReactPureComponent
                 "Aşağıdaki mail adresinden bana ulaşabilirsiniz",
                 br,
                 br,
-                "beyaz1404@gmail.com"
+                new span(DisplayFlexRowCentered){ "beyaz1404@gmail.com" }
             },
-            new FlexRowCentered
+            new span(DisplayFlexRowCentered)
             {
                 "* * *"
             },
@@ -32,12 +32,10 @@ public class PageContact : ReactPureComponent
                 "Bu sitede kullanılan tüm kodları aşağıda belirttiğim linkten inceleyebilirsiniz. ",
                 "Eğer programlama biliyorsanız bu kodları kullanarak kendi analizlerinizi yapabilirsiniz.",
                 br,
-                new FlexRowCentered
-                {
-                    new a { href = "https://github.com/beyaz/QuranAnalyzer", text = "github" }
-                }
+                br,
+                new a(DisplayFlexRowCentered) { href = "https://github.com/beyaz/QuranAnalyzer", text = "github" }
             },
-            new FlexRowCentered
+            new span(DisplayFlexRowCentered)
             {
                 "* * *"
             },
