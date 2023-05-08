@@ -95,8 +95,8 @@ public class Response
     {
         var response = new Response();
 
-        response.errors.AddRange(responseX.Errors);
-        response.errors.AddRange(responseY.Errors);
+        response.errors.AddRange(responseX.ErrorsAsArray);
+        response.errors.AddRange(responseY.ErrorsAsArray);
 
         return response;
     }
@@ -141,7 +141,7 @@ public sealed class Response<TValue> : Response
     {
         var newResponse = new Response<TValue>();
 
-        newResponse.errors.AddRange(response.Errors);
+        newResponse.errors.AddRange(response.ErrorsAsArray);
 
         return newResponse;
     }
