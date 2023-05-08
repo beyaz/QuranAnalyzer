@@ -16,9 +16,6 @@
       <Reference Include="ReactWithDotNet">
         <HintPath>..\ThirdPartyReferences\ReactWithDotNet.dll</HintPath>
       </Reference>
-      <Reference Include="ReactWithDotNet.Libraries">
-        <HintPath>..\ThirdPartyReferences\ReactWithDotNet.Libraries.dll</HintPath>
-      </Reference>
     </ItemGroup>
 
     <PropertyGroup>

@@ -1,5 +1,4 @@
-﻿using ReactWithDotNet.react_xarrows;
-
+﻿
 namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
 
 public class SummaryInfo

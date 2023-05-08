@@ -35,7 +35,7 @@ public class Switch : ReactPureComponent
 
     protected override Element render()
     {
-        return new ReactWithDotNet.Libraries.mui.material.Switch
+        return new ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch
         {
             @checked = IsChecked,
             onChange = ValueChange,

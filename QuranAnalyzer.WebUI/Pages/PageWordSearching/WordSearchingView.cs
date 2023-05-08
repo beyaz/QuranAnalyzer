@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
 using QuranAnalyzer.WebUI.Pages.Shared;
-using Switch = ReactWithDotNet.Libraries.mui.material.Switch;
+using Switch = ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch;
 
 namespace QuranAnalyzer.WebUI.Pages.PageWordSearching;
 

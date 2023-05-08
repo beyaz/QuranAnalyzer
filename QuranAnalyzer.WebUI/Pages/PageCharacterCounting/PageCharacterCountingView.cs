@@ -74,7 +74,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                     
                     new FlexRowCentered
                     {
-                        new ReactWithDotNet.Libraries.mui.material.Switch
+                        new ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch
                         {
                             @checked = state.IncludeBismillah,
                             onChange = OnIncludeBismillahChanged,
