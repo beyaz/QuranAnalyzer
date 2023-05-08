@@ -55,11 +55,11 @@ public class PageSimpleDefinition : ReactPureComponent
 
             new ul(ul_style)
             {
-                (li)"- Kuranda yüksekten düşen kayaların Allah korkusu ile düştüklerinden bahsedilir.",
+                (li)"Kuranda yüksekten düşen kayaların Allah korkusu ile düştüklerinden bahsedilir.",
 
-                (li)"- Kuranda seçim özgürlüğünün başka varlıklara da teklif edildiği fakat sadece biz insanların bunu kabul ettiğinden ve bunun cahilce bir hareket oduğundan bahsedilir.",
+                (li)"Kuranda seçim özgürlüğünün başka varlıklara da teklif edildiği fakat sadece biz insanların bunu kabul ettiğinden ve bunun cahilce bir hareket oduğundan bahsedilir.",
 
-                (li)"- Kuranda göklerin Yaratıcı'nın sağ elinde dürülmüş olduğundan bahseder.",
+                (li)"Kuranda göklerin Yaratıcı'nın sağ elinde dürülmüş olduğundan bahseder.",
             },
 
             (p)"Eğer bu kitabın Yüceler Yücesi'nden geldiğine inanıyor isek bu gibi ifadeleri zihnimizde sağlam bir zemine oturtmalıyız.",
@@ -79,7 +79,7 @@ public class PageSimpleDefinition : ReactPureComponent
             },
 
             (p)" Özetle ateist sayısının sürekli arttığını da göz önüne alırsak şu soru oldukça yüksek sesle sorulmaya başlandı. ",
-            (strong)" Ne malum Kuranın Allah kelamı olduğu ?",
+            (strong)" Ne malum Kuranın Allah kelamı olduğu?",
 
             new p
             {
@@ -109,7 +109,7 @@ public class PageSimpleDefinition : ReactPureComponent
             {
                 " İddia kısaca bu şekildedir. Gelin bu iddiayı beraber inceleyelim. Yalnız başımıza karar verelim.",
                 (strong)" Bu sitedeki anlatılan kısım 19 sisteminin en temel verisi olup sadece başlangıç harfleri ile ilgili kısımdır.",
-                " Bunun dışında 19 sisteminin alt başlıkları diyebileceğimiz  büyük sayılar ile ilgili veyahut harflerin sayısal değerleri ile ilgili başka bir çok ilginç verisi var."
+                " Bunun dışında 19 sisteminin alt başlıkları diyebileceğimiz  büyük sayılar ile ilgili veya harflerin sayısal değerleri ile ilgili başka bir çok ilginç verisi var."
             }
         };
     }
