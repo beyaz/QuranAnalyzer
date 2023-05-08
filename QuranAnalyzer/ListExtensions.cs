@@ -96,7 +96,7 @@ public static class ListExtensions
             var response = func(element);
             if (response.IsFail)
             {
-                return response.Errors.ToArray();
+                return response.ErrorsAsArray;
             }
 
             result = accumulate(result, response.Value);

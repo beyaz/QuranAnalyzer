@@ -221,12 +221,12 @@ public static class FpExtensions
     {
         if (responseA.IsFail)
         {
-            return responseA.Errors.ToArray();
+            return responseA.ErrorsAsArray;
         }
 
         if (responseB.IsFail)
         {
-            return responseB.Errors.ToArray();
+            return responseB.ErrorsAsArray;
         }
 
         return fn(responseA.Value, responseB.Value);
@@ -251,7 +251,7 @@ public static class FpExtensions
             var response = convertFunc(item);
             if (response.IsFail)
             {
-                return response.Errors.ToArray();
+                return response.ErrorsAsArray;
             }
 
             result.Add(response.Value);
@@ -295,7 +295,7 @@ public static class FpExtensions
     {
         if (responseA.IsFail)
         {
-            return responseA.Errors.ToArray();
+            return responseA.ErrorsAsArray;
         }
 
         return func1(responseA.Value);
@@ -305,7 +305,7 @@ public static class FpExtensions
     {
         if (response.IsFail)
         {
-            return response.Errors.ToArray();
+            return response.ErrorsAsArray;
         }
 
         return nextFunc(response.Value);
@@ -315,12 +315,12 @@ public static class FpExtensions
     {
         if (response.a.IsFail)
         {
-            return response.a.Errors.ToArray();
+            return response.a.ErrorsAsArray;
         }
 
         if (response.b.IsFail)
         {
-            return response.b.Errors.ToArray();
+            return response.b.ErrorsAsArray;
         }
 
         return nextFunc(response.a.Value, response.b.Value);
@@ -330,7 +330,7 @@ public static class FpExtensions
     {
         if (response.IsFail)
         {
-            return response.Errors.ToArray();
+            return response.ErrorsAsArray;
         }
 
         return nextFunc(response.Value);
