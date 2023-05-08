@@ -212,12 +212,12 @@ public sealed class Response<TValue> : Response
 
 public static class FpExtensions
 {
-    public static Response<B> Apply<A, B>(Func<A, Response<B>> functionAToB, A a)
+    public static Response<TB> Apply<TA, TB>(Func<TA, Response<TB>> functionAToB, TA a)
     {
         return functionAToB(a);
     }
 
-    public static Response<C> Apply<A, B, C>(Func<A, B, Response<C>> fn, Response<A> responseA, Response<B> responseB)
+    public static Response<TC> Apply<TA, TB, TC>(Func<TA, TB, Response<TC>> fn, Response<TA> responseA, Response<TB> responseB)
     {
         if (responseA.IsFail)
         {
@@ -291,7 +291,7 @@ public static class FpExtensions
         return Try(() => int.Parse(value));
     }
 
-    public static Response<B> Pipe<A, B>(Response<A> responseA, Func<A, Response<B>> func1)
+    public static Response<TB> Pipe<TA, TB>(Response<TA> responseA, Func<TA, Response<TB>> func1)
     {
         if (responseA.IsFail)
         {
@@ -301,7 +301,7 @@ public static class FpExtensions
         return func1(responseA.Value);
     }
 
-    public static Response<B> Then<A, B>(this Response<A> response, Func<A, Response<B>> nextFunc)
+    public static Response<TB> Then<TA, TB>(this Response<TA> response, Func<TA, Response<TB>> nextFunc)
     {
         if (response.IsFail)
         {
@@ -311,7 +311,7 @@ public static class FpExtensions
         return nextFunc(response.Value);
     }
 
-    public static Response<C> Then<A, B, C>(this (Response<A> a, Response<B> b) response, Func<A, B, Response<C>> nextFunc)
+    public static Response<TC> Then<TA, TB, TC>(this (Response<TA> a, Response<TB> b) response, Func<TA, TB, Response<TC>> nextFunc)
     {
         if (response.a.IsFail)
         {
@@ -326,7 +326,7 @@ public static class FpExtensions
         return nextFunc(response.a.Value, response.b.Value);
     }
 
-    public static Response<B> Then<A, B>(this Response<A> response, Func<A, B> nextFunc)
+    public static Response<TB> Then<TA, TB>(this Response<TA> response, Func<TA, TB> nextFunc)
     {
         if (response.IsFail)
         {
@@ -336,7 +336,7 @@ public static class FpExtensions
         return nextFunc(response.Value);
     }
 
-    public static B Then<A, B>(this Response<A> response, Func<A, B> successFunc, Func<string, B> failFunc)
+    public static TB Then<TA, TB>(this Response<TA> response, Func<TA, TB> successFunc, Func<string, TB> failFunc)
     {
         if (response.IsFail)
         {
@@ -346,7 +346,7 @@ public static class FpExtensions
         return successFunc(response.Value);
     }
 
-    public static C Then<A, B, C>(this Response<(A, B)> response, Func<A, B, C> successFunc, Func<string, C> failFunc)
+    public static TC Then<TA, TB, TC>(this Response<(TA, TB)> response, Func<TA, TB, TC> successFunc, Func<string, TC> failFunc)
     {
         if (response.IsFail)
         {
@@ -356,7 +356,7 @@ public static class FpExtensions
         return successFunc(response.Value.Item1, response.Value.Item2);
     }
 
-    public static D Then<A, B, C, D>(this Response<(A, B, C)> response, Func<A, B, C, D> successFunc, Func<string, D> failFunc)
+    public static TD Then<TA, TB, TC, TD>(this Response<(TA, TB, TC)> response, Func<TA, TB, TC, TD> successFunc, Func<string, TD> failFunc)
     {
         if (response.IsFail)
         {
@@ -366,14 +366,14 @@ public static class FpExtensions
         return successFunc(response.Value.Item1, response.Value.Item2, response.Value.Item3);
     }
 
-    public static Response<IReadOnlyList<A>> ToReadOnlyList<A>(this Response<A> response)
+    public static Response<IReadOnlyList<TA>> ToReadOnlyList<TA>(this Response<TA> response)
     {
         if (response.IsFail)
         {
             return response.ErrorsAsArray;
         }
 
-        return new List<A> { response.Value };
+        return new List<TA> { response.Value };
     }
 
     static Response<T> Try<T>(Func<T> func)
