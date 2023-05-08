@@ -53,32 +53,27 @@ public class Response
     /// <summary>
     ///     The errors
     /// </summary>
-    protected readonly List<Error> errors = new();
-
-    /// <summary>
-    ///     Gets the results.
-    /// </summary>
-    public IReadOnlyList<Error> Errors => errors;
-
+    protected readonly List<Error> Errors = new();
+    
     /// <summary>
     ///     Returns as array of errors
     /// </summary>
-    public Error[] ErrorsAsArray => errors.ToArray();
+    public Error[] ErrorsAsArray => Errors.ToArray();
 
     /// <summary>
     ///     Gets the fail message.
     /// </summary>
-    public string FailMessage => string.Join(Environment.NewLine, errors.Select(e => e.Message));
+    public string FailMessage => string.Join(Environment.NewLine, Errors.Select(e => e.Message));
 
     /// <summary>
     ///     Gets a value indicating whether this instance is fail.
     /// </summary>
-    public bool IsFail => errors.Count > 0;
+    public bool IsFail => Errors.Count > 0;
 
     /// <summary>
     ///     Gets a value indicating whether this instance is success.
     /// </summary>
-    public bool IsSuccess => errors.Count == 0;
+    public bool IsSuccess => Errors.Count == 0;
 
     /// <summary>
     ///     Fails the specified error message.
@@ -87,7 +82,7 @@ public class Response
     {
         return new Response
         {
-            errors = { errorMessage }
+            Errors = { errorMessage }
         };
     }
 
@@ -95,8 +90,8 @@ public class Response
     {
         var response = new Response();
 
-        response.errors.AddRange(responseX.ErrorsAsArray);
-        response.errors.AddRange(responseY.ErrorsAsArray);
+        response.Errors.AddRange(responseX.ErrorsAsArray);
+        response.Errors.AddRange(responseY.ErrorsAsArray);
 
         return response;
     }
@@ -108,7 +103,7 @@ public class Response
     {
         var response = new Response();
 
-        response.errors.Add(exception);
+        response.Errors.Add(exception);
 
         return response;
     }
@@ -120,7 +115,7 @@ public class Response
     {
         var response = new Response();
 
-        response.errors.Add(error);
+        response.Errors.Add(error);
 
         return response;
     }
@@ -141,7 +136,7 @@ public sealed class Response<TValue> : Response
     {
         var newResponse = new Response<TValue>();
 
-        newResponse.errors.AddRange(response.ErrorsAsArray);
+        newResponse.Errors.AddRange(response.ErrorsAsArray);
 
         return newResponse;
     }
@@ -153,7 +148,7 @@ public sealed class Response<TValue> : Response
     {
         var response = new Response<TValue>();
 
-        response.errors.Add(exception);
+        response.Errors.Add(exception);
 
         return response;
     }
@@ -165,7 +160,7 @@ public sealed class Response<TValue> : Response
     {
         var response = new Response<TValue>();
 
-        response.errors.Add(error);
+        response.Errors.Add(error);
 
         return response;
     }
@@ -174,7 +169,7 @@ public sealed class Response<TValue> : Response
     {
         var response = new Response<TValue>();
 
-        response.errors.Add(error);
+        response.Errors.Add(error);
 
         return response;
     }
@@ -186,7 +181,7 @@ public sealed class Response<TValue> : Response
     {
         var response = new Response<TValue>();
 
-        response.errors.AddRange(errors);
+        response.Errors.AddRange(errors);
 
         return response;
     }
