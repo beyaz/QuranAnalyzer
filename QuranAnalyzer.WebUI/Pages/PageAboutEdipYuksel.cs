@@ -24,13 +24,12 @@ public class PageAboutEdipYuksel : ReactPureComponent
                 "Edip'in eleştiriye maruz kaldığı noktalar ise şu şekilde;",
                 separation,
 
-                "Temsil konumunda olan birinin biraz daha dikkatli davranması gerekiyor.",
-                br,
-                "Bunu biraz açayım. Maalesef insanlar fikirler ile insanları özdeştiriyorlar ve insanın hatalarını fıtratlarını otomatikman fikirlere nispet ediyorlar.",
+                "Maalesef insanlar fikirler ile insanları özdeştiriyorlar ve insanın hatalarını veya fıtratlarını otomatikman fikirlere nispet ediyorlar.",
                 " Edip de zaten kendini Sokrates misali insanları rahatsız eden bir ", (b)"at sineği", " olarak tanımlıyor.",
                 " Haliyle kimine göre bu tavır itici olarak gelebiliyor ve Edip'in söylediği bazı sözlerin-fikirlerin de otomatikman kulak ardı edilmesine sebep oluyor.",
 
                 " Yahut Edip'in yalnızca Kuran söyleminin yanlış anlaşılmasına sebep olabiliyor.",
+                " Fikirler ile o fikirleri söyleyenlerin şahsi fikirleri bazen karıştırılır.",
                 separation,
 
                 "Sanki Edip, Reşad'ın bir numaralı talebesi imiş gibi, her yönü ile Reşad'ın fikirlerini aktaran biriymiş gibi anlaşılabiliyor.",
@@ -53,6 +52,6 @@ public class PageAboutEdipYuksel : ReactPureComponent
             }
         };
 
-        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation() => new span(DisplayFlexRowCentered, MarginTopBottom(10)) { "* * *" };
     }
 }
