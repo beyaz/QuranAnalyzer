@@ -20,7 +20,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
  Umarım faydalı olur."
             },
 
-            (h5)"İlk Yıllar ve Kariyer",
+            (h4)"İlk Yıllar ve Kariyer",
             new p
             {
                 new img { Src(FileAtImgFolder("rh.png")), Alt("Reşad Halife"), Width(200), HeightAuto, FloatLeft, MarginRight(20) },
@@ -35,7 +35,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
             {
                 "30'lu yaşlarda Amerika'ya gelince bir yandan doktorasını tamamlarken bir yandan da İngilizce yazılmış Kuran meallerinin çoğunu okuyor. ",
                 "Eski tefsirleri zaten Mısırdayken inceleyen biri. Anadili zaten Arapça. ",
-                "Yazılan İngilizce Kuran çevirilerini inceledikten sonra fark ediyor ki bu çevirilerdeki eksik gördüğü ve tevhide uymayan fikirler olduğunu görüyor. ",
+                "Yazılan İngilizce Kuran çevirilerini inceledikten sonra fark ediyor ki bu çevirilerdeki eksik gördüğü ve tevhide uymayan fikirler olduğunu gözlemliyor. ",
                 "En azından kendi evlatlarımın okuyabileceği Tevhidi merkez alan bir çeviri yapma niyeti ile çeviriye başladığını kendisi söylüyor. ",
                 "Bir ayetin manasını tam anlamadan ötekine  geçmeyeceğine dair kendine de şart koşuyor. ",
                 "1. sureyi çevirdikten sonra 2. sureye geliyor ve sure başındaki elif-lam-mim harflerine gelince takılıyor. ",
@@ -59,7 +59,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                 "Bu buluştan sonra bir anda İslam dünyasında popüler oluyor. Öyle ki Libya-İran gibi ülkelerden devlet başkanları seviyesinde özel davetler alıyor. ",
                 "Hatta Türkiye'de bile yankı buluyor. Öte yandan Reşad başka kitaplar yazılar makaleler de yayınlıyor. ",
                 "İşte Reşad'ın fikirleri de bu yayınlar sayesinde duyulmaya başlayınca eskiden el üstünde tutulan bu insan artık ismi duyulunca geri adım atılan biri haline dönüşüyor. ",
-                "Peki nedir bu adamın savunduğu fikirler? Bu fikirlerden bazılarını çok kısa şekilde belirtmeye çalıştım. Yazıda ben kendi anladıklarımı ifade etmeye çalıştım bu sebeple üsluba pek takılmayın. "
+                "Peki nedir bu adamın savunduğu fikirler? Bu fikirlerden bazılarını çok kısa şekilde belirtmeye çalıştım. Yazıda ben kendi anladıklarımı ifade etmeye çalıştım bu sebeple üslubuma pek takılmamanızı rica ediyorum. "
             },
 
             new ul
@@ -213,7 +213,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     br,br,
                     "- Velevki Kuranda namaz anlatılmış olsaydı yine de detay sormayacağına emin misin?",
                     " Kuranı yetiremeyen bir kişi muhtemelen yine şu soruları soracak. Oturuşta işaret parmağı kaldırılacak mı? kaldırılmayacak mı? kaldırılacak ise kaç saniye kaldırılacak? " ,
-                    " 4 rekatlı namazda ilk oturuşta mı yoksa ikinci oturuşda mı kaldırılacak? gibi gibi..",
+                    " 4 rekatlı namazda ilk oturuşta mı yoksa ikinci oturuşda mı kaldırılacak? gibi gibi.. Yaradana içten yakarmak yerine şekilde takılı kalınıyor.",
                     br,
                     br,
                     "-Namaz ibrahim peygamber aracılığı ile gelen ibadet pratiklerindendir. ",
