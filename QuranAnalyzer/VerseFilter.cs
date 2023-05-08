@@ -128,9 +128,9 @@ public static class VerseFilter
                 return chapter.FailMessage;
             }
 
-            if (VerseFilterHasSpecificRange(verseFilter: arr[1]))
+            if (verseFilterHasSpecificRange(verseFilter: arr[1]))
             {
-                return GetVerseWithSpecificRange(chapter.Value, verseFilter: arr[1]);
+                return getVerseWithSpecificRange(chapter.Value, verseFilter: arr[1]);
             }
 
             var verseNumber = ParseInt(arr[1]);
@@ -204,9 +204,9 @@ public static class VerseFilter
                         return chapter.Verses.ToArray();
                     }
 
-                    if (VerseFilterHasSpecificRange(verseFilter))
+                    if (verseFilterHasSpecificRange(verseFilter))
                     {
-                        return GetVerseWithSpecificRange(chapter, verseFilter).ToReadOnlyList();
+                        return getVerseWithSpecificRange(chapter, verseFilter).ToReadOnlyList();
                     }
 
                     return ParseInt(filters[0]).Then(selectOne);
@@ -251,12 +251,12 @@ public static class VerseFilter
             }
         }
 
-        static bool VerseFilterHasSpecificRange(string verseFilter)
+        static bool verseFilterHasSpecificRange(string verseFilter)
         {
             return verseFilter.Contains('[') && verseFilter.Contains(']') && verseFilter.Contains("..");
         }
 
-        static Response<Verse> GetVerseWithSpecificRange(Chapter chapter, string verseFilter)
+        static Response<Verse> getVerseWithSpecificRange(Chapter chapter, string verseFilter)
         {
             var parseError = (Error)$"Sure seçiminde yanlışlık var.{verseFilter}";
 
