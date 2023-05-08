@@ -24,8 +24,7 @@ public static class QuranQuery
             return returnList;
         }
 
-        var i = 0;
-        var j = 0;
+        int i;
 
         for (i = 0; i < source.Count; i++)
         {
@@ -35,6 +34,7 @@ public static class QuranQuery
             }
 
             var isMatch = true;
+            int j;
             for (j = 0; j < search.Count; j++)
             {
                 if (!source[i + j].HasValueAndSameAs(search[j]))
