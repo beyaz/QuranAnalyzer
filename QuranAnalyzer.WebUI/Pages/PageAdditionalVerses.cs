@@ -135,7 +135,7 @@ public class PageAdditionalVerses : ReactPureComponent
             {
                 "Mesele etrafında dönen tartışmayı aktarmaya çalıştım. Umarım faydalı olmuştur.",
                 br,
-                "Ufak da olsa kendi anlayışımı ifade istiyorum. ",
+                "Ufak da olsa kendi anlayışımı ifade etmek istiyorum. ",
                 "Açıkçası hayatında Kuran olmayan birinin Tevbe 128-129 Kuran'dandır veya değildir demesinin bence bir anlamı yok. ",
                 "Yılan adamı yarı beline kadar yutmuş fakat adam az önce ensesinden ısıran sivri sineğin derdine düşmüş. ",
                 br,
