@@ -66,9 +66,10 @@ public class PageAdditionalVerses : ReactPureComponent
                 "19 sistemini ilk keşfeden kişi Reşad yaptığı ilk sayımlarda tevbe suresine 128-129 dahil ederek sayımları yapıyor.",
                 " Ama bilgisayar Allah kelimesi sayımlarını bir fazla vermesi gerekirken bir eksik veriyor.",
                 " Hatta ilk kitabın ilk baskısında bu haliyle çıkıyor.",
-                " Daha sonrasında Reşad bizzat Cebrail aracılığı ile bu bilgi kendisine veriliyor. Özetle Tevbe suresindeki 128. 129'uncu sözler Kurana ait değildir bilgisini alıyor.",
-                " Aynı zamanda sayımları tekrar gözden geçiriyor ve normalde bir fazla vermesi gereken Allah kelimesi bilgisayar tarafından bir eksik verildiğini görüyor. Kendisi de şaşırıyor.",
-                " Bunun üzerine bu iki sözün Kurandan olmadığına dair matemaiksel veriler de gösteriyor.",
+                " Daha sonrasında Cebrail aracılığı ile bu bilgi kendisine veriliyor.",
+                " Özetle Tevbe suresindeki 128. 129'uncu sözler Kurana ait değildir bilgisini alıyor.",
+                " Aynı zamanda sayımları tekrar gözden geçiriyor ve normalde bir fazla vermesi gereken Allah kelimesinin bilgisayar tarafından bir eksik verildiğini görüyor. Kendisi de şaşırıyor.",
+                " Bunun üzerine bu iki sözün Kurandan olmadığına dair matemaiksel veriler de ortaya çıkıyor.",
                 " Ben sadece bu örneklerden bir tanesini aşağıdaki link üzerinde gösterdim. Dileyen var ise inceleyebilir. Aşağıdaki örnek gibi 70 den fazla örnek var."
             },
             new FlexRowCentered
