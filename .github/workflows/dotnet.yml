@@ -36,6 +36,7 @@ jobs:
         Remove-Item 'package.json'
         Remove-Item 'package-lock.json'
         Remove-Item 'index.jsx'
+        Remove-Item 'index-dev.jsx'
       shell: pwsh
 
       ##################
