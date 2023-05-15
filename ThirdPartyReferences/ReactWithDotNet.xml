@@ -64,6 +64,11 @@
                 <br>alignItems     = "center"</br>
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.Mixin.Flex(System.Int32,System.Int32,ReactWithDotNet.CssUnit)">
+            <summary>
+                Shorthand property for assign Flex properties
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.Alt(System.String)">
             <summary>
                 img.alt = <paramref name="alt" />
@@ -127,6 +132,11 @@
         <member name="P:ReactWithDotNet.Mixin.DisplayBlock">
             <summary>
                 style.display = 'block'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.DisplayInlineBlock">
+            <summary>
+                style.display = inline-block
             </summary>
         </member>
         <member name="P:ReactWithDotNet.Mixin.DisplayFlex">
@@ -314,6 +324,42 @@
         <member name="M:ReactWithDotNet.Mixin.FlexGrow(System.Double)">
             <summary>
                 style.flexGrow = <paramref name="growValue" />
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.FlexShrink(System.Double)">
+            <summary>
+                Specifies how the item will shrink relative to the rest of the flexible items inside the same container.
+                <br/>
+                style.flexShrink = <paramref name="value" />
+                <br/>
+                Note: If the element is not a flexible item, the flex-shrink property has no effect.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.FlexBasis(System.String)">
+            <summary>
+                Specifies the initial length of a flexible item.
+                <br/>
+                style.flexBasis = <paramref name="value" />
+                <br/>
+                Note: If the element is not a flexible item, the flex-shrink property has no effect.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.FlexBasis(System.Double)">
+            <summary>
+                Specifies the initial length of a flexible item.
+                <br/>
+                style.flexBasis = <paramref name="value" /> + <b>px</b>
+                <br/>
+                Note: If the element is not a flexible item, the flex-shrink property has no effect.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.FlexBasisAuto">
+            <summary>
+                Specifies the initial length of a flexible item.
+                <br/>
+                style.flexBasis = auto
+                <br/>
+                Note: If the element is not a flexible item, the flex-shrink property has no effect.
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.Float(System.String)">
@@ -823,6 +869,21 @@
                 style.wordBreak = <paramref name="value" />
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.Mixin.WordWrap(System.String)">
+            <summary>
+                style.wordWrap = <paramref name="value" />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.WordWrapNormal">
+            <summary>
+                style.wordWrap = normal
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.WordWrapBreakWord">
+            <summary>
+                style.wordWrap = break-word
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.Mixin.Opacity0">
             <summary>
                 style.opacity = 0
@@ -1072,6 +1133,21 @@
                 <br />
                 This property tells the content to fill the container in a variety of ways; such as "preserve that aspect ratio" or
                 "stretch up and take up as much space as possible".
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.BackgroundSize(System.String)">
+            <summary>
+                style.backgroundSize = <paramref name="value" />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.BackgroundSizeCover">
+            <summary>
+                style.backgroundSize = cover
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.BackgroundSizeContain">
+            <summary>
+                style.backgroundSize = contain
             </summary>
         </member>
         <member name="T:ReactWithDotNet.article">
