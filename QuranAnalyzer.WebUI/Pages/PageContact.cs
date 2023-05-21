@@ -33,7 +33,7 @@ public class PageContact : ReactPureComponent
                 "Eğer programlama biliyorsanız bu kodları kullanarak kendi analizlerinizi yapabilirsiniz.",
                 br,
                 br,
-                new a(DisplayFlexRowCentered) { href = "https://github.com/beyaz/QuranAnalyzer", text = "github" }
+                new a(DisplayFlexRowCentered) { href = "https://github.com/beyaz/QuranAnalyzer", text = "https://github.com/beyaz/QuranAnalyzer" }
             },
             new span(DisplayFlexRowCentered)
             {
