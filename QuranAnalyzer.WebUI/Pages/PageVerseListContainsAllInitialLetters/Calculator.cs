@@ -1,5 +1,5 @@
 ﻿using System.Collections.Immutable;
-
+using System.Threading.Tasks;
 
 namespace QuranAnalyzer.WebUI.Pages.PageVerseListContainsAllInitialLetters;
 
@@ -20,13 +20,15 @@ class Calculator : ReactComponent<CalculatorModel>
 
     public bool ShowVerseList { get; set; }
 
-    protected override void constructor()
+    protected override Task constructor()
     {
         state = new CalculatorModel
         {
             SearchScript = SearchScript,
             Letters      = Letters
         };
+
+        return Task.CompletedTask;
     }
 
     protected override Element render()

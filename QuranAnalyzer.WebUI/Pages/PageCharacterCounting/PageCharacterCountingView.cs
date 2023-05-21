@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Threading.Tasks;
 using QuranAnalyzer.WebUI.Pages.Shared;
 
 namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
@@ -21,7 +22,7 @@ public class PageCharacterCountingViewModel
 
 class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
 {
-    protected override void constructor()
+    protected override Task constructor()
     {
         state = new PageCharacterCountingViewModel();
 
@@ -33,7 +34,8 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
             {
                 state.SearchScriptErrorMessage = parseResponse.FailMessage;
                 Client.GotoMethod(3000, ClearErrorMessage);
-                return;
+
+                return Task.CompletedTask;
             }
 
             state.SearchScript = parseResponse.Value.AsReadableString();
@@ -45,6 +47,8 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         }
 
         Client.OnArabicKeyboardPressed(ArabicKeyboardPressed);
+
+        return Task.CompletedTask;
     }
 
     protected override Element render()

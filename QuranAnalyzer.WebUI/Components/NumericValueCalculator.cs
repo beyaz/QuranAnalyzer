@@ -1,4 +1,6 @@
-﻿namespace QuranAnalyzer.WebUI.Components;
+﻿using System.Threading.Tasks;
+
+namespace QuranAnalyzer.WebUI.Components;
 
 class NumericValueCalculatorModel
 {
@@ -11,12 +13,14 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
 {
     public string Letters;
 
-    protected override void constructor()
+    protected override Task constructor()
     {
         state = new NumericValueCalculatorModel
         {
             Letters = Letters
         };
+
+        return Task.CompletedTask;
     }
 
     protected override Element render()

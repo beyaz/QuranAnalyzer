@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using System.Threading.Tasks;
 
 namespace QuranAnalyzer.WebUI.Pages.CountOfAllahPage;
 
@@ -21,13 +22,15 @@ class Calculator : ReactComponent<CalculatorModel>
 
     public bool ShowVerseList { get; set; }
 
-    protected override void constructor()
+    protected override Task constructor()
     {
         state = new CalculatorModel
         {
             SearchScript = SearchScript,
             Word         = Word
         };
+
+        return Task.CompletedTask;
     }
 
     protected override Element render()

@@ -510,6 +510,11 @@
                 </br>
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.Mixin.DangerouslySetInnerHTML(System.String)">
+            <summary>
+                Assign dangerouslySetInnerHTML of given element
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.Title(System.String)">
             <summary>
                 element.title = title
@@ -2196,21 +2201,11 @@
                 Props applied to the `TouchRipple` element.
             </summary>
         </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Card.classes">
-            <summary>
-                Override or extend the styles applied to the component.
-            </summary>
-        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Card.raised">
             <summary>
                 If `true`, the card will use raised styling.
                 <br/>
                 @default false
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Card.sx">
-            <summary>
-                The system prop that allows defining system overrides as well as additional CSS styles.
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.CardActions.classes">
@@ -2322,16 +2317,6 @@
                 @default 'fullWidth'
             </summary>
         </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.ElementBase.sx">
-            <summary>
-                The system prop that allows defining system overrides as well as additional CSS styles.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.IconButton.classes">
-            <summary>
-                Override or extend the styles applied to the component.
-            </summary>
-        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.IconButton.color">
             <summary>
                 The color of the component.
@@ -2341,13 +2326,6 @@
                 [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
                 <br/>
                 @default 'default'
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.IconButton.disabled">
-            <summary>
-                If `true`, the component is disabled.
-                <br/>
-                @default false
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.IconButton.disableFocusRipple">
@@ -2379,21 +2357,6 @@
                 @default 'medium'
             </summary>
         </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.IconButton.sx">
-            <summary>
-                The system prop that allows defining system overrides as well as additional CSS styles.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch.checkedIcon">
-            <summary>
-                The icon to display when the component is checked.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch.classes">
-            <summary>
-                Override or extend the styles applied to the component.
-            </summary>
-        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch.color">
             <summary>
                 The color of the component.
@@ -2405,16 +2368,6 @@
                 @default 'primary'
             </summary>
         </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch.disabled">
-            <summary>
-                If `true`, the component is disabled.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch.icon">
-            <summary>
-                The icon to display when the component is unchecked.
-            </summary>
-        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch.size">
             <summary>
                 The size of the component.
@@ -2422,18 +2375,6 @@
                 `small` is equivalent to the dense switch styling.
                 <br/>
                 @default 'medium'
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch.sx">
-            <summary>
-                The system prop that allows defining system overrides as well as additional CSS styles.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch.value">
-            <summary>
-                The value of the component. The DOM API casts this to a string.
-                <br/>
-                The browser uses "on" as the default value.
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.TextField.valueBindDebounceHandler">
@@ -2655,26 +2596,9 @@
                 If `true`, the component is checked.
             </summary>
         </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.SwitchBase.classes">
-            <summary>
-                Override or extend the styles applied to the component.
-            </summary>
-        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.SwitchBase.defaultChecked">
             <summary>
                 The default checked state. Use when the component is not controlled.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.SwitchBase.disabled">
-            <summary>
-                If `true`, the component is disabled.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.SwitchBase.disableRipple">
-            <summary>
-                If `true`, the ripple effect is disabled.
-                <br/>
-                @default false
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.SwitchBase.disableFocusRipple">
@@ -2715,7 +2639,19 @@
                 Name attribute of the `input` element.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.SwitchBase.readOnly" -->
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.SwitchBase.readOnly">
+            <summary>
+                Callback fired when the state is changed.
+                <br/>
+                <br/>
+                <br/>
+                @param {React.ChangeEvent&lt;HTMLInputElement&gt;} event The event source of the callback.
+                <br/>
+                You can pull out the new value by accessing `event.target.value` (string).
+                <br/>
+                You can pull out the new checked state by accessing `event.target.checked` (boolean).
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.SwitchBase.required">
             <summary>
                 If `true`, the `input` element is required.
@@ -2986,7 +2922,43 @@
                 @default 'body1'
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Typography.variantMapping" -->
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Typography.variantMapping">
+            <summary>
+                The component maps the variant prop to a range of different HTML element types.
+                <br/>
+                For instance, subtitle1 to `&lt;h6&gt;`.
+                <br/>
+                If you wish to change that mapping, you can provide your own.
+                <br/>
+                Alternatively, you can use the `component` prop.
+                <br/>
+                @default {
+                <br/>
+                h1: 'h1',
+                <br/>
+                h2: 'h2',
+                <br/>
+                h3: 'h3',
+                <br/>
+                h4: 'h4',
+                <br/>
+                h5: 'h5',
+                <br/>
+                h6: 'h6',
+                <br/>
+                subtitle1: 'h6',
+                <br/>
+                subtitle2: 'h6',
+                <br/>
+                body1: 'p',
+                <br/>
+                body2: 'p',
+                <br/>
+                inherit: 'p',
+                <br/>
+                }
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.PrimeReact.AutoComplete`1.delay">
             <summary>
             Delay between keystrokes to wait before sending a query.
@@ -3676,11 +3648,6 @@
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.ReactAwesomeReveal.RevealBase.childStyle">
             <summary>
                 <br /> Inline styles to add to the child element.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.ReactAwesomeReveal.RevealBase.className">
-            <summary>
-                <br /> Class names to add to the container element.
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.ReactAwesomeReveal.RevealBase.damping">

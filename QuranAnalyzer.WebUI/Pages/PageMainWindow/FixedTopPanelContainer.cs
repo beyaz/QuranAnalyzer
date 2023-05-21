@@ -1,4 +1,6 @@
-﻿namespace QuranAnalyzer.WebUI.Pages.PageMainWindow;
+﻿using System.Threading.Tasks;
+
+namespace QuranAnalyzer.WebUI.Pages.PageMainWindow;
 
 class FixedTopPanelContainerModel
 {
@@ -8,11 +10,13 @@ class FixedTopPanelContainerModel
 
 class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
 {
-    protected override void constructor()
+    protected override Task constructor()
     {
         state = new FixedTopPanelContainerModel();
 
         Client.OnMainContentDivScrollChangedOverZero(mainDivScrollY => state.MainDivScrollY = mainDivScrollY);
+
+        return Task.CompletedTask;
     }
 
     bool IsMenuVisible => Context.Query[QueryKey.Page] == PageId.MobileMenu;

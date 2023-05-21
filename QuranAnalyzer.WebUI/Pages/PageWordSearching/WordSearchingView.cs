@@ -27,7 +27,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         return Task.CompletedTask;
     }
 
-    protected override void constructor()
+    protected override Task constructor()
     {
         state = new WordSearchingViewModel();
 
@@ -39,13 +39,16 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             {
                 state.SearchScriptErrorMessage = parseResponse.FailMessage;
                 Client.GotoMethod(3000, ClearErrorMessage);
-                return;
+
+                return Task.CompletedTask;
             }
 
             state.SearchScript = parseResponse.Value.AsReadableString();
         }
 
         state.SearchOption = Context.Query[QueryKey.SearchOption] ?? WordSearchOption.Same;
+
+        return Task.CompletedTask;
     }
 
     protected override Element render()
