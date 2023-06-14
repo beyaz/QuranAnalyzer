@@ -69,9 +69,9 @@ public class CustomCountingTests
         {
             foreach (var combination in CreateCombinations(string.Join(string.Empty,allCharachtersAsList), targetLength))
             {
-                if (GetNumericValueOfString(combination) == requestedNumericValue)
+                if (Calculator.GetNumericValue(combination) == requestedNumericValue)
                 {
-                    if (GetOrderValueOfString(combination) == requestedOrderNumber)
+                    if (Calculator.GetOrderValue(combination) == requestedOrderNumber)
                     {
                         numberOfFounds++;
                         //w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
