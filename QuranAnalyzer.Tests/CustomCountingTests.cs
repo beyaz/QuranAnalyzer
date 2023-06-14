@@ -1,8 +1,12 @@
-﻿using System.Numerics;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Numerics;
 using System.Text;
 using static QuranAnalyzer.QuranAnalyzerMixin;
 using static QuranAnalyzer.ArabicLetterIndex;
 using static QuranAnalyzer.VerseFilter;
+using System;
+using System.Collections.Immutable;
 
 namespace QuranAnalyzer;
 
@@ -32,5 +36,78 @@ public class CustomCountingTests
         var remaining = num % 667;
 
         remaining.Should().Be(114);
+    }
+    
+    //[TestMethod]
+    public void __667__()
+    {
+
+        var allCharachters = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي";
+        var allCharachtersNumericValues = "1 2 400 500 3 8 600 4 700 200 7 60 300 90 800 9 900 70 1000 80 100 20 30 40 50 5 6 10";
+        var targetLength = 12;
+        var requestedNumericValue = 667;
+        var requestedOrderNumber = 109;
+        
+
+        var allCharachtersAsList = allCharachters.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x=>x[0]).ToImmutableList();
+        var allCharachtersNumericValuesAsList = allCharachtersNumericValues.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToImmutableList();
+        
+        if (allCharachtersAsList.Count != allCharachtersNumericValuesAsList.Count)
+        {
+            throw new Exception("wrong input");
+        }    
+        
+        var outputFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "A.txt");
+        
+        var numberOfProcessedItem = 0;
+        
+        using (StreamWriter w = File.AppendText(outputFilePath))
+        {
+            foreach (var combination in CreateCombinations(string.Join(string.Empty,allCharachtersAsList), targetLength))
+            {
+
+                if (combination.Select(getNumericValue).Sum() == requestedNumericValue)
+                {
+                    if (combination.Select(getOrderNumber).Sum() == requestedOrderNumber)
+                    {
+                        w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
+                    }
+                }
+
+                numberOfProcessedItem++;
+            }
+            
+            w.WriteLine($"numberOfProcessedItem: {numberOfProcessedItem}");
+        }
+
+        
+        int getNumericValue(char c)
+        {
+            return allCharachtersNumericValuesAsList[getCharachterIndex(c)];
+        }
+        
+        int getCharachterIndex(char c)
+        {
+            return allCharachtersAsList.IndexOf(c);
+        }
+        
+        int getOrderNumber(char c)
+        {
+            return getCharachterIndex(c) + 1;
+        }
+    }
+    
+    public IEnumerable<string> CreateCombinations(string input, int length)
+    {
+        foreach (var c in input)
+        {
+            if (length == 1)
+                yield return c.ToString();
+            else 
+            {
+                foreach (var s in CreateCombinations(input, length - 1))
+                    yield return c + s;
+            }
+        }
     }
 }
