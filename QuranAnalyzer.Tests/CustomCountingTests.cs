@@ -14,6 +14,11 @@ namespace QuranAnalyzer;
 public class CustomCountingTests
 {
     [TestMethod]
+    public void deneme()
+    {
+        Console.WriteLine("Deneme__5__6");
+    }
+    [TestMethod]
     public void All_Saad_Combined_as_ChapterNumber_VerseNumber_is_114_667()
     {
         var sb = new StringBuilder();
