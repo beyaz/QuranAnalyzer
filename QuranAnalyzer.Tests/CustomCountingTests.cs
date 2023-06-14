@@ -63,7 +63,7 @@ public class CustomCountingTests
         
         BigInteger numberOfProcessedItem = 0;
 
-        var numberOfFounds = 0;
+        BigInteger numberOfFounds = 0;
         
         //using (var w = File.AppendText(outputFilePath))
         {
