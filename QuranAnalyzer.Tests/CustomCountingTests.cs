@@ -46,7 +46,7 @@ public class CustomCountingTests
 
         var allCharachters = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي";
         var allCharachtersNumericValues = "1 2 400 500 3 8 600 4 700 200 7 60 300 90 800 9 900 70 1000 80 100 20 30 40 50 5 6 10";
-        var targetLength = 8;
+        var targetLength = 6;
         var requestedNumericValue = 667;
         var requestedOrderNumber = 109;
         
@@ -69,9 +69,9 @@ public class CustomCountingTests
         {
             foreach (var combination in CreateCombinations(string.Join(string.Empty,allCharachtersAsList), targetLength))
             {
-                if (combination.Select(GetNumericValue).Sum() == requestedNumericValue)
+                if (GetNumericValueOfString(combination) == requestedNumericValue)
                 {
-                    if (combination.Select(GetOrderNumber).Sum() == requestedOrderNumber)
+                    if (GetOrderValueOfString(combination) == requestedOrderNumber)
                     {
                         numberOfFounds++;
                         //w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
@@ -86,16 +86,41 @@ public class CustomCountingTests
             throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
         }
 
+
+
+
+
+        static BigInteger GetNumericValueOfString(string str)
+        {
+            BigInteger total = 0;
+
+            var len = str.Length;
+            
+            for (var i = 0; i < len; i++)
+            {
+                total += GetNumericValue(str[i]);
+            }
+
+            return total;
+        }
         
-       
-        
-        
-        
-        
+        static BigInteger GetOrderValueOfString(string str)
+        {
+            BigInteger total = 0;
+
+            var len = str.Length;
+            
+            for (var i = 0; i < len; i++)
+            {
+                total += GetOrderNumber(str[i]);
+            }
+
+            return total;
+        }
 
                           
 
-static int GetNumericValue(char c)
+        static int GetNumericValue(char c)
         {
             
             if(c == 'ا')
