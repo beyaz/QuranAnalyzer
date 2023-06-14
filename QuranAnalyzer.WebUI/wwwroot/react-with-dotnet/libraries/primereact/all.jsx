@@ -12,6 +12,7 @@ function register(name, value)
 function RegisterComponents()
 {
     // Connect components as Lazy
+    register("Avatar", React.lazy(() => import('./Avatar')));
     register("Button", React.lazy(() => import('./Button')));
     register("InputText", React.lazy(() => import('./InputText')));
     register("InputTextarea", React.lazy(() => import('./InputTextarea')));
@@ -78,9 +79,9 @@ function RegisterComponents()
 
 function RegisterGlobalStyles()
 {
-    ReactWithDotNet.TryLoadCssByHref("https://cdn.jsdelivr.net/npm/primeicons@5.0.0/primeicons.css");
-    ReactWithDotNet.TryLoadCssByHref("https://cdn.jsdelivr.net/npm/primereact@8.2.0/resources/primereact.min.css");
-    ReactWithDotNet.TryLoadCssByHref("https://cdn.jsdelivr.net/npm/primereact@8.2.0/resources/themes/saga-blue/theme.css");
+    ReactWithDotNet.TryLoadCssByHref("https://cdn.jsdelivr.net/npm/primeicons/primeicons.min.css");
+    ReactWithDotNet.TryLoadCssByHref("https://cdn.jsdelivr.net/npm/primereact/resources/primereact.min.css");
+    ReactWithDotNet.TryLoadCssByHref("https://cdn.jsdelivr.net/npm/primereact/resources/themes/saga-blue/theme.min.css");
 }
 
 var isFirstLoad = false;
@@ -104,4 +105,21 @@ ReactWithDotNet.BeforeAnyThirdPartyComponentAccess(dotNetFullClassNameOf3rdParty
     }
 });
 
+/**
+ * @param {string} dotNetFullClassNameOf3rdPartyComponent
+ */
+ReactWithDotNet.OnThirdPartyComponentPropsCalculated('ReactWithDotNet.ThirdPartyLibraries.PrimeReact.TabPanel', props =>
+{
+    if (props.headerTemplate)
+    {
+        var element = props.headerTemplate;
+
+        props.headerTemplate = (options) =>
+        {
+            return React.cloneElement(element, { onClick: options.onClick });
+        }
+    }
+
+    return props;
+});
 
