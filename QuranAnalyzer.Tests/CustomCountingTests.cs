@@ -46,7 +46,7 @@ public class CustomCountingTests
 
         var allCharachters = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي";
         var allCharachtersNumericValues = "1 2 400 500 3 8 600 4 700 200 7 60 300 90 800 9 900 70 1000 80 100 20 30 40 50 5 6 10";
-        var targetLength = 6;
+        var targetLength = 5;
         var requestedNumericValue = 667;
         var requestedOrderNumber = 109;
         
