@@ -13,12 +13,8 @@ namespace QuranAnalyzer;
 [TestClass]
 public class CustomCountingTests
 {
-    [TestMethod]
-    public void deneme()
-    {
-
-        throw new Exception("Deneme__5__6");
-    }
+    
+    
     [TestMethod]
     public void All_Saad_Combined_as_ChapterNumber_VerseNumber_is_114_667()
     {
@@ -44,7 +40,7 @@ public class CustomCountingTests
         remaining.Should().Be(114);
     }
     
-    //[TestMethod]
+    [TestMethod]
     public void __667__()
     {
 
@@ -63,11 +59,13 @@ public class CustomCountingTests
             throw new Exception("wrong input");
         }    
         
-        var outputFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "A.txt");
+        //var outputFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "A.txt");
         
         var numberOfProcessedItem = 0;
+
+        var numberOfFounds = 0;
         
-        using (StreamWriter w = File.AppendText(outputFilePath))
+        //using (var w = File.AppendText(outputFilePath))
         {
             foreach (var combination in CreateCombinations(string.Join(string.Empty,allCharachtersAsList), targetLength))
             {
@@ -76,14 +74,17 @@ public class CustomCountingTests
                 {
                     if (combination.Select(getOrderNumber).Sum() == requestedOrderNumber)
                     {
-                        w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
+                        numberOfFounds++;
+                        //w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
                     }
                 }
 
                 numberOfProcessedItem++;
             }
             
-            w.WriteLine($"numberOfProcessedItem: {numberOfProcessedItem}");
+            //w.WriteLine($"numberOfProcessedItem: {numberOfProcessedItem}");
+
+            throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
         }
 
         
