@@ -69,26 +69,14 @@ public class CustomCountingTests
         {
             var allLetters = string.Join(string.Empty, allCharachtersAsList);
 
-            numberOfFounds = CreateCombinations(allLetters, targetLength).AsParallel().Where(isOk).Count();
-            throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
-            
-            //foreach (var combination in CreateCombinations(allLetters, targetLength))
-            //{
-            //    //if (Calculator.GetNumericValue(combination) == requestedNumericValue)
-            //    //{
-            //    //    if (Calculator.GetOrderValue(combination) == requestedOrderNumber)
-            //    //    {
-            //    //        numberOfFounds++;
-            //    //        //w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
-            //    //    }
-            //    //}
+            foreach (var combination in CreateCombinations(allLetters, targetLength).AsParallel().Where(isOk))
+            {
+                numberOfFounds++;
+            }
 
-            //    numberOfProcessedItem++;
-            //}
-            
             ////w.WriteLine($"numberOfProcessedItem: {numberOfProcessedItem}");
 
-            //throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
+            throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
         }
     }
 
