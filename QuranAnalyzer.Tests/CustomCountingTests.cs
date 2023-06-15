@@ -35,10 +35,56 @@ public class CustomCountingTests
 
         var allLetters = string.Join(string.Empty, allCharachtersAsList);
 
-        foreach (var combination in CreateCombinations(allLetters, targetLength).AsParallel().Where(isOk))
+        for (var i0 = 0; i0 < 28; i0++)
         {
-            numberOfFounds++;
+            for (var i1 = 0; i1 < 28; i1++)
+            {
+                for (var i2 = 0; i2 < 28; i2++)
+                {
+                    for (var i3 = 0; i3 < 28; i3++)
+                    {
+                        for (var i4 = 0; i4 < 28; i4++)
+                        {
+                            for (var i5 = 0; i5 < 28; i5++)
+                            {
+                                for (var i6 = 0; i6 < 28; i6++)
+                                {
+
+
+                                    var sum = allCharachtersNumericValuesAsList[i0] +
+                                              allCharachtersNumericValuesAsList[i1] +
+                                              allCharachtersNumericValuesAsList[i2] +
+                                              allCharachtersNumericValuesAsList[i3] +
+                                              allCharachtersNumericValuesAsList[i4] +
+                                              allCharachtersNumericValuesAsList[i5] +
+                                              allCharachtersNumericValuesAsList[i6];
+
+                                    var orderSum = i0 + 1 +
+                                                   i1 + 1 +
+                                                   i2 + 1 +
+                                                   i3 + 1 +
+                                                   i4 + 1 +
+                                                   i5 + 1 +
+                                                   i6 + 1;
+
+                                    if (sum == 667 && orderSum == 109)
+                                    {
+                                        numberOfFounds++;
+                                    }
+
+                                    numberOfProcessedItem++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+        
+        //foreach (var combination in CreateCombinations(allLetters, targetLength).AsParallel().Where(isOk))
+        //{
+        //    numberOfFounds++;
+        //}
 
         throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
         
