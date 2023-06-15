@@ -46,7 +46,7 @@ public class CustomCountingTests
 
         var allCharachters = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي";
         var allCharachtersNumericValues = "1 2 400 500 3 8 600 4 700 200 7 60 300 90 800 9 900 70 1000 80 100 20 30 40 50 5 6 10";
-        var targetLength = 8;
+        var targetLength = 5;
         var requestedNumericValue = 667;
         var requestedOrderNumber = 109;
         
@@ -67,30 +67,34 @@ public class CustomCountingTests
         
         //using (var w = File.AppendText(outputFilePath))
         {
-            foreach (var combination in CreateCombinations(string.Join(string.Empty,allCharachtersAsList), targetLength))
-            {
-                //if (Calculator.GetNumericValue(combination) == requestedNumericValue)
-                //{
-                //    if (Calculator.GetOrderValue(combination) == requestedOrderNumber)
-                //    {
-                //        numberOfFounds++;
-                //        //w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
-                //    }
-                //}
+            var allLetters = string.Join(string.Empty, allCharachtersAsList);
 
-                numberOfProcessedItem++;
-            }
-            
-            //w.WriteLine($"numberOfProcessedItem: {numberOfProcessedItem}");
-
+            numberOfFounds = CreateCombinations(allLetters, targetLength).AsParallel().Where(isOk).Count();
             throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
+            
+            //foreach (var combination in CreateCombinations(allLetters, targetLength))
+            //{
+            //    //if (Calculator.GetNumericValue(combination) == requestedNumericValue)
+            //    //{
+            //    //    if (Calculator.GetOrderValue(combination) == requestedOrderNumber)
+            //    //    {
+            //    //        numberOfFounds++;
+            //    //        //w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
+            //    //    }
+            //    //}
+
+            //    numberOfProcessedItem++;
+            //}
+            
+            ////w.WriteLine($"numberOfProcessedItem: {numberOfProcessedItem}");
+
+            //throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
         }
+    }
 
-
-
-
-
-        
+    static bool isOk(string value)
+    {
+        return Calculator.GetNumericValue(value) == 667 && Calculator.GetOrderValue(value) == 109;
     }
     
     public IEnumerable<string> CreateCombinations(string input, int length)
