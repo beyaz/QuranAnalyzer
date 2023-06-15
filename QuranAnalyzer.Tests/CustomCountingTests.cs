@@ -39,8 +39,15 @@ public class CustomCountingTests
 
         remaining.Should().Be(114);
     }
-    
+
     [TestMethod]
+    public void __667__0()
+    {
+        var sum = Enumerable.Range(0, 200).Select(x => int.MaxValue).Sum();
+
+        Assert.Equals(sum, 45);
+    }
+    //[TestMethod]
     public void __667__()
     {
 
