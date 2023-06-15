@@ -69,14 +69,14 @@ public class CustomCountingTests
         {
             foreach (var combination in CreateCombinations(string.Join(string.Empty,allCharachtersAsList), targetLength))
             {
-                if (Calculator.GetNumericValue(combination) == requestedNumericValue)
-                {
-                    if (Calculator.GetOrderValue(combination) == requestedOrderNumber)
-                    {
-                        numberOfFounds++;
-                        //w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
-                    }
-                }
+                //if (Calculator.GetNumericValue(combination) == requestedNumericValue)
+                //{
+                //    if (Calculator.GetOrderValue(combination) == requestedOrderNumber)
+                //    {
+                //        numberOfFounds++;
+                //        //w.WriteLine(string.Join(" ", combination.Select(c=>c.ToString())));    
+                //    }
+                //}
 
                 numberOfProcessedItem++;
             }
