@@ -30,7 +30,6 @@ public class CustomCountingTests
         const int maxOccurenceLength = 6;
 
         BigInteger numberOfProcessedItem = 0;
-
         BigInteger numberOfFounds = 0;
 
         for (var i0 = 0; i0 < maxOccurenceLength; i0++)
