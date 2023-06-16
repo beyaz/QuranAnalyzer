@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Numerics;
 using System.Text;
@@ -165,28 +164,7 @@ public class CustomCountingTests
 
         throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
         
-        static IEnumerable<string> CreateCombinations(string input, int length)
-        {
-            foreach (var c in input)
-            {
-                if (length == 1)
-                {
-                    yield return c.ToString();
-                }
-                else
-                {
-                    foreach (var s in CreateCombinations(input, length - 1))
-                    {
-                        yield return c + s;
-                    }
-                }
-            }
-        }
-
-        static bool isOk(string value)
-        {
-            return Calculator.GetNumericValue(value) == 667 && Calculator.GetOrderValue(value) == 109;
-        }
+        
     }
 
     [TestMethod]
