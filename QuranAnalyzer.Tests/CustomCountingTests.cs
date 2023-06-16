@@ -28,6 +28,8 @@ public class CustomCountingTests
         }
 
         numbers = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }.ToImmutableList();
+        const int combinationLength = 4;
+        const int maxOccurence = 3;
 
         var arrayLength = numbers.Count;
 
