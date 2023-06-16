@@ -20,26 +20,28 @@ public class CustomCountingTests
         const int requestedOrderNumber = 109;
 
         var allCharachtersAsList = allCharachters.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => x[0]).ToImmutableList();
-        var allCharachtersNumericValuesAsList = allCharachtersNumericValues.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToImmutableList();
+        var numbers = allCharachtersNumericValues.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToImmutableList();
 
-        if (allCharachtersAsList.Count != allCharachtersNumericValuesAsList.Count)
+        if (allCharachtersAsList.Count != numbers.Count)
         {
             throw new Exception("wrong input");
         }
 
-        const int arrayLength = 28;
+        numbers = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }.ToImmutableList();
+
+        var arrayLength = numbers.Count;
 
         BigInteger numberOfProcessedItem = 0;
         BigInteger numberOfFounds = 0;
 
         for (var i0 = 0; i0 < arrayLength; i0++)
         {
-            var v0 = allCharachtersNumericValuesAsList[i0];
+            var v0 = numbers[i0];
             var o0 = i0 + 1;
 
             for (var i1 = 0; i1 < arrayLength; i1++)
             {
-                var v1 = allCharachtersNumericValuesAsList[i1];
+                var v1 = numbers[i1];
                 var o1 = i1 + 1;
 
                 var sum1 = v0 + v1;
@@ -47,7 +49,7 @@ public class CustomCountingTests
 
                 for (var i2 = 0; i2 < arrayLength; i2++)
                 {
-                    var v2 = allCharachtersNumericValuesAsList[i2];
+                    var v2 = numbers[i2];
                     var o2 = i2 + 1;
 
                     var sum2 = sum1 + v2;
@@ -55,7 +57,7 @@ public class CustomCountingTests
 
                     for (var i3 = 0; i3 < arrayLength; i3++)
                     {
-                        var v3 = allCharachtersNumericValuesAsList[i3];
+                        var v3 = numbers[i3];
                         var o3 = i3 + 1;
 
                         var sum3 = sum2 + v3;
@@ -63,7 +65,7 @@ public class CustomCountingTests
 
                         for (var i4 = 0; i4 < arrayLength; i4++)
                         {
-                            var v4 = allCharachtersNumericValuesAsList[i4];
+                            var v4 = numbers[i4];
                             var o4 = i4 + 1;
 
                             var sum4 = sum3 + v4;
@@ -71,7 +73,7 @@ public class CustomCountingTests
 
                             for (var i5 = 0; i5 < arrayLength; i5++)
                             {
-                                var v5 = allCharachtersNumericValuesAsList[i5];
+                                var v5 = numbers[i5];
                                 var o5 = i5 + 1;
 
                                 var sum5 = sum4 + v5;
@@ -79,7 +81,7 @@ public class CustomCountingTests
 
                                 for (var i6 = 0; i6 < arrayLength; i6++)
                                 {
-                                    var v6 = allCharachtersNumericValuesAsList[i6];
+                                    var v6 = numbers[i6];
                                     var o6 = i6 + 1;
 
                                     var sum6 = sum5 + v6;
@@ -87,7 +89,7 @@ public class CustomCountingTests
 
                                     for (var i7 = 0; i7 < arrayLength; i7++)
                                     {
-                                        var v7 = allCharachtersNumericValuesAsList[i7];
+                                        var v7 = numbers[i7];
                                         var o7 = i7 + 1;
 
                                         var sum7 = sum6 + v7;
@@ -95,7 +97,7 @@ public class CustomCountingTests
 
                                         for (var i8 = 0; i8 < arrayLength; i8++)
                                         {
-                                            var v8 = allCharachtersNumericValuesAsList[i8];
+                                            var v8 = numbers[i8];
                                             var o8 = i8 + 1;
 
                                             var sum8 = sum7 + v8;
@@ -103,7 +105,7 @@ public class CustomCountingTests
 
                                             for (var i9 = 0; i9 < arrayLength; i9++)
                                             {
-                                                var v9 = allCharachtersNumericValuesAsList[i9];
+                                                var v9 = numbers[i9];
                                                 var o9 = i9 + 1;
 
                                                 var sum9 = sum8 + v9;
@@ -111,7 +113,7 @@ public class CustomCountingTests
 
                                                 for (var i10 = 0; i10 < arrayLength; i10++)
                                                 {
-                                                    var v10 = allCharachtersNumericValuesAsList[i10];
+                                                    var v10 = numbers[i10];
                                                     var o10 = i10 + 1;
 
                                                     var sum10 = sum9 + v10;
@@ -119,7 +121,7 @@ public class CustomCountingTests
 
                                                     for (var i11 = 0; i11 < arrayLength; i11++)
                                                     {
-                                                        var v11 = allCharachtersNumericValuesAsList[i11];
+                                                        var v11 = numbers[i11];
                                                         var o11 = i11 + 1;
 
                                                         var sum = sum10 + v11;
