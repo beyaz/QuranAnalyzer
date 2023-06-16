@@ -30,7 +30,7 @@ public class CustomCountingTests
         }
 
         const int combinationLength = 12;
-        const int maxOccurence = 3;
+        const int maxOccurence = 4;
         
 
         BigInteger numberOfProcessedItem = 0;
