@@ -321,4 +321,149 @@ public static class Calculator
 
         throw new Exception($"Not recognized Arabic Letter:'{c}'");
     }
+    
+    public static int GetOrderValueByNumericValue(int c)
+    {
+        if (c == 1)
+        {
+            return 1;
+        }
+
+        if (c == 2)
+        {
+            return 2;
+        }
+
+        if (c == 400)
+        {
+            return 3;
+        }
+
+        if (c == 500)
+        {
+            return 4;
+        }
+
+        if (c == 3)
+        {
+            return 5;
+        }
+
+        if (c == 8)
+        {
+            return 6;
+        }
+
+        if (c == 600)
+        {
+            return 7;
+        }
+
+        if (c == 4)
+        {
+            return 8;
+        }
+
+        if (c == 700)
+        {
+            return 9;
+        }
+
+        if (c == 200)
+        {
+            return 10;
+        }
+
+        if (c == 7)
+        {
+            return 11;
+        }
+
+        if (c == 60)
+        {
+            return 12;
+        }
+
+        if (c == 300)
+        {
+            return 13;
+        }
+
+        if (c == 90)
+        {
+            return 14;
+        }
+
+        if (c == 800)
+        {
+            return 15;
+        }
+
+        if (c == 9)
+        {
+            return 16;
+        }
+
+        if (c == 900)
+        {
+            return 17;
+        }
+
+        if (c == 70)
+        {
+            return 18;
+        }
+
+        if (c == 1000)
+        {
+            return 19;
+        }
+
+        if (c == 80)
+        {
+            return 20;
+        }
+
+        if (c == 100)
+        {
+            return 21;
+        }
+
+        if (c == 20)
+        {
+            return 22;
+        }
+
+        if (c == 30)
+        {
+            return 23;
+        }
+
+        if (c == 40)
+        {
+            return 24;
+        }
+
+        if (c == 50)
+        {
+            return 25;
+        }
+
+        if (c == 5)
+        {
+            return 26;
+        }
+
+        if (c == 6)
+        {
+            return 27;
+        }
+
+        if (c == 10)
+        {
+            return 28;
+        }
+
+        throw new Exception($"Not recognized Arabic Letter:'{c}'");
+    }
 }
