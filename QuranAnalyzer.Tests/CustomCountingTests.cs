@@ -29,7 +29,7 @@ public class CustomCountingTests
             throw new Exception("wrong input");
         }
 
-        const int maxOccurenceLength = 3;
+        const int maxOccurenceLength = 6;
         
         BigInteger numberOfProcessedItem = 0;
 
