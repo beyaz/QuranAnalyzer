@@ -40,7 +40,7 @@ public class CustomCountingTests
         {
             numberOfProcessedItem++;
             
-            if (list.Sum() == requestedNumericValue)
+            if (list.Sum() == requestedNumericValue && list.Select(Calculator.GetOrderValueByNumericValue).Sum() == requestedOrderNumber)
             {
                 numberOfFounds++;
             }
