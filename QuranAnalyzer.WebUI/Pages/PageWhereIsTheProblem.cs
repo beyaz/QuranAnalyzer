@@ -76,7 +76,7 @@ public class PageWhereIsTheProblem : ReactPureComponent
                 " Reşad öldürüldükten 30 yıl sonra araştırmalar sayesinde sadece bir tek Sad harfinde bile çok ilginç veriler bulundu. " +
                 " Dilerseniz daha detaylı araştırabilirsiniz.",
                 br,
-                "Özetle 68. suredeki NuN olayı ve Elif sayımları üzerinde tartışılan noktalardır. ",
+                "Özetle 68. suredeki nun-vav-nun olayı ve Elif sayımları üzerinde tartışılan noktalardır. ",
                 " Belki de burası ilerde daha netlik kazanacak. Bence şimdilik bunun imtihan kısmıdır. ",
                 " Yalnız Kuran fikrini kabullenemeyenler bu açık kapılardan çıkıp gidiyorlar. ",
                 " 19 üzerinde muhteşem veriler varken Elif harfine takılıyor tüm sistemi çöpe atıyor. ",

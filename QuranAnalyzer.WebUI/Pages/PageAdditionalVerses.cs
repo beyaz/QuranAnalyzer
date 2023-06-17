@@ -22,7 +22,7 @@ public class PageAdditionalVerses : ReactPureComponent
             {
                 "Önce net bir şekilde cevabı verelim.",
                 (b)"19 sisteminin en majör bileşeni başlangıç harfleri üzerine olan sistemdir. ",
-                "Bu en majör bileşen olan başlangıç harflerinin, Tevbe suresinin toplamda 127 ayet mi yoksa 129 ayet mi olması ile hiç bir ilgisi yoktur.",
+                "Bu en majör bileşen olan başlangıç harflerinin, Tevbe suresinin toplamda 127 ayet mi yoksa 129 ayet mi olması ile bir ilgisi yoktur.",
                 br,
                 "Hatta böyle bir kafa karışıklığına mahal vermemesi için ben bu sitede yaptığım tüm sayımları  ",
                 "klasik elinize aldığınız bir kuran mushafı ile aynı olan Tanzil.net den aldığım mushaf ile yaptım."
@@ -36,19 +36,20 @@ public class PageAdditionalVerses : ReactPureComponent
                 " Fakat onun dışında hiç kimse bu iki sözün ayet olduğuna şahit olmaz.",
                 " Süveybe ise taa mekke döneminde bir kişinin peygamberin deve satın alması konusunda problem yaşadığını görür ve peygamber ile ticaret yapan kişinin ilk anlaşması esnasında olmadığı halde  peygamberin doğru söylediğine şahitlik eder.",
                 " Hatta olaydan sonra peygamberimize gelerek şunu söyler ben senin Allah'ın resulü olduğuna şahitlik ediyorum buradaki şu ufak ticaretine neden şahit olmayayım der.",
-                " Bunun üzerine de peygamberimiz 'Süveybenin şahitliği iki kişinin şahitliği gibidir' der",
+                " Bunun üzerine de peygamberimiz 'Süveybenin şahitliği iki kişinin şahitliği gibidir' der.",
                 " Hasılı bu sözü de delil getirerek Süveybenin şahitliği iki kişi gibi sayılır ve bu iki söz Kurana eklenir.",
                 " Üstelik Tevbe suresindeki tüm ayetler Medine dönemine aitken sadece bu sonraki iki ayet Mekke dönemine aittir.",
 
                 br,
                 br,
                 "Tarihi rivayet olarak durum böyle. Elbette ki bu sözü şöyle yorumlayanlar da var. ",
-                "Aslında oradaki herkes bu iki sözün Kurandan olduğunu biliyordu fakat yazılı olarak ellerinde yoktu.",
+                "Aslında oradaki herkes bu iki sözün Kurandan olduğunu biliyordu fakat yazılı olarak ellerinde yoktu. ",
                 "Burada rivayet tenkidi-yorumlaması yapmayacağım ben sadece böyle bir rivayeti aktardım.",
 
                 " Hatta başka bir rivayette Ali'nin evinden belli bir süre çıkmadığı bunun sebebini soranlara da Kurana söz eklendi diye durumu boykot ettiğine dair rivayetler var.",
-                " İşine gelince rivayetlere sarılıyorsun gibi haklı bir eleştiri yapabilirsiniz ama benim burada aktarmak istediğim şey şu." ,
-                " Burada bir duman tütüyor.",
+                " Dileyen bu rivayetleri daha derinlemesine araştırabilir. " , br,
+                " İşine gelince rivayetlere sarılıyorsun gibi haklı bir eleştiri yapabilirsiniz ama benim burada aktarmak istediğim şey şu; " ,
+                " burada bir duman tütüyor.",
                 " İlk toplanan muashafın yakılması vesaire ister istemez konu üzerinde soru işaretleri bırakmış olabilir.",
                 " Hatta herkim ki tevbe suresi 128. 129 uncu ayetleri şu vakitlerde okur ise ona şöyle sevap yazılır şeklinde rivayetlerin olması da bir garip.",
                 " Özellikle 128-129 un seçilmiş olması biraz garip.",
@@ -103,7 +104,7 @@ public class PageAdditionalVerses : ReactPureComponent
                 br,
                 "İşte bu fikre karşı arguman olarak da şu söyleniyor. Aslında halihazırda ayet gerçekleşmiş durumda.",
                 " Allah koruyacağını söyledi ve 19 kodu ile bunu koruduğunu bizzat gösterdi.",
-                " Eğer bir odada 10 kişi olalım ve elimizde şöyle bir bilgi olsun 'Bu odaya giren olur ise dayak yer'.",
+                " Hayalen şöyle düşünün; bir odada 10 kişi olalım ve elimizde şöyle bir bilgi olsun 'Bu odaya giren olur ise dayak yer'.",
                 " Eğer hiç kimse girmez ise kimse dayak yemez ve 'odaya giren dayak yer' bilgisi sadece kuru - emin olmadığımız bir bilgi olarak kalır.",
                 " Ne zamanki biri odaya girer ve dayağı yer ancak bu durumda bu bilgi netlik kazanır.",
                 br,
@@ -117,7 +118,8 @@ public class PageAdditionalVerses : ReactPureComponent
             new p
             {
                 "Ben gene de Kurandan iki ayeti red etmeyeyim diye düşünebilirsiniz. ",
-                "Ama meseleyi tersden ele alır iseniz Kuranda olmayan iki cümleye Allah sözü muamelesi yapmış da olabilirsiniz."
+                "Ama meseleyi tersden ele alır iseniz Kuranda olmayan iki cümleye Allah sözü muamelesi yapmış da olabilirsiniz. ",
+                "Bu konu ile ilgili olarak Kuranın mushaf haline getirilme süreçlerini araştırabilirsiniz."
             },
             separation,
             new p

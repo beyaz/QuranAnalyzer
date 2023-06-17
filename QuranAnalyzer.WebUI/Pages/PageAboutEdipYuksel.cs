@@ -17,7 +17,7 @@ public class PageAboutEdipYuksel : ReactPureComponent
             new p
             {
                 "Hayatını kısaca okuduğunuzu varsayıyorum. Hapis yatması, kardeşinin öldürülmesi, Amerika'ya gitmek zorunda kalması, Reşad Halife ile tanışması falan oldukça ilginç bir hayatı olmuş. ",
-                "Gerçekten de cesaretine, zekasına hayran bırakıyor. ",
+                "Gerçekten de cesaretine, azmine, zekasına hayran bırakıyor. ",
                 "Sosyal medyada yediden yetmişe herkesle oturup konuşması vesaire gerçekten iyi.",
                 br,
                 br,
