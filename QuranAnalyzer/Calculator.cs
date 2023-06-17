@@ -470,7 +470,7 @@ public static class Calculator
     
     
     
-    static LetterInfo2 GetLetterInfo(char c, int startIndex, bool isHemzeActive)
+    public static LetterInfo2 GetLetterInfo(char c, int startIndex, bool isHemzeActive)
     {
         if (c == 'ا' || c == 'ٱ' || c == 'إ' || c == 'أ' || c == 'ﺍ')
         {
@@ -768,6 +768,11 @@ public static class Calculator
             };
         }
 
+        if (c != ' ')
+        {
+            c.ToString();
+        }
+        
         return new LetterInfo2
         {
             ArabicLetterIndex = -1,
