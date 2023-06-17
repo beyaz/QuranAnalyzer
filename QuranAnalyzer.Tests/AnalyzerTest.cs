@@ -16,14 +16,24 @@ public class AnalyzerTest
         Analyzer.AnalyzeText("يَٰصَىٰحِبَىِ ٱلسِّجْنِ أَمَّآ أَحَدُكُمَا فَيَسْقِى رَبَّهُۥ خَمْرًا وَأَمَّا ٱلْءَاخَرُ فَيُصْلَبُ فَتَأْكُلُ ٱلطَّيْرُ مِن رَّأْسِهِۦ قُضِىَ ٱلْأَمْرُ ٱلَّذِى فِيهِ تَسْتَفْتِيَانِ")
                 .Count(x => x.ArabicLetterIndex == ArabicLetterIndex.Yaa)
                 .Should().Be(11);
-        
-        
-        "يَٰصَىٰحِبَىِ".Select((c, i) => Calculator.GetLetterInfo(c, i, true)).Select(x => new LetterInfo
+
+    }
+    
+    [TestMethod]
+    public void _2_()
+    {
+        var text = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ";
+
+        var first = Analyzer.AnalyzeText(text);
+        var second = text.Select((c, i) => Calculator.GetLetterInfo(c, i, true)).Select(x => new LetterInfo
         {
             ArabicLetterIndex = x.ArabicLetterIndex,
             MatchedLetter     = x.MatchedLetter.ToString(),
             StartIndex        = x.StartIndex
-        }).Count(x => x.ArabicLetterIndex == ArabicLetterIndex.Yaa).Should().Be(3);
+        }).ToList();
+
+
+        first.Should().BeEquivalentTo(second);
     }
 
     //[TestMethod]
