@@ -31,7 +31,21 @@ public class AnalyzerTest
             MatchedLetter     = x.MatchedLetter.ToString(),
             StartIndex        = x.StartIndex
         }).ToList();
-
+        
+        foreach (var chapter in DataAccess.AllChapters)
+        {
+            foreach (var verse in chapter.Verses)
+            {
+                var a = verse.TextWithBismillah.Select((c, i) => Calculator.GetLetterInfo(c, i, true)).Select(x => new LetterInfo
+                {
+                    ArabicLetterIndex = x.ArabicLetterIndex,
+                    MatchedLetter     = x.MatchedLetter.ToString(),
+                    StartIndex        = x.StartIndex
+                }).ToList();
+                
+                a.Should().BeEquivalentTo(verse.TextWithBismillahAnalyzed);
+            }
+        }
 
         first.Should().BeEquivalentTo(second);
     }
