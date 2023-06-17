@@ -28,7 +28,7 @@ public class AnalyzerTest
         var second = text.Select((c, i) => Calculator.GetLetterInfo(c, i, true)).Select(x => new LetterInfo
         {
             ArabicLetterIndex = x.ArabicLetterIndex,
-            MatchedLetter     = x.MatchedLetter.ToString(),
+            MatchedLetter     = x.Letter.ToString(),
             StartIndex        = x.StartIndex
         }).ToList();
         
@@ -39,7 +39,7 @@ public class AnalyzerTest
                 var a = verse.TextWithBismillah.Select((c, i) => Calculator.GetLetterInfo(c, i, true)).Select(x => new LetterInfo
                 {
                     ArabicLetterIndex = x.ArabicLetterIndex,
-                    MatchedLetter     = x.MatchedLetter.ToString(),
+                    MatchedLetter     = x.Letter.ToString(),
                     StartIndex        = x.StartIndex
                 }).ToList();
                 

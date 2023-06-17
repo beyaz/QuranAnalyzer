@@ -466,10 +466,10 @@ public static class Calculator
 
         throw new Exception($"Not recognized Arabic Letter:'{c}'");
     }
-    
-    
-    
-    
+
+
+
+
     public static LetterInfo2 GetLetterInfo(char c, int startIndex, bool isHemzeActive)
     {
         if (c == 'ا' || c == 'ٱ' || c == 'إ' || c == 'أ' || c == 'ﺍ')
@@ -477,7 +477,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 0,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -486,13 +486,13 @@ public static class Calculator
         {
             const char Hamza = 'ء';
             const char HamzaAbove = 'ٔ';
-            
+
             if (c == Hamza || c == HamzaAbove)
             {
                 return new LetterInfo2
                 {
                     ArabicLetterIndex = 0,
-                    MatchedLetter     = c,
+                    Letter            = c,
                     StartIndex        = startIndex
                 };
             }
@@ -503,7 +503,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 1,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -513,7 +513,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 2,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -523,7 +523,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 3,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -533,7 +533,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 4,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -543,7 +543,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 5,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -553,7 +553,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 6,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -563,7 +563,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 7,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -573,7 +573,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 8,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -583,7 +583,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 9,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -593,7 +593,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 10,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -603,7 +603,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 11,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -613,7 +613,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 12,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -623,7 +623,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 13,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -633,7 +633,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 14,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -643,7 +643,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 15,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -653,7 +653,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 16,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -663,7 +663,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 17,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -673,7 +673,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 18,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -683,7 +683,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 19,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -693,7 +693,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 20,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -703,7 +703,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 21,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -713,7 +713,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 22,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -723,7 +723,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 23,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -733,7 +733,7 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 24,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -743,17 +743,17 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 25,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
 
-        if (c == 'و' || c == 'ٯ' || c ==  'ؤ')
+        if (c == 'و' || c == 'ٯ' || c == 'ؤ')
         {
             return new LetterInfo2
             {
                 ArabicLetterIndex = 26,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
@@ -763,20 +763,15 @@ public static class Calculator
             return new LetterInfo2
             {
                 ArabicLetterIndex = 27,
-                MatchedLetter     = c,
+                Letter            = c,
                 StartIndex        = startIndex
             };
-        }
-
-        if (c != ' ')
-        {
-            c.ToString();
         }
         
         return new LetterInfo2
         {
             ArabicLetterIndex = -1,
-            MatchedLetter     = c,
+            Letter            = c,
             StartIndex        = startIndex
         };
     }
@@ -785,11 +780,11 @@ public static class Calculator
 public sealed class LetterInfo2
 {
     public int ArabicLetterIndex { get; init; }
-    public char MatchedLetter { get; init; }
+    public char Letter { get; init; }
     public int StartIndex { get; init; }
 
     public override string ToString()
     {
-        return MatchedLetter.ToString();
+        return Letter.ToString();
     }
 }
