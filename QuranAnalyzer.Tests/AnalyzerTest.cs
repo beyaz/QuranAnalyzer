@@ -19,36 +19,7 @@ public class AnalyzerTest
 
     }
     
-    [TestMethod]
-    public void _2_()
-    {
-        var text = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ";
-
-        var first = Analyzer.AnalyzeText(text);
-        var second = text.Select((c, i) => Calculator.GetLetterInfo(c, i, true)).Select(x => new LetterInfo
-        {
-            ArabicLetterIndex = x.ArabicLetterIndex,
-            MatchedLetter     = x.Letter.ToString(),
-            StartIndex        = x.StartIndex
-        }).ToList();
-        
-        foreach (var chapter in DataAccess.AllChapters)
-        {
-            foreach (var verse in chapter.Verses)
-            {
-                var a = verse.TextWithBismillah.Select((c, i) => Calculator.GetLetterInfo(c, i, true)).Select(x => new LetterInfo
-                {
-                    ArabicLetterIndex = x.ArabicLetterIndex,
-                    MatchedLetter     = x.Letter.ToString(),
-                    StartIndex        = x.StartIndex
-                }).ToList();
-                
-                a.Should().BeEquivalentTo(verse.TextWithBismillahAnalyzed);
-            }
-        }
-
-        first.Should().BeEquivalentTo(second);
-    }
+  
 
     //[TestMethod]
     //public void _compare_mushaf_between_tanzil_and_kuran_mucizeler_com()

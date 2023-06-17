@@ -2,52 +2,13 @@
 
 public static class Analyzer
 {
-    public const string Hamza = "ء";
-    public const string HamzaAbove = "ٔ";
-
-    static readonly AlternativeForm[] AlternativeForms =
-    {
-        new() { ArabicLetterIndex = ArabicLetterIndex.Alif, Forms = new[] { "ٱ", "إ", "أ", "ﺍ" } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Zay, Forms  = new[] { "ز" } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Jiim, Forms = new[] { "ج" } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Haa_, Forms = new[] { "ة" } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Yaa, Forms  = new[] { "ى", "ئ" } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Waaw, Forms = new[] { "ٯ", "ؤ" } }
-    };
-
-    static readonly AlternativeForm[] AlternativeFormsWithHamza =
-    {
-        new() { ArabicLetterIndex = ArabicLetterIndex.Alif, Forms = new[] { "ٱ", "إ", "أ", "ﺍ", Hamza, HamzaAbove } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Zay, Forms  = new[] { "ز" } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Jiim, Forms = new[] { "ج" } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Haa_, Forms = new[] { "ة" } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Yaa, Forms  = new[] { "ى", "ئ" } },
-        new() { ArabicLetterIndex = ArabicLetterIndex.Waaw, Forms = new[] { "ٯ", "ؤ" } }
-    };
+    public const char Hamza = 'ء';
+    public const char HamzaAbove = 'ٔ';
+    
 
     public static IReadOnlyList<LetterInfo> AnalyzeText(string line, bool isHemzeActive = true)
     {
-        var items = new List<LetterInfo>();
-
-        var cursor = 0;
-
-        while (cursor < line.Length)
-        {
-            var item = TryRead(line, cursor, isHemzeActive);
-            if (item != null)
-            {
-                items.Add(item);
-                // cursor += ArabicLetter.AllArabicLetters[item.ArabicLetterIndex].Length;
-                cursor += item.MatchedLetter.Length;
-                continue;
-            }
-
-            items.Add(new LetterInfo { ArabicLetterIndex = -1, StartIndex = cursor, MatchedLetter = line[cursor].ToString() });
-
-            cursor++;
-        }
-
-        return items;
+        return line.Select((c, i) => GetLetterInfo(c, i, isHemzeActive)).ToList();
     }
 
     public static bool HasValueAndSameAs(this LetterInfo a, LetterInfo b)
@@ -70,69 +31,307 @@ public static class Analyzer
         return info.ArabicLetterIndex >= 0;
     }
 
-    static LetterInfo TryMatch(string line, int startIndex, string searchLetter, int arabicLetterIndex)
+    static LetterInfo GetLetterInfo(char c, int startIndex, bool isHemzeActive)
     {
-        if (startIndex + searchLetter.Length > line.Length)
-        {
-            return null;
-        }
-
-        var value = line.Substring(startIndex, searchLetter.Length);
-
-        var isMatch = value == searchLetter;
-        if (isMatch)
+        if (c == 'ا' || c == 'ٱ' || c == 'إ' || c == 'أ' || c == 'ﺍ')
         {
             return new LetterInfo
             {
-                ArabicLetterIndex = arabicLetterIndex,
-                MatchedLetter     = value,
+                ArabicLetterIndex = 0,
+                Letter            = c,
                 StartIndex        = startIndex
             };
         }
 
-        return null;
-    }
-
-    static LetterInfo TryRead(string line, int startIndex, bool isHemzeActive)
-    {
-        var alternativeForms = getAlternativeForms(isHemzeActive);
-
-        for (var arabicLetterIndex = 0; arabicLetterIndex < ArabicLetter.AllArabicLetters.Length; arabicLetterIndex++)
+        if (isHemzeActive)
         {
-            foreach (var alternativeForm in alternativeForms)
+            if (c == Hamza || c == HamzaAbove)
             {
-                if (alternativeForm.ArabicLetterIndex == arabicLetterIndex)
+                return new LetterInfo
                 {
-                    foreach (var form in alternativeForm.Forms)
-                    {
-                        var matchInfo = tryMatch(form, arabicLetterIndex);
-                        if (matchInfo != null)
-                        {
-                            return matchInfo;
-                        }
-                    }
-                }
-            }
-
-            // normal match
-            {
-                var matchInfo = tryMatch(ArabicLetter.AllArabicLetters[arabicLetterIndex], arabicLetterIndex);
-                if (matchInfo != null)
-                {
-                    return matchInfo;
-                }
+                    ArabicLetterIndex = 0,
+                    Letter            = c,
+                    StartIndex        = startIndex
+                };
             }
         }
 
-        return null;
+        if (c == 'ب')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 1,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
 
-        LetterInfo tryMatch(string searchCharacter, int arabicCharacterIndex) => TryMatch(line, startIndex, searchCharacter, arabicCharacterIndex);
-        static AlternativeForm[] getAlternativeForms(bool isHemzeActive) => isHemzeActive ? AlternativeFormsWithHamza : AlternativeForms;
-    }
+        if (c == 'ت')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 2,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
 
-    class AlternativeForm
-    {
-        public int ArabicLetterIndex { get; init; }
-        public string[] Forms { get; init; }
+        if (c == 'ث')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 3,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ج' || c == 'ج')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 4,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ح')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 5,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'خ')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 6,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'د')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 7,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ذ')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 8,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ر')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 9,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ز' || c == 'ز')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 10,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'س')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 11,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ش')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 12,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ص')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 13,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ض')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 14,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ط')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 15,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ظ')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 16,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ع')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 17,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'غ')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 18,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ف')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 19,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ق')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 20,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ك')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 21,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ل')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 22,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'م')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 23,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ن')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 24,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ه' || c == 'ة')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 25,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'و' || c == 'ٯ' || c == 'ؤ')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 26,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+
+        if (c == 'ي' || c == 'ى' || c == 'ئ')
+        {
+            return new LetterInfo
+            {
+                ArabicLetterIndex = 27,
+                Letter            = c,
+                StartIndex        = startIndex
+            };
+        }
+        
+        return new LetterInfo
+        {
+            ArabicLetterIndex = -1,
+            Letter            = c,
+            StartIndex        = startIndex
+        };
     }
+    
 }

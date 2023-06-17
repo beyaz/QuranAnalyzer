@@ -35,13 +35,12 @@ public class LetterColorizer : ReactPureComponent
             {
                 if (letterInfo.ArabicLetterIndex == lettersForColorize[j].ArabicLetterIndex)
                 {
-                    var len = letterInfo.MatchedLetter.Length;
 
                     html.Append(VerseText.Substring(cursor, letterInfo.StartIndex - cursor));
 
                     var span = new span
                     {
-                        innerText = letterInfo.MatchedLetter,
+                        innerText = letterInfo.Letter.ToString(),
                         style =
                         {
                             FontWeightBold,
@@ -53,7 +52,7 @@ public class LetterColorizer : ReactPureComponent
 
                     html.Append(span);
 
-                    cursor = letterInfo.StartIndex + len;
+                    cursor = letterInfo.StartIndex + 1;
 
                     counts[j]++;
 
@@ -73,7 +72,7 @@ public class LetterColorizer : ReactPureComponent
         {
             var countView = new FlexRow(AlignItemsCenter)
             {
-                new div { lettersForColorize[j].MatchedLetter, FontWeightBold, Color(GetColor(j)) },
+                new div { lettersForColorize[j].Letter.ToString(), FontWeightBold, Color(GetColor(j)) },
 
                 new div { ":", MarginLeftRight(4) },
 

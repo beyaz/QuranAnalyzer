@@ -79,7 +79,7 @@ class WordColorizedVerse : ReactPureComponent
                 continue;
             }
 
-            html.Append(letterInfo.MatchedLetter);
+            html.Append(letterInfo.Letter);
 
             cursor++;
         }

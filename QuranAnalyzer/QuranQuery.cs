@@ -151,7 +151,7 @@ public static class QuranQuery
 
         for (var i = 0; i < length; i++)
         {
-            if (text[i].MatchedLetter == " ")
+            if (text[i].Letter == ' ')
             {
                 if (currentWord.Count == 0)
                 {
@@ -241,7 +241,7 @@ public static class QuranQuery
 
     static bool IsValidForWordSearch(LetterInfo info)
     {
-        if (info.ArabicLetterIndex >= 0 && info.MatchedLetter != Analyzer.HamzaAbove)
+        if (info.ArabicLetterIndex >= 0 && info.Letter != Analyzer.HamzaAbove)
         {
             return true;
         }

@@ -127,7 +127,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                     return new SummaryInfo
                     {
                         Count = QuranAnalyzerMixin.GetCountOfLetter(filteredVerses, letterInfo.ArabicLetterIndex, state.MushafOption, state.IncludeBismillah),
-                        Name  = letterInfo.MatchedLetter
+                        Name  = letterInfo.Letter.ToString()
                     };
                 }
 
