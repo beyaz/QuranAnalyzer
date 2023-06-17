@@ -18,7 +18,7 @@ public class PageContact : ReactPureComponent
                 " olmak üzere bu üç konu üzerine ",
                 "öğrenmeyi, düşünmeyi seviyorum. ",
                 "Vaktim olduğu sürece bu üç konu üzerine istediğiniz kadar fikir alışverişine açığım. ",
-                "Aşağıdaki mail adresinden bana ulaşabilirsiniz",
+                "Aşağıdaki adreslerden bana ulaşabilirsiniz",
                 br,
                 br,
                 new Link
