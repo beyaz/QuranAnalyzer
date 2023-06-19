@@ -446,6 +446,29 @@ public class CustomCountingTests
 
         founds.Count.Should().Be(14912);
 
+        var analyzedList = founds.Select(x => AnalyzeText(x)).ToList();
+
+
+        var pairList = new List<string>();
+        
+        for (var i = 0; i < founds.Count; i++)
+        {
+            for (var j = i + 1; j < founds.Count; j++)
+            {
+                if (Enumerable.Sum(analyzedList[i].Select(l => l.NumericValue)) + Enumerable.Sum(analyzedList[j].Select(l => l.NumericValue)) == 667)
+                {
+                    if (Enumerable.Sum(analyzedList[i].Select(l => l.OrderValue)) + Enumerable.Sum(analyzedList[j].Select(l => l.OrderValue)) == 109)
+                    {
+                        pairList.Add( founds[i] + " - " + founds[j]);
+                    }
+                        
+                }
+                    
+            }
+        }
+
+        pairList.Count.Should().Be(22804);
+
 
     }
 }
