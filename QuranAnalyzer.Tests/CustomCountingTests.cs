@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
 using System.Numerics;
 using System.Text;
 using static QuranAnalyzer.QuranAnalyzerMixin;
@@ -18,7 +19,7 @@ public class CustomCountingTests
     {
         const string allCharachters = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي";
         const string allCharachtersNumericValues = "1 2 400 500 3 8 600 4 700 200 7 60 300 90 800 9 900 70 1000 80 100 20 30 40 50 5 6 10";
-        const int requestedNumericValue = 70;
+        const int requestedNumericValue = 77;
 
         var allCharachtersAsList = allCharachters.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => x[0]).ToImmutableList();
         var numbers = allCharachtersNumericValues.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToImmutableList();
@@ -31,20 +32,31 @@ public class CustomCountingTests
         const int combinationLength = 8;
 
 
+        numbers = new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70 }.ToImmutableList();
+        
         BigInteger numberOfProcessedItem = 0;
         BigInteger numberOfFounds = 0;
 
-        VisitCombinations(numbers, combinationLength,  new List<int>(), list =>
+        //using (var streamWriter = File.AppendText("C:\\Users\\beyaz\\OneDrive\\Documents\\A.txt"))
         {
-            numberOfProcessedItem++;
-
-            if (list.Sum() == requestedNumericValue)
+            
+        
+        
+        
+        
+            VisitCombinations(numbers, combinationLength,  new List<int>(), list =>
             {
-                numberOfFounds++;
-            }
+                numberOfProcessedItem++;
 
-        });
+                if (list.Sum() == requestedNumericValue)
+                {
+                    numberOfFounds++;
+                    
+                    //streamWriter.WriteLine(string.Join(" ", list));
+                }
 
+            });
+        }
 
         throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
 
