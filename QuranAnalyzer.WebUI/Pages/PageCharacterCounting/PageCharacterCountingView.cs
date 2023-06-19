@@ -137,7 +137,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                 {
                     var analyzedTextOfVerse = state.IncludeBismillah ? verse.TextWithBismillahAnalyzed : verse.TextAnalyzed;
 
-                    if (analyzedTextOfVerse.Any(x => searchLetters.Any(l => l.ArabicLetterIndex == x.ArabicLetterIndex)))
+                    if (analyzedTextOfVerse.Any(x => searchLetters.Any(l => l.NumericValue == x.NumericValue)))
                     {
                         var letterColorizer = new LetterColorizer
                         {
