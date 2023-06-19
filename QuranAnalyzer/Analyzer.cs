@@ -4,7 +4,6 @@ public static class Analyzer
 {
     public const char Hamza = 'ء';
     public const char HamzaAbove = 'ٔ';
-    
 
     public static IReadOnlyList<LetterInfo> AnalyzeText(string line, bool isHemzeActive = true)
     {
@@ -42,10 +41,10 @@ public static class Analyzer
                 Letter            = c,
                 StartIndex        = startIndex,
                 NumericValue      = 1,
-                OrderValue = 1
+                OrderValue        = 1
             };
         }
-        
+
         // elif
         if (isHemzeActive)
         {
@@ -87,7 +86,7 @@ public static class Analyzer
                 OrderValue        = 3
             };
         }
-        
+
         // dal
         if (c == 'د')
         {
@@ -100,7 +99,7 @@ public static class Analyzer
                 OrderValue        = 4
             };
         }
-        
+
         // he
         if (c == 'ه' || c == 'ة')
         {
@@ -126,7 +125,7 @@ public static class Analyzer
                 OrderValue        = 6
             };
         }
-        
+
         // ze
         if (c == 'ز' || c == 'ز')
         {
@@ -139,7 +138,7 @@ public static class Analyzer
                 OrderValue        = 7
             };
         }
-        
+
         // ha
         if (c == 'ح')
         {
@@ -152,7 +151,7 @@ public static class Analyzer
                 OrderValue        = 8
             };
         }
-       
+
         // tı
         if (c == 'ط')
         {
@@ -165,7 +164,7 @@ public static class Analyzer
                 OrderValue        = 9
             };
         }
-        
+
         // ye
         if (c == 'ي' || c == 'ى' || c == 'ئ')
         {
@@ -178,7 +177,7 @@ public static class Analyzer
                 OrderValue        = 10
             };
         }
-        
+
         // kef
         if (c == 'ك')
         {
@@ -191,7 +190,7 @@ public static class Analyzer
                 OrderValue        = 11
             };
         }
-        
+
         // lam
         if (c == 'ل')
         {
@@ -204,7 +203,7 @@ public static class Analyzer
                 OrderValue        = 12
             };
         }
-        
+
         // mim
         if (c == 'م')
         {
@@ -217,7 +216,7 @@ public static class Analyzer
                 OrderValue        = 13
             };
         }
-        
+
         // nun
         if (c == 'ن')
         {
@@ -230,7 +229,7 @@ public static class Analyzer
                 OrderValue        = 14
             };
         }
-        
+
         // sin
         if (c == 'س')
         {
@@ -243,7 +242,7 @@ public static class Analyzer
                 OrderValue        = 15
             };
         }
-        
+
         // ayn
         if (c == 'ع')
         {
@@ -256,8 +255,7 @@ public static class Analyzer
                 OrderValue        = 16
             };
         }
-        
-        
+
         // fe
         if (c == 'ف')
         {
@@ -270,7 +268,7 @@ public static class Analyzer
                 OrderValue        = 17
             };
         }
-        
+
         // sad
         if (c == 'ص')
         {
@@ -283,7 +281,7 @@ public static class Analyzer
                 OrderValue        = 18
             };
         }
-        
+
         // kaf
         if (c == 'ق')
         {
@@ -296,7 +294,7 @@ public static class Analyzer
                 OrderValue        = 19
             };
         }
-        
+
         // re
         if (c == 'ر')
         {
@@ -309,7 +307,7 @@ public static class Analyzer
                 OrderValue        = 20
             };
         }
-        
+
         //şin
         if (c == 'ش')
         {
@@ -322,7 +320,7 @@ public static class Analyzer
                 OrderValue        = 21
             };
         }
-        
+
         // te
         if (c == 'ت')
         {
@@ -335,8 +333,7 @@ public static class Analyzer
                 OrderValue        = 22
             };
         }
-        
-       
+
         // se
         if (c == 'ث')
         {
@@ -350,9 +347,6 @@ public static class Analyzer
             };
         }
 
-        
-
-        
         // hı
         if (c == 'خ')
         {
@@ -366,7 +360,6 @@ public static class Analyzer
             };
         }
 
-        
         // zel
         if (c == 'ذ')
         {
@@ -380,15 +373,6 @@ public static class Analyzer
             };
         }
 
-      
-
-       
-
-       
-
-       
-
-       
         // dad
         if (c == 'ض')
         {
@@ -402,7 +386,6 @@ public static class Analyzer
             };
         }
 
-       
         // zı
         if (c == 'ظ')
         {
@@ -416,7 +399,6 @@ public static class Analyzer
             };
         }
 
-        
         // ğayn
         if (c == 'غ')
         {
@@ -430,22 +412,6 @@ public static class Analyzer
             };
         }
 
-        
-
-        
-
-        
-
-       
-
-        
-
-     
-
-       
-
-        
-        
         return new LetterInfo
         {
             ArabicLetterIndex = -1,
@@ -453,5 +419,4 @@ public static class Analyzer
             StartIndex        = startIndex
         };
     }
-    
 }
