@@ -22,8 +22,6 @@ public class CustomCountingTests
         var allLetters = allCharachters.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => GetLetterInfo(x[0],0,true)).ToImmutableList();
         
         
-        const int requestedNumericValue = 77;
-        
         const int combinationLength = 8;
 
         int getOrderByNumericValue(int numericValue)
@@ -34,14 +32,14 @@ public class CustomCountingTests
         var numbers = new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70 }.ToImmutableList();
         
         BigInteger numberOfProcessedItem = 0;
-        BigInteger numberOfFounds = 0;
+        BigInteger numberOfFounds_77_41 = 0;
         
         BigInteger numberOfFounds_77 = 0;
 
 
 
 
-            var founds = new List<string>();
+            var founds_77_41 = new List<string>();
             
         
         
@@ -49,7 +47,7 @@ public class CustomCountingTests
             {
                 numberOfProcessedItem++;
 
-                if (list.Sum() == requestedNumericValue)
+                if (list.Sum() == 77)
                 {
                     numberOfFounds_77++;
                     
@@ -57,19 +55,18 @@ public class CustomCountingTests
                     {
                         var key = string.Join(",", list.OrderBy(x => x));
                     
-                        if (founds.IndexOf(key)<0)
+                        if (founds_77_41.IndexOf(key)<0)
                         {
-                            founds.Add(key);
-                            numberOfFounds++;
+                            founds_77_41.Add(key);
+                            numberOfFounds_77_41++;
                         }
-                    
-                        //streamWriter.WriteLine(string.Join(" ", list));
                     }
                 }
 
             });
 
-        throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds_77: {numberOfFounds_77}, numberOfFounds_77__41: {numberOfFounds}");
+
+            throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds_77: {numberOfFounds_77}, numberOfFounds_77__41: {numberOfFounds_77_41}, list:{string.Join("-", founds_77_41)}");
 
 
         static void VisitCombinations(IReadOnlyList<int> numberList, int requestedCombinationLength, List<int> combination, Action<List<int>> onMatch)
