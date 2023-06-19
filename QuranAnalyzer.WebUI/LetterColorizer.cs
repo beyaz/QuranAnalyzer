@@ -33,7 +33,7 @@ public class LetterColorizer : ReactPureComponent
         {
             for (var j = 0; j < lettersForColorize.Count; j++)
             {
-                if (letterInfo.ArabicLetterIndex == lettersForColorize[j].ArabicLetterIndex)
+                if (letterInfo.NumericValue == lettersForColorize[j].NumericValue)
                 {
 
                     html.Append(VerseText.Substring(cursor, letterInfo.StartIndex - cursor));
