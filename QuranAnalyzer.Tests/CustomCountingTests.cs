@@ -7,6 +7,7 @@ using System.Text;
 using static QuranAnalyzer.QuranAnalyzerMixin;
 using static QuranAnalyzer.ArabicLetterIndex;
 using static QuranAnalyzer.VerseFilter;
+using System.Linq;
 
 namespace QuranAnalyzer;
 
@@ -39,9 +40,11 @@ public class CustomCountingTests
 
         //using (var streamWriter = File.AppendText("C:\\Users\\beyaz\\OneDrive\\Documents\\A.txt"))
         {
+
+
+
+            var founds = new List<string>();
             
-        
-        
         
         
             VisitCombinations(numbers, combinationLength,  new List<int>(), list =>
@@ -50,7 +53,13 @@ public class CustomCountingTests
 
                 if (list.Sum() == requestedNumericValue && list.Select(Calculator.GetOrderValueByNumericValue).Sum() == 41)
                 {
-                    numberOfFounds++;
+                    var key = string.Join(",", list.OrderBy(x => x));
+                    
+                    if (founds.IndexOf(key)<0)
+                    {
+                        founds.Add(key);
+                        numberOfFounds++;
+                    }
                     
                     //streamWriter.WriteLine(string.Join(" ", list));
                 }
@@ -332,7 +341,7 @@ public class CustomCountingTests
     }
     
     
-    [TestMethod]
+    //[TestMethod]
     public void ___6___()
     {
         var sb = new StringBuilder();
