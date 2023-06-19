@@ -330,4 +330,29 @@ public class CustomCountingTests
 
         remaining.Should().Be(114);
     }
+    
+    
+    [TestMethod]
+    public void ___6___()
+    {
+        var sb = new StringBuilder();
+
+
+        var verseList = GetVerseList("*,-9:128,-9:129").Value;
+        foreach (var verse in verseList)
+        {
+            foreach (var list in verse.TextWordList)
+            {
+                //if (list.Sum(l=>Calculator.GetNumericValue(l.Letter)))
+                //{
+                //    sb.AppendLine(string.Join("", list));
+                //}
+            }
+            
+        }
+        
+        var total = sb.ToString();
+
+        
+    }
 }
