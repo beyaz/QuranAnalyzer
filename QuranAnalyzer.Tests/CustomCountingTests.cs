@@ -395,4 +395,48 @@ public class CustomCountingTests
 
         
     }
+    
+    
+    [TestMethod]
+    public void TotalWordCount()
+    {
+
+        
+        var founds = new List<string>();
+
+        void push(IReadOnlyList<LetterInfo> word)
+        {
+            var clearWord = word.Where(IsArabicLetter).ToList();
+
+            var str = string.Join("", clearWord);
+
+            if (founds.IndexOf(str)<0)
+            {
+                founds.Add(str);
+            }
+        }
+
+        var verseList = GetVerseList("*,-9:128,-9:129").Value;
+        foreach (var verse in verseList)
+        {
+            foreach (var word in verse.TextWordList)
+            {
+                push(word);
+            }
+        }
+        
+        
+        foreach (var chapter in DataAccess.AllChapters)
+        {
+            foreach (var word in AnalyzeText(chapter.Name).GetWords())
+            {
+                push(word);
+            }
+        }
+
+
+        founds.Count.Should().Be(500);
+
+
+    }
 }
