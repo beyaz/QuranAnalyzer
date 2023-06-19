@@ -27,7 +27,7 @@ public static class Analyzer
 
     public static bool IsArabicLetter(LetterInfo info)
     {
-        return info.ArabicLetterIndex >= 0;
+        return info.NumericValue > 0;
     }
 
     static LetterInfo GetLetterInfo(char c, int startIndex, bool isHemzeActive)
