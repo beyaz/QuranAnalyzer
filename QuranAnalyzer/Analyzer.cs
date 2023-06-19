@@ -17,7 +17,7 @@ public static class Analyzer
             return false;
         }
 
-        if (a.ArabicLetterIndex >= 0 && a.ArabicLetterIndex == b.ArabicLetterIndex)
+        if (a.NumericValue > 0 && a.NumericValue == b.NumericValue)
         {
             return true;
         }
