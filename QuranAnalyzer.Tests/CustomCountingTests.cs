@@ -433,8 +433,8 @@ public class CustomCountingTests
                 push(word);
             }
         }
-        
-        
+
+
         foreach (var chapter in DataAccess.AllChapters)
         {
             foreach (var word in AnalyzeText(chapter.Name).GetWords())
