@@ -14,8 +14,8 @@ static class WordSearcher
             throw new ArgumentNullException(nameof(searchWord));
         }
 
-        sourceWord = sourceWord.Where(x => x.ArabicLetterIndex >= 0).ToList();
-        searchWord = searchWord.Where(x => x.ArabicLetterIndex >= 0).ToList();
+        sourceWord = sourceWord.Where(x => x.NumericValue > 0).ToList();
+        searchWord = searchWord.Where(x => x.NumericValue > 0).ToList();
 
         if (searchWord.Count > sourceWord.Count)
         {
