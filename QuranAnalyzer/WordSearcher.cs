@@ -34,7 +34,7 @@ static class WordSearcher
             var isMatch = true;
             for (var j = 0; j < searchWord.Count; j++)
             {
-                if (sourceWord[i + j].ArabicLetterIndex != searchWord[j].ArabicLetterIndex)
+                if (sourceWord[i + j].NumericValue != searchWord[j].NumericValue)
                 {
                     isMatch = false;
                     break;

@@ -241,7 +241,7 @@ public static class QuranQuery
 
     static bool IsValidForWordSearch(LetterInfo info)
     {
-        if (info.ArabicLetterIndex >= 0 && info.Letter != Analyzer.HamzaAbove)
+        if (info.NumericValue > 0 && info.Letter != Analyzer.HamzaAbove)
         {
             return true;
         }
