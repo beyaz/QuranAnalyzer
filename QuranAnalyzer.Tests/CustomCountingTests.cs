@@ -337,19 +337,51 @@ public class CustomCountingTests
     {
         var sb = new StringBuilder();
 
+        
+        var founds = new List<string>();
+
+        void push(IReadOnlyList<LetterInfo> word)
+        {
+            var clearWord = word.Where(IsArabicLetter).ToList();
+
+            var str = string.Join("", clearWord);
+
+            if (founds.IndexOf(str)<0)
+            {
+                founds.Add(str);
+            }
+        }
 
         var verseList = GetVerseList("*,-9:128,-9:129").Value;
         foreach (var verse in verseList)
         {
-            foreach (var list in verse.TextWordList)
+            foreach (var word in verse.TextWordList)
             {
-                //if (list.Sum(l=>Calculator.GetNumericValue(l.Letter)))
-                //{
-                //    sb.AppendLine(string.Join("", list));
-                //}
+                if (Enumerable.Sum(word, l => l.NumericValue) == 142 && Enumerable.Sum(word, l=>l.OrderValue) == 62)
+                {
+                    push(word);
+                }
             }
-            
         }
+        
+        
+        foreach (var chapter in DataAccess.AllChapters)
+        {
+            foreach (var word in AnalyzeText(chapter.Name).GetWords())
+            {
+                if (Enumerable.Sum(word, l => l.NumericValue) == 142 && Enumerable.Sum(word, l=>l.OrderValue) == 62)
+                {
+                    push(word);
+                }
+            }
+        }
+
+        //var a = AnalyzeText("ٱلنَّاس");
+
+        //var b = Enumerable.Sum(a, l => l.NumericValue);
+        //var c = Enumerable.Sum(a, l => l.OrderValue);
+
+        var result = string.Join(Environment.NewLine, founds);
         
         var total = sb.ToString();
 
