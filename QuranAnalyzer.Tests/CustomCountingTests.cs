@@ -40,28 +40,37 @@ public class CustomCountingTests
 
 
             var founds_77_41 = new List<string>();
+
+            var allCombinations = new List<string>();
             
         
         
             VisitCombinations(numbers, combinationLength,  new List<int>(), list =>
             {
-                numberOfProcessedItem++;
-
-                if (list.Sum() == 77)
+                var key = string.Join(",", list.OrderBy(x => x));
+                
+                if (allCombinations.IndexOf(key) < 0)
                 {
-                    numberOfFounds_77++;
+                    allCombinations.Add(key);
                     
-                    if (list.Select(getOrderByNumericValue).Sum() == 41)
+                    numberOfProcessedItem++;
+
+                    if (list.Sum() == 77)
                     {
-                        var key = string.Join(",", list.OrderBy(x => x));
+                        numberOfFounds_77++;
                     
-                        if (founds_77_41.IndexOf(key)<0)
+                        if (list.Select(getOrderByNumericValue).Sum() == 41)
                         {
-                            founds_77_41.Add(key);
-                            numberOfFounds_77_41++;
+                            if (founds_77_41.IndexOf(key)<0)
+                            {
+                                founds_77_41.Add(key);
+                                numberOfFounds_77_41++;
+                            }
                         }
                     }
                 }
+                
+                
 
             });
 
@@ -435,7 +444,7 @@ public class CustomCountingTests
         }
 
 
-        founds.Count.Should().Be(500);
+        founds.Count.Should().Be(14912);
 
 
     }
