@@ -40,7 +40,8 @@ public static class Analyzer
                 ArabicLetterIndex = 0,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 1
+                NumericValue      = 1,
+                OrderValue = 1
             };
         }
 
@@ -53,7 +54,8 @@ public static class Analyzer
                     ArabicLetterIndex = 0,
                     Letter            = c,
                     StartIndex        = startIndex,
-                    NumericValue      = 1
+                    NumericValue      = 1,
+                    OrderValue        = 1
                 };
             }
         }
@@ -65,7 +67,8 @@ public static class Analyzer
                 ArabicLetterIndex = 1,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 2
+                NumericValue      = 2,
+                OrderValue        = 2
             };
         }
 
@@ -76,7 +79,8 @@ public static class Analyzer
                 ArabicLetterIndex = 2,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 400
+                NumericValue      = 400,
+                OrderValue        = 3
             };
         }
 
@@ -87,7 +91,8 @@ public static class Analyzer
                 ArabicLetterIndex = 3,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 500
+                NumericValue      = 500,
+                OrderValue        = 4
             };
         }
 
@@ -98,7 +103,8 @@ public static class Analyzer
                 ArabicLetterIndex = 4,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 3
+                NumericValue      = 3,
+                OrderValue        = 5
             };
         }
 
@@ -109,7 +115,8 @@ public static class Analyzer
                 ArabicLetterIndex = 5,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 8
+                NumericValue      = 8,
+                OrderValue        = 6
             };
         }
 
@@ -120,7 +127,8 @@ public static class Analyzer
                 ArabicLetterIndex = 6,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 600
+                NumericValue      = 600,
+                OrderValue        = 7
             };
         }
 
@@ -131,7 +139,8 @@ public static class Analyzer
                 ArabicLetterIndex = 7,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 4
+                NumericValue      = 4,
+                OrderValue        = 8
             };
         }
 
@@ -142,7 +151,8 @@ public static class Analyzer
                 ArabicLetterIndex = 8,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 700
+                NumericValue      = 700,
+                OrderValue        = 9
             };
         }
 
@@ -153,7 +163,8 @@ public static class Analyzer
                 ArabicLetterIndex = 9,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 200
+                NumericValue      = 200,
+                OrderValue        = 10
             };
         }
 
@@ -164,7 +175,8 @@ public static class Analyzer
                 ArabicLetterIndex = 10,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 7
+                NumericValue      = 7,
+                OrderValue        = 11
             };
         }
 
@@ -175,7 +187,8 @@ public static class Analyzer
                 ArabicLetterIndex = 11,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 60
+                NumericValue      = 60,
+                OrderValue        = 12
             };
         }
 
@@ -186,7 +199,8 @@ public static class Analyzer
                 ArabicLetterIndex = 12,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 300
+                NumericValue      = 300,
+                OrderValue        = 13
             };
         }
 
@@ -197,7 +211,8 @@ public static class Analyzer
                 ArabicLetterIndex = 13,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 90
+                NumericValue      = 90,
+                OrderValue        = 14
             };
         }
 
@@ -208,7 +223,8 @@ public static class Analyzer
                 ArabicLetterIndex = 14,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 800
+                NumericValue      = 800,
+                OrderValue        = 15
             };
         }
 
@@ -219,7 +235,8 @@ public static class Analyzer
                 ArabicLetterIndex = 15,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 9
+                NumericValue      = 9,
+                OrderValue        = 16
             };
         }
 
@@ -230,7 +247,8 @@ public static class Analyzer
                 ArabicLetterIndex = 16,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 900
+                NumericValue      = 900,
+                OrderValue        = 17
             };
         }
 
@@ -241,7 +259,8 @@ public static class Analyzer
                 ArabicLetterIndex = 17,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 70
+                NumericValue      = 70,
+                OrderValue        = 18
             };
         }
 
@@ -252,7 +271,8 @@ public static class Analyzer
                 ArabicLetterIndex = 18,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 1000
+                NumericValue      = 1000,
+                OrderValue        = 19
             };
         }
 
@@ -263,7 +283,8 @@ public static class Analyzer
                 ArabicLetterIndex = 19,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 80
+                NumericValue      = 80,
+                OrderValue        = 20
             };
         }
 
@@ -274,7 +295,8 @@ public static class Analyzer
                 ArabicLetterIndex = 20,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 100
+                NumericValue      = 100,
+                OrderValue        = 21
             };
         }
 
@@ -285,7 +307,8 @@ public static class Analyzer
                 ArabicLetterIndex = 21,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 20
+                NumericValue      = 20,
+                OrderValue        = 22
             };
         }
 
@@ -296,7 +319,8 @@ public static class Analyzer
                 ArabicLetterIndex = 22,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 30
+                NumericValue      = 30,
+                OrderValue        = 23
             };
         }
 
@@ -307,7 +331,8 @@ public static class Analyzer
                 ArabicLetterIndex = 23,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 40
+                NumericValue      = 40,
+                OrderValue        = 24
             };
         }
 
@@ -318,7 +343,8 @@ public static class Analyzer
                 ArabicLetterIndex = 24,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 50
+                NumericValue      = 50,
+                OrderValue        = 25
             };
         }
 
@@ -329,7 +355,8 @@ public static class Analyzer
                 ArabicLetterIndex = 25,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 5
+                NumericValue      = 5,
+                OrderValue        = 26
             };
         }
 
@@ -340,7 +367,8 @@ public static class Analyzer
                 ArabicLetterIndex = 26,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 6
+                NumericValue      = 6,
+                OrderValue        = 27
             };
         }
 
@@ -351,7 +379,8 @@ public static class Analyzer
                 ArabicLetterIndex = 27,
                 Letter            = c,
                 StartIndex        = startIndex,
-                NumericValue      = 10
+                NumericValue      = 10,
+                OrderValue        = 28
             };
         }
         
