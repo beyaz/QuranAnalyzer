@@ -6,6 +6,8 @@ public sealed class LetterInfo
     public int StartIndex { get; init; }
     
     public char Letter { get; init; }
+    
+    public int NumericValue { get; init; }
 
     public override string ToString()
     {

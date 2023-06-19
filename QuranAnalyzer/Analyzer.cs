@@ -39,7 +39,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 0,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 1
             };
         }
 
@@ -51,7 +52,8 @@ public static class Analyzer
                 {
                     ArabicLetterIndex = 0,
                     Letter            = c,
-                    StartIndex        = startIndex
+                    StartIndex        = startIndex,
+                    NumericValue      = 1
                 };
             }
         }
@@ -62,7 +64,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 1,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 2
             };
         }
 
@@ -72,7 +75,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 2,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 400
             };
         }
 
@@ -82,7 +86,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 3,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 500
             };
         }
 
@@ -92,7 +97,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 4,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 3
             };
         }
 
@@ -102,7 +108,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 5,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 8
             };
         }
 
@@ -112,7 +119,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 6,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 600
             };
         }
 
@@ -122,7 +130,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 7,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 4
             };
         }
 
@@ -132,7 +141,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 8,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 700
             };
         }
 
@@ -142,7 +152,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 9,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 200
             };
         }
 
@@ -152,7 +163,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 10,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 7
             };
         }
 
@@ -162,7 +174,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 11,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 60
             };
         }
 
@@ -172,7 +185,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 12,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 300
             };
         }
 
@@ -182,7 +196,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 13,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 90
             };
         }
 
@@ -192,7 +207,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 14,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 800
             };
         }
 
@@ -202,7 +218,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 15,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 9
             };
         }
 
@@ -212,7 +229,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 16,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 900
             };
         }
 
@@ -222,7 +240,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 17,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 70
             };
         }
 
@@ -232,7 +251,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 18,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 1000
             };
         }
 
@@ -242,7 +262,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 19,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 80
             };
         }
 
@@ -252,7 +273,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 20,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 100
             };
         }
 
@@ -262,7 +284,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 21,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 20
             };
         }
 
@@ -272,7 +295,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 22,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 30
             };
         }
 
@@ -282,7 +306,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 23,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 40
             };
         }
 
@@ -292,7 +317,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 24,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 50
             };
         }
 
@@ -302,7 +328,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 25,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 5
             };
         }
 
@@ -312,7 +339,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 26,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 6
             };
         }
 
@@ -322,7 +350,8 @@ public static class Analyzer
             {
                 ArabicLetterIndex = 27,
                 Letter            = c,
-                StartIndex        = startIndex
+                StartIndex        = startIndex,
+                NumericValue      = 10
             };
         }
         
