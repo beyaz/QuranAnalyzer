@@ -30,7 +30,7 @@ public static class Analyzer
         return info.NumericValue > 0;
     }
 
-    static LetterInfo GetLetterInfo(char c, int startIndex, bool isHemzeActive)
+    public static LetterInfo GetLetterInfo(char c, int startIndex, bool isHemzeActive)
     {
         // elif
         if (c == 'ا' || c == 'ٱ' || c == 'إ' || c == 'أ' || c == 'ﺍ')

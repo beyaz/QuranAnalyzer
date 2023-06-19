@@ -19,21 +19,19 @@ public class CustomCountingTests
     public void __667__1()
     {
         const string allCharachters = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي";
-        const string allCharachtersNumericValues = "1 2 400 500 3 8 600 4 700 200 7 60 300 90 800 9 900 70 1000 80 100 20 30 40 50 5 6 10";
+        var allLetters = allCharachters.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => GetLetterInfo(x[0],0,true)).ToImmutableList();
+        
+        
         const int requestedNumericValue = 77;
-
-        var allCharachtersAsList = allCharachters.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => x[0]).ToImmutableList();
-        var numbers = allCharachtersNumericValues.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToImmutableList();
-
-        if (allCharachtersAsList.Count != numbers.Count)
-        {
-            throw new Exception("wrong input");
-        }
-
+        
         const int combinationLength = 8;
 
+        int getOrderByNumericValue(int numericValue)
+        {
+            return allLetters.First(l => l.NumericValue == numericValue).OrderValue;
+        }
 
-        numbers = new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70 }.ToImmutableList();
+        var numbers = new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70 }.ToImmutableList();
         
         BigInteger numberOfProcessedItem = 0;
         BigInteger numberOfFounds = 0;
@@ -51,7 +49,7 @@ public class CustomCountingTests
             {
                 numberOfProcessedItem++;
 
-                if (list.Sum() == requestedNumericValue && list.Select(Calculator.GetOrderValueByNumericValue).Sum() == 41)
+                if (list.Sum() == requestedNumericValue && list.Select(getOrderByNumericValue).Sum() == 41)
                 {
                     var key = string.Join(",", list.OrderBy(x => x));
                     
