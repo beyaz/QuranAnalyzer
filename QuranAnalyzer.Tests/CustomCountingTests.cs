@@ -12,72 +12,66 @@ namespace QuranAnalyzer;
 [TestClass]
 public class CustomCountingTests
 {
-    
-    //[TestMethod]
-    //public void __667__1()
-    //{
-    //    const string allCharachters = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي";
-    //    const string allCharachtersNumericValues = "1 2 400 500 3 8 600 4 700 200 7 60 300 90 800 9 900 70 1000 80 100 20 30 40 50 5 6 10";
-    //    const int requestedNumericValue = 667;
-    //    const int requestedOrderNumber = 109;
 
-    //    var allCharachtersAsList = allCharachters.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => x[0]).ToImmutableList();
-    //    var numbers = allCharachtersNumericValues.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToImmutableList();
+    [TestMethod]
+    public void __667__1()
+    {
+        const string allCharachters = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي";
+        const string allCharachtersNumericValues = "1 2 400 500 3 8 600 4 700 200 7 60 300 90 800 9 900 70 1000 80 100 20 30 40 50 5 6 10";
+        const int requestedNumericValue = 70;
 
-    //    if (allCharachtersAsList.Count != numbers.Count)
-    //    {
-    //        throw new Exception("wrong input");
-    //    }
+        var allCharachtersAsList = allCharachters.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => x[0]).ToImmutableList();
+        var numbers = allCharachtersNumericValues.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToImmutableList();
 
-    //    const int combinationLength = 12;
-    //    const int maxOccurence = 4;
-        
+        if (allCharachtersAsList.Count != numbers.Count)
+        {
+            throw new Exception("wrong input");
+        }
 
-    //    BigInteger numberOfProcessedItem = 0;
-    //    BigInteger numberOfFounds = 0;
+        const int combinationLength = 8;
 
-    //    VisitCombinations(numbers, combinationLength, maxOccurence, new List<int>(), list =>
-    //    {
-    //        numberOfProcessedItem++;
-            
-    //        if (list.Sum() == requestedNumericValue && list.Select(Calculator.GetOrderValueByNumericValue).Sum() == requestedOrderNumber)
-    //        {
-    //            numberOfFounds++;
-    //        }
 
-    //    });
-        
-   
+        BigInteger numberOfProcessedItem = 0;
+        BigInteger numberOfFounds = 0;
 
-    //    throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
-        
-        
-    //    static void VisitCombinations(IReadOnlyList<int> numberList, int requestedCombinationLength, int requestedMaxOccurence, List<int> combination, Action<List<int>> onMatch)
-    //    {
-    //        if (combination.Count == requestedCombinationLength)
-    //        {
-    //            onMatch(combination);
-    //        }
-    //        else
-    //        {
-    //            var numberListCount = numberList.Count;
-                
-    //            for (var i = 0; i < numberListCount; i++)
-    //            {
-    //                var number = numberList[i];
+        VisitCombinations(numbers, combinationLength,  new List<int>(), list =>
+        {
+            numberOfProcessedItem++;
 
-    //                if (combination.FindAll(x => x == number).Count < requestedMaxOccurence)
-    //                {
-    //                    combination.Add(number);
-    //                    VisitCombinations(numberList, requestedCombinationLength,requestedMaxOccurence, combination,onMatch);
-    //                    combination.RemoveAt(combination.Count - 1);
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
-    
-    
+            if (list.Sum() == requestedNumericValue)
+            {
+                numberOfFounds++;
+            }
+
+        });
+
+
+        throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
+
+
+        static void VisitCombinations(IReadOnlyList<int> numberList, int requestedCombinationLength, List<int> combination, Action<List<int>> onMatch)
+        {
+            if (combination.Count == requestedCombinationLength)
+            {
+                onMatch(combination);
+            }
+            else
+            {
+                var numberListCount = numberList.Count;
+
+                for (var i = 0; i < numberListCount; i++)
+                {
+                    var number = numberList[i];
+
+                        combination.Add(number);
+                        VisitCombinations(numberList, requestedCombinationLength, combination, onMatch);
+                        combination.RemoveAt(combination.Count - 1);
+                }
+            }
+        }
+    }
+
+
     //[TestMethod]
     public void __667__()
     {
