@@ -35,9 +35,9 @@ public class CustomCountingTests
         
         BigInteger numberOfProcessedItem = 0;
         BigInteger numberOfFounds = 0;
+        
+        BigInteger numberOfFounds_77 = 0;
 
-        //using (var streamWriter = File.AppendText("C:\\Users\\beyaz\\OneDrive\\Documents\\A.txt"))
-        {
 
 
 
@@ -49,23 +49,27 @@ public class CustomCountingTests
             {
                 numberOfProcessedItem++;
 
-                if (list.Sum() == requestedNumericValue && list.Select(getOrderByNumericValue).Sum() == 41)
+                if (list.Sum() == requestedNumericValue)
                 {
-                    var key = string.Join(",", list.OrderBy(x => x));
+                    numberOfFounds_77++;
                     
-                    if (founds.IndexOf(key)<0)
+                    if (list.Select(getOrderByNumericValue).Sum() == 41)
                     {
-                        founds.Add(key);
-                        numberOfFounds++;
-                    }
+                        var key = string.Join(",", list.OrderBy(x => x));
                     
-                    //streamWriter.WriteLine(string.Join(" ", list));
+                        if (founds.IndexOf(key)<0)
+                        {
+                            founds.Add(key);
+                            numberOfFounds++;
+                        }
+                    
+                        //streamWriter.WriteLine(string.Join(" ", list));
+                    }
                 }
 
             });
-        }
 
-        throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds: {numberOfFounds}");
+        throw new Exception($"Total combination: {numberOfProcessedItem}, numberOfFounds_77: {numberOfFounds_77}, numberOfFounds_77__41: {numberOfFounds}");
 
 
         static void VisitCombinations(IReadOnlyList<int> numberList, int requestedCombinationLength, List<int> combination, Action<List<int>> onMatch)
