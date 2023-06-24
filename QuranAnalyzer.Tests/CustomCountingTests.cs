@@ -33,4 +33,34 @@ public class CustomCountingTests
 
         remaining.Should().Be(114);
     }
+    
+    
+    [TestMethod]
+    public void ______1()
+    {
+        var verseCount = 0;
+
+        var totalSum = 0;
+        
+        var verseList = GetVerseList("*,-9:128,-9:129").Value;
+        foreach (var verse in verseList)
+        {
+            verseCount++;
+            
+            totalSum += getCount(verse, Baa, Raa, Kaaf,Raa, Yaa, Waaw,Raa,Kaaf,Waaw, Jiim);
+
+            if (verseCount == 2280)
+            {
+                break;
+            }
+        }
+
+        totalSum.Should().Be(667*114);
+
+        static int getCount(Verse verse, params int[] arabicLetterOrderValues)
+        {
+            var option = new MushafOption();
+            return Enumerable.Sum(arabicLetterOrderValues.Select(orderValueOfLetter => GetCountOfLetterInVerse(verse, orderValueOfLetter, option, false)));
+        }
+    }
 }
