@@ -51,7 +51,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, string letter) => $"Alif_Laam_Miim_Sad-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter) => $"Alif_Laam_Miim_Sad-{chapterNumber}-{letter}";
 
     static string IdOfCountingResult(int chapterNumber) => $"Alif_Laam_Miim_Sad-{chapterNumber}";
 }

@@ -181,7 +181,7 @@ static class Extensions
                 new() { ChapterNumber = 68, Count = "133" }
             }
         },
-        new InitialLetterCountInfo { Text = "Toplam", Count = "41388" }
+        new InitialLetterCountInfo { Label = "Toplam", Count = "41388" }
     };
 
     public static IReadOnlyList<int> CreateAnimationDelays(int count)

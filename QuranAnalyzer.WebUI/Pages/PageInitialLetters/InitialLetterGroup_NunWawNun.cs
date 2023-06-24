@@ -56,5 +56,5 @@ class InitialLetterGroup_NunWawNun : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, string letter) => $"NunWawNun-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter) => $"NunWawNun-{chapterNumber}-{letter}";
 }

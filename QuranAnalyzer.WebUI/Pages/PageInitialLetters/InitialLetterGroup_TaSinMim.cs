@@ -142,5 +142,5 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, string letter) => $"TaSinMim-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter) => $"TaSinMim-{chapterNumber}-{letter}";
 }

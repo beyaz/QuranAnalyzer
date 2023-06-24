@@ -39,9 +39,9 @@ class ArabicKeyboard : ReactPureComponent
         return Content;
     }
 
-    static Element LetterToElement(string arabicLetter, string englishText)
+    static Element LetterToElement(char arabicLetter, string englishText)
     {
-        return new ArabicKeyboardLetterView { ArabicLetter = arabicLetter, English = englishText };
+        return new ArabicKeyboardLetterView { ArabicLetter = arabicLetter.ToString(), English = englishText };
     }
 }
 

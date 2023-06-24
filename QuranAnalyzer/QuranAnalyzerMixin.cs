@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using static QuranAnalyzer.ArabicLetterIndex;
+using static QuranAnalyzer.ArabicLetterOrder;
 
 namespace QuranAnalyzer;
 
@@ -292,14 +292,14 @@ public static class QuranAnalyzerMixin
         return string.Compare(a, b, ignoreCase: true, CultureInfoArabic) == 0;
     }
 
-    public static int GetCountOfLetter(IReadOnlyList<Verse> verseList, int arabicLetterIndex, MushafOption option = null, bool includeBismillah = true)
+    public static int GetCountOfLetter(IReadOnlyList<Verse> verseList, int arabicLetterOrder, MushafOption option = null, bool includeBismillah = true)
     {
         option ??= new MushafOption();
 
-        return verseList.Select(x => GetCountOfLetterInVerse(x, arabicLetterIndex, option, includeBismillah)).Sum();
+        return verseList.Select(x => GetCountOfLetterInVerse(x, arabicLetterOrder, option, includeBismillah)).Sum();
     }
 
-    public static int GetCountOfLetterInVerse(Verse verse, int arabicLetterIndex, MushafOption option, bool includeBismillah)
+    public static int GetCountOfLetterInVerse(Verse verse, int arabicLetterOrder, MushafOption option, bool includeBismillah)
     {
         if (verse == null)
         {
@@ -311,7 +311,7 @@ public static class QuranAnalyzerMixin
             throw new ArgumentNullException(nameof(option));
         }
 
-        if (arabicLetterIndex == Alif)
+        if (arabicLetterOrder == Alif)
         {
             if (option.UseElifReferencesFromTanzil == false)
             {
@@ -322,7 +322,7 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterIndex == Saad)
+        if (arabicLetterOrder == Saad)
         {
             if (option.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten == false)
             {
@@ -333,7 +333,7 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterIndex == Siin)
+        if (arabicLetterOrder == Siin)
         {
             if (option.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten == false)
             {
@@ -344,7 +344,7 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterIndex == Laam)
+        if (arabicLetterOrder == Laam)
         {
             if (option.Use_Laam_SpecifiedByTanzil == false)
             {
@@ -355,7 +355,7 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterIndex == Nun)
+        if (arabicLetterOrder == Nun)
         {
             if (option.Chapter_68_Should_Single_Nun == false)
             {
@@ -373,7 +373,7 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterIndex == Waaw)
+        if (arabicLetterOrder == Waaw)
         {
             if (option.Chapter_68_Should_Single_Nun == false)
             {
@@ -413,7 +413,7 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterIndex == Yaa)
+        if (arabicLetterOrder == Yaa)
         {
             // Tanzil.net has a bug here. There mush be extra ye here according to utmaine mushaf
             if (!option.Ya_sahibeyi_Should_Contains_2_ya)
@@ -431,7 +431,7 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        return (includeBismillah ? verse.TextWithBismillahAnalyzed : verse.TextAnalyzed).Count(x => x.ArabicLetterIndex == arabicLetterIndex);
+        return (includeBismillah ? verse.TextWithBismillahAnalyzed : verse.TextAnalyzed).Count(x => x.OrderValue == arabicLetterOrder);
     }
 
     public static string GetDifferencesKeyForRK(string verseId)

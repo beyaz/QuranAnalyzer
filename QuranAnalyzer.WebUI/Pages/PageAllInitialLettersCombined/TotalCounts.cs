@@ -144,7 +144,14 @@ class TotalCounts : ReactComponent
     {
         return new FlexColumn(ComponentBorder, BorderRadiusForPanels, Padding(3), Gap(4))
         {
-            new FlexRow(JustifyContentCenter) { AsLetter(Records[recordIndex].Text) },
+            When(Records[recordIndex].Label is not null,new FlexRow(JustifyContentCenter)
+            {
+                Records[recordIndex].Label
+            }),
+            When(Records[recordIndex].Label is null,new FlexRow(JustifyContentCenter)
+            {
+                AsLetter(Records[recordIndex].Text)
+            }),
             new FlexRowCentered
             {
                 CreateInput(() => Records[recordIndex].Count, Id(GetIdOf(isBegin: true, recordIndex: recordIndex)), delay)

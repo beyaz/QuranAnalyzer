@@ -4,8 +4,11 @@ public class InitialLetterCountInfo
 {
     public string Count { get; set; }
 
-    public List<CountInfo> Details { get; set; }
-    public string Text { get; set; }
+    public IReadOnlyList<CountInfo> Details { get; init; }
+    
+    public char Text { get; init; }
+    
+    public string Label { get; init; }
 }
 
 public class CountInfo

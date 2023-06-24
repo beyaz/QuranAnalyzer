@@ -1,5 +1,5 @@
 ﻿using static QuranAnalyzer.QuranAnalyzerMixin;
-using static QuranAnalyzer.ArabicLetterIndex;
+using static QuranAnalyzer.ArabicLetterOrder;
 using static QuranAnalyzer.VerseFilter;
 
 namespace QuranAnalyzer;
@@ -193,13 +193,13 @@ public class CharacterCountingTests
         CountShouldBe("42:*", Qaaf, 57);
     }
 
-    static void CountShouldBe(string searchScript, int arabicLetterIndex, int expectedCount)
+    static void CountShouldBe(string searchScript, int arabicLetterOrder, int expectedCount)
     {
-        GetVerseList(searchScript).Then(verses => GetCountOfLetter(verses, arabicLetterIndex)).ShouldBe(expectedCount);
+        GetVerseList(searchScript).Then(verses => GetCountOfLetter(verses, arabicLetterOrder)).ShouldBe(expectedCount);
     }
 
-    static void CountShouldBe(string searchScript, int arabicLetterIndex, MushafOption option, int expectedCount)
+    static void CountShouldBe(string searchScript, int arabicLetterOrder, MushafOption option, int expectedCount)
     {
-        GetVerseList(searchScript).Then(verses => GetCountOfLetter(verses, arabicLetterIndex, option)).ShouldBe(expectedCount);
+        GetVerseList(searchScript).Then(verses => GetCountOfLetter(verses, arabicLetterOrder, option)).ShouldBe(expectedCount);
     }
 }

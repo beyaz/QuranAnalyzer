@@ -179,5 +179,5 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, string letter) => $"HaMim-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter) => $"HaMim-{chapterNumber}-{letter}";
 }

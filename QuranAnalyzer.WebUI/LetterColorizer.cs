@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using static QuranAnalyzer.ArabicLetterIndex;
+using static QuranAnalyzer.ArabicLetterOrder;
 using static QuranAnalyzer.WebUI.LetterColorPalette;
 using static QuranAnalyzer.QuranAnalyzerMixin;
 
@@ -78,7 +78,7 @@ public class LetterColorizer : ReactPureComponent
 
                 new div { counts[j].ToString(), FontSize12 },
 
-                GetExtra(lettersForColorize[j].ArabicLetterIndex)
+                GetExtra(lettersForColorize[j].OrderValue)
             };
 
             countsView.appendChild(countView);
@@ -121,7 +121,7 @@ public class LetterColorizer : ReactPureComponent
         };
     }
 
-    Element GetExtra(int arabicLetterIndex)
+    Element GetExtra(int arabicLetterOrder)
     {
         if (Verse == null)
         {
@@ -133,7 +133,7 @@ public class LetterColorizer : ReactPureComponent
             return null;
         }
 
-        if (arabicLetterIndex == Alif)
+        if (arabicLetterOrder == Alif)
         {
             if (MushafOption.UseElifReferencesFromTanzil == false)
             {
@@ -152,7 +152,7 @@ public class LetterColorizer : ReactPureComponent
             }
         }
 
-        if (arabicLetterIndex == Laam)
+        if (arabicLetterOrder == Laam)
         {
             if (MushafOption.Use_Laam_SpecifiedByTanzil == false)
             {
@@ -171,7 +171,7 @@ public class LetterColorizer : ReactPureComponent
             }
         }
 
-        if (arabicLetterIndex == Saad)
+        if (arabicLetterOrder == Saad)
         {
             if (MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten == false)
             {
@@ -190,7 +190,7 @@ public class LetterColorizer : ReactPureComponent
             }
         }
 
-        if (arabicLetterIndex == Siin)
+        if (arabicLetterOrder == Siin)
         {
             if (MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten == false)
             {
@@ -209,7 +209,7 @@ public class LetterColorizer : ReactPureComponent
             }
         }
 
-        if (arabicLetterIndex == Nun)
+        if (arabicLetterOrder == Nun)
         {
             if (MushafOption.Chapter_68_Should_Single_Nun == false)
             {
@@ -228,7 +228,7 @@ public class LetterColorizer : ReactPureComponent
             }
         }
 
-        if (arabicLetterIndex == Waaw)
+        if (arabicLetterOrder == Waaw)
         {
             if (MushafOption.Chapter_68_Should_Single_Nun == false)
             {
@@ -269,7 +269,7 @@ public class LetterColorizer : ReactPureComponent
             }
         }
 
-        if (arabicLetterIndex == Yaa)
+        if (arabicLetterOrder == Yaa)
         {
             // Tanzil.net has a bug here. There mush be extra ye here according to utmaine mushaf
             if (!MushafOption.Ya_sahibeyi_Should_Contains_2_ya)

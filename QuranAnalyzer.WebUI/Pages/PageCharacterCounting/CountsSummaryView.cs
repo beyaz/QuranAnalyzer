@@ -151,7 +151,7 @@ class CountsSummaryView : ReactPureComponent
 
     string GetPronunciation(string name)
     {
-        var pronunciation = GetPronunciationOfArabicLetter(name);
+        var pronunciation = GetPronunciationOfArabicLetter(name[0]);
         if (pronunciation is not null && pronunciation != name)
         {
             pronunciation = "(" + pronunciation + ")";

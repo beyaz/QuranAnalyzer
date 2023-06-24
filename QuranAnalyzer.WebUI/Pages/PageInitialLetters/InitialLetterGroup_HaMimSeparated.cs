@@ -14,7 +14,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
         const string firstColor  = "#871F78";
         const string secondColor = "#c75fe0";
 
-        (int? count, string url, string color) getOnlyOneLetterCountingInfo(string verseSelectScript, string letter, int? count, string color)
+        (int? count, string url, string color) getOnlyOneLetterCountingInfo(string verseSelectScript, char letter, int? count, string color)
         {
             if (!ShowCounts)
             {
@@ -336,7 +336,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, string letter) => $"HaMimSeparated-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter) => $"HaMimSeparated-{chapterNumber}-{letter}";
 
     Element CreateSeparationSwitch()
     {

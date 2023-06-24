@@ -2,14 +2,14 @@
 
 public abstract class ReactComponent : ReactWithDotNet.ReactComponent
 {
-    protected IEnumerable<Element> AsLetter(string arabicLetter)
+    protected IEnumerable<Element> AsLetter(char arabicLetter)
     {
         var pronunciation = GetPronunciationOfArabicLetter(arabicLetter);
 
-        return new Element[] { (strong)pronunciation, "(", (strong)arabicLetter, ")" };
+        return new Element[] { (strong)pronunciation, "(", (strong)arabicLetter.ToString(), ")" };
     }
 
-    protected string GetPronunciationOfArabicLetter(string arabicLetter)
+    protected string GetPronunciationOfArabicLetter(char arabicLetter)
     {
         return GetTurkishPronunciationOfArabicLetter(arabicLetter);
     }
@@ -22,14 +22,14 @@ public abstract class ReactComponent : ReactWithDotNet.ReactComponent
 
 public abstract class ReactPureComponent : ReactWithDotNet.ReactPureComponent
 {
-    protected IEnumerable<Element> AsLetter(string arabicLetter)
+    protected IEnumerable<Element> AsLetter(char arabicLetter)
     {
         var pronunciation = GetPronunciationOfArabicLetter(arabicLetter);
 
-        return new Element[] { (strong)pronunciation, "(", (strong)arabicLetter, ")" };
+        return new Element[] { (strong)pronunciation, "(", (strong)arabicLetter.ToString(), ")" };
     }
 
-    protected string GetPronunciationOfArabicLetter(string arabicLetter)
+    protected string GetPronunciationOfArabicLetter(char arabicLetter)
     {
         return GetTurkishPronunciationOfArabicLetter(arabicLetter);
     }
@@ -42,7 +42,7 @@ public abstract class ReactPureComponent : ReactWithDotNet.ReactPureComponent
 
 public abstract class ReactComponent<TState> : ReactWithDotNet.ReactComponent<TState> where TState : new()
 {
-    protected string GetPronunciationOfArabicLetter(string arabicLetter)
+    protected string GetPronunciationOfArabicLetter(char arabicLetter)
     {
         return GetTurkishPronunciationOfArabicLetter(arabicLetter);
     }

@@ -183,7 +183,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, string letter) => $"Alif_Laam_Raa-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter) => $"Alif_Laam_Raa-{chapterNumber}-{letter}";
 
     static string IdOfCountingResult(int chapterNumber) => $"Alif_Laam_Raa-{chapterNumber}";
 }

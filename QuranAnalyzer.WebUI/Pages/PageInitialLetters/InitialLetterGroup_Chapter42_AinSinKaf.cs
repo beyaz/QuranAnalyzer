@@ -63,5 +63,5 @@ class InitialLetterGroup_Chapter42_AinSinKaf : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, string letter) => $"42_AinSinKaf-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter) => $"42_AinSinKaf-{chapterNumber}-{letter}";
 }

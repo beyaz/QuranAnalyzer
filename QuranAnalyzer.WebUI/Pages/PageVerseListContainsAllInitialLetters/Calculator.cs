@@ -80,7 +80,7 @@ class Calculator : ReactComponent<CalculatorModel>
         var option = new MushafOption();
 
         var letterInfoList  = Analyzer.AnalyzeText(state.Letters.Replace(" ", ""));
-        var letterIndexList = letterInfoList.Select(x => x.ArabicLetterIndex).ToImmutableList();
+        var letterOrderList = letterInfoList.Select(x => x.OrderValue).ToImmutableList();
         var verseList       = VerseFilter.GetVerseList(state.SearchScript).Unwrap().Where(isContainsGivenLetters).ToList();
 
         if (ShowNumbers)
@@ -120,9 +120,9 @@ class Calculator : ReactComponent<CalculatorModel>
 
         bool isContainsGivenLetters(Verse verse)
         {
-            foreach (var arabicLetterIndex in letterIndexList)
+            foreach (var arabicLetterOrder in letterOrderList)
             {
-                if (QuranAnalyzerMixin.GetCountOfLetterInVerse(verse, arabicLetterIndex, option, true) <= 0)
+                if (QuranAnalyzerMixin.GetCountOfLetterInVerse(verse, arabicLetterOrder, option, true) <= 0)
                 {
                     return false;
                 }

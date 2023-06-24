@@ -59,5 +59,5 @@ class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, string letter) => $"Chapter36_YaSin-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter) => $"Chapter36_YaSin-{chapterNumber}-{letter}";
 }

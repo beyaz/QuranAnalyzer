@@ -41,11 +41,11 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
 
             new ErrorText { Text = state.ErrorText },
 
-            When(state.LetterInfoList?.Count > 0, () => GetCalculationText(state.LetterInfoList.Select(x => x.ToString()).ToArray()))
+            When(state.LetterInfoList?.Count > 0, () => GetCalculationText(state.LetterInfoList))
         };
     }
 
-    Element GetCalculationText(string[] arabicLetters)
+    Element GetCalculationText(IReadOnlyList<LetterInfo> arabicLetters)
     {
         var totalView = new FlexRowCentered();
 
@@ -56,7 +56,7 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
 
         var total = 0;
 
-        for (var i = 0; i < arabicLetters.Length; i++)
+        for (var i = 0; i < arabicLetters.Count; i++)
         {
             if (i > 0)
             {
@@ -64,12 +64,12 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
             }
 
             var arabicLetter  = arabicLetters[i];
-            var pronunciation = GetPronunciationOfArabicLetter(arabicLetter);
-            var numericValue  = ArabicLetterNumericValue.GetNumericalValue(ArabicLetter.AllArabicLetters.GetIndex(arabicLetter).Value);
+            var pronunciation = GetPronunciationOfArabicLetter(arabicLetter.Letter);
+            var numericValue = arabicLetter.NumericValue;
 
             var item = new ArabicLetterWithNumericValue
             {
-                ArabicLetter               = arabicLetter,
+                ArabicLetter               = arabicLetter.Letter,
                 Pronunciation              = pronunciation,
                 NumericValueOfArabicLetter = numericValue
             };
@@ -100,7 +100,7 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
 
     class ArabicLetterWithNumericValue
     {
-        public string ArabicLetter { get; init; }
+        public char ArabicLetter { get; init; }
         public int NumericValueOfArabicLetter { get; init; }
         public string Pronunciation { get; init; }
 
@@ -115,7 +115,7 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
 
                 new div(PaddingLeftRight(5), FontSize(15), FontFamily_Lateef)
                 {
-                    ArabicLetter
+                    ArabicLetter.ToString()
                 },
                 new div(MarginLeftRight(2), FontSize("0.6rem"))
                 {

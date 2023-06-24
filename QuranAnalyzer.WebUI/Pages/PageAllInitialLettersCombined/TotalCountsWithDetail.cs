@@ -231,7 +231,15 @@ class TotalCountsWithDetail : ReactComponent
     {
         return new FlexColumn(ComponentBorder, BorderRadiusForPanels, Padding(3), Gap(4))
         {
-            new FlexRow(JustifyContentCenter) { AsLetter(Records[recordIndex].Text) },
+            When(Records[recordIndex].Label is not null,new FlexRow(JustifyContentCenter)
+            {
+                Records[recordIndex].Label
+            }),
+            When(Records[recordIndex].Label is null,new FlexRow(JustifyContentCenter)
+            {
+                AsLetter(Records[recordIndex].Text)
+            }),
+            
             new FlexRow(Gap(5), FontWeight600, FontSize("0.8rem"), JustifyContentCenter, TextAlignCenter) { (small)"Sure No" + Width(50), (small)"Adet" + Width(40) },
             new FlexColumn(AlignItemsCenter)
             {
