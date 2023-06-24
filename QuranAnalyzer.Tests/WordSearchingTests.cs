@@ -7,9 +7,9 @@ public class WordSearchingTests
     public void Adem_Isa()
     {
         // a d e m
-        const string adem      = "اادم";
-        const string ya_adem   = "يادم";
-        const string li_adem   = "لِـَٔادَمَ";
+        const string adem = "اادم";
+        const string ya_adem = "يادم";
+        const string li_adem = "لِـَٔادَمَ";
         const string veya_adem = "و يادم";
 
         CountShouldBe(adem, 15);
@@ -18,7 +18,7 @@ public class WordSearchingTests
         CountShouldBe(veya_adem, 1);
 
         // i s a
-        const string isa    = "عيسي";
+        const string isa = "عيسي";
         const string ve_isa = "وعيسي";
         const string ya_isa = "يعيسي";
         const string bi_isa = "بعيسي";
@@ -32,7 +32,7 @@ public class WordSearchingTests
     [TestMethod]
     public void Beyyine()
     {
-        var source  = AnalyzeText("الْبَيِّنَةُۜ");
+        var source = AnalyzeText("الْبَيِّنَةُۜ");
         var beyyine = AnalyzeText("بينة");
 
         source.Contains(beyyine).Count.Should().Be(1);
@@ -43,17 +43,94 @@ public class WordSearchingTests
     }
 
     [TestMethod]
+    public void CommonCounts()
+    {
+        // zikr
+        CountShouldBe("ذكري", 11);
+        CountShouldBe("وذكري", 7);
+        CountShouldBe("الذكري", 6);
+        CountShouldBe("لذكري", 3);
+
+        // chnm
+        CountShouldBe("جهنم", 72);
+        CountShouldBe("بجهنم", 2);
+        CountShouldBe("لجهنم", 3);
+
+        // dny
+        CountShouldBe("الدّنيا", 115);
+
+        // ahrt
+        CountShouldBe("ٱلْـَٔاخِرَةُ", 71);
+        CountShouldBe("بِٱلْـَٔاخِرَةِ", 21);
+        CountShouldBe("وَٱلْـَٔاخِرَةِ", 19);
+        CountShouldBe("وَلَلْـَٔاخِرَةُ", 2);
+        CountShouldBe("وَبِٱلْـَٔاخِرَةِ", 1);
+        CountShouldBe("لَلْـَٔاخِرَةَ", 1);
+
+        // nur
+        CountShouldBe("النّور", 10);
+        CountShouldBe("نورا", 9);
+        CountShouldBe("نور", 8);
+        CountShouldBe("ونور", 2);
+        CountShouldBe("والنّور", 3);
+        CountShouldBe("بنور", 1);
+
+        // şems
+        CountShouldBe("الشمس", 20);
+        CountShouldBe("والشمس", 9);
+        CountShouldBe("بالشمس", 1);
+        CountShouldBe("للشمس", 2);
+        CountShouldBe("شمسا", 1);
+
+        // kamer
+        CountShouldBe("والقمر", 20);
+        CountShouldBe("القمر", 5);
+        CountShouldBe("وقمرا", 1);
+        CountShouldBe("للقمر", 1);
+
+        // şhr
+        CountShouldBe("شهر", 4);
+        CountShouldBe("الشهر", 4);
+        CountShouldBe("شهرا", 2);
+        CountShouldBe("بالشهر", 1);
+        CountShouldBe("والشهر", 1);
+
+        // rahim
+        CountShouldBe("ٱلرَّحِيمِ", 34);
+        CountShouldBe("رَّحِيمٌ", 61);
+        CountShouldBe("رَّحِيمًا", 20);
+
+        // rahman
+        //CountShouldBe("الرحمن", 45);
+        CountShouldBe("للرحمن", 9);
+        CountShouldBe("بالرحمن", 3);
+
+        // Allah
+        CountShouldBe("الله", 2153);
+        CountShouldBe("والله", 240);
+        CountShouldBe("بالله", 139);
+        CountShouldBe("لله", 116);
+        CountShouldBe("ولله", 27);
+        CountShouldBe("تالله", 8);
+        CountShouldBe("فالله", 6);
+        CountShouldBe("فلله", 6);
+        CountShouldBe("ءالله", 2);
+        CountShouldBe("ابالله", 1);
+        CountShouldBe("وتالله", 1);
+    }
+
+    [TestMethod]
     public void Day_365()
     {
-        const string yevm       = "يوم";
-        const string ve_yevm    = "ويوم";
-        const string el_yevm    = "اليوم";
-        const string vel_yevm   = "واليوم";
-        const string yevmen     = "يوما";
-        const string li_yevm    = "ليوم";
-        const string fel_yevm   = "فاليوم";
-        const string bi_yevm    = "بيوم";
-        const string bil_yevm   = "باليوم";
+        const string yevm = "يوم";
+        const string ve_yevm = "ويوم";
+        const string el_yevm = "اليوم";
+        const string vel_yevm = "واليوم";
+        const string yevmen = "يوما";
+        const string li_yevm = "ليوم";
+        const string fel_yevm = "فاليوم";
+        const string bi_yevm = "بيوم";
+        const string bil_yevm = "باليوم";
         const string vebil_yevm = "وباليوم";
 
         CountShouldBe(yevm, 217);
@@ -76,98 +153,16 @@ public class WordSearchingTests
         VerseFilter.GetVerseList("*").Value.Sum(v => v.TextWithBismillahWordList.Last().EndsWith(nunVavNun).Count).Unwrap().Should().Be(133);
     }
 
-
-    [TestMethod]
-    public void CommonCounts()
-    {
-        
-        // zikr
-        CountShouldBe("ذكري", 11);
-        CountShouldBe("وذكري", 7);
-        CountShouldBe("الذكري", 6);
-        CountShouldBe("لذكري", 3);
-
-        // chnm
-        CountShouldBe("جهنم", 72);
-        CountShouldBe("بجهنم", 2);
-        CountShouldBe("لجهنم", 3);
-        
-        // dny
-        CountShouldBe("الدّنيا", 115);
-
-
-
-        // ahrt
-        CountShouldBe("ٱلْـَٔاخِرَةُ", 71);
-        CountShouldBe("بِٱلْـَٔاخِرَةِ", 21);
-        CountShouldBe("وَٱلْـَٔاخِرَةِ", 19);
-        CountShouldBe("وَلَلْـَٔاخِرَةُ", 2);
-        CountShouldBe("وَبِٱلْـَٔاخِرَةِ", 1);
-        CountShouldBe("لَلْـَٔاخِرَةَ", 1);
-
-        // nur
-        CountShouldBe("النّور", 10);
-        CountShouldBe("نورا", 9);
-        CountShouldBe("نور", 8);
-        CountShouldBe("ونور", 2);
-        CountShouldBe("والنّور", 3);
-        CountShouldBe("بنور", 1);
-        
-        
-        // şems
-        CountShouldBe("الشمس", 20);
-        CountShouldBe("والشمس", 9);
-        CountShouldBe("بالشمس", 1);
-        CountShouldBe("للشمس", 2);
-        CountShouldBe("شمسا", 1);
-        
-        
-        // kamer
-        CountShouldBe("والقمر", 20);
-        CountShouldBe("القمر", 5);
-        CountShouldBe("وقمرا", 1);
-        CountShouldBe("للقمر", 1);
-        
-        
-        // şhr
-        CountShouldBe("شهر", 4);
-        CountShouldBe("الشهر", 4);
-        CountShouldBe("شهرا", 2);
-        CountShouldBe("بالشهر", 1);
-        CountShouldBe("والشهر", 1);
-        
-        
-        // rahim
-        CountShouldBe("ٱلرَّحِيمِ", 34);
-        CountShouldBe("رَّحِيمٌ", 61);
-        CountShouldBe("رَّحِيمًا", 20);
-        
-        // rahman
-        //CountShouldBe("الرحمن", 45);
-        CountShouldBe("للرحمن", 9);
-        CountShouldBe("بالرحمن", 3);
-        
-        // Allah
-        CountShouldBe("الله", 2153);
-        CountShouldBe("والله", 240);
-        CountShouldBe("بالله", 139);
-        CountShouldBe("لله", 116);
-        CountShouldBe("ولله", 27);
-        CountShouldBe("تالله", 8);
-        CountShouldBe("فالله", 6);
-        CountShouldBe("فلله", 6);
-        CountShouldBe("ءالله", 2);
-        CountShouldBe("ابالله", 1);
-        CountShouldBe("وتالله", 1);
-        
-    }
     static void CountShouldBe(string searchWord, int expected)
     {
         var search = AnalyzeText(searchWord);
 
         var verses = VerseFilter.GetVerseList("*").Unwrap();
 
-        int matchCountOfSameAsExactly(Verse v) => v.TextWordList.Count(w => w.Same(search));
+        int matchCountOfSameAsExactly(Verse v)
+        {
+            return v.TextWordList.Count(w => w.Same(search));
+        }
 
         verses.Sum(matchCountOfSameAsExactly).Should().Be(expected);
     }

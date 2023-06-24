@@ -9,7 +9,6 @@ namespace QuranAnalyzer;
 [TestClass]
 public class CustomCountingTests
 {
-
     [TestMethod]
     public void All_Saad_Combined_as_ChapterNumber_VerseNumber_is_114_667()
     {

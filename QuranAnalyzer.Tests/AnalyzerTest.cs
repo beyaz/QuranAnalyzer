@@ -9,17 +9,14 @@ public class AnalyzerTest
     [TestMethod]
     public void _1_()
     {
-        Analyzer.AnalyzeText("يَٰصَىٰحِبَىِ")
-                .Count(x => x.OrderValue == ArabicLetterOrder.Yaa)
-                .Should().Be(3);
+        AnalyzeText("يَٰصَىٰحِبَىِ")
+            .Count(x => x.OrderValue == ArabicLetterOrder.Yaa)
+            .Should().Be(3);
 
-        Analyzer.AnalyzeText("يَٰصَىٰحِبَىِ ٱلسِّجْنِ أَمَّآ أَحَدُكُمَا فَيَسْقِى رَبَّهُۥ خَمْرًا وَأَمَّا ٱلْءَاخَرُ فَيُصْلَبُ فَتَأْكُلُ ٱلطَّيْرُ مِن رَّأْسِهِۦ قُضِىَ ٱلْأَمْرُ ٱلَّذِى فِيهِ تَسْتَفْتِيَانِ")
-                .Count(x => x.OrderValue == ArabicLetterOrder.Yaa)
-                .Should().Be(11);
-
+        AnalyzeText("يَٰصَىٰحِبَىِ ٱلسِّجْنِ أَمَّآ أَحَدُكُمَا فَيَسْقِى رَبَّهُۥ خَمْرًا وَأَمَّا ٱلْءَاخَرُ فَيُصْلَبُ فَتَأْكُلُ ٱلطَّيْرُ مِن رَّأْسِهِۦ قُضِىَ ٱلْأَمْرُ ٱلَّذِى فِيهِ تَسْتَفْتِيَانِ")
+            .Count(x => x.OrderValue == ArabicLetterOrder.Yaa)
+            .Should().Be(11);
     }
-    
-  
 
     //[TestMethod]
     //public void _compare_mushaf_between_tanzil_and_kuran_mucizeler_com()

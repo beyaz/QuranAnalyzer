@@ -50,7 +50,6 @@ public class VerseFilterTest
         records = VerseFilter.GetVerseList(" 42  : 3[..4] ").Value;
         records[0].Text.Length.Should().Be(4);
 
-
         records = VerseFilter.GetVerseList(" 42 : 3[50..] -->  42 : 4[..5]").Value;
         records[1].Text.Length.Should().Be(5);
     }
