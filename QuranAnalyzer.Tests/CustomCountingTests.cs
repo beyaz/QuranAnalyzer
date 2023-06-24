@@ -45,6 +45,8 @@ public class CustomCountingTests
 
         var totalSum = 0;
 
+        var totalSaad = 0;
+
         var chapterIndex = 114;
         while (--chapterIndex >= 0)
         {
@@ -59,6 +61,8 @@ public class CustomCountingTests
                 {
                     verseCount++;
                     totalSum += getCount(verse, Baa, Raa, Kaaf, Yaa, Waaw, Jiim);
+                    
+                    totalSaad += getCount(verse, Saad);
                 }
                 else
                 {
@@ -69,6 +73,7 @@ public class CustomCountingTests
         }
 
         totalSum.Should().Be(190 * 19);
+        totalSaad.Should().Be(5 * 19);
 
         static int getCount(Verse verse, params int[] arabicLetterOrderValues)
         {
