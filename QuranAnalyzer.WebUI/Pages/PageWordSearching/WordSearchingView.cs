@@ -175,7 +175,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                 sumOfChapterNumbers += int.Parse(verseId.Split(':')[0]);
                 sumOfVerseNumbers   += int.Parse(verseId.Split(':')[1]);
 
-                sumOfCounts += matchList.Sum(x => x.startPoints.Count).Unwrap();
+                sumOfCounts += matchList.SumOf(x => x.startPoints.Count).Unwrap();
             }
 
             return (resultVerses, summaries, (sumOfChapterNumbers, sumOfVerseNumbers, sumOfCounts));

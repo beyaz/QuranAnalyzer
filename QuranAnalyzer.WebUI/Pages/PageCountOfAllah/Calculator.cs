@@ -99,7 +99,7 @@ class Calculator : ReactComponent<CalculatorModel>
 
         foreach (var verse in filteredVerses)
         {
-            var count = searchWords.Sum(searchWord => verse.GetStartAndEndPointsOfSameWords(searchWord).Count).Unwrap();
+            var count = searchWords.SumOf(searchWord => verse.GetStartAndEndPointsOfSameWords(searchWord).Count).Unwrap();
             if (count > 0)
             {
                 details.Add((verse.ChapterNumber, verse.IndexAsNumber, count));

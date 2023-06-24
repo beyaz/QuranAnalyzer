@@ -181,7 +181,7 @@ class TotalCounts : ReactComponent
 
     void RecalculateTotalCounts()
     {
-        Records.SkipLast(1).Sum(x => ParseInt(x.Count)).Then(total => Records[^1].Count = total.ToString());
+        Records.SkipLast(1).SumOf(x => ParseInt(x.Count)).Then(total => Records[^1].Count = total.ToString());
     }
 
     class Arrow : ReactPureComponent

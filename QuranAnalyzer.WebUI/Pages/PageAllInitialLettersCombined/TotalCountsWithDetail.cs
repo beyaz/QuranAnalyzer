@@ -326,10 +326,10 @@ class TotalCountsWithDetail : ReactComponent
     {
         foreach (var item in Records.SkipLast(1))
         {
-            item.Details.Sum(x => ParseInt(x.Count)).Then(total => item.Count = total.ToString());
+            item.Details.SumOf(x => ParseInt(x.Count)).Then(total => item.Count = total.ToString());
         }
 
-        Records.SkipLast(1).Sum(x => ParseInt(x.Count)).Then(total => Records[^1].Count = total.ToString());
+        Records.SkipLast(1).SumOf(x => ParseInt(x.Count)).Then(total => Records[^1].Count = total.ToString());
     }
 
     class Arrow : ReactPureComponent

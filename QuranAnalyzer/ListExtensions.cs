@@ -58,7 +58,7 @@ public static class ListExtensions
         return data;
     }
 
-    public static Response<int> Sum<TSource>(this IEnumerable<TSource> source, Func<TSource, Response<int>> selector)
+    public static Response<int> SumOf<TSource>(this IEnumerable<TSource> source, Func<TSource, Response<int>> selector)
     {
         if (source == null)
         {

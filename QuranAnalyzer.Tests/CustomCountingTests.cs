@@ -60,7 +60,7 @@ public class CustomCountingTests
         static int getCount(Verse verse, params int[] arabicLetterOrderValues)
         {
             var option = new MushafOption();
-            return Enumerable.Sum(arabicLetterOrderValues.Select(orderValueOfLetter => GetCountOfLetterInVerse(verse, orderValueOfLetter, option, false)));
+            return arabicLetterOrderValues.Select(orderValueOfLetter => GetCountOfLetterInVerse(verse, orderValueOfLetter, option, false)).Sum();
         }
     }
 }
