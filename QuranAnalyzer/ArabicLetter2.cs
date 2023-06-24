@@ -2,41 +2,9 @@
 
 public static class ArabicLetter2
 {
-    public static string[] AllArabicLetters =
-    {
-        Alif,
-        Baa,
-        Taa,
-        Thaa,
-        Jiim,
-        Haa,
-        Khaa,
-        Daal,
-        Dhaal,
-        Raa,
-        Zay,
-        Siin,
-        Shiin,
-        Saad,
-        Daad,
-        Taa_,
-        Zaa,
-        Ayn,
-        Ghayn,
-        Faa,
-        Qaaf,
-        Kaaf,
-        Laam,
-        Miim,
-        Nun,
-        Haa_,
-        Waaw,
-        Yaa
-    };
-
     // @formatter:off
-    public const string Alif  = "ا";
-    public const string Baa   = "ب";
+    public const char Alif  = 'ا';
+    public const char Baa   = 'ب';
     public const string Taa   = "ت";
     public const string Thaa  = "ث";
     public const string Jiim  = "ج‎";
