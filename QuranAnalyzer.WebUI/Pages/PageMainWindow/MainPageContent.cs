@@ -10,7 +10,7 @@ class MainPageContent : ReactPureComponent
 
             new p
             {
-                @"Yasin suresi, Taha suresi, Kaf suresi gibi sure isimlerini muhtemelen daha önce duymuşsunuzdur.",
+                "Yasin suresi, Taha suresi, Kaf suresi gibi sure isimlerini muhtemelen daha önce duymuşsunuzdur.",
                 " Kuranda bazı surelerin başında ya-sin gibi, ta-ha gibi  harfler var. Elbette bu başlangıç harfleri hakkında bir çok yorum var.",
                 " Bu konu ile ilgili olarak bir kaç yıl önce Kuran hakkında 19 Sistemi - 19 Mucizesi benzeri isimlerle duyduğum bir konu üzerine vakit buldukça araştırma yapma fırsatım oldu."
             },

@@ -8,7 +8,7 @@ public class PageSecuringDataWithCurrentTechnology : ReactPureComponent
         {
             new LargeTitle("Günümüz teknolojisinde veri iletimi nasıl sağlanır ?"),
 
-            (p)@"TC kimlik numaranızda bulunan rakamlar sizce rastgele rakamlar mı? Yoksa belli bir düzeni / mantığı mı var?",
+            (p)"TC kimlik numaranızda bulunan rakamlar sizce rastgele rakamlar mı? Yoksa belli bir düzeni / mantığı mı var?",
 
             new p { "Mesela aşağıdaki TC Kimlik numaralarını inceleyelim." },
             new div
@@ -25,7 +25,7 @@ public class PageSecuringDataWithCurrentTechnology : ReactPureComponent
 11 hane olan TC kimlik numaranızın ilk 10 hanesinin rakamlarının toplamının 10'a bölümünden kalan sayı 11. hanedeki sayı ile hep aynıdır.
 Özetle şunu söyleyebiliriz",
 
-            @"TC kimlik numaranızdaki ilk 10 rakamın toplamını 10'a bölerseniz elinizde kalan sayı 11.hanedeki rakamı verir.",
+            "TC kimlik numaranızdaki ilk 10 rakamın toplamını 10'a bölerseniz elinizde kalan sayı 11.hanedeki rakamı verir.",
 
             new p
             {

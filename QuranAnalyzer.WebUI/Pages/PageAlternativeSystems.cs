@@ -41,7 +41,7 @@ Hatta Mustafa Kemal Atatürk'ün hayatındaki olayların tarihleri ile  19 rakam
 
             new p
             {
-                @"Bu saydığım isimlerin ortak takıldıkları meseleler özetle aşağıdaki iki konudur."
+                "Bu saydığım isimlerin ortak takıldıkları meseleler özetle aşağıdaki iki konudur."
             },
             
             new ul
@@ -69,7 +69,7 @@ Bu saydığım isimler sadece Türkiye'de olan resim. Elbette başka ülkelerde 
 
             new p
             {
-                (b)"Not: ", "Bu sitede sadece Reşad Halife tarafından keşfedilen 19 sisteminin ", (b)"en majör noktası", @" olan başlangıç harfleri üzerindeki veriler incelenmiştir.",
+                (b)"Not: ", "Bu sitede sadece Reşad Halife tarafından keşfedilen 19 sisteminin ", (b)"en majör noktası", " olan başlangıç harfleri üzerindeki veriler incelenmiştir.",
                 " Dilerseniz bu sitede kullanılan sayım programlarını kullanabilir ve alternatif iddiaları inceleyebilirsiniz.",
                 " Açıkçası Kuran ile ilgili hangi rakamı duydu isem ekledim.",
                 " Başka verileri de incelenebilsin diye sonuç kısmı 1230, 505, 7, 238 gibi  rakamların katları olan bir rakam olur ise onu özellikle belirtmeye çalıştım. "

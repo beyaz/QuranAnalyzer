@@ -308,7 +308,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
 
             new Note
             {
-                @" Başlangıç harfleri genelde surelerin ilk ayetinde olur. Bunun tek istisnası 42. suredir. ",
+                " Başlangıç harfleri genelde surelerin ilk ayetinde olur. Bunun tek istisnası 42. suredir. ",
                 " 42. sure diğerlerinden farklı olarak 2. ayetinde de başlangıç harfi barındırır.",
                 br,
                 " Şekilden de görüldüğü üzere 42. suredeki bu olay farklı bir ahenk daha katar. ",

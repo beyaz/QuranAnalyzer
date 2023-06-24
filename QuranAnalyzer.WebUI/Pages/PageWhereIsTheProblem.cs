@@ -10,13 +10,13 @@ public class PageWhereIsTheProblem : ReactPureComponent
 
             new p
             {
-                @"Madem bu başlangıç harflerindeki olay bu kadar şahane. İnsanın nefesi kesiliyor." ,
+                "Madem bu başlangıç harflerindeki olay bu kadar şahane. İnsanın nefesi kesiliyor." ,
                 " Mesela Ha-Mim tablosunu görüp de şaşırmamak çok zor.",
                 " Peki reddedenler niye reddediyorlar."
             },
             new p
             {
-                @"Gayet haklı bir soru.",
+                "Gayet haklı bir soru.",
                 br,
                 "Elinize sıradan bir Kuran alın bu sitede başlangıç harflerinde gösterilen her bir maddeyi bizzat kendiniz teyit edebilirsiniz.",
 

@@ -10,11 +10,11 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
 
             new p
             {
-                @"Madem bu 19 meselesi bu kadar müthiş veriler içeriyor peki neden medyadaki bir çok hoca bu meseleden bahsetmiyor?",
+                "Madem bu 19 meselesi bu kadar müthiş veriler içeriyor peki neden medyadaki bir çok hoca bu meseleden bahsetmiyor?",
             },
             new p
             {
-                @"Gayet haklı bir soru.",
+                "Gayet haklı bir soru.",
                 br,
                 "Tarih boyu en karlı sömürülerden biri de din üzerinden yapılan sömürüdür. ",
                 "Tüm medyatik din adamlarının tek amacı insanları sömürmektir gibi saçma bir cümle elbet kurmayacağım. ",
@@ -35,7 +35,7 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
             },
             new p
             {
-                @"Madalyonun diğer yüzünde ise şu var.",
+                "Madalyonun diğer yüzünde ise şu var.",
                 br,
                 "Bu 19 meselesinin sonu Reşad Halifenin elçiliğine çıkma ihtimali var.",
                 " Rivayetleri bırakıp Yalnız Kuran demek maalesef bir çoğunun işine gelmez.",
@@ -46,7 +46,7 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
 
             new p
             {
-                @"Peki medyatik olmayan Youtube vesaire bir çok ortamdaki araştıran insanlar ne durumdalar?",
+                "Peki medyatik olmayan Youtube vesaire bir çok ortamdaki araştıran insanlar ne durumdalar?",
                 br,
                 "Açıkçası burada yelpaze biraz geniş. Kimi insanlar evet Kuranda 19 vardır ama Reşad elçi değildir derler.",
                 " Kimisi bir yerde yapılan yanlış bir sayımı tüm sisteme mal edip her şeyi çöpe atıyor.",

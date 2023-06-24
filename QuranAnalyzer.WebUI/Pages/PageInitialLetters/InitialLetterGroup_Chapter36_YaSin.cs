@@ -49,7 +49,7 @@ class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
 
             new Note
             {
-                @"Belki de ismi en yaygın olarak bilinen sure Yasin suresidir.",
+                "Belki de ismi en yaygın olarak bilinen sure Yasin suresidir.",
                 " Bu sure ", AsLetter(Yaa), " ve ", AsLetter(Siin), " olmak üzere iki tane başlangıç harfi ile başlar.",
                 " Bu iki harfin bu suredeki toplam geçiş adeti ise ", 285.AsMultipleOf19(), "' tir."
             },

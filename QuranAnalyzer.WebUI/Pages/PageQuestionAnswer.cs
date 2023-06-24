@@ -14,7 +14,7 @@ public class PageQuestionAnswer : ReactPureComponent
 Elimden geldiğince tartışılan konuları en kısa ve tarafsız bir şekilde özetlemeye çalıştım.",
                 br,
                 br,
-                @"Tekrar hatırlatmakta fayda görüyorum.",
+                "Tekrar hatırlatmakta fayda görüyorum.",
                 br,
                 br,
                 @"Aşağıdaki soruların cevaplarının doğru olup olmadığı siz okuyucuya bırakılmıştır. 
@@ -36,7 +36,7 @@ Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söyledi�
                 },
                 new QuestionLink
                 {
-                    Question = @"Madem bu 19 sayısı bu kadar ilginç veriler içeriyor, neden medyadaki hiç bir alimden/hocadan duymuyoruz?",
+                    Question = "Madem bu 19 sayısı bu kadar ilginç veriler içeriyor, neden medyadaki hiç bir alimden/hocadan duymuyoruz?",
                     Url      = GetPageLink(PageId.WhyFamousPeopleAreSilent)
                 },
                 new QuestionLink

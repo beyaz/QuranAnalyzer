@@ -71,8 +71,8 @@ class InitialLetterGroup_Chapter19 : InitialLetterGroup
 
             new Note
             {
-                @"Meryem suresi Kuran'da en baştan ", (strong)"19.", " sıradadır. ",
-                @"Aynı zamanda", (strong)" en çok başlangıç harfi olan", " suredir. ",
+                "Meryem suresi Kuran'da en baştan ", (strong)"19.", " sıradadır. ",
+                "Aynı zamanda", (strong)" en çok başlangıç harfi olan", " suredir. ",
                 " 5 tane başlangıç harfi vardır.",
                 " Bu beş tane başlangıç harfinin toplam geçiş adeti ise yine 19 un bir katı olan ", 798.AsMultipleOf19(), "'dir."
             }

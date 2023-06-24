@@ -150,7 +150,7 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
 
             new Note
             {
-                AsLetter(Haa), " ve ", AsLetter(Miim), @" ile başlayan 7 tane sure vardır.",
+                AsLetter(Haa), " ve ", AsLetter(Miim), " ile başlayan 7 tane sure vardır.",
                 " Bu iki harfin bu 7 suredeki geçiş adeti ise ", 2147.AsMultipleOf19(), "'tür.",
                 br,
                 " Bu 7 sure neredeyse Kuranın 5 de 1'ine tekabül eder.",

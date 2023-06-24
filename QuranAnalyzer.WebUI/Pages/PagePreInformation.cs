@@ -24,7 +24,7 @@ public class PagePreInformation : ReactPureComponent
         {
             new LargeTitle("Kuran Hakkında Bazı Bilgiler"),
 
-            (p)@"Bu bölümde Kuran hakkında dikkat çeken bazı bilgiler verilecektir.",
+            (p)"Bu bölümde Kuran hakkında dikkat çeken bazı bilgiler verilecektir.",
 
             new ul
             {
@@ -57,7 +57,7 @@ Yani klasik herkesin öyle tahmin ettiği gibi yeryüzündeki bütün kuranlar h
 
                 new li
                 {
-                    (p)@"Kurandaki bazı kelimeler ilginç bir şekilde farklı yazılmıştır. Bir kaç örnek aşağıda verilmiştir.", 
+                    (p)"Kurandaki bazı kelimeler ilginç bir şekilde farklı yazılmıştır. Bir kaç örnek aşağıda verilmiştir.", 
 
                     "Mekke şehri Kuranda bir cümlede Bekke diye ifade edilir.",
                     br,

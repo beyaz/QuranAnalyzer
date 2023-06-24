@@ -235,7 +235,7 @@ class InitialLetterGroup_Saad : InitialLetterGroup
 
             new Note
             {
-                AsLetter(Saad), @" başlangıç harfi olarak 3 surenin başında vardır.",
+                AsLetter(Saad), " başlangıç harfi olarak 3 surenin başında vardır.",
                 " Bu üç suredeki toplam geçiş adeti ise ", 152.AsMultipleOf19(), "'dir.",
                 " Buradaki girift yapıya dikkatli bakınız.",
                 " Mesela 19. suredeki ", AsLetter(Saad),

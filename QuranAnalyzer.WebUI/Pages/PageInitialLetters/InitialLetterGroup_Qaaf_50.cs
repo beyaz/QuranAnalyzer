@@ -48,7 +48,7 @@ class InitialLetterGroup_Qaaf_50 : InitialLetterGroup
 
             new Note
             {
-                @"Kuranda 50. surenin adı  'Kaf Suresi' dir. Surenin başında sadece bir tane ", AsLetter(Qaaf), " harfi vardır.",
+                "Kuranda 50. surenin adı  'Kaf Suresi' dir. Surenin başında sadece bir tane ", AsLetter(Qaaf), " harfi vardır.",
 
                 " Bu surede toplamda ", 57.AsMultipleOf19(), " tane ", AsLetter(Qaaf), " harfi içerir.",
                 " İsterseniz incele linkine tıklayarak bu sayımları kendiniz yapabilirsiniz."

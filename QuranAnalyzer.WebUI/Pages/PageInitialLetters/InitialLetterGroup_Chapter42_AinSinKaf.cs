@@ -50,7 +50,7 @@ class InitialLetterGroup_Chapter42_AinSinKaf : InitialLetterGroup
 
             new Note
             {
-                @"Kurandaki başlangıç harfleri surenin sadece ilk ayetinde olur.",
+                "Kurandaki başlangıç harfleri surenin sadece ilk ayetinde olur.",
                 " Bunun tek istisnası 42. suredir.",
                 " Bu surenin hem 1. ayeti hem 2.ayeti başlangıç harflerinden oluşur. ",
                 AsLetter(Ayn), " , ", AsLetter(Siin), " , ", AsLetter(Qaaf), " harflerinin bu sure boyunca geçiş adeti ise yine 19 un katı olan ",

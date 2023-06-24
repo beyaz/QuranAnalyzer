@@ -48,7 +48,7 @@ class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
 
             new Note
             {
-                @"42. surede yine ", AsLetter(Qaaf), " başlangıç harfi vardır.",
+                "42. surede yine ", AsLetter(Qaaf), " başlangıç harfi vardır.",
                 " Bu surede toplamda ", 57.AsMultipleOf19(), " adet ", AsLetter(Qaaf), " harfi vardır.",
                 br, br,
                 "Kuranda ", AsLetter(Qaaf), " başlangıç harfi içeren iki tane sure vardır.",
