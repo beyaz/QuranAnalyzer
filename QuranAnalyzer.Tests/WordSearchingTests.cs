@@ -1,6 +1,4 @@
-﻿using static QuranAnalyzer.Analyzer;
-
-namespace QuranAnalyzer;
+﻿namespace QuranAnalyzer;
 
 [TestClass]
 public class WordSearchingTests

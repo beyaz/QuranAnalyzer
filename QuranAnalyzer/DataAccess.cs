@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using static QuranAnalyzer.Analyzer;
 
 namespace QuranAnalyzer;
 
@@ -17,7 +16,7 @@ public static class DataAccess
         {
             var path = Path.GetDirectoryName(typeof(DataAccess).Assembly.Location) + Path.DirectorySeparatorChar;
 
-            var filePath = @"quran-uthmani.xml";
+            var filePath = "quran-uthmani.xml";
 
             if (File.Exists(path + filePath))
             {
