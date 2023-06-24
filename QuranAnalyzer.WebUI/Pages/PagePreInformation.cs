@@ -57,7 +57,7 @@ Yani klasik herkesin öyle tahmin ettiği gibi yeryüzündeki bütün kuranlar h
 
                 new li
                 {
-                    (p)"Kurandaki bazı kelimeler ilginç bir şekilde farklı yazılmıştır. Bir kaç örnek aşağıda verilmiştir.", 
+                    (p)"Kurandaki bazı kelimeler ilginç bir şekilde farklı yazılmıştır. Bir kaç örnek aşağıda verilmiştir.",
 
                     "Mekke şehri Kuranda bir cümlede Bekke diye ifade edilir.",
                     br,
@@ -71,7 +71,7 @@ Yani klasik herkesin öyle tahmin ettiği gibi yeryüzündeki bütün kuranlar h
                     (p)@"Kuranda bazı bölümlerin başında harfler vardır. En çok bilinen Yasin suresinin başında Ya(ي) ve Sin(س) harfleri vardır.
 Bazı bölümlerin başında bir tane harf olurken mesela 50. surenin başındaki Kaf(ق) harfi gibi. Bazı bölümlerde sure başında iki tane harf vardır. 
 Mesela 40. ve 46. arası 7 tane surenin başlarında sadece Ha(ح) ve Mim(م) olmak üzere iki harf vardır.",
-                    
+
                     (p)@"En çok ise 19. surede beş tane başlangıç harfi vardır. Kaf(ق) - Ha(ه) - Ya(ي) - Ayn(ع) - Sad(ص). 
 Toplamda 29 surenin başında böyle harfler vardır. Başlangıç harfleri-Kesik harfler-hurufu mukatta gibi isimlerle anılmaktadır.
 Tarih boyu bu başlangıç harfleri ile ilgili bir çok farklı yorum yapılmıştır.
@@ -93,11 +93,11 @@ Dilerseniz aşağıdaki linklerden bu sayımları kendiniz yapabilirsiniz.",
                         new a
                         {
                             href = GetPageLink(PageId.WordSearching) +
-                                     "&" + QueryKey.SearchQuery + "=" + "*~الدنيا" +
-                                     "&" + QueryKey.SearchOption + "=" + WordSearchOption.Same,
+                                   "&" + QueryKey.SearchQuery + "=" + "*~الدنيا" +
+                                   "&" + QueryKey.SearchOption + "=" + WordSearchOption.Same,
                             text = "dünya"
                         },
-                        
+
                         " ve ",
 
                         new a

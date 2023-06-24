@@ -49,7 +49,7 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                     {
                         new td
                         {
-                            new Chapter { ChapterNumber = 41, ChapterName = "Fussilet" },
+                            new Chapter { ChapterNumber = 41, ChapterName = "Fussilet" }
                         },
                         new td
                         {
@@ -73,7 +73,7 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(42, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(42, Miim), Letter = Miim },
+                                new InitialLetter { Id = Id(42, Miim), Letter = Miim }
                             }
                         }
                     },
@@ -175,9 +175,12 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
             new Arrow { start = Id(45, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
             new Arrow { start = Id(45, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
             new Arrow { start = Id(46, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(46, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(46, Miim), end = IdOfCountingResult, StartAnchorFromRight = true }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"HaMim-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"HaMim-{chapterNumber}-{letter}";
+    }
 }

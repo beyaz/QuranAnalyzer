@@ -58,5 +58,8 @@ class InitialLetterGroup_Qaaf_50 : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"Qaaf_50-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"Qaaf_50-{chapterNumber}-{letter}";
+    }
 }

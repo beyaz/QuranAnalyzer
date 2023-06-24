@@ -16,13 +16,13 @@ public class PageSimpleDefinition : ReactPureComponent
                 " Kimi alim bu harfler sureleri birbirinden ayırt etmek içindir demiş. ",
                 " Bazı alimler bu harfler Allah'ın isimlerinin bazılarının anahtarlarıdır demiş. ",
                 " Bazı alimler bu harflerin sayısal değerleri ilerde olacak olan olayların tarihlerini verir demiş. ",
-                "Özetle bu başlangıç harfleri konusunda bir çok yorum var.",
+                "Özetle bu başlangıç harfleri konusunda bir çok yorum var."
             },
 
             new p
             {
                 " Size bir mektup geldiğini hayal edin ve mektubun ilk satırında sadece bir K harfi olduğunu düşünün. ",
-                " İster istemez burada bir kasıt ararsınız. Bir açıklama beklersiniz.",
+                " İster istemez burada bir kasıt ararsınız. Bir açıklama beklersiniz."
             },
 
             new ul(ul_style)
@@ -34,23 +34,23 @@ public class PageSimpleDefinition : ReactPureComponent
             new p
             {
                 "Durumumuz bu örneğe çok benziyor. Elimizde mektuplar veya bilgilendirme yazıları diyebileceğimiz yazıları var.",
-                " Bu mektuplardan bazılarının isimleri şöyle: Tevrat, İncil, Kuran.",
+                " Bu mektuplardan bazılarının isimleri şöyle: Tevrat, İncil, Kuran."
             },
 
             new p
             {
-                (strong)"Peki bu kitapların doğru olduğu ne malum?",
+                (strong)"Peki bu kitapların doğru olduğu ne malum?"
             },
 
             new p
             {
                 " Evet soru gayet haklı bir soru. Eğer bu kitapların içinde akla mantığa ters bir tek cümle var ise kitabın tamamına şüphe ile yaklaşmak zorundayız.",
                 " Önceki nesillerin bu soruyu çokça dillendirmemesi bizim neslimizi bağlamaz. ",
-                " Kaldı ki bu bundan 100 yıl öncesinde bu soruyu Müslüman bir coğrafyada zaten dillendiremezdiniz.",
+                " Kaldı ki bu bundan 100 yıl öncesinde bu soruyu Müslüman bir coğrafyada zaten dillendiremezdiniz."
             },
             new p
             {
-                "Bir kaç örnek ile konuyu detaylandıralım",
+                "Bir kaç örnek ile konuyu detaylandıralım"
             },
 
             new ul(ul_style)
@@ -59,7 +59,7 @@ public class PageSimpleDefinition : ReactPureComponent
 
                 (li)"Kuranda seçim özgürlüğünün başka varlıklara da teklif edildiği fakat sadece biz insanların bunu kabul ettiğinden ve bunun cahilce bir hareket oduğundan bahsedilir.",
 
-                (li)"Kuranda göklerin Yaratıcı'nın sağ elinde dürülmüş olduğundan bahseder.",
+                (li)"Kuranda göklerin Yaratıcı'nın sağ elinde dürülmüş olduğundan bahseder."
             },
 
             (p)"Eğer bu kitabın Yüceler Yücesi'nden geldiğine inanıyor isek bu gibi ifadeleri zihnimizde sağlam bir zemine oturtmalıyız.",

@@ -42,7 +42,7 @@ class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
                                 }
                             }
                         }
-                    },
+                    }
                 }
             },
 
@@ -59,5 +59,8 @@ class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"Qaaf_42-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"Qaaf_42-{chapterNumber}-{letter}";
+    }
 }

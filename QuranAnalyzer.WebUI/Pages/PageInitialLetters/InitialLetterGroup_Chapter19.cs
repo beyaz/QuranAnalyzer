@@ -59,7 +59,7 @@ class InitialLetterGroup_Chapter19 : InitialLetterGroup
                                 }
                             }
                         }
-                    },
+                    }
                 }
             },
 
@@ -79,5 +79,8 @@ class InitialLetterGroup_Chapter19 : InitialLetterGroup
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"Chapter19-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"Chapter19-{chapterNumber}-{letter}";
+    }
 }

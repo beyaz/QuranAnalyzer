@@ -10,7 +10,7 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
 
             new p
             {
-                "Madem bu 19 meselesi bu kadar müthiş veriler içeriyor peki neden medyadaki bir çok hoca bu meseleden bahsetmiyor?",
+                "Madem bu 19 meselesi bu kadar müthiş veriler içeriyor peki neden medyadaki bir çok hoca bu meseleden bahsetmiyor?"
             },
             new p
             {

@@ -1,5 +1,4 @@
-﻿
-namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
+﻿namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
 
 public class SummaryInfo
 {
@@ -97,7 +96,7 @@ class CountsSummaryView : ReactPureComponent
 
             new div { ":", MarginLeftRight(4) },
 
-            new div { text = count.ToString(), id = id },
+            new div { text = count.ToString(), id = id }
         };
     }
 
@@ -120,7 +119,7 @@ class CountsSummaryView : ReactPureComponent
             parsedVersion.Add((small)(total / specialNumber).ToString());
         }
 
-        return new legend(DisplayFlex,FlexDirectionRow, Id("GrandTotal"))
+        return new legend(DisplayFlex, FlexDirectionRow, Id("GrandTotal"))
         {
             new div { innerHTML = $"Toplam: <strong>{total}</strong> (" },
             new FlexRow(MarginLeftRight(5), AlignItemsCenter, Color("red"), Gap(3))

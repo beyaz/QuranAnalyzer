@@ -55,7 +55,10 @@ class SearchScript
             return (arr[0].Trim(), letters);
         }
 
-        static string clearText(string str) => Regex.Replace(str, @"\s+", string.Empty);
+        static string clearText(string str)
+        {
+            return Regex.Replace(str, @"\s+", string.Empty);
+        }
     }
 
     public string AsReadableString()

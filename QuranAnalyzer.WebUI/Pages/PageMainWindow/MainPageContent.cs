@@ -19,7 +19,7 @@ class MainPageContent : ReactPureComponent
                 "Elimden geldiğince aklımın yettiği ölçüde nedir ne değildir incelemeye çalıştım.",
                 " Bu konu etrafında doğru yanlış bir çok şey duydum ve okudum.",
                 " Konuyu incelemek ve konu etrafında dönen doğru yanlış şeylere kendimce verdiğim cevapları ve yazdığım programları paylaşmak istedim.",
-                " Böylelikle konuyu araştıran kişiler için tarafsız bir gözlem sunmak niyetindeyim.",
+                " Böylelikle konuyu araştıran kişiler için tarafsız bir gözlem sunmak niyetindeyim."
             },
             (p)"Bu siteyi hazırlarken aşağıdaki konulara özellikle dikkat ettim;",
 
@@ -43,7 +43,7 @@ class MainPageContent : ReactPureComponent
                         "Düşünebilen her insanın bir beyni olduğuna inanıyorum. ",
                         "Bu sebeple doğru şudur veya şu yanlıştır gibi ifadelerden uzak durmaya çalıştım. ",
                         "Konu etrafında dönen zıt fikirleri elimden geldiğince tarafsız bir biçimde aktarmaya çalıştım. ",
-                        "Karar verme yorum yapma işini ise elimden geldiğince okuyucuya bırakmaya çalıştım.",
+                        "Karar verme yorum yapma işini ise elimden geldiğince okuyucuya bırakmaya çalıştım."
                     }
                 },
 

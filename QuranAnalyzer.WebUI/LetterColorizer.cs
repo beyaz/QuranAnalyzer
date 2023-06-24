@@ -35,7 +35,6 @@ public class LetterColorizer : ReactPureComponent
             {
                 if (letterInfo.NumericValue == lettersForColorize[j].NumericValue)
                 {
-
                     html.Append(VerseText.Substring(cursor, letterInfo.StartIndex - cursor));
 
                     var span = new span

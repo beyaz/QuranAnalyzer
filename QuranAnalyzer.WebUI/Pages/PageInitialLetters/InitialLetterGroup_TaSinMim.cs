@@ -117,7 +117,7 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                 }
             },
 
-            new Arrow { start = Id(19, Haa), end  = IdOfCountingResult, },
+            new Arrow { start = Id(19, Haa), end  = IdOfCountingResult },
             new Arrow { start = Id(20, Taa_), end = IdOfCountingResult },
             new Arrow { start = Id(20, Haa), end  = IdOfCountingResult, StartAnchorFromRight = true },
             new Arrow { start = Id(26, Taa_), end = IdOfCountingResult, StartAnchorFromTop   = true },
@@ -133,14 +133,17 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
             {
                 AsLetter(Taa_), " harfi başlangıç harfi olarak ilk defa 20. surede karşımıza çıkar.",
                 " Kuranda bulunan tüm ", AsLetter(Taa_), " harflerinin tam ortasındadır. Solunda toplamda 636 tane ",
-                AsLetter(Taa_)," sağında toplamda 636 tane ", 
+                AsLetter(Taa_), " sağında toplamda 636 tane ",
                 AsLetter(Taa_), " harfi bulunur.",
                 br,
-                "Ta-Sin-Mim grubu Kurandaki diğer başlangıç harf gruplarına pek benzemiyor." ,
+                "Ta-Sin-Mim grubu Kurandaki diğer başlangıç harf gruplarına pek benzemiyor.",
                 " Belki ileride burası ile ilgili daha başka veriler açığa çıkabilir diye düşünüyorum."
-            },
+            }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"TaSinMim-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"TaSinMim-{chapterNumber}-{letter}";
+    }
 }

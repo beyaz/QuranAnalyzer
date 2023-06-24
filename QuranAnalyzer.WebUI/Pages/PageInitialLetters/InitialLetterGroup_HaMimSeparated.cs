@@ -11,7 +11,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
 
     protected override Element render()
     {
-        const string firstColor  = "#871F78";
+        const string firstColor = "#871F78";
         const string secondColor = "#c75fe0";
 
         (int? count, string url, string color) getOnlyOneLetterCountingInfo(string verseSelectScript, char letter, int? count, string color)
@@ -79,7 +79,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                     {
                         new td
                         {
-                            new Chapter { ChapterNumber = 41, ChapterName = "Fussilet" },
+                            new Chapter { ChapterNumber = 41, ChapterName = "Fussilet" }
                         },
                         new td
                         {
@@ -98,7 +98,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                                     Count  = getOnlyOneLetterCountingInfo("41:*", Miim, 276, firstColor)
                                 }
                             }
-                        },
+                        }
                     },
 
                     RowSpace,
@@ -123,7 +123,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                                     Id     = Id(42, Miim),
                                     Letter = Miim,
                                     Count  = getOnlyOneLetterCountingInfo("42:*", Miim, 300, firstColor)
-                                },
+                                }
                             }
                         }
                     },
@@ -142,7 +142,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                                 (small)"59 = (6+4 + 3+8+0 + 4+8 + 2+7+6 + 5+3 + 3+0+0)"
                             }
                         },
-                        new td(),
+                        new td()
                     },
 
                     RowSpace,
@@ -177,7 +177,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                                 (small)"54 = (4+4 + 3+2+4 + 1+6 + 1+5+0 + 3+1 + 2+0+0 + 3+6 + 2+2+5)"
                             }
                         },
-                        new td(),
+                        new td()
                     },
 
                     new tr
@@ -332,11 +332,14 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
             new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_2, StartAnchorFromTop   = true },
             new Arrow { start = Id(45, Miim), end = IdOfCountingResult_2, StartAnchorFromRight = true },
             new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_2, StartAnchorFromTop   = true },
-            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_2, StartAnchorFromRight = true },
+            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_2, StartAnchorFromRight = true }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"HaMimSeparated-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"HaMimSeparated-{chapterNumber}-{letter}";
+    }
 
     Element CreateSeparationSwitch()
     {

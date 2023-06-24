@@ -79,9 +79,9 @@ class Calculator : ReactComponent<CalculatorModel>
     {
         var option = new MushafOption();
 
-        var letterInfoList  = Analyzer.AnalyzeText(state.Letters.Replace(" ", ""));
+        var letterInfoList = Analyzer.AnalyzeText(state.Letters.Replace(" ", ""));
         var letterOrderList = letterInfoList.Select(x => x.OrderValue).ToImmutableList();
-        var verseList       = VerseFilter.GetVerseList(state.SearchScript).Unwrap().Where(isContainsGivenLetters).ToList();
+        var verseList = VerseFilter.GetVerseList(state.SearchScript).Unwrap().Where(isContainsGivenLetters).ToList();
 
         if (ShowNumbers)
         {

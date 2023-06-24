@@ -29,7 +29,7 @@ class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(36, Yaa), Letter  = Yaa },
-                                new InitialLetter { Id = Id(36, Siin), Letter = Siin },
+                                new InitialLetter { Id = Id(36, Siin), Letter = Siin }
                             }
                         },
                         new td
@@ -43,7 +43,7 @@ class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
                                 }
                             }
                         }
-                    },
+                    }
                 }
             },
 
@@ -55,9 +55,12 @@ class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
             },
 
             new Arrow { start = Id(36, Yaa), end  = IdOfCountingResult },
-            new Arrow { start = Id(36, Siin), end = IdOfCountingResult },
+            new Arrow { start = Id(36, Siin), end = IdOfCountingResult }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"Chapter36_YaSin-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"Chapter36_YaSin-{chapterNumber}-{letter}";
+    }
 }

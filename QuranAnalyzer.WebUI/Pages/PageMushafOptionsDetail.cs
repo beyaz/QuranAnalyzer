@@ -55,7 +55,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
                     src   = FileAtImgFolder("7_69_sin_sad.png"),
                     style = { width = "91px", height = "auto", display = "block", marginLeftRight = "auto" }
                 },
-                "Oradaki harfin hangisi olduğu üzerine tartışma var. Kimisi sin diye yazılır Sad diye okunur demiş. Elbette başka yorumlar da var.",
+                "Oradaki harfin hangisi olduğu üzerine tartışma var. Kimisi sin diye yazılır Sad diye okunur demiş. Elbette başka yorumlar da var."
             },
 
             separation,
@@ -131,7 +131,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
                         IsDisabled    = true
                     },
 
-                    "11:70 ve 30:21 surelerdeki Lam harf farklılığı şu demek bu ayetlerde tanzil.net Lam harfini bir fazla saymış.",
+                    "11:70 ve 30:21 surelerdeki Lam harf farklılığı şu demek bu ayetlerde tanzil.net Lam harfini bir fazla saymış."
                 },
 
                 new FlexColumn(Gap(10))
@@ -176,6 +176,9 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
             }
         };
 
-        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation()
+        {
+            return new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        }
     }
 }

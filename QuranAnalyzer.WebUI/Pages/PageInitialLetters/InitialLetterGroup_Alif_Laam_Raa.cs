@@ -28,7 +28,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new InitialLetter { Id = Id(10, Alif), Letter = Alif },
                                 new InitialLetter { Id = Id(10, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(10, Raa), Letter  = Raa },
+                                new InitialLetter { Id = Id(10, Raa), Letter  = Raa }
                             }
                         },
                         new td
@@ -57,7 +57,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new InitialLetter { Id = Id(11, Alif), Letter = Alif },
                                 new InitialLetter { Id = Id(11, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(11, Raa), Letter  = Raa },
+                                new InitialLetter { Id = Id(11, Raa), Letter  = Raa }
                             }
                         },
                         new td
@@ -86,7 +86,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new InitialLetter { Id = Id(12, Alif), Letter = Alif },
                                 new InitialLetter { Id = Id(12, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(12, Raa), Letter  = Raa },
+                                new InitialLetter { Id = Id(12, Raa), Letter  = Raa }
                             }
                         },
                         new td
@@ -115,7 +115,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new InitialLetter { Id = Id(14, Alif), Letter = Alif },
                                 new InitialLetter { Id = Id(14, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(14, Raa), Letter  = Raa },
+                                new InitialLetter { Id = Id(14, Raa), Letter  = Raa }
                             }
                         },
                         new td
@@ -144,7 +144,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new InitialLetter { Id = Id(15, Alif), Letter = Alif },
                                 new InitialLetter { Id = Id(15, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(15, Raa), Letter  = Raa },
+                                new InitialLetter { Id = Id(15, Raa), Letter  = Raa }
                             }
                         },
                         new td
@@ -179,11 +179,17 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
 
             new Arrow { start = Id(15, Alif), end = IdOfCountingResult(15) },
             new Arrow { start = Id(15, Laam), end = IdOfCountingResult(15) },
-            new Arrow { start = Id(15, Raa), end  = IdOfCountingResult(15) },
+            new Arrow { start = Id(15, Raa), end  = IdOfCountingResult(15) }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"Alif_Laam_Raa-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"Alif_Laam_Raa-{chapterNumber}-{letter}";
+    }
 
-    static string IdOfCountingResult(int chapterNumber) => $"Alif_Laam_Raa-{chapterNumber}";
+    static string IdOfCountingResult(int chapterNumber)
+    {
+        return $"Alif_Laam_Raa-{chapterNumber}";
+    }
 }

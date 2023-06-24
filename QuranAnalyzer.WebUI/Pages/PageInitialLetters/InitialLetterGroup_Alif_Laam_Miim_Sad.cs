@@ -27,7 +27,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
                                 new InitialLetter { Id = Id(7, Alif), Letter = Alif },
                                 new InitialLetter { Id = Id(7, Laam), Letter = Laam },
                                 new InitialLetter { Id = Id(7, Miim), Letter = Miim },
-                                new InitialLetter { Id = Id(7, Saad), Letter = Saad },
+                                new InitialLetter { Id = Id(7, Saad), Letter = Saad }
                             }
                         },
                         new td
@@ -47,11 +47,17 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
             new Arrow { start = Id(7, Alif), end = IdOfCountingResult(7) },
             new Arrow { start = Id(7, Laam), end = IdOfCountingResult(7) },
             new Arrow { start = Id(7, Miim), end = IdOfCountingResult(7) },
-            new Arrow { start = Id(7, Saad), end = IdOfCountingResult(7) },
+            new Arrow { start = Id(7, Saad), end = IdOfCountingResult(7) }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"Alif_Laam_Miim_Sad-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"Alif_Laam_Miim_Sad-{chapterNumber}-{letter}";
+    }
 
-    static string IdOfCountingResult(int chapterNumber) => $"Alif_Laam_Miim_Sad-{chapterNumber}";
+    static string IdOfCountingResult(int chapterNumber)
+    {
+        return $"Alif_Laam_Miim_Sad-{chapterNumber}";
+    }
 }

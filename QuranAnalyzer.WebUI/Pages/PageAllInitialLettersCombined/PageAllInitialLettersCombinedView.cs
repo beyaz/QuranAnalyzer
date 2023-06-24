@@ -67,7 +67,7 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
                 "Kimine göre Necip Fazıl daha iyi şairdir kimine göre de Nazım Hikmet. ",
                 "Ama matematik yoruma daha kapalıdır. 2 + 2 Bağcılarda da 4 eder Berlin'de de 4 eder. ",
                 "Tüm denizlerdeki kum tanelerinin adetini kesin olarak bilen bir yaratıcı Kuranın içine de böyle bir örüntüyü eklemiş. ",
-                "Böylelikle Kuranın korunacağı ve Kuranın bir benzerinin getirilemeyeceği iddiaları 19 sistemi ile daha anlamlı hale gelmiş oluyor. ",
+                "Böylelikle Kuranın korunacağı ve Kuranın bir benzerinin getirilemeyeceği iddiaları 19 sistemi ile daha anlamlı hale gelmiş oluyor. "
             },
 
             new div { "Neden 19?", TextAlignCenter },
@@ -97,12 +97,18 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
             }
         };
 
-        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
-
-        static Element raisePanel(Element element) => new div
+        static Element separation()
         {
-            BoxShadow("rgb(0 0 0 / 34%) 0px 2px 5px 0px"), Padding(15), BorderRadiusForPanels, MarginTopBottom(10),
-            element
-        };
+            return new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        }
+
+        static Element raisePanel(Element element)
+        {
+            return new div
+            {
+                BoxShadow("rgb(0 0 0 / 34%) 0px 2px 5px 0px"), Padding(15), BorderRadiusForPanels, MarginTopBottom(10),
+                element
+            };
+        }
     }
 }

@@ -9,17 +9,17 @@ class ArrowUpDownIcon : ReactPureComponent
         var style2 = new style
         {
             """
-                .transform_rotate_negative_180deg
-                {
-                   transform: rotate(-180deg);
-                }
+            .transform_rotate_negative_180deg
+            {
+               transform: rotate(-180deg);
+            }
 
-                .transform_rotate_90deg
-                {
-                   transform: rotate(0deg);
-                }              
+            .transform_rotate_90deg
+            {
+               transform: rotate(0deg);
+            }
 
-                """
+            """
         };
 
         var arrowDown = new svg(svg.ViewBox(0, 0, 24, 24), svg.WidthHeight(24), Transition("all", 400))

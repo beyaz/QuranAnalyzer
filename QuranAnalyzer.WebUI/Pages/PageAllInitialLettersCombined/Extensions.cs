@@ -66,7 +66,7 @@ static class Extensions
                 new() { ChapterNumber = 43, Count = "324" },
                 new() { ChapterNumber = 44, Count = "150" },
                 new() { ChapterNumber = 45, Count = "200" },
-                new() { ChapterNumber = 46, Count = "225" },
+                new() { ChapterNumber = 46, Count = "225" }
             }
         },
         new InitialLetterCountInfo
@@ -76,7 +76,7 @@ static class Extensions
             {
                 new() { ChapterNumber = 7, Count  = "97" },
                 new() { ChapterNumber = 19, Count = "26" },
-                new() { ChapterNumber = 38, Count = "29" },
+                new() { ChapterNumber = 38, Count = "29" }
             }
         },
         new InitialLetterCountInfo
@@ -106,7 +106,7 @@ static class Extensions
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 19, Count = "175" },
-                new() { ChapterNumber = 20, Count = "251" },
+                new() { ChapterNumber = 20, Count = "251" }
             }
         },
         new InitialLetterCountInfo

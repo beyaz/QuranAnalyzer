@@ -34,10 +34,7 @@ public class Startup
         {
             RequestPath         = new PathString("/wwwroot"),
             ContentTypeProvider = new Utf8CharsetContentTypeProvider(),
-            OnPrepareResponse = ctx =>
-            {
-                ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={TimeSpan.FromMinutes(5).TotalSeconds}");
-            }
+            OnPrepareResponse   = ctx => { ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={TimeSpan.FromMinutes(5).TotalSeconds}"); }
         });
 
         app.UseResponseCompression();

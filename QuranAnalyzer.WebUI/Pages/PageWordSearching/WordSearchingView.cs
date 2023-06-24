@@ -53,35 +53,38 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
     protected override Element render()
     {
-        IEnumerable<Element> searchPanel() => new[]
+        IEnumerable<Element> searchPanel()
         {
-            When(state.IsBlocked, Backdrop),
-            When(state.IsBlocked, ProcessingText),
-
-            new h4 { text = "Kelime Arama", style = { textAlign = "center" } },
-
-            new FlexColumn(Gap(15))
+            return new[]
             {
-                new FlexColumn
+                When(state.IsBlocked, Backdrop),
+                When(state.IsBlocked, ProcessingText),
+
+                new h4 { text = "Kelime Arama", style = { textAlign = "center" } },
+
+                new FlexColumn(Gap(15))
                 {
-                    new div { text = "Arama Komutu", style = { FontWeight500, FontSize14, MarginBottom(2) } },
+                    new FlexColumn
+                    {
+                        new div { text = "Arama Komutu", style = { FontWeight500, FontSize14, MarginBottom(2) } },
 
-                    new TextArea { TextArea.Bind(() => state.SearchScript), FontSize22 },
+                        new TextArea { TextArea.Bind(() => state.SearchScript), FontSize22 },
 
-                    new ErrorText { Text = state.SearchScriptErrorMessage }
-                },
+                        new ErrorText { Text = state.SearchScriptErrorMessage }
+                    },
 
-                PartOption,
+                    PartOption,
 
-                new div{"Not: Kelime aramalarında 'besmele' dahil edilmeden arama yapılmaktadır."}+ FontSize(0.9|rem),
-                
-                new FlexRow(JustifyContentSpaceBetween)
-                {
-                    new HelpComponent(),
-                    new ActionButton { Label = "Ara", OnClick = OnCalculateClicked } + Height(22)
+                    new div { "Not: Kelime aramalarında 'besmele' dahil edilmeden arama yapılmaktadır." } + FontSize(0.9 | rem),
+
+                    new FlexRow(JustifyContentSpaceBetween)
+                    {
+                        new HelpComponent(),
+                        new ActionButton { Label = "Ara", OnClick = OnCalculateClicked } + Height(22)
+                    }
                 }
-            }
-        };
+            };
+        }
 
         if (state.ClickCount == 0)
         {
@@ -156,8 +159,8 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             }
 
             var sumOfChapterNumbers = 0;
-            var sumOfVerseNumbers   = 0;
-            var sumOfCounts         = 0;
+            var sumOfVerseNumbers = 0;
+            var sumOfCounts = 0;
 
             var resultVerses = new List<WordColorizedVerse>();
 
@@ -272,7 +275,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         if (state.IsBlocked == false)
         {
             state.IsBlocked = true;
-            Client.HistoryReplaceState(null,"", $"/?{QueryKey.Page}={PageId.WordSearching}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.SearchOption}={state.SearchOption}");
+            Client.HistoryReplaceState(null, "", $"/?{QueryKey.Page}={PageId.WordSearching}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.SearchOption}={state.SearchOption}");
             Client.GotoMethod(OnCalculateClicked);
             return;
         }

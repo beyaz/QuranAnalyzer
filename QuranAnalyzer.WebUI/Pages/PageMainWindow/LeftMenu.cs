@@ -17,7 +17,7 @@ class LeftMenuButtonForMobile : ReactPureComponent
             TextDecorationNone,
             Background("linear-gradient(180deg, white 0%, #eff2f7 100%)"),
             Text(Text),
-            Color(textColor),
+            Color(textColor)
         };
     }
 }
@@ -46,7 +46,7 @@ class LeftMenu : ReactPureComponent
         }),
         ("İletişim", new[] { PageId.Contact }),
         ("Harf Sayım Programı", new[] { PageId.CharacterCounting }),
-        ("Kelime Sayım Programı", new[] { PageId.WordSearching }),
+        ("Kelime Sayım Programı", new[] { PageId.WordSearching })
     };
 
     public string SelectedPageId { get; set; }
@@ -59,6 +59,7 @@ class LeftMenu : ReactPureComponent
         {
             SelectedPageId = Context.Query[QueryKey.SenderPage] ?? SelectedPageId;
         }
+
         return new Fragment
         {
             // wide screen menu
@@ -80,8 +81,8 @@ class LeftMenu : ReactPureComponent
 
             return new LeftMenuButtonForMobile
             {
-                Text = text, 
-                Href = GetPageLink(MenuItems[index].pageIdList[0]), 
+                Text       = text,
+                Href       = GetPageLink(MenuItems[index].pageIdList[0]),
                 IsSelected = isSelected
             };
         }

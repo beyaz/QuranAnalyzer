@@ -31,10 +31,10 @@ Bu kişilerin ortaya attıkları iddialara karşı cevaplar da var onları da di
 Şaka değil konuyu araştırırken gerçekten böyle videolara denk geldim. 
 Hatta Mustafa Kemal Atatürk'ün hayatındaki olayların tarihleri ile  19 rakamı arasında ilişkiler kurmaya çalışanlara bile denk gelebilirsiniz."
             },
-            
+
             new p
             {
-                "Özetle bu konuyu araştırırken o da 19'un katı bu da 19 un katı şeklinde bir çok videoya - yazıya denk gelebilirsiniz." ,
+                "Özetle bu konuyu araştırırken o da 19'un katı bu da 19 un katı şeklinde bir çok videoya - yazıya denk gelebilirsiniz.",
                 " Tahminim o ki burada şeytanın bir oyunu olabilir.",
                 " 19 meselesini sulandırarak, alakasız konularla ilişkilendirerek 19 gibi basit anlaşılır bir meseleyi anlaşılmaz işin içinden çıkılmaz ve şüpheli bir hale getirmeye çalışıyor olabilir."
             },
@@ -43,7 +43,7 @@ Hatta Mustafa Kemal Atatürk'ün hayatındaki olayların tarihleri ile  19 rakam
             {
                 "Bu saydığım isimlerin ortak takıldıkları meseleler özetle aşağıdaki iki konudur."
             },
-            
+
             new ul
             {
                 (li)"Reşad Halife'nin elçilik meselesine takılmış durumdalar.",
@@ -53,7 +53,7 @@ Hatta Mustafa Kemal Atatürk'ün hayatındaki olayların tarihleri ile  19 rakam
 
             new p
             {
-                "Bu ortaya atılan alternatif iddiaları incelerken şunu hatırınızda tutmanız gerekir." ,
+                "Bu ortaya atılan alternatif iddiaları incelerken şunu hatırınızda tutmanız gerekir.",
                 " 19 kodunun başka fonksiyonlarını da göz önünde bulundurmalısınız.",
                 " 19 sistemi Kuranda harf bazında düzeltme yapar. Koruyucu bir özelliği vardır.",
                 " Olay sadece kuru kuruya güzel bir matematiksel örüntü değildir.",
@@ -88,7 +88,7 @@ Bu saydığım isimler sadece Türkiye'de olan resim. Elbette başka ülkelerde 
             {
                 (b)"Sonuç olarak: ",
                 "Elbette ileriki yıllarda Kuranda daha başka matematiksel veriler - örüntüler bulunabilir.",
-                " Burada dikkat edilmesi gereken mesele şu olmalı; yeni bulunan örüntünün başlangıç harflerindeki 19 rakamı ile ",(b)"çelişmiyor"," olmasıdır.",
+                " Burada dikkat edilmesi gereken mesele şu olmalı; yeni bulunan örüntünün başlangıç harflerindeki 19 rakamı ile ", (b)"çelişmiyor", " olmasıdır.",
                 " Ortaya konulan yeni iddia 19 ile ya örtüşüyor dolayısı ile destekleyici olacaktır veya çelişiyor olacaktır."
             }
         };

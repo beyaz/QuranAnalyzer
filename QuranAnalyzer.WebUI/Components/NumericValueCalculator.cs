@@ -63,7 +63,7 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
                 container.Add((span)" + " + MarginLeftRight(5));
             }
 
-            var arabicLetter  = arabicLetters[i];
+            var arabicLetter = arabicLetters[i];
             var pronunciation = GetPronunciationOfArabicLetter(arabicLetter.Letter);
             var numericValue = arabicLetter.NumericValue;
 
@@ -110,7 +110,7 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
             {
                 AlignItemsCenter,
                 Margin(5),
-                Border(Solid(1,ColorForBorder)),
+                Border(Solid(1, ColorForBorder)),
                 BorderRadiusForPanels,
 
                 new div(PaddingLeftRight(5), FontSize(15), FontFamily_Lateef)

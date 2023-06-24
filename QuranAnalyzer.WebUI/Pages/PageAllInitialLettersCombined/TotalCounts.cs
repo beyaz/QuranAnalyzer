@@ -1,5 +1,4 @@
 ﻿using System.Numerics;
-
 using static QuranAnalyzer.WebUI.Pages.PageAllInitialLettersCombined.Extensions;
 
 namespace QuranAnalyzer.WebUI.Pages.PageAllInitialLettersCombined;
@@ -78,7 +77,7 @@ class TotalCounts : ReactComponent
 
         return InFadeAnimation(new div
         {
-            When(needArrow, new Arrow { start = GetIdOf(isBegin: true, recordIndex: recordIndex), end = GetIdOf(isBegin: false, recordIndex: recordIndex) }),
+            When(needArrow, new Arrow { start = GetIdOf(true, recordIndex), end = GetIdOf(false, recordIndex) }),
 
             new Fade
             {
@@ -87,7 +86,7 @@ class TotalCounts : ReactComponent
                 delay       = delayForAnimation + 200,
                 children =
                 {
-                    new FlexRowCentered(ComponentBorder, BorderRadius(3), Id(GetIdOf(isBegin: false, recordIndex: recordIndex)), OverflowWrapNormal) { record.Count }
+                    new FlexRowCentered(ComponentBorder, BorderRadius(3), Id(GetIdOf(false, recordIndex)), OverflowWrapNormal) { record.Count }
                 }
             }
         }, delayForAnimation);
@@ -115,7 +114,7 @@ class TotalCounts : ReactComponent
 
     Element CreateInput(Expression<Func<string>> bindingExpression, HtmlElementModifier htmlElementModifier, int delay)
     {
-        var element = new input(Width(40), TextAlignCenter, Border( Solid(0.1, ColorForBorder)))
+        var element = new input(Width(40), TextAlignCenter, Border(Solid(0.1, ColorForBorder)))
         {
             type                     = "text",
             valueBind                = bindingExpression,
@@ -144,17 +143,17 @@ class TotalCounts : ReactComponent
     {
         return new FlexColumn(ComponentBorder, BorderRadiusForPanels, Padding(3), Gap(4))
         {
-            When(Records[recordIndex].Label is not null,new FlexRow(JustifyContentCenter)
+            When(Records[recordIndex].Label is not null, new FlexRow(JustifyContentCenter)
             {
                 Records[recordIndex].Label
             }),
-            When(Records[recordIndex].Label is null,new FlexRow(JustifyContentCenter)
+            When(Records[recordIndex].Label is null, new FlexRow(JustifyContentCenter)
             {
                 AsLetter(Records[recordIndex].Text)
             }),
             new FlexRowCentered
             {
-                CreateInput(() => Records[recordIndex].Count, Id(GetIdOf(isBegin: true, recordIndex: recordIndex)), delay)
+                CreateInput(() => Records[recordIndex].Count, Id(GetIdOf(true, recordIndex)), delay)
             }
         };
     }
@@ -173,7 +172,7 @@ class TotalCounts : ReactComponent
                     {
                         src    = FileAtImgFolder("arrow-down-double.svg"),
                         width  = 40,
-                        height = 40,
+                        height = 40
                     }
                 }
             }

@@ -52,6 +52,9 @@ public class PageAboutEdipYuksel : ReactPureComponent
             }
         };
 
-        static Element separation() => new span(DisplayFlexRowCentered, MarginTopBottom(10)) { "* * *" };
+        static Element separation()
+        {
+            return new span(DisplayFlexRowCentered, MarginTopBottom(10)) { "* * *" };
+        }
     }
 }

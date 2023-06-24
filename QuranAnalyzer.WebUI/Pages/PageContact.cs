@@ -23,11 +23,11 @@ public class PageContact : ReactPureComponent
                 br,
                 new Link
                 {
-                    href = "mailto:beyaz1404@gmail.com",
-                    text = "gmail",
+                    href     = "mailto:beyaz1404@gmail.com",
+                    text     = "gmail",
                     imageSrc = "https://upload.wikimedia.org/wikipedia/commons/archive/7/7e/20221017173629%21Gmail_icon_%282020%29.svg"
                 },
-                
+
                 br,
                 new Link
                 {
@@ -64,14 +64,12 @@ public class PageContact : ReactPureComponent
                 "Umarım bu konular üzerine düşünen araştıran insanlara bir nebze de olsa faydalı bir çalışma olmuştur."
             }
         };
-
-        
     }
 
     class Link : ReactPureComponent
     {
         public string href, text, imageSrc;
-        
+
         protected override Element render()
         {
             return new a(DisplayFlexRowCentered, Aria("label", text))

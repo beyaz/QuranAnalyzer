@@ -11,7 +11,7 @@ class HelpComponent : ReactComponent
             Title = "Örnek arama komutları",
             children =
             {
-                new HelpComponentDetail { ShowHelpMessageForLetterSearch = ShowHelpMessageForLetterSearch },
+                new HelpComponentDetail { ShowHelpMessageForLetterSearch = ShowHelpMessageForLetterSearch }
             }
         };
     }
@@ -21,18 +21,18 @@ class HelpComponent : ReactComponent
 class CollapsiblePanel : ReactComponent
 {
     public string Title { get; set; }
-    
+
     protected override Element render()
     {
         var key = Key("content");
-        
+
         return new CollapseContainer
         {
             ContentOnOpened = new Fragment(key)
             {
                 new FlexRow(AlignItemsCenter, PaddingBottom(10))
                 {
-                    new span { Title,CursorDefault },
+                    new span { Title, CursorDefault },
                     new ArrowUpDownIcon { IsArrowUp = true }
                 },
                 new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
@@ -45,7 +45,7 @@ class CollapsiblePanel : ReactComponent
             {
                 new FlexRow(AlignItemsCenter, PaddingBottom(10))
                 {
-                    new span { Title,CursorDefault },
+                    new span { Title, CursorDefault },
                     new ArrowUpDownIcon { IsArrowUp = false }
                 },
                 new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
@@ -61,12 +61,11 @@ class CollapsiblePanel : ReactComponent
 class CollapseContainer : ThirdPartyReactComponent
 {
     [ReactProp]
-    public Element ContentOnOpened { get; set; }
+    public Element ContentOnClosed { get; set; }
 
     [ReactProp]
-    public Element ContentOnClosed { get; set; }
+    public Element ContentOnOpened { get; set; }
 }
-
 
 class HelpComponentDetail : ReactPureComponent
 {

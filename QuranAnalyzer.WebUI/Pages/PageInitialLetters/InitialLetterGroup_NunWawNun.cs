@@ -42,7 +42,7 @@ class InitialLetterGroup_NunWawNun : InitialLetterGroup
                                 }
                             }
                         }
-                    },
+                    }
                 }
             },
 
@@ -50,11 +50,14 @@ class InitialLetterGroup_NunWawNun : InitialLetterGroup
 
             new Note
             {
-                "Bu surenin başlangıç harfinin tek ", AsLetter(Nun)," değil ",AsLetter(Nun),AsLetter(Waaw),AsLetter(Nun), " şeklinde yazıldığı iddiası vardır.",
+                "Bu surenin başlangıç harfinin tek ", AsLetter(Nun), " değil ", AsLetter(Nun), AsLetter(Waaw), AsLetter(Nun), " şeklinde yazıldığı iddiası vardır.",
                 " Soru-cevap kısmında açıklanmıştır."
             }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"NunWawNun-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"NunWawNun-{chapterNumber}-{letter}";
+    }
 }

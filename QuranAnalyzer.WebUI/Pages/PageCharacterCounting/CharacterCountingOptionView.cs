@@ -12,7 +12,7 @@ class CharacterCountingOptionView : ReactComponent
     protected override Element render()
     {
         var key = Key("content");
-        
+
         return new FlexColumn(Gap(10))
         {
             new CollapseContainer
@@ -23,11 +23,11 @@ class CharacterCountingOptionView : ReactComponent
             new HelpComponent { ShowHelpMessageForLetterSearch = true },
             new CollapseContainer
             {
-                ContentOnOpened = mushafOption(isOpen: true),
-                ContentOnClosed = mushafOption(isOpen: false)
+                ContentOnOpened = mushafOption(true),
+                ContentOnClosed = mushafOption(false)
             }
         };
-        
+
         Element arabicKeyBoard(bool isOpen)
         {
             return new Fragment(key)
@@ -44,6 +44,7 @@ class CharacterCountingOptionView : ReactComponent
                 }
             };
         }
+
         Element mushafOption(bool isOpen)
         {
             return new Fragment(key)
@@ -67,5 +68,4 @@ class CharacterCountingOptionView : ReactComponent
         MushafOption = mushafOption;
         DispatchEvent(() => MushafOptionChanged, mushafOption);
     }
-    
 }

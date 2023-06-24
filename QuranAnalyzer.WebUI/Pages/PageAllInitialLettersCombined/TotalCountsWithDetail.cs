@@ -53,7 +53,10 @@ class TotalCountsWithDetail : ReactComponent
     {
         var delay = 500;
 
-        int nextDelay() => delay += 600;
+        int nextDelay()
+        {
+            return delay += 600;
+        }
 
         return nextDelay;
     }
@@ -81,7 +84,10 @@ class TotalCountsWithDetail : ReactComponent
         {
             var record = Records[recordIndex];
 
-            bool needArrow(int? detailIndex) => NeedArrow(recordIndex, detailIndex);
+            bool needArrow(int? detailIndex)
+            {
+                return NeedArrow(recordIndex, detailIndex);
+            }
 
             if (record.Details is not null)
             {
@@ -100,8 +106,8 @@ class TotalCountsWithDetail : ReactComponent
                     {
                         When(drawArrow, new Arrow
                         {
-                            start = GetIdOf(isBegin: true, recordIndex, i),
-                            end   = GetIdOf(isBegin: false, recordIndex, i)
+                            start = GetIdOf(true, recordIndex, i),
+                            end   = GetIdOf(false, recordIndex, i)
                         }),
 
                         new Fade
@@ -111,7 +117,7 @@ class TotalCountsWithDetail : ReactComponent
                             delay       = lastDelay + 400,
                             children =
                             {
-                                new FlexRowCentered(ComponentBorder, BorderRadius(3), MarginRight(3), Id(GetIdOf(isBegin: false, recordIndex, i)))
+                                new FlexRowCentered(ComponentBorder, BorderRadius(3), MarginRight(3), Id(GetIdOf(false, recordIndex, i)))
                                 {
                                     IncludeChapterNumbers ? x.ChapterNumber + ":" + x.Count : x.Count
                                 }
@@ -133,8 +139,8 @@ class TotalCountsWithDetail : ReactComponent
                     {
                         When(drawArrow, new Arrow
                         {
-                            start = GetIdOf(isBegin: true, recordIndex, null),
-                            end   = GetIdOf(isBegin: false, recordIndex, null)
+                            start = GetIdOf(true, recordIndex, null),
+                            end   = GetIdOf(false, recordIndex, null)
                         }),
 
                         new Fade
@@ -144,7 +150,7 @@ class TotalCountsWithDetail : ReactComponent
                             delay       = lastDelay + 200,
                             children =
                             {
-                                new FlexRowCentered(ComponentBorder, BorderRadius(3), Id(GetIdOf(isBegin: false, recordIndex, null))) { record.Count }
+                                new FlexRowCentered(ComponentBorder, BorderRadius(3), Id(GetIdOf(false, recordIndex, null))) { record.Count }
                             }
                         }
                     }, lastDelay));
@@ -158,7 +164,7 @@ class TotalCountsWithDetail : ReactComponent
             // add total count
             returnList.Add(InFadeAnimation(new div
             {
-                When(needArrow(null), new Arrow { start = GetIdOf(isBegin: true, recordIndex, null), end = GetIdOf(isBegin: false, recordIndex, null) }),
+                When(needArrow(null), new Arrow { start = GetIdOf(true, recordIndex, null), end = GetIdOf(false, recordIndex, null) }),
 
                 new Fade
                 {
@@ -167,7 +173,7 @@ class TotalCountsWithDetail : ReactComponent
                     delay       = lastDelay + 200,
                     children =
                     {
-                        new FlexRowCentered(ComponentBorder, BorderRadius(3), Id(GetIdOf(isBegin: false, recordIndex, null))) { record.Count }
+                        new FlexRowCentered(ComponentBorder, BorderRadius(3), Id(GetIdOf(false, recordIndex, null))) { record.Count }
                     }
                 }
             }, lastDelay));
@@ -231,15 +237,15 @@ class TotalCountsWithDetail : ReactComponent
     {
         return new FlexColumn(ComponentBorder, BorderRadiusForPanels, Padding(3), Gap(4))
         {
-            When(Records[recordIndex].Label is not null,new FlexRow(JustifyContentCenter)
+            When(Records[recordIndex].Label is not null, new FlexRow(JustifyContentCenter)
             {
                 Records[recordIndex].Label
             }),
-            When(Records[recordIndex].Label is null,new FlexRow(JustifyContentCenter)
+            When(Records[recordIndex].Label is null, new FlexRow(JustifyContentCenter)
             {
                 AsLetter(Records[recordIndex].Text)
             }),
-            
+
             new FlexRow(Gap(5), FontWeight600, FontSize("0.8rem"), JustifyContentCenter, TextAlignCenter) { (small)"Sure No" + Width(50), (small)"Adet" + Width(40) },
             new FlexColumn(AlignItemsCenter)
             {
@@ -247,13 +253,13 @@ class TotalCountsWithDetail : ReactComponent
                 {
                     new small { Records[recordIndex].Details[i].ChapterNumber.ToString() } + Width(50) + TextAlignCenter + FontSize("0.7rem") + InputBorder +
                     DisplayFlex + JustifyContentCenter + AlignItemsCenter,
-                    CreateInput(() => Records[recordIndex].Details[i].Count) + Id(GetIdOf(isBegin: true, recordIndex, i))
+                    CreateInput(() => Records[recordIndex].Details[i].Count) + Id(GetIdOf(true, recordIndex, i))
                 })
             },
             new FlexRow(AlignItemsStretch, JustifyContentCenter)
             {
                 new small { "Toplam" } + Width(50) + TextAlignCenter + FontSize("0.7rem") + InputBorder + DisplayFlex + JustifyContentCenter + AlignItemsCenter,
-                CreateInput(() => Records[recordIndex].Count) + Id(GetIdOf(isBegin: true, recordIndex, null))
+                CreateInput(() => Records[recordIndex].Count) + Id(GetIdOf(true, recordIndex, null))
             }
         };
     }
@@ -272,7 +278,7 @@ class TotalCountsWithDetail : ReactComponent
                     {
                         src    = FileAtImgFolder("arrow-down-double.svg"),
                         width  = 40,
-                        height = 40,
+                        height = 40
                     }
                 }
             }

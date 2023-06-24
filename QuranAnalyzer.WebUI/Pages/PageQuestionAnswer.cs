@@ -19,7 +19,7 @@ Elimden geldiğince tartışılan konuları en kısa ve tarafsız bir şekilde �
                 br,
                 @"Aşağıdaki soruların cevaplarının doğru olup olmadığı siz okuyucuya bırakılmıştır. 
 İmana dair bir meselenin üzerinde düşünülüp içselleştirilmedikten sonra bir faydasının olmayacağına inanıyorum.
-Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söylediğini aktarayım sonrasında üzerine düşünmek-araştırmak ve bir karara varmak size kalsın.",
+Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söylediğini aktarayım sonrasında üzerine düşünmek-araştırmak ve bir karara varmak size kalsın."
             },
             br,
             new FlexColumn
@@ -81,7 +81,7 @@ Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söyledi�
             {
                 new FlexRowCentered(wh(24))
                 {
-                    new svg(svg.ViewBox(0,0,24,24), wh(24))
+                    new svg(svg.ViewBox(0, 0, 24, 24), wh(24))
                     {
                         new path
                         {
@@ -105,7 +105,7 @@ Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söyledi�
                         Color("#575757"),
                         Hover(Color("rgb(165 107 107)"), TextDecorationUnderline),
                         CursorPointer,
-                        TextDecorationNone,
+                        TextDecorationNone
                     }
                 }
             };

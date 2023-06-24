@@ -2,15 +2,6 @@
 
 static class Extensions
 {
-    public static StyleModifier AnimateHeightAndOpacity(bool isVisible)
-    {
-        return Transition(nameof(Style.all), 300) +
-               Transition(nameof(Style.opacity), 300) +
-               (isVisible
-                   ? VisibilityVisible + Opacity1 + HeightAuto
-                   : VisibilityCollapse + Opacity0 + Height0);
-    }
-    
     public static string ColorForBorder = "#dee2e6";
 
     public static string BluePrimary => "#1976d2";
@@ -20,22 +11,39 @@ static class Extensions
     public static StyleModifier ComponentBorder => Border(Solid(1, ColorForBorder));
     public static StyleModifier FontFamily_Lateef => FontFamily("Lateef, cursive");
 
-    public static int AsNumber(this bool value) =>
-        value ? 1 : 0;
+    public static StyleModifier AnimateHeightAndOpacity(bool isVisible)
+    {
+        return Transition(nameof(Style.all), 300) +
+               Transition(nameof(Style.opacity), 300) +
+               (isVisible
+                   ? VisibilityVisible + Opacity1 + HeightAuto
+                   : VisibilityCollapse + Opacity0 + Height0);
+    }
+
+    public static int AsNumber(this bool value)
+    {
+        return value ? 1 : 0;
+    }
 
     public static string AsText(this IReadOnlyList<LetterInfo> letters)
     {
         return string.Join(string.Empty, letters);
     }
 
-    public static string FileAtImgFolder(string fileName) => "wwwroot/img/" + fileName;
+    public static string FileAtImgFolder(string fileName)
+    {
+        return "wwwroot/img/" + fileName;
+    }
 
     public static string GetLetterCountingScript(string chapterFilter, params char[] arabicLetters)
     {
         return chapterFilter + "~" + string.Join(string.Empty, arabicLetters);
     }
 
-    public static string GetPageLink(string pageId) => $"/?{QueryKey.Page}=" + pageId;
+    public static string GetPageLink(string pageId)
+    {
+        return $"/?{QueryKey.Page}=" + pageId;
+    }
 
     public static string GetTurkishPronunciationOfArabicLetter(char arabicLetter)
     {
@@ -104,13 +112,13 @@ static class Extensions
         }
 
         // a d e m
-        const string adem      = "اادم";
-        const string ya_adem   = "يادم";
-        const string li_adem   = "لٔادم";
+        const string adem = "اادم";
+        const string ya_adem = "يادم";
+        const string li_adem = "لٔادم";
         const string veya_adem = "ويادم";
 
         // i s a
-        const string isa    = "عيسي";
+        const string isa = "عيسي";
         const string ve_isa = "وعيسي";
         const string ya_isa = "يعيسي";
         const string bi_isa = "بعيسي";
@@ -118,13 +126,13 @@ static class Extensions
         return arabicWord switch
         {
             // a d e m
-            adem => ("âdem", "âdem"),
-            ya_adem => ("ya-âdem", "ya-âdem"),
-            li_adem => ("li-âdem", "li-âdem"),
+            adem      => ("âdem", "âdem"),
+            ya_adem   => ("ya-âdem", "ya-âdem"),
+            li_adem   => ("li-âdem", "li-âdem"),
             veya_adem => ("veya-âdem", "veya-âdem"),
 
             // i s a
-            isa => ("isa", "isa"),
+            isa    => ("isa", "isa"),
             ve_isa => ("ve isa", "ve isa"),
             ya_isa => ("ya isa", "ya isa"),
             bi_isa => ("bi isa", "bi isa"),
@@ -133,9 +141,15 @@ static class Extensions
         };
     }
 
-    public static bool HasNoValue(this string value) => string.IsNullOrWhiteSpace(value);
+    public static bool HasNoValue(this string value)
+    {
+        return string.IsNullOrWhiteSpace(value);
+    }
 
-    public static bool HasValue(this string value) => !string.IsNullOrWhiteSpace(value);
+    public static bool HasValue(this string value)
+    {
+        return !string.IsNullOrWhiteSpace(value);
+    }
 
     public static void MainContentDivScrollChangedOverZero(this Client client, double mainDivScrollY)
     {

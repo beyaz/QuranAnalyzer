@@ -11,7 +11,7 @@ class InitialLetter : ReactPureComponent
     public string Id { get; set; }
 
     public bool IsSelected { get; set; }
-    
+
     public char Letter { get; set; }
 
     protected override Element render()
@@ -108,7 +108,6 @@ class Arrow : ReactPureComponent
     public string end;
     public string start;
 
-    
     public bool StartAnchorFromRight { get; set; }
 
     public bool StartAnchorFromTop { get; set; }
@@ -210,7 +209,7 @@ class InitialLetterGroup_Saad : InitialLetterGroup
                                             new CountingResult
                                             {
                                                 id           = IdOfCountingResult, MultipleOf = 8,
-                                                SearchScript = GetLetterCountingScript("7:*,19:*,38:*", Saad),
+                                                SearchScript = GetLetterCountingScript("7:*,19:*,38:*", Saad)
                                             }
                                         }
                                     }
@@ -246,9 +245,12 @@ class InitialLetterGroup_Saad : InitialLetterGroup
 
             new Arrow { start = Id(7, Saad), end  = IdOfCountingResult, StartAnchorFromRight = true },
             new Arrow { start = Id(19, Saad), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(38, Saad), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(38, Saad), end = IdOfCountingResult, StartAnchorFromRight = true }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"ThreeSaad-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"ThreeSaad-{chapterNumber}-{letter}";
+    }
 }

@@ -38,7 +38,7 @@ Böylelikle herhangi 11 haneden oluşan bir sayının TC kimlik numarası olup o
 "
             },
 
-            new LargeTitle("IBAN")+ MarginTop(50),
+            new LargeTitle("IBAN") + MarginTop(50),
 
             new p { "Bankanızın size vermiş oluğu IBAN bilgisinde buna benzer bir şey olabilir mi?" },
             new img { src = FileAtImgFolder("IBAN.jpg"), alt = "iban", style = { width = "100%", maxWidth = "600px", height = "auto", display = "block", marginLeftRight = "auto" } },
@@ -96,7 +96,7 @@ Para transferleri, bitcoin, QR ile yapılan işlemlerden tutun okuduğunuz şu y
                 (strong)"Doğrulama bilgisi veri içinde beraber gönderiliyor."
             },
 
-            new p(FontWeight600,MarginTop(50))
+            new p(FontWeight600, MarginTop(50))
             {
                 " İyi de bu anlatılanların Kuran ile 19 ile ne alakası var?"
             },

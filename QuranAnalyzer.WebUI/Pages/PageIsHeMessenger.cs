@@ -75,7 +75,7 @@ public class PageIsHeMessenger : ReactPureComponent
             {
                 "- Reşad Halife'nin doğum tarihi ve öldürülme tarihi net olarak bilinmektedir.", br,
                 "Toplamda bu dünyada 19.798 gün yaşamıştır. 19. Surede 798 adet başlangıç harfi vardır. Sizce de çok ilginç değil mi?", br,
-                "Bunun gibi başka daha bir çok bilgiyi internette kolayca bulabilirsiniz. Ben olayın mantığını anlatmaya çalışacağım.",
+                "Bunun gibi başka daha bir çok bilgiyi internette kolayca bulabilirsiniz. Ben olayın mantığını anlatmaya çalışacağım."
             },
 
             new p
@@ -240,7 +240,7 @@ public class PageIsHeMessenger : ReactPureComponent
                 br,
                 "Ey Rabbim ben nerden bileyim hangi din doğru?", br,
                 "Herkes kendi mahallesinde çok mutlu ve kendi inanıcının en doğru olduğunu savunuyordu. Her din kendi içinde mitolojileri vardı. Musa denizi yardığında ben orda değildim ben nerden bileyim gerçek mi? Uydurma mı?", br,
-                
+
                 br,
                 "İşte bu bahane insanların elinden alınmış oldu.", br,
                 "19 Mucizesi Kuranın Allah kelamı olduğunu doğruladı.", br,
@@ -253,7 +253,7 @@ public class PageIsHeMessenger : ReactPureComponent
                 "Elbetteki kanıt demek her insanın seçim hakkını elinden alacak şekilde bir olay değildir.",
                 br,
                 "Musa peygamberin örneğini ele alalım.",
-                " Musa'nın Firavun'un büyücüleri ile olan karşılaşmasını hatırlayın." ,
+                " Musa'nın Firavun'un büyücüleri ile olan karşılaşmasını hatırlayın.",
                 " Musanın asası diğer yılanları yutuyor ve büyücüler hemen secdeye kapanıyor.",
                 " Ama Firavun inanmıyor.",
                 br,
@@ -273,7 +273,7 @@ public class PageIsHeMessenger : ReactPureComponent
                 br,
                 "Dünyanın en kabiliyetli yazarlarının edebiyatçılarının ve matematikçilerinin bir araya geldiklerini hayal edelim.",
                 " Bu ekipten şunu isteyelim",
-                
+
                 " Bana öyle bir metin getirin ki bu sitede anlatılan HA-MİM tablosuna benzer bir tablosu olsun.",
                 " Aynı zamanda metindeki Allah kelimelerinin yerleri özel bir şekilde belli bir rakam ile uyumlu olsun.",
                 " Aynı zamanda gün-ay-dünya-ahiret gibi kelimeler adet bakımından uyum içerisinde olsun.",
@@ -282,11 +282,10 @@ public class PageIsHeMessenger : ReactPureComponent
                 "Hatta bu insanların yanına bir de son zamanların yeni harikası Chat GPT de olsun.",
                 " Bu şekilde bir metin oluşturmalarını isteyin. Yine de başaramazlar.",
                 " Kuranda geçen 'bu Kuranın bir benzerini meydana getiremezsiniz' meydan okumayı sanırım daha net anlamışsınızdır.",
-                br,br,
+                br, br,
                 "Yoksa olayı sadece edebi açıdan ele alırsanız 'The True Furqan' isimli çalışmaya göz atmanızı öneririm.",
                 " Kutsal metinlerden ortaya karışık Kurana benzer arapça bir kitap yazmışlar." +
                 " Bu yazılan Kuran benzeri kitabın Kuranın benzeri olmadığına kim nasıl hangi yöntemle karar verecek?"
-
             },
             new p
             {
@@ -313,7 +312,7 @@ public class PageIsHeMessenger : ReactPureComponent
                 (strong)"Siyasi liderleri, tarikat-cemaat liderlerini, aşiretimizi, vatanımızı, bazen kendimizi bazen de evladımızı putlaştırıyoruz.",
                 " Maalesef böyle."
             },
-            
+
             new p
             {
                 (strong)"Peki Reşad sadece 19 dan mı bahsetti?", br,
@@ -326,7 +325,7 @@ public class PageIsHeMessenger : ReactPureComponent
                 "Özetle bugün tüm din meselesini Kuran ile sınırlandırsanız bile iş bitmiyor. Hangi kuran? Tabii bu Kurandan değil bizden kaynaklanan bir sorun.",
                 " Konu tefsir olunca sorun ortadan kalkmıyor. Aynı sorun orda da var."
             },
-            
+
             new p
             {
                 "Tarikatlar Kuranı farklı yorumluyor, Diyanet farklı yorumluyor, Nurcular farklı yorumluyor.", br,
@@ -427,26 +426,25 @@ public class PageIsHeMessenger : ReactPureComponent
             {
                 (strong)"Gazali gibi, Razi gibi yazdıkları eserler yüzyıllar boyu okunmuş alimler böyle bir iddiada bulunmamışlar da neden Reşad böyle bir iddiada bulunuyor?",
                 br,
-                "Aslında cevabı çok basit bir soru. Çünkü onlar elçi değildiler." ,
-                " Öyle bir görevleri yoktu." ,
+                "Aslında cevabı çok basit bir soru. Çünkü onlar elçi değildiler.",
+                " Öyle bir görevleri yoktu.",
                 " Bu insanlar dürüst ve cesur insanlardı eğer elçi olsalardı ve söylemeleri emredilseydi bunu söylerlerdi.",
                 br,
                 " Bizim ana problemli algımız elçilerin veya peygamberlerin diğer insanlardan kesinkez üstün olduğu fikridir.",
-                " Halbuki peygamberler ve elçiler de birer insandır. Onlar da bizler gibi yemek yiyip çarşıda pazarda alışveriş yaptılar." ,
+                " Halbuki peygamberler ve elçiler de birer insandır. Onlar da bizler gibi yemek yiyip çarşıda pazarda alışveriş yaptılar.",
                 " Onlar da ahirette sorguya çekilecekler.",
                 " Kuranda ismi övgüyle zikredilen Musa peygamberin Allahın ilim verdiği bir kul ile karşılaşıp ona tabii olmak istemesi ve yapılan işlerin hikmetini kavrayamamasını hatırlayın."
-                
             },
             new p
             {
                 (b)"Neden bir çok peygamber veya elçi hep ortadoğudan gelmiş?",
                 br,
-                "Eğer Reşad elçi ise bu soru da tamamen boşa çıkıyor." ,
+                "Eğer Reşad elçi ise bu soru da tamamen boşa çıkıyor.",
                 " Çünkü Reşad bugünün dünyasının merkezi olan Amerikada ortaya çıkıyor.",
                 " Elbetteki 25- 30'lu yaşlara kadar Mısırda büyüdüğünü de hesaba katmak gerek.",
                 " Bir nevi doğu-batı sentezini yapmış dünyayı tanıyan biri olarak ele alabiliriz."
             },
-            
+
             new p
             {
                 (strong)"Özetlersek;", br,

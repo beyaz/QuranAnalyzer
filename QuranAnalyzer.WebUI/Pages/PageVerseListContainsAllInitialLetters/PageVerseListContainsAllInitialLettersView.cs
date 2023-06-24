@@ -8,11 +8,14 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
 
     protected override Element render()
     {
-        static Element raisePanel(Element element) => new div
+        static Element raisePanel(Element element)
         {
-            BoxShadow("rgb(0 0 0 / 34%) 0px 2px 5px 0px"), Padding(15), BorderRadiusForPanels, MarginTopBottom(10),
-            element
-        };
+            return new div
+            {
+                BoxShadow("rgb(0 0 0 / 34%) 0px 2px 5px 0px"), Padding(15), BorderRadiusForPanels, MarginTopBottom(10),
+                element
+            };
+        }
 
         return new Article
         {
@@ -99,6 +102,9 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             "Özetle burada bir ilginçlik var mı? yok mu? Artık bu soru ile başbaşa olan sizsiniz. :)"
         };
 
-        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation()
+        {
+            return new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        }
     }
 }

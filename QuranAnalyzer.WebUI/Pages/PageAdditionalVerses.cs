@@ -47,8 +47,8 @@ public class PageAdditionalVerses : ReactPureComponent
                 "Burada rivayet tenkidi-yorumlaması yapmayacağım ben sadece böyle bir rivayeti aktardım.",
 
                 " Hatta başka bir rivayette Ali'nin evinden belli bir süre çıkmadığı bunun sebebini soranlara da Kurana söz eklendi diye durumu boykot ettiğine dair rivayetler var.",
-                " Dileyen bu rivayetleri daha derinlemesine araştırabilir. " , br,
-                " İşine gelince rivayetlere sarılıyorsun gibi haklı bir eleştiri yapabilirsiniz ama benim burada aktarmak istediğim şey şu; " ,
+                " Dileyen bu rivayetleri daha derinlemesine araştırabilir. ", br,
+                " İşine gelince rivayetlere sarılıyorsun gibi haklı bir eleştiri yapabilirsiniz ama benim burada aktarmak istediğim şey şu; ",
                 " burada bir duman tütüyor.",
                 " İlk toplanan muashafın yakılması vesaire ister istemez konu üzerinde soru işaretleri bırakmış olabilir.",
                 " Hatta herkim ki tevbe suresi 128. 129 uncu ayetleri şu vakitlerde okur ise ona şöyle sevap yazılır şeklinde rivayetlerin olması da bir garip.",
@@ -81,7 +81,7 @@ public class PageAdditionalVerses : ReactPureComponent
             {
                 "Özetlemek gerekir ise ", (b)" Bu bilgi Cebrail aracılığı ile geliyor. Ardından matematikle destekleniyor.",
                 br,
-                "Dünyada hiç bir kimse kendi kutsal saydığı kitaptan matematiğe uymuyor diye ayet atmaz." ,
+                "Dünyada hiç bir kimse kendi kutsal saydığı kitaptan matematiğe uymuyor diye ayet atmaz.",
                 " Reşad o kadar da aptal biri değil. Kuran çevirisi üzerine 20 yıla yakın uğraşan birinden bahsediyoruz.",
                 " Burasını maalesef karıştırıyorlar."
             },
@@ -97,7 +97,7 @@ public class PageAdditionalVerses : ReactPureComponent
             new p
             {
                 "Kuranda bu kitabın Allah tarfından korunduğuna dair net ifadeler var. Bu durumda haklı olarak şu soruyu sormalıyız.",
-                " Hani Allah Kuranı korumuştu? Eğer Tevbe 128-129 Kurandan değil ise nasıl oldu da Kuran mushafları arasına girebildi?" ,
+                " Hani Allah Kuranı korumuştu? Eğer Tevbe 128-129 Kurandan değil ise nasıl oldu da Kuran mushafları arasına girebildi?",
                 " Demek ki mantık olarak çöküyor.",
 
                 br,
@@ -146,6 +146,9 @@ public class PageAdditionalVerses : ReactPureComponent
             }
         };
 
-        static Element separation() => new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        static Element separation()
+        {
+            return new FlexRowCentered(MarginTopBottom(10)) { "* * *" };
+        }
     }
 }

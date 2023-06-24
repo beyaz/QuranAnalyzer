@@ -27,7 +27,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                                 new InitialLetter { Id = Id(13, Alif), Letter = Alif },
                                 new InitialLetter { Id = Id(13, Laam), Letter = Laam },
                                 new InitialLetter { Id = Id(13, Miim), Letter = Miim },
-                                new InitialLetter { Id = Id(13, Raa), Letter  = Raa },
+                                new InitialLetter { Id = Id(13, Raa), Letter  = Raa }
                             }
                         },
                         new td
@@ -40,18 +40,24 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                                 }
                             }
                         }
-                    },
+                    }
                 }
             },
 
             new Arrow { start = Id(13, Alif), end = IdOfCountingResult(13) },
             new Arrow { start = Id(13, Laam), end = IdOfCountingResult(13) },
             new Arrow { start = Id(13, Miim), end = IdOfCountingResult(13) },
-            new Arrow { start = Id(13, Raa), end  = IdOfCountingResult(13) },
+            new Arrow { start = Id(13, Raa), end  = IdOfCountingResult(13) }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"Alif_Laam_Miim_Ra-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"Alif_Laam_Miim_Ra-{chapterNumber}-{letter}";
+    }
 
-    static string IdOfCountingResult(int chapterNumber) => $"Alif_Laam_Miim_Ra-{chapterNumber}";
+    static string IdOfCountingResult(int chapterNumber)
+    {
+        return $"Alif_Laam_Miim_Ra-{chapterNumber}";
+    }
 }

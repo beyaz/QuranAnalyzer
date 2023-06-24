@@ -107,8 +107,8 @@ class Calculator : ReactComponent<CalculatorModel>
         }
 
         var sumOfChapterNumbers = details.Select(x => x.chapterNumber).Sum();
-        var sumOfVerseNumbers   = details.Select(x => x.verseNumber).Sum();
-        var sumOfCounts         = details.Select(x => x.count).Sum();
+        var sumOfVerseNumbers = details.Select(x => x.verseNumber).Sum();
+        var sumOfCounts = details.Select(x => x.count).Sum();
 
         static IEnumerable<Element> numberToElement(int value)
         {

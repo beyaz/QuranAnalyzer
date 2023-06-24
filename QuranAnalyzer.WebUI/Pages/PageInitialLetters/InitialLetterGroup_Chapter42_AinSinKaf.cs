@@ -44,7 +44,7 @@ class InitialLetterGroup_Chapter42_AinSinKaf : InitialLetterGroup
                                 }
                             }
                         }
-                    },
+                    }
                 }
             },
 
@@ -59,9 +59,12 @@ class InitialLetterGroup_Chapter42_AinSinKaf : InitialLetterGroup
 
             new Arrow { start = Id(42, Ayn), end  = IdOfCountingResult },
             new Arrow { start = Id(42, Siin), end = IdOfCountingResult },
-            new Arrow { start = Id(42, Qaaf), end = IdOfCountingResult },
+            new Arrow { start = Id(42, Qaaf), end = IdOfCountingResult }
         };
     }
 
-    static string Id(int chapterNumber, char letter) => $"42_AinSinKaf-{chapterNumber}-{letter}";
+    static string Id(int chapterNumber, char letter)
+    {
+        return $"42_AinSinKaf-{chapterNumber}-{letter}";
+    }
 }
