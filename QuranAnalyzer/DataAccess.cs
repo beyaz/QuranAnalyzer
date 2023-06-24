@@ -32,23 +32,6 @@ public static class DataAccess
         }
     }
 
-    static IReadOnlyList<Chapter> ReadAllChaptersFromXmlFile(string xmlFilePath)
-    {
-        var chapters = ReadChaptersFromXmlFile(xmlFilePath);
-
-        return chapters.AsListOf(chapter => new Chapter
-        {
-            Name   = chapter.Name,
-            Index  = int.Parse(chapter.Index),
-            Verses = chapter.AyaList.AsListOf(v => toVerse(chapter, v))
-        });
-
-        static Verse toVerse(Sura chapter, Aya v)
-        {
-            return ToVerse(int.Parse(chapter.Index), int.Parse(v.Index), v.Text, v.Bismillah);
-        }
-    }
-
     public static Verse ToVerse(int chapterNumber, int verseNumber, string text, string bismillah)
     {
         var textWithBismillah = bismillah + " " + text;
@@ -71,6 +54,23 @@ public static class DataAccess
             TextWithBismillahAnalyzed = analyzedFullText,
             TextWithBismillah         = textWithBismillah
         };
+    }
+
+    static IReadOnlyList<Chapter> ReadAllChaptersFromXmlFile(string xmlFilePath)
+    {
+        var chapters = ReadChaptersFromXmlFile(xmlFilePath);
+
+        return chapters.AsListOf(chapter => new Chapter
+        {
+            Name   = chapter.Name,
+            Index  = int.Parse(chapter.Index),
+            Verses = chapter.AyaList.AsListOf(v => toVerse(chapter, v))
+        });
+
+        static Verse toVerse(Sura chapter, Aya v)
+        {
+            return ToVerse(int.Parse(chapter.Index), int.Parse(v.Index), v.Text, v.Bismillah);
+        }
     }
 
     static IReadOnlyList<Sura> ReadChaptersFromXmlFile(string xmlFilePath)

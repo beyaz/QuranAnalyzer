@@ -32,11 +32,7 @@ public static class ArabicLetter
     public const char Zaa   = 'ظ';
     public const char Ghayn = 'غ';
     // @formatter:on
-   
-
-
 }
-
 
 public static class ArabicLetterOrder
 {

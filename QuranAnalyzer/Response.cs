@@ -54,7 +54,7 @@ public class Response
     ///     The errors
     /// </summary>
     protected readonly List<Error> Errors = new();
-    
+
     /// <summary>
     ///     Returns as array of errors
     /// </summary>

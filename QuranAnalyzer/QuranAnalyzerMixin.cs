@@ -64,7 +64,7 @@ public static class QuranAnalyzerMixin
 
                 // Chapter 30
                 { GetDifferencesKeyForTanzil("30:21"), 8 },
-                { GetDifferencesKeyForRK("30:21"), 7 },
+                { GetDifferencesKeyForRK("30:21"), 7 }
             }
         },
 
@@ -282,14 +282,14 @@ public static class QuranAnalyzerMixin
                 { GetDifferencesKeyForRK("32:10"), 11 },
                 { GetDifferencesKeyForRK("32:13"), 11 },
                 { GetDifferencesKeyForRK("32:15"), 13 },
-                { GetDifferencesKeyForRK("32:22"), 7 },
+                { GetDifferencesKeyForRK("32:22"), 7 }
             }
         }
     };
 
     public static bool EqualsArabicIgnoreCase(this string a, string b)
     {
-        return string.Compare(a, b, ignoreCase: true, CultureInfoArabic) == 0;
+        return string.Compare(a, b, true, CultureInfoArabic) == 0;
     }
 
     public static int GetCountOfLetter(IReadOnlyList<Verse> verseList, int arabicLetterOrder, MushafOption option = null, bool includeBismillah = true)

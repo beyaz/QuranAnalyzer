@@ -11,7 +11,7 @@ public static class VerseFilter
         var arr = verseId.Split(':');
 
         var chapterNumber = int.Parse(arr[0]);
-        var verseNumber   = int.Parse(arr[1]);
+        var verseNumber = int.Parse(arr[1]);
 
         return AllChapters[chapterNumber - 1].Verses[verseNumber - 1];
     }
@@ -57,7 +57,7 @@ public static class VerseFilter
         static Response<IReadOnlyList<Verse>> byRange(string begin, string end)
         {
             var verseBegin = getVerseById(begin);
-            var verseEnd   = getVerseById(end);
+            var verseEnd = getVerseById(end);
 
             if (verseBegin.IsFail)
             {
@@ -128,9 +128,9 @@ public static class VerseFilter
                 return chapter.FailMessage;
             }
 
-            if (verseFilterHasSpecificRange(verseFilter: arr[1]))
+            if (verseFilterHasSpecificRange(arr[1]))
             {
-                return getVerseWithSpecificRange(chapter.Value, verseFilter: arr[1]);
+                return getVerseWithSpecificRange(chapter.Value, arr[1]);
             }
 
             var verseNumber = ParseInt(arr[1]);
@@ -183,8 +183,8 @@ public static class VerseFilter
             }
 
             return parseChapterNumber()
-                  .Then(findChapterByNumber)
-                  .Then(chapter => collectVerseList(chapter, arr[1]));
+                .Then(findChapterByNumber)
+                .Then(chapter => collectVerseList(chapter, arr[1]));
 
             Response<int> parseChapterNumber()
             {
@@ -277,9 +277,9 @@ public static class VerseFilter
                 if (indexArray.Length == 2)
                 {
                     return (ParseInt(indexArray[0]), ParseInt(indexArray[1]))
-                          .Then(startIndexAndEndIndexShouldBeInValidRangeForVerse)
-                          .Then(tuple => verse.Text.Substring(tuple.startIndex, tuple.endIndex - tuple.startIndex))
-                          .Then(subText);
+                        .Then(startIndexAndEndIndexShouldBeInValidRangeForVerse)
+                        .Then(tuple => verse.Text.Substring(tuple.startIndex, tuple.endIndex - tuple.startIndex))
+                        .Then(subText);
                 }
 
                 if (indexArray.Length == 1)
@@ -287,15 +287,15 @@ public static class VerseFilter
                     if (verseNumberWithSpecificRangeArray[1].EndsWith(".."))
                     {
                         return ParseInt(indexArray[0])
-                              .Then(startIndexShouldBeInValidRangeForVerse)
-                              .Then(startIndex => verse.Text.Substring(startIndex))
-                              .Then(subText);
+                            .Then(startIndexShouldBeInValidRangeForVerse)
+                            .Then(startIndex => verse.Text.Substring(startIndex))
+                            .Then(subText);
                     }
 
                     return ParseInt(indexArray[0])
-                          .Then(endIndexShouldBeInValidRangeForVerse)
-                          .Then(endIndex => verse.Text.Substring(0, endIndex))
-                          .Then(subText);
+                        .Then(endIndexShouldBeInValidRangeForVerse)
+                        .Then(endIndex => verse.Text.Substring(0, endIndex))
+                        .Then(subText);
                 }
 
                 return parseError;
@@ -380,7 +380,9 @@ public static class VerseFilter
     }
 
     static T Clone<T>(this T instance)
-        => JsonSerializer.Deserialize<T>(JsonSerializer.Serialize(instance));
+    {
+        return JsonSerializer.Deserialize<T>(JsonSerializer.Serialize(instance));
+    }
 }
 
 public class VerseNumberComparer : IComparer<string>
