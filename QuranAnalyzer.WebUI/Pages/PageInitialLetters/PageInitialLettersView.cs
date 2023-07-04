@@ -81,7 +81,8 @@ class PageInitialLettersView : ReactPureComponent
                 Padding(10),
                 TextDecorationNone,
                 When(isSelected, BorderRight($"1px solid {(isSelected ? BluePrimary : ColorForBorder)}")),
-                When(isSelected, Background("#deecf9"), Color(BluePrimary))
+                When(isSelected, Background("#deecf9"), Color(BluePrimary)),
+                Hover(Background("#f3f8fc"))
             }
         };
     }
