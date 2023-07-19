@@ -57,7 +57,7 @@ class WordColorizedVerse : ReactPureComponent
                             }
                         };
 
-                        html.Append(span);
+                        html.Append(span.ToHtml());
 
                         cursor = endIndex + 1;
 

@@ -49,7 +49,7 @@ public class LetterColorizer : ReactPureComponent
                         }
                     };
 
-                    html.Append(span);
+                    html.Append(span.ToHtml());
 
                     cursor = letterInfo.StartIndex + 1;
 

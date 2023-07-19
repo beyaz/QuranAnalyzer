@@ -196,7 +196,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                                             dangerouslySetInnerHTML = new div
                                             {
                                                 resultVerseList
-                                            }.ToString()
+                                            }.ToHtml()
                                         }
                                     };
 
