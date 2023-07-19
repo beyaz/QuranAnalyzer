@@ -2577,6 +2577,242 @@
                 this is the id of first element id which is 'has id value'
             </summary>
         </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.clearIcon">
+            <summary>
+                Props applied to the [`Chip`](/material-ui/api/chip/) element.
+            </summary>
+            <summary>
+                The icon to display in place of the default clear icon.
+                <br/>
+                @default &lt;ClearIcon fontSize="small" /&gt;
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.clearText">
+            <summary>
+                Override the default text for the *clear* icon button.
+                <br/>
+                <br/>
+                <br/>
+                For localization purposes, you can use the provided [translations](/material-ui/guides/localization/).
+                <br/>
+                @default 'Clear'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.closeText">
+            <summary>
+                Override the default text for the *close popup* icon button.
+                <br/>
+                <br/>
+                <br/>
+                For localization purposes, you can use the provided [translations](/material-ui/guides/localization/).
+                <br/>
+                @default 'Close'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.componentsProps">
+            <summary>
+                The props used for each slot inside.
+                <br/>
+                @default {}
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.disabled">
+            <summary>
+                If `true`, the component is disabled.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.disablePortal">
+            <summary>
+                If `true`, the `Popper` content will be under the DOM hierarchy of the parent component.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.forcePopupIcon">
+            <summary>
+                Force the visibility display of the popup icon.
+                <br/>
+                @default 'auto'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.fullWidth">
+            <summary>
+                If `true`, the input will take up the full width of its container.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.getLimitTagsText">
+            <summary>
+                The label to display when the tags are truncated (`limitTags`).
+                <br/>
+                <br/>
+                <br/>
+                @param {number} more The number of truncated tags.
+                <br/>
+                @returns {ReactNode}
+                <br/>
+                @default (more) =&gt; `+${more}`
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.loading">
+            <summary>
+                The component used to render the listbox.
+                <br/>
+                @default 'ul'
+            </summary>
+            <summary>
+                Props applied to the Listbox element.
+            </summary>
+            <summary>
+                If `true`, the component is in a loading state.
+                <br/>
+                This shows the `loadingText` in place of suggestions (only if there are no suggestions to show, e.g. `options` are empty).
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.loadingText">
+            <summary>
+                Text to display when in a loading state.
+                <br/>
+                <br/>
+                <br/>
+                For localization purposes, you can use the provided [translations](/material-ui/guides/localization/).
+                <br/>
+                @default 'Loading…'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.limitTags">
+            <summary>
+                The maximum number of tags that will be visible when not focused.
+                <br/>
+                Set `-1` to disable the limit.
+                <br/>
+                @default -1
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.noOptionsText">
+            <summary>
+                Text to display when there are no options.
+                <br/>
+                <br/>
+                <br/>
+                For localization purposes, you can use the provided [translations](/material-ui/guides/localization/).
+                <br/>
+                @default 'No options'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.openText">
+            <summary>
+                Override the default text for the *open popup* icon button.
+                <br/>
+                <br/>
+                <br/>
+                For localization purposes, you can use the provided [translations](/material-ui/guides/localization/).
+                <br/>
+                @default 'Open'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.popupIcon">
+            <summary>
+                The component used to render the body of the popup.
+                <br/>
+                @default Paper
+            </summary>
+            <summary>
+                The component used to position the popup.
+                <br/>
+                @default Popper
+            </summary>
+            <summary>
+                The icon to display in place of the default popup icon.
+                <br/>
+                @default &lt;ArrowDropDownIcon /&gt;
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.readOnly">
+            <summary>
+                If `true`, the component becomes readonly. It is also supported for multiple tags where the tag cannot be deleted.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.renderGroup">
+            <summary>
+                Render the group.
+                <br/>
+                <br/>
+                <br/>
+                @param {AutocompleteRenderGroupParams} params The group to render.
+                <br/>
+                @returns {ReactNode}
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.renderInput">
+            <summary>
+                Render the input.
+                <br/>
+                <br/>
+                <br/>
+                @param {object} params
+                <br/>
+                @returns {ReactNode}
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.renderOption">
+            <summary>
+                Render the option, use `getOptionLabel` by default.
+                <br/>
+                <br/>
+                <br/>
+                @param {object} props The props to apply on the li element.
+                <br/>
+                @param {T} option The option to render.
+                <br/>
+                @param {object} state The state of each option.
+                <br/>
+                @param {object} ownerState The state of the Autocomplete component.
+                <br/>
+                @returns {ReactNode}
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.renderTags">
+            <summary>
+                Render the selected value.
+                <br/>
+                <br/>
+                <br/>
+                @param {T[]} value The `value` provided to the component.
+                <br/>
+                @param {function} getTagProps A tag props getter.
+                <br/>
+                @param {object} ownerState The state of the Autocomplete component.
+                <br/>
+                @returns {ReactNode}
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.size">
+            <summary>
+                The size of the component.
+                <br/>
+                @default 'medium'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.slotProps">
+            <summary>
+                The props used for each slot inside.
+                <br/>
+                @default {}
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.sx">
+            <summary>
+                The system prop that allows defining system overrides as well as additional CSS styles.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.ButtonBase.centerRipple">
             <summary>
                 If `true`, the ripples are centered.
@@ -2710,6 +2946,62 @@
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.CardMedia.sx">
             <summary>
                 The system prop that allows defining system overrides as well as additional CSS styles.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.CircularProgress.color">
+            <summary>
+                The color of the component.
+                <br/>
+                It supports both default and custom theme colors, which can be added as shown in the
+                <br/>
+                [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+                <br/>
+                @default 'primary'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.CircularProgress.disableShrink">
+            <summary>
+                If `true`, the shrink animation is disabled.
+                <br/>
+                This only works if variant is `indeterminate`.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.CircularProgress.size">
+            <summary>
+                The size of the component.
+                <br/>
+                If using a number, the pixel unit is assumed.
+                <br/>
+                If using a string, you need to provide the CSS unit, e.g '3rem'.
+                <br/>
+                @default 40
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.CircularProgress.thickness">
+            <summary>
+                The thickness of the circle.
+                <br/>
+                @default 3.6
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.CircularProgress.value">
+            <summary>
+                The value of the progress indicator for the determinate variant.
+                <br/>
+                Value between 0 and 100.
+                <br/>
+                @default 0
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.CircularProgress.variant">
+            <summary>
+                The variant to use.
+                <br/>
+                Use indeterminate when there is no progress value.
+                <br/>
+                @default 'indeterminate'
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Divider.absolute">

@@ -28,15 +28,15 @@ const EventBus =
 {
     On: function(event, callback)
     {
-        document.addEventListener(event, callback);
+        window.addEventListener(event, callback);
     },
     Dispatch: function(event, data)
     {
-        document.dispatchEvent(new CustomEvent(event, { detail: data }));
+        window.dispatchEvent(new CustomEvent(event, { detail: data }));
     },
     Remove: function(event, callback)
     {
-        document.removeEventListener(event, callback);
+        window.removeEventListener(event, callback);
     }
 };
 
@@ -1772,6 +1772,7 @@ function RegisterCoreFunction(name, fn)
 ExternalJsObjectMap["ReactWithDotNet.GetExternalJsObject"] = GetExternalJsObject;
 
 RegisterCoreFunction('RegExp', (x) => new RegExp(x));
+RegisterCoreFunction('IsTwoObjectEquivent', isEquivent);
 
 RegisterCoreFunction('CopyToClipboard', function (text)
 {

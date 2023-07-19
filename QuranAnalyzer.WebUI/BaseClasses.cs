@@ -40,7 +40,7 @@ public abstract class ReactPureComponent : ReactWithDotNet.ReactPureComponent
     }
 }
 
-public abstract class ReactComponent<TState> : ReactWithDotNet.ReactComponent<TState> where TState : new()
+public abstract class ReactComponent<TState> : ReactWithDotNet.ReactComponent<TState> where TState : class, new()
 {
     protected string GetPronunciationOfArabicLetter(char arabicLetter)
     {
