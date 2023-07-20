@@ -15,8 +15,27 @@ static class ReactWithDotNetIntegration
     {
         endpoints.MapGet("/", HomePage);
         endpoints.MapPost("/" + nameof(HandleReactWithDotNetRequest), HandleReactWithDotNetRequest);
-        endpoints.MapGet("/" + nameof(ReactWithDotNetDesigner), ReactWithDotNetDesigner);
-        endpoints.MapGet("/" + nameof(ReactWithDotNetDesignerComponentPreview), ReactWithDotNetDesignerComponentPreview);
+
+        #if DEBUG // this two endpoints should use only development mode
+        endpoints.MapGet("/" + nameof(ReactWithDotNetDesigner), async httpContext =>
+        {
+            ReactWithDotNetDesigner.IsAttached = true;
+
+            await WriteHtmlResponse(httpContext, new MainLayout
+            {
+                Page = new ReactWithDotNetDesigner()
+            });
+        });
+        endpoints.MapGet("/" + nameof(ReactWithDotNetDesignerComponentPreview), async httpContext =>
+        {
+            ReactWithDotNetDesigner.IsAttached = true;
+
+            await WriteHtmlResponse(httpContext, new MainLayout
+            {
+                Page = new ReactWithDotNetDesignerComponentPreview()
+            });
+        });
+        #endif
     }
 
     static async Task HandleReactWithDotNetRequest(HttpContext httpContext)
@@ -37,22 +56,6 @@ static class ReactWithDotNetIntegration
         {
             Page        = new PageMainWindowView(),
             QueryString = httpContext.Request.QueryString.ToString()
-        });
-    }
-
-    static async Task ReactWithDotNetDesigner(HttpContext httpContext)
-    {
-        await WriteHtmlResponse(httpContext, new MainLayout
-        {
-            Page = new ReactWithDotNetDesigner()
-        });
-    }
-
-    static async Task ReactWithDotNetDesignerComponentPreview(HttpContext httpContext)
-    {
-        await WriteHtmlResponse(httpContext, new MainLayout
-        {
-            Page = new ReactWithDotNetDesignerComponentPreview()
         });
     }
 
