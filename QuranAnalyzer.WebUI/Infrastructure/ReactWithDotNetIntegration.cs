@@ -32,7 +32,11 @@ static class ReactWithDotNetIntegration
         });
 #endif
     }
-    
+
+    static void BeforeSerializeElementToClient(ReactContext context, Element element, Element parent)
+    {
+    }
+
     static async Task HandleReactWithDotNetRequest(HttpContext httpContext)
     {
         httpContext.Response.ContentType = "application/json; charset=utf-8";
@@ -50,6 +54,12 @@ static class ReactWithDotNetIntegration
     static async Task HomePage(HttpContext httpContext)
     {
         await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageMainWindowView));
+    }
+
+    static Task OnReactContextCreated(HttpContext httpContext, ReactContext reactContext)
+    {
+        KeyForQueryString[reactContext] = httpContext.Request.QueryString.ToString();
+        return Task.CompletedTask;
     }
 
     static async Task WriteHtmlResponse(HttpContext httpContext, Type layoutType, Type mainContentType)
@@ -71,15 +81,5 @@ static class ReactWithDotNetIntegration
         });
 
         await httpContext.Response.WriteAsync(html);
-    }
-
-    static Task OnReactContextCreated(HttpContext httpContext, ReactContext reactContext)
-    {
-        KeyForQueryString[reactContext] = httpContext.Request.QueryString.ToString();
-        return Task.CompletedTask;
-    }
-    
-    static void BeforeSerializeElementToClient(ReactContext context, Element element, Element parent)
-    {
     }
 }

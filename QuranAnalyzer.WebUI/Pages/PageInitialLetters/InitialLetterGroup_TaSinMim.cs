@@ -147,9 +147,7 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                 AsLetter(Taa_), " harfi bulunur.",
                 br,
                 "Ta-Sin-Mim grubu Kurandaki diğer başlangıç harf gruplarına pek benzemiyor.",
-                " Belki ileride burası ile ilgili daha başka veriler açığa çıkabilir diye düşünüyorum.",
-                
-                
+                " Belki ileride burası ile ilgili daha başka veriler açığa çıkabilir diye düşünüyorum."
             }
         };
     }

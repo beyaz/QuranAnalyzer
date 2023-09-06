@@ -2,10 +2,8 @@
 
 static class Extensions
 {
-    public static ReactContextKey<string> KeyForQueryString = new(nameof(KeyForQueryString));
-    
-        
     public static string ColorForBorder = "#dee2e6";
+    public static ReactContextKey<string> KeyForQueryString = new(nameof(KeyForQueryString));
 
     public static string BluePrimary => "#1976d2";
 

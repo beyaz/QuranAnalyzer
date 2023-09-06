@@ -1,13 +1,10 @@
 ﻿namespace QuranAnalyzer.WebUI.Layouts;
 
-class MainLayout : ReactPureComponent,IPageLayout
+class MainLayout : ReactPureComponent, IPageLayout
 {
-    
-    public ComponentRenderInfo RenderInfo { get; set; }
-    
     public string ContainerDomElementId => "app";
-    
-    
+
+    public ComponentRenderInfo RenderInfo { get; set; }
 
     protected override Element render()
     {
