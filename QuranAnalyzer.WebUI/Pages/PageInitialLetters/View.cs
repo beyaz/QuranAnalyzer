@@ -77,7 +77,7 @@ class InitialLetterLineGroup : ReactPureComponent
 
             JustifyContentSpaceEvenly,
 
-            Children(children)
+            children
         };
     }
 }

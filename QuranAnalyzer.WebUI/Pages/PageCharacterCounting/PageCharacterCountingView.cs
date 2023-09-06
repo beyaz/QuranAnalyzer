@@ -72,7 +72,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                         new ErrorText { Text = state.SearchScriptErrorMessage }
                     },
 
-                    Space(10),
+                    SpaceY(10),
 
                     new FlexRow(AlignItemsFlexStart)
                     {
@@ -222,7 +222,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
     {
         return new FlexColumn(Gap(10), AlignItemsStretch, WidthMaximized, MaxWidth(800))
         {
-            Children(panels)
+            panels
         };
     }
 
@@ -230,7 +230,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
     {
         return new FlexColumn(BorderRadiusForPanels, ComponentBorder, PaddingLeftRight(15), PaddingBottom(15), PositionRelative)
         {
-            Children(rows)
+            rows
         };
     }
 
@@ -239,7 +239,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         return new FlexRowCentered
         {
             PositionAbsolute, FontWeight700, LeftRight(0), TopBottom(0), Zindex(4),
-            Children(new LoadingIcon { wh(17), mr(5) }, new span(Color("white")) { "Lütfen bekleyiniz..." })
+            new LoadingIcon { wh(17), mr(5) }, new span(Color("white")) { "Lütfen bekleyiniz..." }
         };
     }
 

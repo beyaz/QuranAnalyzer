@@ -104,7 +104,7 @@ class Calculator : ReactComponent<CalculatorModel>
                 new FreeScrollBar
                 {
                     Height(300), WidthMaximized, ComponentBorder, BorderRadiusForPanels,
-                    Children(verseList.Select(verse => new LetterColorizer
+                    verseList.Select(verse => new LetterColorizer
                     {
                         VerseTextNodes          = verse.TextWithBismillahAnalyzed,
                         ChapterNumber           = verse.ChapterNumber.ToString(),
@@ -113,7 +113,7 @@ class Calculator : ReactComponent<CalculatorModel>
                         VerseText               = verse.TextWithBismillah,
                         Verse                   = verse,
                         MushafOption            = option
-                    }))
+                    })
                 }
             };
         }
@@ -168,7 +168,7 @@ class Calculator : ReactComponent<CalculatorModel>
 
             return new FlexRow(FlexWrap)
             {
-                Children(items)
+                items
             };
         }
     }

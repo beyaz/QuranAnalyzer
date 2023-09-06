@@ -45,7 +45,7 @@ class PageInitialLettersView : ReactPureComponent
 
         var headers = new FlexColumn(TextAlignCenter, CursorPointer, JustifyContentFlexStart)
         {
-            Children(Tabs.Select((x, i) => CreateTabHeader(x.TabHeader, i)))
+            Tabs.Select((x, i) => CreateTabHeader(x.TabHeader, i))
         };
 
         return new FlexRow(WidthMaximized, Border(Solid(1, ColorForBorder)), PositionRelative)

@@ -38,7 +38,7 @@ class CollapsiblePanel : ReactComponent
                 new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
                 {
                     AnimateHeightAndOpacity(true),
-                    Children(children)
+                    children
                 }
             },
             ContentOnClosed = new Fragment(key)
@@ -51,7 +51,7 @@ class CollapsiblePanel : ReactComponent
                 new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
                 {
                     AnimateHeightAndOpacity(false),
-                    Children(children)
+                    children
                 }
             }
         };

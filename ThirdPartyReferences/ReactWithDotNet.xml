@@ -29,6 +29,11 @@
                 a.href = <paramref name="href" />
             </summary>
         </member>
+        <member name="P:ReactWithDotNet.Mixin.TargetBlank">
+            <summary>
+                a.target = '_blank'
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.nbsp">
             <summary>
                 Creates new non-breaking space
@@ -389,12 +394,20 @@
         </member>
         <member name="M:ReactWithDotNet.Mixin.BackgroundImage(System.String)">
             <summary>
+            The background-image property sets one or more background images for an element.
+            <br/>
+            By default, a background-image is placed at the top-left corner of an element, and repeated both vertically and horizontally.
+            <br/>
             style.backgroundImage = <paramref name="backgroundImage"/>
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.Children(System.Collections.Generic.IEnumerable{ReactWithDotNet.Element})">
+        <member name="M:ReactWithDotNet.Mixin.BackgroundImage(System.String[])">
             <summary>
-                Adds elements to children
+            The background-image property sets one or more background images for an element.
+            <br/>
+            By default, a background-image is placed at the top-left corner of an element, and repeated both vertically and horizontally.
+            <br/>
+            style.backgroundImage = <paramref name="backgroundImages[0][0]"/>, <paramref name="backgroundImages[1][1]"/>, <paramref name="backgroundImages[...][...]"/>
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.Clear(System.String)">
@@ -585,25 +598,14 @@
                 interaction with an object in a way that is consistent with user expectations of that type of object.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.Space(System.String)">
+        <member name="M:ReactWithDotNet.Mixin.SpaceX(System.Double)">
             <summary>
-                <br>if parent is display='flex' and flexDirection = 'row' then create empty div element with style.width = value</br>
-                <br>
-                    if parent is display='flex' and flexDirection = 'column' then create empty div element with style.height =
-                    value
-                </br>
+                Creates new div element wihth given width
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.Space(System.Double)">
+        <member name="M:ReactWithDotNet.Mixin.SpaceY(System.Double)">
             <summary>
-                <br>
-                    if parent is display='flex' and flexDirection = 'row' then create empty div element with style.width = value +
-                    'px'
-                </br>
-                <br>
-                    if parent is display='flex' and flexDirection = 'column' then create empty div element with style.height =
-                    value + 'px'
-                </br>
+                Creates new div element wihth given height
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.DangerouslySetInnerHTML(System.String)">
@@ -647,7 +649,17 @@
                 Returns given <paramref name="element" /> when condition is true otherwise returns null
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.Mixin.When(System.Nullable{System.Boolean},ReactWithDotNet.Element)">
+            <summary>
+                Returns given <paramref name="element" /> when condition is true otherwise returns null
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.When(System.Boolean,System.Func{ReactWithDotNet.Element})">
+            <summary>
+                Calls given <paramref name="elementFunc" /> when condition is true otherwise returns null
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.When(System.Nullable{System.Boolean},System.Func{ReactWithDotNet.Element})">
             <summary>
                 Calls given <paramref name="elementFunc" /> when condition is true otherwise returns null
             </summary>
@@ -1218,6 +1230,20 @@
                 style.borderColor = <paramref name="color" />
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.Mixin.TextIndent(System.String)">
+            <summary>
+            specifies the indentation of the first line in a text-block
+            <br/>
+            style.textIndent = <paramref name="value"/>
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.TextIndent(System.Double)">
+            <summary>
+            specifies the indentation of the first line in a text-block
+            <br/>
+            style.textIndent = <paramref name="valueInPixel"/> + 'px'
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.BorderTopRight(System.String)">
             <summary>
                 style.borderTop = <paramref name="borderValue"/>
@@ -1275,6 +1301,11 @@
                 Returns a string like <paramref name="widthAsPx" /><b> + px solid + </b> <paramref name="color" />"
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.Mixin.url(System.String)">
+            <summary>
+            "url(urlValue)
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.Outline(System.String)">
             <summary>
                 style.outline = <paramref name="value" />
@@ -1283,6 +1314,43 @@
         <member name="P:ReactWithDotNet.Mixin.OutlineNone">
             <summary>
                 style.outline = none
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.BorderCollapse(System.String)">
+            <summary>
+            Sets whether table borders should collapse into a single border or be separated as in standard HTML.
+            <br/>
+            style.borderCollapse = <paramref name="value"/>
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.BorderCollapseCollapse">
+            <summary>
+                style.borderCollapse = collapse
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.BorderCollapseSeparate">
+            <summary>
+                style.borderCollapse = separate
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.CellSpacing(System.Nullable{System.Double})">
+            <summary>
+                table.cellSpacing = <paramref name="value" />
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.CellPadding(System.Nullable{System.Double})">
+            <summary>
+                table.cellPadding = <paramref name="value" />
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.ColSpan(System.Int32)">
+            <summary>
+                (tr-td).colSpan = <paramref name="value" />
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.RowSpan(System.Int32)">
+            <summary>
+                (tr-td).rowSpan = <paramref name="value" />
             </summary>
         </member>
         <member name="F:ReactWithDotNet.Mixin.percent">
@@ -1323,12 +1391,12 @@
                 <paramref name="fromColor" />, <paramref name="toColor" />)'
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.rgb(System.Int32,System.Int32,System.Int32)">
+        <member name="M:ReactWithDotNet.Mixin.rgb(System.Double,System.Double,System.Double)">
             <summary>
                 Return new string as 'rgb(<paramref name="red" />, <paramref name="green" />, <paramref name="blue" />)'
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.rgba(System.Int32,System.Int32,System.Int32,System.Double)">
+        <member name="M:ReactWithDotNet.Mixin.rgba(System.Double,System.Double,System.Double,System.Double)">
             <summary>
                 Return new string as 'rgb(<paramref name="red" />, <paramref name="green" />, <paramref name="blue" />,
                 <paramref name="alpha" />)'
@@ -1440,7 +1508,9 @@
         </member>
         <member name="M:ReactWithDotNet.Mixin.BackgroundSize(System.String)">
             <summary>
-                style.backgroundSize = <paramref name="value" />
+                The background-size property specifies the size of the background images.
+                <br />
+               There are four different syntaxes you can use with this property: the keyword syntax ("auto", "cover" and "contain"), the one-value syntax (sets the width of the image (height becomes "auto"), the two-value syntax (first value: width of the image, second value: height), and the multiple background syntax (separated with comma).
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.ObjectFit(System.String)">
@@ -1449,6 +1519,33 @@
                 <br />
                 This property tells the content to fill the container in a variety of ways; such as "preserve that aspect ratio" or
                 "stretch up and take up as much space as possible".
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.Size(System.Double,System.Double)">
+            <summary>
+                style.width = <paramref name="width" /> + 'px'
+                <br/>
+                style.height = <paramref name="height" /> + 'px'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.Fill(System.String)">
+            <summary>
+                svg.fill = <paramref name="color" />
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.ViewBox(System.String)">
+            <summary>
+                svg.viewBox = <paramref name="viewBox" />
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.ViewBox(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+                svg.viewBox = '<paramref name="minX" /> <paramref name="minY" /> <paramref name="width" /> <paramref name="height" />'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.ClipPath(System.String)">
+            <summary>
+                g.clipPath = <paramref name="value" />
             </summary>
         </member>
         <member name="T:ReactWithDotNet.article">
@@ -1961,6 +2058,36 @@
                 Italic text
             </summary>
         </member>
+        <member name="T:ReactWithDotNet.u">
+            <summary>
+                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.u.#ctor">
+            <summary>
+                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.u.#ctor(ReactWithDotNet.IModifier[])">
+            <summary>
+                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.u.#ctor(System.String)">
+            <summary>
+                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.u.op_Implicit(System.String)~ReactWithDotNet.u">
+            <summary>
+                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.u.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.strong">
             <summary>
                 Important text
@@ -2044,6 +2171,11 @@
         <member name="M:ReactWithDotNet.Element.System#Collections#IEnumerable#GetEnumerator">
             <summary>
                 Gets the enumerator.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ElementCollection.Add(System.Func{ReactWithDotNet.Element})">
+            <summary>
+                Invokes <paramref name="elementCreatorFunc" /> then adds return value to list.
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Extensions.RemoveFromEnd(System.String,System.String)">
@@ -2548,6 +2680,11 @@
                 svg.viewBox = '<paramref name="minX" /> <paramref name="minY" /> <paramref name="width" /> <paramref name="height" />'
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.g.ClipPath(System.String)">
+            <summary>
+                g.clipPath = <paramref name="value" />
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.rect.rx">
             <summary>
             The horizontal corner radius of the rect
@@ -2575,6 +2712,11 @@
         <member name="P:ReactWithDotNet.MouseEvent.FirstNotEmptyId">
             <summary>
                 this is the id of first element id which is 'has id value'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.table.CellSpacing(System.Nullable{System.Double})">
+            <summary>
+                table.cellSpacing = <paramref name="value" />
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.clearIcon">
@@ -3330,6 +3472,37 @@
                 The variant to use.
                 <br/>
                 @default 'elevation'
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Slider.onChangeCommitted">
+            <summary>
+            Callback function that is fired when the mouseup is triggered.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Slider.onChange">
+            <summary>
+            Callback function that is fired when the slider's value changed.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Slider.classes">
+            <summary>
+                Override or extend the styles applied to the component.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Slider.valueBindDebounceHandler">
+            <summary>
+                if you want to handle when user iteraction finished see example below<br />
+                component.valueBind = ()=>state.UserInfo.Name<br />
+                component.valueBindDebounceTimeout = 600 // milliseconds<br />
+                component.valueBindDebounceHandler = OnUserIterationFinished<br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Slider.valueBindDebounceTimeout">
+            <summary>
+                if you want to handle when user iteraction finished see example below<br />
+                component.valueBind = ()=>state.UserInfo.Name<br />
+                component.valueBindDebounceTimeout = 600 // milliseconds<br />
+                component.valueBindDebounceHandler = OnUserIterationFinished<br />
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.SwitchBase.checked">
@@ -4794,6 +4967,28 @@
                 component.valueBind = ()=>state.UserInfo.Name<br />
                 component.valueBindDebounceTimeout = 600 // milliseconds<br />
                 component.valueBindDebounceHandler = OnUserIterationFinished<br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries._Swiper_.Swiper.breakpoints">
+            <summary>
+            Sample: <br/>
+            // when window width is &gt;= 320px <br/>
+            320: { <br/>
+             slidesPerView: 2, <br/>
+             spaceBetween: 20 <br/>
+            },
+            <br/>
+            <br/>
+            // when window width is &gt;= 480px <br/>
+            480: { <br/>
+              slidesPerView: 3, <br/>
+              spaceBetween: 30 <br/>
+            }<br/>
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyReactComponent.className">
+            <summary>
+                Gets or sets the name of the class.
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyReactComponent.style">

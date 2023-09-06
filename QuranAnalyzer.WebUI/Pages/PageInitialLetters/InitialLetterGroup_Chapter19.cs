@@ -10,7 +10,7 @@ class Note : ReactPureComponent
     {
         return new FlexRow(PaddingLeftRight("5%"), PaddingTop(50))
         {
-            new strong { Text("Not:"), MarginRight(5) }, new div { Children(children) }
+            new strong { Text("Not:"), MarginRight(5) }, new div { children }
         };
     }
 }

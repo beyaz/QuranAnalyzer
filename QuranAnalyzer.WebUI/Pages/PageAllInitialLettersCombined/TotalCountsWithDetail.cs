@@ -31,7 +31,7 @@ class TotalCountsWithDetail : ReactComponent
             {
                 new ActionButton { Label = "Hesapla", OnClick = Calculate } + When(IsDisplayingResults, DisplayNone)
             },
-            Space(20),
+            SpaceY(20),
             When(IsDisplayingResults, () => new FlexColumn
             {
                 new FlexRowCentered(FlexWrap)

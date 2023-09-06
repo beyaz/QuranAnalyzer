@@ -75,7 +75,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
                     PartOption,
 
-                    new div { "Not: Kelime aramalarında 'besmele' dahil edilmeden arama yapılmaktadır." } + FontSize(0.9 | rem),
+                    new div { "Not: Kelime aramalarında 'besmele' dahil edilmeden arama yapılmaktadır." } + FontSize(0.9 * rem),
 
                     new FlexRow(JustifyContentSpaceBetween)
                     {
@@ -188,10 +188,10 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                                         new h4("Sonuçlar") + TextAlignCenter,
 
                                         new CountsSummaryView { Counts = summaryInfoList },
-                                        Space(30),
+                                        SpaceY(30),
                                         new div
                                         {
-                                            Children(resultVerseList)
+                                            resultVerseList
                                         }
                                     };
 
@@ -217,7 +217,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
     {
         return new FlexColumn(Gap(10), AlignItemsStretch, WidthMaximized, MaxWidth(800))
         {
-            Children(panels)
+            panels
         };
     }
 
@@ -225,7 +225,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
     {
         return new FlexColumn(BorderRadiusForPanels, ComponentBorder, PaddingLeftRight(15), PaddingBottom(15), PositionRelative)
         {
-            Children(rows)
+            rows
         };
     }
 
@@ -234,7 +234,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         return new FlexRowCentered
         {
             PositionAbsolute, FontWeight700, LeftRight(0), TopBottom(0), Zindex(4),
-            Children(new LoadingIcon { wh(17), mr(5) }, new span(Color("white")) { "Lütfen bekleyiniz..." })
+            new LoadingIcon { wh(17), mr(5) }, new span(Color("white")) { "Lütfen bekleyiniz..." }
         };
     }
 

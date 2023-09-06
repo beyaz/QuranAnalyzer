@@ -50,7 +50,7 @@ class Article : ReactPureComponent
         return new article
         {
             Aria("label", "article"),
-            Children(children)
+            children
         };
     }
 }

@@ -8,7 +8,7 @@ class MainContentContainer : ReactPureComponent
         {
             JustifyContentCenter,
 
-            Children(children),
+            children,
 
             WidthMaximized,
             Height("100%"),
