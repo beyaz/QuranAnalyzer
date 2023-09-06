@@ -1,5 +1,4 @@
-﻿using System.Web;
-using static QuranAnalyzer.ArabicLetter;
+﻿using static QuranAnalyzer.ArabicLetter;
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
@@ -7,7 +6,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
 {
     static string IdOfCountingResult_1 => $"HaMimSeparated-{nameof(IdOfCountingResult_1)}";
     static string IdOfCountingResult_2 => $"HaMimSeparated-{nameof(IdOfCountingResult_2)}";
-    bool ShowCounts => Context.Query[QueryKey.ShowNumbers] == "1";
+    bool ShowCounts => Query[QueryKey.ShowNumbers] == "1";
 
     protected override Element render()
     {
@@ -343,7 +342,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
 
     Element CreateSeparationSwitch()
     {
-        var query = HttpUtility.ParseQueryString(Context.QueryAsString);
+        var query = Query;
 
         var isChecked = query[QueryKey.ShowNumbers] == "1";
 

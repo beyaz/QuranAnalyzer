@@ -57,7 +57,7 @@ class LeftMenu : ReactPureComponent
     {
         if (SelectedPageId == PageId.MobileMenu)
         {
-            SelectedPageId = Context.Query[QueryKey.SenderPage] ?? SelectedPageId;
+            SelectedPageId = Query[QueryKey.SenderPage] ?? SelectedPageId;
         }
 
         return new Fragment

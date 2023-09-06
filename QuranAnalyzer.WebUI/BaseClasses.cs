@@ -1,4 +1,7 @@
-﻿namespace QuranAnalyzer.WebUI;
+﻿using System.Collections.Specialized;
+using System.Web;
+
+namespace QuranAnalyzer.WebUI;
 
 public abstract class ReactComponent : ReactWithDotNet.ReactComponent
 {
@@ -22,6 +25,11 @@ public abstract class ReactComponent : ReactWithDotNet.ReactComponent
 
 public abstract class ReactPureComponent : ReactWithDotNet.ReactPureComponent
 {
+
+
+    protected NameValueCollection Query=> HttpUtility.ParseQueryString(KeyForQueryString[Context]);
+    
+    
     protected IEnumerable<Element> AsLetter(char arabicLetter)
     {
         var pronunciation = GetPronunciationOfArabicLetter(arabicLetter);
@@ -42,6 +50,8 @@ public abstract class ReactPureComponent : ReactWithDotNet.ReactPureComponent
 
 public abstract class ReactComponent<TState> : ReactWithDotNet.ReactComponent<TState> where TState : class, new()
 {
+    protected NameValueCollection Query=> HttpUtility.ParseQueryString(KeyForQueryString[Context]);
+    
     protected string GetPronunciationOfArabicLetter(char arabicLetter)
     {
         return GetTurkishPronunciationOfArabicLetter(arabicLetter);

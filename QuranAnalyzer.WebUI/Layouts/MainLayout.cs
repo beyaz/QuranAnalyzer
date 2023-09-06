@@ -1,12 +1,13 @@
 ﻿namespace QuranAnalyzer.WebUI.Layouts;
 
-class MainLayout : ReactPureComponent
+class MainLayout : ReactPureComponent,IPageLayout
 {
-    public Element Page { get; set; }
-
-    public string QueryString { get; set; }
-
-    public string RenderInfo { get; set; }
+    
+    public ComponentRenderInfo RenderInfo { get; set; }
+    
+    public string ContainerDomElementId => "app";
+    
+    
 
     protected override Element render()
     {
@@ -44,10 +45,7 @@ class MainLayout : ReactPureComponent
             },
             new body
             {
-                new div(Id("app"), WidthMaximized, Height100vh)
-                {
-                    Page
-                },
+                new div(Id(ContainerDomElementId), WidthMaximized, Height100vh),
 
                 // After page first rendered in client then connect with react system in background.
                 // So user first iteraction time will be minimize.
@@ -60,11 +58,11 @@ class MainLayout : ReactPureComponent
                     text =
                         $@"
 
-import {{ReactWithDotNet}} from './{root}/dist/index.js';
+import {{ReactWithDotNet}} from './{root}/dist/index.js?v={Guid.NewGuid():N}';
 
 ReactWithDotNet.RenderComponentIn({{
-  idOfContainerHtmlElement: 'app',
-  renderInfo: {RenderInfo}
+  idOfContainerHtmlElement: '{ContainerDomElementId}',
+  renderInfo: {RenderInfo.ToJsonString()}
 }});
 
 "

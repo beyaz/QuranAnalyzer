@@ -9,7 +9,7 @@ namespace QuranAnalyzer.WebUI.Pages.PageMainWindow;
 
 class PageMainWindowView : ReactPureComponent
 {
-    string SelectedPageId => Context.Query[QueryKey.Page] ?? PageId.MainWindow;
+    string SelectedPageId => Query[QueryKey.Page] ?? PageId.MainWindow;
 
     protected override Element render()
     {

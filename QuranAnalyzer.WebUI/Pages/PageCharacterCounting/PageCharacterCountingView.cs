@@ -26,7 +26,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
     {
         state = new PageCharacterCountingViewModel();
 
-        var value = Context.Query[QueryKey.SearchQuery];
+        var value = Query[QueryKey.SearchQuery];
         if (value is not null)
         {
             var parseResponse = SearchScript.ParseScript(value);
@@ -41,7 +41,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
             state.SearchScript = parseResponse.Value.AsReadableString();
         }
 
-        if (Context.Query[QueryKey.IncludeBismillah] == "0")
+        if (Query[QueryKey.IncludeBismillah] == "0")
         {
             state.IncludeBismillah = false;
         }

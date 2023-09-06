@@ -16,35 +16,32 @@ static class ReactWithDotNetIntegration
         endpoints.MapGet("/", HomePage);
         endpoints.MapPost("/" + nameof(HandleReactWithDotNetRequest), HandleReactWithDotNetRequest);
 
-        #if DEBUG // this two endpoints should use only development mode
+#if DEBUG // this two endpoints should use only development mode
+
         endpoints.MapGet("/" + nameof(ReactWithDotNetDesigner), async httpContext =>
         {
             ReactWithDotNetDesigner.IsAttached = true;
 
-            await WriteHtmlResponse(httpContext, new MainLayout
-            {
-                Page = new ReactWithDotNetDesigner()
-            });
+            await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesigner));
         });
         endpoints.MapGet("/" + nameof(ReactWithDotNetDesignerComponentPreview), async httpContext =>
         {
             ReactWithDotNetDesigner.IsAttached = true;
 
-            await WriteHtmlResponse(httpContext, new MainLayout
-            {
-                Page = new ReactWithDotNetDesignerComponentPreview()
-            });
+            await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesignerComponentPreview));
         });
-        #endif
+#endif
     }
-
+    
     static async Task HandleReactWithDotNetRequest(HttpContext httpContext)
     {
         httpContext.Response.ContentType = "application/json; charset=utf-8";
 
         var jsonText = await CalculateRenderInfo(new CalculateRenderInfoInput
         {
-            HttpContext = httpContext
+            HttpContext                    = httpContext,
+            OnReactContextCreated          = OnReactContextCreated,
+            BeforeSerializeElementToClient = BeforeSerializeElementToClient
         });
 
         await httpContext.Response.WriteAsync(jsonText);
@@ -52,14 +49,10 @@ static class ReactWithDotNetIntegration
 
     static async Task HomePage(HttpContext httpContext)
     {
-        await WriteHtmlResponse(httpContext, new MainLayout
-        {
-            Page        = new PageMainWindowView(),
-            QueryString = httpContext.Request.QueryString.ToString()
-        });
+        await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageMainWindowView));
     }
 
-    static async Task WriteHtmlResponse(HttpContext httpContext, MainLayout mainLayout)
+    static async Task WriteHtmlResponse(HttpContext httpContext, Type layoutType, Type mainContentType)
     {
         httpContext.Response.ContentType = "text/html; charset=UTF-8";
 
@@ -67,14 +60,26 @@ static class ReactWithDotNetIntegration
         httpContext.Response.Headers[HeaderNames.Expires]      = "0";
         httpContext.Response.Headers[HeaderNames.Pragma]       = "no-cache";
 
-        mainLayout.RenderInfo = await CalculateRenderInfo(mainLayout.Page, mainLayout.QueryString);
-
-        var html = await CalculateHtmlText(new CalculateHtmlTextInput
+        var html = await CalculateFirstRender(new CalculateFirstRenderInput
         {
-            ReactComponent = mainLayout,
-            QueryString    = httpContext.Request.QueryString.ToString()
+            LayoutType                     = layoutType,
+            MainContentType                = mainContentType,
+            HttpContext                    = httpContext,
+            QueryString                    = httpContext.Request.QueryString.ToString(),
+            OnReactContextCreated          = OnReactContextCreated,
+            BeforeSerializeElementToClient = BeforeSerializeElementToClient
         });
 
         await httpContext.Response.WriteAsync(html);
+    }
+
+    static Task OnReactContextCreated(HttpContext httpContext, ReactContext reactContext)
+    {
+        KeyForQueryString[reactContext] = httpContext.Request.QueryString.ToString();
+        return Task.CompletedTask;
+    }
+    
+    static void BeforeSerializeElementToClient(ReactContext context, Element element, Element parent)
+    {
     }
 }

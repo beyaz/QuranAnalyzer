@@ -31,7 +31,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
     {
         state = new WordSearchingViewModel();
 
-        var value = Context.Query[QueryKey.SearchQuery];
+        var value = Query[QueryKey.SearchQuery];
         if (value is not null)
         {
             var parseResponse = SearchScript.ParseScript(value);
@@ -46,7 +46,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             state.SearchScript = parseResponse.Value.AsReadableString();
         }
 
-        state.SearchOption = Context.Query[QueryKey.SearchOption] ?? WordSearchOption.Same;
+        state.SearchOption = Query[QueryKey.SearchOption] ?? WordSearchOption.Same;
 
         return Task.CompletedTask;
     }

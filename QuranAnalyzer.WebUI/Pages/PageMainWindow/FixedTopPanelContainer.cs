@@ -10,7 +10,7 @@ class FixedTopPanelContainerModel
 
 class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
 {
-    bool IsMenuVisible => Context.Query[QueryKey.Page] == PageId.MobileMenu;
+    bool IsMenuVisible => Query[QueryKey.Page] == PageId.MobileMenu;
 
     protected override Task constructor()
     {
@@ -65,6 +65,6 @@ class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
             return new a { new MenuCloseIcon(), Href("#"), OnClick(_ => Client.HistoryGo(-2)) };
         }
 
-        return new a { new SvgHamburgerIcon(), Href(GetPageLink(PageId.MobileMenu) + $"&{QueryKey.SenderPage}={Context.Query[QueryKey.Page] ?? PageId.MainWindow}") };
+        return new a { new SvgHamburgerIcon(), Href(GetPageLink(PageId.MobileMenu) + $"&{QueryKey.SenderPage}={Query[QueryKey.Page] ?? PageId.MainWindow}") };
     }
 }

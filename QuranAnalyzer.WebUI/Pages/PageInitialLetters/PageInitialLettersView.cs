@@ -26,7 +26,7 @@ class PageInitialLettersView : ReactPureComponent
     {
         get
         {
-            var value = Context.Query[QueryKey.FactIndex];
+            var value = Query[QueryKey.FactIndex];
             if (value is not null && int.TryParse(value, out var index) && index > 0 && index < Tabs.Count)
             {
                 return index;
