@@ -47,8 +47,6 @@ class MainLayout : ReactPureComponent, IPageLayout
                 // After page first rendered in client then connect with react system in background.
                 // So user first iteraction time will be minimize.
 
-                new script { type = "module", src = $"{root}/dist/index.js" },
-
                 new script
                 {
                     type = "module",
