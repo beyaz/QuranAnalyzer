@@ -28,7 +28,7 @@
 	<PropertyGroup>
 		<AppRoot>wwwroot\</AppRoot>
 	</PropertyGroup>
-	<Target Name="_EnsureNodeEnvironment_" BeforeTargets="rebuild" Condition=" !Exists('$(AppRoot)node_modules') ">
+	<Target Name="_EnsureNodeEnvironment_" BeforeTargets="rebuild;build" Condition=" !Exists('$(AppRoot)node_modules') ">
 		<Exec Command="node --version" ContinueOnError="true">
 			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
 		</Exec>
@@ -59,10 +59,12 @@
 	</Target>
 
 	<Target Name="_AfterPublish_" AfterTargets="Publish">
-		<Delete Files="$(PublishDir)\ReactWithDotNet.pdb" />
-		<Delete Files="$(PublishDir)\ReactWithDotNet.xml" />
-		<Delete Files="$(PublishDir)\$(MSBuildProjectName).pdb" />
-		<Delete Files="$(PublishDir)\$(MSBuildProjectName).xml" />
+		<Delete Files="$(PublishDir)/ReactWithDotNet.pdb" />
+		<Delete Files="$(PublishDir)/ReactWithDotNet.xml" />
+		<Delete Files="$(PublishDir)/$(MSBuildProjectName).pdb" />
+		<Delete Files="$(PublishDir)/$(MSBuildProjectName).xml" />
+		<Delete Files="$(PublishDir)/QuranAnalyzer.pdb" />
+		<Delete Files="$(PublishDir)/QuranAnalyzer.xml" />
 
 		<Delete Files="$(PublishDir)/wwwroot/app.css" />
 		<Delete Files="$(PublishDir)/wwwroot/index.jsx" />
