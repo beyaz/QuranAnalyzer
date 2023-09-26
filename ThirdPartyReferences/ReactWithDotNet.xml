@@ -510,6 +510,24 @@
                 style.right = <paramref name="pixelValue" /> + 'px'
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.Mixin.LeftRightBottom(System.String)">
+            <summary>
+                style.left = <paramref name="value" /> 
+                <br />
+                style.right = <paramref name="value" />
+                <br />
+                style.bottom = <paramref name="value" />
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.LeftRightBottom(System.Double)">
+            <summary>
+                style.left = <paramref name="value" /> + 'px'
+                <br />
+                style.right = <paramref name="value" /> + 'px'
+                <br />
+                style.bottom = <paramref name="value" /> + 'px'
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.ListStyle(System.String)">
             <summary>
                 style.listStyle = <paramref name="listStyle" />
@@ -1351,6 +1369,11 @@
         <member name="M:ReactWithDotNet.Mixin.RowSpan(System.Int32)">
             <summary>
                 (tr-td).rowSpan = <paramref name="value" />
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.MixBlendMode(System.String)">
+            <summary>
+            normal|multiply|screen|overlay|darken|lighten|color-dodge|color-burn|difference|exclusion|hue|saturation|color|luminosity
             </summary>
         </member>
         <member name="F:ReactWithDotNet.Mixin.percent">
@@ -2466,6 +2489,11 @@
                 Gets or sets the on click.
             </summary>
         </member>
+        <member name="P:ReactWithDotNet.HtmlElement.onClickPreview">
+            <summary>
+                Gets or sets the on click.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.HtmlElement.onScroll">
             <summary>
                 Handler <paramref name="value" /> should be in client js codes.<br />
@@ -2717,6 +2745,27 @@
         <member name="M:ReactWithDotNet.table.CellSpacing(System.Nullable{System.Double})">
             <summary>
                 table.cellSpacing = <paramref name="value" />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MonacoEditorReact.Editor.valueBindDebounceHandler">
+            <summary>
+                if you want to handle when user iteraction finished see example below<br />
+                component.valueBind = ()=>state.UserInfo.Name<br />
+                component.valueBindDebounceTimeout = 600 // milliseconds<br />
+                component.valueBindDebounceHandler = OnUserIterationFinished<br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MonacoEditorReact.Editor.valueBindDebounceTimeout">
+            <summary>
+                if you want to handle when user iteraction finished see example below<br />
+                component.valueBind = ()=>state.UserInfo.Name<br />
+                component.valueBindDebounceTimeout = 600 // milliseconds<br />
+                component.valueBindDebounceHandler = OnUserIterationFinished<br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MonacoEditorReact.Editor.options">
+            <summary>
+            https://microsoft.github.io/monaco-editor/typedoc/variables/editor.EditorOptions.html
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.clearIcon">
@@ -4655,6 +4704,128 @@
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.PrimeReact.SingleSelectionTree`1.expandedKeys">
             <summary>
             An array of keys to represent the state of the tree expansion state in controlled mode.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.url">
+            <summary>
+            The url of a video or song to play
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.playing">
+            <summary>
+            Set to true or false to pause or play the media.
+            <br/>
+            Default: false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.controls">
+            <summary>
+            Set to true or false to display native player controls.
+            <br/>
+            For Vimeo videos, hiding controls must be enabled by the video owner.
+            <br/>
+            Default: false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.playsinline">
+            <summary>
+            Applies the playsinline attribute where supported
+            <br/>
+            Default: false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.light">
+            <summary>
+            Set to true to show just the video thumbnail, which loads the full player on click
+            <br/>
+             Pass in an image URL to override the preview image
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.volume">
+            <summary>
+            Set the volume of the player, between 0 and 1
+            <br/>
+             null uses default volume on all players
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.muted">
+            <summary>
+            Mutes the player
+            <br/>
+             Only works if volume is set
+            <br/>
+             Default: False
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.playbackRate">
+            <summary>
+            Set the playback rate of the player
+            <br/>
+             Only supported by YouTube, Wistia, and file paths
+            <br/>
+             Default: 1
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.width">
+            <summary>
+            Set the width of the player
+            <br/>
+             Default: 640px
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.height">
+            <summary>
+            Set the height of the player
+            <br/>
+             Default: 360px
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.pip">
+            <summary>
+            Set to true or false to enable or disable picture-in-picture mode
+            <br/>
+              Only available when playing file URLs in certain browsers
+            <br/>
+             Default: false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.stopOnUnmount">
+            <summary>
+            If you are using pip you may want to use stopOnUnmount={false} to continue playing in picture-in-picture mode even after ReactPlayer unmounts
+            <br/>
+             Default: true
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.config">
+            <summary>
+            Override options for the various players, see config prop
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.onReady">
+            <summary>
+            Called when media is loaded and ready to play. If playing is set to true, media will play immediately
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.onStart">
+            <summary>
+            Called when media starts playing
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.onPlay">
+            <summary>
+            Called when media starts or resumes playing after pausing or buffering
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.onPause">
+            <summary>
+            Called when media is paused
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.React_Player.ReactPlayer.onEnded">
+            <summary>
+            Called when media finishes playing
+            <br/>
+            Does not fire when loop is set to true
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.ReactAwesomeReveal.RevealBase.reverse">

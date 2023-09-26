@@ -255,18 +255,24 @@ function IsEmptyObject(obj)
 
 const FunctionExecutionQueue = [];
 
-var FunctionExecutionQueueStateIsExecuting = false;
+var ReactIsBusy = false;
+var IsWaitingRemoteResponse = false;
 
 function OnReactStateReady()
 {
-    FunctionExecutionQueueStateIsExecuting = false;
+    ReactIsBusy = false;
+
+    if (IsWaitingRemoteResponse === true)
+    {
+        return;
+    }
 
     EmitNextFunctionInFunctionExecutionQueue();
 }
 
 function EmitNextFunctionInFunctionExecutionQueue()
 {
-    if (FunctionExecutionQueueStateIsExecuting)
+    if (ReactIsBusy === true)
     {
         throw CreateNewDeveloperError("ReactWithDotNet event queue problem occured.");
     }
@@ -281,7 +287,8 @@ function EmitNextFunctionInFunctionExecutionQueue()
             return;
         }
 
-        FunctionExecutionQueueStateIsExecuting = true;
+        ReactIsBusy = true;
+
         FunctionExecutionQueueCurrentEntry = item;
 
         item.fn(item);
@@ -302,12 +309,18 @@ function PushToFunctionExecutionQueue(fn, forceWait)
         return entry;
     }
 
-    if (!FunctionExecutionQueueStateIsExecuting)
+    if (ReactIsBusy === false && IsWaitingRemoteResponse === false)
     {
         EmitNextFunctionInFunctionExecutionQueue();
     }
 
     return entry;
+}
+
+function SetState(component, partialState, stateCallback)
+{
+    ReactIsBusy = true;
+    component.setState(partialState, stateCallback);
 }
 
 function TryGetValueInPath(obj, steps)
@@ -838,7 +851,7 @@ function tryToFindCachedMethodInfo(targetComponent, remoteMethodName, eventArgum
     return null;
 }
 
-function ConvertToEventHandlerFunction(remoteMethodInfo)
+function ConvertToEventHandlerFunction(parentJsonNode, remoteMethodInfo)
 {
     const remoteMethodName   = remoteMethodInfo.remoteMethodName;
     const handlerComponentUniqueIdentifier = remoteMethodInfo.HandlerComponentUniqueIdentifier;
@@ -848,6 +861,20 @@ function ConvertToEventHandlerFunction(remoteMethodInfo)
 
     NotNull(remoteMethodName);
     NotNull(handlerComponentUniqueIdentifier);
+
+    const onClickPreview = parentJsonNode.$onClickPreview;
+    let onPreviewHandler = null;
+    if (onClickPreview)
+    {
+        onPreviewHandler = function ()
+        {
+            const cmp = GetComponentByDotNetComponentUniqueIdentifier(onClickPreview.$DotNetComponentUniqueIdentifier);
+
+            const newState = CalculateNewStateFromJsonElement(cmp.state, onClickPreview);
+
+            cmp.setState(newState);
+        }
+    }
 
     return function ()
     {
@@ -878,26 +905,20 @@ function ConvertToEventHandlerFunction(remoteMethodInfo)
         const cachedMethodInfo = tryToFindCachedMethodInfo(targetComponent, remoteMethodName, eventArguments);
         if (cachedMethodInfo)
         {
-            const newState = CaclculateNewStateFromJsonElement(targetComponent.state, cachedMethodInfo.ElementAsJson);
+            const newState = CalculateNewStateFromJsonElement(targetComponent.state, cachedMethodInfo.ElementAsJson);
 
             targetComponent.setState(newState);
 
             return;
         }
 
-        if (IsWaitingRemoteResponse === true)
-        {
-            StartAction(/*remoteMethodName*/remoteMethodName, /*component*/targetComponent, /*eventArguments*/eventArguments);
-            return;
-        }
-
-        // TODO: check
-        if (FunctionExecutionQueueStateIsExecuting === true)
-        {
-            FunctionExecutionQueueStateIsExecuting = false;
-        }
-
-        StartAction(/*remoteMethodName*/remoteMethodName, /*component*/targetComponent, /*eventArguments*/eventArguments);
+        const actionArguments = {
+            component: targetComponent,
+            remoteMethodName: remoteMethodName,
+            remoteMethodArguments: eventArguments,
+            onPreviewHandler: onPreviewHandler
+        };
+        StartAction(actionArguments);
     }
 }
 
@@ -1044,7 +1065,7 @@ function ConvertToReactElement(jsonNode, component)
             // tryProcessAsEventHandler
             if (propValue.$isRemoteMethod === true)
             {
-                props[propName] = ConvertToEventHandlerFunction(propValue);
+                props[propName] = ConvertToEventHandlerFunction(jsonNode, propValue);
 
                 continue;
             }
@@ -1108,11 +1129,18 @@ function ConvertToReactElement(jsonNode, component)
 
                         newState[timeoutKey] = setTimeout(() =>
                         {
-                            const executionEntry = StartAction(debounceHandler, targetComponent, /*eventArguments*/[]);
+                            const actionArguments = {
+                                component: targetComponent,
+                                remoteMethodName: debounceHandler,
+                                remoteMethodArguments: []
+                            };
+                            const executionEntry = StartAction(actionArguments);
                             executionEntry.name = executionQueueItemName;
 
                         }, debounceTimeout);
                     }
+
+                    newState[SyncId] = GetNextSequence();
 
                     targetComponent.setState(newState);
 
@@ -1340,20 +1368,21 @@ function ProcessClientTasks(clientTasks, component)
     }
 }
 
-function StartAction(remoteMethodName, component, eventArguments)
+function StartAction(actionArguments)
 {
     function execute(executionQueueEntry)
     {
-        HandleAction({ remoteMethodName: remoteMethodName, component: component, eventArguments: eventArguments }, executionQueueEntry);
+        actionArguments.executionQueueEntry = executionQueueEntry;
+        HandleAction(actionArguments);
     }
     return PushToFunctionExecutionQueue(execute);
 }
 
 
-function HandleAction(data, executionQueueEntry)
+function HandleAction(actionArguments)
 {
-    const remoteMethodName = data.remoteMethodName;
-    let component = NotNull(data.component);
+    const remoteMethodName = actionArguments.remoteMethodName;
+    let component = NotNull(actionArguments.component);
 
     component = GetComponentByDotNetComponentUniqueIdentifier(component[DotNetComponentUniqueIdentifiers][0]);
 
@@ -1386,10 +1415,10 @@ function HandleAction(data, executionQueueEntry)
         LastUsedComponentUniqueIdentifier: LastUsedComponentUniqueIdentifier,
         ComponentUniqueIdentifier: NotNull(component.state[DotNetComponentUniqueIdentifier]),
 
-        CallFunctionId: executionQueueEntry.id
+        CallFunctionId: actionArguments.executionQueueEntry.id
     };
 
-    request.eventArgumentsAsJsonArray = data.eventArguments.map(JSON.stringify);
+    request.eventArgumentsAsJsonArray = actionArguments.remoteMethodArguments.map(JSON.stringify);
 
     function onSuccess(response)
     {
@@ -1424,7 +1453,9 @@ function HandleAction(data, executionQueueEntry)
             OnReactStateReady();
         }
 
-        component.setState(CaclculateNewStateFromJsonElement(component.state, response.ElementAsJson), stateCallback);
+        const partialState = CalculateNewStateFromJsonElement(component.state, response.ElementAsJson);
+
+        SetState(component, partialState, stateCallback);
     }
 
     function onFail(error)
@@ -1443,15 +1474,20 @@ function HandleAction(data, executionQueueEntry)
         OnReactStateReady();
     }
 
+    if (actionArguments.onPreviewHandler)
+    {
+        actionArguments.onPreviewHandler();
+    }
+
     SendRequest(request, onSuccess, onFail);
 }
 
-function CaclculateNewStateFromJsonElement(componentState, jsonElement)
+function CalculateNewStateFromJsonElement(componentState, jsonElement)
 {
     const newState = {};
 
     newState[DotNetState]     = NotNull(jsonElement[DotNetState]);
-    newState[SyncId]          = ShouldBeNumber(componentState[SyncId]) + 1;
+    newState[SyncId]          = GetNextSequence();
     newState[RootNode]        = jsonElement[RootNode];
     newState[ClientTasks]     = jsonElement[ClientTasks];
     newState[DotNetProperties] = jsonElement[DotNetProperties];
@@ -1599,8 +1635,6 @@ function HandleComponentClientTasks(component)
         shouldBeReferenceEquals();
 
         freeSpace.waitingClientTasks = null;
-
-        OnReactStateReady();
     }
 
     component.setState(partialState, stateCallback);
@@ -1666,11 +1700,16 @@ function DefineComponent(componentDeclaration)
         {
             const component = this;
 
-            function HandleHasComponentDidMount()
+            function HandleHasComponentDidMount(isDirectCall)
             {
                 const hasComponentDidMountMethod = component.state[HasComponentDidMountMethod];
                 if (hasComponentDidMountMethod !== true)
                 {
+                    if (isDirectCall !== true)
+                    {
+                        OnReactStateReady();
+                    }
+
                     return;
                 }
 
@@ -1679,7 +1718,7 @@ function DefineComponent(componentDeclaration)
                     const cachedMethodInfo = tryToFindCachedMethodInfo(component, 'componentDidMount', []);
                     if (cachedMethodInfo)
                     {
-                        const newState = CaclculateNewStateFromJsonElement(component.state, cachedMethodInfo.ElementAsJson);
+                        const newState = CalculateNewStateFromJsonElement(component.state, cachedMethodInfo.ElementAsJson);
 
                         const clientTasks = newState[ClientTasks];
 
@@ -1693,7 +1732,7 @@ function DefineComponent(componentDeclaration)
                             OnReactStateReady();
                         }
 
-                        component.setState(newState, stateCallback);
+                        SetState(component, newState, stateCallback);
 
                         return;
                     }
@@ -1705,10 +1744,15 @@ function DefineComponent(componentDeclaration)
 
                 function stateCallBack()
                 {
-                    StartAction(/*remoteMethodName*/'componentDidMount', component, /*eventArguments*/[]);
+                    const actionArguments = {
+                        component: component,
+                        remoteMethodName: 'componentDidMount',
+                        remoteMethodArguments: []
+                    };
+                    StartAction(actionArguments);
                 }
 
-                component.setState(partialState, stateCallBack);
+                SetState(component, partialState, stateCallBack);
             }
 
 
@@ -1719,7 +1763,7 @@ function DefineComponent(componentDeclaration)
             }
             else
             {
-                HandleHasComponentDidMount();
+                HandleHasComponentDidMount(/*isDirectCall*/true);
             }
         }
 
@@ -1774,6 +1818,7 @@ function DefineComponent(componentDeclaration)
                 partialState[RootNode] = nextProps.$jsonNode[RootNode];
                 partialState[ClientTasks] = nextProps.$jsonNode[ClientTasks];
                 partialState[DotNetProperties] = NotNull(nextProps.$jsonNode[DotNetProperties]);
+                partialState[DotNetState] = NotNull(nextProps.$jsonNode[DotNetState]);
 
                 const componentActiveUniqueIdentifier = NotNull(prevState[DotNetComponentUniqueIdentifier]);
                 const componentNextUniqueIdentifier   = NotNull(nextProps.$jsonNode[DotNetComponentUniqueIdentifier]);
@@ -1826,8 +1871,6 @@ function DefinePureComponent(componentDeclaration)
 
     return NewPureComponent;
 }
-
-var IsWaitingRemoteResponse = false;
 
 function SendRequest(request, onSuccess, onFail)
 {
@@ -2175,14 +2218,20 @@ RegisterCoreFunction("GotoMethod", function (timeout, remoteMethodName, remoteMe
         const cachedMethodInfo = tryToFindCachedMethodInfo(component, remoteMethodName, remoteMethodArguments);
         if (cachedMethodInfo)
         {
-            const newState = CaclculateNewStateFromJsonElement(component.state, cachedMethodInfo.ElementAsJson);
+            const newState = CalculateNewStateFromJsonElement(component.state, cachedMethodInfo.ElementAsJson);
 
             component.setState(newState);
 
             return;
         }
 
-        StartAction(remoteMethodName, component, remoteMethodArguments);
+        const actionArguments = {
+            component: component,
+            remoteMethodName: remoteMethodName,
+            remoteMethodArguments: remoteMethodArguments
+        };
+
+        StartAction(actionArguments);
 
     }, timeout);
 });
@@ -2220,7 +2269,13 @@ RegisterCoreFunction("ListenEvent", function (eventName, remoteMethodName)
 
     const onEventFired = (eventArgumentsAsArray) =>
     {
-        const entry = StartAction(remoteMethodName, component, eventArgumentsAsArray);
+        const actionArguments = {
+            component: component,
+            remoteMethodName: remoteMethodName,
+            remoteMethodArguments: eventArgumentsAsArray
+        };
+
+        const entry = StartAction(actionArguments);
 
         // guard for removed node before send to server
         component[ON_COMPONENT_DESTROY].push(() =>
@@ -2247,7 +2302,13 @@ RegisterCoreFunction("ListenEventOnlyOnce", function (eventName, remoteMethodNam
     {
         EventBus.Remove(eventName, onEventFired);
 
-        const entry = StartAction(remoteMethodName, component, eventArgumentsAsArray);
+        const actionArguments = {
+            component: component,
+            remoteMethodName: remoteMethodName,
+            remoteMethodArguments: eventArgumentsAsArray
+        };
+
+        const entry = StartAction(actionArguments);
 
         // guard for removed node before send to server
         component[ON_COMPONENT_DESTROY].push(() =>
@@ -2302,7 +2363,13 @@ RegisterCoreFunction("InitializeDotnetComponentEventListener", function (eventSe
     {
         const handlerComponent = GetComponentByDotNetComponentUniqueIdentifier(handlerComponentUniqueIdentifier);
 
-        const entry = StartAction(remoteMethodName, handlerComponent, eventArgumentsAsArray);
+        const actionArguments = {
+            component: handlerComponent,
+            remoteMethodName: remoteMethodName,
+            remoteMethodArguments: eventArgumentsAsArray
+        };
+
+        const entry = StartAction(actionArguments);
 
         // guard for removed node before send to server
         handlerComponent[ON_COMPONENT_DESTROY].push(() =>
@@ -2354,7 +2421,12 @@ RegisterCoreFunction("OnOutsideClicked", function (idOfElement, remoteMethodName
         {
             const handlerComponent = GetComponentByDotNetComponentUniqueIdentifier(handlerComponentUniqueIdentifier);
 
-            StartAction(remoteMethodName, handlerComponent, /*eventArguments*/[]);
+            const actionArguments = {
+                component: handlerComponent,
+                remoteMethodName: remoteMethodName,
+                remoteMethodArguments: []
+            };
+            StartAction(actionArguments);
         }
     }
 
