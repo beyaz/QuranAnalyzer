@@ -30,10 +30,7 @@
 
         "react-datepicker": "^4.8.0",
 
-        "@uiw/react-codemirror": "^4.13.2",
-        "@uiw/codemirror-extensions-langs": "^4.13.2",
-        "@uiw/codemirror-theme-github": "^4.13.2",
-        "@uiw/codemirror-extensions-basic-setup": "^4.13.2",
+        "@monaco-editor/react": "^4.5.2",
 
         "google-map-react": "^2.2.0",
 
