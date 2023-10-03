@@ -28,9 +28,9 @@ public class TextArea : ReactComponent
 
 public class TextInput : ReactComponent
 {
-    Expression<Func<string>> ValueBind;
+    Expression<Func<InputValueBinder>> ValueBind;
 
-    public static IModifier Bind(Expression<Func<string>> expression)
+    public static IModifier Bind(Expression<Func<InputValueBinder>> expression)
     {
         return CreateComponentModifier<TextInput>(x => x.ValueBind = expression);
     }

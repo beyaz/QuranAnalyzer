@@ -222,7 +222,7 @@ class TotalCountsWithDetail : ReactComponent
         return new small { bigNumber.ToString(), OverflowWrapAnywhere };
     }
 
-    input CreateInput(Expression<Func<string>> bindingExpression)
+    input CreateInput(Expression<Func<InputValueBinder>> bindingExpression)
     {
         return new input(Width(40), TextAlignCenter, InputBorder)
         {

@@ -112,7 +112,7 @@ class TotalCounts : ReactComponent
         return new div { bigNumber.ToString() } + OverflowWrapAnywhere;
     }
 
-    Element CreateInput(Expression<Func<string>> bindingExpression, HtmlElementModifier htmlElementModifier, int delay)
+    Element CreateInput(Expression<Func<InputValueBinder>> bindingExpression, HtmlElementModifier htmlElementModifier, int delay)
     {
         var element = new input(Width(40), TextAlignCenter, Border(Solid(0.1, ColorForBorder)))
         {
