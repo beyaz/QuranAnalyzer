@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Net.Http.Headers;
 using QuranAnalyzer.WebUI.Layouts;
+using QuranAnalyzer.WebUI.Pages;
 using QuranAnalyzer.WebUI.Pages.PageMainWindow;
 using ReactWithDotNet.UIDesigner;
 
@@ -15,6 +16,8 @@ static class ReactWithDotNetIntegration
     {
         endpoints.MapGet("/", HomePage);
         endpoints.MapPost("/" + nameof(HandleReactWithDotNetRequest), HandleReactWithDotNetRequest);
+        
+        endpoints.MapGet("/"+nameof(PageCountInRange), httpContext =>  WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageCountInRange)));
 
 #if DEBUG // this two endpoints should use only development mode
 
