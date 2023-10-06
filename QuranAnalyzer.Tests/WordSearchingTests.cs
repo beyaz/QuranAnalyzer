@@ -190,6 +190,6 @@ public class WordSearchingTests
             }
         }
 
-        allWords.Count.Should().Be(300);
+        allWords.Count.Should().Be(18993);
     }
 }
