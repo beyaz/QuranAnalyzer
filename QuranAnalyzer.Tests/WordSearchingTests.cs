@@ -1,4 +1,7 @@
-﻿namespace QuranAnalyzer;
+﻿using System;
+using System.Collections.Generic;
+
+namespace QuranAnalyzer;
 
 [TestClass]
 public class WordSearchingTests
@@ -165,5 +168,28 @@ public class WordSearchingTests
         }
 
         verses.Sum(matchCountOfSameAsExactly).Should().Be(expected);
+    }
+    
+    
+    [TestMethod]
+    public void DistinctWordsCount()
+    {
+        var filter = "*,-9:128,-9:129";
+
+        var allWords = new List<string>();
+        
+        foreach (var verse in VerseFilter.GetVerseList(filter).Value)
+        {
+            var words = verse.TextWithBismillah.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            foreach (var word in words)
+            {
+                if (allWords.IndexOf(word) < 0)
+                {
+                    allWords.Add(word);
+                }
+            }
+        }
+
+        allWords.Count.Should().Be(300);
     }
 }
