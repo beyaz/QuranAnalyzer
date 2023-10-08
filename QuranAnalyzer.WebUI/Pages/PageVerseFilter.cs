@@ -1,5 +1,4 @@
-﻿using ReactWithDotNet.ThirdPartyLibraries.ReactSuite;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using static QuranAnalyzer.QuranArabicVersionWithNoBismillah;
 
 namespace QuranAnalyzer.WebUI.Pages;
@@ -11,20 +10,18 @@ public class PageVerseFilter : ReactComponent
     const string Grey1 = "#cdcdcd";
 
     public bool CalculateClicked { get; set; }
+
+    public string InputVerseListAsString { get; set; }
     public string SearchLetters { get; set; }
     public string SliceNumber { get; set; }
-    
-    public string InputVerseListAsString { get; set; }
 
     protected override Task constructor()
     {
-        
         var arabicText = AllQuranAsString;
-        
-        SearchLetters          = "ب ر ك ر ي و ر ك و ج (brkr yvrkvc)";
-        SliceNumber            = "667";
-        InputVerseListAsString = string.Join("\n", arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(TryParseVerseNumbers).Select(x=>ToTextLine(x.grandVerseNumber,x.chapterNumber,x.verseNumber,x.verseText)).Take(7));
 
+        SearchLetters          = "ب ر ك  ي و ج (brk yvc)";
+        SliceNumber            = "19";
+        InputVerseListAsString = string.Join("\n", arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(TryParseVerseNumbers).Select(x => ToTextLine(x.grandVerseNumber, x.chapterNumber, x.verseNumber, x.verseText)).Take(7));
 
         return base.constructor();
     }
@@ -60,17 +57,17 @@ public class PageVerseFilter : ReactComponent
                         " sayısının katları şeklinde geçer?"
                     },
                     SpaceY(16),
-                    
+
                     new FlexColumn
                     {
-                        new div(FontWeight600, FontSize13){"Verse List"}, 
+                        new div(FontWeight600, FontSize13) { "Verse List" },
                         new textarea
                         {
                             valueBind = () => InputVerseListAsString,
                             style     = { Height(300), inputStyle }
                         }
                     },
-                    
+
                     new FlexRowCentered(MarginTop(30))
                     {
                         new CalculateButton
@@ -90,25 +87,37 @@ public class PageVerseFilter : ReactComponent
 
     Element Filter()
     {
-        var matchedRecords = GetAllSubRanges(SearchLetters, int.Parse(SliceNumber));
-        
+        var (hasFail, matchedRecords) = FilterMatchedRecords(SearchLetters, int.Parse(SliceNumber));
+        if (hasFail)
+        {
+            return new div { "Verse List read error." };
+        }
+
         return new FlexColumn(WidthMaximized, Height(500), Border(Solid(1, Grey1)), OverflowYScroll, Padding(10))
         {
-            dangerouslySetInnerHTML = new table { new thead { new th
+            dangerouslySetInnerHTML = new table
             {
-                $"Count ({matchedRecords.Count})"
-            }, new th { "Verse" } }, new tbody
-            {
-                matchedRecords.Select(x => 
-                                        new tr(Border(Solid(1, Grey1)))
-                                        {
-                                            new td(Border(Solid(1, Grey1))) { x.count }, new td(Border(Solid(1, Grey1))) { x.verseAsText },
-                                        })
-            } }.ToHtml()
+                new thead
+                {
+                    new th
+                    {
+                        $"Count ({matchedRecords.Count})"
+                    },
+                    new th { "Verse" }
+                },
+                new tbody
+                {
+                    matchedRecords.Select(x =>
+                                              new tr(Border(Solid(1, Grey1)))
+                                              {
+                                                  new td(Border(Solid(1, Grey1))) { x.count }, new td(Border(Solid(1, Grey1))) { x.verseAsText }
+                                              })
+                }
+            }.ToHtml()
         };
     }
 
-    IReadOnlyList<(string count, string verseAsText)> GetAllSubRanges(string searchLetters, int slicer)
+    (bool hasFail, IReadOnlyList<(string count, string verseAsText)> matchedRecords) FilterMatchedRecords(string searchLetters, int slicer)
     {
         var arabicText = InputVerseListAsString;
 
@@ -131,18 +140,22 @@ public class PageVerseFilter : ReactComponent
         }
 
         var resultList = new List<(string count, string verseAsText)>();
-        
+
         foreach (var (isParsedSuccessfully, grandVerseNumber, chapterNumber, verseNumber, verseText) in lines)
         {
+            if (isParsedSuccessfully is false)
+            {
+                return (hasFail: true, default);
+            }
+
             var count = calculateCount(verseText);
-            if (count  > 0 && count % slicer == 0)
+            if (count > 0 && count % slicer == 0)
             {
                 resultList.Add((count: $"{slicer}x{count / slicer}", verseAsText: ToTextLine(grandVerseNumber, chapterNumber, verseNumber, verseText)));
             }
         }
 
-
-        return resultList;
+        return (default, matchedRecords: resultList);
     }
 
     void OnCalculateClicked(MouseEvent e)
