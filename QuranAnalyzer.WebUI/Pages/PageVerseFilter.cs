@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using ReactWithDotNet.ThirdPartyLibraries.ReactSuite;
+using System.Threading.Tasks;
 using static QuranAnalyzer.QuranArabicVersionWithNoBismillah;
 
 namespace QuranAnalyzer.WebUI.Pages;
@@ -81,44 +82,33 @@ public class PageVerseFilter : ReactComponent
 
                     SpaceY(30),
 
-                    When(CalculateClicked, () => new FlexColumn(WidthMaximized, Height(500), Border(Solid(1, Grey1)), OverflowYScroll, Padding(10))
-                    {
-                        dangerouslySetInnerHTML = new table
-                        {
-                            new thead
-                            {
-                                new th { "From" },
-                                new th { "To" },
-                                new th { "Count" }
-                            },
-                            new tbody
-                            {
-                                GetAllSubRanges(SearchLetters, int.Parse(SliceNumber)).Select(x => new tr(Border(Solid(1, Grey1)))
-                                {
-                                    new td(Border(Solid(1, Grey1)))
-                                    {
-                                        x.from
-                                    },
-
-                                    new td(Border(Solid(1, Grey1)))
-                                    {
-                                        x.to
-                                    },
-
-                                    new td(Border(Solid(1, Grey1)))
-                                    {
-                                        x.count
-                                    }
-                                })
-                            }
-                        }.ToHtml()
-                    })
+                    When(CalculateClicked, Filter)
                 }
             }
         };
     }
 
-    IReadOnlyList<(string from, string to, string count)> GetAllSubRanges(string searchLetters, int slicer)
+    Element Filter()
+    {
+        var matchedRecords = GetAllSubRanges(SearchLetters, int.Parse(SliceNumber));
+        
+        return new FlexColumn(WidthMaximized, Height(500), Border(Solid(1, Grey1)), OverflowYScroll, Padding(10))
+        {
+            dangerouslySetInnerHTML = new table { new thead { new th
+            {
+                $"Count ({matchedRecords.Count})"
+            }, new th { "Verse" } }, new tbody
+            {
+                matchedRecords.Select(x => 
+                                        new tr(Border(Solid(1, Grey1)))
+                                        {
+                                            new td(Border(Solid(1, Grey1))) { x.count }, new td(Border(Solid(1, Grey1))) { x.verseAsText },
+                                        })
+            } }.ToHtml()
+        };
+    }
+
+    IReadOnlyList<(string count, string verseAsText)> GetAllSubRanges(string searchLetters, int slicer)
     {
         var arabicText = InputVerseListAsString;
 
@@ -140,23 +130,17 @@ public class PageVerseFilter : ReactComponent
             return sum;
         }
 
-        var allLines = lines.Select(x => (x.chapterNumber, x.verseNumber, Count: calculateCount(x.verseText))).ToList();
-
-        var resultList = new List<(string from, string to, string count)>();
-
-        for (var i = 0; i < allLines.Count; i++)
+        var resultList = new List<(string count, string verseAsText)>();
+        
+        foreach (var (isParsedSuccessfully, grandVerseNumber, chapterNumber, verseNumber, verseText) in lines)
         {
-            var total = 0;
-            for (var j = i; j < allLines.Count; j++)
+            var count = calculateCount(verseText);
+            if (count  > 0 && count % slicer == 0)
             {
-                total += allLines[j].Count;
-
-                if (total > 0 && total % slicer == 0)
-                {
-                    resultList.Add((from: $"{allLines[i].chapterNumber}:{allLines[i].verseNumber}", to: $"{allLines[j].chapterNumber}:{allLines[j].verseNumber}", count: $"{slicer}x{total / slicer}"));
-                }
+                resultList.Add((count: $"{slicer}x{count / slicer}", verseAsText: ToTextLine(grandVerseNumber, chapterNumber, verseNumber, verseText)));
             }
         }
+
 
         return resultList;
     }
