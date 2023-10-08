@@ -1,5 +1,6 @@
 ﻿namespace QuranAnalyzer;
 
+
 partial class QuranArabicVersionWithNoBismillah 
 {
     public static (bool isParsedSuccessfully, int grandVerseNumber, int chapterNumber, int verseNumber, string verseText) TryParseVerseNumbers(string verseText)
@@ -20,6 +21,11 @@ partial class QuranArabicVersionWithNoBismillah
         }
 
         return default;
+    }
+
+    public static string ToTextLine(int grandVerseNumber, int chapterNumber, int verseNumber, string verseText)
+    {
+        return $"{grandVerseNumber}|{chapterNumber}|{verseNumber}|{verseText}";
     }
 
 }
