@@ -3,7 +3,7 @@ using System.Web;
 
 namespace QuranAnalyzer.WebUI;
 
-public abstract class ReactComponent : ReactWithDotNet.ReactComponent
+public abstract class ReactComponent : ReactWithDotNet.Component
 {
     protected IEnumerable<Element> AsLetter(char arabicLetter)
     {
@@ -23,7 +23,7 @@ public abstract class ReactComponent : ReactWithDotNet.ReactComponent
     }
 }
 
-public abstract class ReactPureComponent : ReactWithDotNet.ReactPureComponent
+public abstract class ReactPureComponent : ReactWithDotNet.PureComponent
 {
     protected NameValueCollection Query => HttpUtility.ParseQueryString(KeyForQueryString[Context]);
 
@@ -45,7 +45,7 @@ public abstract class ReactPureComponent : ReactWithDotNet.ReactPureComponent
     }
 }
 
-public abstract class ReactComponent<TState> : ReactWithDotNet.ReactComponent<TState> where TState : class, new()
+public abstract class ReactComponent<TState> : ReactWithDotNet.Component<TState> where TState : class, new()
 {
     protected NameValueCollection Query => HttpUtility.ParseQueryString(KeyForQueryString[Context]);
 

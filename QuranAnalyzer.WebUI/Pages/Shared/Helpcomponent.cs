@@ -17,7 +17,6 @@ class HelpComponent : ReactComponent
     }
 }
 
-[ReactHigherOrderComponent]
 class CollapsiblePanel : ReactComponent
 {
     public string Title { get; set; }
