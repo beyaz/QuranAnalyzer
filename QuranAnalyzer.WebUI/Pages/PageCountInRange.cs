@@ -1,11 +1,12 @@
-﻿
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace QuranAnalyzer.WebUI.Pages;
 
 public class PageCountInRange : ReactComponent
 {
-    static readonly StyleModifier Container = MarginLeftRight("10%") + WidthHeightMaximized;
+    const string Blue100 = "#0099FF";
+
+    const string Grey1 = "#cdcdcd";
 
     public bool CalculateClicked { get; set; }
     public string SearchLetters { get; set; }
@@ -25,10 +26,10 @@ public class PageCountInRange : ReactComponent
         {
             Padding(6), BorderRadius(7), Border(Solid(0.5, Grey1)), Color(rgba(0, 0, 0, 0.87))
         };
-        
+
         return new FlexColumnCentered(WidthMaximized, BackgroundColor("#d2d2ce"))
         {
-            new FlexColumnCentered(Container, Gap(50), PaddingTopBottom(50))
+            new FlexColumnCentered(MarginLeftRight("10%") + WidthHeightMaximized, Gap(50), PaddingTopBottom(50))
             {
                 new FlexColumn(BackgroundWhite, BorderRadius(5), BoxShadow(1, 1, 3, 1, "#333"), Height(840), Padding(50), Width(60 * vw))
                 {
@@ -45,7 +46,7 @@ public class PageCountInRange : ReactComponent
                         {
                             type      = "text",
                             valueBind = () => SliceNumber,
-                            style     = { Width(70), inputStyle  }
+                            style     = { Width(70), inputStyle }
                         },
                         " sayısının katları şeklinde olan ayet aralıklarının listesi nedir?"
                     },
@@ -61,7 +62,7 @@ public class PageCountInRange : ReactComponent
 
                     SpaceY(30),
 
-                    When(CalculateClicked, () => new FlexColumn(WidthMaximized, Height(500), Border(Solid(1, "#d7d5d5")), OverflowYScroll, Padding(10))
+                    When(CalculateClicked, () => new FlexColumn(WidthMaximized, Height(500), Border(Solid(1, Grey1)), OverflowYScroll, Padding(10))
                     {
                         dangerouslySetInnerHTML = new table
                         {
@@ -73,19 +74,19 @@ public class PageCountInRange : ReactComponent
                             },
                             new tbody
                             {
-                                GetAllSubRanges(SearchLetters, int.Parse(SliceNumber)).Select(x => new tr(Border(Solid(1, "#d7d5d5")))
+                                GetAllSubRanges(SearchLetters, int.Parse(SliceNumber)).Select(x => new tr(Border(Solid(1, Grey1)))
                                 {
-                                    new td(Border(Solid(1, "#d7d5d5")))
+                                    new td(Border(Solid(1, Grey1)))
                                     {
                                         x.from
                                     },
 
-                                    new td(Border(Solid(1, "#d7d5d5")))
+                                    new td(Border(Solid(1, Grey1)))
                                     {
                                         x.to
                                     },
 
-                                    new td(Border(Solid(1, "#d7d5d5")))
+                                    new td(Border(Solid(1, Grey1)))
                                     {
                                         x.count
                                     }
@@ -98,7 +99,7 @@ public class PageCountInRange : ReactComponent
         };
     }
 
-    static List<(string from, string to, string count)> GetAllSubRanges(string searchLetters, int slicer)
+    static IReadOnlyList<(string from, string to, string count)> GetAllSubRanges(string searchLetters, int slicer)
     {
         var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
 
@@ -146,10 +147,6 @@ public class PageCountInRange : ReactComponent
         CalculateClicked = true;
     }
 
-    const string Blue100 = "#0099FF";
-    
-    const string Grey1 = "#cdcdcd";
-    
     class CalculateButton : ReactComponent
     {
         public Action<MouseEvent> Clicked { get; set; }
@@ -162,21 +159,20 @@ public class PageCountInRange : ReactComponent
             {
                 IsProcessing ? "Hesaplanıyor..." : "Hesapla",
                 OnClick(Clicked),
-                When(IsProcessing, new LoadingIcon{Color = Blue100} + WidthHeight(10) + MarginLeft(5)),
-                OnClickPreview(()=>IsProcessing = true),
-                
-                Height(40), 
+                When(IsProcessing, new LoadingIcon { Color = Blue100 } + WidthHeight(10) + MarginLeft(5)),
+                OnClickPreview(() => IsProcessing = true),
+
+                Height(40),
                 Width(150),
-                CursorPointer, 
-                Border(Solid(0.5,Blue100)), BorderRadius(5),
+                CursorPointer,
+                Border(Solid(0.5, Blue100)), BorderRadius(5),
                 Color(Blue100),
                 FontFamily("SF Pro Text"),
-                FontSize14, 
+                FontSize14,
                 FontWeight500,
                 LineHeight16,
-                TextAlignCenter, 
-                WordWrapBreakWord,
-                
+                TextAlignCenter,
+                WordWrapBreakWord
             };
         }
     }
