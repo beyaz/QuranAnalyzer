@@ -47,7 +47,7 @@ public class PageCountInRange : ReactComponent
 
                     When(!CalculateClicked, () => new FlexRowCentered(MarginTop(30))
                     {
-                        new ShowMoreButton
+                        new CalculateButton
                         {
                             Clicked      = OnCalculateClicked,
                             IsProcessing = false
@@ -136,15 +136,14 @@ public class PageCountInRange : ReactComponent
         return resultList;
     }
 
-    void OnCalculateClicked()
+    void OnCalculateClicked(MouseEvent e)
     {
         CalculateClicked = true;
     }
 
-    class ShowMoreButton : ReactComponent
+    class CalculateButton : ReactComponent
     {
-        [ReactCustomEvent]
-        public Action Clicked { get; set; }
+        public Action<MouseEvent> Clicked { get; set; }
 
         public bool IsProcessing { get; set; }
 
@@ -152,18 +151,11 @@ public class PageCountInRange : ReactComponent
         {
             return new FlexRowCentered(Height(40), Width(150), CursorPointer, Border("0.50px #0099FF solid"), Color("#0099FF"), FontFamily("SF Pro Text"), FontSize14, FontWeight500, LineHeight16, TextAlignCenter, WordWrapBreakWord)
             {
-                OnClick(OnClickHandler),
+                IsProcessing ? "Hesaplanıyor..." : "Hesapla",
+                OnClick(Clicked),
                 When(IsProcessing, new LoadingIcon() + WidthHeight(10)),
-                When(!IsProcessing, "Hesapla")
+                OnClickPreview(()=>IsProcessing = true)
             };
-        }
-
-        [CacheThisMethod]
-        void OnClickHandler(MouseEvent obj)
-        {
-            IsProcessing = true;
-
-            DispatchEvent(() => Clicked);
         }
     }
 }
