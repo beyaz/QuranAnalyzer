@@ -93,26 +93,31 @@ public class PageVerseFilter : ReactComponent
             return new div { "Verse List read error." };
         }
 
+        var table = new table
+        {
+            new thead
+            {
+                new th
+                {
+                    "Count"
+                },
+                new th { "Verse" }
+            },
+            new tbody
+            {
+                matchedRecords.Select(x => new tr(Border(Solid(1, Grey1)))
+                {
+                    new td(Border(Solid(1, Grey1))) { x.count }, new td(Border(Solid(1, Grey1))) { x.verseAsText }
+                })
+            }
+        };
+
         return new FlexColumn(WidthMaximized, Height(500), Border(Solid(1, Grey1)), OverflowYScroll, Padding(10))
         {
-            dangerouslySetInnerHTML = new table
+            dangerouslySetInnerHTML = new FlexColumn
             {
-                new thead
-                {
-                    new th
-                    {
-                        $"Count ({matchedRecords.Count})"
-                    },
-                    new th { "Verse" }
-                },
-                new tbody
-                {
-                    matchedRecords.Select(x =>
-                                              new tr(Border(Solid(1, Grey1)))
-                                              {
-                                                  new td(Border(Solid(1, Grey1))) { x.count }, new td(Border(Solid(1, Grey1))) { x.verseAsText }
-                                              })
-                }
+                $"Toplam {matchedRecords.Count} adet kayıt bulundu",
+                table
             }.ToHtml()
         };
     }
