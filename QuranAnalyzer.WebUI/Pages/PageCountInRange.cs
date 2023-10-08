@@ -21,38 +21,43 @@ public class PageCountInRange : ReactComponent
 
     protected override Element render()
     {
-        return new FlexColumnCentered(WidthMaximized, BackgroundColor("#9e9e9e"))
+        var inputStyle = new Style
+        {
+            Padding(6), BorderRadius(7), Border(Solid(0.5, Grey1)), Color(rgba(0, 0, 0, 0.87))
+        };
+        
+        return new FlexColumnCentered(WidthMaximized, BackgroundColor("#d2d2ce"))
         {
             new FlexColumnCentered(Container, Gap(50), PaddingTopBottom(50))
             {
-                new FlexColumn(BackgroundWhite, BoxShadow(1, 1, 3, 1, "#333"), Height(840), Padding(50), Width(60 * vw))
+                new FlexColumn(BackgroundWhite, BorderRadius(5), BoxShadow(1, 1, 3, 1, "#333"), Height(840), Padding(50), Width(60 * vw))
                 {
-                    new FlexRow(FlexWrap, Gap(7))
+                    new FlexRow(FlexWrap, Gap(7), AlignItemsFlexEnd)
                     {
-                        (b)"Tüm Kuran", "'da ", new input
+                        "Tüm Kuran", "'da ", new input
                         {
                             type      = "text",
                             valueBind = () => SearchLetters,
-                            style     = { Width(250) }
+                            style     = { Width(250), inputStyle }
                         },
                         " harfleri ile oluşabilecek adeti ",
                         new input
                         {
                             type      = "text",
                             valueBind = () => SliceNumber,
-                            style     = { Width(50) }
+                            style     = { Width(70), inputStyle  }
                         },
-                        " veya katları şeklinde olan ayet aralıklarının listesi nedir?"
+                        " sayısının katları şeklinde olan ayet aralıklarının listesi nedir?"
                     },
 
-                    When(!CalculateClicked, () => new FlexRowCentered(MarginTop(30))
+                    new FlexRowCentered(MarginTop(30))
                     {
                         new CalculateButton
                         {
                             Clicked      = OnCalculateClicked,
                             IsProcessing = false
                         }
-                    }),
+                    },
 
                     SpaceY(30),
 
@@ -141,6 +146,10 @@ public class PageCountInRange : ReactComponent
         CalculateClicked = true;
     }
 
+    const string Blue100 = "#0099FF";
+    
+    const string Grey1 = "#cdcdcd";
+    
     class CalculateButton : ReactComponent
     {
         public Action<MouseEvent> Clicked { get; set; }
@@ -149,12 +158,25 @@ public class PageCountInRange : ReactComponent
 
         protected override Element render()
         {
-            return new FlexRowCentered(Height(40), Width(150), CursorPointer, Border("0.50px #0099FF solid"), Color("#0099FF"), FontFamily("SF Pro Text"), FontSize14, FontWeight500, LineHeight16, TextAlignCenter, WordWrapBreakWord)
+            return new FlexRowCentered
             {
                 IsProcessing ? "Hesaplanıyor..." : "Hesapla",
                 OnClick(Clicked),
-                When(IsProcessing, new LoadingIcon() + WidthHeight(10)),
-                OnClickPreview(()=>IsProcessing = true)
+                When(IsProcessing, new LoadingIcon{Color = Blue100} + WidthHeight(10) + MarginLeft(5)),
+                OnClickPreview(()=>IsProcessing = true),
+                
+                Height(40), 
+                Width(150),
+                CursorPointer, 
+                Border(Solid(0.5,Blue100)), BorderRadius(5),
+                Color(Blue100),
+                FontFamily("SF Pro Text"),
+                FontSize14, 
+                FontWeight500,
+                LineHeight16,
+                TextAlignCenter, 
+                WordWrapBreakWord,
+                
             };
         }
     }
