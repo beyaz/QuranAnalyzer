@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 using static QuranAnalyzer.QuranAnalyzerMixin;
 using static QuranAnalyzer.ArabicLetterOrder;
@@ -9,6 +11,62 @@ namespace QuranAnalyzer;
 [TestClass]
 public class CustomCountingTests
 {
+    
+    [TestMethod]
+    public void CheckSpecialNumberProbability()
+    {
+        var table = new List<List<int>>();
+
+        //Calculate(table, new List<int> { 0, 0 }, 0, 23, 5);
+
+        // Calculate(table, new List<int> { 0,0,0 },0, 36, 9);
+        
+        // Calculate(table, new List<int> { 0,0,0,0,0 },0, 65, 20);
+        
+        Calculate(table, new List<int> { 0,0,0,0,0,0,0,0,0,0 },0, 667, 109);
+
+        table.Count.Should().Be(3);
+
+        static void Calculate(List<List<int>> table, List<int> numberList, int numberIndex, int remainingTotalSum, int remainingTotalSumOfNumbers)
+        {
+            if (numberIndex == numberList.Count)
+            {
+                var hasMatch = remainingTotalSum == 0 && remainingTotalSumOfNumbers == 0;
+                if (hasMatch)
+                {
+                    table.Add(new List<int>(numberList));
+                }
+
+                return;
+            }
+
+
+
+            //numberIndex++;
+
+            for (var i = numberIndex; i < numberList.Count; i++)
+            {
+                for (var j = 0; j < 150; j++)
+                {
+                    numberList[i] = j;
+                    
+                    Calculate(table,numberList, i + 1, remainingTotalSum - j, remainingTotalSumOfNumbers - sumOfNumbers(j));
+                }
+                
+            }
+            
+            
+            
+
+        }
+
+        static int sumOfNumbers(int number)
+        {
+            return number.ToString().Select(c => int.Parse(c.ToString())).Sum();
+        }
+    }
+    
+    
     [TestMethod]
     public void ______1()
     {
