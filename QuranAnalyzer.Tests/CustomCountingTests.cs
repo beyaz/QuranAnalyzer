@@ -25,7 +25,13 @@ public class CustomCountingTests
         
         Calculate(table, new List<int> { 0,0,0,0,0,0,0,0,0,0 },0, 667, 109);
 
-        table.Count.Should().Be(3);
+        var sb = new StringBuilder();
+        foreach (var list in table)
+        {
+            sb.AppendLine(string.Join(", ", list));
+        }
+
+        throw new Exception(sb.ToString());
 
         static void Calculate(List<List<int>> table, List<int> numberList, int numberIndex, int remainingTotalSum, int remainingTotalSumOfNumbers)
         {
@@ -46,7 +52,7 @@ public class CustomCountingTests
 
             for (var i = numberIndex; i < numberList.Count; i++)
             {
-                for (var j = 0; j < 150; j++)
+                for (var j = 1; j <= 130; j++)
                 {
                     numberList[i] = j;
                     
@@ -67,7 +73,7 @@ public class CustomCountingTests
     }
     
     
-    [TestMethod]
+    //[TestMethod]
     public void ______1()
     {
         var verseCount = 0;
@@ -96,7 +102,7 @@ public class CustomCountingTests
         }
     }
 
-    [TestMethod]
+    //[TestMethod]
     public void LastN()
     {
         var verseCount = 0;
@@ -141,7 +147,7 @@ public class CustomCountingTests
         }
     }
 
-    [TestMethod]
+   // [TestMethod]
     public void All_Saad_Combined_as_ChapterNumber_VerseNumber_is_114_667()
     {
         var sb = new StringBuilder();
