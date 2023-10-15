@@ -17,13 +17,13 @@ public class CustomCountingTests
     {
         var table = new List<List<int>>();
 
-        //Calculate(table, new List<int> { 0, 0 }, 0, 23, 5);
+        Calculate(table, new List<int> { 0, 0 }, 0, 23, 5);
 
         // Calculate(table, new List<int> { 0,0,0 },0, 36, 9);
         
         // Calculate(table, new List<int> { 0,0,0,0,0 },0, 65, 20);
         
-        Calculate(table, new List<int> { 0,0,0,0,0 },0, 667, 109);
+        //Calculate(table, new List<int> { 0,0,0,0,0 },0, 667, 109);
 
         var sb = new StringBuilder();
         foreach (var list in table)
