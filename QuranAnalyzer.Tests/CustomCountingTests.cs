@@ -23,7 +23,7 @@ public class CustomCountingTests
         
         // Calculate(table, new List<int> { 0,0,0,0,0 },0, 65, 20);
         
-        Calculate(table, new List<int> { 0,0,0,0,0 },0, 667, 109);
+        Calculate(table, new List<int> { 0,0,0,0,0,0 },0, 667, 109);
 
         var sb = new StringBuilder();
         foreach (var list in table)
