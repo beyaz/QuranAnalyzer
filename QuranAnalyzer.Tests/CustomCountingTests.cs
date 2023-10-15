@@ -33,7 +33,7 @@ public class CustomCountingTests
 
         if (table.Count == 0)
         {
-            sb.AppendLine("Count is zero");
+            sb.AppendLine("Count is zero.");
         }
 
         throw new Exception(sb.ToString());
