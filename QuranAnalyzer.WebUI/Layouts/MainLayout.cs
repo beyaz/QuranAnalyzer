@@ -19,7 +19,14 @@ class MainLayout : ReactPureComponent, IPageLayout
             {
                 new meta { charset = "UTF-8" },
                 new meta { name    = "viewport", content = "width=device-width, initial-scale=1" },
+                
+                new meta { name = "description", content = "19 Sistemi Nedir" },
+                
                 new title { "19 Sistemi Nedir" },
+                
+                new link{rel = "icon",href = $"{root}/img/favicon_io/favicon.ico"},
+                
+                
 
                 new style
                 {
