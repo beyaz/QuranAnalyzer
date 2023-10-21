@@ -62,7 +62,7 @@ class Calculator : ReactComponent<CalculatorModel>
             new FlexRow(AlignItemsCenter, state.ErrorText.HasValue() ? JustifyContentSpaceBetween : JustifyContentFlexEnd)
             {
                 new ErrorText { Text     = state.ErrorText },
-                new ActionButton { Label = "Hesapla", OnClick = OnClick, IsProcessing = state.IsProcessing }
+                new ActionButton { Label = "Hesapla", OnClick = ()=>Task.Run(OnClick), IsProcessing = state.IsProcessing }
             },
 
             When(state.ShowResults, GetCalculationText)

@@ -142,14 +142,15 @@ public class PageCountInRange : ReactComponent
         return resultList;
     }
 
-    void OnCalculateClicked(MouseEvent e)
+    Task OnCalculateClicked(MouseEvent e)
     {
         CalculateClicked = true;
+        return Task.CompletedTask;
     }
 
     class CalculateButton : ReactComponent
     {
-        public Action<MouseEvent> Clicked { get; set; }
+        public MouseEventHandler Clicked { get; set; }
 
         public bool IsProcessing { get; set; }
 

@@ -92,9 +92,11 @@ class TotalCounts : ReactComponent
         }, delayForAnimation);
     }
 
-    void Calculate()
+    Task Calculate()
     {
         IsDisplayingResults = true;
+        
+        return Task.CompletedTask;
     }
 
     Element CalculateResult()
@@ -171,17 +173,19 @@ class TotalCounts : ReactComponent
                     new img(MarginTopBottom(10))
                     {
                         src    = FileAtImgFolder("arrow-down-double.svg"),
-                        width  = 40,
-                        height = 40
+                        width  = "40",
+                        height = "40"
                     }
                 }
             }
         };
     }
 
-    void RecalculateTotalCounts()
+    Task RecalculateTotalCounts()
     {
         Records.SkipLast(1).SumOf(x => ParseInt(x.Count)).Then(total => Records[^1].Count = total.ToString());
+        
+        return Task.CompletedTask;
     }
 
     class Arrow : ReactPureComponent

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Immutable;
-using System.Threading.Tasks;
 
 namespace QuranAnalyzer.WebUI.Pages.CountOfAllahPage;
 
@@ -64,7 +63,7 @@ class Calculator : ReactComponent<CalculatorModel>
             new FlexRow(AlignItemsCenter, state.ErrorText.HasValue() ? JustifyContentSpaceBetween : JustifyContentFlexEnd)
             {
                 new ErrorText { Text     = state.ErrorText },
-                new ActionButton { Label = "Hesapla", OnClick = OnClick, IsProcessing = state.IsProcessing }
+                new ActionButton { Label = "Hesapla", OnClick = ()=>Task.Run(OnClick), IsProcessing = state.IsProcessing }
             },
 
             When(state.ShowResults, InFadeAnimation(GetCalculationText))

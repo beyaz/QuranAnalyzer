@@ -62,7 +62,12 @@ class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
     {
         if (IsMenuVisible)
         {
-            return new a { new MenuCloseIcon(), Href("#"), OnClick(_ => Client.HistoryGo(-2)) };
+            return new a { new MenuCloseIcon(), Href("#"), OnClick(_ =>
+            {
+                Client.HistoryGo(-2);
+                
+                return Task.CompletedTask;
+            }) };
         }
 
         return new a { new SvgHamburgerIcon(), Href(GetPageLink(PageId.MobileMenu) + $"&{QueryKey.SenderPage}={Query[QueryKey.Page] ?? PageId.MainWindow}") };

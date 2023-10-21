@@ -7,7 +7,7 @@ class MushafOptionsView : ReactComponent
     public MushafOption Model { get; set; } = new();
 
     [ReactCustomEvent]
-    public Action<MushafOption> MushafOptionChanged { get; set; }
+    public Func<MushafOption,Task> MushafOptionChanged { get; set; }
 
     protected override Element render()
     {
@@ -22,6 +22,8 @@ class MushafOptionsView : ReactComponent
                 {
                     Model.UseElifReferencesFromTanzil = Convert.ToBoolean(changeEvent.target.value);
                     FireMushafOptionChanged();
+                    
+                    return Task.CompletedTask;
                 }
             },
 
@@ -34,6 +36,8 @@ class MushafOptionsView : ReactComponent
                 {
                     Model.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten = Convert.ToBoolean(changeEvent.target.value);
                     FireMushafOptionChanged();
+                    
+                    return Task.CompletedTask;
                 }
             },
 
@@ -46,6 +50,7 @@ class MushafOptionsView : ReactComponent
                 {
                     Model.Chapter_68_Should_Single_Nun = Convert.ToBoolean(changeEvent.target.value);
                     FireMushafOptionChanged();
+                    return Task.CompletedTask;
                 }
             },
 
@@ -58,6 +63,7 @@ class MushafOptionsView : ReactComponent
                 {
                     Model.Use_Laam_SpecifiedByTanzil = Convert.ToBoolean(changeEvent.target.value);
                     FireMushafOptionChanged();
+                    return Task.CompletedTask;
                 }
             },
 
@@ -70,6 +76,7 @@ class MushafOptionsView : ReactComponent
                 {
                     Model.Enba_u_Should_Contains_one_waw = Convert.ToBoolean(changeEvent.target.value);
                     FireMushafOptionChanged();
+                    return Task.CompletedTask;
                 }
             },
 
@@ -82,6 +89,7 @@ class MushafOptionsView : ReactComponent
                 {
                     Model._75_13_yunebbeu_Should_Contains_1_waw = Convert.ToBoolean(changeEvent.target.value);
                     FireMushafOptionChanged();
+                    return Task.CompletedTask;
                 }
             },
 

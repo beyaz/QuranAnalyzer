@@ -83,19 +83,21 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
         return container;
     }
 
-    void OnClick()
+    Task OnClick()
     {
         state.ErrorText = null;
 
         if (state.Letters.HasNoValue())
         {
             state.ErrorText = "En az bir tane Arapça karakter girilmelidir.";
-            return;
+            return Task.CompletedTask;
         }
 
         var letters = Analyzer.AnalyzeText(state.Letters.Replace(" ", ""));
 
         state.LetterInfoList = letters;
+        
+        return Task.CompletedTask;
     }
 
     class ArabicLetterWithNumericValue

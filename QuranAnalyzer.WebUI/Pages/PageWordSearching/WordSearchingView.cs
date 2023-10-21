@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
+﻿using QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
 using QuranAnalyzer.WebUI.Pages.Shared;
 using Switch = ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch;
 
@@ -245,42 +244,47 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         state.SearchScript             = state.SearchScript?.Trim() + " " + letter;
     }
 
-    void ClearErrorMessage()
+    Task ClearErrorMessage()
     {
         state.SearchScriptErrorMessage = null;
+        
+        return Task.CompletedTask;
     }
 
-    void OnCalculateClicked()
+    Task OnCalculateClicked()
     {
-        state.SearchScriptErrorMessage = null;
-        if (state.SearchScript.HasNoValue())
+        return Task.Run(() =>
         {
-            state.SearchScriptErrorMessage = "Arama Komutu doldurulmalıdır";
-            Client.GotoMethod(1000, ClearErrorMessage);
-            return;
-        }
+            state.SearchScriptErrorMessage = null;
+            if (state.SearchScript.HasNoValue())
+            {
+                state.SearchScriptErrorMessage = "Arama Komutu doldurulmalıdır";
+                Client.GotoMethod(1000, ClearErrorMessage);
+                return;
+            }
 
-        var scriptParseResponse = SearchScript.ParseScript(state.SearchScript);
-        if (scriptParseResponse.IsFail)
-        {
-            state.SearchScriptErrorMessage = scriptParseResponse.FailMessage;
-            Client.GotoMethod(3000, ClearErrorMessage);
-            return;
-        }
+            var scriptParseResponse = SearchScript.ParseScript(state.SearchScript);
+            if (scriptParseResponse.IsFail)
+            {
+                state.SearchScriptErrorMessage = scriptParseResponse.FailMessage;
+                Client.GotoMethod(3000, ClearErrorMessage);
+                return;
+            }
 
-        var script = scriptParseResponse.Value;
+            var script = scriptParseResponse.Value;
 
-        state.ClickCount++;
+            state.ClickCount++;
 
-        if (state.IsBlocked == false)
-        {
-            state.IsBlocked = true;
-            Client.HistoryReplaceState(null, "", $"/?{QueryKey.Page}={PageId.WordSearching}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.SearchOption}={state.SearchOption}");
-            Client.GotoMethod(OnCalculateClicked);
-            return;
-        }
+            if (state.IsBlocked == false)
+            {
+                state.IsBlocked = true;
+                Client.HistoryReplaceState(null, "", $"/?{QueryKey.Page}={PageId.WordSearching}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.SearchOption}={state.SearchOption}");
+                Client.GotoMethod(OnCalculateClicked);
+                return;
+            }
 
-        state.IsBlocked = false;
+            state.IsBlocked = false;
+        });
     }
 
     Element PartOption()
@@ -294,12 +298,14 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         };
     }
 
-    void SearchOptionChanged(ChangeEvent changeEvent)
+    Task SearchOptionChanged(ChangeEvent changeEvent)
     {
         state.SearchOption = changeEvent.target.value;
 
         state.SearchScriptErrorMessage = null;
 
         state.ClickCount = 0;
+        
+        return Task.CompletedTask;
     }
 }

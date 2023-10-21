@@ -7,7 +7,7 @@ class CharacterCountingOptionView : ReactComponent
     public MushafOption MushafOption { get; set; } = new();
 
     [ReactCustomEvent]
-    public Action<MushafOption> MushafOptionChanged { get; set; }
+    public Func<MushafOption,Task> MushafOptionChanged { get; set; }
 
     protected override Element render()
     {
@@ -63,9 +63,11 @@ class CharacterCountingOptionView : ReactComponent
         }
     }
 
-    void OnMushafOptionChanged(MushafOption mushafOption)
+    Task OnMushafOptionChanged(MushafOption mushafOption)
     {
         MushafOption = mushafOption;
         DispatchEvent(() => MushafOptionChanged, mushafOption);
+        
+        return Task.CompletedTask;
     }
 }

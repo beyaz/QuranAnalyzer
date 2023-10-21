@@ -252,18 +252,22 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         state.SearchScript = state.SearchScript?.Trim() + " " + letter;
     }
 
-    void ClearErrorMessage()
+    Task ClearErrorMessage()
     {
         state.SearchScriptErrorMessage = null;
+        
+        return Task.CompletedTask;
     }
 
-    void MushafOptionChanged(MushafOption mushafOption)
+    Task MushafOptionChanged(MushafOption mushafOption)
     {
         state.ClickCount   = 0;
         state.MushafOption = mushafOption;
+        
+        return Task.CompletedTask;
     }
 
-    void OnCalculateClicked()
+    Task OnCalculateClicked()
     {
         state.SearchScriptErrorMessage = null;
 
@@ -271,7 +275,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         {
             state.SearchScriptErrorMessage = "Arama Komutu doldurulmalıdır";
             Client.GotoMethod(1000, ClearErrorMessage);
-            return;
+            return Task.CompletedTask;
         }
 
         var scriptParseResponse = SearchScript.ParseScript(state.SearchScript);
@@ -279,7 +283,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         {
             state.SearchScriptErrorMessage = scriptParseResponse.FailMessage;
             Client.GotoMethod(3000, ClearErrorMessage);
-            return;
+            return Task.CompletedTask;
         }
 
         var script = scriptParseResponse.Value;
@@ -291,16 +295,20 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
             state.IsBlocked = true;
             Client.HistoryReplaceState(null, "", $"/?{QueryKey.Page}={PageId.CharacterCounting}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.IncludeBismillah}={state.IncludeBismillah.AsNumber()}");
             Client.GotoMethod(OnCalculateClicked);
-            return;
+            return Task.CompletedTask;
         }
 
         state.IsBlocked = false;
+        
+        return Task.CompletedTask;
     }
 
-    void OnIncludeBismillahChanged(ChangeEvent changeEvent)
+    Task OnIncludeBismillahChanged(ChangeEvent changeEvent)
     {
         state.ClickCount = 0;
 
         state.IncludeBismillah = Convert.ToBoolean(changeEvent.target.value);
+        
+        return Task.CompletedTask;
     }
 }

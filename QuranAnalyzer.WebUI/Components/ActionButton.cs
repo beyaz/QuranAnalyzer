@@ -7,7 +7,7 @@ public class ActionButton : ReactComponent
     public string Label { get; set; }
 
     [ReactCustomEvent]
-    public Action OnClick { get; set; }
+    public Func<Task> OnClick { get; set; }
 
     protected override Element render()
     {
@@ -31,10 +31,12 @@ public class ActionButton : ReactComponent
         };
     }
 
-    void ActionButtonOnClick(MouseEvent _)
+    Task ActionButtonOnClick(MouseEvent _)
     {
         IsProcessing = true;
 
         DispatchEvent(() => OnClick);
+        
+        return Task.CompletedTask;
     }
 }

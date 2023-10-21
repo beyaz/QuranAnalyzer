@@ -10,7 +10,7 @@ class SwitchWithLabel : ReactPureComponent
 
     public bool Value { get; set; }
 
-    public Action<ChangeEvent> ValueChange { get; set; }
+    public ChangeEventHandler ValueChange { get; set; }
 
     protected override Element render()
     {
@@ -31,7 +31,7 @@ public class Switch : ReactPureComponent
 
     public bool? IsDisabled { get; set; }
 
-    public Action<ChangeEvent> ValueChange { get; set; }
+    public ChangeEventHandler ValueChange { get; set; }
 
     protected override Element render()
     {
