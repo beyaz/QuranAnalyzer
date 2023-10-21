@@ -10,6 +10,11 @@ class MainLayout : ReactPureComponent, IPageLayout
     {
         const string root = "wwwroot";
 
+        static string fav(string fileName)
+        {
+            return $"{root}/img/favicon_io/{fileName}";
+        }
+
         return new html
         {
             Lang("tr"),
@@ -24,10 +29,17 @@ class MainLayout : ReactPureComponent, IPageLayout
                 
                 new title { "19 Sistemi Nedir" },
                 
-                new link{rel = "icon",href = $"{root}/img/favicon_io/favicon.ico"},
+                // F A V I C O N
+                new link{rel = "icon",href = fav("favicon.ico")},
                 
+                new link{rel = "apple-touch-icon",sizes ="180x180", href = fav("apple-touch-icon.png")},
                 
-
+                new link{rel = "icon", type = "image/png", sizes ="32x32", href = fav("favicon-32x32.png")},
+                
+                new link{rel = "icon", type = "image/png", sizes ="16x16", href = fav("favicon-16x16.png")},
+                
+                new link{rel = "manifest", href = fav("site.webmanifest")},
+                
                 new style
                 {
                     
