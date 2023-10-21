@@ -91,7 +91,7 @@ class CountsSummaryView : ReactPureComponent
             new FlexColumn(AlignItemsCenter)
             {
                 new div { text, Color(color), FontSize30 },
-                new div { Text(pronunciation), FontSize12, FontWeight700 }
+                pronunciation is null ? null : new div { Text(pronunciation), FontSize12, FontWeight700 }
             },
 
             new div { ":", MarginLeftRight(4) },
@@ -150,16 +150,20 @@ class CountsSummaryView : ReactPureComponent
 
     string GetPronunciation(string name)
     {
-        var pronunciation = GetPronunciationOfArabicLetter(name[0]);
-        if (pronunciation is not null && pronunciation != name)
+        if (name == null)
         {
-            pronunciation = "(" + pronunciation + ")";
-        }
-        else
-        {
-            pronunciation = GetPronunciationOfArabicWord(name)?.trMean;
+            return null;
         }
 
-        return pronunciation;
+        if (name.Length == 1)
+        {
+            var pronunciation = GetPronunciationOfArabicLetter(name[0]);
+            if (pronunciation is not null && pronunciation != name)
+            {
+                return  "(" + pronunciation + ")";
+            }
+        }
+        
+        return GetPronunciationOfArabicWord(name)?.trMean;
     }
 }
