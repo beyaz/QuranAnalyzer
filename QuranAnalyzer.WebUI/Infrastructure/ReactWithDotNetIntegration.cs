@@ -21,17 +21,17 @@ static class ReactWithDotNetIntegration
 
 #if DEBUG // this two endpoints should use only development mode
 
-        endpoints.MapGet("/" + nameof(ReactWithDotNetDesigner), async httpContext =>
+        endpoints.MapGet("/" + nameof(ReactWithDotNetDesigner), httpContext =>
         {
             ReactWithDotNetDesigner.IsAttached = true;
 
-            await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesigner));
+            return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesigner));
         });
-        endpoints.MapGet("/" + nameof(ReactWithDotNetDesignerComponentPreview), async httpContext =>
+        endpoints.MapGet("/" + nameof(ReactWithDotNetDesignerComponentPreview), httpContext =>
         {
             ReactWithDotNetDesigner.IsAttached = true;
 
-            await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesignerComponentPreview));
+            return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesignerComponentPreview));
         });
 #endif
     }
@@ -54,9 +54,9 @@ static class ReactWithDotNetIntegration
         await httpContext.Response.WriteAsync(jsonText);
     }
 
-    static async Task HomePage(HttpContext httpContext)
+    static Task HomePage(HttpContext httpContext)
     {
-        await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageMainWindowView));
+        return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageMainWindowView));
     }
 
     static Task OnReactContextCreated(HttpContext httpContext, ReactContext reactContext)
