@@ -1,5 +1,4 @@
 ﻿using System.Collections.Immutable;
-using System.Threading.Tasks;
 
 namespace QuranAnalyzer.WebUI.Pages.PageVerseListContainsAllInitialLetters;
 
@@ -69,10 +68,12 @@ class Calculator : ReactComponent<CalculatorModel>
         };
     }
 
-    void Calculate()
+    Task Calculate()
     {
         state.ShowResults  = true;
         state.IsProcessing = false;
+        
+        return Task.CompletedTask;
     }
 
     Element GetCalculationText()

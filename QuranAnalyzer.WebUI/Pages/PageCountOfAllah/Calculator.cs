@@ -82,10 +82,12 @@ class Calculator : ReactComponent<CalculatorModel>
         };
     }
 
-    void Calculate()
+    Task Calculate()
     {
         state.ShowResults  = true;
         state.IsProcessing = false;
+        
+        return Task.CompletedTask;
     }
 
     Element GetCalculationText()

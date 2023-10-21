@@ -237,11 +237,13 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         };
     }
 
-    void ArabicKeyboardPressed(string letter)
+    Task ArabicKeyboardPressed(string letter)
     {
         state.SearchScriptErrorMessage = null;
         state.ClickCount               = 0;
         state.SearchScript             = state.SearchScript?.Trim() + " " + letter;
+        
+        return Task.CompletedTask;
     }
 
     Task ClearErrorMessage()

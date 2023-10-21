@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace QuranAnalyzer.WebUI.Pages.PageMainWindow;
+﻿namespace QuranAnalyzer.WebUI.Pages.PageMainWindow;
 
 class FixedTopPanelContainerModel
 {
@@ -16,7 +14,7 @@ class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
     {
         state = new FixedTopPanelContainerModel();
 
-        Client.OnMainContentDivScrollChangedOverZero(mainDivScrollY => state.MainDivScrollY = mainDivScrollY);
+        Client.OnMainContentDivScrollChangedOverZero(mainDivScrollY => Task.Run(()=>state.MainDivScrollY = mainDivScrollY));
 
         return Task.CompletedTask;
     }

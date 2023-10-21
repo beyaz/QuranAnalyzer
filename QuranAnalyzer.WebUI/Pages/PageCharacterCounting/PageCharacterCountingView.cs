@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using System.Threading.Tasks;
 using Switch = ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch;
 
 namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
@@ -243,13 +242,15 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         };
     }
 
-    void ArabicKeyboardPressed(string letter)
+    Task ArabicKeyboardPressed(string letter)
     {
         state.ClickCount = 0;
 
         state.SearchScriptErrorMessage = null;
 
         state.SearchScript = state.SearchScript?.Trim() + " " + letter;
+        
+        return Task.CompletedTask;
     }
 
     Task ClearErrorMessage()

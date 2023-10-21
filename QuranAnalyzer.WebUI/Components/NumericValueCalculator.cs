@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace QuranAnalyzer.WebUI.Components;
+﻿namespace QuranAnalyzer.WebUI.Components;
 
 class NumericValueCalculatorModel
 {

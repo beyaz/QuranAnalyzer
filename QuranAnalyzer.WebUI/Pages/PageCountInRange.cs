@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace QuranAnalyzer.WebUI.Pages;
+﻿namespace QuranAnalyzer.WebUI.Pages;
 
 public class PageCountInRange : ReactComponent
 {

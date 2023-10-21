@@ -133,7 +133,7 @@ static class ArabicKeyboardEvents
         client.DispatchEvent(nameof(ArabicKeyboardPressed), arabicLetter);
     }
 
-    public static void OnArabicKeyboardPressed(this Client client, Action<string> handlerAction)
+    public static void OnArabicKeyboardPressed(this Client client, Func<string,Task> handlerAction)
     {
         client.ListenEvent(ArabicKeyboardPressed, handlerAction);
     }

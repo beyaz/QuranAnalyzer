@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using static QuranAnalyzer.QuranArabicVersionWithNoBismillah;
+﻿using static QuranAnalyzer.QuranArabicVersionWithNoBismillah;
 
 namespace QuranAnalyzer.WebUI.Pages;
 
