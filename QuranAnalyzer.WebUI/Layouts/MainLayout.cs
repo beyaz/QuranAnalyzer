@@ -29,6 +29,7 @@ class MainLayout : ReactPureComponent, IPageLayout
                        margin: 0;
                        font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
                        font-size: 16px;
+                       line-height: 26px;
                        color: rgb(51, 51, 51);
                    }
                    
