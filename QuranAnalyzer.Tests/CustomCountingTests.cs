@@ -15,64 +15,115 @@ public class CustomCountingTests
     [TestMethod]
     public void CheckSpecialNumberProbability()
     {
-        var table = new List<List<int>>();
-
-        //Calculate(table, new List<int> { 0, 0 }, 0, 23, 5);
-
-        // Calculate(table, new List<int> { 0,0,0 },0, 36, 9);
-        
-        // Calculate(table, new List<int> { 0,0,0,0,0 },0, 65, 20);
-        
-        Calculate(table, new List<int> { 0,0,0,0,0,0,0,0,0,0 },0, 667, 109);
-
         var sb = new StringBuilder();
-        foreach (var list in table)
-        {
-            sb.AppendLine(string.Join(", ", list));
-        }
+        
+        const int minValue = 1;
+        const int maxValue = 130;
+        const int requestedTotalSumOfNumbers = 109;
+        const int requestedTotalSum = 667;
 
-        if (table.Count == 0)
-        {
-            sb.AppendLine("Count is zero.");
-        }
+        var iterationCount = 0L;
 
-        throw new Exception(sb.ToString());
-
-        static void Calculate(List<List<int>> table, List<int> numberList, int numberIndex, int remainingTotalSum, int remainingTotalSumOfNumbers)
+        for (var i0 = minValue; i0 < maxValue; i0++)
         {
-            if (numberIndex == numberList.Count)
+            var remainingTotalSum_0 = requestedTotalSum - i0;
+            var remainingTotalSumOfNumbers_0 = requestedTotalSumOfNumbers - sumOfNumbers(i0);
+
+            for (var i1 = minValue; i1 < maxValue; i1++)
             {
-                var hasMatch = remainingTotalSum == 0 && remainingTotalSumOfNumbers == 0;
-                if (hasMatch)
+                var remainingTotalSum_1 = remainingTotalSum_0 - i1;
+                var remainingTotalSumOfNumbers_1 = remainingTotalSumOfNumbers_0 - sumOfNumbers(i1);
+
+                for (var i2 = minValue; i2 < maxValue; i2++)
                 {
-                    table.Add(new List<int>(numberList));
+                    var remainingTotalSum_2 = remainingTotalSum_1 - i2;
+                    var remainingTotalSumOfNumbers_2 = remainingTotalSumOfNumbers_1 - sumOfNumbers(i2);
+
+                    for (var i3 = minValue; i3 < maxValue; i3++)
+                    {
+                        var remainingTotalSum_3 = remainingTotalSum_2 - i3;
+                        var remainingTotalSumOfNumbers_3 = remainingTotalSumOfNumbers_2 - sumOfNumbers(i3);
+
+                        for (var i4 = minValue; i4 < maxValue; i4++)
+                        {
+                            var remainingTotalSum_4 = remainingTotalSum_3 - i4;
+                            var remainingTotalSumOfNumbers_4 = remainingTotalSumOfNumbers_3 - sumOfNumbers(i4);
+
+                            for (var i5 = minValue; i5 < maxValue; i5++)
+                            {
+                                var remainingTotalSum_5 = remainingTotalSum_4 - i5;
+                                var remainingTotalSumOfNumbers_5 = remainingTotalSumOfNumbers_4 - sumOfNumbers(i5);
+
+                                for (var i6 = minValue; i6 < maxValue; i6++)
+                                {
+                                    var remainingTotalSum_6 = remainingTotalSum_5 - i6;
+                                    var remainingTotalSumOfNumbers_6 = remainingTotalSumOfNumbers_5 - sumOfNumbers(i6);
+
+                                    for (var i7 = minValue; i7 < maxValue; i7++)
+                                    {
+                                        var remainingTotalSum_7 = remainingTotalSum_6 - i7;
+                                        var remainingTotalSumOfNumbers_7 = remainingTotalSumOfNumbers_6 - sumOfNumbers(i7);
+
+                                        for (var i8 = minValue; i8 < maxValue; i8++)
+                                        {
+                                            var remainingTotalSum_8 = remainingTotalSum_7 - i8;
+                                            var remainingTotalSumOfNumbers_8 = remainingTotalSumOfNumbers_7 - sumOfNumbers(i8);
+
+                                            for (var i9 = minValue; i9 < maxValue; i9++)
+                                            {
+                                                iterationCount++;
+                                                
+                                                var remainingTotalSum_9 = remainingTotalSum_8 - i9;
+                                                var remainingTotalSumOfNumbers_9 = remainingTotalSumOfNumbers_8 - sumOfNumbers(i9);
+
+                                                if (remainingTotalSum_9 == 0 &&
+                                                    remainingTotalSumOfNumbers_9 == 0)
+                                                {
+                                                    sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, {i9}");
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-
-                return;
             }
-
-
-
-            //numberIndex++;
-
-            for (var i = numberIndex; i < numberList.Count; i++)
-            {
-                for (var j = 1; j <= 130; j++)
-                {
-                    numberList[i] = j;
-                    
-                    Calculate(table,numberList, i + 1, remainingTotalSum - j, remainingTotalSumOfNumbers - sumOfNumbers(j));
-                }
-                
-            }
-            
-            
-            
-
         }
+
+        throw new Exception($"Iteration: {iterationCount}, items: {sb}");
+
 
         static int sumOfNumbers(int number)
         {
+            if (number < 10)
+            {
+                return number;
+            }
+            
+            if (number < 100)
+            {
+                var second = number%10;
+
+                var first = (number - second) / 10;
+
+                return first + second;
+            }
+            
+            if (number < 1000)
+            {
+                var part_2_3 = number % 100;
+                
+                var third = part_2_3 % 10;
+
+                var second = (part_2_3 - third) / 10;
+
+                var first = (number - part_2_3) / 100;
+
+                return first + second + third;
+            }
+            
             return number.ToString().Select(c => int.Parse(c.ToString())).Sum();
         }
     }
