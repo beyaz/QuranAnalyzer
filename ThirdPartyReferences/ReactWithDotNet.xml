@@ -4,45 +4,9 @@
         <name>ReactWithDotNet</name>
     </assembly>
     <members>
-        <member name="P:ReactWithDotNet.a.download">
-            <summary>
-                Download file when clicking on the link (instead of navigating to the file):
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.a.rel">
-            <summary>
-                Specifies the relationship between the current document and the linked document.
-                <br />
-                Only used if the href attribute is present.
-                <br />
-                Tip: Search engines can use this attribute to get more information about a link!
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.a.TargetBlank">
+        <member name="P:ReactWithDotNet.Mixin.TargetBlank">
             <summary>
                 a.target = '_blank'
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.a.Href(System.String)">
-            <summary>
-                a.href = <paramref name="href" />
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.a.Target(System.String)">
-            <summary>
-                a.target = <paramref name="target" />
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.a.Rel(System.String)">
-            <summary>
-                a.href = <paramref name="value" />;
-                <br/>
-                <br/>
-                Specifies the relationship between the current document and the linked document.
-                <br />
-                Only used if the href attribute is present.
-                <br />
-                Tip: Search engines can use this attribute to get more information about a link!
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.Href(System.String)">
@@ -50,9 +14,9 @@
                 a.href = <paramref name="href" />
             </summary>
         </member>
-        <member name="P:ReactWithDotNet.Mixin.TargetBlank">
+        <member name="M:ReactWithDotNet.Mixin.Target(System.String)">
             <summary>
-                a.target = '_blank'
+                a.target = <paramref name="target" />
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.Rel(System.String)">
@@ -1265,11 +1229,6 @@
         <member name="P:ReactWithDotNet.Mixin.BorderCollapseSeparate">
             <summary>
                 style.borderCollapse = separate
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.CellSpacing(System.Nullable{System.Double})">
-            <summary>
-                table.cellSpacing = <paramref name="value" />
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.CellPadding(System.Nullable{System.Double})">
@@ -4652,6 +4611,11 @@
                 Specifies independent, self-contained content.
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.article.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Specifies independent, self-contained content.
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.p">
             <summary>
                 Defines a paragraph
@@ -4678,6 +4642,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.p.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Defines a paragraph
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.p.#ctor(ReactWithDotNet.StyleModifier[])">
             <summary>
                 Defines a paragraph
             </summary>
@@ -4712,6 +4681,11 @@
                 Preformatted text
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.pre.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Preformatted text
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.code">
             <summary>
                 Define some text as computer code in a document
@@ -4738,6 +4712,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.code.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Define some text as computer code in a document
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.code.#ctor(ReactWithDotNet.StyleModifier[])">
             <summary>
                 Define some text as computer code in a document
             </summary>
@@ -4772,6 +4751,11 @@
                 Ordered list
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ol.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Ordered list
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.ul">
             <summary>
                 Unordered (bulleted) list
@@ -4798,6 +4782,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.ul.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Unordered (bulleted) list
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ul.#ctor(ReactWithDotNet.StyleModifier[])">
             <summary>
                 Unordered (bulleted) list
             </summary>
@@ -4832,6 +4821,11 @@
                 List item
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.li.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                List item
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.span">
             <summary>
                 Inline container used to mark up a part of a text, or a part of a document.
@@ -4858,6 +4852,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.span.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Inline container used to mark up a part of a text, or a part of a document.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.span.#ctor(ReactWithDotNet.StyleModifier[])">
             <summary>
                 Inline container used to mark up a part of a text, or a part of a document.
             </summary>
@@ -4892,6 +4891,11 @@
                 Superscript text
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.sup.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Superscript text
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.sub">
             <summary>
                 Subscript text
@@ -4918,6 +4922,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.sub.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Subscript text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.sub.#ctor(ReactWithDotNet.StyleModifier[])">
             <summary>
                 Subscript text
             </summary>
@@ -4952,6 +4961,11 @@
                 Inserted text
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ins.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Inserted text
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.del">
             <summary>
                 Deleted text
@@ -4978,6 +4992,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.del.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Deleted text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.del.#ctor(ReactWithDotNet.StyleModifier[])">
             <summary>
                 Deleted text
             </summary>
@@ -5012,6 +5031,11 @@
                 Smaller text
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.small.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Smaller text
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.mark">
             <summary>
                 Marked text
@@ -5038,6 +5062,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.mark.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Marked text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.mark.#ctor(ReactWithDotNet.StyleModifier[])">
             <summary>
                 Marked text
             </summary>
@@ -5072,6 +5101,11 @@
                 Emphasized text
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.em.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Emphasized text
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.b">
             <summary>
                 Bold text
@@ -5098,6 +5132,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.b.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Bold text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.b.#ctor(ReactWithDotNet.StyleModifier[])">
             <summary>
                 Bold text
             </summary>
@@ -5132,6 +5171,11 @@
                 Italic text
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.i.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Italic text
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.u">
             <summary>
                 Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
@@ -5158,6 +5202,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.u.#ctor(ReactWithDotNet.Style)">
+            <summary>
+                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.u.#ctor(ReactWithDotNet.StyleModifier[])">
             <summary>
                 Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
             </summary>
@@ -5192,6 +5241,11 @@
                 Important text
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.strong.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Important text
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.section">
             <summary>
                 Section in a document
@@ -5210,6 +5264,551 @@
         <member name="M:ReactWithDotNet.section.#ctor(ReactWithDotNet.Style)">
             <summary>
                 Section in a document
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.section.#ctor(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Section in a document
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ellipse.cx">
+            <summary>
+                The x-coordinate of the center of the ellipse.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ellipse.cy">
+            <summary>
+                The y-coordinate of the center of the ellipse.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ellipse.rx">
+            <summary>
+                The radius of the ellipse along the x-axis.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ellipse.ry">
+            <summary>
+                The radius of the ellipse along the y-axis.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ellipse.fill">
+            <summary>
+                The fill color of the ellipse.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ellipse.stroke">
+            <summary>
+                The stroke color of the ellipse.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ellipse.strokeWidth">
+            <summary>
+                The width of the stroke.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.x1">
+            <summary>
+                The x-coordinate of the start point of the line.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.y1">
+            <summary>
+                The y-coordinate of the start point of the line.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.x2">
+            <summary>
+                The x-coordinate of the end point of the line.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.y2">
+            <summary>
+                The y-coordinate of the end point of the line.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.stroke">
+            <summary>
+                The stroke (outline) color of the line.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.strokeWidth">
+            <summary>
+                The width of the line's outline.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.strokeDasharray">
+            <summary>
+                Pattern of dashes and gaps used in the line's stroke.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.strokeLinecap">
+            <summary>
+                The style of the line's endpoints.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.strokeLinejoin">
+            <summary>
+                The style of the line's corners.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.line.strokeOpacity">
+            <summary>
+                The opacity (transparency) of the line's stroke.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polyline.points">
+            <summary>
+                A list of points defining the vertices of the polyline.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polyline.fill">
+            <summary>
+                The fill color of the polyline.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polyline.stroke">
+            <summary>
+                The stroke (outline) color of the polyline.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polyline.strokeWidth">
+            <summary>
+                The width of the polyline's outline.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.circle.cx">
+            <summary>
+                The x-coordinate of the center of the circle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.circle.cy">
+            <summary>
+                The y-coordinate of the center of the circle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.circle.r">
+            <summary>
+                The radius of the circle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.circle.fill">
+            <summary>
+                The fill color of the circle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.circle.stroke">
+            <summary>
+                The stroke color of the circle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.circle.strokeWidth">
+            <summary>
+                The width of the stroke of the circle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polygon.points">
+            <summary>
+                Specifies the coordinates of the polygon's vertices, in (x, y) pairs, separated by commas.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polygon.fill">
+            <summary>
+                Specifies the fill color of the polygon.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polygon.stroke">
+            <summary>
+                Specifies the stroke color of the polygon.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polygon.strokeWidth">
+            <summary>
+                Specifies the width of the polygon's stroke, in pixels.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polygon.strokeLinecap">
+            <summary>
+                Specifies the type of line cap used for the polygon's stroke.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polygon.strokeLinejoin">
+            <summary>
+                Specifies the type of line join used for the polygon's stroke.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.polygon.fillRule">
+            <summary>
+                Specifies how the polygon is filled.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.x">
+            <summary>
+                The x-coordinate of the top-left corner of the rectangle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.y">
+            <summary>
+                The y-coordinate of the top-left corner of the rectangle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.width">
+            <summary>
+                The width of the rectangle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.height">
+            <summary>
+                The height of the rectangle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.rx">
+            <summary>
+                The border radius of the rectangle on the horizontal axis.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.ry">
+            <summary>
+                The border radius of the rectangle on the vertical axis.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.fill">
+            <summary>
+                The fill color of the rectangle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.stroke">
+            <summary>
+                The stroke color of the rectangle.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.strokeWidth">
+            <summary>
+                The width of the rectangle's stroke.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.strokeLinecap">
+            <summary>
+                The linecap style of the rectangle's stroke.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.rect.strokeLinejoin">
+            <summary>
+                The linejoin style of the rectangle's stroke.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.radialGradient.cx">
+            <summary>
+                The x-coordinate of the center of the gradient.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.radialGradient.cy">
+            <summary>
+                The y-coordinate of the center of the gradient.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.radialGradient.fx">
+            <summary>
+                The x-coordinate of the focal point of the gradient.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.radialGradient.fy">
+            <summary>
+                The y-coordinate of the focal point of the gradient.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.radialGradient.r">
+            <summary>
+                The radius of the gradient.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.radialGradient.spreadMethod">
+            <summary>
+                The method used to spread the gradient.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.radialGradient.gradientUnits">
+            <summary>
+                The units used to specify the gradient.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.radialGradient.gradientTransform">
+            <summary>
+                A transform to apply to the gradient.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.clipPath.clipRule">
+            <summary>
+                Specifies the fill rule for the clipping path.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.clipPath.clipBox">
+            <summary>
+                Specifies the reference box for the clipping path.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.path.d">
+            <summary>
+                Path data
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.path.fill">
+            <summary>
+                Fill color
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.path.stroke">
+            <summary>
+                Stroke color
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.path.strokeWidth">
+            <summary>
+                Stroke width
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.mask.height">
+            <summary>
+                This attribute defines the height of the masking area. Value type: length ; Default value: 120%; Animatable: yes
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.mask.maskContentUnits">
+            <summary>
+                This attribute defines the coordinate system for the contents of the mask. Value type: userSpaceOnUse|objectBoundingBox ; Default value: userSpaceOnUse; Animatable: yes
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.mask.maskUnits">
+            <summary>
+                This attribute defines the coordinate system for attributes x, y, width and height on the mask. Value type: userSpaceOnUse|objectBoundingBox ; Default value: objectBoundingBox; Animatable: yes
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.mask.x">
+            <summary>
+                This attribute defines the x-axis coordinate of the top-left corner of the masking area. Value type: 'coordinate' ; Default value: -10%; Animatable: yes
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.mask.y">
+            <summary>
+                This attribute defines the y-axis coordinate of the top-left corner of the masking area. Value type: 'coordinate' ; Default value: -10%; Animatable: yes
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.mask.width">
+            <summary>
+                This attribute defines the width of the masking area. Value type: 'length' ; Default value: 120%; Animatable: yes
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.meta.charset">
+            <summary>
+                Specifies the character encoding of the document.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.meta.httpEquiv">
+            <summary>
+                Specifies the name of the HTTP header that the meta tag should be equivalent to.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.meta.name">
+            <summary>
+                Specifies the name of the metadata property.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.meta.content">
+            <summary>
+                Specifies the value of the metadata property.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.meta.scheme">
+            <summary>
+                Specifies the URL scheme for the content attribute of the meta tag.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.meta.itemprop">
+            <summary>
+                Specifies the Microdata item property that the meta tag represents.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.meta.property">
+            <summary>
+                Specifies the schema.org property that the meta tag represents.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.meta.src">
+            <summary>
+                Specifies the URL for a resource associated with the meta tag.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.body.background">
+            <summary>
+                Specifies the URL of a background image to be displayed behind the document's content.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.body.bgcolor">
+            <summary>
+                Specifies the background color of the document's body.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.body.link">
+            <summary>
+                Specifies the color of unvisited links in the document's body.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.script.async">
+            <summary>
+                Specifies that the script should be executed asynchronously. This means that the browser will not wait for the script to finish executing before continuing to parse the rest of the HTML.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.script.defer">
+            <summary>
+                Specifies that the script should be executed after the browser has finished parsing the rest of the HTML. This is similar to async, but it ensures that scripts are executed in the order they are specified in the HTML.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.script.integrity">
+            <summary>
+                Specifies a subresource integrity (SRI) hash for the script. This helps to protect against man-in-the-middle attacks.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.script.language">
+            <summary>
+                Specifies the scripting language of the script. This is deprecated, but is still supported by most browsers.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.script.nomodule">
+            <summary>
+                Specifies that the script should be ignored if the browser does not support modules.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.script.src">
+            <summary>
+                Specifies the URL of an external script file.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.script.type">
+            <summary>
+                Specifies the type of the script. The most common value is application/javascript.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.title.language">
+            <summary>
+                Specifies the language of the title.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.head.profile">
+            <summary>
+                Provides a URL to a profile document for the current document.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.head.link">
+            <summary>
+                Provides a link to an external resource, such as a stylesheet or script file.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.head.meta">
+            <summary>
+                Provides metadata about the document, such as the character encoding, author, and keywords.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.head.script">
+            <summary>
+                Provides JavaScript code to be executed in the browser.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.head.noscript">
+            <summary>
+                Provides content to be displayed if the browser does not support JavaScript.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.html.hidden">
+            <summary>
+                Hides the element from display.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.html.manifest">
+            <summary>
+                Specifies the URL of a manifest file, which provides information about the web app.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.html.xmlns">
+            <summary>
+                Specifies the namespace of the element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.html.prefix">
+            <summary>
+                Specifies the prefix of the element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.html.version">
+            <summary>
+                Specifies the version of the HTML specification to which the element conforms.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.label.htmlFor">
+            <summary>
+                Specifies which form element a label is bound to.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.label.dropzone">
+            <summary>
+                Specifies whether the element is a drop target.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.label.hidden">
+            <summary>
+                Hides the element from view.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.label.tabindex">
+            <summary>
+                Specifies the element's position in the tab order.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.href">
+            <summary>
+                The URL of the linked resource.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.target">
+            <summary>
+                Specifies where the linked resource should be opened. Can be `_blank`, `_self`, `_parent`, or `_top`.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.rel">
+            <summary>
+                Specifies the relationship between the current document and the linked resource. Can be `alternate`, `author`, `bookmark`, `canonical`, `external`, `help`, `license`, `next`, `nofollow`, `noreferrer`, `noopener`, `prev`, `search`, `sponsored`, or `stylesheet`.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.type">
+            <summary>
+                Specifies the MIME type of the linked resource, if applicable.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.download">
+            <summary>
+                Specifies whether the linked resource should be downloaded or opened in a new browser tab.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.ping">
+            <summary>
+                A list of URLs to which a ping should be sent when the user clicks on the link.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.media">
+            <summary>
+                Specifies the media types for which the link is relevant.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.hreflang">
+            <summary>
+                Specifies the language of the linked resource.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.name">
+            <summary>
+                Specifies a name for the link. This can be used to target the link with JavaScript.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.a.tabindex">
+            <summary>
+                Specifies the tab order of the link.
             </summary>
         </member>
         <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent(System.Linq.Expressions.Expression{System.Func{System.Func{System.Threading.Tasks.Task}}})">
@@ -5666,11 +6265,6 @@
                 Adds given cssClassName ot class attribute of html element
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.button.Type(System.String)">
-            <summary>
-                button.type = <paramref name="type" />
-            </summary>
-        </member>
         <member name="P:ReactWithDotNet.input.onBlur">
             <summary>
                 Occurs when an element loses focus.
@@ -5779,43 +6373,9 @@
                 svg.viewBox = '<paramref name="minX" /> <paramref name="minY" /> <paramref name="width" /> <paramref name="height" />'
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.g.ClipPath(System.String)">
-            <summary>
-                g.clipPath = <paramref name="value" />
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.rect.rx">
-            <summary>
-            The horizontal corner radius of the rect
-            <br/>
-            Default value: auto
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.rect.ry">
-            <summary>
-            The vertical corner radius of the rect
-            <br/>
-            Default value: auto
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.rect.x">
-            <summary>
-            The x coordinate of the rect
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.rect.y">
-            <summary>
-            The y coordinate of the rect
-            </summary>
-        </member>
         <member name="P:ReactWithDotNet.MouseEvent.FirstNotEmptyId">
             <summary>
                 this is the id of first element id which is 'has id value'
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.table.CellSpacing(System.Nullable{System.Double})">
-            <summary>
-                table.cellSpacing = <paramref name="value" />
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MonacoEditorReact.Editor.valueBindDebounceHandler">
