@@ -44,54 +44,11 @@ public class CustomCountingTests
                         var remainingTotalSum_3 = remainingTotalSum_2 - i3;
                         var remainingTotalSumOfNumbers_3 = remainingTotalSumOfNumbers_2 - sumOfNumbers(i3);
 
-                        for (var i4 = minValue; i4 < maxValue; i4++)
+                        iterationCount++;
+                        if (remainingTotalSum_3 == 0 &&
+                            remainingTotalSumOfNumbers_3 == 0)
                         {
-                            var remainingTotalSum_4 = remainingTotalSum_3 - i4;
-                            var remainingTotalSumOfNumbers_4 = remainingTotalSumOfNumbers_3 - sumOfNumbers(i4);
-
-                            for (var i5 = minValue; i5 < maxValue; i5++)
-                            {
-                                var remainingTotalSum_5 = remainingTotalSum_4 - i5;
-                                var remainingTotalSumOfNumbers_5 = remainingTotalSumOfNumbers_4 - sumOfNumbers(i5);
-
-                                for (var i6 = minValue; i6 < maxValue; i6++)
-                                {
-                                    var remainingTotalSum_6 = remainingTotalSum_5 - i6;
-                                    var remainingTotalSumOfNumbers_6 = remainingTotalSumOfNumbers_5 - sumOfNumbers(i6);
-                                    
-                                    iterationCount++;
-                                    if (remainingTotalSum_6 == 0 &&
-                                        remainingTotalSumOfNumbers_6 == 0)
-                                    {
-                                        sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}");
-                                    }
-                                    /*for (var i7 = minValue; i7 < maxValue; i7++)
-                                    {
-                                        var remainingTotalSum_7 = remainingTotalSum_6 - i7;
-                                        var remainingTotalSumOfNumbers_7 = remainingTotalSumOfNumbers_6 - sumOfNumbers(i7);
-
-                                        for (var i8 = minValue; i8 < maxValue; i8++)
-                                        {
-                                            var remainingTotalSum_8 = remainingTotalSum_7 - i8;
-                                            var remainingTotalSumOfNumbers_8 = remainingTotalSumOfNumbers_7 - sumOfNumbers(i8);
-
-                                            for (var i9 = minValue; i9 < maxValue; i9++)
-                                            {
-                                                iterationCount++;
-
-                                                var remainingTotalSum_9 = remainingTotalSum_8 - i9;
-                                                var remainingTotalSumOfNumbers_9 = remainingTotalSumOfNumbers_8 - sumOfNumbers(i9);
-
-                                                if (remainingTotalSum_9 == 0 &&
-                                                    remainingTotalSumOfNumbers_9 == 0)
-                                                {
-                                                    sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, {i9}");
-                                                }
-                                            }
-                                        }
-                                    }*/
-                                }
-                            }
+                            sb.AppendLine($"{i0}, {i1}, {i2}, {i3}");
                         }
                     }
                 }
