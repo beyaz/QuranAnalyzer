@@ -64,25 +64,36 @@ public class CustomCountingTests
                                         var remainingTotalSum_7 = remainingTotalSum_6 - i7;
                                         var remainingTotalSumOfNumbers_7 = remainingTotalSumOfNumbers_6 - sumOfNumbers(i7);
 
-                                        for (var i8 = minValue; i8 < maxValue; i8++)
+                                        
+                                        iterationCount++;
+                                        
+                                        if (remainingTotalSum_7 == 0 &&
+                                            remainingTotalSumOfNumbers_7 == 0)
                                         {
-                                            var remainingTotalSum_8 = remainingTotalSum_7 - i8;
-                                            var remainingTotalSumOfNumbers_8 = remainingTotalSumOfNumbers_7 - sumOfNumbers(i8);
-
-                                            for (var i9 = minValue; i9 < maxValue; i9++)
-                                            {
-                                                iterationCount++;
-                                                
-                                                var remainingTotalSum_9 = remainingTotalSum_8 - i9;
-                                                var remainingTotalSumOfNumbers_9 = remainingTotalSumOfNumbers_8 - sumOfNumbers(i9);
-
-                                                if (remainingTotalSum_9 == 0 &&
-                                                    remainingTotalSumOfNumbers_9 == 0)
-                                                {
-                                                    sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, {i9}");
-                                                }
-                                            }
+                                            sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}");
                                         }
+                                        
+                                        
+                                        //for (var i8 = minValue; i8 < maxValue; i8++)
+                                        //{
+                                        //    var remainingTotalSum_8 = remainingTotalSum_7 - i8;
+                                        //    var remainingTotalSumOfNumbers_8 = remainingTotalSumOfNumbers_7 - sumOfNumbers(i8);
+
+
+                                        //    for (var i9 = minValue; i9 < maxValue; i9++)
+                                        //    {
+                                        //        iterationCount++;
+                                                
+                                        //        var remainingTotalSum_9 = remainingTotalSum_8 - i9;
+                                        //        var remainingTotalSumOfNumbers_9 = remainingTotalSumOfNumbers_8 - sumOfNumbers(i9);
+
+                                        //        if (remainingTotalSum_9 == 0 &&
+                                        //            remainingTotalSumOfNumbers_9 == 0)
+                                        //        {
+                                        //            sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, {i9}");
+                                        //        }
+                                        //    }
+                                        //}
                                     }
                                 }
                             }
