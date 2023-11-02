@@ -58,12 +58,18 @@ public class CustomCountingTests
                                 {
                                     var remainingTotalSum_6 = remainingTotalSum_5 - i6;
                                     var remainingTotalSumOfNumbers_6 = remainingTotalSumOfNumbers_5 - sumOfNumbers(i6);
-
-                                    for (var i7 = minValue; i7 < maxValue; i7++)
+                                    
+                                    iterationCount++;
+                                    if (remainingTotalSum_6 == 0 &&
+                                        remainingTotalSumOfNumbers_6 == 0)
+                                    {
+                                        sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}");
+                                    }
+                                    /*for (var i7 = minValue; i7 < maxValue; i7++)
                                     {
                                         var remainingTotalSum_7 = remainingTotalSum_6 - i7;
                                         var remainingTotalSumOfNumbers_7 = remainingTotalSumOfNumbers_6 - sumOfNumbers(i7);
-                                        
+
                                         for (var i8 = minValue; i8 < maxValue; i8++)
                                         {
                                             var remainingTotalSum_8 = remainingTotalSum_7 - i8;
@@ -83,7 +89,7 @@ public class CustomCountingTests
                                                 }
                                             }
                                         }
-                                    }
+                                    }*/
                                 }
                             }
                         }
@@ -97,7 +103,6 @@ public class CustomCountingTests
 
         static int sumOfNumbers(int number)
         {
-            return 9999;
             if (number < 10)
             {
                 return number;
