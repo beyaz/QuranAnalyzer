@@ -71,11 +71,11 @@ public class CustomCountingTests
 
                                             for (var i9 = minValue; i9 < maxValue; i9++)
                                             {
-                                                iterationCount++;
-
                                                 var remainingTotalSum_9 = remainingTotalSum_8 - i9;
                                                 var remainingTotalSumOfNumbers_9 = remainingTotalSumOfNumbers_8 - sumOfNumbers(i9);
 
+                                                iterationCount++;
+                                                
                                                 if (remainingTotalSum_9 == 0 &&
                                                     remainingTotalSumOfNumbers_9 == 0)
                                                 {
