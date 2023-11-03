@@ -54,6 +54,50 @@ public class CustomCountingTests
                                 var remainingTotalSum_5 = remainingTotalSum_4 - i5;
                                 var remainingTotalSumOfNumbers_5 = remainingTotalSumOfNumbers_4 - sumOfNumbers(i5);
 
+                                iterationCount++;
+                                                
+                                if (remainingTotalSum_5 == 0 &&
+                                    remainingTotalSumOfNumbers_5 == 0)
+                                {
+                                    sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        /*for (var i0 = minValue; i0 < maxValue; i0++)
+        {
+            var remainingTotalSum_0 = requestedTotalSum - i0;
+            var remainingTotalSumOfNumbers_0 = requestedTotalSumOfNumbers - sumOfNumbers(i0);
+
+            for (var i1 = minValue; i1 < maxValue; i1++)
+            {
+                var remainingTotalSum_1 = remainingTotalSum_0 - i1;
+                var remainingTotalSumOfNumbers_1 = remainingTotalSumOfNumbers_0 - sumOfNumbers(i1);
+
+                for (var i2 = minValue; i2 < maxValue; i2++)
+                {
+                    var remainingTotalSum_2 = remainingTotalSum_1 - i2;
+                    var remainingTotalSumOfNumbers_2 = remainingTotalSumOfNumbers_1 - sumOfNumbers(i2);
+
+                    for (var i3 = minValue; i3 < maxValue; i3++)
+                    {
+                        var remainingTotalSum_3 = remainingTotalSum_2 - i3;
+                        var remainingTotalSumOfNumbers_3 = remainingTotalSumOfNumbers_2 - sumOfNumbers(i3);
+
+                        for (var i4 = minValue; i4 < maxValue; i4++)
+                        {
+                            var remainingTotalSum_4 = remainingTotalSum_3 - i4;
+                            var remainingTotalSumOfNumbers_4 = remainingTotalSumOfNumbers_3 - sumOfNumbers(i4);
+
+                            for (var i5 = minValue; i5 < maxValue; i5++)
+                            {
+                                var remainingTotalSum_5 = remainingTotalSum_4 - i5;
+                                var remainingTotalSumOfNumbers_5 = remainingTotalSumOfNumbers_4 - sumOfNumbers(i5);
+
                                 for (var i6 = minValue; i6 < maxValue; i6++)
                                 {
                                     var remainingTotalSum_6 = remainingTotalSum_5 - i6;
@@ -90,7 +134,7 @@ public class CustomCountingTests
                     }
                 }
             }
-        }
+        }*/
 
         throw new Exception($"Iteration: {iterationCount}, items: {sb}");
 
