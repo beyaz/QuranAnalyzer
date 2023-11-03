@@ -49,18 +49,12 @@ public class CustomCountingTests
                             var remainingTotalSum_4 = remainingTotalSum_3 - i4;
                             var remainingTotalSumOfNumbers_4 = remainingTotalSumOfNumbers_3 - sumOfNumbers(i4);
 
-                            for (var i5 = minValue; i5 < maxValue; i5++)
-                            {
-                                var remainingTotalSum_5 = remainingTotalSum_4 - i5;
-                                var remainingTotalSumOfNumbers_5 = remainingTotalSumOfNumbers_4 - sumOfNumbers(i5);
-
-                                iterationCount++;
+                            iterationCount++;
                                                 
-                                if (remainingTotalSum_5 == 0 &&
-                                    remainingTotalSumOfNumbers_5 == 0)
-                                {
-                                    sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}");
-                                }
+                            if (remainingTotalSum_4 == 0 &&
+                                remainingTotalSumOfNumbers_4 == 0)
+                            {
+                                sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}");
                             }
                         }
                     }
