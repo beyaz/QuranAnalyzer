@@ -15,6 +15,9 @@ public class CustomCountingTests
     [TestMethod]
     public void CheckSpecialNumberProbability()
     {
+        
+        Console.WriteLine("Started...");
+        
         var sb = new StringBuilder();
         
         const int minValue = 1;
@@ -59,12 +62,24 @@ public class CustomCountingTests
                                     var remainingTotalSum_6 = remainingTotalSum_5 - i6;
                                     var remainingTotalSumOfNumbers_6 = remainingTotalSumOfNumbers_5 - sumOfNumbers(i6);
                                     
-                                    iterationCount++;
-                                                
-                                    if (remainingTotalSum_6 == 0 &&
-                                        remainingTotalSumOfNumbers_6 == 0)
+                                    for (var i7 = minValue; i7 < maxValue; i7++)
                                     {
-                                        sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}");
+                                        var remainingTotalSum_7 = remainingTotalSum_6 - i7;
+                                        var remainingTotalSumOfNumbers_7 = remainingTotalSumOfNumbers_6 - sumOfNumbers(i7);
+
+                                        for (var i8 = minValue; i8 < maxValue; i8++)
+                                        {
+                                            iterationCount++;
+                                            
+                                            var remainingTotalSum_8 = remainingTotalSum_7 - i8;
+                                            var remainingTotalSumOfNumbers_8 = remainingTotalSumOfNumbers_7 - sumOfNumbers(i8);
+
+                                            if (sumOfNumbers(remainingTotalSum_8) == remainingTotalSumOfNumbers_8)
+                                            {
+                                                Console.WriteLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, {remainingTotalSum_8}");
+                                                sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, {remainingTotalSum_8}");
+                                            }
+                                        }
                                     }
                                 }
                             }
