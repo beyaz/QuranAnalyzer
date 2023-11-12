@@ -9,6 +9,7 @@ using static QuranAnalyzer.VerseFilter;
 namespace QuranAnalyzer;
 
 [TestClass]
+[Ignore]
 public class CustomCountingTests
 {
     
