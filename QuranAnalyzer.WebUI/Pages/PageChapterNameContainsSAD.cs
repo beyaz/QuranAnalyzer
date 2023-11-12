@@ -2,200 +2,198 @@
 
 namespace QuranAnalyzer.WebUI.Pages;
 
-public class PageVerseFilter : ReactComponent
+public class PageChapterNameContainsSAD : ReactComponent
 {
-    const string Blue100 = "#0099FF";
+    
 
-    const string Grey1 = "#cdcdcd";
-
-    public bool CalculateClicked { get; set; }
-
-    public string InputVerseListAsString { get; set; }
-    public string SearchLetters { get; set; }
-    public string SliceNumber { get; set; }
-
-    protected override Task constructor()
-    {
-        var arabicText = AllQuranAsString;
-
-        SearchLetters          = "ب ر ك  ي و ج (brk yvc)";
-        SliceNumber            = "19";
-        InputVerseListAsString = string.Join("\n", arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(TryParseVerseNumbers).Select(x => ToTextLine(x.grandVerseNumber, x.chapterNumber, x.verseNumber, x.verseText)).Take(7));
-
-        return base.constructor();
-    }
+    
 
     protected override Element render()
     {
-        var inputStyle = new Style
+        return new div(FontFamily("Calibri, sans-serif"), FontSize24, FontWeight400)
         {
-            Padding(6), BorderRadius(7), Border(Solid(0.5, Grey1)), Color(rgba(0, 0, 0, 0.87))
+            CrateTable
         };
+    }
 
-        return new FlexColumnCentered(WidthMaximized, BackgroundColor("#d2d2ce"))
+    class NumberViewer : PureComponent
+    {
+        public int Count { get; set; }
+        
+        protected override Element render()
         {
-            new FlexColumnCentered(MarginLeftRight("10%") + WidthHeightMaximized, Gap(50), PaddingTopBottom(50))
+            if (Count <= 0)
             {
-                new FlexColumn(BackgroundWhite, BorderRadius(5), BoxShadow(1, 1, 3, 1, "#333"), Height(840), Padding(50), Width(60 * vw))
+                return new FlexRowCentered(FontFamily("Arial, sans-serif"), FontSize13)
                 {
-                    new FlexRow(FlexWrap, Gap(7), AlignItemsFlexEnd)
+                    Count.ToString()
+                };
+            }
+
+            var numbers = new[] { 667, 109, 19};
+
+            foreach (var number in numbers)
+            {
+                if (Count == number)
+                {
+                    return new FlexRowCentered(FontFamily("Calibri, sans-serif"), Color("red"), FontWeight700)
                     {
-                        "Aşağıda verilen ayetlerden hangilerinde ", new input
+                        Count.ToString()
+                    };
+                }
+                
+                if (Count % number == 0)
+                {
+                    return new FlexRowCentered(AlignItemsFlexEnd)
+                    {
+                        new FlexRowCentered(FontFamily("Calibri, sans-serif"), Color("red"), FontWeight700)
                         {
-                            type      = "text",
-                            valueBind = () => SearchLetters,
-                            style     = { Width(250), inputStyle }
+                            number
                         },
-                        " harfleri ",
-                        new input
+                        new FlexRow(FontFamily("Arial, sans-serif"), FontSize13,AlignItemsFlexEnd)
                         {
-                            type      = "text",
-                            valueBind = () => SliceNumber,
-                            style     = { Width(70), inputStyle }
-                        },
-                        " sayısının katları şeklinde geçer?"
-                    },
-                    SpaceY(16),
-
-                    new FlexColumn
-                    {
-                        new div(FontWeight600, FontSize13) { "Verse List" },
-                        new textarea
-                        {
-                            valueBind = () => InputVerseListAsString,
-                            style     = { Height(300), inputStyle }
+                            "x", Count / number
                         }
-                    },
+                    };
+                }
+            }
+            
+            return new FlexRowCentered(FontFamily("Arial, sans-serif"), FontSize13)
+            {
+                Count.ToString()
+            };
+        }
+    }
+    Element CrateTable()
+    {
+        var chapterNumbers = new[] { 28, 37,38,41,61,103,110,112 };
 
-                    new FlexRowCentered(MarginTop(30))
+        var searchLetters = new[] { ArabicLetterOrder.Saad };
+
+        var sharedStyle = Border(Solid(1, "black")) + BorderCollapseCollapse+ TextAlignCenter + Padding(5);
+
+        static int CalculateCount(string verseFilter, int[] arabicLetterOrders)
+        {
+            return VerseFilter.GetVerseList(verseFilter).Then(verses => arabicLetterOrders.Sum(arabicLetterOrder => QuranAnalyzerMixin.GetCountOfLetter(verses, arabicLetterOrder))).Value;
+        }
+        
+        return new table(sharedStyle, BackgroundWhite)
+        {
+            new tbody
+            {
+                new tr(sharedStyle)
+                {
+                    new td(sharedStyle, ColSpan(5))
                     {
-                        new CalculateButton
+                        new FlexRowCentered(Padding(15))
                         {
-                            Clicked      = OnCalculateClicked,
-                            IsProcessing = false
+                            "İsminde ", new span(Color("red"), FontWeight700, MarginLeftRight(5) ){"SAD"}, " BULUNAN SURELER"
                         }
+                    }
+                },
+                new tr(sharedStyle)
+                {
+                    new td(sharedStyle)
+                    {
+                        "ARAPÇA",
+                        PaddingLeftRight(5),
+                        FontSize15
                     },
-
-                    SpaceY(30),
-
-                    When(CalculateClicked, Filter)
+                    new td(sharedStyle)
+                    {
+                        "TÜRKÇE",
+                        PaddingLeftRight(20),
+                        FontSize15
+                    },
+                    new td(sharedStyle)
+                    {
+                        "SURE NO",
+                        FontSize15, FontWeight700
+                    },
+                    new td(sharedStyle)
+                    {
+                        "SAD SAYISI",
+                        FontSize15, FontWeight700
+                    },
+                    new td(sharedStyle)
+                    {
+                        "AYET"
+                    }
+                },
+                
+                chapterNumbers.Select(chapterNumber =>new tr
+                {
+                    new td(sharedStyle)
+                    {
+                        "ص\u02dc"
+                    },
+                    new td(sharedStyle)
+                    {
+                        "S (Saad)"
+                    },
+                    new td(sharedStyle)
+                    {
+                        new NumberViewer{Count = chapterNumber}
+                    },
+                    new td(sharedStyle)
+                    {
+                        new NumberViewer{Count = CalculateCount(chapterNumber+":*",searchLetters)}
+                    },
+                    new td(sharedStyle)
+                    {
+                        new NumberViewer{Count = VerseFilter.GetVerseList(chapterNumber + ":*").Value.Count}
+                    }
+                }),
+                
+                new tr
+                {
+                    new td(sharedStyle)
+                    {
+                        "38 HArf"
+                    },
+                    new td(sharedStyle)
+                    {
+                        "SURE NO+SAD SAYISI TOPLAMI"
+                    },
+                    new td(sharedStyle,td.ColSpan(2))
+                    {
+                        new NumberViewer
+                        {
+                            Count = chapterNumbers.Select(chapterNumber=>chapterNumber+CalculateCount(chapterNumber+":*",searchLetters)).Sum()
+                        }
+                        
+                    },
+                    new td(sharedStyle,td.RowSpan(2))
+                    {
+                        "AYET TOPLAMI 109X4",
+                        new NumberViewer
+                        {
+                            Count = chapterNumbers.Select(chapterNumber=>VerseFilter.GetVerseList(chapterNumber + ":*").Value.Count).Sum()
+                        }
+                    }
+                },
+                
+                new tr
+                {
+                    new td(sharedStyle,td.ColSpan(2))
+                    {
+                        "SURE NO+SAD SAYISI RAKAM TOPLAMI\r\n\r\n2+8+3+9+3+7+3+4+3+8+2+9+4+1+1+9\r\n\r\n+6+1+9+1+0+3+5+1+1+0+1+1+1+2+1"
+                    },
+                    new td(sharedStyle,td.ColSpan(2))
+                    {
+                        new NumberViewer{Count = 109}
+                    },
+                },
+                new tr
+                {
+                    new td(sharedStyle,td.ColSpan(5))
+                    {
+                        4
+                    }
                 }
             }
         };
     }
+    
 
-    Element Filter()
-    {
-        var (hasFail, matchedRecords) = FilterMatchedRecords(SearchLetters, int.Parse(SliceNumber));
-        if (hasFail)
-        {
-            return new div { "Verse List read error." };
-        }
-
-        var table = new table
-        {
-            new thead
-            {
-                new th
-                {
-                    "Count"
-                },
-                new th { "Verse" }
-            },
-            new tbody
-            {
-                matchedRecords.Select(x => new tr(Border(Solid(1, Grey1)))
-                {
-                    new td(Border(Solid(1, Grey1))) { x.count }, new td(Border(Solid(1, Grey1))) { x.verseAsText }
-                })
-            }
-        };
-
-        return new FlexColumn(WidthMaximized, Height(500), Border(Solid(1, Grey1)), OverflowYScroll, Padding(10))
-        {
-            dangerouslySetInnerHTML = new FlexColumn
-            {
-                $"Toplam {matchedRecords.Count} adet kayıt bulundu",
-                table
-            }.ToHtml()
-        };
-    }
-
-    (bool hasFail, IReadOnlyList<(string count, string verseAsText)> matchedRecords) FilterMatchedRecords(string searchLetters, int slicer)
-    {
-        var arabicText = InputVerseListAsString;
-
-        var lines = arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(TryParseVerseNumbers).ToList();
-
-        var searchLetterList = Analyzer.AnalyzeText(searchLetters).Where(l => l.OrderValue > 0).ToList();
-
-        int calculateCount(string line)
-        {
-            var letters = Analyzer.AnalyzeText(line).ToList();
-
-            var sum = 0;
-
-            foreach (var letterInfo in searchLetterList)
-            {
-                sum += letters.Count(x => x.OrderValue == letterInfo.OrderValue);
-            }
-
-            return sum;
-        }
-
-        var resultList = new List<(string count, string verseAsText)>();
-
-        foreach (var (isParsedSuccessfully, grandVerseNumber, chapterNumber, verseNumber, verseText) in lines)
-        {
-            if (isParsedSuccessfully is false)
-            {
-                return (hasFail: true, default);
-            }
-
-            var count = calculateCount(verseText);
-            if (count > 0 && count % slicer == 0)
-            {
-                resultList.Add((count: $"{slicer}x{count / slicer}", verseAsText: ToTextLine(grandVerseNumber, chapterNumber, verseNumber, verseText)));
-            }
-        }
-
-        return (default, matchedRecords: resultList);
-    }
-
-    Task OnCalculateClicked(MouseEvent e)
-    {
-        CalculateClicked = true;
-        
-        return Task.CompletedTask;
-    }
-
-    class CalculateButton : ReactComponent
-    {
-        public MouseEventHandler Clicked { get; set; }
-
-        public bool IsProcessing { get; set; }
-
-        protected override Element render()
-        {
-            return new FlexRowCentered
-            {
-                IsProcessing ? "Hesaplanıyor..." : "Hesapla",
-                OnClick(Clicked),
-                When(IsProcessing, new LoadingIcon { Color = Blue100 } + WidthHeight(10) + MarginLeft(5)),
-                OnClickPreview(() => IsProcessing = true),
-
-                Height(40),
-                Width(150),
-                CursorPointer,
-                Border(Solid(0.5, Blue100)), BorderRadius(5),
-                Color(Blue100),
-                FontFamily("SF Pro Text"),
-                FontSize14,
-                FontWeight500,
-                LineHeight16,
-                TextAlignCenter,
-                WordWrapBreakWord
-            };
-        }
-    }
 }
