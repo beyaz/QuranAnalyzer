@@ -18,6 +18,7 @@ static class ReactWithDotNetIntegration
         
         endpoints.MapGet("/"+nameof(PageCountInRange), httpContext =>  WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageCountInRange)));
         endpoints.MapGet("/"+nameof(PageVerseFilter), httpContext =>  WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageVerseFilter)));
+        endpoints.MapGet("/"+nameof(PageChapterNameContainsSAD), httpContext =>  WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageChapterNameContainsSAD)));
 
 #if DEBUG // this two endpoints should use only development mode
 
