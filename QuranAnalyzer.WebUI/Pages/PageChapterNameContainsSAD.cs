@@ -19,10 +19,11 @@ public class PageChapterNameContainsSAD : ReactComponent
     class NumberViewer : PureComponent
     {
         public int Count { get; set; }
+        public bool DisableColorize { get; set; }
         
         protected override Element render()
         {
-            if (Count <= 0)
+            if (Count <= 0 || DisableColorize)
             {
                 return new FlexRowCentered(FontFamily("Arial, sans-serif"), FontSize13)
                 {
@@ -66,9 +67,11 @@ public class PageChapterNameContainsSAD : ReactComponent
     }
     Element CrateTable()
     {
-        var chapterNumbers = new[] { 28, 37,38,41,61,103,110,112 };
-
-        var searchLetters = new[] { ArabicLetterOrder.Saad };
+        //var chapterNumbers = new[] { 28, 37,38,41,61,103,110,112 };
+        //var searchLetters = new[] { ArabicLetterOrder.Saad };
+        
+        var chapterNumbers = new[] { 42, 50 };
+        var searchLetters = new[] { ArabicLetterOrder.Qaaf };
 
         var sharedStyle = Border(Solid(1, "black")) + BorderCollapseCollapse+ TextAlignCenter + Padding(5);
 
@@ -133,11 +136,11 @@ public class PageChapterNameContainsSAD : ReactComponent
                     },
                     new td(sharedStyle)
                     {
-                        new NumberViewer{Count = chapterNumber}
+                        new NumberViewer{Count = chapterNumber, DisableColorize = true}
                     },
                     new td(sharedStyle)
                     {
-                        new NumberViewer{Count = CalculateCount(chapterNumber+":*",searchLetters)}
+                        new NumberViewer{Count = CalculateCount(chapterNumber+":*",searchLetters), DisableColorize = true}
                     },
                     new td(sharedStyle)
                     {
