@@ -5306,6 +5306,55 @@
                 The width of the stroke.
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ellipse.Cx(System.String)">
+            <summary>
+                cx = <paramref name="value"/>
+            <br/>
+                The x-coordinate of the center of the ellipse.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ellipse.Cy(System.String)">
+            <summary>
+                cy = <paramref name="value"/>
+            <br/>
+                The y-coordinate of the center of the ellipse.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ellipse.Rx(System.String)">
+            <summary>
+                rx = <paramref name="value"/>
+            <br/>
+                The radius of the ellipse along the x-axis.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ellipse.Ry(System.String)">
+            <summary>
+                ry = <paramref name="value"/>
+            <br/>
+                The radius of the ellipse along the y-axis.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ellipse.Fill(System.String)">
+            <summary>
+                fill = <paramref name="value"/>
+            <br/>
+                The fill color of the ellipse.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ellipse.Stroke(System.String)">
+            <summary>
+                stroke = <paramref name="value"/>
+            <br/>
+                The stroke color of the ellipse.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ellipse.StrokeWidth(System.String)">
+            <summary>
+                strokeWidth = <paramref name="value"/>
+            <br/>
+                The width of the stroke.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.line.x1">
             <summary>
                 The x-coordinate of the start point of the line.
@@ -5356,6 +5405,76 @@
                 The opacity (transparency) of the line's stroke.
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.line.X1(System.String)">
+            <summary>
+                x1 = <paramref name="value"/>
+            <br/>
+                The x-coordinate of the start point of the line.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.line.Y1(System.String)">
+            <summary>
+                y1 = <paramref name="value"/>
+            <br/>
+                The y-coordinate of the start point of the line.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.line.X2(System.String)">
+            <summary>
+                x2 = <paramref name="value"/>
+            <br/>
+                The x-coordinate of the end point of the line.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.line.Y2(System.String)">
+            <summary>
+                y2 = <paramref name="value"/>
+            <br/>
+                The y-coordinate of the end point of the line.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.line.Stroke(System.String)">
+            <summary>
+                stroke = <paramref name="value"/>
+            <br/>
+                The stroke (outline) color of the line.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.line.StrokeWidth(System.String)">
+            <summary>
+                strokeWidth = <paramref name="value"/>
+            <br/>
+                The width of the line's outline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.line.StrokeDasharray(System.String)">
+            <summary>
+                strokeDasharray = <paramref name="value"/>
+            <br/>
+                Pattern of dashes and gaps used in the line's stroke.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.line.StrokeLinecap(System.String)">
+            <summary>
+                strokeLinecap = <paramref name="value"/>
+            <br/>
+                The style of the line's endpoints.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.line.StrokeLinejoin(System.String)">
+            <summary>
+                strokeLinejoin = <paramref name="value"/>
+            <br/>
+                The style of the line's corners.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.line.StrokeOpacity(System.String)">
+            <summary>
+                strokeOpacity = <paramref name="value"/>
+            <br/>
+                The opacity (transparency) of the line's stroke.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.polyline.points">
             <summary>
                 A list of points defining the vertices of the polyline.
@@ -5373,6 +5492,34 @@
         </member>
         <member name="P:ReactWithDotNet.polyline.strokeWidth">
             <summary>
+                The width of the polyline's outline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polyline.Points(System.String)">
+            <summary>
+                points = <paramref name="value"/>
+            <br/>
+                A list of points defining the vertices of the polyline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polyline.Fill(System.String)">
+            <summary>
+                fill = <paramref name="value"/>
+            <br/>
+                The fill color of the polyline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polyline.Stroke(System.String)">
+            <summary>
+                stroke = <paramref name="value"/>
+            <br/>
+                The stroke (outline) color of the polyline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polyline.StrokeWidth(System.String)">
+            <summary>
+                strokeWidth = <paramref name="value"/>
+            <br/>
                 The width of the polyline's outline.
             </summary>
         </member>
@@ -5403,6 +5550,48 @@
         </member>
         <member name="P:ReactWithDotNet.circle.strokeWidth">
             <summary>
+                The width of the stroke of the circle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.circle.Cx(System.String)">
+            <summary>
+                cx = <paramref name="value"/>
+            <br/>
+                The x-coordinate of the center of the circle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.circle.Cy(System.String)">
+            <summary>
+                cy = <paramref name="value"/>
+            <br/>
+                The y-coordinate of the center of the circle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.circle.R(System.String)">
+            <summary>
+                r = <paramref name="value"/>
+            <br/>
+                The radius of the circle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.circle.Fill(System.String)">
+            <summary>
+                fill = <paramref name="value"/>
+            <br/>
+                The fill color of the circle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.circle.Stroke(System.String)">
+            <summary>
+                stroke = <paramref name="value"/>
+            <br/>
+                The stroke color of the circle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.circle.StrokeWidth(System.String)">
+            <summary>
+                strokeWidth = <paramref name="value"/>
+            <br/>
                 The width of the stroke of the circle.
             </summary>
         </member>
@@ -5438,6 +5627,55 @@
         </member>
         <member name="P:ReactWithDotNet.polygon.fillRule">
             <summary>
+                Specifies how the polygon is filled.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polygon.Points(System.String)">
+            <summary>
+                points = <paramref name="value"/>
+            <br/>
+                Specifies the coordinates of the polygon's vertices, in (x, y) pairs, separated by commas.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polygon.Fill(System.String)">
+            <summary>
+                fill = <paramref name="value"/>
+            <br/>
+                Specifies the fill color of the polygon.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polygon.Stroke(System.String)">
+            <summary>
+                stroke = <paramref name="value"/>
+            <br/>
+                Specifies the stroke color of the polygon.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polygon.StrokeWidth(System.String)">
+            <summary>
+                strokeWidth = <paramref name="value"/>
+            <br/>
+                Specifies the width of the polygon's stroke, in pixels.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polygon.StrokeLinecap(System.String)">
+            <summary>
+                strokeLinecap = <paramref name="value"/>
+            <br/>
+                Specifies the type of line cap used for the polygon's stroke.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polygon.StrokeLinejoin(System.String)">
+            <summary>
+                strokeLinejoin = <paramref name="value"/>
+            <br/>
+                Specifies the type of line join used for the polygon's stroke.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.polygon.FillRule(System.String)">
+            <summary>
+                fillRule = <paramref name="value"/>
+            <br/>
                 Specifies how the polygon is filled.
             </summary>
         </member>
@@ -5496,6 +5734,83 @@
                 The linejoin style of the rectangle's stroke.
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.rect.X(System.String)">
+            <summary>
+                x = <paramref name="value"/>
+            <br/>
+                The x-coordinate of the top-left corner of the rectangle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.Y(System.String)">
+            <summary>
+                y = <paramref name="value"/>
+            <br/>
+                The y-coordinate of the top-left corner of the rectangle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.Width(System.String)">
+            <summary>
+                width = <paramref name="value"/>
+            <br/>
+                The width of the rectangle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.Height(System.String)">
+            <summary>
+                height = <paramref name="value"/>
+            <br/>
+                The height of the rectangle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.Rx(System.String)">
+            <summary>
+                rx = <paramref name="value"/>
+            <br/>
+                The border radius of the rectangle on the horizontal axis.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.Ry(System.String)">
+            <summary>
+                ry = <paramref name="value"/>
+            <br/>
+                The border radius of the rectangle on the vertical axis.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.Fill(System.String)">
+            <summary>
+                fill = <paramref name="value"/>
+            <br/>
+                The fill color of the rectangle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.Stroke(System.String)">
+            <summary>
+                stroke = <paramref name="value"/>
+            <br/>
+                The stroke color of the rectangle.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.StrokeWidth(System.String)">
+            <summary>
+                strokeWidth = <paramref name="value"/>
+            <br/>
+                The width of the rectangle's stroke.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.StrokeLinecap(System.String)">
+            <summary>
+                strokeLinecap = <paramref name="value"/>
+            <br/>
+                The linecap style of the rectangle's stroke.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.rect.StrokeLinejoin(System.String)">
+            <summary>
+                strokeLinejoin = <paramref name="value"/>
+            <br/>
+                The linejoin style of the rectangle's stroke.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.radialGradient.cx">
             <summary>
                 The x-coordinate of the center of the gradient.
@@ -5536,6 +5851,62 @@
                 A transform to apply to the gradient.
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.radialGradient.Cx(System.String)">
+            <summary>
+                cx = <paramref name="value"/>
+            <br/>
+                The x-coordinate of the center of the gradient.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.radialGradient.Cy(System.String)">
+            <summary>
+                cy = <paramref name="value"/>
+            <br/>
+                The y-coordinate of the center of the gradient.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.radialGradient.Fx(System.String)">
+            <summary>
+                fx = <paramref name="value"/>
+            <br/>
+                The x-coordinate of the focal point of the gradient.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.radialGradient.Fy(System.String)">
+            <summary>
+                fy = <paramref name="value"/>
+            <br/>
+                The y-coordinate of the focal point of the gradient.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.radialGradient.R(System.String)">
+            <summary>
+                r = <paramref name="value"/>
+            <br/>
+                The radius of the gradient.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.radialGradient.SpreadMethod(System.String)">
+            <summary>
+                spreadMethod = <paramref name="value"/>
+            <br/>
+                The method used to spread the gradient.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.radialGradient.GradientUnits(System.String)">
+            <summary>
+                gradientUnits = <paramref name="value"/>
+            <br/>
+                The units used to specify the gradient.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.radialGradient.GradientTransform(System.String)">
+            <summary>
+                gradientTransform = <paramref name="value"/>
+            <br/>
+                A transform to apply to the gradient.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.clipPath.clipRule">
             <summary>
                 Specifies the fill rule for the clipping path.
@@ -5543,6 +5914,20 @@
         </member>
         <member name="P:ReactWithDotNet.clipPath.clipBox">
             <summary>
+                Specifies the reference box for the clipping path.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.clipPath.ClipRule(System.String)">
+            <summary>
+                clipRule = <paramref name="value"/>
+            <br/>
+                Specifies the fill rule for the clipping path.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.clipPath.ClipBox(System.String)">
+            <summary>
+                clipBox = <paramref name="value"/>
+            <br/>
                 Specifies the reference box for the clipping path.
             </summary>
         </member>
@@ -5563,6 +5948,34 @@
         </member>
         <member name="P:ReactWithDotNet.path.strokeWidth">
             <summary>
+                Stroke width
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.path.D(System.String)">
+            <summary>
+                d = <paramref name="value"/>
+            <br/>
+                Path data
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.path.Fill(System.String)">
+            <summary>
+                fill = <paramref name="value"/>
+            <br/>
+                Fill color
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.path.Stroke(System.String)">
+            <summary>
+                stroke = <paramref name="value"/>
+            <br/>
+                Stroke color
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.path.StrokeWidth(System.String)">
+            <summary>
+                strokeWidth = <paramref name="value"/>
+            <br/>
                 Stroke width
             </summary>
         </member>
@@ -5593,6 +6006,48 @@
         </member>
         <member name="P:ReactWithDotNet.mask.width">
             <summary>
+                This attribute defines the width of the masking area. Value type: 'length' ; Default value: 120%; Animatable: yes
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.mask.Height(System.String)">
+            <summary>
+                height = <paramref name="value"/>
+            <br/>
+                This attribute defines the height of the masking area. Value type: length ; Default value: 120%; Animatable: yes
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.mask.MaskContentUnits(System.String)">
+            <summary>
+                maskContentUnits = <paramref name="value"/>
+            <br/>
+                This attribute defines the coordinate system for the contents of the mask. Value type: userSpaceOnUse|objectBoundingBox ; Default value: userSpaceOnUse; Animatable: yes
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.mask.MaskUnits(System.String)">
+            <summary>
+                maskUnits = <paramref name="value"/>
+            <br/>
+                This attribute defines the coordinate system for attributes x, y, width and height on the mask. Value type: userSpaceOnUse|objectBoundingBox ; Default value: objectBoundingBox; Animatable: yes
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.mask.X(System.String)">
+            <summary>
+                x = <paramref name="value"/>
+            <br/>
+                This attribute defines the x-axis coordinate of the top-left corner of the masking area. Value type: 'coordinate' ; Default value: -10%; Animatable: yes
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.mask.Y(System.String)">
+            <summary>
+                y = <paramref name="value"/>
+            <br/>
+                This attribute defines the y-axis coordinate of the top-left corner of the masking area. Value type: 'coordinate' ; Default value: -10%; Animatable: yes
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.mask.Width(System.String)">
+            <summary>
+                width = <paramref name="value"/>
+            <br/>
                 This attribute defines the width of the masking area. Value type: 'length' ; Default value: 120%; Animatable: yes
             </summary>
         </member>
@@ -5636,6 +6091,62 @@
                 Specifies the URL for a resource associated with the meta tag.
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.meta.Charset(System.String)">
+            <summary>
+                charset = <paramref name="value"/>
+            <br/>
+                Specifies the character encoding of the document.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.meta.HttpEquiv(System.String)">
+            <summary>
+                httpEquiv = <paramref name="value"/>
+            <br/>
+                Specifies the name of the HTTP header that the meta tag should be equivalent to.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.meta.Name(System.String)">
+            <summary>
+                name = <paramref name="value"/>
+            <br/>
+                Specifies the name of the metadata property.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.meta.Content(System.String)">
+            <summary>
+                content = <paramref name="value"/>
+            <br/>
+                Specifies the value of the metadata property.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.meta.Scheme(System.String)">
+            <summary>
+                scheme = <paramref name="value"/>
+            <br/>
+                Specifies the URL scheme for the content attribute of the meta tag.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.meta.Itemprop(System.String)">
+            <summary>
+                itemprop = <paramref name="value"/>
+            <br/>
+                Specifies the Microdata item property that the meta tag represents.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.meta.Property(System.String)">
+            <summary>
+                property = <paramref name="value"/>
+            <br/>
+                Specifies the schema.org property that the meta tag represents.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.meta.Src(System.String)">
+            <summary>
+                src = <paramref name="value"/>
+            <br/>
+                Specifies the URL for a resource associated with the meta tag.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.body.background">
             <summary>
                 Specifies the URL of a background image to be displayed behind the document's content.
@@ -5648,6 +6159,27 @@
         </member>
         <member name="P:ReactWithDotNet.body.link">
             <summary>
+                Specifies the color of unvisited links in the document's body.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.body.Background(System.String)">
+            <summary>
+                background = <paramref name="value"/>
+            <br/>
+                Specifies the URL of a background image to be displayed behind the document's content.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.body.Bgcolor(System.String)">
+            <summary>
+                bgcolor = <paramref name="value"/>
+            <br/>
+                Specifies the background color of the document's body.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.body.Link(System.String)">
+            <summary>
+                link = <paramref name="value"/>
+            <br/>
                 Specifies the color of unvisited links in the document's body.
             </summary>
         </member>
@@ -5686,8 +6218,64 @@
                 Specifies the type of the script. The most common value is application/javascript.
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.script.Async(System.String)">
+            <summary>
+                async = <paramref name="value"/>
+            <br/>
+                Specifies that the script should be executed asynchronously. This means that the browser will not wait for the script to finish executing before continuing to parse the rest of the HTML.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.script.Defer(System.String)">
+            <summary>
+                defer = <paramref name="value"/>
+            <br/>
+                Specifies that the script should be executed after the browser has finished parsing the rest of the HTML. This is similar to async, but it ensures that scripts are executed in the order they are specified in the HTML.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.script.Integrity(System.String)">
+            <summary>
+                integrity = <paramref name="value"/>
+            <br/>
+                Specifies a subresource integrity (SRI) hash for the script. This helps to protect against man-in-the-middle attacks.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.script.Language(System.String)">
+            <summary>
+                language = <paramref name="value"/>
+            <br/>
+                Specifies the scripting language of the script. This is deprecated, but is still supported by most browsers.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.script.Nomodule(System.String)">
+            <summary>
+                nomodule = <paramref name="value"/>
+            <br/>
+                Specifies that the script should be ignored if the browser does not support modules.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.script.Src(System.String)">
+            <summary>
+                src = <paramref name="value"/>
+            <br/>
+                Specifies the URL of an external script file.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.script.Type(System.String)">
+            <summary>
+                type = <paramref name="value"/>
+            <br/>
+                Specifies the type of the script. The most common value is application/javascript.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.title.language">
             <summary>
+                Specifies the language of the title.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.title.Language(System.String)">
+            <summary>
+                language = <paramref name="value"/>
+            <br/>
                 Specifies the language of the title.
             </summary>
         </member>
@@ -5716,6 +6304,41 @@
                 Provides content to be displayed if the browser does not support JavaScript.
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.head.Profile(System.String)">
+            <summary>
+                profile = <paramref name="value"/>
+            <br/>
+                Provides a URL to a profile document for the current document.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.head.Link(System.String)">
+            <summary>
+                link = <paramref name="value"/>
+            <br/>
+                Provides a link to an external resource, such as a stylesheet or script file.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.head.Meta(System.String)">
+            <summary>
+                meta = <paramref name="value"/>
+            <br/>
+                Provides metadata about the document, such as the character encoding, author, and keywords.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.head.Script(System.String)">
+            <summary>
+                script = <paramref name="value"/>
+            <br/>
+                Provides JavaScript code to be executed in the browser.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.head.Noscript(System.String)">
+            <summary>
+                noscript = <paramref name="value"/>
+            <br/>
+                Provides content to be displayed if the browser does not support JavaScript.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.html.hidden">
             <summary>
                 Hides the element from display.
@@ -5741,6 +6364,41 @@
                 Specifies the version of the HTML specification to which the element conforms.
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.html.Hidden(System.String)">
+            <summary>
+                hidden = <paramref name="value"/>
+            <br/>
+                Hides the element from display.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.html.Manifest(System.String)">
+            <summary>
+                manifest = <paramref name="value"/>
+            <br/>
+                Specifies the URL of a manifest file, which provides information about the web app.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.html.Xmlns(System.String)">
+            <summary>
+                xmlns = <paramref name="value"/>
+            <br/>
+                Specifies the namespace of the element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.html.Prefix(System.String)">
+            <summary>
+                prefix = <paramref name="value"/>
+            <br/>
+                Specifies the prefix of the element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.html.Version(System.String)">
+            <summary>
+                version = <paramref name="value"/>
+            <br/>
+                Specifies the version of the HTML specification to which the element conforms.
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.label.htmlFor">
             <summary>
                 Specifies which form element a label is bound to.
@@ -5758,6 +6416,34 @@
         </member>
         <member name="P:ReactWithDotNet.label.tabindex">
             <summary>
+                Specifies the element's position in the tab order.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.label.HtmlFor(System.String)">
+            <summary>
+                htmlFor = <paramref name="value"/>
+            <br/>
+                Specifies which form element a label is bound to.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.label.Dropzone(System.String)">
+            <summary>
+                dropzone = <paramref name="value"/>
+            <br/>
+                Specifies whether the element is a drop target.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.label.Hidden(System.String)">
+            <summary>
+                hidden = <paramref name="value"/>
+            <br/>
+                Hides the element from view.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.label.Tabindex(System.String)">
+            <summary>
+                tabindex = <paramref name="value"/>
+            <br/>
                 Specifies the element's position in the tab order.
             </summary>
         </member>
@@ -5809,6 +6495,295 @@
         <member name="P:ReactWithDotNet.a.tabindex">
             <summary>
                 Specifies the tab order of the link.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Href(System.String)">
+            <summary>
+                href = <paramref name="value"/>
+            <br/>
+                The URL of the linked resource.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Target(System.String)">
+            <summary>
+                target = <paramref name="value"/>
+            <br/>
+                Specifies where the linked resource should be opened. Can be `_blank`, `_self`, `_parent`, or `_top`.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Rel(System.String)">
+            <summary>
+                rel = <paramref name="value"/>
+            <br/>
+                Specifies the relationship between the current document and the linked resource. Can be `alternate`, `author`, `bookmark`, `canonical`, `external`, `help`, `license`, `next`, `nofollow`, `noreferrer`, `noopener`, `prev`, `search`, `sponsored`, or `stylesheet`.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Type(System.String)">
+            <summary>
+                type = <paramref name="value"/>
+            <br/>
+                Specifies the MIME type of the linked resource, if applicable.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Download(System.String)">
+            <summary>
+                download = <paramref name="value"/>
+            <br/>
+                Specifies whether the linked resource should be downloaded or opened in a new browser tab.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Ping(System.String)">
+            <summary>
+                ping = <paramref name="value"/>
+            <br/>
+                A list of URLs to which a ping should be sent when the user clicks on the link.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Media(System.String)">
+            <summary>
+                media = <paramref name="value"/>
+            <br/>
+                Specifies the media types for which the link is relevant.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Hreflang(System.String)">
+            <summary>
+                hreflang = <paramref name="value"/>
+            <br/>
+                Specifies the language of the linked resource.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Name(System.String)">
+            <summary>
+                name = <paramref name="value"/>
+            <br/>
+                Specifies a name for the link. This can be used to target the link with JavaScript.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.a.Tabindex(System.String)">
+            <summary>
+                tabindex = <paramref name="value"/>
+            <br/>
+                Specifies the tab order of the link.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.src">
+            <summary>
+                The URL of the image file.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.srcset">
+            <summary>
+                A list of image files to use in different situations, such as different screen sizes or device types.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.usemap">
+            <summary>
+                Specifies an image as a client-side image map.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.alt">
+            <summary>
+                An alternate text for the image, if the image for some reason cannot be displayed.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.width">
+            <summary>
+                The width of the image, in pixels.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.height">
+            <summary>
+                The height of the image, in pixels.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.ismap">
+            <summary>
+                A Boolean attribute that indicates whether the image is an image map.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.longdesc">
+            <summary>
+                A longer description of the image, for use by screen readers and other assistive technologies.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.crossorigin">
+            <summary>
+                A string that specifies the CORS setting for the image.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.loading">
+            <summary>
+                A string that specifies how the image should be loaded.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.decoding">
+            <summary>
+                A string that specifies how the image should be decoded.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.img.referrerpolicy">
+            <summary>
+                A string that specifies how much referrer information is sent with requests for the image.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Src(System.String)">
+            <summary>
+                src = <paramref name="value"/>
+            <br/>
+                The URL of the image file.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Srcset(System.String)">
+            <summary>
+                srcset = <paramref name="value"/>
+            <br/>
+                A list of image files to use in different situations, such as different screen sizes or device types.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Usemap(System.String)">
+            <summary>
+                usemap = <paramref name="value"/>
+            <br/>
+                Specifies an image as a client-side image map.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Alt(System.String)">
+            <summary>
+                alt = <paramref name="value"/>
+            <br/>
+                An alternate text for the image, if the image for some reason cannot be displayed.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Width(System.String)">
+            <summary>
+                width = <paramref name="value"/>
+            <br/>
+                The width of the image, in pixels.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Height(System.String)">
+            <summary>
+                height = <paramref name="value"/>
+            <br/>
+                The height of the image, in pixels.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Ismap(System.String)">
+            <summary>
+                ismap = <paramref name="value"/>
+            <br/>
+                A Boolean attribute that indicates whether the image is an image map.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Longdesc(System.String)">
+            <summary>
+                longdesc = <paramref name="value"/>
+            <br/>
+                A longer description of the image, for use by screen readers and other assistive technologies.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Crossorigin(System.String)">
+            <summary>
+                crossorigin = <paramref name="value"/>
+            <br/>
+                A string that specifies the CORS setting for the image.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Loading(System.String)">
+            <summary>
+                loading = <paramref name="value"/>
+            <br/>
+                A string that specifies how the image should be loaded.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Decoding(System.String)">
+            <summary>
+                decoding = <paramref name="value"/>
+            <br/>
+                A string that specifies how the image should be decoded.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.img.Referrerpolicy(System.String)">
+            <summary>
+                referrerpolicy = <paramref name="value"/>
+            <br/>
+                A string that specifies how much referrer information is sent with requests for the image.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.svg.preserveAspectRatio">
+            <summary>
+                Specifies how the SVG element should be scaled and aligned to fit its viewport.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.svg.width">
+            <summary>
+                The width of the SVG element in pixels.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.svg.height">
+            <summary>
+                The height of the SVG element in pixels.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.svg.xmlns">
+            <summary>
+                The namespace URI for the SVG element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.svg.version">
+            <summary>
+                The SVG version of the element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.svg.PreserveAspectRatio(System.String)">
+            <summary>
+                preserveAspectRatio = <paramref name="value"/>
+            <br/>
+                Specifies how the SVG element should be scaled and aligned to fit its viewport.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.svg.Width(System.String)">
+            <summary>
+                width = <paramref name="value"/>
+            <br/>
+                The width of the SVG element in pixels.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.svg.Height(System.String)">
+            <summary>
+                height = <paramref name="value"/>
+            <br/>
+                The height of the SVG element in pixels.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.svg.Xmlns(System.String)">
+            <summary>
+                xmlns = <paramref name="value"/>
+            <br/>
+                The namespace URI for the SVG element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.svg.Version(System.String)">
+            <summary>
+                version = <paramref name="value"/>
+            <br/>
+                The SVG version of the element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.svg.Width(System.Double)">
+            <summary>
+                svg.width = <paramref name="width" /> + 'px'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.svg.Height(System.Double)">
+            <summary>
+                svg.height = <paramref name="height" /> + 'px'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.svg.ViewBox(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+                svg.viewBox = '<paramref name="minX" /> <paramref name="minY" /> <paramref name="width" /> <paramref name="height" />'
             </summary>
         </member>
         <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent(System.Linq.Expressions.Expression{System.Func{System.Func{System.Threading.Tasks.Task}}})">
@@ -6322,55 +7297,6 @@
                 Example:
                 <br />
                 new MediaQuery("only screen and (max-width: 600px)", new Style { width:"5px" }
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.svg.Width(System.String)">
-            <summary>
-                svg.width = <paramref name="width" />
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.svg.Width(System.Double)">
-            <summary>
-                svg.width = <paramref name="width" /> + 'px'
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.svg.WidthHeight(System.String)">
-            <summary>
-                svg.width = <paramref name="widthAndHeight" />
-            <br/>
-                svg.height = <paramref name="widthAndHeight" />
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.svg.WidthHeight(System.Double)">
-            <summary>
-                svg.width = <paramref name="widthAndHeight" /> + 'px'
-            <br/>
-                svg.height = <paramref name="widthAndHeight" /> + 'px'
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.svg.Height(System.String)">
-            <summary>
-                svg.height = <paramref name="height" />
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.svg.Height(System.Double)">
-            <summary>
-                svg.height = <paramref name="height" /> + 'px'
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.svg.Fill(System.String)">
-            <summary>
-                svg.fill = <paramref name="color" />
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.svg.ViewBox(System.String)">
-            <summary>
-                svg.viewBox = <paramref name="viewBox" />
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.svg.ViewBox(System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-                svg.viewBox = '<paramref name="minX" /> <paramref name="minY" /> <paramref name="width" /> <paramref name="height" />'
             </summary>
         </member>
         <member name="P:ReactWithDotNet.MouseEvent.FirstNotEmptyId">
