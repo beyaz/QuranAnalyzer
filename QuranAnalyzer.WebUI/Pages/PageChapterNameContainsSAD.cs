@@ -67,11 +67,11 @@ public class PageChapterNameContainsSAD : ReactComponent
     }
     Element CrateTable()
     {
-        //var chapterNumbers = new[] { 28, 37,38,41,61,103,110,112 };
-        //var searchLetters = new[] { ArabicLetterOrder.Saad };
-        
-        var chapterNumbers = new[] { 42, 50 };
-        var searchLetters = new[] { ArabicLetterOrder.Qaaf };
+        var chapterNumbers = new[] { 28, 37, 38, 41, 61, 103, 110, 112 };
+        var searchLetters = new[] { ArabicLetterOrder.Saad };
+
+        //var chapterNumbers = new[] { 42, 50 };
+        //var searchLetters = new[] { ArabicLetterOrder.Qaaf };
 
         var sharedStyle = Border(Solid(1, "black")) + BorderCollapseCollapse+ TextAlignCenter + Padding(5);
 
@@ -79,6 +79,13 @@ public class PageChapterNameContainsSAD : ReactComponent
         {
             return VerseFilter.GetVerseList(verseFilter).Then(verses => arabicLetterOrders.Sum(arabicLetterOrder => QuranAnalyzerMixin.GetCountOfLetter(verses, arabicLetterOrder))).Value;
         }
+
+        var dataList = chapterNumbers.Select(chapterNumber => new
+        {
+            ChapterNumber = chapterNumber,
+            NumberOfVerseInChapter=VerseFilter.GetVerseList(chapterNumber + ":*").Value.Count,
+            NumberOfSearchLetters = CalculateCount(chapterNumber+":*",searchLetters)
+        }).ToList();
         
         return new table(sharedStyle, BackgroundWhite)
         {
@@ -124,27 +131,27 @@ public class PageChapterNameContainsSAD : ReactComponent
                     }
                 },
                 
-                chapterNumbers.Select(chapterNumber =>new tr
+                dataList.Select(data =>new tr
                 {
                     new td(sharedStyle)
                     {
                         "ص\u02dc"
                     },
-                    new td(sharedStyle)
+                    new td(sharedStyle, PaddingTopBottom(10))
                     {
-                        "S (Saad)"
+                        string.Join(", ", searchLetters)
                     },
                     new td(sharedStyle)
                     {
-                        new NumberViewer{Count = chapterNumber, DisableColorize = true}
+                        new NumberViewer{Count = data.ChapterNumber, DisableColorize = true}
                     },
                     new td(sharedStyle)
                     {
-                        new NumberViewer{Count = CalculateCount(chapterNumber+":*",searchLetters), DisableColorize = true}
+                        new NumberViewer{Count = data.NumberOfSearchLetters, DisableColorize = true}
                     },
                     new td(sharedStyle)
                     {
-                        new NumberViewer{Count = VerseFilter.GetVerseList(chapterNumber + ":*").Value.Count}
+                        new NumberViewer{Count = data.NumberOfVerseInChapter}
                     }
                 }),
                 
@@ -168,7 +175,7 @@ public class PageChapterNameContainsSAD : ReactComponent
                     },
                     new td(sharedStyle,td.RowSpan(2))
                     {
-                        "AYET TOPLAMI 109X4",
+                        "AYET TOPLAMI",
                         new NumberViewer
                         {
                             Count = chapterNumbers.Select(chapterNumber=>VerseFilter.GetVerseList(chapterNumber + ":*").Value.Count).Sum()
