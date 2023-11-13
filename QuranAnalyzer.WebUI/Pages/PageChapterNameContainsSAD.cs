@@ -1,13 +1,8 @@
-﻿using static QuranAnalyzer.QuranArabicVersionWithNoBismillah;
-
+﻿
 namespace QuranAnalyzer.WebUI.Pages;
 
 public class PageChapterNameContainsSAD : ReactComponent
 {
-    
-
-    
-
     protected override Element render()
     {
         return new div(FontFamily("Calibri, sans-serif"), FontSize24, FontWeight400)
@@ -67,8 +62,9 @@ public class PageChapterNameContainsSAD : ReactComponent
     }
     Element CrateTable()
     {
+        var searchLettersAsString = "ص";
         var chapterNumbers = new[] { 28, 37, 38, 41, 61, 103, 110, 112 };
-        var searchLetters = new[] { ArabicLetterOrder.Saad };
+        var searchLetters = Analyzer.AnalyzeText(searchLettersAsString).Select(letter => letter.OrderValue).ToArray();
 
         //var chapterNumbers = new[] { 42, 50 };
         //var searchLetters = new[] { ArabicLetterOrder.Qaaf };
