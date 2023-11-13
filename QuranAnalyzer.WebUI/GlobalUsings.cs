@@ -11,3 +11,4 @@ global using static QuranAnalyzer.FpExtensions;
 global using static ReactWithDotNet.Mixin;
 global using static QuranAnalyzer.WebUI.Extensions;
 global using System.Threading.Tasks;
+global using static QuranAnalyzer.Analyzer;

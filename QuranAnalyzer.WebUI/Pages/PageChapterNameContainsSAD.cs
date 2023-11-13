@@ -64,7 +64,7 @@ public class PageChapterNameContainsSAD : ReactComponent
     {
         var searchLettersAsString = "ص";
         var chapterNumbers = new[] { 28, 37, 38, 41, 61, 103, 110, 112 };
-        var searchLetters = Analyzer.AnalyzeText(searchLettersAsString).Select(letter => letter.OrderValue).ToArray();
+        var searchLetters = AnalyzeText(searchLettersAsString).Select(letter => letter.OrderValue).ToArray();
 
         //var chapterNumbers = new[] { 42, 50 };
         //var searchLetters = new[] { ArabicLetterOrder.Qaaf };
