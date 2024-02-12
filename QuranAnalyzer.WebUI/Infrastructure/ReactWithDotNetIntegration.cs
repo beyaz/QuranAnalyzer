@@ -1,6 +1,6 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Net.Http.Headers;
 using QuranAnalyzer.WebUI.Layouts;
 using QuranAnalyzer.WebUI.Pages;
@@ -11,48 +11,31 @@ namespace QuranAnalyzer.WebUI;
 
 static class ReactWithDotNetIntegration
 {
-    public static void ConfigureReactWithDotNet(this IEndpointRouteBuilder endpoints)
+    public static void ConfigureReactWithDotNet(this WebApplication app)
     {
-        endpoints.MapGet("/", HomePage);
-        endpoints.MapPost("/" + nameof(HandleReactWithDotNetRequest), HandleReactWithDotNetRequest);
-        
-        endpoints.MapGet("/"+nameof(PageCountInRange), httpContext =>  WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageCountInRange)));
-        endpoints.MapGet("/"+nameof(PageVerseFilter), httpContext =>  WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageVerseFilter)));
-        endpoints.MapGet("/"+nameof(PageChapterNameContainsSAD), httpContext =>  WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageChapterNameContainsSAD)));
+        app.MapGet("/", HomePage);
 
-#if DEBUG // this two endpoints should use only development mode
+        app.MapGet("/" + nameof(PageCountInRange), httpContext => WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageCountInRange)));
+        app.MapGet("/" + nameof(PageVerseFilter), httpContext => WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageVerseFilter)));
+        app.MapGet("/" + nameof(PageChapterNameContainsSAD), httpContext => WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageChapterNameContainsSAD)));
 
-        endpoints.MapGet("/" + nameof(ReactWithDotNetDesigner), httpContext =>
-        {
-            ReactWithDotNetDesigner.IsAttached = true;
-
-            return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesigner));
-        });
-        endpoints.MapGet("/" + nameof(ReactWithDotNetDesignerComponentPreview), httpContext =>
-        {
-            ReactWithDotNetDesigner.IsAttached = true;
-
-            return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesignerComponentPreview));
-        });
-#endif
+        RegisterSpecificEndpoints(app);
     }
 
     static void BeforeSerializeElementToClient(ReactContext context, Element element, Element parent)
     {
     }
 
-    static async Task HandleReactWithDotNetRequest(HttpContext httpContext)
+    static Task HandleReactWithDotNetRequest(HttpContext httpContext)
     {
         httpContext.Response.ContentType = "application/json; charset=utf-8";
 
-        var jsonText = await CalculateRenderInfo(new CalculateRenderInfoInput
+        return ProcessReactWithDotNetComponentRequest(new()
         {
             HttpContext                    = httpContext,
             OnReactContextCreated          = OnReactContextCreated,
             BeforeSerializeElementToClient = BeforeSerializeElementToClient
         });
-
-        await httpContext.Response.WriteAsync(jsonText);
     }
 
     static Task HomePage(HttpContext httpContext)
@@ -66,7 +49,30 @@ static class ReactWithDotNetIntegration
         return Task.CompletedTask;
     }
 
-    static async Task WriteHtmlResponse(HttpContext httpContext, Type layoutType, Type mainContentType)
+    [Conditional("DEBUG")]
+    static void RegisterReactWithDotNetDevelopmentTools(WebApplication app)
+    {
+        app.MapGet("/$", httpContext =>
+        {
+            ReactWithDotNetDesigner.IsAttached = true;
+
+            return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesigner));
+        });
+        app.MapGet("/" + nameof(ReactWithDotNetDesignerComponentPreview), httpContext =>
+        {
+            ReactWithDotNetDesigner.IsAttached = true;
+
+            return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesignerComponentPreview));
+        });
+    }
+
+    static void RegisterSpecificEndpoints(WebApplication app)
+    {
+        RegisterReactWithDotNetDevelopmentTools(app);
+        app.MapPost($"/{nameof(HandleReactWithDotNetRequest)}", HandleReactWithDotNetRequest);
+    }
+
+    static Task WriteHtmlResponse(HttpContext httpContext, Type layoutType, Type mainContentType)
     {
         httpContext.Response.ContentType = "text/html; charset=UTF-8";
 
@@ -74,7 +80,7 @@ static class ReactWithDotNetIntegration
         httpContext.Response.Headers[HeaderNames.Expires]      = "0";
         httpContext.Response.Headers[HeaderNames.Pragma]       = "no-cache";
 
-        var html = await CalculateFirstRender(new CalculateFirstRenderInput
+        return ProcessReactWithDotNetPageRequest(new()
         {
             LayoutType                     = layoutType,
             MainContentType                = mainContentType,
@@ -83,7 +89,5 @@ static class ReactWithDotNetIntegration
             OnReactContextCreated          = OnReactContextCreated,
             BeforeSerializeElementToClient = BeforeSerializeElementToClient
         });
-
-        await httpContext.Response.WriteAsync(html);
     }
 }

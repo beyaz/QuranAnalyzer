@@ -45,10 +45,10 @@ public class PageAboutEdipYuksel : ReactPureComponent
                 "Namazın 3 vakit olduğu fikrini savunması, Atatürk ile 19 meselesi arasında bağ kurması gibi konular var.",
                 separation,
 
-                "Demiyorum ki Edip full hatalı veya full doğru. ",
+                "Demiyorum ki Edip hepten hatalı veya hepten doğru. ",
                 "Bu yazıda sadece Edip üzerinde ve onun 19 ile olan yönü üzerine yaptığım gözlemlerimin bir kısmını paylaştım.",
 
-                " Sonuç olarak Reşad'ı veya 19 meselesini Edip yüksel üzerinden tanımaya kalkarsanız hatalı bir yaklaşım olabilir."
+                " Sonuç olarak Reşad'ın fikirlerini veya 19 meselesini Edip Yüksel üzerinden tanımaya kalkarsanız hatalı bir yaklaşım olabilir."
             }
         };
 

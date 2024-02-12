@@ -159,6 +159,6 @@ static class Extensions
 
     public static void OnMainContentDivScrollChangedOverZero(this Client client, Func<double,Task> handlerAction)
     {
-        client.ListenEvent(MainContentDivScrollChangedOverZero, handlerAction);
+        client.ListenEvent(nameof(MainContentDivScrollChangedOverZero), handlerAction);
     }
 }

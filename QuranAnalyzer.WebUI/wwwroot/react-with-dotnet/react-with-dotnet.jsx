@@ -15,10 +15,9 @@ const RootNode = '$RootNode';
 const ClientTasks = '$ClientTasks';
 const SyncId = '$SyncId';
 const DotNetState = '$State';
-const HasComponentDidMountMethod = '$HasComponentDidMountMethod';
+const ComponentDidMountMethod = '$ComponentDidMountMethod';
 const DotNetComponentUniqueIdentifier = '$DotNetComponentUniqueIdentifier';
 const DotNetComponentUniqueIdentifiers = '$DotNetComponentUniqueIdentifiers';
-
 const ON_COMPONENT_DESTROY = '$ON_COMPONENT_DESTROY';
 const CUSTOM_EVENT_LISTENER_MAP = '$CUSTOM_EVENT_LISTENER_MAP';
 const DotNetProperties = 'DotNetProperties';
@@ -79,6 +78,11 @@ class EventBusImp
 
     publish(eventName, eventArgumentsAsArray)
     {
+        if (eventArgumentsAsArray == null)
+        {
+            throw CreateNewDeveloperError("Publish event arguments should be given in array. @Example: ReactWithDotNet.DispatchEvent('MovieNameChanged', ['The Shawshank Redemption']);");
+        }
+
         var listenerFunctions = this.map[eventName];
 
         if (!listenerFunctions)
@@ -86,9 +90,16 @@ class EventBusImp
             return;
         }
 
-        for (var i = 0; i < listenerFunctions.length; i++)
+        // NOTE: maybe user removed some listeners so we need to protect array modification
+
+        const functionArray = listenerFunctions.slice(0);
+
+        for (var i = 0; i < functionArray.length; i++)
         {
-            listenerFunctions[i].apply(null, [eventArgumentsAsArray]);
+            if (listenerFunctions.indexOf(functionArray[i]) >= 0)
+            {
+                functionArray[i].apply(null, [eventArgumentsAsArray]);
+            }
         }
     }
 }
@@ -99,20 +110,14 @@ const EventBus =
 
     On: function(event, callback)
     {
-        // window.addEventListener(event, callback);
-
         EventBus.bus.subscribe(event, callback);
     },
-    Dispatch: function(event, data)
+    Dispatch: function (eventName, eventArgumentsAsArray)
     {
-        // window.dispatchEvent(new CustomEvent(event, { detail: data }));
-
-        EventBus.bus.publish(event, data);
+        EventBus.bus.publish(eventName, eventArgumentsAsArray);
     },
     Remove: function(event, callback)
     {
-        // window.removeEventListener(event, callback);
-
         EventBus.bus.unsubscribe(event, callback);
     }
 };
@@ -253,6 +258,8 @@ function IsEmptyObject(obj)
     return true;
 }
 
+const EventDispatchingFinishCallbackFunctionsQueue = [];
+
 const FunctionExecutionQueue = [];
 
 var ReactIsBusy = false;
@@ -275,6 +282,11 @@ function EmitNextFunctionInFunctionExecutionQueue()
     if (ReactIsBusy === true)
     {
         throw CreateNewDeveloperError("ReactWithDotNet event queue problem occured.");
+    }
+
+    if (FunctionExecutionQueue.length === 0 && EventDispatchingFinishCallbackFunctionsQueue.length > 0)
+    {
+        PushToFunctionExecutionQueue(EventDispatchingFinishCallbackFunctionsQueue.shift())
     }
 
     if (FunctionExecutionQueue.length > 0)
@@ -375,6 +387,12 @@ function SetValueInPath(obj, steps, value)
     {
         var step = steps[i];
 
+        if (len === i + 3 && steps[i] === '[' && steps[i + 2] === ']')
+        {
+            obj[steps[i + 1]] = value;
+            return;
+        }
+
         if (obj[step] == null)
         {
             obj[step] = {};
@@ -456,15 +474,15 @@ const VisitFiberNodeForCaptureState = (parentScope, fiberNode) =>
 {
     var scope = parentScope;
 
+    var breadcrumb = parentScope.breadcrumb + ',' + fiberNode.key;
+
+    scope = { map: parentScope.map, breadcrumb: breadcrumb };
+
     var isFiberNodeRelatedWithDotNetComponent = fiberNode.type && fiberNode.type[DotNetTypeOfReactComponent];
     if (isFiberNodeRelatedWithDotNetComponent)
     {
         var map = parentScope.map;
-
-        var breadcrumb = parentScope.breadcrumb + ',' + parentScope.index;
-
-        parentScope.index++;
-
+        
         if (map[breadcrumb] !== undefined)
         {
             throw CreateNewDeveloperError('Problem when traversing nodes');
@@ -478,8 +496,6 @@ const VisitFiberNodeForCaptureState = (parentScope, fiberNode) =>
         };
 
         map[breadcrumb] = stateInfo;
-
-        scope = { map: map, index: 0, breadcrumb: breadcrumb };
     }
 
     var child = fiberNode.child;
@@ -498,14 +514,16 @@ const CaptureStateTreeFromFiberNode = (rootFiberNode) =>
         rootFiberNode = rootFiberNode.alternate;
     }
 
+    const rootNodeKey = rootFiberNode.key;
+
     var map = {};
 
-    map['0'] =
+    map[rootNodeKey] =
     {
         StateAsJson: JSON.stringify(rootFiberNode.stateNode.state[DotNetState])
     };
 
-    var rootScope = { map: map, index: 0, breadcrumb: '0' };
+    var rootScope = { map: map, breadcrumb: rootNodeKey };
 
     var child = rootFiberNode.child;
     while (child)
@@ -514,18 +532,18 @@ const CaptureStateTreeFromFiberNode = (rootFiberNode) =>
         child = child.sibling;
     }
 
-    map['0'][DotNetProperties] = Object.assign({}, NotNull(rootFiberNode.stateNode.state[DotNetProperties]));
+    map[rootNodeKey][DotNetProperties] = Object.assign({}, NotNull(rootFiberNode.stateNode.state[DotNetProperties]));
 
     // calculate $LogicalChildrenCount
     {
         const logicalChildrenCountCalculation = TryGetValueInPath(rootFiberNode.stateNode, "props.$jsonNode.$LogicalChildrenCount");
         if (logicalChildrenCountCalculation.success)
         {
-            map['0'][DotNetProperties].$LogicalChildrenCount = logicalChildrenCountCalculation.value;
+            map[rootNodeKey][DotNetProperties].$LogicalChildrenCount = logicalChildrenCountCalculation.value;
         }
     }
 
-    return map;
+    return { stateTree: map, rootNodeKey: rootNodeKey };
 };
 
 const GetNextSequence = (() =>
@@ -534,6 +552,13 @@ const GetNextSequence = (() =>
 
     return () => { return sequence++; };
 })();
+
+
+var DotNetComponentInstanceId_Next_Value = 1;
+function InitializeDotNetComponentInstanceId(component)
+{
+    component['$DotNetComponentInstanceId'] = DotNetComponentInstanceId_Next_Value++;
+}
 
 
 class LinkedListNode
@@ -818,32 +843,38 @@ function isTwoLiteralObjectEquivent(o1, o2)
     return true;
 };
 
-function tryToFindCachedMethodInfo(targetComponent, remoteMethodName, eventArguments)
+function GetAllCachedMethodsOfComponent(component)
 {
-    if (targetComponent.props &&
-        targetComponent.props.$jsonNode &&
-        targetComponent.props.$jsonNode.$CachedMethods)
+    return component.state.$CachedMethods;
+}
+
+function tryToFindCachedMethodInfo(component, remoteMethodName, eventArguments)
+{
+    const cachedMethods = GetAllCachedMethodsOfComponent(component);
+    if (cachedMethods == null)
     {
-        for (var i = 0; i < targetComponent.props.$jsonNode.$CachedMethods.length; i++)
+        return null;
+    }
+
+    for (var i = 0; i < cachedMethods.length; i++)
+    {
+        const cachedMethodInfo = cachedMethods[i];
+
+        if (cachedMethodInfo.MethodName === remoteMethodName && cachedMethodInfo.IgnoreParameters)
         {
-            const cachedMethodInfo = targetComponent.props.$jsonNode.$CachedMethods[i];
+            return cachedMethodInfo;
+        }
 
-            if (cachedMethodInfo.MethodName === remoteMethodName && cachedMethodInfo.IgnoreParameters)
+        if (remoteMethodName === 'componentDidMount' && cachedMethodInfo.MethodName.endsWith('|componentDidMount'))
+        {
+            return cachedMethodInfo;
+        }
+
+        if (cachedMethodInfo.MethodName === remoteMethodName && eventArguments.length === 1)
+        {
+            if (isEquivent(eventArguments[0], cachedMethodInfo.Parameter))
             {
                 return cachedMethodInfo;
-            }
-
-            if (remoteMethodName === 'componentDidMount' && cachedMethodInfo.MethodName.endsWith('|componentDidMount'))
-            {
-                return cachedMethodInfo;
-            }
-
-            if (cachedMethodInfo.MethodName === remoteMethodName && eventArguments.length === 1)
-            {
-                if (isEquivent(eventArguments[0], cachedMethodInfo.Parameter))
-                {
-                    return cachedMethodInfo;
-                }
             }
         }
     }
@@ -857,7 +888,8 @@ function ConvertToEventHandlerFunction(parentJsonNode, remoteMethodInfo)
     const handlerComponentUniqueIdentifier = remoteMethodInfo.HandlerComponentUniqueIdentifier;
     const functionNameOfGrabEventArguments = remoteMethodInfo.FunctionNameOfGrabEventArguments;
     const stopPropagation = remoteMethodInfo.StopPropagation;
-
+    const htmlElementScrollDebounceTimeout = remoteMethodInfo.HtmlElementScrollDebounceTimeout;
+    const keyboardEventCallOnly = remoteMethodInfo.KeyboardEventCallOnly;
 
     NotNull(remoteMethodName);
     NotNull(handlerComponentUniqueIdentifier);
@@ -893,10 +925,23 @@ function ConvertToEventHandlerFunction(parentJsonNode, remoteMethodInfo)
             arguments[0].stopPropagation();
         }
 
-        const targetComponent = GetComponentByDotNetComponentUniqueIdentifier(handlerComponentUniqueIdentifier);
-
         let eventArguments = Array.prototype.slice.call(arguments);
 
+        if (keyboardEventCallOnly)
+        {
+            const key = arguments[0].key;
+            if (keyboardEventCallOnly.indexOf(key) < 0)
+            {
+                return;
+            }
+
+            eventArguments[0].preventDefault();
+
+            eventArguments[0] = ConvertToSyntheticKeyboardEvent(eventArguments[0]);
+        }
+
+        const targetComponent = GetComponentByDotNetComponentUniqueIdentifier(handlerComponentUniqueIdentifier);
+        
         if (functionNameOfGrabEventArguments)
         {
             eventArguments = GetExternalJsObject(functionNameOfGrabEventArguments)(eventArguments);
@@ -911,6 +956,43 @@ function ConvertToEventHandlerFunction(parentJsonNode, remoteMethodInfo)
 
             return;
         }
+        
+        if (htmlElementScrollDebounceTimeout > 0)
+        {
+            var eventName = eventArguments[0]._reactName;
+
+            const executionQueueItemName = eventName + '-debounce-' + GetFirstAssignedUniqueIdentifierValueOfComponent(handlerComponentUniqueIdentifier);
+
+            if (FunctionExecutionQueueCurrentEntry &&
+                FunctionExecutionQueueCurrentEntry.name === executionQueueItemName)
+            {
+                FunctionExecutionQueueCurrentEntry.isValid = false;
+            }
+
+            const timeoutKey = eventName + '-debounceTimeoutId';
+
+            clearTimeout(targetComponent.state[timeoutKey]);
+
+            var newState = {};
+            newState[timeoutKey] = setTimeout(() =>
+            {
+                const actionArguments = {
+                    component: targetComponent,
+                    remoteMethodName: remoteMethodName,
+                    remoteMethodArguments: eventArguments
+                };
+                const executionEntry = StartAction(actionArguments);
+                executionEntry.name = executionQueueItemName;
+
+            }, htmlElementScrollDebounceTimeout);
+
+            newState[SyncId] = GetNextSequence();
+
+            targetComponent.setState(newState);
+
+            return;
+        }
+
 
         const actionArguments = {
             component: targetComponent,
@@ -1270,8 +1352,6 @@ function ConvertToSyntheticMouseEvent(e)
         firstNotEmptyId = null;
     }
 
-    const target = ConvertToShadowHtmlElement(e.target);
-
     return {
         FirstNotEmptyId: firstNotEmptyId,
 
@@ -1288,9 +1368,37 @@ function ConvertToSyntheticMouseEvent(e)
         screenX:   e.screenX,
         screenY:   e.screenY,
         shiftKey:  e.shiftKey,
-        target:    target,
         timeStamp: e.timeStamp,
-        type:      e.type
+        type:      e.type,
+
+        target: ConvertToShadowHtmlElement(e.target),
+        currentTarget :ConvertToShadowHtmlElement(e.currentTarget)
+    };
+}
+
+function ConvertToSyntheticScrollEvent(e)
+{
+    return {
+        currentTarget: ConvertToShadowHtmlElement(e.currentTarget),
+        target: ConvertToShadowHtmlElement(e.target),
+        timeStamp: e.timeStamp,
+        type: e.type
+    };
+}
+
+function ConvertToSyntheticKeyboardEvent(e)
+{ 
+    return {
+        currentTarget: ConvertToShadowHtmlElement(e.currentTarget),
+        target: ConvertToShadowHtmlElement(e.target),
+        timeStamp: e.timeStamp,
+        type: e.type,
+        keyCode: e.keyCode,
+        key: e.key,
+        shiftKey: e.shiftKey,
+        ctrlKey: e.ctrlKey,
+        altKey: e.altKey,
+        which: e.which
     };
 }
 
@@ -1353,7 +1461,13 @@ function ConvertToShadowHtmlElement(htmlElement)
         selectedIndex: selectedIndex,
         selectionStart: selectionStart,
         tagName: htmlElement.tagName,
-        value: value
+        value: value,
+        data: htmlElement.dataset,
+
+        scrollHeight: htmlElement.scrollHeight,
+        scrollLeft: htmlElement.scrollLeft,
+        scrollTop: htmlElement.scrollTop,
+        scrollWidth: htmlElement.scrollWidth
     };
 }
 
@@ -1383,6 +1497,45 @@ function StartAction(actionArguments)
     return PushToFunctionExecutionQueue(execute);
 }
 
+function IsSyntheticBaseEvent(e)
+{
+    try
+    {
+        return e.constructor.prototype.constructor.name === 'SyntheticBaseEvent';
+    }
+    catch (exception)
+    {
+        return false;
+    }
+}
+
+function ArrangeRemoteMethodArguments(remoteMethodArguments)
+{
+    if (remoteMethodArguments)
+    {
+        for (var i = 0; i < remoteMethodArguments.length; i++)
+        {
+            var prm = remoteMethodArguments[i];
+
+            if (IsSyntheticBaseEvent(prm))
+            {
+                if (prm._reactName)
+                {
+                    if (prm._reactName && prm._reactName.indexOf('Mouse') > 0)
+                    {
+                        remoteMethodArguments[i] = ConvertToSyntheticMouseEvent(prm);
+                        continue;
+                    }
+                    if (prm._reactName && prm._reactName === 'onScroll')
+                    {
+                        remoteMethodArguments[i] = ConvertToSyntheticScrollEvent(prm);
+                        continue;
+                    }
+                }
+            }
+        }
+    }    
+}
 
 function HandleAction(actionArguments)
 {
@@ -1409,19 +1562,35 @@ function HandleAction(actionArguments)
         throw capturedStateTreeResponse.exception;
     }
 
+    const capturedStateTree = capturedStateTreeResponse.value.stateTree;
+    const capturedStateTreeRootNodeKey = capturedStateTreeResponse.value.rootNodeKey;
+    
     const request =
     {
         MethodName: "HandleComponentEvent",
 
         EventHandlerMethodName: NotNull(remoteMethodName),
         FullName: NotNull(component.constructor)[DotNetTypeOfReactComponent],
-        CapturedStateTree: capturedStateTreeResponse.value,
+        CapturedStateTree: capturedStateTree,
+        CapturedStateTreeRootNodeKey: capturedStateTreeRootNodeKey,
         ComponentKey: parseInt(NotNull(component.props.$jsonNode.key)),
         LastUsedComponentUniqueIdentifier: LastUsedComponentUniqueIdentifier,
         ComponentUniqueIdentifier: NotNull(component.state[DotNetComponentUniqueIdentifier]),
 
         CallFunctionId: actionArguments.executionQueueEntry.id
     };
+
+
+    if (actionArguments.onlyUpdateState)
+    {
+        request.OnlyUpdateState = true;
+        request.CapturedStateTree = { };
+        request.CapturedStateTree[capturedStateTreeRootNodeKey] = capturedStateTree[capturedStateTreeRootNodeKey];
+
+    }
+    
+
+    ArrangeRemoteMethodArguments(actionArguments.remoteMethodArguments);
 
     request.EventArgumentsAsJsonArray = actionArguments.remoteMethodArguments.map(JSON.stringify);
 
@@ -1451,11 +1620,30 @@ function HandleAction(actionArguments)
             LastUsedComponentUniqueIdentifier = response.LastUsedComponentUniqueIdentifier;
         }
 
-        ProcessDynamicCssClasses(response.DynamicStyles);
-
+        const incomingDynamicStyles = response.DynamicStyles;
+        
         function stateCallback()
         {
+            ProcessDynamicCssClasses(incomingDynamicStyles);
+
             OnReactStateReady();
+        }
+
+        if (actionArguments.onlyUpdateState)
+        {
+            // note: setState not used here because this is special case. we don't want to trigger render.
+            component.state[DotNetState] = response.NewState;
+            component.state[DotNetProperties] = response.NewDotNetProperties;
+            if (response.ClientTaskList)
+            {
+                component.state[ClientTasks] = response.ClientTaskList;
+
+                HandleComponentClientTasks(component);
+            }
+            
+            stateCallback();
+
+            return;
         }
 
         const partialState = CalculateNewStateFromJsonElement(component.state, response.ElementAsJson);
@@ -1489,6 +1677,22 @@ function HandleAction(actionArguments)
 
 function CalculateNewStateFromJsonElement(componentState, jsonElement)
 {
+    // connect unique idendifiers
+    if (NotNull(componentState[DotNetComponentUniqueIdentifier]) !== NotNull(jsonElement[DotNetComponentUniqueIdentifier]))
+    {
+        const component = COMPONENT_CACHE.FindComponentByDotNetComponentUniqueIdentifier(componentState[DotNetComponentUniqueIdentifier]);
+        if (component)
+        {
+            component[DotNetComponentUniqueIdentifiers].push(jsonElement[DotNetComponentUniqueIdentifier]);
+        }
+    }
+
+    // new way
+    jsonElement[SyncId] = GetNextSequence();
+    return jsonElement;
+
+
+    // old way  todo: check usage
     const newState = {};
 
     newState[DotNetState]     = NotNull(jsonElement[DotNetState]);
@@ -1497,17 +1701,6 @@ function CalculateNewStateFromJsonElement(componentState, jsonElement)
     newState[ClientTasks]     = jsonElement[ClientTasks];
     newState[DotNetProperties] = jsonElement[DotNetProperties];
     newState[DotNetComponentUniqueIdentifier] = jsonElement[DotNetComponentUniqueIdentifier];
-
-
-    if (NotNull(componentState[DotNetComponentUniqueIdentifier]) !== NotNull(jsonElement[DotNetComponentUniqueIdentifier]))
-    {
-        const component = COMPONENT_CACHE.FindComponentByDotNetComponentUniqueIdentifier(componentState[DotNetComponentUniqueIdentifier]);
-        if (component)
-        {
-            component[DotNetComponentUniqueIdentifiers].push(jsonElement[DotNetComponentUniqueIdentifier]);
-        }
-
-    }
 
     return newState;
 }
@@ -1573,8 +1766,32 @@ class ComponentDestroyQueue
     }
 }
 
+// todo: check usage or rethink
 const ComponentDestroyQueueInstance = new ComponentDestroyQueue();
 
+/**
+ * @param {Int32Array} componentUniqueIdentifiers
+ */
+function RemoveComponentDynamicStyles(componentUniqueIdentifiers)
+{
+    var hasChange = false;
+
+    for (let i = 0; i < DynamicStyles.length; i++)
+    {
+        if (componentUniqueIdentifiers.indexOf(DynamicStyles[i].componentUniqueIdentifier) >= 0)
+        {
+            DynamicStyles.splice(i, 1);
+            i--;
+
+            hasChange = true;
+        }
+    }
+
+    if (hasChange)
+    {
+        ApplyDynamicStylesToDom();
+    }
+}
 
 function DestroyDotNetComponentInstance(instance)
 {
@@ -1584,15 +1801,7 @@ function DestroyDotNetComponentInstance(instance)
         instance[ON_COMPONENT_DESTROY][i]();
     }
 
-    // remove related dynamic styles
-    for (let i = 0; i < DynamicStyles.length; i++)
-    {
-        if (instance[DotNetComponentUniqueIdentifiers].indexOf(DynamicStyles[i].componentUniqueIdentifier) >= 0)
-        {
-            DynamicStyles.splice(i, 1);
-            i--;
-        }
-    }
+    RemoveComponentDynamicStyles(instance[DotNetComponentUniqueIdentifiers]);
 
     COMPONENT_CACHE.Unregister(instance);
 }
@@ -1607,42 +1816,14 @@ function HandleComponentClientTasks(component)
     }
 
     const freeSpace = COMPONENT_CACHE.GetFreeSpaceOfComponent(component[DotNetComponentUniqueIdentifiers][0]);
-    if (freeSpace.waitingClientTasks === clientTasks)
+    if (freeSpace.lastProcessedClientTasks === clientTasks)
     {
         return false;
     }
 
-    if (freeSpace.waitingClientTasks != null)
-    {
-        throw CreateNewDeveloperError('freeSpace.waitingClientTasks should be null at this point.');
-    }
+    freeSpace.lastProcessedClientTasks = clientTasks;
 
-    freeSpace.waitingClientTasks = clientTasks;
-
-    function shouldBeReferenceEquals()
-    {
-        if (freeSpace.waitingClientTasks !== clientTasks)
-        {
-            throw CreateNewDeveloperError('freeSpace.waitingClientTasks should be reference equals to clientTasks at this point.');
-        }
-    }
-
-    const partialState = {};
-
-    partialState[ClientTasks] = null;
-
-    function stateCallback()
-    {
-        shouldBeReferenceEquals();
-
-        ProcessClientTasks(clientTasks, component);
-
-        shouldBeReferenceEquals();
-
-        freeSpace.waitingClientTasks = null;
-    }
-
-    component.setState(partialState, stateCallback);
+    ProcessClientTasks(clientTasks, component);
 
     return true;
 }
@@ -1665,33 +1846,26 @@ function DefineComponent(componentDeclaration)
 
             const instance = this;
 
+            // new way
             const initialState = {};
+            if (props)
+            {
+                Object.assign(initialState, props.$jsonNode);
 
-            initialState[DotNetState] = NotNull(props.$jsonNode[DotNetState]);
-            initialState[SyncId] = ShouldBeNumber(props[SyncId]);
-            initialState[RootNode] = props.$jsonNode[RootNode];
-            initialState[DotNetProperties] = NotNull(props.$jsonNode[DotNetProperties]);
-            initialState[DotNetComponentUniqueIdentifier] = NotNull(props.$jsonNode[DotNetComponentUniqueIdentifier]);
-
-            if (props.$jsonNode[HasComponentDidMountMethod]) {
-                initialState[HasComponentDidMountMethod] = props.$jsonNode[HasComponentDidMountMethod];
+                initialState[SyncId] = ShouldBeNumber(props[SyncId]);
             }
-
-            if (props.$jsonNode[ClientTasks]) {
-                initialState[ClientTasks] = props.$jsonNode[ClientTasks];
-            }
-
-            initialState[DotNetTypeOfReactComponent] = dotNetTypeOfReactComponent;
 
             instance.state = initialState;
 
-            instance[DotNetTypeOfReactComponent] = dotNetTypeOfReactComponent;
+            initialState[DotNetTypeOfReactComponent] = instance[DotNetTypeOfReactComponent] = dotNetTypeOfReactComponent;
 
             instance[ON_COMPONENT_DESTROY] = [];
 
             instance[CUSTOM_EVENT_LISTENER_MAP] = {};
 
             instance[DotNetComponentUniqueIdentifiers] = [NotNull(props.$jsonNode[DotNetComponentUniqueIdentifier])];
+
+            InitializeDotNetComponentInstanceId(instance);
 
             COMPONENT_CACHE.Register(instance);
         }
@@ -1707,8 +1881,8 @@ function DefineComponent(componentDeclaration)
 
             function HandleHasComponentDidMount(isDirectCall)
             {
-                const hasComponentDidMountMethod = component.state[HasComponentDidMountMethod];
-                if (hasComponentDidMountMethod !== true)
+                const componentDidMountMethod = component.state[ComponentDidMountMethod];
+                if (componentDidMountMethod === undefined || componentDidMountMethod === null)
                 {
                     if (isDirectCall !== true)
                     {
@@ -1727,7 +1901,7 @@ function DefineComponent(componentDeclaration)
 
                         const clientTasks = newState[ClientTasks];
 
-                        newState[HasComponentDidMountMethod] = null;
+                        newState[ComponentDidMountMethod] = null;
                         newState[ClientTasks] = null;
 
                         function stateCallback()
@@ -1745,16 +1919,18 @@ function DefineComponent(componentDeclaration)
 
                 const partialState = {};
 
-                partialState[HasComponentDidMountMethod] = null;
+                partialState[ComponentDidMountMethod] = null;
 
                 function stateCallBack()
                 {
                     const actionArguments = {
                         component: component,
-                        remoteMethodName: 'componentDidMount',
+                        remoteMethodName: componentDidMountMethod,
                         remoteMethodArguments: []
                     };
                     StartAction(actionArguments);
+
+                    OnReactStateReady();
                 }
 
                 SetState(component, partialState, stateCallBack);
@@ -1868,6 +2044,12 @@ function DefinePureComponent(componentDeclaration)
         {
             return ConvertToReactElement(this.props.$jsonNode[RootNode], this);
         }
+        componentWillUnmount()
+        {
+            const uid = NotNull(this.props.$jsonNode[DotNetComponentUniqueIdentifier]);
+            
+            RemoveComponentDynamicStyles([uid]);
+        }
     }
 
     ComponentDefinitions[dotNetTypeOfReactComponent] = NewPureComponent;
@@ -1900,7 +2082,7 @@ function SendRequest(request, onSuccess, onFail)
 
     if (ReactWithDotNet.BeforeSendRequest)
     {
-        options = ReactWithDotNet.BeforeSendRequest(options);
+        ReactWithDotNet.BeforeSendRequest(options);
     }
 
     window.fetch(url, options).then(response => response.json()).then(json => onSuccess(json)).catch(onFail);
@@ -1910,12 +2092,6 @@ var LastUsedComponentUniqueIdentifier = 1;
 
 function ConnectComponentFirstResponseToReactSystem(containerHtmlElementId, response)
 {
-    if (response.NavigateToUrl)
-    {
-        window.location.replace(location.origin + response.NavigateToUrl);
-        return;
-    }
-
     if (response.ErrorMessage != null)
     {
         throw response.ErrorMessage;
@@ -2204,14 +2380,40 @@ RegisterCoreFunction("CalculateSyntheticFocusEventArguments", (argumentsAsArray)
 
 });
 
-RegisterCoreFunction("SetCookie", function (cookieName, cookieValue, expiredays)
+function SetCookie(cookieName_StringNotNull, cookieValue_StringNotNull, expireDays_NumberNotNull)
 {
     var exdate = new Date();
 
-    exdate.setDate(exdate.getDate() + expiredays);
+    exdate.setDate(exdate.getDate() + expireDays_NumberNotNull);
 
-    document.cookie = cookieName + "=" + encodeURI(cookieValue) + ((expiredays == null) ? "" : "; expires=" + exdate.toUTCString());
-});
+    document.cookie = [
+        cookieName_StringNotNull + "=" + encodeURI(cookieValue_StringNotNull),
+        "expires" + "=" + exdate.toUTCString(),
+        "path=/"
+    ].join(";");
+}
+
+function GetCookie(cookieName)
+{
+    // Split cookie string and get all individual name=value pairs in an array
+    var cookieArr = document.cookie.split(";");
+    // Loop through the array elements
+    for (var i = 0; i < cookieArr.length; i++)
+    {
+        var cookiePair = cookieArr[i].split("=");
+        /* Removing whitespace at the beginning of the cookie name
+        and compare it with the given string */
+        if (cookieName == cookiePair[0].trim())
+        {
+            // Decode the cookie value and return
+            return decodeURIComponent(cookiePair[1]);
+        }
+    }
+    // Return null if not found
+    return null;
+}
+
+RegisterCoreFunction("SetCookie", SetCookie);
 
 RegisterCoreFunction("HistoryBack", function ()
 {
@@ -2242,6 +2444,11 @@ RegisterCoreFunction("GotoMethod", function (timeout, remoteMethodName, remoteMe
 
     setTimeout(() =>
     {
+        if (component.ComponentWillUnmountIsCalled)
+        {
+            return;
+        }
+
         const cachedMethodInfo = tryToFindCachedMethodInfo(component, remoteMethodName, remoteMethodArguments);
         if (cachedMethodInfo)
         {
@@ -2265,7 +2472,14 @@ RegisterCoreFunction("GotoMethod", function (timeout, remoteMethodName, remoteMe
 
 RegisterCoreFunction("DispatchEvent", function(eventName, eventArguments)
 {
-    EventBus.Dispatch(eventName, eventArguments);
+    EventBus.Dispatch(eventName, eventArguments);    
+
+    EventDispatchingFinishCallbackFunctionsQueue.push(function ()
+    {
+        EventBus.Dispatch("$<<finished>>$" + eventName + "$<<finished>>$", eventArguments);
+
+        OnReactStateReady();
+    });    
 });
 
 /**
@@ -2296,6 +2510,11 @@ RegisterCoreFunction("ListenEvent", function (eventName, remoteMethodName)
 
     const onEventFired = (eventArgumentsAsArray) =>
     {
+        if (component.ComponentWillUnmountIsCalled)
+        {
+            return;
+        }
+
         const actionArguments = {
             component: component,
             remoteMethodName: remoteMethodName,
@@ -2320,6 +2539,44 @@ RegisterCoreFunction("ListenEvent", function (eventName, remoteMethodName)
 
     EventBus.On(eventName, onEventFired);
 });
+
+RegisterCoreFunction("ListenEventThenOnlyUpdateState", function (eventName, remoteMethodName)
+{
+    const component = this;
+
+    const onEventFired = (eventArgumentsAsArray) =>
+    {
+        if (component.ComponentWillUnmountIsCalled)
+        {
+            return;
+        }
+
+        const actionArguments = {
+            component: component,
+            remoteMethodName: remoteMethodName,
+            remoteMethodArguments: eventArgumentsAsArray,
+            onlyUpdateState: true
+        };
+
+        const entry = StartAction(actionArguments);
+
+        // guard for removed node before send to server
+        component[ON_COMPONENT_DESTROY].push(() =>
+        {
+            entry.isValid = false;
+        });
+    };
+
+    NotNull(component[ON_COMPONENT_DESTROY]);
+
+    component[ON_COMPONENT_DESTROY].push(() =>
+    {
+        EventBus.Remove(eventName, onEventFired);
+    });
+
+    EventBus.On(eventName, onEventFired);
+});
+
 
 RegisterCoreFunction("ListenEventOnlyOnce", function (eventName, remoteMethodName)
 {
@@ -2413,10 +2670,14 @@ RegisterCoreFunction("InitializeDotnetComponentEventListener", function (eventSe
     EventBus.On(eventName, onEventFired);
 });
 
-RegisterCoreFunction("NavigateToUrl", function (url)
+function NavigateTo(path)
 {
-     window.location.replace(location.origin + url);
-});
+    var location = window.location;
+
+    location.assign(location.origin + path);
+}
+
+RegisterCoreFunction("NavigateTo", NavigateTo);
 
 RegisterCoreFunction("OnOutsideClicked", function (idOfElement, remoteMethodName, handlerComponentUniqueIdentifier)
 {
@@ -2470,11 +2731,30 @@ RegisterCoreFunction("OnOutsideClicked", function (idOfElement, remoteMethodName
 
 function CreateNewDeveloperError(message)
 {
-    return new Error('ReactWithDotNet developer error occured.' + message);
+    return new Error('\nReactWithDotNet developer error occured.\n' + message);
 }
 
 const DynamicStyles = [];
 var ReactWithDotNetDynamicCssElement = null;
+
+/**
+ * 
+ * @param {String} cssSelector
+ * @returns {Number} ComponentUniqueIdentifier
+ */
+function GetComponentUniqueIdentifierFromCssSelector(cssSelector)
+{
+    let startIndex = cssSelector.indexOf('._rwd_');
+    let endIndex = cssSelector.indexOf('_', startIndex + 6);
+
+    const componentUniqueIdentifier = parseInt(cssSelector.substring(startIndex + 6, endIndex));
+    if (isNaN(componentUniqueIdentifier))
+    {
+        throw CreateNewDeveloperError('componentUniqueIdentifier cannot calculated from ' + cssSelector);
+    }
+
+    return componentUniqueIdentifier;
+}
 
 function ProcessDynamicCssClasses(dynamicStyles)
 {
@@ -2483,8 +2763,28 @@ function ProcessDynamicCssClasses(dynamicStyles)
         return;
     }
 
-    let hasChange = false;
+    // remove all related css of component
+    for (var key in dynamicStyles)
+    {
+        if (dynamicStyles.hasOwnProperty(key))
+        {
+            const cssSelector = key;
 
+            var componentUniqueIdentifier = GetComponentUniqueIdentifierFromCssSelector(cssSelector);
+
+            // remove all related css of component
+            for (let i = 0; i < DynamicStyles.length; i++)
+            {
+                if (DynamicStyles[i].componentUniqueIdentifier === componentUniqueIdentifier)
+                {
+                    DynamicStyles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+    }
+
+    // Add new records
     for (var key in dynamicStyles)
     {
         if (dynamicStyles.hasOwnProperty(key))
@@ -2492,83 +2792,55 @@ function ProcessDynamicCssClasses(dynamicStyles)
             const cssSelector = key;
             const cssBody = dynamicStyles[key];
 
-            let shouldInsert = true;
-
-            for (var i = 0; i < DynamicStyles.length; i++)
-            {
-                if (DynamicStyles[i].cssSelector === cssSelector)
-                {
-                    if (DynamicStyles[i].cssBody === cssBody)
-                    {
-                        shouldInsert = false;
-                        break;
-                    }
-
-                    hasChange = true;
-                    DynamicStyles[i].cssBody = cssBody;
-                    break;
-                }
-            }
-
-            if (shouldInsert)
-            {
-                hasChange = true;
-
-                let startIndex = cssSelector.indexOf('._rwd_');
-                let endIndex = cssSelector.indexOf('_', startIndex + 6);
-
-                const componentUniqueIdentifier = parseInt(cssSelector.substring(startIndex + 6, endIndex));
-                if (isNaN(componentUniqueIdentifier))
-                {
-                    throw CreateNewDeveloperError('componentUniqueIdentifier cannot calculated from ' + cssSelector);
-                }
-
-                DynamicStyles.push({cssSelector: cssSelector, cssBody: cssBody, componentUniqueIdentifier: componentUniqueIdentifier});
-            }
+            DynamicStyles.push({
+                cssSelector: cssSelector,
+                cssBody: cssBody,
+                componentUniqueIdentifier: GetComponentUniqueIdentifierFromCssSelector(cssSelector)
+            });
         }
     }
 
-    if (hasChange)
+    ApplyDynamicStylesToDom();
+}
+
+function ApplyDynamicStylesToDom()
+{
+    if (ReactWithDotNetDynamicCssElement === null)
     {
-        if (ReactWithDotNetDynamicCssElement === null)
+        const idOfStyleElement = "ReactWithDotNetDynamicCss";
+
+        ReactWithDotNetDynamicCssElement = document.getElementById(idOfStyleElement);
+
+        if (ReactWithDotNetDynamicCssElement == null)
         {
-            const idOfStyleElement = "ReactWithDotNetDynamicCss";
-
-            ReactWithDotNetDynamicCssElement = document.getElementById(idOfStyleElement);
-
-            if (ReactWithDotNetDynamicCssElement == null)
-            {
-                ReactWithDotNetDynamicCssElement = document.createElement('style');
-                ReactWithDotNetDynamicCssElement.id = idOfStyleElement;
-                document.head.appendChild(ReactWithDotNetDynamicCssElement);
-            }
+            ReactWithDotNetDynamicCssElement = document.createElement('style');
+            ReactWithDotNetDynamicCssElement.id = idOfStyleElement;
+            document.head.appendChild(ReactWithDotNetDynamicCssElement);
         }
+    }
 
-        const arr = [];
-        for (var i = 0; i < DynamicStyles.length; i++)
+    const arr = [];
+    for (var i = 0; i < DynamicStyles.length; i++)
+    {
+        const cssSelector = DynamicStyles[i].cssSelector;
+        const cssBody = DynamicStyles[i].cssBody;
+
+        arr.push("");
+        arr.push(cssSelector);
+        arr.push("{");
+        arr.push(cssBody);
+        arr.push("}");
+        if (cssSelector.indexOf('@media ') === 0)
         {
-            const cssSelector = DynamicStyles[i].cssSelector;
-            const cssBody = DynamicStyles[i].cssBody;
-
-            arr.push("");
-            arr.push(cssSelector);
-            arr.push("{");
-            arr.push(cssBody);
-            arr.push("}");
-            if (cssSelector.indexOf('@media ') === 0)
-            {
-                arr.push("}"); // for closing media rule bracket
-            }
+            arr.push("}"); // for closing media rule bracket
         }
+    }
 
-        // try update if has change
-        {
-            const newStyle = arr.join("\n");
-            if (!IsTwoStringHasValueAndSame(ReactWithDotNetDynamicCssElement.innerHTML, newStyle))
-            {
-                ReactWithDotNetDynamicCssElement.innerHTML = newStyle;
-            } 
-        }              
+    // try update if has change
+    const newStyle = arr.join("\n");
+    if (!IsTwoStringHasValueAndSame(ReactWithDotNetDynamicCssElement.innerHTML, newStyle))
+    {
+        ReactWithDotNetDynamicCssElement.innerHTML = newStyle;
     }
 }
 
@@ -2626,7 +2898,12 @@ var ReactWithDotNet =
     IsMediaTablet: IsTablet,
     IsMediaDesktop: IsDesktop,
 
-    Call: InvokeJsFunctionInPath
+    Call: InvokeJsFunctionInPath,
+    Util:
+    {
+        SetCookie: SetCookie,
+        GetCookie: GetCookie
+    }
 };
 
 window.ReactWithDotNet = ReactWithDotNet;

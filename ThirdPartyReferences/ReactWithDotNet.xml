@@ -45,6 +45,142 @@
                 &amp;nbsp;
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.Mixin.DispatchEvent(ReactWithDotNet.IFunctionalComponent,System.Delegate,System.String)">
+            <summary>
+               Dispatch given <paramref name="handlerFunc"/>
+               <br/>
+               Sample usage:
+            <code> 
+               static FC Counter(int Count, Func&lt;int, Task&gt; OnValueChange)
+               {
+                   var count = Count;
+                  
+                   return cmp =>
+                   {
+                       return new FlexColumn
+                       {
+                           new button(Padding(10))
+                           {
+                               $"{count}",
+                               OnClick(OnClickHandler)
+                           }
+                       };
+                  
+                       Task OnClickHandler(MouseEvent e)
+                       {
+                           count++;
+                   
+                           cmp.DispatchEvent(OnValueChange, count);
+                  
+                           return Task.CompletedTask;
+                       }
+                   };
+               }
+            </code>
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.DispatchEvent``1(ReactWithDotNet.IFunctionalComponent,System.Delegate,``0,System.String)">
+            <summary>
+               Dispatch given <paramref name="handlerFunc"/>
+               <br/>
+               Sample usage:
+            <code> 
+               static FC Counter(int Count, Func&lt;int, Task&gt; OnValueChange)
+               {
+                   var count = Count;
+                  
+                   return cmp =>
+                   {
+                       return new FlexColumn
+                       {
+                           new button(Padding(10))
+                           {
+                               $"{count}",
+                               OnClick(OnClickHandler)
+                           }
+                       };
+                  
+                       Task OnClickHandler(MouseEvent e)
+                       {
+                           count++;
+                   
+                           cmp.DispatchEvent(OnValueChange, count);
+                  
+                           return Task.CompletedTask;
+                       }
+                   };
+               }
+            </code>
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.DispatchEvent``2(ReactWithDotNet.IFunctionalComponent,System.Delegate,``0,``1,System.String)">
+            <summary>
+               Dispatch given <paramref name="handlerFunc"/>
+               <br/>
+               Sample usage:
+            <code> 
+               static FC Counter(int Count, Func&lt;int, Task&gt; OnValueChange)
+               {
+                   var count = Count;
+                  
+                   return cmp =>
+                   {
+                       return new FlexColumn
+                       {
+                           new button(Padding(10))
+                           {
+                               $"{count}",
+                               OnClick(OnClickHandler)
+                           }
+                       };
+                  
+                       Task OnClickHandler(MouseEvent e)
+                       {
+                           count++;
+                   
+                           cmp.DispatchEvent(OnValueChange, count);
+                  
+                           return Task.CompletedTask;
+                       }
+                   };
+               }
+            </code>
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.DispatchEvent``3(ReactWithDotNet.IFunctionalComponent,System.Delegate,``0,``1,``2,System.String)">
+            <summary>
+               Dispatch given <paramref name="handlerFunc"/>
+               <br/>
+               Sample usage:
+            <code> 
+               static FC Counter(int Count, Func&lt;int, Task&gt; OnValueChange)
+               {
+                   var count = Count;
+                  
+                   return cmp =>
+                   {
+                       return new FlexColumn
+                       {
+                           new button(Padding(10))
+                           {
+                               $"{count}",
+                               OnClick(OnClickHandler)
+                           }
+                       };
+                  
+                       Task OnClickHandler(MouseEvent e)
+                       {
+                           count++;
+                   
+                           cmp.DispatchEvent(OnValueChange, count);
+                  
+                           return Task.CompletedTask;
+                       }
+                   };
+               }
+            </code>
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.Mixin.DisplayFlexColumn">
             <summary>
                 display = "flex"
@@ -122,34 +258,23 @@
                 Shorthand property for assign Flex properties
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.WithClass``1(``0,ReactWithDotNet.Style)">
+        <member name="M:ReactWithDotNet.Mixin.WithStyle(ReactWithDotNet.Style)">
             <summary>
-            Automatically generates a css class then adds class name to element.
-            <br/>
-            css class will be automatically remove when component destroyed.
-            <br/>
-            Example:
-            <code>
-            arrowDown.WithClass(new Style
-            {
-               Transform("rotate(-180deg)")
-            })
-            </code>
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.WithClass``1(``0,ReactWithDotNet.StyleModifier[])">
-            <summary>
-            Automatically generates a css class then adds class name to element.
-            <br/>
-            css class will be automatically remove when component destroyed.
-            <br/>
-            Example:
-            <code>
-            arrowDown.WithClass(new []
-            {
-               Transform("rotate(-180deg)")
-            })
-            </code>
+                Automatically generates a css class then adds class name to element.
+                <br />
+                You can use transition css
+                <br />
+                Generated css class will be automatically remove when component destroyed.
+                <br />
+                Example:
+                <code>
+                new ComponentX
+                {
+                   WithStyle([
+                       Transition(nameof(Style.rotate), 400)
+                   ])
+                }
+                </code>
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.Alt(System.String)">
@@ -160,6 +285,27 @@
         <member name="M:ReactWithDotNet.Mixin.Src(System.String)">
             <summary>
                 img.src = <paramref name="src" />
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.OnDispatchEventFinished``1(ReactWithDotNet.Client,``0)">
+            <summary>
+                Occurs when event dispatching finished.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.ListenEventThenOnlyUpdateState``1(ReactWithDotNet.Client,``0)">
+            <summary>
+                When event fired then updates only component state
+                <br/>
+                Do not calls c# render method. Updates state of react component in client.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.NavigateTo(ReactWithDotNet.Client,System.String)">
+            <summary>
+                Example:
+                <br/>
+                Client.NavigateTo("/") navigates to home page
+                <br/>
+                Client.NavigateTo("/AboutUs") navigates to About Us page
             </summary>
         </member>
         <member name="P:ReactWithDotNet.Mixin.BackgroundColorTransparent">
@@ -414,6 +560,11 @@
                 style.backdropFilter = blur(px)
             </summary>
         </member>
+        <member name="P:ReactWithDotNet.Mixin.BackgroundClipText">
+            <summary>
+                style.cackgroundClip = 'text'
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.BackgroundImage(System.String[])">
             <summary>
             The background-image property sets one or more background images for an element.
@@ -560,18 +711,6 @@
         <member name="M:ReactWithDotNet.Mixin.MinWidth(System.Double)">
             <summary>
                 style.minWidth = minWidth + 'px'
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.OnScroll(System.String)">
-            <summary>
-                Handler <paramref name="jsMethodName" /> should be in client js codes.<br />
-                <br />
-                Sample Usage:<br />
-                <br />
-                ReactWithDotNet.RegisterExternalJsObject(<paramref name="jsMethodName" />, function(e){<br />
-                ...<br />
-                ...<br />
-                });
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.Right(System.Double)">
@@ -1147,6 +1286,31 @@
                 (min-width: <paramref name="minWidthAsPixel"/> + 'px') and (max-width: <paramref name="maxWidthAsPixel"/> + 'px')
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.Mixin.SM(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                min-width: 640px
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.MD(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                min-width: 768px
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.LG(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                min-width: 1024px
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.XL(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                min-width: 1280px
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.XXL(ReactWithDotNet.StyleModifier[])">
+            <summary>
+                min-width: 1536px
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.TextIndent(System.Double)">
             <summary>
             specifies the indentation of the first line in a text-block
@@ -1196,6 +1360,11 @@
                 style.borderRight = <paramref name="borderValue"/>
             </summary>
         </member>
+        <member name="P:ReactWithDotNet.Mixin.BoxShadowNone">
+            <summary>
+                style.boxShadow = <strong>none</strong>
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.Mixin.Dashed(System.Double,System.String)">
             <summary>
                 Returns a string like <paramref name="widthAsPx" /><b> + px dashed + </b> <paramref name="color" />"
@@ -1209,6 +1378,11 @@
         <member name="M:ReactWithDotNet.Mixin.Solid(System.Double,System.String)">
             <summary>
                 Returns a string like <paramref name="widthAsPx" /><b> + px solid + </b> <paramref name="color" />"
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.BorderWidth(System.Double)">
+            <summary>
+                style.borderWidth = <paramref name="widthAsPx" /> + 'px'
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.url(System.String)">
@@ -1248,22 +1422,22 @@
         </member>
         <member name="F:ReactWithDotNet.Mixin.percent">
             <summary>
-                50|percent returns like '50%'
+                50*percent returns like '50%'
             </summary>
         </member>
         <member name="F:ReactWithDotNet.Mixin.rem">
             <summary>
-                2|rem returns like '2rem'
+                2*rem returns like '2rem'
             </summary>
         </member>
         <member name="F:ReactWithDotNet.Mixin.vh">
             <summary>
-                7|vh returns like '7vh'
+                7*vh returns like '7vh'
             </summary>
         </member>
         <member name="F:ReactWithDotNet.Mixin.vw">
             <summary>
-                7|vw returns like '7vw'
+                7*vw returns like '7vw'
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.linear_gradient(System.Int32,System.String,System.String)">
@@ -1399,6 +1573,80 @@
                 style.width = <paramref name="width" /> + 'px'
                 <br/>
                 style.height = <paramref name="height" /> + 'px'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.MinSize(System.Double,System.Double)">
+            <summary>
+                style.minWidth = <paramref name="minWidth" /> + 'px'
+                <br/>
+                style.minHeight = <paramref name="minHeight" /> + 'px'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.MinSize(System.Double)">
+            <summary>
+                style.minWidth = <paramref name="width_and_height" /> + 'px'
+                <br/>
+                style.minHeight = <paramref name="width_and_height" /> + 'px'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.Size(System.Double)">
+            <summary>
+                style.width = <paramref name="width_and_height" /> + 'px'
+                <br/>
+                style.height = <paramref name="width_and_height" /> + 'px'
+            </summary>
+        </member>
+        <member name="F:ReactWithDotNet.Mixin.w_full">
+            <summary>
+                width: 100%
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.Width(System.Double,System.Double)">
+            <summary>
+                width: <paramref name="percentOfTotal"/> / <paramref name="total"/> * 100 + '%'
+                <br/>Example:<br/>
+                Width(3, 4) means Width("75%")
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.Height(System.Double,System.Double)">
+            <summary>
+                height:  <paramref name="percentOfTotal"/> / <paramref name="total"/> * 100 + '%'
+                <br/>Example:<br/>
+                Height(3, 4) means Height("75%")
+            </summary>
+        </member>
+        <member name="F:ReactWithDotNet.Mixin.h_full">
+            <summary>
+                height: 100%
+            </summary>
+        </member>
+        <member name="F:ReactWithDotNet.Mixin.size_full">
+            <summary>
+                width: 100%
+                <br />
+                height: 100%
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.SizeFull">
+            <summary>
+                width: 100%
+                <br />
+                height: 100%
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.HeightFull">
+            <summary>
+                height: 100%
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.WidthFull">
+            <summary>
+                width: 100%
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.Mixin.Inset0">
+            <summary>
+                inset: "0"
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.AccentColor(System.String)">
@@ -4586,22 +4834,22 @@
                 Specifies independent, self-contained content.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.article.#ctor">
-            <summary>
-                Specifies independent, self-contained content.
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.article.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Specifies independent, self-contained content.
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.article.#ctor(System.String)">
             <summary>
                 Specifies independent, self-contained content.
             </summary>
         </member>
         <member name="M:ReactWithDotNet.article.op_Implicit(System.String)~ReactWithDotNet.article">
+            <summary>
+                Specifies independent, self-contained content.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.article.#ctor">
+            <summary>
+                Specifies independent, self-contained content.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.article.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Specifies independent, self-contained content.
             </summary>
@@ -4616,17 +4864,127 @@
                 Specifies independent, self-contained content.
             </summary>
         </member>
+        <member name="P:ReactWithDotNet.button.type">
+            <summary>
+                Specifies the type of button. button, reset, submit
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.button.value">
+            <summary>
+                Specifies an initial value for the button
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.button.autofocus">
+            <summary>
+                Specifies that the button should have input focus when the page loads. Only one element in a document can have this attribute.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.button.disabled">
+            <summary>
+                Specifies that the button should be disabled. A disabled button cannot be clicked.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.button.form">
+            <summary>
+                Specifies the form that the button is associated with.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.button.formaction">
+            <summary>
+                Specifies the URL of the form action when the button is clicked.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.button.formenctype">
+            <summary>
+                Specifies the form encoding method (e.g., application/x-www-form-urlencoded, multipart/form-data) when the button is clicked.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.button.formmethod">
+            <summary>
+                Specifies the form submission method (e.g., GET, POST) when the button is clicked.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.button.formnovalidate">
+            <summary>
+                Specifies that the form should not be validated before submission when the button is clicked.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.button.name">
+            <summary>
+                Specifies a name for the button. The name attribute is used to reference form-data after the form has been submitted, or to reference the element in JavaScript.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Type(System.String)">
+            <summary>
+                type = <paramref name="value"/>
+            <br/>
+                Specifies the type of button. button, reset, submit
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Value(System.String)">
+            <summary>
+                value = <paramref name="value"/>
+            <br/>
+                Specifies an initial value for the button
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Autofocus(System.String)">
+            <summary>
+                autofocus = <paramref name="value"/>
+            <br/>
+                Specifies that the button should have input focus when the page loads. Only one element in a document can have this attribute.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Disabled(System.String)">
+            <summary>
+                disabled = <paramref name="value"/>
+            <br/>
+                Specifies that the button should be disabled. A disabled button cannot be clicked.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Form(System.String)">
+            <summary>
+                form = <paramref name="value"/>
+            <br/>
+                Specifies the form that the button is associated with.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Formaction(System.String)">
+            <summary>
+                formaction = <paramref name="value"/>
+            <br/>
+                Specifies the URL of the form action when the button is clicked.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Formenctype(System.String)">
+            <summary>
+                formenctype = <paramref name="value"/>
+            <br/>
+                Specifies the form encoding method (e.g., application/x-www-form-urlencoded, multipart/form-data) when the button is clicked.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Formmethod(System.String)">
+            <summary>
+                formmethod = <paramref name="value"/>
+            <br/>
+                Specifies the form submission method (e.g., GET, POST) when the button is clicked.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Formnovalidate(System.String)">
+            <summary>
+                formnovalidate = <paramref name="value"/>
+            <br/>
+                Specifies that the form should not be validated before submission when the button is clicked.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.button.Name(System.String)">
+            <summary>
+                name = <paramref name="value"/>
+            <br/>
+                Specifies a name for the button. The name attribute is used to reference form-data after the form has been submitted, or to reference the element in JavaScript.
+            </summary>
+        </member>
         <member name="T:ReactWithDotNet.p">
-            <summary>
-                Defines a paragraph
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.p.#ctor">
-            <summary>
-                Defines a paragraph
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.p.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Defines a paragraph
             </summary>
@@ -4637,6 +4995,16 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.p.op_Implicit(System.String)~ReactWithDotNet.p">
+            <summary>
+                Defines a paragraph
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.p.#ctor">
+            <summary>
+                Defines a paragraph
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.p.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Defines a paragraph
             </summary>
@@ -4656,22 +5024,22 @@
                 Preformatted text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.pre.#ctor">
-            <summary>
-                Preformatted text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.pre.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Preformatted text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.pre.#ctor(System.String)">
             <summary>
                 Preformatted text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.pre.op_Implicit(System.String)~ReactWithDotNet.pre">
+            <summary>
+                Preformatted text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.pre.#ctor">
+            <summary>
+                Preformatted text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.pre.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Preformatted text
             </summary>
@@ -4691,22 +5059,22 @@
                 Define some text as computer code in a document
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.code.#ctor">
-            <summary>
-                Define some text as computer code in a document
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.code.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Define some text as computer code in a document
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.code.#ctor(System.String)">
             <summary>
                 Define some text as computer code in a document
             </summary>
         </member>
         <member name="M:ReactWithDotNet.code.op_Implicit(System.String)~ReactWithDotNet.code">
+            <summary>
+                Define some text as computer code in a document
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.code.#ctor">
+            <summary>
+                Define some text as computer code in a document
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.code.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Define some text as computer code in a document
             </summary>
@@ -4726,22 +5094,22 @@
                 Ordered list
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.ol.#ctor">
-            <summary>
-                Ordered list
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.ol.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Ordered list
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.ol.#ctor(System.String)">
             <summary>
                 Ordered list
             </summary>
         </member>
         <member name="M:ReactWithDotNet.ol.op_Implicit(System.String)~ReactWithDotNet.ol">
+            <summary>
+                Ordered list
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ol.#ctor">
+            <summary>
+                Ordered list
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ol.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Ordered list
             </summary>
@@ -4761,22 +5129,22 @@
                 Unordered (bulleted) list
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.ul.#ctor">
-            <summary>
-                Unordered (bulleted) list
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.ul.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Unordered (bulleted) list
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.ul.#ctor(System.String)">
             <summary>
                 Unordered (bulleted) list
             </summary>
         </member>
         <member name="M:ReactWithDotNet.ul.op_Implicit(System.String)~ReactWithDotNet.ul">
+            <summary>
+                Unordered (bulleted) list
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ul.#ctor">
+            <summary>
+                Unordered (bulleted) list
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ul.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Unordered (bulleted) list
             </summary>
@@ -4796,22 +5164,22 @@
                 List item
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.li.#ctor">
-            <summary>
-                List item
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.li.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                List item
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.li.#ctor(System.String)">
             <summary>
                 List item
             </summary>
         </member>
         <member name="M:ReactWithDotNet.li.op_Implicit(System.String)~ReactWithDotNet.li">
+            <summary>
+                List item
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.li.#ctor">
+            <summary>
+                List item
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.li.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 List item
             </summary>
@@ -4831,22 +5199,22 @@
                 Inline container used to mark up a part of a text, or a part of a document.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.span.#ctor">
-            <summary>
-                Inline container used to mark up a part of a text, or a part of a document.
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.span.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Inline container used to mark up a part of a text, or a part of a document.
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.span.#ctor(System.String)">
             <summary>
                 Inline container used to mark up a part of a text, or a part of a document.
             </summary>
         </member>
         <member name="M:ReactWithDotNet.span.op_Implicit(System.String)~ReactWithDotNet.span">
+            <summary>
+                Inline container used to mark up a part of a text, or a part of a document.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.span.#ctor">
+            <summary>
+                Inline container used to mark up a part of a text, or a part of a document.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.span.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Inline container used to mark up a part of a text, or a part of a document.
             </summary>
@@ -4866,22 +5234,22 @@
                 Superscript text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.sup.#ctor">
-            <summary>
-                Superscript text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.sup.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Superscript text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.sup.#ctor(System.String)">
             <summary>
                 Superscript text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.sup.op_Implicit(System.String)~ReactWithDotNet.sup">
+            <summary>
+                Superscript text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.sup.#ctor">
+            <summary>
+                Superscript text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.sup.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Superscript text
             </summary>
@@ -4901,22 +5269,22 @@
                 Subscript text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.sub.#ctor">
-            <summary>
-                Subscript text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.sub.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Subscript text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.sub.#ctor(System.String)">
             <summary>
                 Subscript text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.sub.op_Implicit(System.String)~ReactWithDotNet.sub">
+            <summary>
+                Subscript text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.sub.#ctor">
+            <summary>
+                Subscript text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.sub.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Subscript text
             </summary>
@@ -4936,22 +5304,22 @@
                 Inserted text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.ins.#ctor">
-            <summary>
-                Inserted text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.ins.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Inserted text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.ins.#ctor(System.String)">
             <summary>
                 Inserted text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.ins.op_Implicit(System.String)~ReactWithDotNet.ins">
+            <summary>
+                Inserted text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ins.#ctor">
+            <summary>
+                Inserted text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ins.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Inserted text
             </summary>
@@ -4971,22 +5339,22 @@
                 Deleted text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.del.#ctor">
-            <summary>
-                Deleted text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.del.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Deleted text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.del.#ctor(System.String)">
             <summary>
                 Deleted text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.del.op_Implicit(System.String)~ReactWithDotNet.del">
+            <summary>
+                Deleted text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.del.#ctor">
+            <summary>
+                Deleted text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.del.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Deleted text
             </summary>
@@ -5006,22 +5374,22 @@
                 Smaller text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.small.#ctor">
-            <summary>
-                Smaller text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.small.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Smaller text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.small.#ctor(System.String)">
             <summary>
                 Smaller text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.small.op_Implicit(System.String)~ReactWithDotNet.small">
+            <summary>
+                Smaller text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.small.#ctor">
+            <summary>
+                Smaller text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.small.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Smaller text
             </summary>
@@ -5041,22 +5409,22 @@
                 Marked text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.mark.#ctor">
-            <summary>
-                Marked text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.mark.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Marked text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.mark.#ctor(System.String)">
             <summary>
                 Marked text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.mark.op_Implicit(System.String)~ReactWithDotNet.mark">
+            <summary>
+                Marked text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.mark.#ctor">
+            <summary>
+                Marked text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.mark.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Marked text
             </summary>
@@ -5076,22 +5444,22 @@
                 Emphasized text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.em.#ctor">
-            <summary>
-                Emphasized text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.em.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Emphasized text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.em.#ctor(System.String)">
             <summary>
                 Emphasized text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.em.op_Implicit(System.String)~ReactWithDotNet.em">
+            <summary>
+                Emphasized text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.em.#ctor">
+            <summary>
+                Emphasized text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.em.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Emphasized text
             </summary>
@@ -5111,22 +5479,22 @@
                 Bold text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.b.#ctor">
-            <summary>
-                Bold text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.b.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Bold text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.b.#ctor(System.String)">
             <summary>
                 Bold text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.b.op_Implicit(System.String)~ReactWithDotNet.b">
+            <summary>
+                Bold text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.b.#ctor">
+            <summary>
+                Bold text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.b.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Bold text
             </summary>
@@ -5146,22 +5514,22 @@
                 Italic text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.i.#ctor">
-            <summary>
-                Italic text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.i.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Italic text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.i.#ctor(System.String)">
             <summary>
                 Italic text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.i.op_Implicit(System.String)~ReactWithDotNet.i">
+            <summary>
+                Italic text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.i.#ctor">
+            <summary>
+                Italic text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.i.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Italic text
             </summary>
@@ -5181,22 +5549,22 @@
                 Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.u.#ctor">
-            <summary>
-                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.u.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.u.#ctor(System.String)">
             <summary>
                 Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
             </summary>
         </member>
         <member name="M:ReactWithDotNet.u.op_Implicit(System.String)~ReactWithDotNet.u">
+            <summary>
+                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.u.#ctor">
+            <summary>
+                Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.u.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Represents some text that is unarticulated and styled differently from normal text, such as misspelled words or proper names in Chinese text. The content inside is typically displayed with an underline.
             </summary>
@@ -5216,22 +5584,22 @@
                 Important text
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.strong.#ctor">
-            <summary>
-                Important text
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.strong.#ctor(ReactWithDotNet.IModifier[])">
-            <summary>
-                Important text
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.strong.#ctor(System.String)">
             <summary>
                 Important text
             </summary>
         </member>
         <member name="M:ReactWithDotNet.strong.op_Implicit(System.String)~ReactWithDotNet.strong">
+            <summary>
+                Important text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.strong.#ctor">
+            <summary>
+                Important text
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.strong.#ctor(ReactWithDotNet.IModifier[])">
             <summary>
                 Important text
             </summary>
@@ -5348,7 +5716,7 @@
                 The stroke color of the ellipse.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.ellipse.StrokeWidth(System.String)">
+        <member name="M:ReactWithDotNet.ellipse.StrokeWidth(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 strokeWidth = <paramref name="value"/>
             <br/>
@@ -5440,7 +5808,7 @@
                 The stroke (outline) color of the line.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.line.StrokeWidth(System.String)">
+        <member name="M:ReactWithDotNet.line.StrokeWidth(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 strokeWidth = <paramref name="value"/>
             <br/>
@@ -5516,7 +5884,7 @@
                 The stroke (outline) color of the polyline.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.polyline.StrokeWidth(System.String)">
+        <member name="M:ReactWithDotNet.polyline.StrokeWidth(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 strokeWidth = <paramref name="value"/>
             <br/>
@@ -5553,21 +5921,21 @@
                 The width of the stroke of the circle.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.circle.Cx(System.String)">
+        <member name="M:ReactWithDotNet.circle.Cx(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 cx = <paramref name="value"/>
             <br/>
                 The x-coordinate of the center of the circle.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.circle.Cy(System.String)">
+        <member name="M:ReactWithDotNet.circle.Cy(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 cy = <paramref name="value"/>
             <br/>
                 The y-coordinate of the center of the circle.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.circle.R(System.String)">
+        <member name="M:ReactWithDotNet.circle.R(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 r = <paramref name="value"/>
             <br/>
@@ -5588,7 +5956,7 @@
                 The stroke color of the circle.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.circle.StrokeWidth(System.String)">
+        <member name="M:ReactWithDotNet.circle.StrokeWidth(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 strokeWidth = <paramref name="value"/>
             <br/>
@@ -5651,7 +6019,7 @@
                 Specifies the stroke color of the polygon.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.polygon.StrokeWidth(System.String)">
+        <member name="M:ReactWithDotNet.polygon.StrokeWidth(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 strokeWidth = <paramref name="value"/>
             <br/>
@@ -5734,42 +6102,42 @@
                 The linejoin style of the rectangle's stroke.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.rect.X(System.String)">
+        <member name="M:ReactWithDotNet.rect.X(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 x = <paramref name="value"/>
             <br/>
                 The x-coordinate of the top-left corner of the rectangle.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.rect.Y(System.String)">
+        <member name="M:ReactWithDotNet.rect.Y(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 y = <paramref name="value"/>
             <br/>
                 The y-coordinate of the top-left corner of the rectangle.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.rect.Width(System.String)">
+        <member name="M:ReactWithDotNet.rect.Width(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 width = <paramref name="value"/>
             <br/>
                 The width of the rectangle.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.rect.Height(System.String)">
+        <member name="M:ReactWithDotNet.rect.Height(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 height = <paramref name="value"/>
             <br/>
                 The height of the rectangle.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.rect.Rx(System.String)">
+        <member name="M:ReactWithDotNet.rect.Rx(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 rx = <paramref name="value"/>
             <br/>
                 The border radius of the rectangle on the horizontal axis.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.rect.Ry(System.String)">
+        <member name="M:ReactWithDotNet.rect.Ry(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 ry = <paramref name="value"/>
             <br/>
@@ -5790,7 +6158,7 @@
                 The stroke color of the rectangle.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.rect.StrokeWidth(System.String)">
+        <member name="M:ReactWithDotNet.rect.StrokeWidth(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 strokeWidth = <paramref name="value"/>
             <br/>
@@ -5972,7 +6340,7 @@
                 Stroke color
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.path.StrokeWidth(System.String)">
+        <member name="M:ReactWithDotNet.path.StrokeWidth(ReactWithDotNet.UnionProp{System.String,System.Double})">
             <summary>
                 strokeWidth = <paramref name="value"/>
             <br/>
@@ -6655,14 +7023,14 @@
                 An alternate text for the image, if the image for some reason cannot be displayed.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.img.Width(System.String)">
+        <member name="M:ReactWithDotNet.img.Width(ReactWithDotNet.UnionProp{System.String,System.Nullable{System.Double}})">
             <summary>
                 width = <paramref name="value"/>
             <br/>
                 The width of the image, in pixels.
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.img.Height(System.String)">
+        <member name="M:ReactWithDotNet.img.Height(ReactWithDotNet.UnionProp{System.String,System.Nullable{System.Double}})">
             <summary>
                 height = <paramref name="value"/>
             <br/>
@@ -6781,53 +7149,497 @@
                 svg.height = <paramref name="height" /> + 'px'
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.svg.Size(System.Double,System.Double)">
+            <summary>
+                svg.width = <paramref name="width" /> + 'px'
+                <br/>
+                svg.height = <paramref name="height" /> + 'px'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.svg.Size(System.Double)">
+            <summary>
+                svg.width = <paramref name="size" /> + 'px'
+                <br/>
+                svg.height = <paramref name="size" /> + 'px'
+            </summary>
+        </member>
         <member name="M:ReactWithDotNet.svg.ViewBox(System.Double,System.Double,System.Double,System.Double)">
             <summary>
                 svg.viewBox = '<paramref name="minX" /> <paramref name="minY" /> <paramref name="width" /> <paramref name="height" />'
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent(System.Linq.Expressions.Expression{System.Func{System.Func{System.Threading.Tasks.Task}}})">
+        <member name="P:ReactWithDotNet.form.action">
+            <summary>
+                Specifies the URL of the page where the form data will be submitted.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.form.method">
+            <summary>
+                Specifies how the form data will be sent to the server. Possible values are 'get' and 'post'.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.form.enctype">
+            <summary>
+                Specifies the encoding type for form data. Possible values are 'application/x-www-form-urlencoded' and 'multipart/form-data'.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.form.target">
+            <summary>
+                Specifies the name of the frame where the form will be submitted. The default value is '_self', which means the form will be submitted in the current frame.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.form.name">
+            <summary>
+                Specifies a name for the form. This name is used to reference the form in JavaScript or to reference form data after a form is submitted.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.form.novalidate">
+            <summary>
+                Disables form validation. This attribute is useful when you want to submit the form without validating the user input.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.form.autocomplete">
+            <summary>
+                Specifies whether the browser should automatically fill in form fields based on the user's past input.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.form.Action(System.String)">
+            <summary>
+                action = <paramref name="value"/>
+            <br/>
+                Specifies the URL of the page where the form data will be submitted.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.form.Method(System.String)">
+            <summary>
+                method = <paramref name="value"/>
+            <br/>
+                Specifies how the form data will be sent to the server. Possible values are 'get' and 'post'.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.form.Enctype(System.String)">
+            <summary>
+                enctype = <paramref name="value"/>
+            <br/>
+                Specifies the encoding type for form data. Possible values are 'application/x-www-form-urlencoded' and 'multipart/form-data'.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.form.Target(System.String)">
+            <summary>
+                target = <paramref name="value"/>
+            <br/>
+                Specifies the name of the frame where the form will be submitted. The default value is '_self', which means the form will be submitted in the current frame.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.form.Name(System.String)">
+            <summary>
+                name = <paramref name="value"/>
+            <br/>
+                Specifies a name for the form. This name is used to reference the form in JavaScript or to reference form data after a form is submitted.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.form.Novalidate(System.String)">
+            <summary>
+                novalidate = <paramref name="value"/>
+            <br/>
+                Disables form validation. This attribute is useful when you want to submit the form without validating the user input.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.form.Autocomplete(System.String)">
+            <summary>
+                autocomplete = <paramref name="value"/>
+            <br/>
+                Specifies whether the browser should automatically fill in form fields based on the user's past input.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.name">
+            <summary>
+                Specifies a name for the textarea element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.cols">
+            <summary>
+                Specifies the visible width of the textarea element in characters.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.rows">
+            <summary>
+                Specifies the number of visible lines in the textarea element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.placeholder">
+            <summary>
+                Specifies a short hint that describes the expected value of the textarea element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.readOnly">
+            <summary>
+                Disables user input in the textarea element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.required">
+            <summary>
+                Indicates that the textarea element must be filled out before the form is submitted.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.autofocus">
+            <summary>
+                Automatically gives focus to the textarea element when the page loads.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.autocomplete">
+            <summary>
+                Specifies that the user's browser should automatically complete the textarea element's value.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.dirname">
+            <summary>
+                Specifies the directory to use as the default value for the 'file' input type.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.form">
+            <summary>
+                Specifies the ID of the form that the textarea element belongs to.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.maxlength">
+            <summary>
+                Specifies the maximum number of characters that can be entered into the textarea element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.minlength">
+            <summary>
+                Specifies the minimum number of characters that must be entered into the textarea element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.wrap">
+            <summary>
+                Specifies whether the text in the textarea element should wrap to the next line when it reaches the end of the visible area.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.defaultValue">
+            <summary>
+                A string. Specifies the initial value for a text area.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.onBlur">
+            <summary>
+                Occurs when an element loses focus.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Name(System.String)">
+            <summary>
+                name = <paramref name="value"/>
+            <br/>
+                Specifies a name for the textarea element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Cols(ReactWithDotNet.UnionProp{System.String,System.Nullable{System.Int32}})">
+            <summary>
+                cols = <paramref name="value"/>
+            <br/>
+                Specifies the visible width of the textarea element in characters.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Rows(ReactWithDotNet.UnionProp{System.String,System.Nullable{System.Int32}})">
+            <summary>
+                rows = <paramref name="value"/>
+            <br/>
+                Specifies the number of visible lines in the textarea element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Placeholder(System.String)">
+            <summary>
+                placeholder = <paramref name="value"/>
+            <br/>
+                Specifies a short hint that describes the expected value of the textarea element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.ReadOnly(ReactWithDotNet.UnionProp{System.String,System.Boolean})">
+            <summary>
+                readOnly = <paramref name="value"/>
+            <br/>
+                Disables user input in the textarea element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Required(System.String)">
+            <summary>
+                required = <paramref name="value"/>
+            <br/>
+                Indicates that the textarea element must be filled out before the form is submitted.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Autofocus(System.String)">
+            <summary>
+                autofocus = <paramref name="value"/>
+            <br/>
+                Automatically gives focus to the textarea element when the page loads.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Autocomplete(System.String)">
+            <summary>
+                autocomplete = <paramref name="value"/>
+            <br/>
+                Specifies that the user's browser should automatically complete the textarea element's value.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Dirname(System.String)">
+            <summary>
+                dirname = <paramref name="value"/>
+            <br/>
+                Specifies the directory to use as the default value for the 'file' input type.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Form(System.String)">
+            <summary>
+                form = <paramref name="value"/>
+            <br/>
+                Specifies the ID of the form that the textarea element belongs to.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Maxlength(System.String)">
+            <summary>
+                maxlength = <paramref name="value"/>
+            <br/>
+                Specifies the maximum number of characters that can be entered into the textarea element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Minlength(System.String)">
+            <summary>
+                minlength = <paramref name="value"/>
+            <br/>
+                Specifies the minimum number of characters that must be entered into the textarea element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.Wrap(System.String)">
+            <summary>
+                wrap = <paramref name="value"/>
+            <br/>
+                Specifies whether the text in the textarea element should wrap to the next line when it reaches the end of the visible area.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.DefaultValue(System.String)">
+            <summary>
+                defaultValue = <paramref name="value"/>
+            <br/>
+                A string. Specifies the initial value for a text area.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.textarea.OnBlur(ReactWithDotNet.FocusEventHandler)">
+            <summary>
+                onBlur = <paramref name="value"/>
+            <br/>
+                Occurs when an element loses focus.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.valueBindDebounceHandler">
+            <summary>
+                if you want to handle when user iteraction finished see example below<br />
+                component.valueBind = ()=>state.UserInfo.Name<br />
+                component.valueBindDebounceTimeout = 600 // milliseconds<br />
+                component.valueBindDebounceHandler = OnUserIterationFinished<br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.textarea.valueBindDebounceTimeout">
+            <summary>
+                if you want to handle when user iteraction finished see example below<br />
+                component.valueBind = ()=>state.UserInfo.Name<br />
+                component.valueBindDebounceTimeout = 600 // milliseconds<br />
+                component.valueBindDebounceHandler = OnUserIterationFinished<br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.input.autoFocus">
+            <summary>
+                Element must automatically get focus when the page loads.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.input.onBlur">
+            <summary>
+                Occurs when an element loses focus.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.input.AutoFocus(System.Nullable{System.Boolean})">
+            <summary>
+                autoFocus = <paramref name="value"/>
+            <br/>
+                Element must automatically get focus when the page loads.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.input.OnBlur(ReactWithDotNet.FocusEventHandler)">
+            <summary>
+                onBlur = <paramref name="value"/>
+            <br/>
+                Occurs when an element loses focus.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.input.valueBindDebounceHandler">
+            <summary>
+                if you want to handle when user iteraction finished see example below<br />
+                component.valueBind = ()=>state.UserInfo.Name<br />
+                component.valueBindDebounceTimeout = 600 // milliseconds<br />
+                component.valueBindDebounceHandler = OnUserIterationFinished<br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.input.valueBindDebounceTimeout">
+            <summary>
+                if you want to handle when user iteraction finished see example below<br />
+                component.valueBind = ()=>state.UserInfo.Name<br />
+                component.valueBindDebounceTimeout = 600 // milliseconds<br />
+                component.valueBindDebounceHandler = OnUserIterationFinished<br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.HtmlElement.data">
+            <summary>
+                The data-* attribute is used to store custom data private to the page or application.
+                <br />
+                The data-* attribute gives us the ability to embed custom data attributes on all HTML elements.
+                <br />
+                The stored (custom) data can then be used in the page's JavaScript to create a more engaging user experience
+                (without any Ajax calls or server-side database queries).
+                <br />
+                The data-* attribute consist of two parts:
+                <br />
+                The attribute name should not contain any uppercase letters, and must be at least one character long after the
+                prefix "data-"<br />
+                The attribute value can be any string<br />
+                Note: Custom attributes prefixed with "data-" will be completely ignored by the user agent.<br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.HtmlElement.innerText">
+            <summary>
+                'innerText' property of element.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.HtmlElement.onClickPreview">
+            <summary>
+            TODO: comment here
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.HtmlElement.onScrollDebounceTimeout">
+            <summary>
+                Default value: 400 <br />
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.HtmlElement.style">
+            <summary>
+                Gets the style.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.HtmlElement.Style">
+            <summary>
+                Imports filled values given style
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.HtmlElement.text">
+            <summary>
+                'innerText' property of element.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.HtmlElement.AddClass(System.String)">
+            <summary>
+                Adds given cssClassName ot class attribute of html element
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent(System.Func{System.Threading.Tasks.Task},System.String)">
             <summary>
                 Sample event declaration
                 <br />
-                [ReactCustomEvent] public Func&lt;UserInfo&gt; OnUserChanged { get; set; }
+                [ReactCustomEvent] public Func&lt;UserInfo,Task&gt; OnUserChanged { get; set; }
+                <br />
+                <br />
+                Sample event dispatching <br />
+                DispatchEvent(OnUserChanged, new UserInfo { Name = '..'});
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent``1(System.Func{``0,System.Threading.Tasks.Task},``0,System.String)">
+            <summary>
+                Sample event declaration
+                <br />
+                [ReactCustomEvent] public Func&lt;UserInfo,Task&gt; OnUserChanged { get; set; }
+                <br />
+                <br />
+                Sample event dispatching <br />
+                DispatchEvent(OnUserChanged, new UserInfo { Name = '..'});
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent``2(System.Func{``0,System.Threading.Tasks.Task},``0,``1,System.String)">
+            <summary>
+                Sample event declaration
+                <br />
+                [ReactCustomEvent] public Func&lt;UserInfo,Task&gt; OnUserChanged { get; set; }
+                <br />
+                <br />
+                Sample event dispatching <br />
+                DispatchEvent(OnUserChanged, new UserInfo { Name = '..'});
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent``3(System.Func{``0,System.Threading.Tasks.Task},``0,``1,``2,System.String)">
+            <summary>
+                Sample event declaration
+                <br />
+                [ReactCustomEvent] public Func&lt;UserInfo,Task&gt; OnUserChanged { get; set; }
+                <br />
+                <br />
+                Sample event dispatching <br />
+                DispatchEvent(OnUserChanged, new UserInfo { Name = '..'});
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent(System.Linq.Expressions.Expression{System.Func{System.Delegate}})">
+            <summary>
+                Sample event declaration
+                <br />
+                [ReactCustomEvent] public Func&lt;UserInfo,Task&gt; OnUserChanged { get; set; }
                 <br />
                 <br />
                 Sample event dispatching <br />
                 DispatchEvent(()=> OnUserChanged, new UserInfo { Name = '..'});
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent``1(System.Linq.Expressions.Expression{System.Func{System.Func{``0,System.Threading.Tasks.Task}}},``0)">
+        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent``1(System.Linq.Expressions.Expression{System.Func{System.Delegate}},``0)">
             <summary>
                 Sample event declaration
                 <br />
-                [ReactCustomEvent] public Func&lt;UserInfo&gt; OnUserChanged { get; set; }
+                [ReactCustomEvent] public Func&lt;UserInfo,Task&gt; OnUserChanged { get; set; }
                 <br />
                 <br />
                 Sample event dispatching <br />
                 DispatchEvent(()=> OnUserChanged, new UserInfo { Name = '..'});
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent``2(System.Linq.Expressions.Expression{System.Func{System.Func{``0,``1,System.Threading.Tasks.Task}}},``0,``1)">
+        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent``2(System.Linq.Expressions.Expression{System.Func{System.Delegate}},``0,``1)">
             <summary>
                 Sample event declaration
                 <br />
-                [ReactCustomEvent] public Func&lt;UserInfo&gt; OnUserChanged { get; set; }
+                [ReactCustomEvent] public Func&lt;UserInfo,Task&gt; OnUserChanged { get; set; }
                 <br />
                 <br />
                 Sample event dispatching <br />
                 DispatchEvent(()=> OnUserChanged, new UserInfo { Name = '..'});
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent``3(System.Linq.Expressions.Expression{System.Func{System.Func{``0,``1,``2,System.Threading.Tasks.Task}}},``0,``1,``2)">
+        <member name="M:ReactWithDotNet.ReactComponentBase.DispatchEvent``3(System.Linq.Expressions.Expression{System.Func{System.Delegate}},``0,``1,``2)">
             <summary>
                 Sample event declaration
                 <br />
-                [ReactCustomEvent] public Func&lt;UserInfo&gt; OnUserChanged { get; set; }
+                [ReactCustomEvent] public Func&lt;UserInfo,Task&gt; OnUserChanged { get; set; }
                 <br />
                 <br />
                 Sample event dispatching <br />
                 DispatchEvent(()=> OnUserChanged, new UserInfo { Name = '..'});
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ReactComponentBase.componentDidCatch(System.Exception)">
+            <summary>
+                When any exception occurred in render method then this method will be call.
+                <code>
+                protected override Element componentDidCatch(Exception exceptionOccurredInRender)
+                {
+                    return new div(Color("red"))
+                    {
+                        exceptionOccurredInRender.ToString()
+                    };
+                }
+                </code>
             </summary>
         </member>
         <member name="T:ReactWithDotNet.Element">
@@ -6851,6 +7663,11 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Element.Add(System.Func{ReactWithDotNet.Element})">
+            <summary>
+                Invokes <paramref name="elementCreatorFunc" /> then adds return value to children.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Element.Add(System.Func{System.Threading.Tasks.Task{ReactWithDotNet.Element}})">
             <summary>
                 Invokes <paramref name="elementCreatorFunc" /> then adds return value to children.
             </summary>
@@ -6888,6 +7705,11 @@
         <member name="M:ReactWithDotNet.Extensions.RemoveFromStart(System.String,System.String,System.StringComparison)">
             <summary>
                 Removes value from start of str
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.FunctionalComponent.State.Scope">
+            <summary>
+                Scope means value of auto generated fields of CompilerGeneratedType instance.
             </summary>
         </member>
         <member name="T:ReactWithDotNet.FlexRow">
@@ -7106,166 +7928,6 @@
                 alignItems     = "center"
             </summary>
         </member>
-        <member name="P:ReactWithDotNet.HtmlElement.accesskey">
-            <summary>
-                Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a
-                space-separated list of characters. The browser should use the first one that exists on the computer keyboard
-                layout.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.draggable">
-            <summary>
-            Specifies whether an element is draggable or not.
-            <br/>
-            Tip: Links and images are draggable by default.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.contenteditable">
-            <summary>
-                Specifies whether the content of an element is editable or not.
-            <br/>
-                true|false
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.className">
-            <summary>
-                Gets or sets the name of the class.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.data">
-            <summary>
-                The data-* attribute is used to store custom data private to the page or application.
-                <br />
-                The data-* attribute gives us the ability to embed custom data attributes on all HTML elements.
-                <br />
-                The stored (custom) data can then be used in the page's JavaScript to create a more engaging user experience
-                (without any Ajax calls or server-side database queries).
-                <br />
-                The data-* attribute consist of two parts:
-                <br />
-                The attribute name should not contain any uppercase letters, and must be at least one character long after the
-                prefix "data-"<br />
-                The attribute value can be any string<br />
-                Note: Custom attributes prefixed with "data-" will be completely ignored by the user agent.<br />
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.dir">
-            <summary>
-                Specifies the text direction for the content in an element
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.innerText">
-            <summary>
-                'innerText' property of element.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.lang">
-            <summary>
-                Helps define the language of an element: the language that non-editable elements are in, or the language that
-                editable elements should be written in by the user. The attribute contains one "language tag" (made of
-                hyphen-separated "language subtags") in the format defined in RFC 5646: Tags for Identifying Languages (also known
-                as BCP 47). xml:lang has priority over it.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.onClick">
-            <summary>
-                Gets or sets the on click.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.onClickPreview">
-            <summary>
-                Gets or sets the on click.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.onScroll">
-            <summary>
-                Handler <paramref name="value" /> should be in client js codes.<br />
-                <br />
-                Sample Usage:<br />
-                <br />
-                ReactWithDotNet.RegisterExternalJsObject(<paramref name="value" />, function(e){<br />
-                ...<br />
-                ...<br />
-                });
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.part">
-            <summary>
-                A space-separated list of the part names of the element. Part names allows CSS to select and style specific
-                elements in a shadow tree via the ::part pseudo-element.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.role">
-            <summary>
-                Roles define the semantic meaning of content, allowing screen readers and other tools to present and support
-                interaction with an object in a way that is consistent with user expectations of that type of object.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.spellcheck">
-            <summary>
-                An enumerated attribute defines whether the element may be checked for spelling errors. It may have the following
-                values:<br />
-                empty string or true, which indicates that the element should be, if possible, checked for spelling errors;<br />
-                false, which indicates that the element should not be checked for spelling errors.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.style">
-            <summary>
-                Gets the style.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.Style">
-            <summary>
-                Imports filled values given style
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.text">
-            <summary>
-                'innerText' property of element.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.HtmlElement.translate">
-            <summary>
-                An enumerated attribute that is used to specify whether an element's attribute values and the values of its Text
-                node children are to be translated when the page is localized, or whether to leave them unchanged. It can have the
-                following values:
-                <br />
-                empty string or yes, which indicates that the element will be translated.
-                <br />
-                no, which indicates that the element will not be translated.
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.HtmlElement.AddClass(System.String)">
-            <summary>
-                Adds given cssClassName ot class attribute of html element
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.input.onBlur">
-            <summary>
-                Occurs when an element loses focus.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.input.onFocus">
-            <summary>
-                occurs when an element gets focus.
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.input.valueBindDebounceHandler">
-            <summary>
-                if you want to handle when user iteraction finished see example below<br />
-                component.valueBind = ()=>state.UserInfo.Name<br />
-                component.valueBindDebounceTimeout = 600 // milliseconds<br />
-                component.valueBindDebounceHandler = OnUserIterationFinished<br />
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.input.valueBindDebounceTimeout">
-            <summary>
-                if you want to handle when user iteraction finished see example below<br />
-                component.valueBind = ()=>state.UserInfo.Name<br />
-                component.valueBindDebounceTimeout = 600 // milliseconds<br />
-                component.valueBindDebounceHandler = OnUserIterationFinished<br />
-            </summary>
-        </member>
         <member name="F:ReactWithDotNet.CssUnit.em">
             <summary>
                 2|em returns like '2em'
@@ -7276,6 +7938,20 @@
             PureComponent is similar to Component but it skips re-renders for same props and state.
             <br/>
             https://react.dev/reference/react/PureComponent
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.PureComponent.componentDidCatch(System.Exception)">
+            <summary>
+                When any exception occurred in render method then this method will be call.
+                <code>
+                protected override Element componentDidCatch(Exception exceptionOccurredInRender)
+                {
+                    return new div(Color("red"))
+                    {
+                        exceptionOccurredInRender.ToString()
+                    };
+                }
+                </code>
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Style.op_Addition(ReactWithDotNet.Style,ReactWithDotNet.StyleModifier)">
@@ -7323,6 +7999,92 @@
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MonacoEditorReact.Editor.options">
             <summary>
             https://microsoft.github.io/monaco-editor/typedoc/variables/editor.EditorOptions.html
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.classes">
+            <summary>
+                Override or extend the styles applied to the component.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.defaultExpanded">
+            <summary>
+                If `true`, expands the accordion by default.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.DefaultExpanded(System.Nullable{System.Boolean})">
+            <summary>
+                If `true`, expands the accordion by default.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.disabled">
+            <summary>
+                If `true`, the component is disabled.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.Disabled(System.Nullable{System.Boolean})">
+            <summary>
+                If `true`, the component is disabled.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.disableGutters">
+            <summary>
+                If `true`, it removes the margin between two expanded accordion items and the increase of height.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.DisableGutters(System.Nullable{System.Boolean})">
+            <summary>
+                If `true`, it removes the margin between two expanded accordion items and the increase of height.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.expanded">
+            <summary>
+                If `true`, expands the accordion, otherwise collapse it.
+                <br/>
+                Setting this prop enables control over the accordion.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.Expanded(System.Nullable{System.Boolean})">
+            <summary>
+                If `true`, expands the accordion, otherwise collapse it.
+                <br/>
+                Setting this prop enables control over the accordion.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.onChange">
+            <summary>
+                Callback fired when the expand/collapse state is changed.
+                <br/>
+                <br/>
+                <br/>
+                @param {React.SyntheticEvent} event The event source of the callback. **Warning**: This is a generic event not a change event.
+                <br/>
+                @param {boolean} expanded The `expanded` state of the accordion.
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.sx">
+            <summary>
+                The system prop that allows defining system overrides as well as additional CSS styles.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Accordion.GetSuspenseFallbackElement">
+            <summary>
+                The component used for the transition.
+                <br/>
+                [Follow this guide](/material-ui/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
+                <br/>
+                @default Collapse
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Autocomplete.clearIcon">
@@ -8191,6 +8953,13 @@
                 @default false
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.Arrow(System.Nullable{System.Boolean})">
+            <summary>
+                If `true`, adds an arrow to the tooltip.
+                <br/>
+                @default false
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.classes">
             <summary>
                 Override or extend the styles applied to the component.
@@ -8237,6 +9006,15 @@
                 @default false
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.DescribeChild(System.Nullable{System.Boolean})">
+            <summary>
+                Set to `true` if the `title` acts as an accessible description.
+                <br/>
+                By default the `title` acts as an accessible label for the child.
+                <br/>
+                @default false
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.disableFocusListener">
             <summary>
                 Do not respond to focus-visible events.
@@ -8244,7 +9022,21 @@
                 @default false
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.DisableFocusListener(System.Nullable{System.Boolean})">
+            <summary>
+                Do not respond to focus-visible events.
+                <br/>
+                @default false
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.disableHoverListener">
+            <summary>
+                Do not respond to hover events.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.DisableHoverListener(System.Nullable{System.Boolean})">
             <summary>
                 Do not respond to hover events.
                 <br/>
@@ -8260,7 +9052,23 @@
                 @default false
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.DisableInteractive(System.Nullable{System.Boolean})">
+            <summary>
+                Makes a tooltip not interactive, i.e. it will close when the user
+                <br/>
+                hovers over the tooltip before the `leaveDelay` is expired.
+                <br/>
+                @default false
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.disableTouchListener">
+            <summary>
+                Do not respond to long press touch events.
+                <br/>
+                @default false
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.DisableTouchListener(System.Nullable{System.Boolean})">
             <summary>
                 Do not respond to long press touch events.
                 <br/>
@@ -8276,7 +9084,23 @@
                 @default 100
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.EnterDelay(System.Nullable{System.Double})">
+            <summary>
+                The number of milliseconds to wait before showing the tooltip.
+                <br/>
+                This prop won't impact the enter touch delay (`enterTouchDelay`).
+                <br/>
+                @default 100
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.enterNextDelay">
+            <summary>
+                The number of milliseconds to wait before showing the tooltip when one was already recently opened.
+                <br/>
+                @default 0
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.EnterNextDelay(System.Nullable{System.Double})">
             <summary>
                 The number of milliseconds to wait before showing the tooltip when one was already recently opened.
                 <br/>
@@ -8290,6 +9114,13 @@
                 @default 700
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.EnterTouchDelay(System.Nullable{System.Double})">
+            <summary>
+                The number of milliseconds a user must touch the element before showing the tooltip.
+                <br/>
+                @default 700
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.followCursor">
             <summary>
                 If `true`, the tooltip follow the cursor over the wrapped element.
@@ -8297,7 +9128,21 @@
                 @default false
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.FollowCursor(System.Nullable{System.Boolean})">
+            <summary>
+                If `true`, the tooltip follow the cursor over the wrapped element.
+                <br/>
+                @default false
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.id">
+            <summary>
+                This prop is used to help implement the accessibility logic.
+                <br/>
+                If you don't provide this prop. It falls back to a randomly generated id.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.Id(System.String)">
             <summary>
                 This prop is used to help implement the accessibility logic.
                 <br/>
@@ -8313,6 +9158,15 @@
                 @default 0
             </summary>
         </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.LeaveDelay(System.Nullable{System.Double})">
+            <summary>
+                The number of milliseconds to wait before hiding the tooltip.
+                <br/>
+                This prop won't impact the leave touch delay (`leaveTouchDelay`).
+                <br/>
+                @default 0
+            </summary>
+        </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.leaveTouchDelay">
             <summary>
                 The number of milliseconds after the user stops touching an element before hiding the tooltip.
@@ -8320,7 +9174,14 @@
                 @default 1500
             </summary>
         </member>
-        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.open">
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.LeaveTouchDelay(System.Nullable{System.Double})">
+            <summary>
+                The number of milliseconds after the user stops touching an element before hiding the tooltip.
+                <br/>
+                @default 1500
+            </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.onClose">
             <summary>
                 Callback fired when the component requests to be closed.
                 <br/>
@@ -8328,6 +9189,8 @@
                 <br/>
                 @param {React.SyntheticEvent} event The event source of the callback.
             </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.onOpen">
             <summary>
                 Callback fired when the component requests to be open.
                 <br/>
@@ -8335,11 +9198,25 @@
                 <br/>
                 @param {React.SyntheticEvent} event The event source of the callback.
             </summary>
+        </member>
+        <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.open">
+            <summary>
+                If `true`, the component is shown.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.Open(System.Nullable{System.Boolean})">
             <summary>
                 If `true`, the component is shown.
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.placement">
+            <summary>
+                Tooltip placement.
+                <br/>
+                @default 'bottom'
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.Placement(System.String)">
             <summary>
                 Tooltip placement.
                 <br/>
@@ -8387,6 +9264,11 @@
             </summary>
         </member>
         <member name="P:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.title">
+            <summary>
+                Tooltip title. Zero-length titles string, undefined, null and false are never displayed.
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Tooltip.Title(ReactWithDotNet.Element)">
             <summary>
                 Tooltip title. Zero-length titles string, undefined, null and false are never displayed.
             </summary>

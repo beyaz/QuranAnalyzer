@@ -1,14 +1,21 @@
-﻿namespace QuranAnalyzer.WebUI.Layouts;
+﻿using System.IO;
+using System.Text;
+
+namespace QuranAnalyzer.WebUI.Layouts;
 
 class MainLayout : ReactPureComponent, IPageLayout
 {
+    public ComponentRenderInfo RenderInfo { get; set; }
+    
     public string ContainerDomElementId => "app";
 
-    public ComponentRenderInfo RenderInfo { get; set; }
+    static string LastWriteTimeOfIndexJsFile;
 
     protected override Element render()
     {
         const string root = "wwwroot";
+        
+        LastWriteTimeOfIndexJsFile ??= new FileInfo($"/{root}/dist/index.js").LastWriteTime.Ticks.ToString();
 
         static string fav(string fileName)
         {
@@ -72,22 +79,29 @@ class MainLayout : ReactPureComponent, IPageLayout
                 // After page first rendered in client then connect with react system in background.
                 // So user first iteraction time will be minimize.
 
-                new script
+                new script(script.Type("module"))
                 {
-                    type = "module",
-                    text =
-                        $@"
-
-import {{ReactWithDotNet}} from './{root}/dist/index.js?v={Guid.NewGuid():N}';
-
-ReactWithDotNet.RenderComponentIn({{
-  idOfContainerHtmlElement: '{ContainerDomElementId}',
-  renderInfo: {RenderInfo.ToJsonString()}
-}});
-
-"
+                    calculateInitialScript()
                 }
             }
         };
+        
+        StringBuilder calculateInitialScript()
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine($"import {{ReactWithDotNet}} from './{root}/dist/index.js?v={LastWriteTimeOfIndexJsFile}';");
+            sb.AppendLine("ReactWithDotNet.StrictMode = false;");
+            
+            
+            
+            sb.AppendLine("ReactWithDotNet.RenderComponentIn({");
+            sb.AppendLine($"  idOfContainerHtmlElement: '{ContainerDomElementId}',");
+            sb.AppendLine("  renderInfo: ");
+            sb.Append(RenderInfo.ToJsonString());
+            sb.AppendLine("});");
+            
+            return sb;
+        }
     }
 }

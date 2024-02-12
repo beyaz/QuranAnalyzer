@@ -18,7 +18,7 @@ public class Program
 
         // C O N F I G U R E     S E R V I C E S
         services.Configure<BrotliCompressionProviderOptions>(options => { options.Level = CompressionLevel.Fastest; });
-        services.Configure<GzipCompressionProviderOptions>(options => { options.Level   = CompressionLevel.Optimal; });
+        services.Configure<GzipCompressionProviderOptions>(options => { options.Level   = CompressionLevel.Fastest; });
         services.AddResponseCompression(options =>
         {
             options.EnableForHttps = true;
@@ -27,7 +27,7 @@ public class Program
         });
 
         services.AddControllers().AddJsonOptions(jsonOptions => { jsonOptions.JsonSerializerOptions.ModifyForReactWithDotNet(); });
-
+        
         // C O N F I G U R E     A P P L I C A T I O N
         var app = builder.Build();
 
@@ -49,12 +49,7 @@ public class Program
 
         app.UseResponseCompression();
 
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.ConfigureReactWithDotNet();
-            
-            endpoints.MapControllers();
-        });
+        app.ConfigureReactWithDotNet();
 
         app.Run();
     }
