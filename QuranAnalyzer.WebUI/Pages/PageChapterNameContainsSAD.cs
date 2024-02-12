@@ -1,16 +1,109 @@
 ﻿
 namespace QuranAnalyzer.WebUI.Pages;
 
-public class PageChapterNameContainsSAD : ReactComponent
+class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.State>
 {
+    internal class State
+    {
+        public string CharachterMap { get; set; }
+        public bool IsProcessing { get; set; }
+        public bool CanShowCalculationResults { get; set; }
+    }
+
+    protected override Task constructor()
+    {
+        state = new()
+        {
+            CharachterMap = "a:أ"
+        };
+        
+        return Task.CompletedTask;
+    }
+
     protected override Element render()
     {
-        return new div(FontFamily("Calibri, sans-serif"), FontSize24, FontWeight400)
+        return new FlexColumn
         {
-            CrateTable
+            
+            new FlexColumn
+            {
+                new label{"Charachter Map", FontSize14},
+                new input
+                {
+                    valueBind = ()=>state.CharachterMap,
+                    style =
+                    {
+                        Width(600),
+                        Padding(5)
+                    }
+                }
+            },
+            
+            new FlexColumn
+            {
+                new label{"Any word or any name", FontSize14},
+                new input
+                {
+                    valueBind = ()=>state.CharachterMap,
+                    style =
+                    {
+                        Width(300),
+                        Padding(5)
+                    }
+                }
+            },
+            
+            new FlexRow(JustifyContentFlexEnd)
+            {
+                
+                new ActionButton { Label = "Hesapla", OnClick = StartCalculate, IsProcessing = state.IsProcessing },
+            },
+            
+            ResultView,
+            
+            new []
+            {
+                AlignContentCenter,
+                PaddingLeftRight("5%"), LG(PaddingLeftRight("10%")), 
+                PaddingTopBottom(50), 
+                FontFamily("Calibri, sans-serif"), 
+                FontSize24, 
+                FontWeight400
+            }
         };
     }
 
+    Element ResultView()
+    {
+        if (state.CanShowCalculationResults is false)
+        {
+            return null;
+        }
+
+
+        return CrateTable();
+    }
+    
+    Task StartCalculate()
+    {
+        state.IsProcessing = true;
+
+        state.CanShowCalculationResults = false;
+        
+        
+        Client.GotoMethod(10, Calculate);
+        
+        return Task.CompletedTask;
+    }
+
+    Task Calculate()
+    {
+        state.IsProcessing = false;
+
+        state.CanShowCalculationResults = true;
+        
+        return Task.CompletedTask;
+    }
     class NumberViewer : PureComponent
     {
         public int Count { get; set; }
