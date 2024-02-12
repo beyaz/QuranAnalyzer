@@ -5,6 +5,7 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
 {
     internal class State
     {
+        public string SearchWords { get; set; }
         public string CharachterMap { get; set; }
         public bool IsProcessing { get; set; }
         public bool CanShowCalculationResults { get; set; }
@@ -14,11 +15,43 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
     {
         state = new()
         {
-            CharachterMap = "a:أ"
+            CharachterMap = "b:ب , c:ج , d:د , h:ه , v:و , z:ز , y:ي , k:ك , l:ل , m:م , n:ن , f:ف , s:ص , r:ر , t:ت  , ö:و , ü:و , g:ك , ç:ج  "
         };
         
         return Task.CompletedTask;
     }
+
+    static (bool success, Dictionary<char, char> map, string errorMessage) ParseCharachterMap(string map)
+    {
+        if (map.HasNoValue())
+        {
+            return (default, default, "map is empty");
+        }
+
+
+        var arr = map.Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+        if (!arr.Any())
+        {
+            return (default, default, "map is empty");
+        }
+        
+        var dictionary = new Dictionary<char, char>();
+        
+        foreach (var item in arr)
+        {
+            var pair = item.Split(':', StringSplitOptions.RemoveEmptyEntries).Select(x=>x.Trim()).ToArray();
+            if (pair.Length is not 2)
+            {
+                return (default, default, "invalid map");
+            }
+            
+            dictionary.Add(pair[0][0], pair[1][0]);
+        }
+
+        return (true, dictionary, default);
+    }
+    
 
     protected override Element render()
     {
@@ -44,7 +77,7 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
                 new label{"Any word or any name", FontSize14},
                 new input
                 {
-                    valueBind = ()=>state.CharachterMap,
+                    valueBind = ()=>state.SearchWords,
                     style =
                     {
                         Width(300),
@@ -80,6 +113,36 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
             return null;
         }
 
+        
+        var arabicVersionOfSearchWords = new List<char>();
+        
+        var (success, map, errorMessage) = ParseCharachterMap(state.CharachterMap);
+
+        if (success)
+        {
+            foreach (char c in state.SearchWords)
+            {
+                if (map.ContainsKey(c))
+                {
+                    arabicVersionOfSearchWords.Add(map[c]);
+                }
+            }
+        }
+
+        var arabic = new string(arabicVersionOfSearchWords.ToArray());
+
+        var results = AnalyzeText(arabic);
+        
+        return new FlexColumn
+        {
+            $"Sayısal değeri: {results.Where(l=>l.OrderValue > 0).Sum(x=>x.NumericValue)}",
+            br,
+          $"Sıra değeri: {results.Where(l=>l.OrderValue > 0).Sum(x=>x.OrderValue)}",
+          br,
+          CrateTable
+          
+        };
+        
 
         return CrateTable();
     }
@@ -296,3 +359,39 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
     
 
 }
+
+/*
+ *
+ 
+ ا
+   ,b:ب
+   ,c:ج
+   ,d:د
+   ,h:ه
+   ,v:و
+   ,z:ز
+   , ح
+   , ط
+   ,y:ي
+   ,k:ك
+   ,l:ل
+   ,m:م
+   ,n:ن
+   , س
+   , ع
+   ,f:ف
+   ,s:ص
+   , ق
+   ,r:ر
+   , ش
+   ,t:ت
+   , ث
+   , خ
+   , ذ
+   , ض
+   , ظ
+   , غ
+ 
+ 
+ * 
+ */
