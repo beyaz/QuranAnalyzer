@@ -69,7 +69,7 @@ class LeftMenu : ReactPureComponent
             },
 
             // small screen
-            new FlexColumn(Gap(8), MediaQueryOnTabletOrDesktop(DisplayNone))
+            new FlexColumn(Height100vh, JustifyContentSpaceEvenly, MediaQueryOnTabletOrDesktop(DisplayNone))
             {
                 MenuItems.Select((_, i) => createTextForMobile(i, i == SelectedIndex))
             }

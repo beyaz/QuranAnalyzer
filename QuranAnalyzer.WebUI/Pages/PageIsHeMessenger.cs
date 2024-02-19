@@ -245,8 +245,9 @@ public class PageIsHeMessenger : ReactPureComponent
                 "İşte bu bahane insanların elinden alınmış oldu.", br,
                 "19 Mucizesi Kuranın Allah kelamı olduğunu doğruladı.", br,
                 "Kuran doğrulandığına göre Musa’nın İsa’nın birer peygamber olduğu doğrulanmış oldu.", br,
-                "Sonradan bazı bozulmalara uğramış olan Tevrat ve İncil’in Allah’tan geldiği doğrulanmış oldu.", br,
-                "İsa’nın ölüyü dirilttiği, Musa’nın Kızıldeniz’i yarmış olduğu ispatlanmış oldu."
+                "Tevrat ve İncil’in Allah’tan geldiği doğrulanmış oldu.", br,
+                "İsa’nın ölüyü dirilttiği, Musa’nın Kızıldeniz’i yarmış olduğu ispatlanmış oldu.", br,
+                "Özetle ",(strong)"anlatılanlar doğruydu."
             },
             new p
             {
@@ -382,7 +383,7 @@ public class PageIsHeMessenger : ReactPureComponent
                 "Zaten kelime-i şehadet getiren her bir Müslüman cehenneme girse bile eninde sonunda cennete girecek.'", br,
                 br,
                 "Eğer siz de eskiden benim düşündüğüm gibi hala böyle düşünüyor iseniz size kötü bir haberim var.", br,
-                "Allah’ın net bir biçimde affetmeyeceğini söylediği hata şirk hatasıdır. Kuran ise inananların bile çoğunun bu hataya düşeceğini haber veriyor. Müslüman da olsanız cennete gidemeyebilirsiniz."
+                "Allah’ın net bir biçimde affetmeyeceğini söylediği hata şirk hatasıdır. Kuran ise inananların bile çoğunun bu hataya düşeceğini haber veriyor. Kendinizi Müslüman kimliği ile tanımlasanız bile cennete gidemeyebilirsiniz."
             },
             new p
             {
