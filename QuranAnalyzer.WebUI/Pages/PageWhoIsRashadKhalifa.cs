@@ -204,7 +204,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     " Yukarıdaki örnekte olduğu gibi abdest için 4 yerinizi yıkamanız gerekiyor ise 4 yerinizi yıkayın. Bu kadar basit.",
                     " Çünkü detayın peşine düşersen bu Kuran eksiksizdir, detaylıdır, tamdır cümlelerini boşa çıkarmış, dikkate almamış olursun demektir.",
                     " Kuran dışı kaynaklara uymaya kalktığınızda her fikir kendine farklı farklı hadisleri dayanak yapınca ortalık harman yerine dönüyor.",
-                    " Kuran dışı kaynakları dinde hüküm sahibi yapmaya başladığınızda, o kapıyı bir araladığınızda artık o dinin sınırlaarını çizemez hale gelirsiniz.",
+                    " Kuran dışı kaynakları dinde hüküm sahibi yapmaya başladığınızda, o kapıyı bir araladığınızda artık o dinin sınırlarını çizemez hale gelirsiniz.",
                     br,
                     br,
                     "- Madem dine dair herşey Kuranda var o zaman bana öğlen namazının nasıl kılınacağını göster?",
