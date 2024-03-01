@@ -144,7 +144,7 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
         };
         
 
-        return CrateTable();
+        //return CrateTable();
     }
     
     Task StartCalculate()
