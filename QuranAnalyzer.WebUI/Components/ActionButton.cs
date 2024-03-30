@@ -35,7 +35,7 @@ public class ActionButton : ReactComponent
     {
         IsProcessing = true;
 
-        DispatchEvent(() => OnClick);
+        DispatchEvent(OnClick);
         
         return Task.CompletedTask;
     }
