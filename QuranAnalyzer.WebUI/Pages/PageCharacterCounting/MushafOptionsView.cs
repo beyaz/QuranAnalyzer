@@ -99,6 +99,6 @@ class MushafOptionsView : ReactComponent
 
     void FireMushafOptionChanged()
     {
-        DispatchEvent(() => MushafOptionChanged, Model);
+        DispatchEvent(MushafOptionChanged, [Model]);
     }
 }

@@ -104,11 +104,11 @@ class TotalCountsWithDetail : ReactComponent
 
                     returnList.Add(InFadeAnimation(new div
                     {
-                        When(drawArrow, new Arrow
+                        drawArrow? new Arrow
                         {
                             start = GetIdOf(true, recordIndex, i),
                             end   = GetIdOf(false, recordIndex, i)
-                        }),
+                        }:null,
 
                         new Fade
                         {
@@ -137,11 +137,11 @@ class TotalCountsWithDetail : ReactComponent
                     // add total count of letter
                     returnList.Add(InFadeAnimation(new div
                     {
-                        When(drawArrow, new Arrow
+                        drawArrow ? new Arrow
                         {
                             start = GetIdOf(true, recordIndex, null),
                             end   = GetIdOf(false, recordIndex, null)
-                        }),
+                        }:null,
 
                         new Fade
                         {
@@ -164,7 +164,7 @@ class TotalCountsWithDetail : ReactComponent
             // add total count
             returnList.Add(InFadeAnimation(new div
             {
-                When(needArrow(null), new Arrow { start = GetIdOf(true, recordIndex, null), end = GetIdOf(false, recordIndex, null) }),
+                needArrow(null)? new Arrow { start = GetIdOf(true, recordIndex, null), end = GetIdOf(false, recordIndex, null) }:null,
 
                 new Fade
                 {
@@ -239,14 +239,14 @@ class TotalCountsWithDetail : ReactComponent
     {
         return new FlexColumn(ComponentBorder, BorderRadiusForPanels, Padding(3), Gap(4))
         {
-            When(Records[recordIndex].Label is not null, new FlexRow(JustifyContentCenter)
+            Records[recordIndex].Label is not null? new FlexRow(JustifyContentCenter)
             {
                 Records[recordIndex].Label
-            }),
-            When(Records[recordIndex].Label is null, new FlexRow(JustifyContentCenter)
+            }:null,
+            Records[recordIndex].Label is null? new FlexRow(JustifyContentCenter)
             {
                 AsLetter(Records[recordIndex].Text)
-            }),
+            }:null,
 
             new FlexRow(Gap(5), FontWeight600, FontSize("0.8rem"), JustifyContentCenter, TextAlignCenter) { (small)"Sure No" + Width(50), (small)"Adet" + Width(40) },
             new FlexColumn(AlignItemsCenter)

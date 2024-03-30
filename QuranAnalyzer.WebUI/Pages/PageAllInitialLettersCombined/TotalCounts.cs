@@ -77,7 +77,7 @@ class TotalCounts : ReactComponent
 
         return InFadeAnimation(new div
         {
-            When(needArrow, new Arrow { start = GetIdOf(true, recordIndex), end = GetIdOf(false, recordIndex) }),
+            needArrow ? new Arrow { start = GetIdOf(true, recordIndex), end = GetIdOf(false, recordIndex) } : null,
 
             new Fade
             {
@@ -145,14 +145,14 @@ class TotalCounts : ReactComponent
     {
         return new FlexColumn(ComponentBorder, BorderRadiusForPanels, Padding(3), Gap(4))
         {
-            When(Records[recordIndex].Label is not null, new FlexRow(JustifyContentCenter)
+            Records[recordIndex].Label is not null? new FlexRow(JustifyContentCenter)
             {
                 Records[recordIndex].Label
-            }),
-            When(Records[recordIndex].Label is null, new FlexRow(JustifyContentCenter)
+            }:null,
+            Records[recordIndex].Label is null? new FlexRow(JustifyContentCenter)
             {
                 AsLetter(Records[recordIndex].Text)
-            }),
+            }:null,
             new FlexRowCentered
             {
                 CreateInput(() => Records[recordIndex].Count, Id(GetIdOf(true, recordIndex)), delay)

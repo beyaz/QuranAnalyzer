@@ -29,7 +29,7 @@ class InitialLetter : ReactPureComponent
             new div(Text(Letter.ToString())),
             new div(pronunciation) { FontSize("70%"), FontWeight600 },
 
-            When(Count.count.HasValue, new a(Text(Count.count.ToString()), Href(Count.url), Color(Count.color), FontSize("70%"), FontWeight600, TextDecorationUnderline))
+            Count.count.HasValue ? new a(Text(Count.count.ToString()), Href(Count.url), Color(Count.color), FontSize("70%"), FontWeight600, TextDecorationUnderline) : null
         };
     }
 }

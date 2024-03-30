@@ -66,7 +66,7 @@ class CharacterCountingOptionView : ReactComponent
     Task OnMushafOptionChanged(MushafOption mushafOption)
     {
         MushafOption = mushafOption;
-        DispatchEvent(() => MushafOptionChanged, mushafOption);
+        DispatchEvent(MushafOptionChanged, [mushafOption]);
         
         return Task.CompletedTask;
     }
