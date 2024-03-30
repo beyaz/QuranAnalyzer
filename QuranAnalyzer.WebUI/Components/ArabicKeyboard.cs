@@ -130,7 +130,7 @@ static class ArabicKeyboardEvents
 {
     public static Task ArabicKeyboardPressed(this Client client, string arabicLetter)
     {
-        client.DispatchEvent(nameof(ArabicKeyboardPressed), arabicLetter);
+        client.DispatchEvent(nameof(ArabicKeyboardPressed), [arabicLetter]);
         
         return Task.CompletedTask;
     }
