@@ -22,7 +22,7 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
     {
         return new div
         {
-            new table(WidthMaximized)
+            new table(WidthFull)
             {
                 new tbody
                 {

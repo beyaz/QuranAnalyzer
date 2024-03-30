@@ -13,7 +13,7 @@ class PageMainWindowView : ReactPureComponent
 
     protected override Element render()
     {
-        return new div(WidthMaximized, HeightAuto)
+        return new div(WidthFull, HeightAuto)
         {
             new FixedTopPanelContainer(),
 

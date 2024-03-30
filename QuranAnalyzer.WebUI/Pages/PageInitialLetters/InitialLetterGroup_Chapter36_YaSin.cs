@@ -12,7 +12,7 @@ class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
     {
         return new div
         {
-            new table(WidthMaximized)
+            new table(WidthFull)
             {
                 new tbody
                 {

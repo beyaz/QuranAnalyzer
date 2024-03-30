@@ -32,9 +32,9 @@ public class PageVerseFilter : ReactComponent
             Padding(6), BorderRadius(7), Border(Solid(0.5, Grey1)), Color(rgba(0, 0, 0, 0.87))
         };
 
-        return new FlexColumnCentered(WidthMaximized, BackgroundColor("#d2d2ce"))
+        return new FlexColumnCentered(WidthFull, BackgroundColor("#d2d2ce"))
         {
-            new FlexColumnCentered(MarginLeftRight("10%") + WidthHeightMaximized, Gap(50), PaddingTopBottom(50))
+            new FlexColumnCentered(MarginLeftRight("10%") + SizeFull, Gap(50), PaddingTopBottom(50))
             {
                 new FlexColumn(BackgroundWhite, BorderRadius(5), BoxShadow(1, 1, 3, 1, "#333"), Height(840), Padding(50), Width(60 * vw))
                 {
@@ -111,7 +111,7 @@ public class PageVerseFilter : ReactComponent
             }
         };
 
-        return new FlexColumn(WidthMaximized, Height(500), Border(Solid(1, Grey1)), OverflowYScroll, Padding(10))
+        return new FlexColumn(WidthFull, Height(500), Border(Solid(1, Grey1)), OverflowYScroll, Padding(10))
         {
             dangerouslySetInnerHTML = new FlexColumn
             {

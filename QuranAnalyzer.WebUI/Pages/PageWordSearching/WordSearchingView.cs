@@ -214,7 +214,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
     static Element Container(params Element[] panels)
     {
-        return new FlexColumn(Gap(10), AlignItemsStretch, WidthMaximized, MaxWidth(800))
+        return new FlexColumn(Gap(10), AlignItemsStretch, WidthFull, MaxWidth(800))
         {
             panels
         };

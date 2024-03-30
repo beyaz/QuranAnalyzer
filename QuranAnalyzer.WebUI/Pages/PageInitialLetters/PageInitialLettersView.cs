@@ -38,7 +38,7 @@ class PageInitialLettersView : ReactPureComponent
 
     protected override Element render()
     {
-        var contentContainer = new FlexColumn(JustifyContentFlexStart, WidthHeightMaximized, MarginTop(30))
+        var contentContainer = new FlexColumn(JustifyContentFlexStart, SizeFull, MarginTop(30))
         {
             CreateTabContent()
         };
@@ -48,7 +48,7 @@ class PageInitialLettersView : ReactPureComponent
             Tabs.Select((x, i) => CreateTabHeader(x.TabHeader, i))
         };
 
-        return new FlexRow(WidthMaximized, Border(Solid(1, ColorForBorder)), PositionRelative)
+        return new FlexRow(WidthFull, Border(Solid(1, ColorForBorder)), PositionRelative)
         {
             headers,
             contentContainer,

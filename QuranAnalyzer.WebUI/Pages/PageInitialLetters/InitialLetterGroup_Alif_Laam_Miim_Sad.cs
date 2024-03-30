@@ -8,7 +8,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
     {
         return new div
         {
-            new table(WidthMaximized)
+            new table(WidthFull)
             {
                 new tbody
                 {

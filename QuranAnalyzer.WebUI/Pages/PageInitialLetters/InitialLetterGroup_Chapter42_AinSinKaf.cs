@@ -12,7 +12,7 @@ class InitialLetterGroup_Chapter42_AinSinKaf : InitialLetterGroup
     {
         return new div
         {
-            new table(WidthMaximized)
+            new table(WidthFull)
             {
                 new tbody
                 {

@@ -25,7 +25,7 @@ class InitialLetterGroup_Chapter19 : InitialLetterGroup
     {
         return new div
         {
-            new table(WidthMaximized)
+            new table(WidthFull)
             {
                 new tbody
                 {

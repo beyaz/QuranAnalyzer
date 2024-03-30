@@ -153,7 +153,7 @@ class Calculator : ReactComponent<CalculatorModel>
 
         if (ShowDetails)
         {
-            return new table(WidthMaximized)
+            return new table(WidthFull)
             {
                 new thead
                 {

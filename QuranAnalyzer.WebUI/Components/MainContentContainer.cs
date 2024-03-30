@@ -10,7 +10,7 @@ class MainContentContainer : ReactPureComponent
 
             children,
 
-            WidthMaximized,
+            WidthFull,
             Height("100%"),
 
             MediaQueryOnMobile(MarginLeftRight("5%")),

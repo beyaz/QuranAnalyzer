@@ -25,7 +25,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
 
         return new div
         {
-            new table(WidthMaximized)
+            new table(WidthFull)
             {
                 new tbody
                 {

@@ -74,7 +74,7 @@ class MainLayout : ReactPureComponent, IPageLayout
             },
             new body
             {
-                new div(Id(ContainerDomElementId), WidthMaximized, Height100vh),
+                new div(Id(ContainerDomElementId), WidthFull, Height100vh),
 
                 // After page first rendered in client then connect with react system in background.
                 // So user first iteraction time will be minimize.
