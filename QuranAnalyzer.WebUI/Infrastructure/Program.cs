@@ -26,8 +26,6 @@ public class Program
             options.Providers.Add<GzipCompressionProvider>();
         });
 
-        services.AddControllers().AddJsonOptions(jsonOptions => { jsonOptions.JsonSerializerOptions.ModifyForReactWithDotNet(); });
-        
         // C O N F I G U R E     A P P L I C A T I O N
         var app = builder.Build();
 
@@ -36,13 +34,9 @@ public class Program
             app.UseDeveloperExceptionPage();
         }
 
-        app.UseHttpsRedirection();
-
-        app.UseRouting();
-
         app.UseStaticFiles(new StaticFileOptions
         {
-            RequestPath         = new PathString("/wwwroot"),
+            RequestPath         = new ("/wwwroot"),
             ContentTypeProvider = new Utf8CharsetContentTypeProvider(),
             OnPrepareResponse   = ctx => { ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={TimeSpan.FromMinutes(5).TotalSeconds}"); }
         });
