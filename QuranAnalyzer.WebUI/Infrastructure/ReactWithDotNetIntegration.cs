@@ -1,4 +1,4 @@
-using System.Diagnostics;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
@@ -9,21 +9,64 @@ using ReactWithDotNet.UIDesigner;
 
 namespace QuranAnalyzer.WebUI;
 
+sealed record PageRouteInfo(string Url, Type page);
+
+static class Page
+{
+    public static readonly PageRouteInfo Home = new("/", typeof(PageMainWindowView));
+    public static readonly PageRouteInfo PageChapterNameContainsSAD = new("/" + nameof(PageChapterNameContainsSAD), typeof(PageChapterNameContainsSAD));
+    public static readonly PageRouteInfo PageCountInRange = new("/" + nameof(PageCountInRange), typeof(PageCountInRange));
+    public static readonly PageRouteInfo PageVerseFilter = new("/" + nameof(PageVerseFilter), typeof(PageVerseFilter));
+}
+
 static class ReactWithDotNetIntegration
 {
     public static void ConfigureReactWithDotNet(this WebApplication app)
     {
-        app.MapGet("/", HomePage);
+        var map = typeof(Page)
+            .GetFields(BindingFlags.Static | BindingFlags.Public)
+            .Where(f => f.FieldType == typeof(PageRouteInfo))
+            .Select(f => (PageRouteInfo)f.GetValue(null))
+            .Where(x => x is not null)
+            .ToDictionary(x => x.Url, x => x, StringComparer.OrdinalIgnoreCase);
 
-        app.MapGet("/" + nameof(PageCountInRange), httpContext => WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageCountInRange)));
-        app.MapGet("/" + nameof(PageVerseFilter), httpContext => WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageVerseFilter)));
-        app.MapGet("/" + nameof(PageChapterNameContainsSAD), httpContext => WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageChapterNameContainsSAD)));
+        app.Use(async (httpContext, next) =>
+        {
+            var path = httpContext.Request.Path.Value ?? string.Empty;
 
-        RegisterSpecificEndpoints(app);
+            if (path == $"/{nameof(HandleReactWithDotNetRequest)}")
+            {
+                await HandleReactWithDotNetRequest(httpContext);
+                return;
+            }
+
+            if (map.TryGetValue(path, out var routeInfo))
+            {
+                await WriteHtmlResponse(httpContext, typeof(MainLayout), routeInfo.page);
+                return;
+            }
+
+#if DEBUG
+            if (path == $"/{nameof(ReactWithDotNetDesigner)}")
+            {
+                await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesigner));
+                return;
+            }
+
+            if (path == $"/{nameof(ReactWithDotNetDesignerComponentPreview)}")
+            {
+                await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesignerComponentPreview));
+                return;
+            }
+#endif
+
+            await next();
+        });
     }
 
-    static void BeforeSerializeElementToClient(ReactContext context, Element element, Element parent)
+    static Task BeforeSerializeElementToClient(ReactContext context, Element element, Element parent)
     {
+        return Task.CompletedTask;
     }
 
     static Task HandleReactWithDotNetRequest(HttpContext httpContext)
@@ -38,38 +81,10 @@ static class ReactWithDotNetIntegration
         });
     }
 
-    static Task HomePage(HttpContext httpContext)
-    {
-        return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(PageMainWindowView));
-    }
-
     static Task OnReactContextCreated(HttpContext httpContext, ReactContext reactContext)
     {
         KeyForQueryString[reactContext] = httpContext.Request.QueryString.ToString();
         return Task.CompletedTask;
-    }
-
-    [Conditional("DEBUG")]
-    static void RegisterReactWithDotNetDevelopmentTools(WebApplication app)
-    {
-        app.MapGet("/$", httpContext =>
-        {
-            DesignMode = true;
-
-            return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesigner));
-        });
-        app.MapGet("/" + nameof(ReactWithDotNetDesignerComponentPreview), httpContext =>
-        {
-            DesignMode= true;
-
-            return WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesignerComponentPreview));
-        });
-    }
-
-    static void RegisterSpecificEndpoints(WebApplication app)
-    {
-        RegisterReactWithDotNetDevelopmentTools(app);
-        app.MapPost($"/{nameof(HandleReactWithDotNetRequest)}", HandleReactWithDotNetRequest);
     }
 
     static Task WriteHtmlResponse(HttpContext httpContext, Type layoutType, Type mainContentType)
