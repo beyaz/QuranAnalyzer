@@ -1119,16 +1119,6 @@
                 <paramref name="easingFunction" />} {<paramref name="delayAsMilliseconds" />}ms
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnDesktop(ReactWithDotNet.Style)">
-            <summary>
-                min-width: 1024px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnDesktop(ReactWithDotNet.StyleModifier[])">
-            <summary>
-                min-width: 1024px
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.Mixin.MediaQueryOnMobile(ReactWithDotNet.Style)">
             <summary>
                 max-width: 767px
@@ -1137,16 +1127,6 @@
         <member name="M:ReactWithDotNet.Mixin.MediaQueryOnMobile(ReactWithDotNet.StyleModifier[])">
             <summary>
                 max-width: 767px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnMobileOrTablet(ReactWithDotNet.Style)">
-            <summary>
-                max-width: 1023px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnMobileOrTablet(ReactWithDotNet.StyleModifier[])">
-            <summary>
-                max-width: 1023px
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.MediaQueryOnTablet(ReactWithDotNet.Style)">
@@ -1159,16 +1139,6 @@
                 min-width: 768px and max-width: 1023px
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnTabletOrDesktop(ReactWithDotNet.Style)">
-            <summary>
-                min-width: 768px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnTabletOrDesktop(ReactWithDotNet.StyleModifier[])">
-            <summary>
-                min-width: 768px
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsMobile(ReactWithDotNet.Style)">
             <summary>
                 max-width: 767px
@@ -1177,16 +1147,6 @@
         <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsMobile(ReactWithDotNet.StyleModifier[])">
             <summary>
                 max-width: 767px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsGreaterThanMobile(ReactWithDotNet.Style)">
-            <summary>
-                min-width: 768px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsGreaterThanMobile(ReactWithDotNet.StyleModifier[])">
-            <summary>
-                min-width: 768px
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsGreaterThan(System.Int32,ReactWithDotNet.StyleModifier[])">
