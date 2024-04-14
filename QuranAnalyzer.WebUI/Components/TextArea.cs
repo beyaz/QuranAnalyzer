@@ -4,7 +4,7 @@ public class TextArea : ReactComponent
 {
     Expression<Func<InputValueBinder>> ValueBind;
 
-    public static IModifier Bind(Expression<Func<InputValueBinder>> expression)
+    public static Modifier Bind(Expression<Func<InputValueBinder>> expression)
     {
         return CreateComponentModifier<TextArea>(x => x.ValueBind = expression);
     }
@@ -30,7 +30,7 @@ public class TextInput : ReactComponent
 {
     Expression<Func<InputValueBinder>> ValueBind;
 
-    public static IModifier Bind(Expression<Func<InputValueBinder>> expression)
+    public static Modifier Bind(Expression<Func<InputValueBinder>> expression)
     {
         return CreateComponentModifier<TextInput>(x => x.ValueBind = expression);
     }
