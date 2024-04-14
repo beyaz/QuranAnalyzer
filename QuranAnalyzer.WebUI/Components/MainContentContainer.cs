@@ -13,8 +13,8 @@ class MainContentContainer : ReactPureComponent
             WidthFull,
             Height("100%"),
 
-            WhenMediaSizeLessThan(MD,MarginLeftRight("5%")),
-            MediaQueryOnTablet(MarginLeftRight("10%")),
+            MarginLeftRight("5%"),
+            MD(MarginLeftRight("10%")),
             LG(MarginLeftRight("15%"))
         };
     }

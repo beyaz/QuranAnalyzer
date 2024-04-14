@@ -1119,50 +1119,22 @@
                 <paramref name="easingFunction" />} {<paramref name="delayAsMilliseconds" />}ms
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnTablet(ReactWithDotNet.Style)">
-            <summary>
-                min-width: 768px and max-width: 1023px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnTablet(ReactWithDotNet.StyleModifier[])">
-            <summary>
-                min-width: 768px and max-width: 1023px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsMobile(ReactWithDotNet.Style)">
-            <summary>
-                max-width: 767px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsMobile(ReactWithDotNet.StyleModifier[])">
-            <summary>
-                max-width: 767px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsGreaterThan(System.Int32,ReactWithDotNet.StyleModifier[])">
+        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeGreaterThan(System.Int32,ReactWithDotNet.StyleModifier[])">
             <summary>
                 min-width: <paramref name="widthAsPixel"/> + 'px'
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsGreaterThan(System.Func{ReactWithDotNet.StyleModifier[],ReactWithDotNet.StyleModifier},ReactWithDotNet.StyleModifier[])">
+        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeGreaterThan(System.Func{ReactWithDotNet.StyleModifier[],ReactWithDotNet.StyleModifier},ReactWithDotNet.StyleModifier[])">
             <summary>
                 Sample Usage:
                 <code>
-                 WhenMediaSizeIsGreaterThan(SM, BorderRadius(8))
+                 WhenMediaSizeGreaterThan(SM, BorderRadius(8))
                 </code>
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsLessThan(System.Int32,ReactWithDotNet.StyleModifier[])">
+        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeLessThan(System.Int32,ReactWithDotNet.StyleModifier[])">
             <summary>
                 max-width: <paramref name="widthAsPixel"/> + 'px'
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeIsLessThan(System.Func{ReactWithDotNet.StyleModifier[],ReactWithDotNet.StyleModifier},ReactWithDotNet.StyleModifier[])">
-            <summary>
-                Sample Usage:
-                <code>
-                 WhenMediaSizeIsLessThan(SM, BorderRadius(8))
-                </code>
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeLessThan(System.Func{ReactWithDotNet.StyleModifier[],ReactWithDotNet.StyleModifier},ReactWithDotNet.StyleModifier[])">
