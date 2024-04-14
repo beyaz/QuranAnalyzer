@@ -1119,16 +1119,6 @@
                 <paramref name="easingFunction" />} {<paramref name="delayAsMilliseconds" />}ms
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnMobile(ReactWithDotNet.Style)">
-            <summary>
-                max-width: 767px
-            </summary>
-        </member>
-        <member name="M:ReactWithDotNet.Mixin.MediaQueryOnMobile(ReactWithDotNet.StyleModifier[])">
-            <summary>
-                max-width: 767px
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.Mixin.MediaQueryOnTablet(ReactWithDotNet.Style)">
             <summary>
                 min-width: 768px and max-width: 1023px
@@ -1172,6 +1162,14 @@
                 Sample Usage:
                 <code>
                  WhenMediaSizeIsLessThan(SM, BorderRadius(8))
+                </code>
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.WhenMediaSizeLessThan(System.Func{ReactWithDotNet.StyleModifier[],ReactWithDotNet.StyleModifier},ReactWithDotNet.StyleModifier[])">
+            <summary>
+                Sample Usage:
+                <code>
+                 WhenMediaSizeLessThan(SM, BorderRadius(8))
                 </code>
             </summary>
         </member>

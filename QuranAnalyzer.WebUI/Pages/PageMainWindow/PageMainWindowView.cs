@@ -30,7 +30,7 @@ class PageMainWindowView : ReactPureComponent
                         {
                             MinWidth(230),
                             MarginTop(101),
-                            MediaQueryOnMobile(new Style { DisplayNone })
+                            WhenMediaSizeLessThan(MD,new Style { DisplayNone })
                         }
                     },
 
