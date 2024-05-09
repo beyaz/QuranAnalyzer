@@ -204,6 +204,79 @@ public static class QuranQuery
         return true;
     }
 
+    // todo check performans and write test code
+    public static bool Same2(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
+    {
+        if (wordA == null || wordB == null)
+        {
+            return false;
+        }
+
+        var a = 0;
+        var b = 0;
+        
+        var lengthA = wordA.Count;
+        var lengthB = wordB.Count;
+
+        while (a < lengthA)
+        {
+            // come to next valid value
+            while (a < lengthA && !IsValidForWordSearch(wordA[a]))
+            {
+                a++;
+            }
+            
+            // come to next valid value
+            while (b < lengthB && !IsValidForWordSearch(wordB[b]))
+            {
+                b++;
+            }
+
+            if (a == lengthA)
+            {
+                if (b == lengthB)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            
+            if (b == lengthB)
+            {
+                return false;
+            }
+            
+            if (!wordA[a].HasValueAndSameAs(wordB[b]))
+            {
+                return false;
+            }
+            
+            a++;
+            b++;
+        }
+       
+        // come to next valid value
+        while (a < lengthA && !IsValidForWordSearch(wordA[a]))
+        {
+            a++;
+        }
+            
+        // come to next valid value
+        while (b < lengthB && !IsValidForWordSearch(wordB[b]))
+        {
+            b++;
+        }
+
+        if (a != lengthA || b != lengthB)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    
     public static IReadOnlyList<(LetterInfo start, LetterInfo end)> StartsWith(this IReadOnlyList<LetterInfo> source, IReadOnlyList<LetterInfo> search)
     {
         if (source is null)
