@@ -176,26 +176,26 @@ public static class QuranQuery
         return returnList;
     }
 
-    public static bool Same(this IReadOnlyList<LetterInfo> a, IReadOnlyList<LetterInfo> b)
+    public static bool Same(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
-        if (a == null || b == null)
+        if (wordA == null || wordB == null)
         {
             return false;
         }
 
-        a = a.Where(IsValidForWordSearch).ToList();
-        b = b.Where(IsValidForWordSearch).ToList();
+        wordA = wordA.Where(IsValidForWordSearch).ToList();
+        wordB = wordB.Where(IsValidForWordSearch).ToList();
 
-        if (a.Count != b.Count)
+        if (wordA.Count != wordB.Count)
         {
             return false;
         }
 
-        var length = a.Count;
+        var length = wordA.Count;
 
         for (var i = 0; i < length; i++)
         {
-            if (!a[i].HasValueAndSameAs(b[i]))
+            if (!wordA[i].HasValueAndSameAs(wordB[i]))
             {
                 return false;
             }
