@@ -102,7 +102,7 @@ class LeftMenu : ReactPureComponent
                 // C i r c l e
                 new div
                 {
-                    wh(8),
+                    Size(8),
                     Background(isSelected ? "rgb(30 167 253)" : "rgb(221 221 221)"),
                     BorderRadius("1em"),
                     Zindex(1)

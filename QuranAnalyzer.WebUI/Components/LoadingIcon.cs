@@ -36,7 +36,7 @@ public class LoadingIcon : ReactPureComponent
 "
             },
 
-            new div { className = "loader", style = { WidthHeight("100%") } }
+            new div { className = "loader", style = { Size("100%") } }
         };
     }
 }

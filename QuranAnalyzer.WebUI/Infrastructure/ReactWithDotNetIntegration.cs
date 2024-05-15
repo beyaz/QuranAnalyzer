@@ -41,11 +41,6 @@ static class ReactWithDotNetIntegration
                 return;
             }
 
-            if (path == $"/{nameof(ReactWithDotNetDesignerComponentPreview)}")
-            {
-                await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesignerComponentPreview));
-                return;
-            }
 #endif
 
             await next();

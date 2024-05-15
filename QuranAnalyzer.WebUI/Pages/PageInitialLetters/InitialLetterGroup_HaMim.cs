@@ -37,7 +37,7 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                             rowSpan = 99,
                             children =
                             {
-                                new FlexRow(JustifyContentCenter, mt(-50))
+                                new FlexRow(JustifyContentCenter, MarginTop(-50))
                                 {
                                     countingResult
                                 }

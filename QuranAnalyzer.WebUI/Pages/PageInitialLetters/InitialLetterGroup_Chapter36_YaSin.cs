@@ -37,7 +37,7 @@ class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
                             rowSpan = 99,
                             children =
                             {
-                                new FlexRow(JustifyContentCenter, mt(70))
+                                new FlexRow(JustifyContentCenter, MarginTop(70))
                                 {
                                     countingResult
                                 }

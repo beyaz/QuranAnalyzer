@@ -233,7 +233,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         return new FlexRowCentered
         {
             PositionAbsolute, FontWeight700, LeftRight(0), TopBottom(0), Zindex(4),
-            new LoadingIcon { wh(17), mr(5) }, new span(Color("white")) { "Lütfen bekleyiniz..." }
+            new LoadingIcon { Size(17), MarginRight(5) }, new span(Color("white")) { "Lütfen bekleyiniz..." }
         };
     }
 

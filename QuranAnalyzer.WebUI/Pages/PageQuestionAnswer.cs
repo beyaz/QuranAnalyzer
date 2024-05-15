@@ -79,9 +79,9 @@ Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söyledi�
 
             return new FlexRow(AlignItemsCenter, Gap(10))
             {
-                new FlexRowCentered(wh(24))
+                new FlexRowCentered(Size(24))
                 {
-                    new svg(svg.ViewBox(0, 0, 24, 24), wh(24))
+                    new svg(svg.ViewBox(0, 0, 24, 24), Size(24))
                     {
                         new path
                         {

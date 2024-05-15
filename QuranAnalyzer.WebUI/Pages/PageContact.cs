@@ -74,7 +74,7 @@ public class PageContact : ReactPureComponent
         {
             return new a(DisplayFlexRowCentered, Aria("label", text))
             {
-                new img(WidthHeight(26), PaddingRight(5))
+                new img(Size(26), PaddingRight(5))
                 {
                     Src(imageSrc),
                     Title(text)

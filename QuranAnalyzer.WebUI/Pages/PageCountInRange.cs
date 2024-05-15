@@ -158,7 +158,7 @@ public class PageCountInRange : ReactComponent
             {
                 IsProcessing ? "Hesaplanıyor..." : "Hesapla",
                 OnClick(Clicked),
-                IsProcessing? new LoadingIcon { Color = Blue100 } + WidthHeight(10) + MarginLeft(5) : null,
+                IsProcessing? new LoadingIcon { Color = Blue100 } + Size(10) + MarginLeft(5) : null,
                 OnClickPreview(() => IsProcessing = true),
 
                 Height(40),

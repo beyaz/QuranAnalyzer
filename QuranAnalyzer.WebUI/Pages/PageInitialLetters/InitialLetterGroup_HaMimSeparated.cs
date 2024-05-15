@@ -60,7 +60,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                             rowSpan = 5,
                             children =
                             {
-                                new FlexRow(JustifyContentCenter, mt(-50))
+                                new FlexRow(JustifyContentCenter, MarginTop(-50))
                                 {
                                     new CountingResult
                                     {
@@ -235,7 +235,7 @@ class InitialLetterGroup_HaMimSeparated : InitialLetterGroup
                             rowSpan = 6,
                             children =
                             {
-                                new FlexRow(JustifyContentCenter, mt(-50))
+                                new FlexRow(JustifyContentCenter, MarginTop(-50))
                                 {
                                     new CountingResult
                                     {
