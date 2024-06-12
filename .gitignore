@@ -348,7 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-/QuranAnalyzer.WebUI/wwwroot/dist
 /QuranAnalyzer.WebUI/wwwroot/package-lock.json
 /QuranAnalyzer.WebUI/wwwroot/dist.debug
 /QuranAnalyzer.WebUI/wwwroot/dist.relase
