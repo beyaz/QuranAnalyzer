@@ -10,12 +10,24 @@ class MainLayout : ReactPureComponent, IPageLayout
     public string ContainerDomElementId => "app";
 
     static string LastWriteTimeOfIndexJsFile;
+    
+    static string CompilerMode
+    {
+        get
+        {
+#if DEBUG
+            return "debug";
+#else
+                return "release";
+#endif
+        }
+    }
 
     protected override Element render()
     {
         const string root = "wwwroot";
         
-        LastWriteTimeOfIndexJsFile ??= new FileInfo($"/{root}/dist/index.js").LastWriteTime.Ticks.ToString();
+        LastWriteTimeOfIndexJsFile ??= new FileInfo($"/{root}/dist.{CompilerMode}/index.js").LastWriteTime.Ticks.ToString();
 
         static string fav(string fileName)
         {
@@ -90,7 +102,7 @@ class MainLayout : ReactPureComponent, IPageLayout
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine($"import {{ReactWithDotNet}} from './{root}/dist/index.js?v={LastWriteTimeOfIndexJsFile}';");
+            sb.AppendLine($"import {{ReactWithDotNet}} from './{root}/dist.{CompilerMode}/index.js?v={LastWriteTimeOfIndexJsFile}';");
             sb.AppendLine("ReactWithDotNet.StrictMode = false;");
             
             
