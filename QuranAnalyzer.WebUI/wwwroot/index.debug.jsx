@@ -1,5 +1,5 @@
 
-import { ReactWithDotNet } from "./index";
+import { ReactWithDotNet } from "./index.release";
 
 // ReactWithDotnet Designer specific components.
 // required for => /ReactWithDotNetDesigner
