@@ -6,7 +6,7 @@ public class ActionButton : ReactComponent
 
     public string Label { get; set; }
 
-    [ReactCustomEvent]
+    [CustomEvent]
     public Func<Task> OnClick { get; set; }
 
     protected override Element render()

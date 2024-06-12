@@ -117,7 +117,7 @@ class ArabicKeyboardLetterView : ReactComponent
     }
 
     [CacheThisMethod]
-    [ReactStopPropagation]
+    [StopPropagation]
     Task OnArabicKeyboardLetterClicked(MouseEvent e)
     {
         Client.ArabicKeyboardPressed(ArabicLetter);

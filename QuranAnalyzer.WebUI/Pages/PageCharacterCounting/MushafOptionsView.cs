@@ -6,7 +6,7 @@ class MushafOptionsView : ReactComponent
 {
     public MushafOption Model { get; set; } = new();
 
-    [ReactCustomEvent]
+    [CustomEvent]
     public Func<MushafOption,Task> MushafOptionChanged { get; set; }
 
     protected override Element render()
