@@ -36,6 +36,8 @@
 		<Exec WorkingDirectory="$(AppRoot)" Command="npm install" />
 	</Target>
 	<Target Name="_NpmRun_" BeforeTargets="rebuild">
+		<RemoveDir Directories="$(AppRoot)dist.debug/" />
+		<RemoveDir Directories="$(AppRoot)dist.release/" />
 		<Exec Command="node --version" ContinueOnError="true">
 			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
 		</Exec>
@@ -46,7 +48,8 @@
 	</Target>
 	
 	<Target Name="_BeforePublish_" AfterTargets="ComputeFilesToPublish">
-		<RemoveDir Directories="$(AppRoot)dist/" />
+		<RemoveDir Directories="$(AppRoot)dist.debug/" />
+		<RemoveDir Directories="$(AppRoot)dist.release/" />
 		<Exec WorkingDirectory="$(AppRoot)" Command="npm install" />
 		<Exec WorkingDirectory="$(AppRoot)" Command="npm run build" />
 	</Target>
