@@ -1,0 +1,1 @@
+import{a as i}from"./chunk-AXAD3XUN.js";import{c as t,x as e,y as s}from"./chunk-KH7ZNKZE.js";function p(n){return e("MuiInput",n)}var r=t({},i,s("MuiInput",["root","underline","input"])),m=r;export{p as a,m as b};

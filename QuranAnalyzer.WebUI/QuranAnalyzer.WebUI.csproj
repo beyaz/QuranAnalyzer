@@ -50,7 +50,7 @@
 	<Target Name="_BeforePublish_" AfterTargets="ComputeFilesToPublish">
 		<RemoveDir Directories="$(AppRoot)dist.debug/" />
 		<RemoveDir Directories="$(AppRoot)dist.release/" />
-		<Exec WorkingDirectory="$(AppRoot)" Command="npm install" />
+		<Exec WorkingDirectory="$(AppRoot)" Command="npm run dev" />
 		<Exec WorkingDirectory="$(AppRoot)" Command="npm run build" />
 	</Target>
 

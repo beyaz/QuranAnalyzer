@@ -1,0 +1,1 @@
+var s=t=>t.scrollTop;function l(t,e){var r,a;let{timeout:n,easing:i,style:o={}}=t;return{duration:(r=o.transitionDuration)!=null?r:typeof n=="number"?n:n[e.mode]||0,easing:(a=o.transitionTimingFunction)!=null?a:typeof i=="object"?i[e.mode]:i,delay:o.transitionDelay}}export{s as a,l as b};

@@ -3,9 +3,8 @@
     "version": "1.0.0",
     "scripts": {
 
-        "dev":   "esbuild index.debug.jsx   --bundle  --format=esm --outfile=dist.debug/index.js",
-        "build": "esbuild index.release.jsx --bundle  --format=esm --outdir=dist.relase --splitting  --analyze --minify --target=es2016"
-        
+        "dev":   "esbuild index.jsx --bundle --splitting --format=esm --outdir=dist.debug",
+        "build": "esbuild index.jsx --bundle --splitting --format=esm --outdir=dist.release --analyze --minify --target=es2016"
     },
     "dependencies": {
 
