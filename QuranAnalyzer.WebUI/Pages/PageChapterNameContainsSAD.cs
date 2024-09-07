@@ -239,7 +239,7 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
             NumberOfSearchLetters = CalculateCount(chapterNumber+":*",searchLetters)
         }).ToList();
         
-        return new table(sharedStyle, BackgroundWhite)
+        return new table(sharedStyle, Background(White))
         {
             new tbody
             {

@@ -29,7 +29,7 @@ public class PageCountInRange : ReactComponent
         {
             new FlexColumnCentered(MarginLeftRight("10%") + SizeFull, Gap(50), PaddingTopBottom(50))
             {
-                new FlexColumn(BackgroundWhite, BorderRadius(5), BoxShadow(1, 1, 3, 1, "#333"), Height(840), Padding(50), Width(60 * vw))
+                new FlexColumn(Background(White), BorderRadius(5), BoxShadow(1, 1, 3, 1, "#333"), Height(840), Padding(50), Width(60 * vw))
                 {
                     new FlexRow(FlexWrap, Gap(7), AlignItemsFlexEnd)
                     {
