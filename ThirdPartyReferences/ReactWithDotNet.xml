@@ -267,16 +267,6 @@
                 style.clear = 'right'
             </summary>
         </member>
-        <member name="P:ReactWithDotNet.Mixin.ColorWhite">
-            <summary>
-                style.color = 'white'
-            </summary>
-        </member>
-        <member name="P:ReactWithDotNet.Mixin.ColorInherit">
-            <summary>
-                style.color = 'inherit'
-            </summary>
-        </member>
         <member name="P:ReactWithDotNet.Mixin.DirectionLtr">
             <summary>
                 style.direction = "ltr"
@@ -721,13 +711,6 @@
                 style.bottom = <paramref name="pixelValue" /> + 'px'
             </summary>
         </member>
-        <member name="M:ReactWithDotNet.Mixin.VSpace(System.Double)">
-            <summary>
-                Creates a new div with given height
-                <br />
-                new div{ style = {height = <paramref name="valueInPx" />}}
-            </summary>
-        </member>
         <member name="M:ReactWithDotNet.Mixin.When(System.Boolean,ReactWithDotNet.StyleModifier[])">
             <summary>
                 Apply given modifiers when condition is true
@@ -987,6 +970,12 @@
             </summary>
         </member>
         <member name="M:ReactWithDotNet.Mixin.Transition(System.String,System.Double,System.String)">
+            <summary>
+                style.transition = {<paramref name="propertyName" />} {<paramref name="durationAsMilliseconds" />}ms {
+                <paramref name="easingFunction" />}
+            </summary>
+        </member>
+        <member name="M:ReactWithDotNet.Mixin.Transition(System.Func{System.String,ReactWithDotNet.StyleModifier},System.Double,System.String)">
             <summary>
                 style.transition = {<paramref name="propertyName" />} {<paramref name="durationAsMilliseconds" />}ms {
                 <paramref name="easingFunction" />}

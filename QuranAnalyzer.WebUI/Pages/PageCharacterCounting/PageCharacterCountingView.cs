@@ -189,7 +189,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                                     {
                                         new h4("Sonuçlar") + TextAlignCenter,
                                         new CountsSummaryView { Counts = summaryInfoList },
-                                        VSpace(30),
+                                        SpaceY(30),
                                         new div
                                         {
                                             dangerouslySetInnerHTML = new div

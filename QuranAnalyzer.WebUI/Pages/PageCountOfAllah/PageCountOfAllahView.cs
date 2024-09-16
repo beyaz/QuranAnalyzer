@@ -29,7 +29,7 @@ class PageCountOfAllahView : ReactPureComponent
                 SearchScript = "2:60 --> 2:62",
                 ShowDetails  = true
             }),
-            VSpace(10),
+            SpaceY(10),
             "Böylece programın neyi hesapladığını kısa bir veri üzerinde görmüş olduk. İsterseniz değerleri değiştirip daha detaylı öğrenebilirsiniz.",
 
             new p
@@ -47,7 +47,7 @@ class PageCountOfAllahView : ReactPureComponent
             separation,
 
             "Şimdi ise üzerinde tartışmanın döndüğü konu olan 9. surenin 128 ve 129 nolu cümleleri çıkarıp sayalım.",
-            VSpace(10),
+            SpaceY(10),
 
             raisePanel(new Calculator
             {
