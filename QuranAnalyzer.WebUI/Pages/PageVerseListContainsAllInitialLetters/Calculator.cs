@@ -144,7 +144,7 @@ class Calculator : ReactComponent<CalculatorModel>
             {
                 if (items.Count > 0)
                 {
-                    items.Add(new div("+") { MarginLeftRight(3) });
+                    items.Add(new div(MarginLeftRight(3)) { "+" });
                 }
 
                 if (currentChapter == verse.ChapterNumber)
@@ -156,8 +156,8 @@ class Calculator : ReactComponent<CalculatorModel>
 
                 currentChapter = verse.ChapterNumber;
 
-                items.Add(new span(currentChapter.ToString()) { Color("red") });
-                items.Add(new div("+") { MarginLeftRight(3) });
+                items.Add(new span {currentChapter.ToString(), Color("red") });
+                items.Add(new div {"+", MarginLeftRight(3) });
                 items.Add(verse.Index);
 
                 total += verse.ChapterNumber;
@@ -165,7 +165,7 @@ class Calculator : ReactComponent<CalculatorModel>
             }
 
             items.Insert(0, total.ToString());
-            items.Insert(1, new div("=") { MarginLeftRight(3) });
+            items.Insert(1, new div(MarginLeftRight(3)) { "=" });
 
             return new FlexRow(FlexWrap)
             {

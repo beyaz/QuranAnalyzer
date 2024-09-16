@@ -16,7 +16,7 @@ public class ActionButton : ReactComponent
             children =
             {
                 IsProcessing ? new LoadingIcon { Size(17) } : null,
-                ! IsProcessing ? new div(Label) : null
+                ! IsProcessing ? new div{Label} : null
             },
             onClick = ActionButtonOnClick,
             style =

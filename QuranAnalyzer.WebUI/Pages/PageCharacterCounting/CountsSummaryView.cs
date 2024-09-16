@@ -104,7 +104,7 @@ class CountsSummaryView : ReactPureComponent
     {
         var parsedVersion = new List<Element>
         {
-            new div(specialNumber.ToString()),
+            new div{specialNumber.ToString()},
             (small)"x"
         };
 

@@ -184,7 +184,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                                 {
                                     Element[] results =
                                     {
-                                        new h4("Sonuçlar") + TextAlignCenter,
+                                        new h4{ "Sonuçlar" } + TextAlignCenter,
 
                                         new CountsSummaryView { Counts = summaryInfoList },
                                         SpaceY(30),

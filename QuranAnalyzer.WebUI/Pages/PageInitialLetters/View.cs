@@ -27,7 +27,7 @@ class InitialLetter : ReactPureComponent
         return new FlexColumn(Id(Id), TextAlignCenter, Border($"{(IsSelected ? 2 : 1)}px solid {color}"), BorderRadius("0.5rem"), Padding("5px"))
         {
             new div(Text(Letter.ToString())),
-            new div(pronunciation) { FontSize("70%"), FontWeight600 },
+            new div {pronunciation, FontSize("70%"), FontWeight600 },
 
             Count.count.HasValue ? new a(Text(Count.count.ToString()), Href(Count.url), Color(Count.color), FontSize("70%"), FontWeight600, TextDecorationUnderline) : null
         };
@@ -54,7 +54,7 @@ class CountingResult : ReactPureComponent
             {
                 new FlexRow(AlignItemsFlexEnd)
                 {
-                    new div("19") { FontWeight500 }, (small)" x ", new small(MultipleOf.ToString()) { When(MultipleOfColor.HasValue(), Color(MultipleOfColor)) }
+                    new div {"19", FontWeight500 }, (small)" x ", new small {MultipleOf.ToString(), When(MultipleOfColor.HasValue(), Color(MultipleOfColor)) }
                 },
                 new a
                 {
