@@ -61,7 +61,7 @@
 		<Delete Files="$(PublishDir)/QuranAnalyzer.pdb" />
 		<Delete Files="$(PublishDir)/QuranAnalyzer.xml" />
 
-		<Delete Files="$(PublishDir)/wwwroot/app.css" />
+		
 		<Delete Files="$(PublishDir)/wwwroot/index.jsx" />
 		<Delete Files="$(PublishDir)/wwwroot/package.json" />
 		<Delete Files="$(PublishDir)/wwwroot/package-lock.json" />
