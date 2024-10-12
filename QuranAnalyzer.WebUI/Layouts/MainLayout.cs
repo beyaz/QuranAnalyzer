@@ -23,15 +23,15 @@ class MainLayout : ReactPureComponent, IPageLayout
         }
     }
 
+    string IndexJsFilePath => $"/{Context.wwwroot}/dist/{CompilerMode}/index.js";
+    
     protected override Element render()
     {
-        const string root = "wwwroot";
-        
-        LastWriteTimeOfIndexJsFile ??= new FileInfo($"/{root}/dist.{CompilerMode}/index.js").LastWriteTime.Ticks.ToString();
+        LastWriteTimeOfIndexJsFile ??= new FileInfo(IndexJsFilePath).LastWriteTime.Ticks.ToString();
 
-        static string fav(string fileName)
+        string fav(string fileName)
         {
-            return $"{root}/img/favicon_io/{fileName}";
+            return $"{Context.wwwroot}/img/favicon_io/{fileName}";
         }
 
         return new html
@@ -102,7 +102,7 @@ class MainLayout : ReactPureComponent, IPageLayout
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine($"import {{ReactWithDotNet}} from './{root}/dist.{CompilerMode}/index.js?v={LastWriteTimeOfIndexJsFile}';");
+            sb.AppendLine($"import {{ReactWithDotNet}} from '{IndexJsFilePath}?v={LastWriteTimeOfIndexJsFile}';");
             sb.AppendLine("ReactWithDotNet.StrictMode = false;");
             
             

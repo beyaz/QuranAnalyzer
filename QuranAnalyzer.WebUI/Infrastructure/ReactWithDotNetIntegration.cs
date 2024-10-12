@@ -35,7 +35,7 @@ static class ReactWithDotNetIntegration
             }
 
 #if DEBUG
-            if (path == $"/{nameof(ReactWithDotNetDesigner)}")
+            if (path == ReactWithDotNetDesigner.UrlPath)
             {
                 await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesigner));
                 return;
