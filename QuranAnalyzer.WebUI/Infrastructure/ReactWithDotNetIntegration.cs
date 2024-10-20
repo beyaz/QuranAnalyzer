@@ -64,9 +64,9 @@ static class ReactWithDotNetIntegration
         });
     }
 
-    static Task OnReactContextCreated(HttpContext httpContext, ReactContext reactContext)
+    static Task OnReactContextCreated(ReactContext reactContext)
     {
-        KeyForQueryString[reactContext] = httpContext.Request.QueryString.ToString();
+        KeyForQueryString[reactContext] = reactContext.HttpContext.Request.QueryString.ToString();
         return Task.CompletedTask;
     }
 

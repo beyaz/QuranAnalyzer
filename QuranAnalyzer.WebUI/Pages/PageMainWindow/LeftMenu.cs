@@ -63,7 +63,7 @@ class LeftMenu : ReactPureComponent
         return new Fragment
         {
             // wide screen menu
-            new FlexColumn(Gap(40), WhenMediaWidthLessThan(MD,DisplayNone))
+            new FlexColumn(Gap(40), WhenMediaMaxWidth(MD,DisplayNone))
             {
                 MenuItems.Select((_, i) => createText(i, i == SelectedIndex))
             },

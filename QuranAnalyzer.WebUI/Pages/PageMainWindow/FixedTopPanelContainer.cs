@@ -39,7 +39,7 @@ class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
                 {
                     new SiteTitle() + MarginLeft(20),
 
-                    new div(DisplayNone, WhenMediaWidthLessThan(MD,new Style { DisplayBlock }), MarginRight(15))
+                    new div(DisplayNone, WhenMediaMaxWidth(MD,new Style { DisplayBlock }), MarginRight(15))
                     {
                         HamburgerMenuLink
                     }
