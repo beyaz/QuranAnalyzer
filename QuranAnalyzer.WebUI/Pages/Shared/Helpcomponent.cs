@@ -25,22 +25,9 @@ class CollapsiblePanel : ReactComponent
     {
         var key = Key("content");
 
-        return new CollapseContainer
+        return new Accordion
         {
-            ContentOnOpened = new Fragment(key)
-            {
-                new FlexRow(AlignItemsCenter, PaddingBottom(10))
-                {
-                    new span { Title, CursorDefault },
-                    new ArrowUpDownIcon { IsArrowUp = true }
-                },
-                new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
-                {
-                    AnimateHeightAndOpacity(true),
-                    children
-                }
-            },
-            ContentOnClosed = new Fragment(key)
+            new Fragment(key)
             {
                 new FlexRow(AlignItemsCenter, PaddingBottom(10))
                 {
@@ -50,6 +37,20 @@ class CollapsiblePanel : ReactComponent
                 new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
                 {
                     AnimateHeightAndOpacity(false),
+                    children
+                }
+            },
+            
+            new Fragment(key)
+            {
+                new FlexRow(AlignItemsCenter, PaddingBottom(10))
+                {
+                    new span { Title, CursorDefault },
+                    new ArrowUpDownIcon { IsArrowUp = true }
+                },
+                new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
+                {
+                    AnimateHeightAndOpacity(true),
                     children
                 }
             }
@@ -162,3 +163,54 @@ class HelpComponentDetail : ReactPureComponent
         }
     }
 }
+
+ sealed class Accordion : Component<Accordion.State>
+    {
+        public bool IsExpanded { get; init; }
+
+        protected override Task constructor()
+        {
+            state = new()
+            {
+                IsExpanded = IsExpanded
+            };
+
+            return Task.CompletedTask;
+        }
+
+        protected override Element render()
+        {
+            return new div
+            {
+                OnClick(ToggleCollapse),
+
+                new div(When(state.IsExpanded, DisplayNone))
+                {
+                    children[0]
+                },
+                new div(When(state.IsExpanded is false, DisplayNone))
+                {
+                    children[1]
+                }
+            };
+        }
+
+        Task ToggleCollapse(MouseEvent e)
+        {
+            if (e.target.tagName == "INPUT" )
+            {
+                return Task.CompletedTask;
+            }
+
+            
+            state = state with { IsExpanded = !state.IsExpanded };
+
+            return Task.CompletedTask;
+        }
+
+
+        internal record State
+        {
+            public bool IsExpanded { get; init; }
+        }
+    }

@@ -15,16 +15,16 @@ class CharacterCountingOptionView : ReactComponent
 
         return new FlexColumn(Gap(10))
         {
-            new CollapseContainer
+            new Accordion
             {
-                ContentOnOpened = arabicKeyBoard(true),
-                ContentOnClosed = arabicKeyBoard(false)
+                arabicKeyBoard(false),
+                arabicKeyBoard(true)
             },
             new HelpComponent { ShowHelpMessageForLetterSearch = true },
-            new CollapseContainer
+            new Accordion
             {
-                ContentOnOpened = mushafOption(true),
-                ContentOnClosed = mushafOption(false)
+                mushafOption(false),
+                mushafOption(true)
             }
         };
 
