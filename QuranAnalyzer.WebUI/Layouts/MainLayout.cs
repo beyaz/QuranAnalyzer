@@ -5,12 +5,12 @@ namespace QuranAnalyzer.WebUI.Layouts;
 
 class MainLayout : ReactPureComponent, IPageLayout
 {
-    public ComponentRenderInfo RenderInfo { get; set; }
-    
-    public string ContainerDomElementId => "app";
-
     static string LastWriteTimeOfIndexJsFile;
+
+    public string ContainerDomElementId => "app";
     
+    public ComponentRenderInfo RenderInfo { get; set; }
+
     static string CompilerMode
     {
         get
@@ -24,15 +24,10 @@ class MainLayout : ReactPureComponent, IPageLayout
     }
 
     string IndexJsFilePath => $"/{Context.wwwroot}/dist/{CompilerMode}/index.js";
-    
+
     protected override Element render()
     {
         LastWriteTimeOfIndexJsFile ??= new FileInfo(IndexJsFilePath).LastWriteTime.Ticks.ToString();
-
-        string fav(string fileName)
-        {
-            return $"{Context.wwwroot}/img/favicon_io/{fileName}";
-        }
 
         return new html
         {
@@ -43,25 +38,24 @@ class MainLayout : ReactPureComponent, IPageLayout
             {
                 new meta { charset = "UTF-8" },
                 new meta { name    = "viewport", content = "width=device-width, initial-scale=1" },
-                
+
                 new meta { name = "description", content = "19 Sistemi Nedir" },
-                
+
                 new title { "19 Sistemi Nedir" },
-                
+
                 // F A V I C O N
-                new link{rel = "icon",href = fav("favicon.ico")},
-                
-                new link{rel = "apple-touch-icon",sizes ="180x180", href = fav("apple-touch-icon.png")},
-                
-                new link{rel = "icon", type = "image/png", sizes ="32x32", href = fav("favicon-32x32.png")},
-                
-                new link{rel = "icon", type = "image/png", sizes ="16x16", href = fav("favicon-16x16.png")},
-                
-                new link{rel = "manifest", href = fav("site.webmanifest")},
-                
+                new link { rel = "icon", href = fav("favicon.ico") },
+
+                new link { rel = "apple-touch-icon", sizes = "180x180", href = fav("apple-touch-icon.png") },
+
+                new link { rel = "icon", type = "image/png", sizes = "32x32", href = fav("favicon-32x32.png") },
+
+                new link { rel = "icon", type = "image/png", sizes = "16x16", href = fav("favicon-16x16.png") },
+
+                new link { rel = "manifest", href = fav("site.webmanifest") },
+
                 new style
                 {
-                    
                     """
                     html, body 
                     {
@@ -72,14 +66,12 @@ class MainLayout : ReactPureComponent, IPageLayout
                         line-height: 26px;
                         color: rgb(51, 51, 51);
                     }
-                    
+
                     input:focus, textarea:focus, select:focus 
                     {
                         outline: none;
                     }
                     """
-                    
-                    
                 },
 
                 new link { rel = "stylesheet", href = "https://fonts.googleapis.com/css?family=Nunito+Sans:400,700,800,900&amp;display=swap", media = "all" }
@@ -91,29 +83,31 @@ class MainLayout : ReactPureComponent, IPageLayout
                 // After page first rendered in client then connect with react system in background.
                 // So user first iteraction time will be minimize.
 
-                new script(script.Type("module"))
+                new script
                 {
-                    calculateInitialScript()
+                    type = "module",
+
+                    text =
+                        $$"""
+                          import {ReactWithDotNet} from '{{IndexJsFilePath}}?v={{LastWriteTimeOfIndexJsFile}}';
+
+                          ReactWithDotNet.StrictMode = false;
+
+                          ReactWithDotNet.RequestHandlerPath = '{{RequestHandlerPath}}';
+
+                          ReactWithDotNet.RenderComponentIn({
+                            idOfContainerHtmlElement: '{{ContainerDomElementId}}',
+                            renderInfo: {{RenderInfo.ToJsonString()}}
+                          });
+                          """
                 }
             }
         };
-        
-        StringBuilder calculateInitialScript()
-        {
-            var sb = new StringBuilder();
 
-            sb.AppendLine($"import {{ReactWithDotNet}} from '{IndexJsFilePath}?v={LastWriteTimeOfIndexJsFile}';");
-            sb.AppendLine("ReactWithDotNet.StrictMode = false;");
-            
-            
-            
-            sb.AppendLine("ReactWithDotNet.RenderComponentIn({");
-            sb.AppendLine($"  idOfContainerHtmlElement: '{ContainerDomElementId}',");
-            sb.AppendLine("  renderInfo: ");
-            sb.Append(RenderInfo.ToJsonString());
-            sb.AppendLine("});");
-            
-            return sb;
+        string fav(string fileName)
+        {
+            return $"{Context.wwwroot}/img/favicon_io/{fileName}";
         }
+
     }
 }
