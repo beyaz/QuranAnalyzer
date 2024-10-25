@@ -58,15 +58,6 @@ class CollapsiblePanel : ReactComponent
     }
 }
 
-class CollapseContainer : ThirdPartyReactComponent
-{
-    [ReactProp]
-    public Element ContentOnClosed { get; set; }
-
-    [ReactProp]
-    public Element ContentOnOpened { get; set; }
-}
-
 class HelpComponentDetail : ReactPureComponent
 {
     public bool ShowHelpMessageForLetterSearch { get; set; }
