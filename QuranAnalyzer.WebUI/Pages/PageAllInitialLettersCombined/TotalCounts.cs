@@ -160,7 +160,7 @@ class TotalCounts : ReactComponent
         };
     }
 
-    FlexRowCentered EqualsTo(int delayForAnimation)
+    Element EqualsTo(int delayForAnimation)
     {
         return new FlexRowCentered
         {

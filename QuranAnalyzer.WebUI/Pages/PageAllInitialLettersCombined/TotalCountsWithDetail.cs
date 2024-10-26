@@ -266,7 +266,7 @@ class TotalCountsWithDetail : ReactComponent
         };
     }
 
-    FlexRowCentered EqualsTo(int delayForAnimation)
+    Element EqualsTo(int delayForAnimation)
     {
         return new FlexRowCentered
         {
@@ -340,8 +340,6 @@ class TotalCountsWithDetail : ReactComponent
     {
         public string end;
         public string start;
-
-        public string startAnchor = "left";
 
         protected override Element render()
         {

@@ -6,7 +6,7 @@ static class Extensions
     {
         var detail = new small { "(", (b)"19", "x", (total / 19).ToString(), ")" };
 
-        return new Element[] { total.ToString(), detail };
+        return [total.ToString(), detail];
     }
 
     public static string GetUrlOfLetterCountingSearchScript(string searchScriptOfLetterCounting)
