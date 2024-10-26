@@ -54,8 +54,8 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
     {
         IEnumerable<Element> searchPanel()
         {
-            return new[]
-            {
+            return
+            [
                 When(state.IsBlocked, Backdrop),
                 When(state.IsBlocked, ProcessingText),
 
@@ -82,7 +82,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                         new ActionButton { Label = "Ara", OnClick = OnCalculateClicked } + Height(22)
                     }
                 }
-            };
+            ];
         }
 
         if (state.ClickCount == 0)
@@ -183,7 +183,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         return calculate().Then((resultVerseList, summaryInfoList, _) =>
                                 {
                                     Element[] results =
-                                    {
+                                    [
                                         new h4{ "Sonuçlar" } + TextAlignCenter,
 
                                         new CountsSummaryView { Counts = summaryInfoList },
@@ -192,7 +192,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                                         {
                                             resultVerseList
                                         }
-                                    };
+                                    ];
 
                                     return Container(Panel(searchPanel()), Panel(results));
                                 },

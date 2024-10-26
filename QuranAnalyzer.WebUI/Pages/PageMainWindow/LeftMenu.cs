@@ -24,8 +24,8 @@ class LeftMenuButtonForMobile : ReactPureComponent
 
 class LeftMenu : ReactPureComponent
 {
-    static readonly List<(string text, IReadOnlyList<string> pageIdList)> MenuItems = new()
-    {
+    static readonly List<(string text, IReadOnlyList<string> pageIdList)> MenuItems =
+    [
         ("Anasayfa", new[] { PageId.MainWindow }),
         ("Teknolojide Veri İletimi", new[] { PageId.SecuringDataWithCurrentTechnology }),
         ("Ön Bilgiler", new[] { PageId.PreInformation }),
@@ -44,10 +44,11 @@ class LeftMenu : ReactPureComponent
             PageId.IsHeMessenger,
             PageId.IsThereAnyCommunity
         }),
+
         ("İletişim", new[] { PageId.Contact }),
         ("Harf Sayım Programı", new[] { PageId.CharacterCounting }),
         ("Kelime Sayım Programı", new[] { PageId.WordSearching })
-    };
+    ];
 
     public string SelectedPageId { get; set; }
 

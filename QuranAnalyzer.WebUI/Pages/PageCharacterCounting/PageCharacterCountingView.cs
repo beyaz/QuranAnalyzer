@@ -54,8 +54,8 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
     {
         IEnumerable<Element> searchPanel()
         {
-            return new[]
-            {
+            return
+            [
                 When(state.IsBlocked, Backdrop),
                 When(state.IsBlocked, ProcessingText),
 
@@ -94,7 +94,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                         new ActionButton { Label = "Ara", OnClick = OnCalculateClicked, IsProcessing = state.IsBlocked } + Height(22)
                     }
                 }
-            };
+            ];
         }
 
         if (state.ClickCount == 0)
@@ -186,7 +186,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
 #pragma warning restore CS8321
 
                                     Element[] results =
-                                    {
+                                    [
                                         new h4{"Sonuçlar"} + TextAlignCenter,
                                         new CountsSummaryView { Counts = summaryInfoList },
                                         SpaceY(30),
@@ -197,7 +197,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                                                 resultVerseList
                                             }.ToHtml()
                                         }
-                                    };
+                                    ];
 
                                     return Container(Panel(searchPanel()), Panel(results));
                                 },

@@ -9,7 +9,7 @@ public abstract class ReactComponent : Component
     {
         var pronunciation = GetPronunciationOfArabicLetter(arabicLetter);
 
-        return new Element[] { (strong)pronunciation, "(", (strong)arabicLetter.ToString(), ")" };
+        return [(strong)pronunciation, "(", (strong)arabicLetter.ToString(), ")"];
     }
 
     protected string GetPronunciationOfArabicLetter(char arabicLetter)
@@ -31,7 +31,7 @@ public abstract class ReactPureComponent : PureComponent
     {
         var pronunciation = GetPronunciationOfArabicLetter(arabicLetter);
 
-        return new Element[] { (strong)pronunciation, "(", (strong)arabicLetter.ToString(), ")" };
+        return [(strong)pronunciation, "(", (strong)arabicLetter.ToString(), ")"];
     }
 
     protected string GetPronunciationOfArabicLetter(char arabicLetter)

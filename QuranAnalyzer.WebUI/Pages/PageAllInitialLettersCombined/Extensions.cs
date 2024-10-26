@@ -2,8 +2,8 @@
 
 static class Extensions
 {
-    public static IReadOnlyList<InitialLetterCountInfo> AllInitialLetterTotalCounts => new[]
-    {
+    public static IReadOnlyList<InitialLetterCountInfo> AllInitialLetterTotalCounts =>
+    [
         new InitialLetterCountInfo
         {
             Text = ArabicLetter.Alif, Count = "17152",
@@ -182,7 +182,7 @@ static class Extensions
             }
         },
         new InitialLetterCountInfo { Label = "Toplam", Count = "41388" }
-    };
+    ];
 
     public static IReadOnlyList<int> CreateAnimationDelays(int count)
     {

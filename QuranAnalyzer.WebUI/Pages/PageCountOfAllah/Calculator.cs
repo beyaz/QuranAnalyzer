@@ -115,10 +115,10 @@ class Calculator : ReactComponent<CalculatorModel>
         {
             if (value > 0 && value % 19 == 0)
             {
-                return new[] { (b)"19" + FontWeight600 + Color("#3b29b8"), (div)"x" + MarginLeftRight(3) + FontSizeSmall, (div)$"{value / 19}" + FontSizeSmall };
+                return [(b)"19" + FontWeight600 + Color("#3b29b8"), (div)"x" + MarginLeftRight(3) + FontSizeSmall, (div)$"{value / 19}" + FontSizeSmall];
             }
 
-            return new[] { (div)value.ToString() };
+            return [(div)value.ToString()];
         }
 
         var results = new FlexRow(ComponentBorder)
