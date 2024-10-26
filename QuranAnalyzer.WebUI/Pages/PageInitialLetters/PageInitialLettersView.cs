@@ -2,8 +2,8 @@
 
 class PageInitialLettersView : ReactPureComponent
 {
-    static List<(string TabHeader, Type contenType)> Tabs = new()
-    {
+    static readonly List<(string TabHeader, Type contenType)> Tabs =
+    [
         ("Kaf 1", typeof(InitialLetterGroup_Qaaf_50)),
         ("Kaf 2", typeof(InitialLetterGroup_Qaaf_42)),
         ("Ya Sin", typeof(InitialLetterGroup_Chapter36_YaSin)),
@@ -20,7 +20,7 @@ class PageInitialLettersView : ReactPureComponent
         ("Ta Sin Mim", typeof(InitialLetterGroup_TaSinMim)),
 
         ("Nun", typeof(InitialLetterGroup_NunWawNun))
-    };
+    ];
 
     int SelectedTabIndex
     {

@@ -139,7 +139,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                     {
                         if (!matchMap.ContainsKey(verse.Id))
                         {
-                            matchMap.Add(verse.Id, new List<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startPoints)>());
+                            matchMap.Add(verse.Id, []);
                         }
 
                         matchMap[verse.Id].Add((searchWord, startAndEndPoints));
