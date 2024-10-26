@@ -117,17 +117,21 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
         var arabicVersionOfSearchWords = new List<char>();
         
         var (success, map, errorMessage) = ParseCharachterMap(state.CharachterMap);
-
-        if (success)
+        if (!success)
         {
-            foreach (char c in state.SearchWords)
+            return errorMessage;
+        }
+        
+        
+        
+        foreach (char c in state.SearchWords)
+        {
+            if (map.ContainsKey(c))
             {
-                if (map.ContainsKey(c))
-                {
-                    arabicVersionOfSearchWords.Add(map[c]);
-                }
+                arabicVersionOfSearchWords.Add(map[c]);
             }
         }
+        
 
         var arabic = new string(arabicVersionOfSearchWords.ToArray());
 
