@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Text;
 
 namespace QuranAnalyzer.WebUI.Layouts;
 
@@ -99,6 +98,43 @@ class MainLayout : ReactPureComponent, IPageLayout
                             idOfContainerHtmlElement: '{{ContainerDomElementId}}',
                             renderInfo: {{RenderInfo.ToJsonString()}}
                           });
+                          
+                          var currentScrollY = 0;
+                          
+                          document.addEventListener('scroll', () => 
+                          {
+                              var scrollY = window.scrollY;
+                          
+                              function canFireAction()
+                              {
+                                  if (scrollY > 0)
+                                  {
+                                      return currentScrollY === 0;
+                                  }
+                          
+                                  if (currentScrollY > 0)
+                                  {
+                                      return true;
+                                  }
+                          
+                                  return false;
+                              }
+                          
+                              if (canFireAction())
+                              {
+                                  currentScrollY = scrollY;
+                          
+                                  ReactWithDotNet.DispatchEvent('MainContentDivScrollChangedOverZero', [scrollY]);
+                              }
+                              else
+                              {
+                                  currentScrollY = scrollY;
+                              }
+                          });
+                          
+                          
+                          
+                          
                           """
                 }
             }
