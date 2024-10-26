@@ -171,7 +171,7 @@ public class PageVerseFilter : ReactComponent
 
     class CalculateButton : ReactComponent
     {
-        public MouseEventHandler Clicked { get; set; }
+        public MouseEventHandler Clicked { get; init; }
 
         public bool IsProcessing { get; set; }
 

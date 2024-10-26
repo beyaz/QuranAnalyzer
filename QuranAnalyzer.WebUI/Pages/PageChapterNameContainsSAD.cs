@@ -173,8 +173,8 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
     }
     class NumberViewer : PureComponent
     {
-        public int Count { get; set; }
-        public bool DisableColorize { get; set; }
+        public int Count { get; init; }
+        public bool DisableColorize { get; init; }
         
         protected override Element render()
         {

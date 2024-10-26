@@ -68,9 +68,9 @@ Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söyledi�
 
     class QuestionLink : ReactPureComponent
     {
-        public string Question { get; set; }
+        public string Question { get; init; }
 
-        public string Url { get; set; }
+        public string Url { get; init; }
 
         protected override Element render()
         {
