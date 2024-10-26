@@ -2,71 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
+	    <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\QuranAnalyzer\QuranAnalyzer.csproj" />
+        <PackageReference Include="ReactWithDotNet" Version="1.0.0"   />
     </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="ReactWithDotNet">
-        <HintPath>..\ThirdPartyReferences\ReactWithDotNet.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-
-    <PropertyGroup>
-        <LangVersion>preview</LangVersion>
-    </PropertyGroup>
-
-
-
-	<!-- npm -->
-	<ItemGroup>
-		<JsFilesIdDist Include="wwwroot\dist\*.*"/>
-	</ItemGroup>
-	<PropertyGroup>
-		<AppRoot>wwwroot\</AppRoot>
-	</PropertyGroup>
-	<Target Name="_EnsureNodeEnvironment_" BeforeTargets="rebuild;build" Condition=" !Exists('$(AppRoot)node_modules') ">
-		<Exec Command="node --version" ContinueOnError="true">
-			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
-		</Exec>
-		<Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
-		<Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
-		<Exec WorkingDirectory="$(AppRoot)" Command="npm install" />
-	</Target>
-	<Target Name="_NpmRun_" BeforeTargets="rebuild">
-		<RemoveDir Directories="$(AppRoot)dist" />
-		<Exec Command="node --version" ContinueOnError="true">
-			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
-		</Exec>
-		<Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
-		<Message Importance="high" Text="Runinning npm command: 'npm run dev, build'" />
-		<Exec WorkingDirectory="$(AppRoot)" Command="npm run dev" />
-		<Exec WorkingDirectory="$(AppRoot)" Command="npm run build" />
-	</Target>
-	
-	<Target Name="_BeforePublish_" AfterTargets="ComputeFilesToPublish">
-		<RemoveDir Directories="$(AppRoot)dist" />
-		<Exec WorkingDirectory="$(AppRoot)" Command="npm run dev" />
-		<Exec WorkingDirectory="$(AppRoot)" Command="npm run build" />
-	</Target>
-
-	<Target Name="_AfterPublish_" AfterTargets="Publish">
-		<Copy SourceFiles="@(JsFilesIdDist)" DestinationFolder="$(PublishDir)/wwwroot/dist/" SkipUnchangedFiles="false" />
-		<Delete Files="$(PublishDir)/ReactWithDotNet.pdb" />
-		<Delete Files="$(PublishDir)/ReactWithDotNet.xml" />
-		<Delete Files="$(PublishDir)/$(MSBuildProjectName).pdb" />
-		<Delete Files="$(PublishDir)/$(MSBuildProjectName).xml" />
-		<Delete Files="$(PublishDir)/QuranAnalyzer.pdb" />
-		<Delete Files="$(PublishDir)/QuranAnalyzer.xml" />
-
-		
-		<Delete Files="$(PublishDir)/wwwroot/index.jsx" />
-		<Delete Files="$(PublishDir)/wwwroot/package.json" />
-		<Delete Files="$(PublishDir)/wwwroot/package-lock.json" />
-
-		<RemoveDir Directories="$(PublishDir)\wwwroot\react-with-dotnet" />
-	</Target>
 
 </Project>
