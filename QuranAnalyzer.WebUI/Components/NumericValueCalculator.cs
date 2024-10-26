@@ -13,7 +13,7 @@ class NumericValueCalculator : ReactComponent<NumericValueCalculatorModel>
 
     protected override Task constructor()
     {
-        state = new NumericValueCalculatorModel
+        state = new()
         {
             Letters = Letters
         };

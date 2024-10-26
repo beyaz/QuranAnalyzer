@@ -4,7 +4,7 @@ static class Extensions
 {
     public static IReadOnlyList<InitialLetterCountInfo> AllInitialLetterTotalCounts =>
     [
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Alif, Count = "17152",
             Details = new List<CountInfo>
@@ -24,7 +24,7 @@ static class Extensions
                 new() { ChapterNumber = 32, Count = "257" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Laam, Count = "11797",
             Details = new List<CountInfo>
@@ -44,7 +44,7 @@ static class Extensions
                 new() { ChapterNumber = 32, Count = "155" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Miim, Count = "8659",
 
@@ -69,7 +69,7 @@ static class Extensions
                 new() { ChapterNumber = 46, Count = "225" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Saad, Count = "152",
             Details = new List<CountInfo>
@@ -79,7 +79,7 @@ static class Extensions
                 new() { ChapterNumber = 38, Count = "29" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Raa, Count = "1232",
             Details = new List<CountInfo>
@@ -92,7 +92,7 @@ static class Extensions
                 new() { ChapterNumber = 15, Count = "96" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Kaaf, Count = "137",
             Details = new List<CountInfo>
@@ -100,7 +100,7 @@ static class Extensions
                 new() { ChapterNumber = 19, Count = "137" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Haa_, Count = "426",
             Details = new List<CountInfo>
@@ -109,7 +109,7 @@ static class Extensions
                 new() { ChapterNumber = 20, Count = "251" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Yaa, Count = "580",
             Details = new List<CountInfo>
@@ -118,7 +118,7 @@ static class Extensions
                 new() { ChapterNumber = 36, Count = "237" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Ayn, Count = "215",
             Details = new List<CountInfo>
@@ -127,7 +127,7 @@ static class Extensions
                 new() { ChapterNumber = 42, Count = "98" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Taa_, Count = "107",
             Details = new List<CountInfo>
@@ -138,7 +138,7 @@ static class Extensions
                 new() { ChapterNumber = 28, Count = "19" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Siin, Count = "392",
             Details = new List<CountInfo>
@@ -150,7 +150,7 @@ static class Extensions
                 new() { ChapterNumber = 42, Count = "54" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Haa, Count = "292",
             Details = new List<CountInfo>
@@ -164,7 +164,7 @@ static class Extensions
                 new() { ChapterNumber = 46, Count = "36" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Qaaf, Count = "114",
             Details = new List<CountInfo>
@@ -173,7 +173,7 @@ static class Extensions
                 new() { ChapterNumber = 50, Count = "57" }
             }
         },
-        new InitialLetterCountInfo
+        new()
         {
             Text = ArabicLetter.Nun, Count = "133",
             Details = new List<CountInfo>
@@ -181,7 +181,7 @@ static class Extensions
                 new() { ChapterNumber = 68, Count = "133" }
             }
         },
-        new InitialLetterCountInfo { Label = "Toplam", Count = "41388" }
+        new() { Label = "Toplam", Count = "41388" }
     ];
 
     public static IReadOnlyList<int> CreateAnimationDelays(int count)

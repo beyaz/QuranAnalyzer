@@ -23,7 +23,7 @@ class Calculator : ReactComponent<CalculatorModel>
 
     protected override Task constructor()
     {
-        state = new CalculatorModel
+        state = new()
         {
             SearchScript = SearchScript,
             Word         = Word

@@ -12,7 +12,7 @@ class FixedTopPanelContainer : ReactComponent<FixedTopPanelContainerModel>
 
     protected override Task constructor()
     {
-        state = new FixedTopPanelContainerModel();
+        state = new();
 
         Client.OnMainContentDivScrollChangedOverZero(mainDivScrollY => Task.Run(()=>state.MainDivScrollY = mainDivScrollY));
 

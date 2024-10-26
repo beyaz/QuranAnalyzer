@@ -28,7 +28,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
     protected override Task constructor()
     {
-        state = new WordSearchingViewModel();
+        state = new();
 
         var value = Query[QueryKey.SearchQuery];
         if (value is not null)
@@ -148,7 +148,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                         {
                             if (summaries.All(x => x.Name != searchWord.AsText()))
                             {
-                                summaries.Add(new SummaryInfo { Name = searchWord.AsText() });
+                                summaries.Add(new() { Name = searchWord.AsText() });
                             }
 
                             summaries.First(x => x.Name == searchWord.AsText()).Count += startAndEndPoints.Count;
@@ -165,7 +165,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
             foreach (var (verseId, matchList) in matchMap.ToList().OrderBy(x => x.Key, new VerseNumberComparer()))
             {
-                resultVerses.Add(new WordColorizedVerse
+                resultVerses.Add(new()
                 {
                     Verse     = VerseFilter.GetVerseById(verseId),
                     MatchList = matchList
