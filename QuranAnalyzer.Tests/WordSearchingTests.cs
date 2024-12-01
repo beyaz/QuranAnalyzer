@@ -153,7 +153,7 @@ public class WordSearchingTests
     {
         var nunVavNun = AnalyzeText("نون");
 
-        VerseFilter.GetVerseList("*").Value.SumOf(v => v.TextWithBismillahWordList.Last().EndsWith(nunVavNun).Count).Unwrap().Should().Be(133);
+        VerseFilter.GetVerseList("*").Value.SumOf(v => v.TextWithBismillahWordList.Last().EndsWith(nunVavNun) is null ? 0 : 1).Unwrap().Should().Be(133);
     }
 
     static void CountShouldBe(string searchWord, int expected)

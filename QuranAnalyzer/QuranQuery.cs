@@ -53,7 +53,7 @@ public static class QuranQuery
         return returnList;
     }
 
-    public static IReadOnlyList<(LetterInfo start, LetterInfo end)> EndsWith(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
+    public static (LetterInfo start, LetterInfo end)? EndsWith(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
         if (wordA is null)
         {
@@ -65,14 +65,12 @@ public static class QuranQuery
             throw new ArgumentNullException(nameof(wordB));
         }
 
-        var returnList = new List<(LetterInfo start, LetterInfo end)>();
-
         wordA = wordA.Where(IsValidForWordSearch).ToList();
         wordB = wordB.Where(IsValidForWordSearch).ToList();
 
         if (wordB.Count > wordA.Count)
         {
-            return returnList;
+            return null;
         }
 
         var sourceIndex = wordA.Count - wordB.Count;
@@ -81,13 +79,11 @@ public static class QuranQuery
         {
             if (!wordA[sourceIndex + i].HasValueAndSameAs(wordB[i]))
             {
-                return returnList;
+                return null;
             }
         }
 
-        returnList.Add((wordA[sourceIndex], wordA[sourceIndex + wordB.Count - 1]));
-
-        return returnList;
+        return (wordA[sourceIndex], wordA[sourceIndex + wordB.Count - 1]);
     }
 
     public static IReadOnlyList<(LetterInfo start, LetterInfo end)> GetStartAndEndPointsOfContainsWords(this Verse verse, IReadOnlyList<LetterInfo> searchWord)
@@ -108,7 +104,12 @@ public static class QuranQuery
 
         foreach (var word in verse.TextWordList)
         {
-            returnList.AddRange(word.EndsWith(searchWord));
+            var item = word.EndsWith(searchWord);
+            if (item is null)
+            {
+                continue;
+            }
+            returnList.Add(item.Value);
         }
 
         return returnList;
