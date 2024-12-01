@@ -282,7 +282,7 @@ public static class QuranQuery
                 // is end of search word
                 if (b == lengthB)
                 {
-                    return (wordA[0], wordA[a - 1]);
+                    return (wordA[startIndexA], wordA[a - 1]);
                 }
 
                 letterB = wordB[b];
