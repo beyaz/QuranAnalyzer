@@ -53,39 +53,39 @@ public static class QuranQuery
         return returnList;
     }
 
-    public static IReadOnlyList<(LetterInfo start, LetterInfo end)> EndsWith(this IReadOnlyList<LetterInfo> source, IReadOnlyList<LetterInfo> search)
+    public static IReadOnlyList<(LetterInfo start, LetterInfo end)> EndsWith(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
-        if (source is null)
+        if (wordA is null)
         {
-            throw new ArgumentNullException(nameof(source));
+            throw new ArgumentNullException(nameof(wordA));
         }
 
-        if (search is null)
+        if (wordB is null)
         {
-            throw new ArgumentNullException(nameof(search));
+            throw new ArgumentNullException(nameof(wordB));
         }
 
         var returnList = new List<(LetterInfo start, LetterInfo end)>();
 
-        source = source.Where(IsValidForWordSearch).ToList();
-        search = search.Where(IsValidForWordSearch).ToList();
+        wordA = wordA.Where(IsValidForWordSearch).ToList();
+        wordB = wordB.Where(IsValidForWordSearch).ToList();
 
-        if (search.Count > source.Count)
+        if (wordB.Count > wordA.Count)
         {
             return returnList;
         }
 
-        var sourceIndex = source.Count - search.Count;
+        var sourceIndex = wordA.Count - wordB.Count;
 
-        for (var i = 0; i < search.Count; i++)
+        for (var i = 0; i < wordB.Count; i++)
         {
-            if (!source[sourceIndex + i].HasValueAndSameAs(search[i]))
+            if (!wordA[sourceIndex + i].HasValueAndSameAs(wordB[i]))
             {
                 return returnList;
             }
         }
 
-        returnList.Add((source[sourceIndex], source[sourceIndex + search.Count - 1]));
+        returnList.Add((wordA[sourceIndex], wordA[sourceIndex + wordB.Count - 1]));
 
         return returnList;
     }
