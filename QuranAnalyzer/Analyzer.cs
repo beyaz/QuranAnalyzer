@@ -15,7 +15,7 @@ public static class Analyzer
         // elif
         if (c == 'ا' || c == 'ٱ' || c == 'إ' || c == 'أ' || c == 'ﺍ')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -29,7 +29,7 @@ public static class Analyzer
         {
             if (c == Hamza || c == HamzaAbove)
             {
-                return new LetterInfo
+                return new()
                 {
                     Letter       = c,
                     StartIndex   = startIndex,
@@ -42,7 +42,7 @@ public static class Analyzer
         // be
         if (c == 'ب')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -54,7 +54,7 @@ public static class Analyzer
         // cim
         if (c == 'ج' || c == 'ج')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -66,7 +66,7 @@ public static class Analyzer
         // dal
         if (c == 'د')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -78,7 +78,7 @@ public static class Analyzer
         // he
         if (c == 'ه' || c == 'ة')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -90,7 +90,7 @@ public static class Analyzer
         // vav
         if (c == 'و' || c == 'ٯ' || c == 'ؤ')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -102,7 +102,7 @@ public static class Analyzer
         // ze
         if (c == 'ز' || c == 'ز')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -114,7 +114,7 @@ public static class Analyzer
         // ha
         if (c == 'ح')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -126,7 +126,7 @@ public static class Analyzer
         // tı
         if (c == 'ط')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -138,7 +138,7 @@ public static class Analyzer
         // ye
         if (c == 'ي' || c == 'ى' || c == 'ئ')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -150,7 +150,7 @@ public static class Analyzer
         // kef
         if (c == 'ك')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -162,7 +162,7 @@ public static class Analyzer
         // lam
         if (c == 'ل')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -174,7 +174,7 @@ public static class Analyzer
         // mim
         if (c == 'م')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -186,7 +186,7 @@ public static class Analyzer
         // nun
         if (c == 'ن')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -198,7 +198,7 @@ public static class Analyzer
         // sin
         if (c == 'س')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -210,7 +210,7 @@ public static class Analyzer
         // ayn
         if (c == 'ع')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -222,7 +222,7 @@ public static class Analyzer
         // fe
         if (c == 'ف')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -234,7 +234,7 @@ public static class Analyzer
         // sad
         if (c == 'ص')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -246,7 +246,7 @@ public static class Analyzer
         // kaf
         if (c == 'ق')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -258,7 +258,7 @@ public static class Analyzer
         // re
         if (c == 'ر')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -270,7 +270,7 @@ public static class Analyzer
         //şin
         if (c == 'ش')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -282,7 +282,7 @@ public static class Analyzer
         // te
         if (c == 'ت')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -294,7 +294,7 @@ public static class Analyzer
         // se
         if (c == 'ث')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -306,7 +306,7 @@ public static class Analyzer
         // hı
         if (c == 'خ')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -318,7 +318,7 @@ public static class Analyzer
         // zel
         if (c == 'ذ')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -330,7 +330,7 @@ public static class Analyzer
         // dad
         if (c == 'ض')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -342,7 +342,7 @@ public static class Analyzer
         // zı
         if (c == 'ظ')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -354,7 +354,7 @@ public static class Analyzer
         // ğayn
         if (c == 'غ')
         {
-            return new LetterInfo
+            return new()
             {
                 Letter       = c,
                 StartIndex   = startIndex,
@@ -363,7 +363,7 @@ public static class Analyzer
             };
         }
 
-        return new LetterInfo
+        return new()
         {
             Letter     = c,
             StartIndex = startIndex
