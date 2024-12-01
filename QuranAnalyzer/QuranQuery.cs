@@ -14,16 +14,18 @@ public static class QuranQuery
         var a = 0;
         while (a < wordA.Count)
         {
-            var item = StartsWith(wordA, a, wordB, 0);
-            if (item is null)
+            var rangeMaybeNull = StartsWith(wordA, a, wordB, 0);
+            if (rangeMaybeNull is null)
             {
                 a++;
                 continue;
             }
 
-            returnList.Add(item.Value);
+            var range = rangeMaybeNull.Value;
 
-            a = item.Value.end.StartIndex + 1;
+            returnList.Add((wordA[range.startIndex], wordA[range.endIndex]));
+
+            a = range.endIndex + 1;
         }
 
         return returnList;
@@ -258,10 +260,18 @@ public static class QuranQuery
 
     public static (LetterInfo start, LetterInfo end)? StartsWith(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
-        return StartsWith(wordA, 0, wordB, 0);
+        var rangeMaybeNull = StartsWith(wordA, 0, wordB, 0);
+        if (rangeMaybeNull == null)
+        {
+            return null;
+        }
+
+        var range = rangeMaybeNull.Value;
+        
+        return (wordA[range.startIndex], wordA[range.endIndex]);
     }
 
-    public static (LetterInfo start, LetterInfo end)? StartsWith(this IReadOnlyList<LetterInfo> wordA, int startIndexA, IReadOnlyList<LetterInfo> wordB, int startIndexB)
+    public static (int startIndex, int endIndex)? StartsWith(this IReadOnlyList<LetterInfo> wordA, int startIndexA, IReadOnlyList<LetterInfo> wordB, int startIndexB)
     {
         if (wordB == null || wordA == null)
         {
@@ -282,7 +292,7 @@ public static class QuranQuery
                 // is end of search word
                 if (b == lengthB)
                 {
-                    return (wordA[startIndexA], wordA[a - 1]);
+                    return (startIndexA, a - 1);
                 }
 
                 letterB = wordB[b];
