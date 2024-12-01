@@ -192,4 +192,65 @@ public class WordSearchingTests
 
         allWords.Count.Should().Be(18993);
     }
+    
+    [TestMethod]
+    public void EndsWithTest()
+    {
+        // " abc".StartsWith("abc")
+        {
+            var searchWord = AnalyzeText("نون");
+        
+            var source = AnalyzeText("نون");
+
+            var response = source.StartsWith(searchWord);
+
+            response.HasValue.Should().BeTrue();
+
+            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Nun);
+            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Nun);
+        }
+        
+        // " abcd".StartsWith("abc")
+        {
+            var searchWord = AnalyzeText("نون");
+        
+            var source = AnalyzeText("نونم");
+
+            var response = source.StartsWith(searchWord);
+
+            response.HasValue.Should().BeTrue();
+            
+            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Nun);
+            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Nun);
+        }
+        
+        // " abc".StartsWith("abcd")
+        {
+            
+            var source = AnalyzeText("نون");
+            
+            var searchWord = AnalyzeText("نونم");
+
+            var response = source.StartsWith(searchWord);
+
+            response.HasValue.Should().BeFalse();
+            
+        }
+        
+        // " abc".StartsWith("abc")
+        {
+            
+            var source = AnalyzeText("نونم ");
+            
+            var searchWord =  AnalyzeText("نون");
+
+            var response = source.StartsWith(searchWord);
+
+            response.HasValue.Should().BeTrue();
+            
+            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Nun);
+            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Nun);
+            
+        }
+    }
 }
