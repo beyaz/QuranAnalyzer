@@ -4,50 +4,26 @@ public static class QuranQuery
 {
     public static IReadOnlyList<(LetterInfo start, LetterInfo end)> Contains(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
-        if (wordA is null)
+        if (wordB == null || wordA == null)
         {
-            throw new ArgumentNullException(nameof(wordA));
-        }
-
-        if (wordB is null)
-        {
-            throw new ArgumentNullException(nameof(wordB));
+            return [];
         }
 
         var returnList = new List<(LetterInfo start, LetterInfo end)>();
 
-        wordA = wordA.Where(IsValidForWordSearch).ToList();
-        wordB = wordB.Where(IsValidForWordSearch).ToList();
-
-        if (wordB.Count > wordA.Count)
+        var a = 0;
+        while (a < wordA.Count)
         {
-            return returnList;
-        }
-
-        int i;
-
-        for (i = 0; i < wordA.Count; i++)
-        {
-            if (i + wordB.Count > wordA.Count)
+            var item = StartsWith(wordA, a, wordB, 0);
+            if (item is null)
             {
-                return returnList;
+                a++;
+                continue;
             }
 
-            var isMatch = true;
-            int j;
-            for (j = 0; j < wordB.Count; j++)
-            {
-                if (!wordA[i + j].HasValueAndSameAs(wordB[j]))
-                {
-                    isMatch = false;
-                    break;
-                }
-            }
+            returnList.Add(item.Value);
 
-            if (isMatch)
-            {
-                returnList.Add((start: wordA[i], end: wordA[i + j - 1]));
-            }
+            a = item.Value.end.StartIndex + 1;
         }
 
         return returnList;
@@ -282,13 +258,18 @@ public static class QuranQuery
 
     public static (LetterInfo start, LetterInfo end)? StartsWith(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
+        return StartsWith(wordA, 0, wordB, 0);
+    }
+
+    public static (LetterInfo start, LetterInfo end)? StartsWith(this IReadOnlyList<LetterInfo> wordA, int startIndexA, IReadOnlyList<LetterInfo> wordB, int startIndexB)
+    {
         if (wordB == null || wordA == null)
         {
             return null;
         }
 
-        var a = 0;
-        var b = 0;
+        var a = startIndexA;
+        var b = startIndexB;
 
         var lengthA = wordA.Count;
         var lengthB = wordB.Count;
