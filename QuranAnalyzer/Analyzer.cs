@@ -13,7 +13,7 @@ public static class Analyzer
     public static LetterInfo GetLetterInfo(char c, int startIndex, bool isHemzeActive)
     {
         // elif
-        if (c == 'ا' || c == 'ٱ' || c == 'إ' || c == 'أ' || c == 'ﺍ')
+        if (c is 'ا' or 'ٱ' or 'إ' or 'أ' or 'ﺍ')
         {
             return new()
             {
@@ -27,7 +27,7 @@ public static class Analyzer
         // elif
         if (isHemzeActive)
         {
-            if (c == Hamza || c == HamzaAbove)
+            if (c is Hamza or HamzaAbove)
             {
                 return new()
                 {
@@ -136,7 +136,7 @@ public static class Analyzer
         }
 
         // ye
-        if (c == 'ي' || c == 'ى' || c == 'ئ')
+        if (c is 'ي' or 'ى' or 'ئ')
         {
             return new()
             {
