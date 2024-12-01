@@ -55,35 +55,60 @@ public static class QuranQuery
 
     public static (LetterInfo start, LetterInfo end)? EndsWith(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
-        if (wordA is null)
-        {
-            throw new ArgumentNullException(nameof(wordA));
-        }
-
-        if (wordB is null)
-        {
-            throw new ArgumentNullException(nameof(wordB));
-        }
-
-        wordA = wordA.Where(IsValidForWordSearch).ToList();
-        wordB = wordB.Where(IsValidForWordSearch).ToList();
-
-        if (wordB.Count > wordA.Count)
+        if (wordB == null || wordA == null)
         {
             return null;
         }
-
-        var sourceIndex = wordA.Count - wordB.Count;
-
-        for (var i = 0; i < wordB.Count; i++)
+        
+        var a = wordA.Count-1;
+        var b = wordB.Count-1;
+        
+        while (true)
         {
-            if (!wordA[sourceIndex + i].HasValueAndSameAs(wordB[i]))
+            // come to next valid value
+            LetterInfo letterB;
+            {
+                // is end of search word
+                if (b == -1)
+                {
+                    return (wordA[a+1], wordA[^1]);
+                }
+                
+                letterB = wordB[b];
+                
+                if (!IsValidForWordSearch(letterB))
+                {
+                    b--;
+                    continue;
+                }
+            }
+            
+            // come to next valid value
+            LetterInfo letterA;
+            {
+                // source has no value
+                if (a == -1 )
+                {
+                    return null;
+                }
+            
+                letterA = wordA[a];
+                
+                if (!IsValidForWordSearch(letterA))
+                {
+                    a--;
+                    continue;
+                }
+            }
+            
+            if (!letterB.HasValueAndSameAs(letterA))
             {
                 return null;
             }
+            
+            a--;
+            b--;
         }
-
-        return (wordA[sourceIndex], wordA[sourceIndex + wordB.Count - 1]);
     }
 
     public static IReadOnlyList<(LetterInfo start, LetterInfo end)> GetStartAndEndPointsOfContainsWords(this Verse verse, IReadOnlyList<LetterInfo> searchWord)
