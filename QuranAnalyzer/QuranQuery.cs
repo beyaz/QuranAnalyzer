@@ -59,10 +59,10 @@ public static class QuranQuery
         {
             return null;
         }
-        
-        var a = wordA.Count-1;
-        var b = wordB.Count-1;
-        
+
+        var a = wordA.Count - 1;
+        var b = wordB.Count - 1;
+
         while (true)
         {
             // come to next valid value
@@ -71,41 +71,41 @@ public static class QuranQuery
                 // is end of search word
                 if (b == -1)
                 {
-                    return (wordA[a+1], wordA[^1]);
+                    return (wordA[a + 1], wordA[^1]);
                 }
-                
+
                 letterB = wordB[b];
-                
+
                 if (!IsValidForWordSearch(letterB))
                 {
                     b--;
                     continue;
                 }
             }
-            
+
             // come to next valid value
             LetterInfo letterA;
             {
                 // source has no value
-                if (a == -1 )
+                if (a == -1)
                 {
                     return null;
                 }
-            
+
                 letterA = wordA[a];
-                
+
                 if (!IsValidForWordSearch(letterA))
                 {
                     a--;
                     continue;
                 }
             }
-            
+
             if (!letterB.HasValueAndSameAs(letterA))
             {
                 return null;
             }
-            
+
             a--;
             b--;
         }
@@ -134,6 +134,7 @@ public static class QuranQuery
             {
                 continue;
             }
+
             returnList.Add(item.Value);
         }
 
@@ -166,6 +167,7 @@ public static class QuranQuery
             {
                 continue;
             }
+
             returnList.Add(item.Value);
         }
 
@@ -278,34 +280,6 @@ public static class QuranQuery
         return true;
     }
 
-    public static bool Same_oldImplementation(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
-    {
-        if (wordA == null || wordB == null)
-        {
-            return false;
-        }
-
-        wordA = wordA.Where(IsValidForWordSearch).ToList();
-        wordB = wordB.Where(IsValidForWordSearch).ToList();
-
-        if (wordA.Count != wordB.Count)
-        {
-            return false;
-        }
-
-        var length = wordA.Count;
-
-        for (var i = 0; i < length; i++)
-        {
-            if (!wordA[i].HasValueAndSameAs(wordB[i]))
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static (LetterInfo start, LetterInfo end)? StartsWith(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
         if (wordB == null || wordA == null)
@@ -318,7 +292,7 @@ public static class QuranQuery
 
         var lengthA = wordA.Count;
         var lengthB = wordB.Count;
-        
+
         while (true)
         {
             // come to next valid value
@@ -327,41 +301,41 @@ public static class QuranQuery
                 // is end of search word
                 if (b == lengthB)
                 {
-                    return (wordA[0], wordA[a-1]);
+                    return (wordA[0], wordA[a - 1]);
                 }
-                
+
                 letterB = wordB[b];
-                
+
                 if (!IsValidForWordSearch(letterB))
                 {
                     b++;
                     continue;
                 }
             }
-            
+
             // come to next valid value
             LetterInfo letterA;
             {
                 // source has no value
-                if (a == lengthA )
+                if (a == lengthA)
                 {
                     return null;
                 }
-            
+
                 letterA = wordA[a];
-                
+
                 if (!IsValidForWordSearch(letterA))
                 {
                     a++;
                     continue;
                 }
             }
-            
+
             if (!letterB.HasValueAndSameAs(letterA))
             {
                 return null;
             }
-            
+
             a++;
             b++;
         }
