@@ -281,35 +281,35 @@ public static class QuranQuery
         return true;
     }
 
-    public static (LetterInfo start, LetterInfo end)? StartsWith(this IReadOnlyList<LetterInfo> source, IReadOnlyList<LetterInfo> search)
+    public static (LetterInfo start, LetterInfo end)? StartsWith(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
-        if (source is null)
+        if (wordA is null)
         {
-            throw new ArgumentNullException(nameof(source));
+            throw new ArgumentNullException(nameof(wordA));
         }
 
-        if (search is null)
+        if (wordB is null)
         {
-            throw new ArgumentNullException(nameof(search));
+            throw new ArgumentNullException(nameof(wordB));
         }
 
-        source = source.Where(IsValidForWordSearch).ToList();
-        search = search.Where(IsValidForWordSearch).ToList();
+        wordA = wordA.Where(IsValidForWordSearch).ToList();
+        wordB = wordB.Where(IsValidForWordSearch).ToList();
 
-        if (search.Count > source.Count)
+        if (wordB.Count > wordA.Count)
         {
             return null;
         }
 
-        for (var i = 0; i < search.Count; i++)
+        for (var i = 0; i < wordB.Count; i++)
         {
-            if (!source[i].HasValueAndSameAs(search[i]))
+            if (!wordA[i].HasValueAndSameAs(wordB[i]))
             {
                 return null;
             }
         }
 
-        return (source[0], source[search.Count - 1]);
+        return (wordA[0], wordA[wordB.Count - 1]);
     }
 
     static bool IsValidForWordSearch(LetterInfo info)
