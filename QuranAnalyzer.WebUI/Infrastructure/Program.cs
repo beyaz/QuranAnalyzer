@@ -34,6 +34,8 @@ public class Program
             app.UseDeveloperExceptionPage();
         }
 
+        app.ConfigureReactWithDotNet();
+        
         app.UseStaticFiles(new StaticFileOptions
         {
             RequestPath         = new ("/wwwroot"),
@@ -42,8 +44,6 @@ public class Program
         });
 
         app.UseResponseCompression();
-
-        app.ConfigureReactWithDotNet();
 
         app.Run();
     }

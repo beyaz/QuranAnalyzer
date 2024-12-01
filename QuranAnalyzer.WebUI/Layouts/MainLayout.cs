@@ -1,36 +1,13 @@
-﻿using System.IO;
-
-namespace QuranAnalyzer.WebUI.Layouts;
+﻿namespace QuranAnalyzer.WebUI.Layouts;
 
 class MainLayout : ReactPureComponent, IPageLayout
 {
-    static string LastWriteTimeOfIndexJsFile;
-
     public string ContainerDomElementId => "app";
-    
+
     public ComponentRenderInfo RenderInfo { get; set; }
-
-    static string CompilerMode
-    {
-        get
-        {
-#if DEBUG
-            return "debug";
-#else
-                return "release";
-#endif
-        }
-    }
-
-    
-    string IndexJsFilePath => $"/{Context.wwwroot}/ReactWithDotNet/{CompilerMode}/index.js";
-    
-    string IndexCssFilePath => $"/{Context.wwwroot}/ReactWithDotNet/{CompilerMode}/index.css";
 
     protected override Element render()
     {
-        LastWriteTimeOfIndexJsFile ??= new FileInfo(IndexJsFilePath).LastWriteTime.Ticks.ToString();
-
         return new html
         {
             Lang("tr"),
@@ -60,10 +37,10 @@ class MainLayout : ReactPureComponent, IPageLayout
                 {
                     rel         = "stylesheet",
                     type        = "text/css",
-                    href        = $"{IndexCssFilePath}?v={LastWriteTimeOfIndexJsFile}",
+                    href        = IndexCssFilePath,
                     crossOrigin = "anonymous"
                 },
-                
+
                 new style
                 {
                     """
@@ -99,7 +76,7 @@ class MainLayout : ReactPureComponent, IPageLayout
 
                     text =
                         $$"""
-                          import {ReactWithDotNet} from '{{IndexJsFilePath}}?v={{LastWriteTimeOfIndexJsFile}}';
+                          import {ReactWithDotNet} from '{{IndexJsFilePath}}';
 
                           ReactWithDotNet.StrictMode = false;
 
@@ -109,9 +86,9 @@ class MainLayout : ReactPureComponent, IPageLayout
                             idOfContainerHtmlElement: '{{ContainerDomElementId}}',
                             renderInfo: {{RenderInfo.ToJsonString()}}
                           });
-                          
+
                           var currentScrollY = 0;
-                          
+
                           document.addEventListener('scroll', () => 
                           {
                               var scrollY = window.scrollY;
@@ -142,10 +119,10 @@ class MainLayout : ReactPureComponent, IPageLayout
                                   currentScrollY = scrollY;
                               }
                           });
-                          
-                          
-                          
-                          
+
+
+
+
                           """
                 }
             }
@@ -155,6 +132,5 @@ class MainLayout : ReactPureComponent, IPageLayout
         {
             return $"{Context.wwwroot}/img/favicon_io/{fileName}";
         }
-
     }
 }
