@@ -194,7 +194,7 @@ public class WordSearchingTests
     }
     
     [TestMethod]
-    public void EndsWithTest()
+    public void StartsWithTest()
     {
         // " abc".StartsWith("abc")
         {
@@ -252,5 +252,42 @@ public class WordSearchingTests
             response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Nun);
             
         }
+    }
+    
+    
+    [TestMethod]
+    public void EndsWithTest()
+    {
+        // " abc".EndsWith("abc")
+        {
+            
+            var source = AnalyzeText("" + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf);
+            
+            var searchWord = AnalyzeText("" + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf);
+        
+            var response = source.EndsWith(searchWord);
+
+            response.HasValue.Should().BeTrue();
+
+            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Miim);
+            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Qaaf);
+        }
+        
+        // "dabc".EndsWith("abc")
+        {
+            var source = AnalyzeText("" +   ArabicLetter.Yaa + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf);
+            
+            var searchWord = AnalyzeText("" + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf);
+        
+            
+
+            var response = source.EndsWith(searchWord);
+
+            response.HasValue.Should().BeTrue();
+            
+            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Miim);
+            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Qaaf);
+        }
+       
     }
 }
