@@ -176,7 +176,7 @@ public static class QuranQuery
         return returnList;
     }
 
-    public static bool Same(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
+    public static bool Same_oldImplementation(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
         if (wordA == null || wordB == null)
         {
@@ -204,8 +204,7 @@ public static class QuranQuery
         return true;
     }
 
-    // todo check performans and write test code
-    public static bool Same2(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
+    public static bool Same(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
         if (wordA == null || wordB == null)
         {
