@@ -2,42 +2,42 @@
 
 public static class QuranQuery
 {
-    public static IReadOnlyList<(LetterInfo start, LetterInfo end)> Contains(this IReadOnlyList<LetterInfo> source, IReadOnlyList<LetterInfo> search)
+    public static IReadOnlyList<(LetterInfo start, LetterInfo end)> Contains(this IReadOnlyList<LetterInfo> wordA, IReadOnlyList<LetterInfo> wordB)
     {
-        if (source is null)
+        if (wordA is null)
         {
-            throw new ArgumentNullException(nameof(source));
+            throw new ArgumentNullException(nameof(wordA));
         }
 
-        if (search is null)
+        if (wordB is null)
         {
-            throw new ArgumentNullException(nameof(search));
+            throw new ArgumentNullException(nameof(wordB));
         }
 
         var returnList = new List<(LetterInfo start, LetterInfo end)>();
 
-        source = source.Where(IsValidForWordSearch).ToList();
-        search = search.Where(IsValidForWordSearch).ToList();
+        wordA = wordA.Where(IsValidForWordSearch).ToList();
+        wordB = wordB.Where(IsValidForWordSearch).ToList();
 
-        if (search.Count > source.Count)
+        if (wordB.Count > wordA.Count)
         {
             return returnList;
         }
 
         int i;
 
-        for (i = 0; i < source.Count; i++)
+        for (i = 0; i < wordA.Count; i++)
         {
-            if (i + search.Count > source.Count)
+            if (i + wordB.Count > wordA.Count)
             {
                 return returnList;
             }
 
             var isMatch = true;
             int j;
-            for (j = 0; j < search.Count; j++)
+            for (j = 0; j < wordB.Count; j++)
             {
-                if (!source[i + j].HasValueAndSameAs(search[j]))
+                if (!wordA[i + j].HasValueAndSameAs(wordB[j]))
                 {
                     isMatch = false;
                     break;
@@ -46,7 +46,7 @@ public static class QuranQuery
 
             if (isMatch)
             {
-                returnList.Add((start: source[i], end: source[i + j - 1]));
+                returnList.Add((start: wordA[i], end: wordA[i + j - 1]));
             }
         }
 
