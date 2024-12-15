@@ -61,7 +61,7 @@ Hatta Mustafa Kemal Atatürk'ün hayatındaki olayların tarihleri ile  19 rakam
             },
             new p
             {
-                @"Elbette madalyonun diğer yüzünde 19 olayını daha tarafsız inceleyen KuranMucizeler.com, Gürkan Engin gibi isimler de var.
+                @"Elbette madalyonun diğer yüzünde 19 olayını inceleyen KuranMucizeler.com, Gürkan Engin gibi isimler de var.
 
 Bu saydığım isimler sadece Türkiye'de olan resim. Elbette başka ülkelerde de buna benzer ayrışmalar var.
 "

@@ -31,7 +31,7 @@ public class PageWhyFamousPeopleAreSilent : ReactPureComponent
                 " Ben de bu halkın içinde yaşıyorum. Şunu kabul edelim. Kuran evlerimizde duvarların en güzel yerinde asılıdır.",
                 " Eline alıp okuyan insanımız ise 'Arapçasından okumazsam sevap olmaz' diyerek anlamadığı bir dil ile okuyor sonrasında kapatıp yerine koyuyor.",
                 " Yaradan bu kitapta ne diyor deyip de bir tercüme okuyan sayısı oldukça az. Burada çuvaldızı kendime batırmaktan da gocunmuyorum.",
-                " Ben de sözde bu ülkede üniversite mezunu mürekkep yalamış tayfayım benim dahi Kuran ile tanışmam 35 li yaşlarımda oldu."
+                " Ben de sözde bu ülkede üniversite mezunu bir insanım benim dahi Kuran ile tanışmam 35'li yaşlarımda oldu."
             },
             new p
             {

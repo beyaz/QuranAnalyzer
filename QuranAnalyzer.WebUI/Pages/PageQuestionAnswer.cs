@@ -19,7 +19,12 @@ Elimden geldiğince tartışılan konuları en kısa ve tarafsız bir şekilde �
                 br,
                 @"Aşağıdaki soruların cevaplarının doğru olup olmadığı siz okuyucuya bırakılmıştır. 
 İmana dair bir meselenin üzerinde düşünülüp içselleştirilmedikten sonra bir faydasının olmayacağına inanıyorum.
-Bu sebeple ben burada tartışmayı aktarayım, tarafların özetle ne söylediğini aktarayım sonrasında üzerine düşünmek-araştırmak ve bir karara varmak size kalsın."
+Tarafların özetle ne söylediğini aktarayım sonrasında üzerine düşünmek-araştırmak ve bir karara varmak size kalan bir mesele.",
+                br,
+                """
+                Hatta şüpheciliğimizi bir adım daha öteye taşıyalım. Her ne kadar tarafsız bir şekilde anlatmaya çalışsam da anlatan kişinin de yorumumu karışmış olabilir
+                şüphesini elden bırakmayınız.
+                """
             },
             br,
             new FlexColumn

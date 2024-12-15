@@ -74,8 +74,7 @@ class PageCountOfAllahView : ReactPureComponent
                 "Burada kendi fikrimi şöyle ifade etmek istiyorum. ",
                 "Ben bu yazıda konunun ne olduğunun anlaşılması için sunulan verilerden sadece 1 tanesini örnek olarak inceledim. ",
                 "Bu şekilde 70 den fazla veri var. ",
-                "Başlangıç harfleri'nin bu Tevbe suresi üzerindeki tartışma ile pek ilgisi olmadığı için bu konuya dair bu yazı dışında herhangi bir yazı sunmadım. ",
-                "Umarım konuyu aktarabilmişimdir."
+                "Başlangıç harfleri'nin bu Tevbe suresi üzerindeki tartışma ile pek ilgisi olmadığı için bu konuya dair bu yazı dışında herhangi bir yazı sunmadım. "
             }
         };
 

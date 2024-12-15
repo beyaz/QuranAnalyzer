@@ -37,7 +37,7 @@ public class PageAboutEdipYuksel : ReactPureComponent
                 " Edip; Reşad'ın yanında 1-1.5 yıl kadar kalıyor.",
                 separation,
 
-                "Reşad Halife nin yaptığı ingilizce çeviriyi bir kenara koyup kendi çeviri yapması biraz tezat oluşturuyor. ",
+                "Reşad Halife nin yaptığı ingilizce çeviriyi bir kenara koyup kendi çevirisini yapması garip gelebilir. ",
                 separation,
 
                 "Edip'in Reşad Halifenin ölümü ardından Reşad'ın tavsiyelerini uygulayanlara sizler Reşad'ı putlaştırıyorsunuz muamelesi var.",

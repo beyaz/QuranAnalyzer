@@ -79,8 +79,7 @@ public class PageWhereIsTheProblem : ReactPureComponent
                 "Özetle 68. suredeki nun-vav-nun olayı ve Elif sayımları üzerinde tartışılan noktalardır. ",
                 " Belki de burası ilerde daha netlik kazanacak. Bence şimdilik bunun imtihan kısmıdır. ",
                 " Yalnız Kuran fikrini kabullenemeyenler bu açık kapılardan çıkıp gidiyorlar. ",
-                " 19 üzerinde muhteşem veriler varken Elif harfine takılıyor tüm sistemi çöpe atıyor. ",
-                " Umarım üzerinde tartışma yaşanan kısmını anlatabilmişimdir."
+                " 19 üzerinde muhteşem veriler varken Elif harfine takılıyor tüm sistemi çöpe atıyor. "
             }
         };
     }

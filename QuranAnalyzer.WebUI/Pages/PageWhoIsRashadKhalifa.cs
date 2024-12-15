@@ -10,14 +10,16 @@ public class PageWhoIsRashadKhalifa : ReactPureComponent
 
             new p
             {
-                @"
-Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi ilk bulan kişi Reşad Halife ismi.
- Daha doğrusu onun fikirleri. Zaten fikirleri yüzünden de öldürüldü.
- Kısaca bu kişi kimdir? Derdi neymiş?
- Özetle ne söylemiş? İşte bu bilgileri kısa kısa olacak şekilde özetlemeye çalıştım. 
- Tekrarlamakta fayda görüyorum. Bu fikirler doğrudur yanlıştır gibi bir iddiam yok. 
- Daha doğrusu benim doğru veya yanlış demem herhangi bir şey ifade etmez. Ben sadece bu adamın ne demeye çalıştığını özetlemeye çalıştım. 
- Umarım faydalı olur."
+                """
+
+                 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi ilk bulan kişi Reşad Halife ismi.
+                 Daha doğrusu onun fikirleri. Zaten fikirleri yüzünden de öldürüldü.
+                 Kısaca bu kişi kimdir? Derdi neymiş?
+                 Özetle ne söylemiş? İşte bu bilgileri kısa kısa olacak şekilde özetlemeye çalıştım. 
+                 Bu fikirler doğrudur veya yanlıştır gibi bir tartışma içerisinde değilim. 
+                 Daha doğrusu benim doğru veya yanlış demem herhangi bir şey ifade etmez. 
+                 Bu adam ne için çabalamış kendimce özetlemeye çalıştım.
+                """
             },
 
             (h4)"İlk Yıllar ve Kariyer",
@@ -35,7 +37,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
             {
                 "30'lu yaşlarda Amerika'ya gelince bir yandan doktorasını tamamlarken bir yandan da İngilizce yazılmış Kuran meallerinin çoğunu okuyor. ",
                 "Eski tefsirleri zaten Mısırdayken inceleyen biri. Anadili zaten Arapça. ",
-                "Yazılan İngilizce Kuran çevirilerini inceledikten sonra fark ediyor ki bu çevirilerdeki eksik gördüğü ve tevhide uymayan fikirler olduğunu gözlemliyor. ",
+                "Yazılan İngilizce Kuran çevirilerini inceledikten sonra bu çevirilerde eksik gördüğü ve tevhide uymayan fikirler olduğunu gözlemliyor. ",
                 "En azından kendi evlatlarımın okuyabileceği Tevhidi merkez alan bir çeviri yapma niyeti ile çeviriye başladığını kendisi söylüyor. ",
                 "Bir ayetin manasını tam anlamadan ötekine  geçmeyeceğine dair kendine de şart koşuyor. ",
                 "1. sureyi çevirdikten sonra 2. sureye geliyor ve sure başındaki elif-lam-mim harflerine gelince takılıyor. ",
@@ -57,7 +59,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
             new p
             {
                 "Bu buluştan sonra bir anda İslam dünyasında popüler oluyor. Öyle ki Libya-İran gibi ülkelerden devlet başkanları seviyesinde özel davetler alıyor. ",
-                "Hatta Türkiye'de bile yankı buluyor. Öte yandan Reşad başka kitaplar yazılar makaleler de yayınlıyor. ",
+                "Hatta Türkiye'de bile yankı buluyor. Öte yandan Reşad başka kitaplar, yazılar ve makaleler de yayınlıyor. ",
                 "İşte Reşad'ın fikirleri de bu yayınlar sayesinde duyulmaya başlayınca eskiden el üstünde tutulan bu insan artık ismi duyulunca geri adım atılan biri haline dönüşüyor. ",
                 "Peki nedir bu adamın savunduğu fikirler? Bu fikirlerden bazılarını çok kısa şekilde belirtmeye çalıştım. Yazıda ben kendi anladıklarımı ifade etmeye çalıştım bu sebeple üslubuma pek takılmamanızı rica ediyorum. "
             },
@@ -122,7 +124,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     " (Bu kısmı kendi anladığım kadarı ile anlatmaya çalışacağım.)",
                     br,
                     br,
-                    " Hayatın anlamı ne? Niye buradayız? gibi sorular insanlık tarihi kadar eski sorulardır. Felsefe de bile bu soruya net bir cevap verilememiştir.",
+                    " Hayatın anlamı ne? Niye buradayız? gibi sorular insanlık tarihi kadar eski sorulardır. Bir çok filozof bu konu üzerine farklı yorumlar yapmışlardır.",
                     br,
                     br,
                     " - Ben mi istedim bu dünyaya gelmeyi?",
@@ -141,8 +143,8 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     br,
                     br,
                     "- Madem Tanrı bu kadar güçlü neden bunca kötülüğe izin veriyor? ",
-                    "Biz insanoğluna iyi-kötü arasında seçim yaptıracağına iyi-daha iyi arasında bir seçim yapsaydık da hepimiz cennete gitsek daha iyi olmaz mı?",
-                    " Daha çok puan alan cennette daha üst konuma gitseydi",
+                    "Biz insanoğluna iyi ve kötü arasında seçim yaptıracağına iyi ve daha iyi arasında bir seçim yapsaydık da hepimiz cennete gitsek daha iyi olmaz mı?",
+                    " Daha çok puan alan cennette daha üst konuma gitseydi.",
                     br,
                     br,
                     "- Kutsal yazılarda bahsedildiğine göre Koskoca Tanrı ne diye şeytan gibi  yarattığı birini kendine rakipmiş gibi  görüp de biz insanoğluna ",
@@ -175,7 +177,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     " Yukarıda verilen ve benim  yıllarımı yiyen bu sorular artık çıtır çerez gibi gelebilir.",
                     " Aşağıda Reşad Halife tarafından yapılan çevirinin linkini ekliyorum dileyen kitabın başında detaylı olarak anlatılan bu konuyu inceleyebilir.",
                     br,
-                    new a { href = "http://teslimolan.org/pdf/kuran-son-ahit---birinci-baski.pdf", text = "Yetkilendirilmiş Çeviri" }
+                    new a { href = "https://teslimiyetdini.com/wp-content/uploads/2024/12/Kuran-son-ahit-turkce-baski-2.pdf", text = "Yetkilendirilmiş Çeviri" }
                 }
             },
 
@@ -227,7 +229,7 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                     br,
                     "Bu örnek size komik gelebilir ama namaz hakkında oruç hakkında sorulan soruların çoğu bu şekildedir.",
                     br, br,
-                    "Nasıl ki çocuklar ‘gol nedir’, ‘korner nedir’ sormuyorsa insanlar da İbrahim’e öğretilen ve o zamandan bu yana binlerce yıldır devam eden namazın şekli hakkında soru sormadılar.",
+                    "Nasıl ki çocuklar ‘gol nedir’, ‘korner nedir’ sormuyorsa insanlar da İbrahim’e öğretilen ve o zamandan bu yana yıllardır devam eden namazın şekli hakkında soru sormadılar.",
                     " İlk inen namaz ayeti namaz hakkında hiçbir bilgi vermediği gibi insanların bu ayete verdikleri tepki de ‘namaz nedir’ gibi  sorular olmadı. Çünkü biliniyordu.",
 
                     br, br,
@@ -308,14 +310,14 @@ Bu 19 meselesini incelerken fark ettim ki meselenin odağındaki isim bu sistemi
                 " Açıkçası bu fikirler kadar olmasa da beni etkileyen şu kısma da değinerek yazıyı tamamlamış olayım.",
                 " Reşad Halife de gördüğüm durumlar şunlar.",
 
-                " Bu adamın çok baskın bir tevhid anlayışı var. Allah'ı çok farklı ve güzel ve Kurandan referanslar ile anlatıyor.",
+                " Bu adamın çok baskın bir tevhid anlayışı var. Allah'ı Kurandan referanslar ile anlatıyor.",
                 " Sıradan bir yurdum insanıyım. Allah hakkında bir sürü hikaye dinledim. Kuran okudukça fark ediyorum ki bu hikayelerin çoğu Kurandan değilmiş.",
                 (b)" Zihninizdeki Allah ile gerçekteki Allah farklı olabilir. Dolayısı ile Allah'ı Kuran üzerinden tanımak mecburiyetindeyiz. ",
                 " Bu konuda Reşad oldukça iyi bir eğitmen. Tevhid mesajını en yüksek tonda seslendirmeye çalışan biri.",
 
                 " Dinden kazanç sağlamıyor olması benim için önemli. Kazanç sadece para ile olmaz. Bazen şöhret ile de olur. ",
                 " 19 sistemini ilk bulduğunda popülaritesi varken istese bu fikirlerini pek duyurmayıp o popülaritenin kaymağını yiyebilirdi.",
-                " Fakat o tam tersini yapıyor. Emeklilik parası ile gidip mescit kuruyor. ",
+                " Fakat o tam tersini yapıyor. Emeklilik parası ile gidip mescit açıyor. ",
                 " Hadisleri dinin kaynağı olarak görmediğini ve dinin tek kaynağının Kuran olduğunu üzerine basa basa tekrarlıyor.",
                 " Bu uğurda şöhreti elden gidiyor. Ölüm tehditleri aldığı halde geri adım atmıyor. Hatta bir videoda kamera yanlışlıkla kayıyor arkasında toplamda 10 kişilik bir saf bile yok.",
                 " Zaten bu fikirleri yüzünden de 55 yaşında sabah namazında öldürülüyor.",

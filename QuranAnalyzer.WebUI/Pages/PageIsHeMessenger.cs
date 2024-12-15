@@ -128,7 +128,7 @@ public class PageIsHeMessenger : ReactPureComponent
                 "(Bedir savaşında Müslümanların yaklaşık rakamı 300 civarındadır.)", br,
                 "Düşünün ki bir insan var 10 yıldan fazladır uğraşıyor ve etrafına sadece 300 kişi toplayabilmiş.", br,
                 "Çoğunluk onun tarafında değil. Siz o zamanda gelseydiniz çoğunluğun mu yanında olurdunuz yoksa o kişinin yanında mı olurdunuz?", br,
-                "Düşünün ki Bedir savaşına katılırsanız hem sizi öldürecekler hem de geride bıraktığınız ne varsa (mallarınız- eşiniz-kızınız) çökecekler.", br,
+                "Düşünün ki Bedir savaşına katılırsanız hem sizi öldürecekler hem de geride bıraktığınız ne varsa (mallarınız- eşiniz-kızınız) savaş ganimeti sayılacak.", br,
                 "İşte böyle bir durumda her şeyinizi geride bırakıp savaşa katılır mıydınız?",
                 " Özetle bugünden, 2 bin yıl öncesine bakıp yorum yapmak çok kolay. Ama bu elçilik-peygamberlik meseleleri ile bizzat karşı karşıya olmak zor bir süreç."
             },
@@ -429,7 +429,7 @@ public class PageIsHeMessenger : ReactPureComponent
                 br,
                 "Aslında cevabı çok basit bir soru. Çünkü onlar elçi değildiler.",
                 " Öyle bir görevleri yoktu.",
-                " Bu insanlar dürüst ve cesur insanlardı eğer elçi olsalardı ve söylemeleri emredilseydi bunu söylerlerdi.",
+                " Tarihi verilere göre bu insanlar dürüst ve cesur insanlardı eğer elçi olsalardı ve söylemeleri emredilseydi bunu söylerlerdi.",
                 br,
                 " Bizim ana problemli algımız elçilerin veya peygamberlerin diğer insanlardan kesinkez üstün olduğu fikridir.",
                 " Halbuki peygamberler ve elçiler de birer insandır. Onlar da bizler gibi yemek yiyip çarşıda pazarda alışveriş yaptılar.",

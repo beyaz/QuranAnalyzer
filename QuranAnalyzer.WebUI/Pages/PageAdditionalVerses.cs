@@ -22,7 +22,7 @@ public class PageAdditionalVerses : ReactPureComponent
             {
                 "Önce net bir şekilde cevabı verelim.",
                 (b)"19 sisteminin en majör bileşeni başlangıç harfleri üzerine olan sistemdir. ",
-                "Bu en majör bileşen olan başlangıç harflerinin, Tevbe suresinin toplamda 127 ayet mi yoksa 129 ayet mi olması ile bir ilgisi yoktur.",
+                "Bu en majör bileşen olan başlangıç harflerinin, Tevbe suresinin toplamda 127 ayet mi yoksa 129 ayet mi olması ile doğrudan bir ilgisi yoktur.",
                 br,
                 "Hatta böyle bir kafa karışıklığına mahal vermemesi için ben bu sitede yaptığım tüm sayımları  ",
                 "klasik elinize aldığınız bir kuran mushafı ile aynı olan Tanzil.net den aldığım mushaf ile yaptım."
@@ -31,7 +31,7 @@ public class PageAdditionalVerses : ReactPureComponent
             {
                 "Önce meselenin tarihi yönünü ele alalım. ",
                 " Rivayetlerde şöyle nakledilir, Ebubekir zamanında Kuran mushaf haline getirilmesi için 5 kişilik bir ekip kurulur.",
-                " İnsanlar elinde ne kadar deriye-kağıda yazılmış kuran var ise ortaya koyarlar. Her bir ayet için en az 3 kişinin şahitliği şart koşulur.",
+                " İnsanlar elinde ne kadar deriye yazılmış kuran var ise ortaya koyarlar. Her bir ayet için en az 3 kişinin şahitliği şart koşulur.",
                 " Süveybe adında bir sahabe de, tevbe suresinin 128. ve 129. ayetlerini söyler.",
                 " Fakat onun dışında hiç kimse bu iki sözün ayet olduğuna şahit olmaz.",
                 " Süveybe ise taa mekke döneminde bir kişinin peygamberin deve satın alması konusunda problem yaşadığını görür ve peygamber ile ticaret yapan kişinin ilk anlaşması esnasında olmadığı halde  peygamberin doğru söylediğine şahitlik eder.",
@@ -54,7 +54,7 @@ public class PageAdditionalVerses : ReactPureComponent
                 " Hatta herkim ki tevbe suresi 128. 129 uncu ayetleri şu vakitlerde okur ise ona şöyle sevap yazılır şeklinde rivayetlerin olması da bir garip.",
                 " Özellikle 128-129 un seçilmiş olması biraz garip.",
                 br,
-                "Hiç bir yerde Rahman Rahim gibi sıfatlar Allah dışında kullanılmaz iken sadece burada Muhammed peygamber için kullanılmış",
+                "Rahman Rahim gibi sıfatlar Allah için kullanılırken burada Muhammed peygamber için kullanılmış.",
                 br,
                 "Hasılı iki kapak arasına girdikten sonra mesele kapanıyor."
             },
