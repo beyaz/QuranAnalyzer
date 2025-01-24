@@ -1,60 +1,36 @@
 ﻿namespace QuranAnalyzer.WebUI.Pages.Shared;
 
-class HelpComponent : ReactComponent
+class HelpComponent : ReactComponent<HelpComponent.State>
 {
     public bool ShowHelpMessageForLetterSearch { get; init; }
 
     protected override Element render()
     {
-        return new CollapsiblePanel
+        return new FlexColumn
         {
-            Title = "Örnek arama komutları",
-            children =
+            new FlexRow(AlignItemsCenter, PaddingBottom(10), OnClick(Toggle))
             {
+                new span { "Örnek arama komutları", CursorDefault },
+                new ArrowUpDownIcon { IsArrowUp = state.IsExpanded }
+            },
+            new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
+            {
+                AnimateHeightAndOpacity(state.IsExpanded),
                 new HelpComponentDetail { ShowHelpMessageForLetterSearch = ShowHelpMessageForLetterSearch }
             }
         };
     }
 
-    class CollapsiblePanel : ReactComponent
+    Task Toggle(MouseEvent e)
     {
-        public string Title { get; init; }
+        state = state with { IsExpanded = !state.IsExpanded };
 
-        protected override Element render()
-        {
-            var key = Key("content");
+        return Task.CompletedTask;
+    }
 
-            return new Accordion
-            {
-                new Fragment(key)
-                {
-                    new FlexRow(AlignItemsCenter, PaddingBottom(10))
-                    {
-                        new span { Title, CursorDefault },
-                        new ArrowUpDownIcon { IsArrowUp = false }
-                    },
-                    new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
-                    {
-                        AnimateHeightAndOpacity(false),
-                        children
-                    }
-                },
-
-                new Fragment(key)
-                {
-                    new FlexRow(AlignItemsCenter, PaddingBottom(10))
-                    {
-                        new span { Title, CursorDefault },
-                        new ArrowUpDownIcon { IsArrowUp = true }
-                    },
-                    new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
-                    {
-                        AnimateHeightAndOpacity(true),
-                        children
-                    }
-                }
-            };
-        }
+    internal record State
+    {
+        public bool IsExpanded { get; init; }
     }
 }
 
@@ -152,54 +128,5 @@ class HelpComponentDetail : ReactPureComponent
         {
             return new td { children } + Width(400);
         }
-    }
-}
-
-sealed class Accordion : Component<Accordion.State>
-{
-    public bool IsExpanded { get; init; }
-
-    protected override Task constructor()
-    {
-        state = new()
-        {
-            IsExpanded = IsExpanded
-        };
-
-        return Task.CompletedTask;
-    }
-
-    protected override Element render()
-    {
-        return new div
-        {
-            OnClick(ToggleCollapse),
-
-            new div(When(state.IsExpanded, DisplayNone))
-            {
-                children[0]
-            },
-            new div(When(state.IsExpanded is false, DisplayNone))
-            {
-                children[1]
-            }
-        };
-    }
-
-    Task ToggleCollapse(MouseEvent e)
-    {
-        if (e.target.tagName == "INPUT")
-        {
-            return Task.CompletedTask;
-        }
-
-        state = state with { IsExpanded = !state.IsExpanded };
-
-        return Task.CompletedTask;
-    }
-
-    internal record State
-    {
-        public bool IsExpanded { get; init; }
     }
 }
