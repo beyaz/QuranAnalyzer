@@ -36,11 +36,11 @@ class CountsSummaryView : ReactPureComponent
         var specialNumber = TryFindSpecialNumber(total);
         if (specialNumber.HasValue)
         {
-            returnDiv.appendChild(MultipleOf(total, specialNumber.Value));
+            returnDiv.children.Add(MultipleOf(total, specialNumber.Value));
         }
         else
         {
-            returnDiv.appendChild(new legend(DisplayFlex, FlexDirectionRow, Gap(4))
+            returnDiv.children.Add(new legend(DisplayFlex, FlexDirectionRow, Gap(4))
             {
                 new div { text = "Toplam:" },
 
@@ -64,9 +64,9 @@ class CountsSummaryView : ReactPureComponent
         {
             var name = counts[j].Name;
 
-            countsView.appendChild(CountAsElement(name, LetterColorPalette.GetColor(j), GetPronunciation(name), counts[j].Count, "subTotal-" + j));
+            countsView.children.Add(CountAsElement(name, LetterColorPalette.GetColor(j), GetPronunciation(name), counts[j].Count, "subTotal-" + j));
 
-            returnDiv.appendChild(new Xarrow
+            returnDiv.children.Add(new Xarrow
             {
                 start       = "GrandTotal",
                 end         = "subTotal-" + j,
@@ -79,7 +79,7 @@ class CountsSummaryView : ReactPureComponent
             });
         }
 
-        returnDiv.appendChild(countsView);
+        returnDiv.children.Add(countsView);
 
         return returnDiv;
     }

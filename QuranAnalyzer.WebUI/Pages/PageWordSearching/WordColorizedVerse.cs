@@ -100,7 +100,7 @@ class WordColorizedVerse : ReactPureComponent
                     new div { startEndPoints.Count.ToString(), FontSize12 }
                 };
 
-                countsView.appendChild(countView);
+                countsView.children.Add(countView);
 
                 searchWordIndex++;
             }

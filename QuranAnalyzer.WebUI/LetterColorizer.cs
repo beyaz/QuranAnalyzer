@@ -80,7 +80,7 @@ public class LetterColorizer : ReactPureComponent
                 GetExtra(lettersForColorize[j].OrderValue)
             };
 
-            countsView.appendChild(countView);
+            countsView.children.Add(countView);
         }
 
         var textView = new div(FontFamily_Lateef)
