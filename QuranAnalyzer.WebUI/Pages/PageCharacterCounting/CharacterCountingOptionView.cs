@@ -15,10 +15,32 @@ class CharacterCountingOptionView : ReactComponent
 
         return new FlexColumn(Gap(10))
         {
-            new Accordion
+            ()=> 
             {
-                arabicKeyBoard(false),
-                arabicKeyBoard(true)
+                var isOpen = false;
+
+                return FC(_ =>
+                {
+                    return new Fragment
+                    {
+                        new FlexRow(JustifyContentFlexStart, OnClick(Toggle))
+                        {
+                            new div { "Arapça Klavye", CursorDefault },
+                            new ArrowUpDownIcon { IsArrowUp = isOpen }
+                        },
+                        new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
+                        {
+                            AnimateHeightAndOpacity(isOpen),
+                            new ArabicKeyboard()
+                        }
+                    };
+
+                    Task Toggle(MouseEvent _)
+                    {
+                        isOpen = !isOpen;
+                        return Task.CompletedTask;
+                    }
+                });
             },
             new HelpComponent { ShowHelpMessageForLetterSearch = true },
             new Accordion
@@ -28,22 +50,7 @@ class CharacterCountingOptionView : ReactComponent
             }
         };
 
-        Element arabicKeyBoard(bool isOpen)
-        {
-            return new Fragment(key)
-            {
-                new FlexRow(JustifyContentFlexStart)
-                {
-                    new div { "Arapça Klavye", CursorDefault },
-                    new ArrowUpDownIcon { IsArrowUp = isOpen }
-                },
-                new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
-                {
-                    AnimateHeightAndOpacity(isOpen),
-                    new ArabicKeyboard()
-                }
-            };
-        }
+       
 
         Element mushafOption(bool isOpen)
         {
