@@ -7,7 +7,7 @@ class CharacterCountingOptionView : ReactComponent
     public MushafOption MushafOption { get; set; } = new();
 
     [CustomEvent]
-    public Func<MushafOption,Task> MushafOptionChanged { get; set; }
+    public Func<MushafOption, Task> MushafOptionChanged { get; set; }
 
     protected override Element render()
     {
@@ -15,7 +15,7 @@ class CharacterCountingOptionView : ReactComponent
 
         return new FlexColumn(Gap(10))
         {
-            ()=> 
+            () =>
             {
                 var isOpen = false;
 
@@ -50,8 +50,6 @@ class CharacterCountingOptionView : ReactComponent
             }
         };
 
-       
-
         Element mushafOption(bool isOpen)
         {
             return new Fragment(key)
@@ -74,7 +72,7 @@ class CharacterCountingOptionView : ReactComponent
     {
         MushafOption = mushafOption;
         DispatchEvent(MushafOptionChanged, [mushafOption]);
-        
+
         return Task.CompletedTask;
     }
 }
