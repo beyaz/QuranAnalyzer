@@ -15,46 +15,46 @@ class HelpComponent : ReactComponent
             }
         };
     }
-}
 
-class CollapsiblePanel : ReactComponent
-{
-    public string Title { get; set; }
-
-    protected override Element render()
+    class CollapsiblePanel : ReactComponent
     {
-        var key = Key("content");
+        public string Title { get; init; }
 
-        return new Accordion
+        protected override Element render()
         {
-            new Fragment(key)
+            var key = Key("content");
+
+            return new Accordion
             {
-                new FlexRow(AlignItemsCenter, PaddingBottom(10))
+                new Fragment(key)
                 {
-                    new span { Title, CursorDefault },
-                    new ArrowUpDownIcon { IsArrowUp = false }
+                    new FlexRow(AlignItemsCenter, PaddingBottom(10))
+                    {
+                        new span { Title, CursorDefault },
+                        new ArrowUpDownIcon { IsArrowUp = false }
+                    },
+                    new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
+                    {
+                        AnimateHeightAndOpacity(false),
+                        children
+                    }
                 },
-                new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
+
+                new Fragment(key)
                 {
-                    AnimateHeightAndOpacity(false),
-                    children
+                    new FlexRow(AlignItemsCenter, PaddingBottom(10))
+                    {
+                        new span { Title, CursorDefault },
+                        new ArrowUpDownIcon { IsArrowUp = true }
+                    },
+                    new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
+                    {
+                        AnimateHeightAndOpacity(true),
+                        children
+                    }
                 }
-            },
-            
-            new Fragment(key)
-            {
-                new FlexRow(AlignItemsCenter, PaddingBottom(10))
-                {
-                    new span { Title, CursorDefault },
-                    new ArrowUpDownIcon { IsArrowUp = true }
-                },
-                new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
-                {
-                    AnimateHeightAndOpacity(true),
-                    children
-                }
-            }
-        };
+            };
+        }
     }
 }
 
@@ -155,53 +155,51 @@ class HelpComponentDetail : ReactPureComponent
     }
 }
 
- sealed class Accordion : Component<Accordion.State>
+sealed class Accordion : Component<Accordion.State>
+{
+    public bool IsExpanded { get; init; }
+
+    protected override Task constructor()
+    {
+        state = new()
+        {
+            IsExpanded = IsExpanded
+        };
+
+        return Task.CompletedTask;
+    }
+
+    protected override Element render()
+    {
+        return new div
+        {
+            OnClick(ToggleCollapse),
+
+            new div(When(state.IsExpanded, DisplayNone))
+            {
+                children[0]
+            },
+            new div(When(state.IsExpanded is false, DisplayNone))
+            {
+                children[1]
+            }
+        };
+    }
+
+    Task ToggleCollapse(MouseEvent e)
+    {
+        if (e.target.tagName == "INPUT")
+        {
+            return Task.CompletedTask;
+        }
+
+        state = state with { IsExpanded = !state.IsExpanded };
+
+        return Task.CompletedTask;
+    }
+
+    internal record State
     {
         public bool IsExpanded { get; init; }
-
-        protected override Task constructor()
-        {
-            state = new()
-            {
-                IsExpanded = IsExpanded
-            };
-
-            return Task.CompletedTask;
-        }
-
-        protected override Element render()
-        {
-            return new div
-            {
-                OnClick(ToggleCollapse),
-
-                new div(When(state.IsExpanded, DisplayNone))
-                {
-                    children[0]
-                },
-                new div(When(state.IsExpanded is false, DisplayNone))
-                {
-                    children[1]
-                }
-            };
-        }
-
-        Task ToggleCollapse(MouseEvent e)
-        {
-            if (e.target.tagName == "INPUT" )
-            {
-                return Task.CompletedTask;
-            }
-
-            
-            state = state with { IsExpanded = !state.IsExpanded };
-
-            return Task.CompletedTask;
-        }
-
-
-        internal record State
-        {
-            public bool IsExpanded { get; init; }
-        }
     }
+}
