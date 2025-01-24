@@ -2,7 +2,7 @@
 
 class ArrowUpDownIcon : ReactPureComponent
 {
-    public bool IsArrowUp { get; set; }
+    public bool IsArrowUp { get; init; }
 
     protected override Element render()
     {
