@@ -2,7 +2,7 @@
 
 class HelpComponent : ReactComponent
 {
-    public bool ShowHelpMessageForLetterSearch { get; set; }
+    public bool ShowHelpMessageForLetterSearch { get; init; }
 
     protected override Element render()
     {
