@@ -2,12 +2,22 @@
 
 namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
 
-class CharacterCountingOptionView : ReactComponent
+class CharacterCountingOptionView : ReactComponent<CharacterCountingOptionView.State>
 {
-    public MushafOption MushafOption { get; set; } = new();
+    public MushafOption MushafOption { get; init; }
 
     [CustomEvent]
     public Func<MushafOption, Task> MushafOptionChanged { get; set; }
+
+    protected override Task constructor()
+    {
+        state = new()
+        {
+            MushafOption = MushafOption ?? new()
+        };
+
+        return Task.CompletedTask;
+    }
 
     protected override Element render()
     {
@@ -43,36 +53,44 @@ class CharacterCountingOptionView : ReactComponent
                 });
             },
             new HelpComponent { ShowHelpMessageForLetterSearch = true },
-            new Accordion
+            new Fragment(key)
             {
-                mushafOption(false),
-                mushafOption(true)
-            }
-        };
-
-        Element mushafOption(bool isOpen)
-        {
-            return new Fragment(key)
-            {
-                new FlexRow(JustifyContentFlexStart)
+                new FlexRow(JustifyContentFlexStart, OnClick(_ =>
+                {
+                    state = state with
+                    {
+                        IsMushafOptionOpen = !state.IsMushafOptionOpen
+                    };
+                    return Task.CompletedTask;
+                }))
                 {
                     new div { "Mushaf Ayarları", CursorDefault },
-                    new ArrowUpDownIcon { IsArrowUp = isOpen }
+                    new ArrowUpDownIcon { IsArrowUp = state.IsMushafOptionOpen }
                 },
                 new FlexColumn(JustifyContentSpaceEvenly, PaddingLeft(10))
                 {
-                    AnimateHeightAndOpacity(isOpen),
+                    AnimateHeightAndOpacity(state.IsMushafOptionOpen),
                     new MushafOptionsView { Model = MushafOption, MushafOptionChanged = OnMushafOptionChanged }
                 }
-            };
-        }
+            }
+        };
     }
 
     Task OnMushafOptionChanged(MushafOption mushafOption)
     {
-        MushafOption = mushafOption;
+        state = state with
+        {
+            MushafOption = mushafOption
+        };
+
         DispatchEvent(MushafOptionChanged, [mushafOption]);
 
         return Task.CompletedTask;
+    }
+
+    internal record State
+    {
+        public bool IsMushafOptionOpen { get; init; }
+        public MushafOption MushafOption { get; init; }
     }
 }
