@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Net.Http.Headers;
 
 namespace QuranAnalyzer.WebUI;
 
@@ -40,7 +41,9 @@ public class Program
             RequestPath         = new ("/wwwroot"),
             OnPrepareResponse   = ctx =>
             {
-                ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={TimeSpan.FromMinutes(5).TotalSeconds}");
+                var maxAge = TimeSpan.FromDays(365).TotalSeconds;
+                
+                ctx.Context.Response.Headers.Append(HeaderNames.CacheControl, $"max-age={maxAge},public,immutable");
             }
         });
 

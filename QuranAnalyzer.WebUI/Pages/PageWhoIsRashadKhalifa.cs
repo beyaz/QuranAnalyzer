@@ -220,7 +220,7 @@ public class PageWhoIsRashadKhalifa : ReactPureComponent
                     " 4 rekatlı namazda ilk oturuşta mı yoksa ikinci oturuşda mı kaldırılacak? gibi gibi.. Yaradana içten yakarmak yerine şekilde takılı kalınıyor.",
                     br,
                     br,
-                    "-Namaz ibrahim peygamber aracılığı ile gelen ibadet pratiklerindendir. ",
+                    "-Namaz İbrahim peygamber aracılığı ile gelen ibadet pratiklerindendir. ",
                     " Hatta yahudilerin namaz kılma şeklini inceleyin. Müslümanlarınkine çok benzerdir.",
                     br, br,
                     "- Benzetmek biraz garip olcak ama şöyle hayal edin.",

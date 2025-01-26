@@ -44,7 +44,6 @@ static class ReactWithDotNetIntegration
                 await WriteHtmlResponse(httpContext, typeof(MainLayout), typeof(ReactWithDotNetDesigner));
                 return;
             }
-
             #endif
 
             await next();
