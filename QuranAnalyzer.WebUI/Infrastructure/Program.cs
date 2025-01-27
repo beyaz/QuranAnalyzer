@@ -34,22 +34,21 @@ public class Program
             app.UseDeveloperExceptionPage();
         }
 
-        app.ConfigureReactWithDotNet();
-        
         app.UseStaticFiles(new StaticFileOptions
         {
-            RequestPath         = new ("/wwwroot"),
-            OnPrepareResponse   = ctx =>
+            RequestPath = new("/wwwroot"),
+            OnPrepareResponse = ctx =>
             {
                 var maxAge = TimeSpan.FromDays(365).TotalSeconds;
-                
+
                 ctx.Context.Response.Headers.Append(HeaderNames.CacheControl, $"max-age={maxAge},public,immutable");
             }
         });
 
         app.UseResponseCompression();
 
+        app.ConfigureReactWithDotNet();
+
         app.Run();
     }
-    
 }
