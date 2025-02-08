@@ -114,7 +114,7 @@ public class LetterColorizer : ReactPureComponent
                 FlexDirectionColumn,
                 AlignItemsFlexEnd,
 
-                Border("1px dashed rgb(218, 220, 224)"),
+                Border(1, "dashed", rgb(218, 220, 224)),
                 BorderRadiusForPanels
             }
         };

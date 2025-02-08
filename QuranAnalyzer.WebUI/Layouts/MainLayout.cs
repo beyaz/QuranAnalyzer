@@ -4,6 +4,57 @@ class MainLayout : ReactPureComponent, IPageLayout
 {
     public string ContainerDomElementId => "app";
 
+    // After page first rendered in client then connect with react system in background.
+    // So user first iteraction time will be minimize.
+
+    public string InitialScript =>
+        $$"""
+          import {ReactWithDotNet} from '{{IndexJsFilePath}}';
+
+          ReactWithDotNet.StrictMode = false;
+
+          ReactWithDotNet.RequestHandlerPath = '{{RequestHandlerPath}}';
+
+          ReactWithDotNet.RenderComponentIn({
+            idOfContainerHtmlElement: '{{ContainerDomElementId}}',
+            renderInfo: {{RenderInfo.ToJsonString()}}
+          });
+
+          var currentScrollY = 0;
+
+          document.addEventListener('scroll', () => 
+          {
+              var scrollY = window.scrollY;
+          
+              function canFireAction()
+              {
+                  if (scrollY > 0)
+                  {
+                      return currentScrollY === 0;
+                  }
+          
+                  if (currentScrollY > 0)
+                  {
+                      return true;
+                  }
+          
+                  return false;
+              }
+          
+              if (canFireAction())
+              {
+                  currentScrollY = scrollY;
+          
+                  ReactWithDotNet.DispatchEvent('MainContentDivScrollChangedOverZero', [scrollY]);
+              }
+              else
+              {
+                  currentScrollY = scrollY;
+              }
+          });
+
+          """;
+
     public ComponentRenderInfo RenderInfo { get; set; }
 
     protected override Element render()
@@ -16,6 +67,7 @@ class MainLayout : ReactPureComponent, IPageLayout
             new head
             {
                 new meta { charset = "UTF-8" },
+                
                 new meta { name    = "viewport", content = "width=device-width, initial-scale=1" },
 
                 new meta { name = "description", content = "19 Sistemi Nedir" },
@@ -65,66 +117,7 @@ class MainLayout : ReactPureComponent, IPageLayout
             },
             new body
             {
-                new div(Id(ContainerDomElementId), WidthFull, Height100vh),
-
-                // After page first rendered in client then connect with react system in background.
-                // So user first iteraction time will be minimize.
-
-                new script
-                {
-                    type = "module",
-
-                    text =
-                        $$"""
-                          import {ReactWithDotNet} from '{{IndexJsFilePath}}';
-
-                          ReactWithDotNet.StrictMode = false;
-
-                          ReactWithDotNet.RequestHandlerPath = '{{RequestHandlerPath}}';
-
-                          ReactWithDotNet.RenderComponentIn({
-                            idOfContainerHtmlElement: '{{ContainerDomElementId}}',
-                            renderInfo: {{RenderInfo.ToJsonString()}}
-                          });
-
-                          var currentScrollY = 0;
-
-                          document.addEventListener('scroll', () => 
-                          {
-                              var scrollY = window.scrollY;
-                          
-                              function canFireAction()
-                              {
-                                  if (scrollY > 0)
-                                  {
-                                      return currentScrollY === 0;
-                                  }
-                          
-                                  if (currentScrollY > 0)
-                                  {
-                                      return true;
-                                  }
-                          
-                                  return false;
-                              }
-                          
-                              if (canFireAction())
-                              {
-                                  currentScrollY = scrollY;
-                          
-                                  ReactWithDotNet.DispatchEvent('MainContentDivScrollChangedOverZero', [scrollY]);
-                              }
-                              else
-                              {
-                                  currentScrollY = scrollY;
-                              }
-                          });
-
-
-
-
-                          """
-                }
+                new div(Id(ContainerDomElementId), WidthFull, Height100vh)
             }
         };
 
