@@ -88,7 +88,7 @@ public class LetterColorizer : ReactPureComponent
             innerHTML = html.ToString(),
             style =
             {
-                FontSize(38),
+                FontSize(32),
                 Padding(5),
                 DirectionRtl
             }
