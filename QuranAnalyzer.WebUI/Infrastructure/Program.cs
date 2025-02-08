@@ -19,7 +19,7 @@ public class Program
         // C O N F I G U R E     S E R V I C E S
         services.Configure<GzipCompressionProviderOptions>(options =>
         {
-            options.Level = CompressionLevel.Fastest;
+            options.Level = CompressionLevel.Optimal;
         });
         services.AddResponseCompression(options =>
         {
