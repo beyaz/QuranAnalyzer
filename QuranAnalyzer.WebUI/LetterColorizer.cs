@@ -85,13 +85,10 @@ public class LetterColorizer : ReactPureComponent
 
         var textView = new div(FontFamily_Lateef)
         {
-            innerHTML = html.ToString(),
-            style =
-            {
-                FontSize(32),
-                Padding(5),
-                DirectionRtl
-            }
+            html,
+            FontSize(32),
+            Padding(5),
+            DirectionRtl
         };
 
         var verseId = new div(FontWeightBold, MarginLeft(2), FontSize13)
