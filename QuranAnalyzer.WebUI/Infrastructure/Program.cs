@@ -17,12 +17,13 @@ public class Program
         var services = builder.Services;
 
         // C O N F I G U R E     S E R V I C E S
-        services.Configure<BrotliCompressionProviderOptions>(options => { options.Level = CompressionLevel.Fastest; });
-        services.Configure<GzipCompressionProviderOptions>(options => { options.Level   = CompressionLevel.Fastest; });
+        services.Configure<GzipCompressionProviderOptions>(options =>
+        {
+            options.Level = CompressionLevel.Fastest;
+        });
         services.AddResponseCompression(options =>
         {
             options.EnableForHttps = true;
-            options.Providers.Add<BrotliCompressionProvider>();
             options.Providers.Add<GzipCompressionProvider>();
         });
 
