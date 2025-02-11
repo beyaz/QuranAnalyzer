@@ -21,7 +21,37 @@ public class CustomCountingTests2
 
         var lines = arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseNumbers).ToList();
 
-        var allVerseList = lines.Select(x => new { ChapterNumber=x.chapterNumber, VerseNumber = x.verseNumber, Letters = AnalyzeText(x.verseText) }).ToList();
+        var allVerseList = lines.Select(x => new
+        {
+            ChapterNumber =x.chapterNumber,
+            VerseNumber   = x.verseNumber, 
+            Letters       = AnalyzeText(x.verseText),
+            CountA        = getCountA(x.verseText),
+            CountB        = getCountB(x.verseText)
+        }).ToList();
+
+        int getCountA(string verseText)
+        {
+            var sum = 0;
+            var letters = AnalyzeText(verseText);
+            foreach (var letterInfo in inputA)
+            {
+                sum +=letters.Count(x => x.OrderValue == letterInfo.OrderValue);
+            }
+
+            return sum;
+        }
+        int getCountB(string verseText)
+        {
+            var sum = 0;
+            var letters = AnalyzeText(verseText);
+            foreach (var letterInfo in inputB)
+            {
+                sum +=letters.Count(x => x.OrderValue == letterInfo.OrderValue);
+            }
+
+            return sum;
+        }
 
         var matchedIndexes = new List<(int start, int end, int count)>();
         
@@ -46,13 +76,18 @@ public class CustomCountingTests2
 
         (bool success, int count) hasMatch(int verseIndexStart, int verseIndexEnd)
         {
-            var countA = getCount(verseIndexStart, verseIndexEnd, inputA);
+            var countA = 0;
+            var countB = 0;
+                
+            for (var i = verseIndexStart; i < verseIndexEnd; i++)
+            {
+                countA += allVerseList[i].CountA;
+                countB += allVerseList[i].CountB;
+            }
             if (countA == 0)
             {
                 return default;
             }
-            var countB = getCount(verseIndexStart, verseIndexEnd, inputB);
-
             if (countA == countB)
             {
                 return (true, countA);
@@ -60,42 +95,5 @@ public class CustomCountingTests2
 
             return default;
         }
-        
-        int getCount(int verseIndexStart, int verseIndexEnd, IReadOnlyList<LetterInfo> searchLetters)
-        {
-            var sum = 0;
-            foreach (var searchLetter in searchLetters)
-            {
-                var count = getLetterCountInRange(searchLetter);
-                if (count == 0)
-                {
-                    return 0;
-                }
-                
-                sum += count;
-            }
-            return sum;
-
-            int getLetterCountInRange(LetterInfo letterInfo)
-            {
-                var count = 0;
-                
-                for (var i = verseIndexStart; i < verseIndexEnd; i++)
-                {
-                    //if (allVerseList[i].ChapterNumber != 9)
-                    //{
-                    //    if (allVerseList[i].VerseNumber == 0)
-                    //    {
-                    //        count += bismillah.Count(x => x.OrderValue == letterInfo.OrderValue);        
-                    //    }
-                    //}
-                    
-                    count += allVerseList[i].Letters.Count(x => x.OrderValue == letterInfo.OrderValue);
-                }
-                
-                return count;
-            }
-        }
-
     }
 }
