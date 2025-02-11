@@ -57,8 +57,20 @@ public class CustomCountingTests2
         
         for (var i = 0; i < allVerseList.Count; i++)
         {
+            //if (allVerseList[i].ChapterNumber != 44)
+            //{
+            //    continue;
+            //}
+            
+            
+            
             for (var j = i + 1; j < allVerseList.Count; j++)
             {
+                if (j - i < 5)
+                {
+                    continue;
+                }
+                
                 var matchResult = hasMatch(i, j);
                 if (matchResult.success)
                 {
