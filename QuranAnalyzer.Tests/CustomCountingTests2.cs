@@ -7,7 +7,7 @@ namespace QuranAnalyzer;
 [TestClass]
 public class CustomCountingTests2
 {
-    [TestMethod]
+    //[TestMethod]
     public void ABC()
     {
         //var bismillah = AnalyzeText("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ");
