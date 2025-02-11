@@ -7,11 +7,13 @@ namespace QuranAnalyzer;
 [TestClass]
 public class CustomCountingTests2
 {
-    //[TestMethod]
+    [TestMethod]
     public void ABC()
     {
+        Console.WriteLine("ABC");
+        return;
         //var bismillah = AnalyzeText("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ");
-        
+
         var inputA = AnalyzeText(string.Empty+Baa + Raa + Kaaf + Raa + Yaa + Waaw  +Raa + Kaaf + Waaw + Jiim);
         var inputB = AnalyzeText(string.Empty + Raa + Shiin + Alif + Daal + Khaa + Laam + Yaa + Faa + Haa_);
         
