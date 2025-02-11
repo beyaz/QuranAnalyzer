@@ -10,7 +10,7 @@ public class CustomCountingTests2
     [TestMethod]
     public void ABC()
     {
-        Console.WriteLine("ABC");
+        Console.WriteLine("::debug::ABCU");
         return;
         //var bismillah = AnalyzeText("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ");
 
