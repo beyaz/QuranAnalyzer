@@ -30,52 +30,31 @@ public class CustomCountingTests2
             CountB        = getCountB(x.verseText)
         }).ToList();
 
-        int getCountA(string verseText)
-        {
-            var sum = 0;
-            var letters = AnalyzeText(verseText);
-            foreach (var letterInfo in inputA)
-            {
-                sum +=letters.Count(x => x.OrderValue == letterInfo.OrderValue);
-            }
-
-            return sum;
-        }
-        int getCountB(string verseText)
-        {
-            var sum = 0;
-            var letters = AnalyzeText(verseText);
-            foreach (var letterInfo in inputB)
-            {
-                sum +=letters.Count(x => x.OrderValue == letterInfo.OrderValue);
-            }
-
-            return sum;
-        }
-
         var matchedIndexes = new List<(int start, int end, int count)>();
-        
-        for (var i = 0; i < allVerseList.Count; i++)
+
         {
-            //if (allVerseList[i].ChapterNumber != 44)
-            //{
-            //    continue;
-            //}
-            
-            
-            
-            for (var j = i + 1; j < allVerseList.Count; j++)
+            for (var i = 0; i < allVerseList.Count; i++)
             {
-                if (j - i < 5)
+                //if (allVerseList[i].ChapterNumber != 44)
+                //{
+                //    continue;
+                //}
+            
+            
+            
+                for (var j = i + 1; j < allVerseList.Count; j++)
                 {
-                    continue;
-                }
+                    if (j - i < 5)
+                    {
+                        continue;
+                    }
                 
-                var matchResult = hasMatch(i, j);
-                if (matchResult.success)
-                {
-                    Console.WriteLine($"Start: {i} - End: {j} : Count: {matchResult.count}");
-                    matchedIndexes.Add((i, j, matchResult.count));
+                    var matchResult = hasMatch(i, j);
+                    if (matchResult.success)
+                    {
+                        Console.WriteLine($"Start: {i} - End: {j} : Count: {matchResult.count}");
+                        matchedIndexes.Add((i, j, matchResult.count));
+                    }
                 }
             }
         }
@@ -84,7 +63,21 @@ public class CustomCountingTests2
         matchedIndexes.ForEach(x => Console.WriteLine($"{x.start} - {x.end} : {x.count}"));
         
         Console.WriteLine("F I N I S H E D");
+        return;
 
+        int getCountA(string verseText)
+        {
+            var letters = AnalyzeText(verseText);
+
+            return inputA.Sum(letterInfo => letters.Count(x => x.OrderValue == letterInfo.OrderValue));
+        }
+
+        int getCountB(string verseText)
+        {
+            var letters = AnalyzeText(verseText);
+
+            return inputB.Sum(letterInfo => letters.Count(x => x.OrderValue == letterInfo.OrderValue));
+        }
 
         (bool success, int count) hasMatch(int verseIndexStart, int verseIndexEnd)
         {
