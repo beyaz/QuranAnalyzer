@@ -10,8 +10,8 @@ public class CustomCountingTests2
     [TestMethod]
     public void ABC()
     {
-        Console.WriteLine("::debug::ABCU");
-        return;
+        Console.WriteLine("S T A R T E D");
+        
         //var bismillah = AnalyzeText("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ");
 
         var inputA = AnalyzeText(string.Empty+Baa + Raa + Kaaf + Raa + Yaa + Waaw  +Raa + Kaaf + Waaw + Jiim);
@@ -40,6 +40,8 @@ public class CustomCountingTests2
 
         Console.WriteLine("Matched Indexes:");
         matchedIndexes.ForEach(x => Console.WriteLine($"{x.start} - {x.end} : {x.count}"));
+        
+        Console.WriteLine("F I N I S H E D");
 
 
         (bool success, int count) hasMatch(int verseIndexStart, int verseIndexEnd)
