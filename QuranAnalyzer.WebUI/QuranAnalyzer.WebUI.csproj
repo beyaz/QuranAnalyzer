@@ -7,7 +7,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\QuranAnalyzer\QuranAnalyzer.csproj" />
-        <PackageReference Include="ReactWithDotNet" Version="1.0.12" />
+        <PackageReference Include="ReactWithDotNet" Version="1.0.15" />
     </ItemGroup>
 
 </Project>
