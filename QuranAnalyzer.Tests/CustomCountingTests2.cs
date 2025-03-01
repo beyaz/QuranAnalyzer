@@ -25,7 +25,7 @@ public class CustomCountingTests2
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Word1, Word2);
+            return HashCode.Combine(Word1, Word2) + HashCode.Combine(Word2, Word1);
         }
     }
     
