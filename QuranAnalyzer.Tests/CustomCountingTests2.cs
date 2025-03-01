@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using static QuranAnalyzer.ArabicLetter;
 
 namespace QuranAnalyzer;
@@ -7,6 +8,27 @@ namespace QuranAnalyzer;
 [TestClass]
 public class CustomCountingTests2
 {
+    class Pair
+    {
+        public  string Word1 { get; init; }
+        public  string Word2{ get; init; }
+        
+        public override bool Equals(object obj)
+        {
+            if (obj is Pair other)
+            {
+                return Word1 == other.Word1 && Word2 == other.Word2 ||
+                       Word1 == other.Word2 && Word2 == other.Word1;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Word1, Word2);
+        }
+    }
+    
     [TestMethod]
     public void AllWordsTest()
     {
@@ -23,11 +45,36 @@ public class CustomCountingTests2
         
         allWords = allWords.Distinct().ToList();
 
+        var wordInfoList = allWords.Select(word => new
+        {
+            word,
+            NumericValue = AnalyzeText(word).Sum(x => x.NumericValue),
+            OrderValue   = AnalyzeText(word).Sum(x => x.OrderValue)
+        }).ToList();
 
+        var matchedRecords = new List<Pair>();
+
+        var iterationCount = 0;
+        
+        for (var i = 0; i < wordInfoList.Count; i++)
+        {
+            for (var j = 0; j < wordInfoList.Count; j++)
+            {
+                iterationCount++;
+                
+                if (wordInfoList[i].NumericValue + wordInfoList[j].NumericValue == 667 &&
+                    wordInfoList[i].OrderValue + wordInfoList[j].OrderValue == 109)
+                {
+                    matchedRecords.Add(new Pair{Word1 = wordInfoList[i].word, Word2 = wordInfoList[j].word});
+                }
+            }
+        }
+
+        matchedRecords = matchedRecords.Distinct().ToList();
         
         
-
-
+        File.WriteAllText(@"C:\Users\beyaz\OneDrive\Documents\AllTwoWordCombinationOfQuranMatchedNumericTotal667OrderTotal109.txt", string.Join(Environment.NewLine, matchedRecords.Select(item=>item.Word1 + " | " + item.Word2)) );
+        
         
     }
     [TestMethod]
