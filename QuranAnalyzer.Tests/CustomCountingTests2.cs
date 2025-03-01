@@ -8,6 +8,29 @@ namespace QuranAnalyzer;
 public class CustomCountingTests2
 {
     [TestMethod]
+    public void AllWordsTest()
+    {
+        var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
+
+        var lines = arabicText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseNumbers).ToList();
+
+        var allWords = new List<string>();
+        
+
+        allWords.AddRange(lines.SelectMany(x => x.verseText.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
+        
+        allWords.AddRange(QuranArabicVersionChapterNames.ChapterNames);
+        
+        allWords = allWords.Distinct().ToList();
+
+
+        
+        
+
+
+        
+    }
+    [TestMethod]
     public void ABC()
     {
         Console.WriteLine("S T A R T E D");
