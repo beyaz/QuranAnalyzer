@@ -7,7 +7,7 @@ class CharacterCountingOptionView : ReactComponent<CharacterCountingOptionView.S
     public MushafOption MushafOption { get; init; }
 
     [CustomEvent]
-    public Func<MushafOption, Task> MushafOptionChanged { get; set; }
+    public Func<MushafOption, Task> MushafOptionChanged { get; init; }
 
     protected override Task constructor()
     {
