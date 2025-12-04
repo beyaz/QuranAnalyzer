@@ -11,4 +11,7 @@ static class Page
     public static readonly PageRouteInfo PageChapterNameContainsSAD = new("/" + nameof(PageChapterNameContainsSAD), typeof(PageChapterNameContainsSAD));
     public static readonly PageRouteInfo PageCountInRange = new("/" + nameof(PageCountInRange), typeof(PageCountInRange));
     public static readonly PageRouteInfo PageVerseFilter = new("/" + nameof(PageVerseFilter), typeof(PageVerseFilter));
+    
+    public static readonly PageRouteInfo LetterAnalyzer = new($"/{nameof(PageLetterAnalyzer)}", typeof(PageLetterAnalyzer));
+    public static readonly PageRouteInfo QuranArabicVersion = new($"/{nameof(PageQuranArabicVersion)}", typeof(PageQuranArabicVersion));
 }

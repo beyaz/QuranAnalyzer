@@ -3,6 +3,7 @@
 static class Theme
 {
     public static string TextColor = "rgb(51, 51, 51)";
+    public static string PanelBackgroundColor => "#f9f9f9";
 }
 
 class LargeTitle : ReactPureComponent
