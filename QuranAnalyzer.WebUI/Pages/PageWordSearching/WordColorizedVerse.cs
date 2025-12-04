@@ -121,7 +121,7 @@ class WordColorizedVerse : ReactPureComponent
             $"{Verse.Id}"
         };
 
-        var topLegend = new legend(DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(5))
+        var topLegend = new legend(DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(5), UserSelect(none))
         {
             verseId,
             countsView
