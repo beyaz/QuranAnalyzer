@@ -12,7 +12,7 @@ class PageLetterAnalyzerModel
 }
 
 
-
+[Route(Routes.PageLetterAnalyzer)]
 class PageLetterAnalyzer : ReactComponent<PageLetterAnalyzerModel>
 {
    

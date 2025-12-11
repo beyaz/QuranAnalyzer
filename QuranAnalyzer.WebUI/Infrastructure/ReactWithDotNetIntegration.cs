@@ -14,6 +14,9 @@ static class ReactWithDotNetIntegration
         RequestHandlerPath = $"/{nameof(HandleReactWithDotNetRequest)}";
 
         app.UseMiddleware<ReactWithDotNetJavaScriptFiles>();
+        
+        
+        var routes = RouteHelper.GetRoutesFrom(typeof(ReactWithDotNetIntegration).Assembly);
 
         // R O U T E
         var routeMap = typeof(Page)
@@ -36,6 +39,12 @@ static class ReactWithDotNetIntegration
             if (routeMap.TryGetValue(path, out var routeInfo))
             {
                 await WriteHtmlResponse(httpContext, typeof(MainLayout), routeInfo.page);
+                return;
+            }
+            
+            if (routes.TryGetValue(path, out var route))
+            {
+                await WriteHtmlResponse(httpContext, typeof(MainLayout), route.Page);
                 return;
             }
 

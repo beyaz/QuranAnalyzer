@@ -1,6 +1,7 @@
 ﻿
 namespace QuranAnalyzer.WebUI.Pages;
 
+[Route(Routes.PageChapterNameContainsSAD)]
 class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.State>
 {
     internal class State

@@ -1,5 +1,6 @@
 ﻿namespace QuranAnalyzer.WebUI.Pages;
 
+[Route(Routes.PageQuranArabicVersion)]
 partial class PageQuranArabicVersion : ReactPureComponent
 {
     protected override Element render()

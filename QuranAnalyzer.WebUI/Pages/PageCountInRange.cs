@@ -1,5 +1,6 @@
 ﻿namespace QuranAnalyzer.WebUI.Pages;
 
+[Route(Routes.PageCountInRange)]
 public class PageCountInRange : ReactComponent
 {
     const string Blue100 = "#0099FF";

@@ -7,11 +7,27 @@ sealed record PageRouteInfo(string Url, Type page);
 
 static class Page
 {
-    public static readonly PageRouteInfo Home = new("/", typeof(PageMainWindowView));
-    public static readonly PageRouteInfo PageChapterNameContainsSAD = new("/" + nameof(PageChapterNameContainsSAD), typeof(PageChapterNameContainsSAD));
-    public static readonly PageRouteInfo PageCountInRange = new("/" + nameof(PageCountInRange), typeof(PageCountInRange));
-    public static readonly PageRouteInfo PageVerseFilter = new("/" + nameof(PageVerseFilter), typeof(PageVerseFilter));
+    //public static readonly PageRouteInfo Home = new("/", typeof(PageMainWindowView));
+    //public static readonly PageRouteInfo PageChapterNameContainsSAD = new("/" + nameof(PageChapterNameContainsSAD), typeof(PageChapterNameContainsSAD));
+    //public static readonly PageRouteInfo PageCountInRange = new("/" + nameof(PageCountInRange), typeof(PageCountInRange));
+    //public static readonly PageRouteInfo PageVerseFilter = new("/" + nameof(PageVerseFilter), typeof(PageVerseFilter));
     
-    public static readonly PageRouteInfo LetterAnalyzer = new($"/{nameof(PageLetterAnalyzer)}", typeof(PageLetterAnalyzer));
-    public static readonly PageRouteInfo QuranArabicVersion = new($"/{nameof(PageQuranArabicVersion)}", typeof(PageQuranArabicVersion));
+    //public static readonly PageRouteInfo LetterAnalyzer = new($"/{nameof(PageLetterAnalyzer)}", typeof(PageLetterAnalyzer));
+    //public static readonly PageRouteInfo QuranArabicVersion = new($"/{nameof(PageQuranArabicVersion)}", typeof(PageQuranArabicVersion));
+}
+
+static class Routes
+{
+    // H o m e
+    public  const string Home = "/";
+
+    public const string PageChapterNameContainsSAD = "/" + nameof(PageChapterNameContainsSAD);
+    
+    public const string PageCountInRange = "/" + nameof(PageCountInRange);
+    
+    public const string PageLetterAnalyzer = "/" + nameof(PageLetterAnalyzer);
+    
+    public const string PageVerseFilter = "/" + nameof(PageVerseFilter);
+    
+    public const string PageQuranArabicVersion = "/" + nameof(PageQuranArabicVersion);
 }

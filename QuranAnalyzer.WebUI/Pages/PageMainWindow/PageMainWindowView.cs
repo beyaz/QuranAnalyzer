@@ -7,6 +7,7 @@ using QuranAnalyzer.WebUI.Pages.PageWordSearching;
 
 namespace QuranAnalyzer.WebUI.Pages.PageMainWindow;
 
+[Route(Routes.Home)]
 class PageMainWindowView : ReactPureComponent
 {
     string SelectedPageId => Query[QueryKey.Page] ?? PageId.MainWindow;

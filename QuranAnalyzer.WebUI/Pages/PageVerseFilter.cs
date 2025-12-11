@@ -2,6 +2,7 @@
 
 namespace QuranAnalyzer.WebUI.Pages;
 
+[Route(Routes.PageVerseFilter)]
 public class PageVerseFilter : ReactComponent
 {
     const string Blue100 = "#0099FF";
