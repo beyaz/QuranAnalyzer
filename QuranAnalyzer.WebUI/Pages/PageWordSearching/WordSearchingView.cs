@@ -300,7 +300,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         };
     }
 
-    Task SearchOptionChanged(ChangeEvent changeEvent)
+    Task SearchOptionChanged(ChangeEvent changeEvent, bool? value)
     {
         state.SearchOption = changeEvent.target.value;
 

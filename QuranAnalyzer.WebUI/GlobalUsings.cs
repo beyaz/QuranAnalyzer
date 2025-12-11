@@ -12,3 +12,5 @@ global using static ReactWithDotNet.Mixin;
 global using static QuranAnalyzer.WebUI.Extensions;
 global using System.Threading.Tasks;
 global using static QuranAnalyzer.Analyzer;
+global using static ReactWithDotNet.WebColors;
+global using static ReactWithDotNet.Tailwind;

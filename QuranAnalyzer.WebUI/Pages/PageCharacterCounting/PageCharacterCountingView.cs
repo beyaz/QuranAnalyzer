@@ -304,7 +304,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         return Task.CompletedTask;
     }
 
-    Task OnIncludeBismillahChanged(ChangeEvent changeEvent)
+    Task OnIncludeBismillahChanged(ChangeEvent changeEvent, bool? value)
     {
         state.ClickCount = 0;
 
