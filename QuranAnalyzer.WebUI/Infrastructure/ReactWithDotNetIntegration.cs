@@ -1,4 +1,3 @@
-using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
@@ -15,16 +14,7 @@ static class ReactWithDotNetIntegration
 
         app.UseMiddleware<ReactWithDotNetJavaScriptFiles>();
         
-        
         var routes = RouteHelper.GetRoutesFrom(typeof(ReactWithDotNetIntegration).Assembly);
-
-        // R O U T E
-        var routeMap = typeof(Page)
-            .GetFields(BindingFlags.Static | BindingFlags.Public)
-            .Where(f => f.FieldType == typeof(PageRouteInfo))
-            .Select(f => (PageRouteInfo)f.GetValue(null))
-            .Where(x => x is not null)
-            .ToDictionary(x => x.Url, x => x, StringComparer.OrdinalIgnoreCase);
 
         app.Use(async (httpContext, next) =>
         {
@@ -33,12 +23,6 @@ static class ReactWithDotNetIntegration
             if (path == RequestHandlerPath)
             {
                 await HandleReactWithDotNetRequest(httpContext);
-                return;
-            }
-
-            if (routeMap.TryGetValue(path, out var routeInfo))
-            {
-                await WriteHtmlResponse(httpContext, typeof(MainLayout), routeInfo.page);
                 return;
             }
             
