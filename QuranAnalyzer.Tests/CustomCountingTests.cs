@@ -9,190 +9,9 @@ using static QuranAnalyzer.VerseFilter;
 namespace QuranAnalyzer;
 
 [TestClass]
-[Ignore]
+
 public class CustomCountingTests
 {
-    
-    [TestMethod]
-    public void CheckSpecialNumberProbability()
-    {
-        
-        Console.WriteLine("Started...");
-        
-        var sb = new StringBuilder();
-        
-        const int minValue = 1;
-        const int maxValue = 130;
-        const int requestedTotalSumOfNumbers = 109;
-        const int requestedTotalSum = 667;
-
-        var iterationCount = 0L;
-
-        for (var i0 = minValue; i0 < maxValue; i0++)
-        {
-            var remainingTotalSum_0 = requestedTotalSum - i0;
-            var remainingTotalSumOfNumbers_0 = requestedTotalSumOfNumbers - sumOfNumbers(i0);
-
-            for (var i1 = minValue; i1 < maxValue; i1++)
-            {
-                var remainingTotalSum_1 = remainingTotalSum_0 - i1;
-                var remainingTotalSumOfNumbers_1 = remainingTotalSumOfNumbers_0 - sumOfNumbers(i1);
-
-                for (var i2 = minValue; i2 < maxValue; i2++)
-                {
-                    var remainingTotalSum_2 = remainingTotalSum_1 - i2;
-                    var remainingTotalSumOfNumbers_2 = remainingTotalSumOfNumbers_1 - sumOfNumbers(i2);
-
-                    for (var i3 = minValue; i3 < maxValue; i3++)
-                    {
-                        var remainingTotalSum_3 = remainingTotalSum_2 - i3;
-                        var remainingTotalSumOfNumbers_3 = remainingTotalSumOfNumbers_2 - sumOfNumbers(i3);
-
-                        for (var i4 = minValue; i4 < maxValue; i4++)
-                        {
-                            var remainingTotalSum_4 = remainingTotalSum_3 - i4;
-                            var remainingTotalSumOfNumbers_4 = remainingTotalSumOfNumbers_3 - sumOfNumbers(i4);
-
-                            for (var i5 = minValue; i5 < maxValue; i5++)
-                            {
-                                var remainingTotalSum_5 = remainingTotalSum_4 - i5;
-                                var remainingTotalSumOfNumbers_5 = remainingTotalSumOfNumbers_4 - sumOfNumbers(i5);
-
-                                for (var i6 = minValue; i6 < maxValue; i6++)
-                                {
-                                    var remainingTotalSum_6 = remainingTotalSum_5 - i6;
-                                    var remainingTotalSumOfNumbers_6 = remainingTotalSumOfNumbers_5 - sumOfNumbers(i6);
-                                    
-                                    for (var i7 = minValue; i7 < maxValue; i7++)
-                                    {
-                                        var remainingTotalSum_7 = remainingTotalSum_6 - i7;
-                                        var remainingTotalSumOfNumbers_7 = remainingTotalSumOfNumbers_6 - sumOfNumbers(i7);
-
-                                        for (var i8 = minValue; i8 < maxValue; i8++)
-                                        {
-                                            iterationCount++;
-                                            
-                                            var remainingTotalSum_8 = remainingTotalSum_7 - i8;
-                                            var remainingTotalSumOfNumbers_8 = remainingTotalSumOfNumbers_7 - sumOfNumbers(i8);
-
-                                            if (sumOfNumbers(remainingTotalSum_8) == remainingTotalSumOfNumbers_8)
-                                            {
-                                                Console.WriteLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, {remainingTotalSum_8}");
-                                                sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, {remainingTotalSum_8}");
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-        /*for (var i0 = minValue; i0 < maxValue; i0++)
-        {
-            var remainingTotalSum_0 = requestedTotalSum - i0;
-            var remainingTotalSumOfNumbers_0 = requestedTotalSumOfNumbers - sumOfNumbers(i0);
-
-            for (var i1 = minValue; i1 < maxValue; i1++)
-            {
-                var remainingTotalSum_1 = remainingTotalSum_0 - i1;
-                var remainingTotalSumOfNumbers_1 = remainingTotalSumOfNumbers_0 - sumOfNumbers(i1);
-
-                for (var i2 = minValue; i2 < maxValue; i2++)
-                {
-                    var remainingTotalSum_2 = remainingTotalSum_1 - i2;
-                    var remainingTotalSumOfNumbers_2 = remainingTotalSumOfNumbers_1 - sumOfNumbers(i2);
-
-                    for (var i3 = minValue; i3 < maxValue; i3++)
-                    {
-                        var remainingTotalSum_3 = remainingTotalSum_2 - i3;
-                        var remainingTotalSumOfNumbers_3 = remainingTotalSumOfNumbers_2 - sumOfNumbers(i3);
-
-                        for (var i4 = minValue; i4 < maxValue; i4++)
-                        {
-                            var remainingTotalSum_4 = remainingTotalSum_3 - i4;
-                            var remainingTotalSumOfNumbers_4 = remainingTotalSumOfNumbers_3 - sumOfNumbers(i4);
-
-                            for (var i5 = minValue; i5 < maxValue; i5++)
-                            {
-                                var remainingTotalSum_5 = remainingTotalSum_4 - i5;
-                                var remainingTotalSumOfNumbers_5 = remainingTotalSumOfNumbers_4 - sumOfNumbers(i5);
-
-                                for (var i6 = minValue; i6 < maxValue; i6++)
-                                {
-                                    var remainingTotalSum_6 = remainingTotalSum_5 - i6;
-                                    var remainingTotalSumOfNumbers_6 = remainingTotalSumOfNumbers_5 - sumOfNumbers(i6);
-                                    
-                                    for (var i7 = minValue; i7 < maxValue; i7++)
-                                    {
-                                        var remainingTotalSum_7 = remainingTotalSum_6 - i7;
-                                        var remainingTotalSumOfNumbers_7 = remainingTotalSumOfNumbers_6 - sumOfNumbers(i7);
-
-                                        for (var i8 = minValue; i8 < maxValue; i8++)
-                                        {
-                                            var remainingTotalSum_8 = remainingTotalSum_7 - i8;
-                                            var remainingTotalSumOfNumbers_8 = remainingTotalSumOfNumbers_7 - sumOfNumbers(i8);
-
-                                            for (var i9 = minValue; i9 < maxValue; i9++)
-                                            {
-                                                var remainingTotalSum_9 = remainingTotalSum_8 - i9;
-                                                var remainingTotalSumOfNumbers_9 = remainingTotalSumOfNumbers_8 - sumOfNumbers(i9);
-
-                                                iterationCount++;
-                                                
-                                                if (remainingTotalSum_9 == 0 &&
-                                                    remainingTotalSumOfNumbers_9 == 0)
-                                                {
-                                                    sb.AppendLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6}, {i7}, {i8}, {i9}");
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }*/
-
-        throw new Exception($"Iteration: {iterationCount}, items: {sb}");
-
-
-        static int sumOfNumbers(int number)
-        {
-            if (number < 10)
-            {
-                return number;
-            }
-            
-            if (number < 100)
-            {
-                var second = number%10;
-
-                var first = (number - second) / 10;
-
-                return first + second;
-            }
-            
-            if (number < 1000)
-            {
-                var part_2_3 = number % 100;
-                
-                var third = part_2_3 % 10;
-
-                var second = (part_2_3 - third) / 10;
-
-                var first = (number - part_2_3) / 100;
-
-                return first + second + third;
-            }
-            
-            return number.ToString().Select(c => int.Parse(c.ToString())).Sum();
-        }
-    }
     
     
     //[TestMethod]
@@ -294,5 +113,34 @@ public class CustomCountingTests
         remaining.Should().Be(114);
     }
 
+    [TestMethod]
+    public void LatinAllphabetEbjedCalculate()
+    {
+        var input = new
+        {
+            LatinText = "abcdefghijklmnopqrstuvwxyz",
+            
+            AraibicToLatinAlphabetMap = "a=ا,b=ب,c=ج,d=د,e=ه,f=ف,g=ج,h=ح,i=ي,j=ج,k=ك,l=ل,m=م,n=ن,o=و,p=پ,q=ق,r=ر,s=س,t=ت,u=ع,v=ڤ,w=و,x=خ,y=ي,z=ز"
+        };
+
+
+        var pairList = 
+            from pair in input.AraibicToLatinAlphabetMap.Split(',')
+            select (latin: pair.Split('=')[0][0], arabic: pair.Split('=')[1][0]);
+
+        var map = pairList.ToDictionary(x => x.latin);
+
+        var query = 
+            from c in input.LatinText.ToCharArray()
+            let letterInfo = Analyzer.GetLetterInfo(map[c].arabic, 0, true)
+            select letterInfo.NumericValue;
+
+        var sum = query.Sum();
+        
+        sum.Should().Be(351);
+
+
+
+    }
    
 }
