@@ -122,19 +122,21 @@ public class CustomCountingTests
 
             AraibicToLatinAlphabetMap
                 = """
-                  a : ا    b : ب    c : ج    d : د
-                  f : ف    ç : ج    g : ك    h : ح
-                  i : ي    j : ج    k : ك    l : ل
-                  m : م    n : ن    o : و    p : پ
-                  q : ق    r : ر    s : س    t : ت
-                  u : ع    v : ڤ    w : و    ö : و
-                  ü : و    x : خ    y : ي    z : ز
+                  
+                  a : ا  ,  b : ب  ,  c : ج  ,  d : د  ,
+                  f : ف  ,  ç : ج  ,  g : ك  ,  h : ح  ,
+                  i : ي  ,  j : ج  ,  k : ك  ,  l : ل  ,
+                  m : م  ,  n : ن  ,  o : و  ,  p : پ  ,
+                  q : ق  ,  r : ر  ,  s : س  ,  t : ت  ,
+                  u : ع  ,  v : ڤ  ,  w : و  ,  ö : و  ,
+                  ü : و  ,  x : خ  ,  y : ي  ,  z : ز  ,
+                  
                   """
         };
 
 
         var pairList = 
-            from pair in input.AraibicToLatinAlphabetMap.Split(',')
+            from pair in input.AraibicToLatinAlphabetMap.Split(',', StringSplitOptions.RemoveEmptyEntries)
             select (latin: pair.Split('=')[0][0], arabic: pair.Split('=')[1][0]);
 
         var map = pairList.ToDictionary(x => x.latin);
