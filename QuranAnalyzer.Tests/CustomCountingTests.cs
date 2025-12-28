@@ -113,7 +113,7 @@ public class CustomCountingTests
         remaining.Should().Be(114);
     }
 
-    static string LatinCharToArabicCharMap =
+    const string LatinCharToArabicCharMap =
         """
 
         a : ا  ,  b : ب  ,  c : ج  ,  d : د  ,
@@ -125,6 +125,7 @@ public class CustomCountingTests
         ü : و  ,  x : خ  ,  y : ي  ,  z : ز  ,
 
         """;
+
     [TestMethod]
     public void LatinAllphabetEbjedCalculate()
     {
