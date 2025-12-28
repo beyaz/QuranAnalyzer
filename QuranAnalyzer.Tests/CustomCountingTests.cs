@@ -120,7 +120,7 @@ public class CustomCountingTests
         {
             LatinText = "abdullah",
             
-            AraibicToLatinAlphabetMap = "a=ا,b=ب,c=ج,d=د,f=ف,ç=ج,g=ك,h=ح,i=ي,j=ج,k=ك,l=ل,m=م,n=ن,o=و,p=پ,q=ق,r=ر,s=س,t=ت,u=ع,v=ڤ,w=و,ö=و,ü=و,x=خ,y=ي,z=ز"
+            AraibicToLatinAlphabetMap = "a = ا , b = ب , c = ج , d = د , f = ف , ç = ج , g = ك , h = ح , i = ي , j = ج , k = ك , l = ل , m = م , n = ن , o = و , p = پ , q = ق , r = ر , s = س , t = ت , u = ع , v = ڤ , w = و , ö = و , ü = و , x = خ , y = ي , z = ز"
         };
 
 
