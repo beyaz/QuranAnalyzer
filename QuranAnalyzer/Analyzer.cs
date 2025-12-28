@@ -389,4 +389,24 @@ public static class Analyzer
     {
         return info.NumericValue > 0;
     }
+    
+    public static IReadOnlyDictionary<char, LetterInfo> GetLatinCharToArabicCharMap(string latinCharToArabicCharMap)
+    {
+        Dictionary<char, LetterInfo> map = [];
+            
+        foreach (var pairText in latinCharToArabicCharMap.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+        {
+            var pair = pairText.Split(':', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            if (pair.Length == 2)
+            {
+                var latinChar = pair[0][0];
+                    
+                var arabicChar = pair[1][0];
+                    
+                map.Add(latinChar, GetLetterInfo(arabicChar, 0, true));
+            }
+        }
+            
+        return map;
+    }
 }

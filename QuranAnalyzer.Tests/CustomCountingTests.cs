@@ -113,6 +113,18 @@ public class CustomCountingTests
         remaining.Should().Be(114);
     }
 
+    static string LatinCharToArabicCharMap =
+        """
+
+        a : ا  ,  b : ب  ,  c : ج  ,  d : د  ,
+        f : ف  ,  ç : ج  ,  g : ك  ,  h : ح  ,
+        i : ي  ,  j : ج  ,  k : ك  ,  l : ل  ,
+        m : م  ,  n : ن  ,  o : و  ,  p : پ  ,
+        q : ق  ,  r : ر  ,  s : س  ,  t : ت  ,
+        u : ع  ,  v : ڤ  ,  w : و  ,  ö : و  ,
+        ü : و  ,  x : خ  ,  y : ي  ,  z : ز  ,
+
+        """;
     [TestMethod]
     public void LatinAllphabetEbjedCalculate()
     {
@@ -120,42 +132,26 @@ public class CustomCountingTests
         {
             LatinText = "abdullah",
 
-            AraibicToLatinAlphabetMap
-                = """
-                  
-                  a : ا  ,  b : ب  ,  c : ج  ,  d : د  ,
-                  f : ف  ,  ç : ج  ,  g : ك  ,  h : ح  ,
-                  i : ي  ,  j : ج  ,  k : ك  ,  l : ل  ,
-                  m : م  ,  n : ن  ,  o : و  ,  p : پ  ,
-                  q : ق  ,  r : ر  ,  s : س  ,  t : ت  ,
-                  u : ع  ,  v : ڤ  ,  w : و  ,  ö : و  ,
-                  ü : و  ,  x : خ  ,  y : ي  ,  z : ز  ,
-                  
-                  """
+            LatinCharToArabicCharMap
         };
 
-
-        var pairList = 
-            from pair in input.AraibicToLatinAlphabetMap.Split(',', StringSplitOptions.RemoveEmptyEntries)
-            select (latin: pair.Split('=')[0][0], arabic: pair.Split('=')[1][0]);
-
-        var map = pairList.ToDictionary(x => x.latin);
+        var map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap);
 
         var query = 
             from c in input.LatinText.ToCharArray()
             let letterInfo = map.ContainsKey(c) switch
             {
-                true=>Analyzer.GetLetterInfo(map[c].arabic, 0, true),
-                false=>new LetterInfo(),
+                true=>map[c],
+                false=>new(),
             }
             select letterInfo.NumericValue;
 
         var sum = query.Sum();
         
         sum.Should().Be(146);
+        return;
 
-
-
+        
     }
    
 }
