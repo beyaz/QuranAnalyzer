@@ -118,9 +118,9 @@ public class CustomCountingTests
     {
         var input = new
         {
-            LatinText = "abcdefghijklmnopqrstuvwxyz",
+            LatinText = "abdullah",
             
-            AraibicToLatinAlphabetMap = "a=ا,b=ب,c=ج,d=د,e=ه,f=ف,g=ج,h=ح,i=ي,j=ج,k=ك,l=ل,m=م,n=ن,o=و,p=پ,q=ق,r=ر,s=س,t=ت,u=ع,v=ڤ,w=و,x=خ,y=ي,z=ز"
+            AraibicToLatinAlphabetMap = "a=ا,b=ب,c=ج,d=د,f=ف,ç=ج,g=ك,h=ح,i=ي,j=ج,k=ك,l=ل,m=م,n=ن,o=و,p=پ,q=ق,r=ر,s=س,t=ت,u=ع,v=ڤ,w=و,ö=و,ü=و,x=خ,y=ي,z=ز"
         };
 
 
@@ -132,7 +132,11 @@ public class CustomCountingTests
 
         var query = 
             from c in input.LatinText.ToCharArray()
-            let letterInfo = Analyzer.GetLetterInfo(map[c].arabic, 0, true)
+            let letterInfo = map.ContainsKey(c) switch
+            {
+                true=>Analyzer.GetLetterInfo(map[c].arabic, 0, true),
+                false=>new LetterInfo(),
+            }
             select letterInfo.NumericValue;
 
         var sum = query.Sum();
