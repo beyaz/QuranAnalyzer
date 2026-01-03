@@ -77,6 +77,7 @@ public class CustomCountingTests2
         
         
     }
+    
     [TestMethod]
     public void ABC()
     {
@@ -171,4 +172,39 @@ public class CustomCountingTests2
             return default;
         }
     }
+    
+    
+    [TestMethod]
+    public void WordCounts()
+    {
+        var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
+
+        var lines = arabicText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseNumbers).ToList();
+
+        var allWords = new List<string>();
+        
+
+        allWords.AddRange(lines.SelectMany(x => x.verseText.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
+        
+        allWords.AddRange(QuranArabicVersionChapterNames.ChapterNames);
+        
+        var distinctWords = allWords.Distinct().ToList();
+
+
+
+        var wordCountMap = new List<(int Count, string Word)>
+        (
+            from word in distinctWords
+            let count = allWords.Count(x => x == word)
+            select (Count: count, Word: word)
+        );
+
+
+        var outputPath = @"C:\Users\beyaz\OneDrive\Documents\WordCounts.txt";
+        
+        File.WriteAllText(outputPath, string.Join(Environment.NewLine, wordCountMap.OrderBy(x=>x.Count).Select(item=>item.Count + " | " + item.Word)) );
+        
+        
+    }
+
 }
