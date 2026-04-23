@@ -85,7 +85,7 @@ public class LetterColorizer : ReactPureComponent
 
         var textView = new div(FontFamily_Lateef)
         {
-            html,
+            DangerouslySetInnerHTML(html.ToString()),
             FontSize(32),
             Padding(5),
             DirectionRtl
