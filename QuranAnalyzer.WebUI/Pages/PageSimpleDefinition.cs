@@ -109,7 +109,16 @@ public class PageSimpleDefinition : ReactPureComponent
             {
                 " İddia kısaca bu şekildedir. Gelin bu iddiayı beraber inceleyelim. Yalnız başımıza karar verelim.",
                 (strong)" Bu sitedeki anlatılan kısım 19 sisteminin en temel verisi olup sadece başlangıç harfleri ile ilgili kısımdır.",
-                " Bunun dışında 19 sisteminin alt başlıkları diyebileceğimiz  büyük sayılar ile ilgili veya harflerin sayısal değerleri ile ilgili başka bir çok ilginç verisi var."
+                br,
+                br,
+                "- Besmele olarak bilinen ily ayet 19 harftir.",
+                br,
+                "- Kuran 114 (19x6) bölümden oluşmaktadır.",
+                br,
+                "- Meşhur ilk vahiy 96:1-5 toplam 19 kelimeden oluşmaktadır. Bu 19 kelime ise toplamda 76(19x4) harften oluşur. İlgili sure ise kitapda sondan 19. sıradadır. Toplamda 19 ayetten oluşur.",
+                br,
+                br,
+                "Bunun gibi bir çok veri var. 19 sisteminin alt başlıkları diyebileceğimiz büyük sayılar ile ilgili veya harflerin sayısal değerleri ile ilgili, bazı kelimelerin geçiş sıklığı ile ilgili başka bir çok ilginç verisi var."
             }
         };
     }
