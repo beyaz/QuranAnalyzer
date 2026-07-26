@@ -52,7 +52,7 @@ Rivayetlere göre halife Osman zamanında, o zamanki insanların kendi kuran not
 Yani klasik herkesin öyle tahmin ettiği gibi yeryüzündeki bütün kuranlar harfi harfine aynı değildir. 
 İran'dan ve Türkiye'den ve Afrika'dan Kuran mushaflarını önünüze açtığınızda elif harflerinde farklılıklar göreceksiniz. 
 İsterseniz farklı mushafları aşağıdaki linkten inceleyebilirsiniz.",
-                    new a { href = "https://www.quranflash.com/home?en", text = "Kuran mushafları" }
+                    new a { href = "https://app.quranflash.com", text = "Kuran mushafları" }
                 },
 
                 new li
