@@ -274,7 +274,7 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
 
             new Note
             {
-                "Şekilden de anlaşılacağı üzere ", AsLetter(Haa), " ve ", AsLetter(Miim), " harfleri bu 7 sure boyunca kendi içinde alt gruplar da oluşturmaktadır.",
+                "Şekilden de anlaşılacağı üzere ", AsLetter(Haa), " ve ", AsLetter(Miim), " harfleri bu 7 sure boyunca kendi içinde alt gruplar oluşturmaktadır.",
             },
 
             SelectedCountResultId == IdOfCountingResult_19_59
