@@ -66,7 +66,7 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(20, Taa_), Letter = Taa_, IsSelected = true },
-                                new InitialLetter { Id = Id(20, Haa), Letter  = Haa, IsSelected  = true }
+                                new InitialLetter { Id = Id(20, Haa_), Letter = Haa_, IsSelected  = true }
                             }
                         }
                     },
@@ -119,7 +119,7 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
 
             new Arrow { start = Id(19, Haa), end  = IdOfCountingResult },
             new Arrow { start = Id(20, Taa_), end = IdOfCountingResult },
-            new Arrow { start = Id(20, Haa), end  = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(20, Haa_), end = IdOfCountingResult, StartAnchorFromRight = true },
             new Arrow { start = Id(26, Taa_), end = IdOfCountingResult, StartAnchorFromTop   = true },
             new Arrow { start = Id(26, Siin), end = IdOfCountingResult, StartAnchorFromTop   = true },
             new Arrow { start = Id(26, Miim), end = IdOfCountingResult, StartAnchorFromTop   = true },
@@ -146,7 +146,7 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                 },
                 AsLetter(Taa_), " harfi bulunur.",
                 br,
-                "Ta-Sin-Mim grubu Kurandaki diğer başlangıç harf gruplarına pek benzemiyor.",
+                "Ta-Sin-Mim-He grubu Kurandaki diğer başlangıç harf gruplarına pek benzemiyor.",
                 " Belki ileride burası ile ilgili daha başka veriler açığa çıkabilir diye düşünüyorum."
             }
         };
