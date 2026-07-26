@@ -17,6 +17,7 @@ class PageInitialLettersView : ReactPureComponent
         ("Saad", typeof(InitialLetterGroup_Saad)),
         ("Ha Mim 1", typeof(InitialLetterGroup_HaMim)),
         ("Ha Mim 2", typeof(InitialLetterGroup_HaMimSeparated)),
+        ("Ha Mim 3", typeof(InitialLetterGroup_HaMimAll)),
         ("Ta Sin Mim He", typeof(InitialLetterGroup_TaSinMim)),
 
         ("Nun", typeof(InitialLetterGroup_NunWawNun))

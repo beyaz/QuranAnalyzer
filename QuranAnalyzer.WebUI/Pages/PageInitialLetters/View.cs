@@ -26,6 +26,8 @@ class InitialLetter : ReactPureComponent
 
         return new FlexColumn(Id(Id), TextAlignCenter, Border($"{(IsSelected ? 2 : 1)}px solid {color}"), BorderRadius("0.5rem"), Padding("5px"))
         {
+            Background(White), Zindex2,
+            
             new div(Text(Letter.ToString())),
             new div {pronunciation, FontSize("70%"), FontWeight600 },
 
