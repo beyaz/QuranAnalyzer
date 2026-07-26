@@ -4,12 +4,17 @@ namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
 class InitialLetterGroup_HaMimAll : InitialLetterGroup
 {
-    static string IdOfCountingResult_1 => $"HaMimSeparated-{nameof(IdOfCountingResult_1)}";
-    static string IdOfCountingResult_2 => $"HaMimSeparated-{nameof(IdOfCountingResult_2)}";
+    static string IdOfCountingResult_19_59 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_59)}";
     
-    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 113, SearchScript = GetLetterCountingScript("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Haa, Miim) };
-
-    static string IdOfCountingResult => $"HaMim-{nameof(IdOfCountingResult)}";
+    static string IdOfCountingResult_19_54 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_54)}";
+    
+    static string IdOfCountingResult_19_58 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_58)}";
+    
+    static string IdOfCountingResult_19_55 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_55)}";
+    
+    static string IdOfCountingResult_19_113 => $"HaMim-{nameof(IdOfCountingResult_19_113)}";
+    
+    
 
     protected override Element render()
     {
@@ -44,7 +49,7 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                 {
                                     new CountingResult
                                     {
-                                        id              = IdOfCountingResult_1,
+                                        id              = IdOfCountingResult_19_59,
                                         MultipleOf      = 59,
                                         SearchScript    = GetLetterCountingScript("40:*,41:*,42:*", Haa, Miim)
                                     }
@@ -57,7 +62,7 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                 {
                                     new CountingResult
                                     {
-                                        id           = IdOfCountingResult_2,
+                                        id           = IdOfCountingResult_19_55,
                                         MultipleOf   = 55,
                                         SearchScript = GetLetterCountingScript("41:*,42:*,43:*", Haa, Miim)
                                     }
@@ -67,7 +72,12 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                 
                                 new FlexRow(JustifyContentCenter)
                                 {
-                                    countingResult
+                                    new CountingResult
+                                    {
+                                        id           = IdOfCountingResult_19_113, 
+                                        MultipleOf   = 113, 
+                                        SearchScript = GetLetterCountingScript("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Haa, Miim)
+                                    }
                                 },
                                 
                                 SpaceY(100),
@@ -76,7 +86,7 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                 {
                                     new CountingResult
                                     {
-                                        id              = IdOfCountingResult_2,
+                                        id              = IdOfCountingResult_19_54,
                                         MultipleOf      = 54,
                                         SearchScript    = GetLetterCountingScript("43:*,44:*,45:*,46:*", Haa, Miim)
                                     }
@@ -90,10 +100,10 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                 {
                                     new CountingResult
                                     {
-                                        id           = IdOfCountingResult_2,
+                                        id           = IdOfCountingResult_19_58,
                                         MultipleOf   = 58,
                                         SearchScript = GetLetterCountingScript("40:*,44:*,45:*,46:*", Haa, Miim)
-                                    }
+                                    } 
                                 },
                             }
                         }
@@ -217,39 +227,72 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
             },
 
             
-            new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_1, StartAnchorFromRight = true , color = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(40, Miim), end = IdOfCountingResult_1, StartAnchorFromRight = true , color  = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_1, StartAnchorFromTop   = true , color  = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(41, Miim), end = IdOfCountingResult_1, StartAnchorFromTop   = true , color  = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_1, StartAnchorFromTop   = true , color = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(42, Miim), end = IdOfCountingResult_1, StartAnchorFromTop   = true , color = Blue200, strokeWidth = 3},
-            
-            new Arrow { start = Id(40, Haa), end  = IdOfCountingResult },
-            new Arrow { start = Id(40, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(41, Haa), end  = IdOfCountingResult },
-            new Arrow { start = Id(41, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(42, Haa), end  = IdOfCountingResult },
-            new Arrow { start = Id(42, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(43, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(43, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(44, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(45, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(46, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true , color = Blue200, strokeWidth = 3},
+            new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_59, StartAnchorFromRight = true , color  = Blue200, strokeWidth = 3},
+            new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromTop   = true , color  = Blue200, strokeWidth = 3},
+            new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_59, StartAnchorFromTop   = true , color  = Blue200, strokeWidth = 3},
+            new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromTop   = true , color = Blue200, strokeWidth = 3},
+            new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_59, StartAnchorFromTop   = true , color = Blue200, strokeWidth = 3},
             
             
-            new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_2, StartAnchorFromRight = true, color = Blue600, },
-            new Arrow { start = Id(43, Miim), end = IdOfCountingResult_2, StartAnchorFromRight = true,color  = Blue600, },
+            new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true, color = Blue600, },
+            new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true,color  = Blue600, },
 
-            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_2, StartAnchorFromRight = false,color = Blue600, },
-            new Arrow { start = Id(44, Miim), end = IdOfCountingResult_2, StartAnchorFromRight = false , color = Blue600},
+            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = false,color   = Blue600, },
+            new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = false , color = Blue600},
 
-            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_2, StartAnchorFromTop   = true ,color = Blue600,},
-            new Arrow { start = Id(45, Miim), end = IdOfCountingResult_2, StartAnchorFromRight = true , color = Blue600},
-            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_2, StartAnchorFromTop   = true , color = Blue600},
-            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_2, StartAnchorFromRight = true , color = Blue600}
+            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromTop   = true ,color  = Blue600,},
+            new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true , color = Blue600},
+            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromTop   = true , color = Blue600},
+            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true , color = Blue600},
+            
+            
+            // 19 x 113
+            new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_113 },
+            new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+            new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_113 },
+            new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+            new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_113 },
+            new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+            new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+            new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+            new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+            new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+            
+            // 19 x 54
+            new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_54 },
+            new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_54 },
+            
+            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_54 },
+            new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+            
+            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_54 },
+            new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+            
+            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_54, StartAnchorFromTop    = true },
+            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+            
+            
+            // 19 x 58
+            new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_58 },
+            new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_58 },
+            
+            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_58 },
+            new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+            
+            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_58 },
+            new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+            
+            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromTop   = true },
+            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+            
+            
+            
+           
         };
     }
 
