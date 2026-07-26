@@ -6,13 +6,14 @@ static class PageId
     public const string MainWindow                         = "1";
     public const string SecuringDataWithCurrentTechnology  = "2";
     public const string PreInformation                     = "3";
-    public const string InitialLetters                     = "4";
-    public const string QuestionAnswer                     = "5";
-    public const string Contact                            = "6";
-    public const string CharacterCounting                  = "7";
-    public const string WordSearching                      = "8";
-    public const string AlternativeSystems                 = "9";
-    public const string SimpleDefinition                   = "10";
+    public const string SimpleDefinition                   = "4";
+    public const string InitialLetters                     = "5";
+    public const string QuestionAnswer                     = "6";
+    public const string Contact                            = "7";
+    public const string CharacterCounting                  = "8";
+    public const string WordSearching                      = "9";
+    public const string AlternativeSystems                 = "10";
+
     public const string MushafOptionsDetail                = "11";
     public const string WhoIsRashadKhalifaPage             = "12";
     public const string VerseListContainsAllInitialLetters = "13";
