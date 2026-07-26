@@ -1,20 +1,72 @@
-﻿using static QuranAnalyzer.ArabicLetter;
+﻿using System.Collections.Immutable;
+using static QuranAnalyzer.ArabicLetter;
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
 class InitialLetterGroup_HaMimAll : InitialLetterGroup
 {
     static string IdOfCountingResult_19_59 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_59)}";
-    
-    static string IdOfCountingResult_19_54 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_54)}";
-    
-    static string IdOfCountingResult_19_58 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_58)}";
-    
+
     static string IdOfCountingResult_19_55 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_55)}";
     
     static string IdOfCountingResult_19_113 => $"HaMim-{nameof(IdOfCountingResult_19_113)}";
     
+    static string IdOfCountingResult_19_54 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_54)}";
+
+    static string IdOfCountingResult_19_58 => $"HaMimSeparated-{nameof(IdOfCountingResult_19_58)}";
+
+    public string SelectedCountResultId { get; set; }
+
+
+    public bool SimulationIsActive { get; set; } = true;
     
+    Task onMouseEntered(MouseEvent e)
+    {
+        
+        SimulationIsActive = false;
+        
+        SelectedCountResultId = e.currentTarget.id;
+
+        return Task.CompletedTask;
+    }
+
+    static readonly ImmutableList<string> IdListOfAllCountResults =
+    [
+        IdOfCountingResult_19_59,
+        IdOfCountingResult_19_55,
+        IdOfCountingResult_19_113,
+        IdOfCountingResult_19_54,
+        IdOfCountingResult_19_58
+    ];
+    
+    Task FocusNextCount()
+    {
+        if (!SimulationIsActive)
+        {
+            return Task.CompletedTask;
+        }
+        
+        var index = IdListOfAllCountResults.IndexOf(SelectedCountResultId);
+        
+        index++;
+
+        if (index >= IdListOfAllCountResults.Count)
+        {
+            index = 0;
+        }
+        
+        SelectedCountResultId = IdListOfAllCountResults[index];
+        
+        Client.GotoMethod(FocusNextCount,TimeSpan.FromSeconds(1));
+
+        return Task.CompletedTask;
+    }
+
+    protected override Task constructor()
+    {
+        Client.GotoMethod(FocusNextCount,TimeSpan.FromSeconds(1));
+        return base.constructor();
+    }
 
     protected override Element render()
     {
@@ -49,61 +101,69 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                 {
                                     new CountingResult
                                     {
-                                        id              = IdOfCountingResult_19_59,
-                                        MultipleOf      = 59,
-                                        SearchScript    = GetLetterCountingScript("40:*,41:*,42:*", Haa, Miim)
+                                        id             = IdOfCountingResult_19_59,
+                                        MultipleOf     = 59,
+                                        SearchScript   = GetLetterCountingScript("40:*,41:*,42:*", Haa, Miim),
+                                        OnMouseEntered = onMouseEntered
                                     }
                                 },
-                                
-                                   
+
+
                                 SpaceY(100),
-                                
+
                                 new FlexRow(JustifyContentCenter)
                                 {
                                     new CountingResult
                                     {
-                                        id           = IdOfCountingResult_19_55,
-                                        MultipleOf   = 55,
-                                        SearchScript = GetLetterCountingScript("41:*,42:*,43:*", Haa, Miim)
+                                        id             = IdOfCountingResult_19_55,
+                                        MultipleOf     = 55,
+                                        SearchScript   = GetLetterCountingScript("41:*,42:*,43:*", Haa, Miim),
+                                        OnMouseEntered = onMouseEntered
                                     }
                                 },
-                                
+
                                 SpaceY(100),
-                                
+
                                 new FlexRow(JustifyContentCenter)
                                 {
                                     new CountingResult
                                     {
-                                        id           = IdOfCountingResult_19_113, 
-                                        MultipleOf   = 113, 
-                                        SearchScript = GetLetterCountingScript("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Haa, Miim)
+                                        id           = IdOfCountingResult_19_113,
+                                        MultipleOf   = 113,
+                                        SearchScript = GetLetterCountingScript("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Haa, Miim),
+
+                                        OnMouseEntered = onMouseEntered
                                     }
                                 },
-                                
+
                                 SpaceY(100),
-                                
+
                                 new FlexRow(JustifyContentCenter)
                                 {
                                     new CountingResult
                                     {
-                                        id              = IdOfCountingResult_19_54,
-                                        MultipleOf      = 54,
-                                        SearchScript    = GetLetterCountingScript("43:*,44:*,45:*,46:*", Haa, Miim)
+                                        id           = IdOfCountingResult_19_54,
+                                        MultipleOf   = 54,
+                                        SearchScript = GetLetterCountingScript("43:*,44:*,45:*,46:*", Haa, Miim),
+
+                                        OnMouseEntered = onMouseEntered
                                     }
+
                                 },
-                                
-                             
-                                
+
+
+
                                 SpaceY(100),
-                                
+
                                 new FlexRow(JustifyContentCenter)
                                 {
                                     new CountingResult
                                     {
-                                        id           = IdOfCountingResult_19_58,
-                                        MultipleOf   = 58,
-                                        SearchScript = GetLetterCountingScript("40:*,44:*,45:*,46:*", Haa, Miim)
-                                    } 
+                                        id             = IdOfCountingResult_19_58,
+                                        MultipleOf     = 58,
+                                        SearchScript   = GetLetterCountingScript("40:*,44:*,45:*,46:*", Haa, Miim),
+                                        OnMouseEntered = onMouseEntered
+                                    }
                                 },
                             }
                         }
@@ -214,85 +274,99 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
 
             new Note
             {
-                AsLetter(Haa), " ve ", AsLetter(Miim), " ile başlayan 7 tane sure vardır.",
-                " Bu iki harfin bu 7 suredeki geçiş adeti ise ", 2147.AsMultipleOf19(), "'tür.",
-                br,
-                " Bu 7 sure neredeyse Kuranın 5 de 1'ine tekabül eder.",
-                " Eğer bu iki harften bir tanesi fazla veya eksik olsaydı yukarıdaki şekildeki gibi bir ahenk olmazdı.",
-                br,
-                br,
-                "Mesela Mekke şehri bu surelerde 'Mekke' yerine 'Bekke' şeklinde yazılmıştır.",
-                " Neden Bekke şeklinde yazıldığı ile ilgili başka yorumlar da elbet var. Ama Yukarıdaki şekil incelendiğinde sanırım nedeni daha net anlaşılıyor.",
-                " Eğer Mekke şeklinde yazılsaydı ", AsLetter(Miim), " harfleri bir fazla olurdu ve bu şekildeki ahenk olmazdı."
+                "Şekilden de anlaşılacağı üzere ", AsLetter(Haa), " ve ", AsLetter(Miim), " harfleri bu 7 sure boyunca kendi içinde alt gruplar da oluşturmaktadır.",
             },
 
-            
-            new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true , color = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_59, StartAnchorFromRight = true , color  = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromTop   = true , color  = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_59, StartAnchorFromTop   = true , color  = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromTop   = true , color = Blue200, strokeWidth = 3},
-            new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_59, StartAnchorFromTop   = true , color = Blue200, strokeWidth = 3},
-            
-            
-            new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true, color = Blue600, },
-            new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true,color  = Blue600, },
+            SelectedCountResultId == IdOfCountingResult_19_59
+                ? new div
+                {
+                    new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    
+                    new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    
+                    new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                }
+                : null,
 
-            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = false,color   = Blue600, },
-            new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = false , color = Blue600},
+            SelectedCountResultId == IdOfCountingResult_19_55
+                ? new div
+                {
+                    new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true, },
+                    new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true },
 
-            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromTop   = true ,color  = Blue600,},
-            new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true , color = Blue600},
-            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromTop   = true , color = Blue600},
-            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true , color = Blue600},
-            
-            
-            // 19 x 113
-            new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_113 },
-            new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-            new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_113 },
-            new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-            new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_113 },
-            new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-            new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
-            new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
-            new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
-            new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
-            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-            
-            // 19 x 54
-            new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_54 },
-            new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_54 },
-            
-            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_54 },
-            new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
-            
-            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_54 },
-            new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
-            
-            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_54, StartAnchorFromTop    = true },
-            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
-            
-            
-            // 19 x 58
-            new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_58 },
-            new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_58 },
-            
-            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_58 },
-            new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
-            
-            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_58 },
-            new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
-            
-            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromTop   = true },
-            new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
-            
-            
-            
-           
+                    new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true },
+                    new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true },
+
+                    new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true, },
+                    new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true },
+                }
+                : null,
+
+            SelectedCountResultId == IdOfCountingResult_19_113
+                ? new div
+                {
+
+
+                    // 19 x 113
+                    new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_113 },
+                    new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_113 },
+                    new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_113 },
+                    new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+                    new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+                    new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+                    new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+                    new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                }
+                : null,
+
+            SelectedCountResultId == IdOfCountingResult_19_54
+                ? new div
+                {
+
+
+                    new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_54, StartAnchorFromRight  = true },
+                    new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_54 , StartAnchorFromRight = true},
+
+                    new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_54 , StartAnchorFromRight = true},
+                    new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight  = true },
+
+                    new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+                    new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+
+                    new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+                    new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+                }
+                : null,
+
+            SelectedCountResultId == IdOfCountingResult_19_58
+                ? new div
+                {
+                    // 19 x 58
+                    new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+
+                    new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+
+                    new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+
+                    new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromRight   = true },
+                    new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+
+                }
+                : null
+
+
         };
     }
 

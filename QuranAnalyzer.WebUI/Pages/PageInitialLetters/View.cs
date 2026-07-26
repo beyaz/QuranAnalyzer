@@ -36,7 +36,7 @@ class InitialLetter : ReactPureComponent
     }
 }
 
-class CountingResult : ReactPureComponent
+class CountingResult : ReactComponent
 {
     public string id { get; set; }
 
@@ -45,10 +45,12 @@ class CountingResult : ReactPureComponent
     public string MultipleOfColor { get; set; }
 
     public string SearchScript { get; set; }
+    
+    public MouseEventHandler OnMouseEntered { get; init; }
 
     protected override Element render()
     {
-        return new div
+        return new div(OnMouseEnter(OnMouseEntered))
         {
             style = { display = "flex", flexDirection = "row", flexWrap = "wrap" },
             id    = id,
@@ -135,7 +137,7 @@ class Arrow : ReactPureComponent
     }
 }
 
-abstract class InitialLetterGroup : ReactPureComponent
+abstract class InitialLetterGroup : ReactComponent
 {
     protected tr HeaderSpace => new() { Height(15), new td(), new td(), new td() };
 

@@ -5,6 +5,8 @@ namespace QuranAnalyzer.WebUI;
 
 public abstract class ReactComponent : Component
 {
+    protected NameValueCollection Query => HttpUtility.ParseQueryString(KeyForQueryString[Context]);
+    
     protected IEnumerable<Element> AsLetter(char arabicLetter)
     {
         var pronunciation = GetPronunciationOfArabicLetter(arabicLetter);
