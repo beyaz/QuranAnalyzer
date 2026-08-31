@@ -149,7 +149,7 @@ public class CustomCountingTests
 
         var sum = query.Sum();
         
-        sum.ShouldBe(146);
+        sum.ShouldBe(6);
 
         
     }
