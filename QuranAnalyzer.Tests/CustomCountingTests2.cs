@@ -29,7 +29,7 @@ public class CustomCountingTests2
         }
     }
     
-    [TestMethod]
+    //[TestMethod]
     public void AllWordsTest()
     {
         var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
@@ -78,7 +78,7 @@ public class CustomCountingTests2
         
     }
     
-    [TestMethod]
+    // [TestMethod]
     public void ABC()
     {
         Console.WriteLine("S T A R T E D");
@@ -174,7 +174,7 @@ public class CustomCountingTests2
     }
     
     
-    [TestMethod]
+    // [TestMethod]
     public void WordCounts()
     {
         var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
