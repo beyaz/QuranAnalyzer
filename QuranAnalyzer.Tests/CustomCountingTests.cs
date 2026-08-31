@@ -138,19 +138,25 @@ public class CustomCountingTests
 
         var map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap);
 
-        var query = 
+        6.ShouldBe((
             from c in input.LatinText.ToCharArray()
             let letterInfo = map.ContainsKey(c) switch
             {
-                true=>map[c],
-                false=>new()
+                true  => map[c],
+                false => new()
             }
-            select letterInfo.NumericValue;
+            select letterInfo.NumericValue
+        ).Sum());
 
-        var sum = query.Sum();
-        
-        sum.ShouldBe(6);
-
+        6.ShouldBe((
+            from c in input.LatinText.ToCharArray()
+            let letterInfo = map.ContainsKey(c) switch
+            {
+                true  => map[c],
+                false => new()
+            }
+            select letterInfo.OrderValue
+        ).Sum());
         
     }
     
