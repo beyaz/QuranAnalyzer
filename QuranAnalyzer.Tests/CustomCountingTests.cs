@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Numerics;
+﻿using System.Numerics;
 using System.Text;
 using static QuranAnalyzer.QuranAnalyzerMixin;
 using static QuranAnalyzer.ArabicLetterOrder;
@@ -9,86 +7,22 @@ using static QuranAnalyzer.VerseFilter;
 namespace QuranAnalyzer;
 
 [TestClass]
-
 public class CustomCountingTests
 {
-    
-    
-    //[TestMethod]
-    public void ______1()
-    {
-        var verseCount = 0;
+    const string LatinCharToArabicCharMap =
+        """
 
-        var totalSum = 0;
+        a : ا  ,  b : ب  ,  c : ج  ,  d : د  ,
+        f : ف  ,  ç : ج  ,  g : ك  ,  h : ح  ,
+        i : ي  ,  j : ج  ,  k : ك  ,  l : ل  ,
+        m : م  ,  n : ن  ,  o : و  ,  p : پ  ,
+        q : ق  ,  r : ر  ,  s : س  ,  t : ت  ,
+        u : ع  ,  v : ڤ  ,  w : و  ,  ö : و  ,
+        ü : و  ,  x : خ  ,  y : ي  ,  z : ز  ,
 
-        var verseList = GetVerseList("*,-9:128,-9:129").Value;
-        foreach (var verse in verseList)
-        {
-            verseCount++;
+        """;
 
-            totalSum += getCount(verse, Baa, Raa, Kaaf, Raa, Yaa, Waaw, Raa, Kaaf, Waaw, Jiim);
-
-            if (verseCount == 2280)
-            {
-                break;
-            }
-        }
-
-        totalSum.ShouldBe(667 * 114);
-
-        static int getCount(Verse verse, params int[] arabicLetterOrderValues)
-        {
-            var option = new MushafOption();
-            return arabicLetterOrderValues.Select(orderValueOfLetter => GetCountOfLetterInVerse(verse, orderValueOfLetter, option, false)).Sum();
-        }
-    }
-
-    //[TestMethod]
-    public void LastN()
-    {
-        var verseCount = 0;
-
-        var totalSum = 0;
-
-        var totalSaad = 0;
-
-        var chapterIndex = 114;
-        while (--chapterIndex >= 0)
-        {
-            var chapter = DataAccess.AllChapters[chapterIndex];
-
-            var verseIndex = chapter.Verses.Count;
-            while (--verseIndex >= 0)
-            {
-                var verse = chapter.Verses[verseIndex];
-
-                if (verseCount < 667)
-                {
-                    verseCount++;
-                    totalSum += getCount(verse, Baa, Raa, Kaaf, Yaa, Waaw, Jiim);
-                    
-                    totalSaad += getCount(verse, Saad);
-                }
-                else
-                {
-                    // ReSharper disable once EmptyStatement
-                    ;
-                }
-            }
-        }
-
-        totalSum.ShouldBe(190 * 19);
-        totalSaad.ShouldBe(5 * 19);
-
-        static int getCount(Verse verse, params int[] arabicLetterOrderValues)
-        {
-            var option = new MushafOption();
-            return arabicLetterOrderValues
-                .Select(orderValueOfLetter => GetCountOfLetterInVerse(verse, orderValueOfLetter, option, true)).Sum();
-        }
-    }
-
-   // [TestMethod]
+    [TestMethod]
     public void All_Saad_Combined_as_ChapterNumber_VerseNumber_is_114_667()
     {
         var sb = new StringBuilder();
@@ -112,19 +46,6 @@ public class CustomCountingTests
 
         remaining.ShouldBe(114);
     }
-
-    const string LatinCharToArabicCharMap =
-        """
-
-        a : ا  ,  b : ب  ,  c : ج  ,  d : د  ,
-        f : ف  ,  ç : ج  ,  g : ك  ,  h : ح  ,
-        i : ي  ,  j : ج  ,  k : ك  ,  l : ل  ,
-        m : م  ,  n : ن  ,  o : و  ,  p : پ  ,
-        q : ق  ,  r : ر  ,  s : س  ,  t : ت  ,
-        u : ع  ,  v : ڤ  ,  w : و  ,  ö : و  ,
-        ü : و  ,  x : خ  ,  y : ي  ,  z : ز  ,
-
-        """;
 
     [TestMethod]
     public void LatinAllphabetEbjedCalculate()
@@ -157,9 +78,5 @@ public class CustomCountingTests
             }
             select letterInfo.OrderValue
         ).Sum());
-        
     }
-    
-   
-   
 }
