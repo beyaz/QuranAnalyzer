@@ -34,7 +34,7 @@ public class CustomCountingTests
             }
         }
 
-        totalSum.Should().Be(667 * 114);
+        totalSum.ShouldBe(667 * 114);
 
         static int getCount(Verse verse, params int[] arabicLetterOrderValues)
         {
@@ -77,8 +77,8 @@ public class CustomCountingTests
             }
         }
 
-        totalSum.Should().Be(190 * 19);
-        totalSaad.Should().Be(5 * 19);
+        totalSum.ShouldBe(190 * 19);
+        totalSaad.ShouldBe(5 * 19);
 
         static int getCount(Verse verse, params int[] arabicLetterOrderValues)
         {
@@ -110,7 +110,7 @@ public class CustomCountingTests
 
         var remaining = num % 667;
 
-        remaining.Should().Be(114);
+        remaining.ShouldBe(114);
     }
 
     const string LatinCharToArabicCharMap =
@@ -149,7 +149,7 @@ public class CustomCountingTests
 
         var sum = query.Sum();
         
-        sum.Should().Be(146);
+        sum.ShouldBe(146);
 
         
     }
@@ -218,11 +218,11 @@ public class CustomCountingTests
             }
         }
 
-        count.Should().Be(667);
+        count.ShouldBe(667);
 
         var sumOfNumbers = (from c in countStr select int.Parse(c.ToString())).Sum();
 
-        sumOfNumbers.Should().Be(109);
+        sumOfNumbers.ShouldBe(109);
     }
    
 }

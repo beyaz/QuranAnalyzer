@@ -38,11 +38,11 @@ public class WordSearchingTests
         var source = AnalyzeText("الْبَيِّنَةُۜ");
         var beyyine = AnalyzeText("بينة");
 
-        source.Contains(beyyine).Count.Should().Be(1);
+        source.Contains(beyyine).Count.ShouldBe(1);
 
         source = AnalyzeText(" الْبَيِّنَةُۜ-- الْبَيِّنَةُۜ");
 
-        source.Contains(beyyine).Count.Should().Be(2);
+        source.Contains(beyyine).Count.ShouldBe(2);
     }
 
     [TestMethod]
@@ -167,7 +167,7 @@ public class WordSearchingTests
             }
         }
 
-        allWords.Count.Should().Be(18993);
+        allWords.Count.ShouldBe(18993);
     }
 
     [TestMethod]
@@ -175,7 +175,7 @@ public class WordSearchingTests
     {
         var nunVavNun = AnalyzeText("نون");
 
-        VerseFilter.GetVerseList("*").Value.SumOf(v => v.TextWithBismillahWordList.Last().EndsWith(nunVavNun) is null ? 0 : 1).Unwrap().Should().Be(133);
+        VerseFilter.GetVerseList("*").Value.SumOf(v => v.TextWithBismillahWordList.Last().EndsWith(nunVavNun) is null ? 0 : 1).Unwrap().ShouldBe(133);
     }
 
     [TestMethod]
@@ -189,10 +189,10 @@ public class WordSearchingTests
 
             var response = source.EndsWith(searchWord);
 
-            response.HasValue.Should().BeTrue();
+            response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Miim);
-            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Qaaf);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Miim);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Qaaf);
         }
 
         // "dabc".EndsWith("abc")
@@ -203,10 +203,10 @@ public class WordSearchingTests
 
             var response = source.EndsWith(searchWord);
 
-            response.HasValue.Should().BeTrue();
+            response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Miim);
-            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Qaaf);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Miim);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Qaaf);
         }
 
         // "abc".EndsWith("abcd")
@@ -217,7 +217,7 @@ public class WordSearchingTests
 
             var response = source.EndsWith(searchWord);
 
-            response.HasValue.Should().BeFalse();
+            response.HasValue.ShouldBeFalse();
         }
     }
 
@@ -232,10 +232,10 @@ public class WordSearchingTests
 
             var response = source.StartsWith(searchWord);
 
-            response.HasValue.Should().BeTrue();
+            response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Nun);
-            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Nun);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
         }
 
         // " abcd".StartsWith("abc")
@@ -246,10 +246,10 @@ public class WordSearchingTests
 
             var response = source.StartsWith(searchWord);
 
-            response.HasValue.Should().BeTrue();
+            response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Nun);
-            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Nun);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
         }
 
         // " abc".StartsWith("abcd")
@@ -260,7 +260,7 @@ public class WordSearchingTests
 
             var response = source.StartsWith(searchWord);
 
-            response.HasValue.Should().BeFalse();
+            response.HasValue.ShouldBeFalse();
         }
 
         // " abc".StartsWith("abc")
@@ -271,10 +271,10 @@ public class WordSearchingTests
 
             var response = source.StartsWith(searchWord);
 
-            response.HasValue.Should().BeTrue();
+            response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.Should().Be(ArabicLetterOrder.Nun);
-            response!.Value.end.OrderValue.Should().Be(ArabicLetterOrder.Nun);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
         }
     }
 
@@ -305,15 +305,15 @@ public class WordSearchingTests
 
         var matchedVerses = allVerses.Where(hasMatch).ToList();
 
-        matchedVerses.Count.Should().Be(27);
+        matchedVerses.Count.ShouldBe(27);
 
-        matchedVerses.Select(x => x.ChapterNumber).Distinct().Count().Should().Be(19);
+        matchedVerses.Select(x => x.ChapterNumber).Distinct().Count().ShouldBe(19);
 
         var b = AnalyzeText(new("brkyöç".Select(c => map[c]).ToArray()));
 
-        matchedVerses.Sum(v => v.TextAnalyzed.Count(IsArabicLetter)).Should().Be(1444);
+        matchedVerses.Sum(v => v.TextAnalyzed.Count(IsArabicLetter)).ShouldBe(1444);
 
-        matchedVerses.Sum(v => v.TextAnalyzed.Count(isBRKYÖÇ)).Should().Be(436);
+        matchedVerses.Sum(v => v.TextAnalyzed.Count(isBRKYÖÇ)).ShouldBe(436);
 
         return;
 
@@ -339,6 +339,6 @@ public class WordSearchingTests
             return v.TextWordList.Count(w => w.Same(search));
         }
 
-        verses.Sum(matchCountOfSameAsExactly).Should().Be(expected);
+        verses.Sum(matchCountOfSameAsExactly).ShouldBe(expected);
     }
 }
