@@ -66,15 +66,7 @@ public class Response
     /// </summary>
     public string FailMessage => string.Join(Environment.NewLine, from e in Errors select e.ToString());
 
-    /// <summary>
-    ///     Gets a value indicating whether this instance is fail.
-    /// </summary>
-    public bool IsFail => Errors.Count > 0;
-
-    /// <summary>
-    ///     Gets a value indicating whether this instance is success.
-    /// </summary>
-    public bool IsSuccess => Errors.Count == 0;
+  
     
 
     
@@ -90,6 +82,18 @@ public class Response
 [Serializable]
 public sealed class Response<TValue> : Response
 {
+    
+    /// <summary>
+    ///     Gets a value indicating whether this instance is fail.
+    /// </summary>
+    public bool IsFail => Errors.Count > 0;
+
+    /// <summary>
+    ///     Gets a value indicating whether this instance is success.
+    /// </summary>
+    public bool IsSuccess => Errors.Count == 0;
+    
+    
     /// <summary>
     ///     Gets or sets the value.
     /// </summary>
