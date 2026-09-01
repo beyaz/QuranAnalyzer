@@ -109,7 +109,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
             return Container(Panel(searchPanel()));
         }
 
-        Response<(List<LetterColorizer> resultVerseList, List<SummaryInfo> summaryInfoList)> calculate()
+        Result<(List<LetterColorizer> resultVerseList, List<SummaryInfo> summaryInfoList)> calculate()
         {
             var resultVerses = new List<LetterColorizer>();
 

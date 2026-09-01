@@ -16,7 +16,7 @@ public static class VerseFilter
         return AllChapters[chapterNumber - 1].Verses[verseNumber - 1];
     }
 
-    public static Response<IReadOnlyList<Verse>> GetVerseList(string searchScript)
+    public static Result<IReadOnlyList<Verse>> GetVerseList(string searchScript)
     {
         if (string.IsNullOrWhiteSpace(searchScript))
         {
@@ -54,7 +54,7 @@ public static class VerseFilter
 
         return returnList;
 
-        static Response<IReadOnlyList<Verse>> byRange(string begin, string end)
+        static Result<IReadOnlyList<Verse>> byRange(string begin, string end)
         {
             var verseBegin = getVerseById(begin);
             var verseEnd = getVerseById(end);
@@ -114,7 +114,7 @@ public static class VerseFilter
             return returnList;
         }
 
-        static Response<Verse> getVerseById(string verseId)
+        static Result<Verse> getVerseById(string verseId)
         {
             var arr = verseId.Split(":".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray();
             if (arr.Length != 2)
@@ -147,7 +147,7 @@ public static class VerseFilter
             return chapter.Value.Verses[--verseNumber.Value];
         }
 
-        static Response<Chapter> findChapterByNumber(int chapterNumber)
+        static Result<Chapter> findChapterByNumber(int chapterNumber)
         {
             if (chapterNumber <= 0 || chapterNumber > AllChapters.Count)
             {
@@ -157,7 +157,7 @@ public static class VerseFilter
             return AllChapters[--chapterNumber];
         }
 
-        Response<IReadOnlyList<Verse>> process(string searchItem)
+        Result<IReadOnlyList<Verse>> process(string searchItem)
         {
             if (searchItem.Trim() == "*")
             {
@@ -186,12 +186,12 @@ public static class VerseFilter
                 .Then(findChapterByNumber)
                 .Then(chapter => collectVerseList(chapter, arr[1]));
 
-            Response<int> parseChapterNumber()
+            Result<int> parseChapterNumber()
             {
                 return ParseInt(arr[0]);
             }
 
-            Response<IReadOnlyList<Verse>> collectVerseList(Chapter chapter, string verseFilter)
+            Result<IReadOnlyList<Verse>> collectVerseList(Chapter chapter, string verseFilter)
             {
                 verseFilter = verseFilter.Trim();
 
@@ -219,7 +219,7 @@ public static class VerseFilter
 
                 return (Error)$"Sure seçiminde yanlışlık var.{searchItem}";
 
-                Response<IReadOnlyList<Verse>> selectOne(int verseIndex)
+                Result<IReadOnlyList<Verse>> selectOne(int verseIndex)
                 {
                     if (verseIndex <= 0 || verseIndex > chapter.Verses.Count)
                     {
@@ -229,7 +229,7 @@ public static class VerseFilter
                     return new[] { chapter.Verses[--verseIndex] };
                 }
 
-                Response<IReadOnlyList<Verse>> selectMultiple(int verseStartIndex, int verseEndIndex)
+                Result<IReadOnlyList<Verse>> selectMultiple(int verseStartIndex, int verseEndIndex)
                 {
                     if (verseStartIndex <= 0 || verseStartIndex > chapter.Verses.Count)
                     {
@@ -256,7 +256,7 @@ public static class VerseFilter
             return verseFilter.Contains('[') && verseFilter.Contains(']') && verseFilter.Contains("..");
         }
 
-        static Response<Verse> getVerseWithSpecificRange(Chapter chapter, string verseFilter)
+        static Result<Verse> getVerseWithSpecificRange(Chapter chapter, string verseFilter)
         {
             var parseError = (Error)$"Sure seçiminde yanlışlık var.{verseFilter}";
 
@@ -269,7 +269,7 @@ public static class VerseFilter
 
             return ParseInt(verseNumberWithSpecificRangeArray[0]).Then(selectOne).Then(selectSpecificRange);
 
-            Response<Verse> selectSpecificRange(Verse selectedVerse)
+            Result<Verse> selectSpecificRange(Verse selectedVerse)
             {
                 var verse = Clone(selectedVerse);
 
@@ -300,7 +300,7 @@ public static class VerseFilter
 
                 return parseError;
 
-                Response<int> endIndexShouldBeInValidRangeForVerse(int endIndex)
+                Result<int> endIndexShouldBeInValidRangeForVerse(int endIndex)
                 {
                     if (endIndex <= 0)
                     {
@@ -315,7 +315,7 @@ public static class VerseFilter
                     return endIndex;
                 }
 
-                Response<int> startIndexShouldBeInValidRangeForVerse(int startIndex)
+                Result<int> startIndexShouldBeInValidRangeForVerse(int startIndex)
                 {
                     // normalize for .net
                     startIndex -= 1;
@@ -333,7 +333,7 @@ public static class VerseFilter
                     return startIndex;
                 }
 
-                Response<(int startIndex, int endIndex)> startIndexAndEndIndexShouldBeInValidRangeForVerse(int startIndex, int endIndex)
+                Result<(int startIndex, int endIndex)> startIndexAndEndIndexShouldBeInValidRangeForVerse(int startIndex, int endIndex)
                 {
                     // normalize for .net
                     startIndex -= 1;
@@ -361,13 +361,13 @@ public static class VerseFilter
                     return (startIndex, endIndex);
                 }
 
-                Response<Verse> subText(string verseText2)
+                Result<Verse> subText(string verseText2)
                 {
                     return ToVerse(verse.ChapterNumber, verse.IndexAsNumber, verseText2, verse.Bismillah);
                 }
             }
 
-            Response<Verse> selectOne(int verseIndex)
+            Result<Verse> selectOne(int verseIndex)
             {
                 if (verseIndex <= 0 || verseIndex > chapter.Verses.Count)
                 {

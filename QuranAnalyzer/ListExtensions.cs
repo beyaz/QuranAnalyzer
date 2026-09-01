@@ -58,7 +58,7 @@ public static class ListExtensions
         return data;
     }
 
-    public static Response<int> SumOf<TSource>(this IEnumerable<TSource> source, Func<TSource, Response<int>> selector)
+    public static Result<int> SumOf<TSource>(this IEnumerable<TSource> source, Func<TSource, Result<int>> selector)
     {
         if (source == null)
         {
@@ -78,7 +78,7 @@ public static class ListExtensions
         return tuple.value;
     }
 
-    static Response<TAccumulate> Aggregate<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TSource, Response<TAccumulate>> func, Func<TAccumulate, TAccumulate, TAccumulate> accumulate)
+    static Result<TAccumulate> Aggregate<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TSource, Result<TAccumulate>> func, Func<TAccumulate, TAccumulate, TAccumulate> accumulate)
     {
         if (source == null)
         {

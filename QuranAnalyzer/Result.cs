@@ -52,7 +52,7 @@ public sealed record Error
 ///     The response
 /// </summary>
 [Serializable]
-public sealed class Response<TValue>
+public sealed class Result<TValue>
 {
     readonly List<Error> Errors = [];
 
@@ -82,11 +82,11 @@ public sealed class Response<TValue>
     public TValue Value { get; set; }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref = "Exception" /> to <see cref = "Response{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "Exception" /> to <see cref = "Result{TValue}" />.
     /// </summary>
-    public static implicit operator Response<TValue>(Exception exception)
+    public static implicit operator Result<TValue>(Exception exception)
     {
-        var response = new Response<TValue>();
+        var response = new Result<TValue>();
 
         response.Errors.Add(exception);
 
@@ -94,20 +94,20 @@ public sealed class Response<TValue>
     }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref = "Error" /> to <see cref = "Response{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "Error" /> to <see cref = "Result{TValue}" />.
     /// </summary>
-    public static implicit operator Response<TValue>(Error error)
+    public static implicit operator Result<TValue>(Error error)
     {
-        var response = new Response<TValue>();
+        var response = new Result<TValue>();
 
         response.Errors.Add(error);
 
         return response;
     }
 
-    public static implicit operator Response<TValue>(string error)
+    public static implicit operator Result<TValue>(string error)
     {
-        var response = new Response<TValue>();
+        var response = new Result<TValue>();
 
         response.Errors.Add(error);
 
@@ -115,11 +115,11 @@ public sealed class Response<TValue>
     }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref = "Error" /> to <see cref = "Response{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "Error" /> to <see cref = "Result{TValue}" />.
     /// </summary>
-    public static implicit operator Response<TValue>(Error[] errors)
+    public static implicit operator Result<TValue>(Error[] errors)
     {
-        var response = new Response<TValue>();
+        var response = new Result<TValue>();
 
         response.Errors.AddRange(errors);
 
@@ -127,11 +127,11 @@ public sealed class Response<TValue>
     }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref = "TValue" /> to <see cref = "Response{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "TValue" /> to <see cref = "Result{TValue}" />.
     /// </summary>
-    public static implicit operator Response<TValue>(TValue value)
+    public static implicit operator Result<TValue>(TValue value)
     {
-        return new Response<TValue> { Value = value };
+        return new Result<TValue> { Value = value };
     }
 
     public TValue Unwrap()
@@ -147,22 +147,22 @@ public sealed class Response<TValue>
 
 public static class FpExtensions
 {
-    public static Response<TC> Apply<TA, TB, TC>(Func<TA, TB, Response<TC>> fn, Response<TA> responseA, Response<TB> responseB)
+    public static Result<TC> Apply<TA, TB, TC>(Func<TA, TB, Result<TC>> fn, Result<TA> resultA, Result<TB> resultB)
     {
-        if (responseA.IsFail)
+        if (resultA.IsFail)
         {
-            return responseA.ErrorsAsArray;
+            return resultA.ErrorsAsArray;
         }
 
-        if (responseB.IsFail)
+        if (resultB.IsFail)
         {
-            return responseB.ErrorsAsArray;
+            return resultB.ErrorsAsArray;
         }
 
-        return fn(responseA.Value, responseB.Value);
+        return fn(resultA.Value, resultB.Value);
     }
 
-    public static Response<IReadOnlyList<TTarget>> AsListOf<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, Response<TTarget>> convertFunc)
+    public static Result<IReadOnlyList<TTarget>> AsListOf<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, Result<TTarget>> convertFunc)
     {
         if (source == null)
         {
@@ -190,22 +190,22 @@ public static class FpExtensions
         return result;
     }
 
-    public static Response<int> ParseInt(string value)
+    public static Result<int> ParseInt(string value)
     {
         return Try(() => int.Parse(value));
     }
 
-    public static Response<TB> Then<TA, TB>(this Response<TA> response, Func<TA, Response<TB>> nextFunc)
+    public static Result<TB> Then<TA, TB>(this Result<TA> result, Func<TA, Result<TB>> nextFunc)
     {
-        if (response.IsFail)
+        if (result.IsFail)
         {
-            return response.ErrorsAsArray;
+            return result.ErrorsAsArray;
         }
 
-        return nextFunc(response.Value);
+        return nextFunc(result.Value);
     }
 
-    public static Response<TC> Then<TA, TB, TC>(this (Response<TA> a, Response<TB> b) response, Func<TA, TB, Response<TC>> nextFunc)
+    public static Result<TC> Then<TA, TB, TC>(this (Result<TA> a, Result<TB> b) response, Func<TA, TB, Result<TC>> nextFunc)
     {
         if (response.a.IsFail)
         {
@@ -220,47 +220,47 @@ public static class FpExtensions
         return nextFunc(response.a.Value, response.b.Value);
     }
 
-    public static Response<TB> Then<TA, TB>(this Response<TA> response, Func<TA, TB> nextFunc)
+    public static Result<TB> Then<TA, TB>(this Result<TA> result, Func<TA, TB> nextFunc)
     {
-        if (response.IsFail)
+        if (result.IsFail)
         {
-            return response.ErrorsAsArray;
+            return result.ErrorsAsArray;
         }
 
-        return nextFunc(response.Value);
+        return nextFunc(result.Value);
     }
 
-    public static TC Then<TA, TB, TC>(this Response<(TA, TB)> response, Func<TA, TB, TC> successFunc, Func<string, TC> failFunc)
+    public static TC Then<TA, TB, TC>(this Result<(TA, TB)> result, Func<TA, TB, TC> successFunc, Func<string, TC> failFunc)
     {
-        if (response.IsFail)
+        if (result.IsFail)
         {
-            return failFunc(response.FailMessage);
+            return failFunc(result.FailMessage);
         }
 
-        return successFunc(response.Value.Item1, response.Value.Item2);
+        return successFunc(result.Value.Item1, result.Value.Item2);
     }
 
-    public static TD Then<TA, TB, TC, TD>(this Response<(TA, TB, TC)> response, Func<TA, TB, TC, TD> successFunc, Func<string, TD> failFunc)
+    public static TD Then<TA, TB, TC, TD>(this Result<(TA, TB, TC)> result, Func<TA, TB, TC, TD> successFunc, Func<string, TD> failFunc)
     {
-        if (response.IsFail)
+        if (result.IsFail)
         {
-            return failFunc(response.FailMessage);
+            return failFunc(result.FailMessage);
         }
 
-        return successFunc(response.Value.Item1, response.Value.Item2, response.Value.Item3);
+        return successFunc(result.Value.Item1, result.Value.Item2, result.Value.Item3);
     }
 
-    public static Response<IReadOnlyList<TA>> ToReadOnlyList<TA>(this Response<TA> response)
+    public static Result<IReadOnlyList<TA>> ToReadOnlyList<TA>(this Result<TA> result)
     {
-        if (response.IsFail)
+        if (result.IsFail)
         {
-            return response.ErrorsAsArray;
+            return result.ErrorsAsArray;
         }
 
-        return new List<TA> { response.Value };
+        return new List<TA> { result.Value };
     }
 
-    static Response<T> Try<T>(Func<T> func)
+    static Result<T> Try<T>(Func<T> func)
     {
         try
         {

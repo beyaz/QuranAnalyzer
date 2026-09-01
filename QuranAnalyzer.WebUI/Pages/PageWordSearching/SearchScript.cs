@@ -7,7 +7,7 @@ class SearchScript
 {
     public IReadOnlyList<(string ChapterFilter, IReadOnlyList<LetterInfo> Letters)> Lines { get; private init; }
 
-    public static Response<SearchScript> ParseScript(string value)
+    public static Result<SearchScript> ParseScript(string value)
     {
         if (value.HasNoValue())
         {
@@ -36,7 +36,7 @@ class SearchScript
             return value.Split(';', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim());
         }
 
-        static Response<(string ChapterFilter, IReadOnlyList<LetterInfo> Letters)> parseLine(string line)
+        static Result<(string ChapterFilter, IReadOnlyList<LetterInfo> Letters)> parseLine(string line)
         {
             var arr = line.Split(['|', '~'], StringSplitOptions.RemoveEmptyEntries);
             if (arr.Length != 2)
