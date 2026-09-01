@@ -7,23 +7,24 @@
 public sealed record Error
 {
     public string Code { get; init; }
-    
+
     public string Message { get; init; }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref="Exception" /> to <see cref="Error" />.
+    ///     Performs an implicit conversion from <see cref = "Exception" /> to <see cref = "Error" />.
     /// </summary>
     public static implicit operator Error(Exception exception)
     {
         return new Error
         {
             Code = exception.HResult.ToString(),
+
             Message = exception.ToString()
         };
     }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref="System.String" /> to <see cref="Error" />.
+    ///     Performs an implicit conversion from <see cref = "System.String" /> to <see cref = "Error" />.
     /// </summary>
     public static implicit operator Error(string errorMessage)
     {
@@ -33,27 +34,28 @@ public sealed record Error
         };
     }
 
+    /// <summary>
+    ///     Returns a string representation of the error.
+    /// </summary>
     public override string ToString()
     {
         if (Code is null)
         {
             return Message;
         }
-        
+
         return Code + " " + Message;
     }
 }
-
-
 
 /// <summary>
 ///     The response
 /// </summary>
 [Serializable]
-public sealed class Response<TValue> 
+public sealed class Response<TValue>
 {
     readonly List<Error> Errors = [];
-    
+
     /// <summary>
     ///     Returns as array of errors
     /// </summary>
@@ -64,8 +66,6 @@ public sealed class Response<TValue>
     /// </summary>
     public string FailMessage => string.Join(Environment.NewLine, from e in Errors select e.ToString());
 
-
-    
     /// <summary>
     ///     Gets a value indicating whether this instance is fail.
     /// </summary>
@@ -75,17 +75,14 @@ public sealed class Response<TValue>
     ///     Gets a value indicating whether this instance is success.
     /// </summary>
     public bool IsSuccess => Errors.Count == 0;
-    
-    
+
     /// <summary>
     ///     Gets or sets the value.
     /// </summary>
     public TValue Value { get; set; }
 
-   
-
     /// <summary>
-    ///     Performs an implicit conversion from <see cref="Exception" /> to <see cref="Response{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "Exception" /> to <see cref = "Response{TValue}" />.
     /// </summary>
     public static implicit operator Response<TValue>(Exception exception)
     {
@@ -97,7 +94,7 @@ public sealed class Response<TValue>
     }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref="Error" /> to <see cref="Response{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "Error" /> to <see cref = "Response{TValue}" />.
     /// </summary>
     public static implicit operator Response<TValue>(Error error)
     {
@@ -118,7 +115,7 @@ public sealed class Response<TValue>
     }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref="Error" /> to <see cref="Response{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "Error" /> to <see cref = "Response{TValue}" />.
     /// </summary>
     public static implicit operator Response<TValue>(Error[] errors)
     {
@@ -130,7 +127,7 @@ public sealed class Response<TValue>
     }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref="TValue" /> to <see cref="Response{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "TValue" /> to <see cref = "Response{TValue}" />.
     /// </summary>
     public static implicit operator Response<TValue>(TValue value)
     {
@@ -150,8 +147,6 @@ public sealed class Response<TValue>
 
 public static class FpExtensions
 {
-    
-
     public static Response<TC> Apply<TA, TB, TC>(Func<TA, TB, Response<TC>> fn, Response<TA> responseA, Response<TB> responseB)
     {
         if (responseA.IsFail)
@@ -195,16 +190,10 @@ public static class FpExtensions
         return result;
     }
 
-    
-
-   
-
     public static Response<int> ParseInt(string value)
     {
         return Try(() => int.Parse(value));
     }
-
-  
 
     public static Response<TB> Then<TA, TB>(this Response<TA> response, Func<TA, Response<TB>> nextFunc)
     {
@@ -240,8 +229,6 @@ public static class FpExtensions
 
         return nextFunc(response.Value);
     }
-
-    
 
     public static TC Then<TA, TB, TC>(this Response<(TA, TB)> response, Func<TA, TB, TC> successFunc, Func<string, TC> failFunc)
     {
