@@ -56,17 +56,6 @@ public class Response
     /// </summary>
     protected readonly List<Error> Errors = [];
 
-    /// <summary>
-    ///     Returns as array of errors
-    /// </summary>
-    public Error[] ErrorsAsArray => [.. Errors];
-
-    /// <summary>
-    ///     Gets the fail message.
-    /// </summary>
-    public string FailMessage => string.Join(Environment.NewLine, from e in Errors select e.ToString());
-
-  
     
 
     
@@ -82,6 +71,18 @@ public class Response
 [Serializable]
 public sealed class Response<TValue> : Response
 {
+    
+    /// <summary>
+    ///     Returns as array of errors
+    /// </summary>
+    public Error[] ErrorsAsArray => [.. Errors];
+
+    /// <summary>
+    ///     Gets the fail message.
+    /// </summary>
+    public string FailMessage => string.Join(Environment.NewLine, from e in Errors select e.ToString());
+
+
     
     /// <summary>
     ///     Gets a value indicating whether this instance is fail.
