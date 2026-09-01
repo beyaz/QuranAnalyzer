@@ -44,33 +44,15 @@ public sealed record Error
     }
 }
 
-/// <summary>
-///     The response
-/// </summary>
-[Serializable]
-public class Response
-{
 
-    /// <summary>
-    ///     The errors
-    /// </summary>
-    protected readonly List<Error> Errors = [];
-
-    
-
-    
-
-    
-
-    
-}
 
 /// <summary>
 ///     The response
 /// </summary>
 [Serializable]
-public sealed class Response<TValue> : Response
+public sealed class Response<TValue> 
 {
+    readonly List<Error> Errors = [];
     
     /// <summary>
     ///     Returns as array of errors
