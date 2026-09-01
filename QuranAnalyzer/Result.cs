@@ -68,7 +68,7 @@ public sealed class Result<TValue>
     /// <summary>
     ///     Returns as array of errors
     /// </summary>
-    public Error[] ErrorsAsArray => [.. Errors];
+    public Error[] Error => [.. Errors];
 
     /// <summary>
     ///     Gets the fail message.
@@ -103,7 +103,7 @@ public sealed class Result<TValue>
     }
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref = "Error" /> to <see cref = "Result{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "QuranAnalyzer.Error" /> to <see cref = "Result{TValue}" />.
     /// </summary>
     public static implicit operator Result<TValue>(Error error)
     {
@@ -117,7 +117,7 @@ public sealed class Result<TValue>
     
 
     /// <summary>
-    ///     Performs an implicit conversion from <see cref = "Error" /> to <see cref = "Result{TValue}" />.
+    ///     Performs an implicit conversion from <see cref = "QuranAnalyzer.Error" /> to <see cref = "Result{TValue}" />.
     /// </summary>
     public static implicit operator Result<TValue>(Error[] errors)
     {
@@ -153,12 +153,12 @@ public static class FpExtensions
     {
         if (resultA.IsFail)
         {
-            return resultA.ErrorsAsArray;
+            return resultA.Error;
         }
 
         if (resultB.IsFail)
         {
-            return resultB.ErrorsAsArray;
+            return resultB.Error;
         }
 
         return fn(resultA.Value, resultB.Value);
@@ -183,7 +183,7 @@ public static class FpExtensions
             var response = convertFunc(item);
             if (response.IsFail)
             {
-                return response.ErrorsAsArray;
+                return response.Error;
             }
 
             result.Add(response.Value);
@@ -201,7 +201,7 @@ public static class FpExtensions
     {
         if (result.IsFail)
         {
-            return result.ErrorsAsArray;
+            return result.Error;
         }
 
         return nextFunc(result.Value);
@@ -211,12 +211,12 @@ public static class FpExtensions
     {
         if (response.a.IsFail)
         {
-            return response.a.ErrorsAsArray;
+            return response.a.Error;
         }
 
         if (response.b.IsFail)
         {
-            return response.b.ErrorsAsArray;
+            return response.b.Error;
         }
 
         return nextFunc(response.a.Value, response.b.Value);
@@ -226,7 +226,7 @@ public static class FpExtensions
     {
         if (result.IsFail)
         {
-            return result.ErrorsAsArray;
+            return result.Error;
         }
 
         return nextFunc(result.Value);
@@ -256,7 +256,7 @@ public static class FpExtensions
     {
         if (result.IsFail)
         {
-            return result.ErrorsAsArray;
+            return result.Error;
         }
 
         return new List<TA> { result.Value };

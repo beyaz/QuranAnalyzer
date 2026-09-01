@@ -110,7 +110,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                 var filteredVersesResponse = VerseFilter.GetVerseList(chapterFilter);
                 if (filteredVersesResponse.IsFail)
                 {
-                    return filteredVersesResponse.ErrorsAsArray;
+                    return filteredVersesResponse.Error;
                 }
 
                 var filteredVerses = filteredVersesResponse.Value;

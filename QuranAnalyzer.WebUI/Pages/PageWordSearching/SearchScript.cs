@@ -21,7 +21,7 @@ class SearchScript
 
         if (lines.IsFail)
         {
-            return lines.ErrorsAsArray;
+            return lines.Error;
         }
 
         return new SearchScript
