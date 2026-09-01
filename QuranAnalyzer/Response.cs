@@ -77,29 +77,11 @@ public class Response
     public bool IsSuccess => Errors.Count == 0;
     
 
-    public static Response operator +(Response responseX, Response responseY)
-    {
-        var response = new Response();
-
-        response.Errors.AddRange(responseX.ErrorsAsArray);
-        response.Errors.AddRange(responseY.ErrorsAsArray);
-
-        return response;
-    }
+    
 
     
 
-    /// <summary>
-    ///     Performs an implicit conversion from <see cref="Error" /> to <see cref="Response" />.
-    /// </summary>
-    public static implicit operator Response(Error error)
-    {
-        var response = new Response();
-
-        response.Errors.Add(error);
-
-        return response;
-    }
+    
 }
 
 /// <summary>
