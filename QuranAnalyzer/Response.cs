@@ -87,17 +87,7 @@ public class Response
         return response;
     }
 
-    /// <summary>
-    ///     Performs an implicit conversion from <see cref="Exception" /> to <see cref="Response" />.
-    /// </summary>
-    public static implicit operator Response(Exception exception)
-    {
-        var response = new Response();
-
-        response.Errors.Add(exception);
-
-        return response;
-    }
+    
 
     /// <summary>
     ///     Performs an implicit conversion from <see cref="Error" /> to <see cref="Response" />.
