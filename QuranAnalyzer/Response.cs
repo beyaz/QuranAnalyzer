@@ -128,14 +128,7 @@ public sealed class Response<TValue> : Response
     /// </summary>
     public TValue Value { get; set; }
 
-    public static Response<TValue> Fail(Response response)
-    {
-        var newResponse = new Response<TValue>();
-
-        newResponse.Errors.AddRange(response.ErrorsAsArray);
-
-        return newResponse;
-    }
+   
 
     /// <summary>
     ///     Performs an implicit conversion from <see cref="Exception" /> to <see cref="Response{TValue}" />.
@@ -203,10 +196,7 @@ public sealed class Response<TValue> : Response
 
 public static class FpExtensions
 {
-    public static Response<TB> Apply<TA, TB>(Func<TA, Response<TB>> functionAToB, TA a)
-    {
-        return functionAToB(a);
-    }
+    
 
     public static Response<TC> Apply<TA, TB, TC>(Func<TA, TB, Response<TC>> fn, Response<TA> responseA, Response<TB> responseB)
     {
@@ -251,46 +241,16 @@ public static class FpExtensions
         return result;
     }
 
-    public static Response<int> GetIndex<T>(this T[] array, T value)
-    {
-        var index = Array.IndexOf(array, value);
-        if (index < 0)
-        {
-            return $"{value} değeri listede bulunamadı";
-        }
+    
 
-        return index;
-    }
-
-    public static Response<T> GetValueAt<T>(this T[] array, int index)
-    {
-        if (array is null)
-        {
-            return new ArgumentNullException(nameof(array));
-        }
-
-        if (index >= 0 && index < array.Length)
-        {
-            return new Response<T> { Value = array[index] };
-        }
-
-        return new IndexOutOfRangeException("index:" + index);
-    }
+   
 
     public static Response<int> ParseInt(string value)
     {
         return Try(() => int.Parse(value));
     }
 
-    public static Response<TB> Pipe<TA, TB>(Response<TA> responseA, Func<TA, Response<TB>> func1)
-    {
-        if (responseA.IsFail)
-        {
-            return responseA.ErrorsAsArray;
-        }
-
-        return func1(responseA.Value);
-    }
+  
 
     public static Response<TB> Then<TA, TB>(this Response<TA> response, Func<TA, Response<TB>> nextFunc)
     {
@@ -327,15 +287,7 @@ public static class FpExtensions
         return nextFunc(response.Value);
     }
 
-    public static TB Then<TA, TB>(this Response<TA> response, Func<TA, TB> successFunc, Func<string, TB> failFunc)
-    {
-        if (response.IsFail)
-        {
-            return failFunc(response.FailMessage);
-        }
-
-        return successFunc(response.Value);
-    }
+    
 
     public static TC Then<TA, TB, TC>(this Response<(TA, TB)> response, Func<TA, TB, TC> successFunc, Func<string, TC> failFunc)
     {
