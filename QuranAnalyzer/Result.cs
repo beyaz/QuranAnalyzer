@@ -48,13 +48,22 @@ public sealed record Error
     }
 }
 
+public static class Result
+{
+    public static Result<T> Fail<T>(Exception exception)
+    {
+        var result =  new Result<T>();
+        result.Errors.Add(exception);
+        return result;
+    }
+}
 /// <summary>
 ///     The response
 /// </summary>
 [Serializable]
 public sealed class Result<TValue>
 {
-    readonly List<Error> Errors = [];
+    internal readonly List<Error> Errors = [];
 
     /// <summary>
     ///     Returns as array of errors

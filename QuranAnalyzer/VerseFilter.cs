@@ -20,7 +20,7 @@ public static class VerseFilter
     {
         if (string.IsNullOrWhiteSpace(searchScript))
         {
-            return "Arama kriteri boş olamaz";
+            return (Error)"Arama kriteri boş olamaz";
         }
 
         if (searchScript.Trim() == "*")
