@@ -4,12 +4,11 @@
 ///     The error
 /// </summary>
 [Serializable]
-public sealed class Error
+public sealed record Error
 {
-    /// <summary>
-    ///     Gets or sets the message.
-    /// </summary>
-    public string Message { get; set; }
+    public string Code { get; init; }
+    
+    public string Message { get; init; }
 
     /// <summary>
     ///     Performs an implicit conversion from <see cref="Exception" /> to <see cref="Error" />.
@@ -18,6 +17,7 @@ public sealed class Error
     {
         return new Error
         {
+            Code = exception.HResult.ToString(),
             Message = exception.ToString()
         };
     }
@@ -35,7 +35,12 @@ public sealed class Error
 
     public override string ToString()
     {
-        return Message;
+        if (Code is null)
+        {
+            return Message;
+        }
+        
+        return Code + " " + Message;
     }
 }
 
@@ -49,17 +54,17 @@ public class Response
     /// <summary>
     ///     The errors
     /// </summary>
-    protected readonly List<Error> Errors = new();
+    protected readonly List<Error> Errors = [];
 
     /// <summary>
     ///     Returns as array of errors
     /// </summary>
-    public Error[] ErrorsAsArray => Errors.ToArray();
+    public Error[] ErrorsAsArray => [.. Errors];
 
     /// <summary>
     ///     Gets the fail message.
     /// </summary>
-    public string FailMessage => string.Join(Environment.NewLine, Errors.Select(e => e.Message));
+    public string FailMessage => string.Join(Environment.NewLine, from e in Errors select e.ToString());
 
     /// <summary>
     ///     Gets a value indicating whether this instance is fail.
@@ -70,17 +75,7 @@ public class Response
     ///     Gets a value indicating whether this instance is success.
     /// </summary>
     public bool IsSuccess => Errors.Count == 0;
-
-    /// <summary>
-    ///     Fails the specified error message.
-    /// </summary>
-    public static Response Fail(string errorMessage)
-    {
-        return new Response
-        {
-            Errors = { errorMessage }
-        };
-    }
+    
 
     public static Response operator +(Response responseX, Response responseY)
     {
