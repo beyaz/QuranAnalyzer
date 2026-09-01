@@ -114,14 +114,7 @@ public sealed class Result<TValue>
         return response;
     }
 
-    public static implicit operator Result<TValue>(string error)
-    {
-        var response = new Result<TValue>();
-
-        response.Errors.Add(error);
-
-        return response;
-    }
+    
 
     /// <summary>
     ///     Performs an implicit conversion from <see cref = "Error" /> to <see cref = "Result{TValue}" />.

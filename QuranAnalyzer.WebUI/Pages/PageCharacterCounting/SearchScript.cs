@@ -41,7 +41,7 @@ class SearchScript
             var arr = line.Split(['|', '~'], StringSplitOptions.RemoveEmptyEntries);
             if (arr.Length != 2)
             {
-                return "Arama komutunda yanlışlık var. Örnek: 3. suredeki Mim(م) harfini aratmak için şöyle yazabilirsiniz. 3:*|م";
+                return (Error)"Arama komutunda yanlışlık var. Örnek: 3. suredeki Mim(م) harfini aratmak için şöyle yazabilirsiniz. 3:*|م";
             }
 
             var letterInfoList = Analyzer.AnalyzeText(clearText(arr[1]));
@@ -49,7 +49,7 @@ class SearchScript
             var letters = letterInfoList.Where(Analyzer.IsArabicLetter).ToList();
             if (letters.Count == 0)
             {
-                return "Arama komutunda yanlışlık var. Arap alfabesine ait olmayan bir karakter kullanılmış. Örnek: 3. suredeki Mim(م) harfini aratmak için şöyle yazabilirsiniz. 3:*|م";
+                return (Error)"Arama komutunda yanlışlık var. Arap alfabesine ait olmayan bir karakter kullanılmış. Örnek: 3. suredeki Mim(م) harfini aratmak için şöyle yazabilirsiniz. 3:*|م";
             }
 
             return (arr[0].Trim(), letters);

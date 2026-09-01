@@ -61,17 +61,17 @@ public static class VerseFilter
 
             if (verseBegin.IsFail)
             {
-                return verseBegin.FailMessage;
+                return (Error)verseBegin.FailMessage;
             }
 
             if (verseEnd.IsFail)
             {
-                return verseEnd.FailMessage;
+                return (Error)verseEnd.FailMessage;
             }
 
             if (verseBegin.Value.ChapterNumber > verseEnd.Value.ChapterNumber)
             {
-                return $"Başlangıç {verseBegin.Value.ChapterNumber} bitişten {verseEnd.Value.ChapterNumber} büyük olamaz.";
+                return (Error)$"Başlangıç {verseBegin.Value.ChapterNumber} bitişten {verseEnd.Value.ChapterNumber} büyük olamaz.";
             }
 
             var returnList = new List<Verse>();
@@ -125,7 +125,7 @@ public static class VerseFilter
             var chapter = ParseInt(arr[0]).Then(findChapterByNumber);
             if (chapter.IsFail)
             {
-                return chapter.FailMessage;
+                return (Error)chapter.FailMessage;
             }
 
             if (verseFilterHasSpecificRange(arr[1]))
@@ -136,7 +136,7 @@ public static class VerseFilter
             var verseNumber = ParseInt(arr[1]);
             if (verseNumber.IsFail)
             {
-                return verseNumber.FailMessage;
+                return (Error)verseNumber.FailMessage;
             }
 
             if (verseNumber.Value <= 0 || verseNumber.Value > chapter.Value.Verses.Count)
