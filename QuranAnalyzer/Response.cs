@@ -45,10 +45,6 @@ public sealed class Error
 [Serializable]
 public class Response
 {
-    /// <summary>
-    ///     The success
-    /// </summary>
-    public static readonly Response Success = new();
 
     /// <summary>
     ///     The errors
