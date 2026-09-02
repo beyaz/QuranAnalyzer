@@ -52,9 +52,7 @@ public static class Result
 {
     public static Result<T> Fail<T>(Exception exception)
     {
-        var result =  new Result<T>();
-        result.Errors.Add(exception);
-        return result;
+        return new() { Error = exception };
     }
 }
 /// <summary>
@@ -63,20 +61,11 @@ public static class Result
 [Serializable]
 public sealed class Result<TValue>
 {
-    internal readonly List<Error> Errors = [];
-
-    /// <summary>
-    ///     Returns as array of errors
-    /// </summary>
-    public Error[] Error => [.. Errors];
-
-    /// <summary>
-    ///     Gets the fail message.
-    /// </summary>
-    public string FailMessage => string.Join(Environment.NewLine, from e in Errors select e.ToString());
-
+ 
+    public Error Error { get; init; }
     
-    public bool HasError => Errors.Count > 0;
+    
+    public bool HasError => Error is null;
 
 
     /// <summary>
@@ -89,11 +78,7 @@ public sealed class Result<TValue>
     /// </summary>
     public static implicit operator Result<TValue>(Exception exception)
     {
-        var response = new Result<TValue>();
-
-        response.Errors.Add(exception);
-
-        return response;
+        return new (){ Error = exception};
     }
 
     /// <summary>
@@ -101,26 +86,12 @@ public sealed class Result<TValue>
     /// </summary>
     public static implicit operator Result<TValue>(Error error)
     {
-        var response = new Result<TValue>();
-
-        response.Errors.Add(error);
-
-        return response;
+        return new (){ Error = error};
     }
 
     
 
-    /// <summary>
-    ///     Performs an implicit conversion from <see cref = "QuranAnalyzer.Error" /> to <see cref = "Result{TValue}" />.
-    /// </summary>
-    public static implicit operator Result<TValue>(Error[] errors)
-    {
-        var response = new Result<TValue>();
-
-        response.Errors.AddRange(errors);
-
-        return response;
-    }
+    
 
     /// <summary>
     ///     Performs an implicit conversion from <see cref = "TValue" /> to <see cref = "Result{TValue}" />.
@@ -134,7 +105,7 @@ public sealed class Result<TValue>
     {
         if (HasError)
         {
-            throw new Exception(FailMessage);
+            throw new Exception(Error.Message);
         }
 
         return Value;
@@ -230,7 +201,7 @@ public static class FpExtensions
     {
         if (result.HasError)
         {
-            return failFunc(result.FailMessage);
+            return failFunc(result.Error.Message);
         }
 
         return successFunc(result.Value.Item1, result.Value.Item2);
@@ -240,7 +211,7 @@ public static class FpExtensions
     {
         if (result.HasError)
         {
-            return failFunc(result.FailMessage);
+            return failFunc(result.Error.Message);
         }
 
         return successFunc(result.Value.Item1, result.Value.Item2, result.Value.Item3);

@@ -31,7 +31,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
             var parseResponse = SearchScript.ParseScript(value);
             if (parseResponse.HasError)
             {
-                state.SearchScriptErrorMessage = parseResponse.FailMessage;
+                state.SearchScriptErrorMessage = parseResponse.Error.Message;
                 Client.GotoMethod(3000, ClearErrorMessage);
 
                 return Task.CompletedTask;
@@ -282,7 +282,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         var scriptParseResponse = SearchScript.ParseScript(state.SearchScript);
         if (scriptParseResponse.HasError)
         {
-            state.SearchScriptErrorMessage = scriptParseResponse.FailMessage;
+            state.SearchScriptErrorMessage = scriptParseResponse.Error.Message;
             Client.GotoMethod(3000, ClearErrorMessage);
             return Task.CompletedTask;
         }
