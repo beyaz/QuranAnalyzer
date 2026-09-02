@@ -54,19 +54,34 @@ public static class Result
     {
         return new() { Error = exception };
     }
+
+    public static Result<T> From<T>(Func<T> value)
+    {
+        try
+        {
+            return Success(value());
+        }
+        catch (Exception exception)
+        {
+            return Fail<T>(exception);
+        }
+    }
+
+    public static Result<T> Success<T>(T value)
+    {
+        return new() { Value = value };
+    }
 }
+
 /// <summary>
 ///     The response
 /// </summary>
 [Serializable]
 public sealed class Result<TValue>
 {
- 
-    public Error Error { get; init; }
-    
-    
     public bool HasError => Error is null;
 
+    public Error Error { get; init; }
 
     /// <summary>
     ///     Gets or sets the value.
@@ -78,7 +93,7 @@ public sealed class Result<TValue>
     /// </summary>
     public static implicit operator Result<TValue>(Exception exception)
     {
-        return new (){ Error = exception};
+        return new() { Error = exception };
     }
 
     /// <summary>
@@ -86,12 +101,8 @@ public sealed class Result<TValue>
     /// </summary>
     public static implicit operator Result<TValue>(Error error)
     {
-        return new (){ Error = error};
+        return new() { Error = error };
     }
-
-    
-
-    
 
     /// <summary>
     ///     Performs an implicit conversion from <see cref = "TValue" /> to <see cref = "Result{TValue}" />.
@@ -159,7 +170,7 @@ public static class FpExtensions
 
     public static Result<int> ParseInt(string value)
     {
-        return Try(() => int.Parse(value));
+        return Result.From(() => int.Parse(value));
     }
 
     public static Result<TB> Then<TA, TB>(this Result<TA> result, Func<TA, Result<TB>> nextFunc)
@@ -225,17 +236,5 @@ public static class FpExtensions
         }
 
         return new List<TA> { result.Value };
-    }
-
-    static Result<T> Try<T>(Func<T> func)
-    {
-        try
-        {
-            return func();
-        }
-        catch (Exception exception)
-        {
-            return exception;
-        }
     }
 }
