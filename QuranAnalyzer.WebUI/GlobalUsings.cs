@@ -7,7 +7,7 @@ global using QuranAnalyzer.WebUI.Components;
 global using ReactWithDotNet.ThirdPartyLibraries.ReactAwesomeReveal;
 global using ReactWithDotNet.ThirdPartyLibraries.ReactXarrows;
 global using ReactWithDotNet.ThirdPartyLibraries.ReactFreeScrollbar;
-global using static QuranAnalyzer.FpExtensions;
+global using static QuranAnalyzer.Mixin;
 global using static ReactWithDotNet.Mixin;
 global using static QuranAnalyzer.WebUI.Extensions;
 global using System.Threading.Tasks;

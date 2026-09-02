@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
 using static QuranAnalyzer.DataAccess;
-using static QuranAnalyzer.FpExtensions;
 
 namespace QuranAnalyzer;
 
