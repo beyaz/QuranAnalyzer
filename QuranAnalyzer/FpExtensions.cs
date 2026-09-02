@@ -51,13 +51,4 @@ public static class FpExtensions
         return successFunc(result.Value.Item1, result.Value.Item2, result.Value.Item3);
     }
 
-    public static Result<IReadOnlyList<TA>> ToReadOnlyList<TA>(this Result<TA> result)
-    {
-        if (result.HasError)
-        {
-            return result.Error;
-        }
-
-        return new List<TA> { result.Value };
-    }
 }

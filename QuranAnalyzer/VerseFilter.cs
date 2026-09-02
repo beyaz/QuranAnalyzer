@@ -206,7 +206,7 @@ public static class VerseFilter
 
                     if (verseFilterHasSpecificRange(verseFilter))
                     {
-                        return getVerseWithSpecificRange(chapter, verseFilter).ToReadOnlyList();
+                        return from verse in getVerseWithSpecificRange(chapter, verseFilter) select (IReadOnlyList<Verse>)[verse];
                     }
 
                     return ParseInt(filters[0]).Then(selectOne);
