@@ -70,11 +70,54 @@ public static class Result
         }
     }
 
+    public static Result<IReadOnlyList<T>> From<T>(IEnumerable<Result<T>> enumerable)
+    {
+        try
+        {
+            List<T> items = [];
+
+            foreach (var result in enumerable)
+            {
+                if (result.HasError)
+                {
+                    return result.Error;
+                }
+
+                items.Add(result.Value);
+            }
+
+            return Success<IReadOnlyList<T>>(items);
+        }
+        catch (Exception ex)
+        {
+            return Fail<IReadOnlyList<T>>(ex);
+        }
+    }
+
+    public static Result<T> From<T>(Func<Result<T>> func)
+    {
+        try
+        {
+            var result = Success(func());
+            if (result.HasError)
+            {
+                return result.Error;
+            }
+
+            return result.Value;
+        }
+        catch (Exception exception)
+        {
+            return Fail<T>(exception);
+        }
+    }
+
     public static Result<T> Success<T>(T value)
     {
         return new() { Value = value };
     }
 }
+
 
 [DebuggerDisplay("{ToString()}")]
 public sealed class Result<TValue>
