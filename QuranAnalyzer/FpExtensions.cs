@@ -2,23 +2,6 @@
 
 public static class FpExtensions
 {
-    
-    
-    public static Result<TC> Apply<TA, TB, TC>(Func<TA, TB, Result<TC>> fn, Result<TA> resultA, Result<TB> resultB)
-    {
-        if (resultA.HasError)
-        {
-            return resultA.Error;
-        }
-
-        if (resultB.HasError)
-        {
-            return resultB.Error;
-        }
-
-        return fn(resultA.Value, resultB.Value);
-    }
-
     public static Result<IReadOnlyList<TTarget>> AsListOf<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, Result<TTarget>> convertFunc)
     {
         if (source == null)

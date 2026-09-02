@@ -214,7 +214,10 @@ public static class VerseFilter
 
                 if (filters.Length == 2)
                 {
-                    return Apply(selectMultiple, ParseInt(filters[0]), ParseInt(filters[1]));
+                    return from verseStartIndex in ParseInt(filters[0])
+                           from verseEndIndex in ParseInt(filters[1])
+                           from x in selectMultiple(verseStartIndex, verseEndIndex)
+                           select x;
                 }
 
                 return (Error)$"Sure seçiminde yanlışlık var.{searchItem}";
