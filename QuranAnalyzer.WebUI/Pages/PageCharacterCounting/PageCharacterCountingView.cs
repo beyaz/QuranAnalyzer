@@ -163,11 +163,11 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
 
         return calculate().Then((resultVerseList, summaryInfoList) =>
                                 {
-#pragma warning disable CS8321
+
                                     a downloadAsExcel()
 
                                     {
-                                        var header = "Sure No; Ayet No; Ayet";
+                                        const string header = "Sure No; Ayet No; Ayet";
 
                                         var rows = string.Join('\n', resultVerseList.Select(x => $"{x.ChapterNumber};{x.VerseNumber};{x.VerseText}"));
 
@@ -183,7 +183,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                                             download = "Arama Sonuçları.csv"
                                         };
                                     }
-#pragma warning restore CS8321
+
 
                                     Element[] results =
                                     [
