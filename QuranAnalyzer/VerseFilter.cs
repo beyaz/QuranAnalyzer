@@ -299,10 +299,10 @@ public static class VerseFilter
                                select x;
                     }
 
-                    return ParseInt(indexArray[0])
-                        .Then(endIndexShouldBeInValidRangeForVerse)
-                        .Then(endIndex => verse.Text.Substring(0, endIndex))
-                        .Then(subText);
+                    return from endIndex in ParseInt(indexArray[0])
+                               from validEndIndex in endIndexShouldBeInValidRangeForVerse(endIndex)
+                               let text = verse.Text[..validEndIndex]
+                               from x in subText(text) select x;
                 }
 
                 return parseError;
