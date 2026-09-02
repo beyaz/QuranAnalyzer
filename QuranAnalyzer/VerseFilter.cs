@@ -294,7 +294,7 @@ public static class VerseFilter
                     {
                         return ParseInt(indexArray[0])
                             .Then(startIndexShouldBeInValidRangeForVerse)
-                            .Then(startIndex => verse.Text.Substring(startIndex))
+                            .Then(startIndex => verse.Text[startIndex..])
                             .Then(subText);
                     }
 
