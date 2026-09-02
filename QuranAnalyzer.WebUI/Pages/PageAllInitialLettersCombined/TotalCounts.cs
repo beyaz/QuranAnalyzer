@@ -183,7 +183,7 @@ class TotalCounts : ReactComponent
 
     Task RecalculateTotalCounts()
     {
-        Records.SkipLast(1).SumOf(x => ParseInt(x.Count)).Then(total => Records[^1].Count = total.ToString());
+        _ = from total in Records.SkipLast(1).SumOf(x => ParseInt(x.Count)) select Records[^1].Count = total.ToString();
         
         return Task.CompletedTask;
     }
