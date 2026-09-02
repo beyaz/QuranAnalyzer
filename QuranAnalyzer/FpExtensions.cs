@@ -9,16 +9,7 @@ public static class FpExtensions
         return Result.From(() => int.Parse(value));
     }
 
-    public static Result<TB> Then<TA, TB>(this Result<TA> result, Func<TA, Result<TB>> nextFunc)
-    {
-        if (result.HasError)
-        {
-            return result.Error;
-        }
-
-        return nextFunc(result.Value);
-    }
-
+    
    
 
 
