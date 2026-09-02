@@ -2,20 +2,7 @@
 
 public static class FpExtensions
 {
-    extension<T>(Result<T> result)
-    {
-        public bool HasError => result.Error is not null;
-    }
     
-    public static T Unwrap<T>(this Result<T> result)
-    {
-        if (result.HasError)
-        {
-            throw new InvalidOperationException(result.Error.Message);
-        }
-
-        return result.Value;
-    }
     
     public static Result<TC> Apply<TA, TB, TC>(Func<TA, TB, Result<TC>> fn, Result<TA> resultA, Result<TB> resultB)
     {

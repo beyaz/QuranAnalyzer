@@ -14,3 +14,5 @@ global using System.Threading.Tasks;
 global using static QuranAnalyzer.Analyzer;
 global using static ReactWithDotNet.WebColors;
 global using static ReactWithDotNet.Tailwind;
+global using Toolbox;
+global using static Toolbox.ResultExtensions;

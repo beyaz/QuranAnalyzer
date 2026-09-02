@@ -1,12 +1,13 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace QuranAnalyzer;
+namespace Toolbox;
 
 /// <summary>
-///     The error
+///     The Error
 /// </summary>
 [Serializable]
+[DebuggerDisplay("{ToString()}")]
 public sealed record Error
 {
     public string Code { get; init; }
@@ -48,6 +49,49 @@ public sealed record Error
         }
 
         return Code + " " + Message;
+    }
+}
+
+[DebuggerDisplay("{ToString()}")]
+public sealed class Result<TValue>
+{
+    public Error Error { get; init; }
+
+    public TValue Value { get; init; }
+
+    public static implicit operator Result<TValue>(Error error)
+    {
+        return new() { Error = error };
+    }
+
+    public static implicit operator Result<TValue>(TValue value)
+    {
+        return new() { Value = value };
+    }
+
+    public static implicit operator Result<TValue>(Exception error)
+    {
+        return new() { Error = error };
+    }
+
+    public static implicit operator Task<Result<TValue>>(Result<TValue> result)
+    {
+        return Task.FromResult(result);
+    }
+
+    public override string ToString()
+    {
+        if (Error is not null)
+        {
+            return Error.ToString();
+        }
+
+        if (Value is null)
+        {
+            return "null";
+        }
+
+        return Value.ToString();
     }
 }
 
@@ -118,46 +162,608 @@ public static class Result
     }
 }
 
-
-[DebuggerDisplay("{ToString()}")]
-public sealed class Result<TValue>
+// ReSharper disable once PartialTypeWithSinglePart
+public static partial class ResultExtensions
 {
-    public Error Error { get; init; }
-
-    public TValue Value { get; init; }
-
-    public static implicit operator Result<TValue>(Error error)
+    public static Result<T> AsResult<T>(this (T value, Exception exception) tuple)
     {
-        return new() { Error = error };
+        return new() { Value = tuple.value, Error = tuple.exception };
     }
 
-    public static implicit operator Result<TValue>(TValue value)
+    public static Result<IEnumerable<T>> AsResult<T>(this IEnumerable<Result<T>> enumerable)
     {
-        return new() { Value = value };
-    }
+        List<T> items = [];
 
-    public static implicit operator Result<TValue>(Exception error)
-    {
-        return new() { Error = error };
-    }
-
-    public static implicit operator Task<Result<TValue>>(Result<TValue> result)
-    {
-        return Task.FromResult(result);
-    }
-
-    public override string ToString()
-    {
-        if (Error is not null)
+        foreach (var result in enumerable)
         {
-            return Error.ToString();
+            items.Add(result.Value);
+
+            if (result.HasError)
+            {
+                return new()
+                {
+                    Error = result.Error
+                };
+            }
         }
 
-        if (Value is null)
+        return items;
+    }
+
+    public static T GetValueOrDefault<T>(this Result<T> tuple)
+    {
+        if (tuple.HasError)
         {
-            return "null";
+            return default;
         }
 
-        return Value.ToString();
+        return tuple.Value;
+    }
+
+    public static void Match<T>(this Result<T> result, Action<T> onSuccess, Action<Error> onError)
+    {
+        if (result.HasError)
+        {
+            onError(result.Error);
+        }
+        else
+        {
+            onSuccess(result.Value);
+        }
+    }
+
+    public static Result<T> Required<T>(this T value, string message) where T : class
+    {
+        if (value is null)
+        {
+            return Result.Fail<T>(new NullReferenceException(message));
+        }
+
+        return Result.Success(value);
+    }
+
+    public static Result<T> Required<T>(this T value, Func<Exception> exception) where T : class
+    {
+        if (value is null)
+        {
+            return Result.Fail<T>(exception());
+        }
+
+        return Result.Success(value);
+    }
+
+    public static Result<T> Required<T>(this T value) where T : class
+    {
+        if (value is null)
+        {
+            return Result.Fail<T>(new NullReferenceException());
+        }
+
+        return Result.Success(value);
+    }
+
+    public static IEnumerable<Result<B>> Select<A, B>(
+        this IEnumerable<Result<A>> source,
+        Func<A, B> selector
+    )
+    {
+        foreach (var result in source)
+        {
+            if (result.HasError)
+            {
+                yield return result.Error;
+                yield break;
+            }
+
+            yield return selector(result.Value);
+        }
+    }
+
+    public static Result<B> Select<A, B>(
+        this Result<A> source,
+        Func<A, B> selector
+    )
+    {
+        if (source.HasError)
+        {
+            return source.Error;
+        }
+
+        return selector(source.Value);
+    }
+
+    public static Result<B> Select<A, B>(
+        this Result<A> source,
+        Func<A, Result<B>> selector
+    )
+    {
+        if (source.HasError)
+        {
+            return source.Error;
+        }
+
+        return selector(source.Value);
+    }
+
+    public static async Task<Result<B>> Select<A, B>(
+        this Task<Result<A>> source,
+        Func<A, B> selector
+    )
+    {
+        var a = await source;
+
+        if (a.HasError)
+        {
+            return a.Error;
+        }
+
+        return selector(a.Value);
+    }
+
+    public static Task<Result<B>> Select<A, B>(
+        this Result<A> a,
+        Func<A, Task<Result<B>>> selector
+    )
+    {
+        if (a.HasError)
+        {
+            var b = new Result<B> { Error = a.Error };
+
+            return Task.FromResult(b);
+        }
+
+        return selector(a.Value);
+    }
+
+    public static Result<IEnumerable<B>> Select<A, B>(
+        this Result<IEnumerable<A>> source,
+        Func<A, B> selector
+    )
+    {
+        if (source.HasError)
+        {
+            return source.Error;
+        }
+
+        List<B> returnItems = [];
+
+        foreach (var a in source.Value)
+        {
+            var selectorResult = selector(a);
+
+            returnItems.Add(selectorResult);
+        }
+
+        return returnItems;
+    }
+
+    public static async Task<Result<C>> SelectMany<A, B, C>(
+        this Task<Result<A>> source,
+        Func<A, Result<B>> bind,
+        Func<A, B, C> resultSelector
+    )
+    {
+        var a = await source;
+
+        if (a.HasError)
+        {
+            return a.Error;
+        }
+
+        var middle = bind(a.Value);
+        if (middle.HasError)
+        {
+            return middle.Error;
+        }
+
+        return resultSelector(a.Value, middle.Value);
+    }
+
+    public static async Task<Result<C>> SelectMany<A, B, C>(
+        this Task<Result<A>> source,
+        Func<A, Task<Result<B>>> bind,
+        Func<A, B, C> resultSelector
+    )
+    {
+        var a = await source;
+
+        if (a.HasError)
+        {
+            return a.Error;
+        }
+
+        var middle = await bind(a.Value);
+        if (middle.HasError)
+        {
+            return middle.Error;
+        }
+
+        return resultSelector(a.Value, middle.Value);
+    }
+
+    public static async Task<Result<C>> SelectMany<A, B, C>(
+        this Task<Result<A>> source,
+        Func<A, Task<Result<B>>> bind,
+        Func<A, B, Task<Result<C>>> resultSelector
+    )
+    {
+        var a = await source;
+
+        if (a.HasError)
+        {
+            return a.Error;
+        }
+
+        var middle = await bind(a.Value);
+        if (middle.HasError)
+        {
+            return middle.Error;
+        }
+
+        return await resultSelector(a.Value, middle.Value);
+    }
+
+    public static Result<C> SelectMany<A, B, C>(
+        this Result<A> source,
+        Func<A, Result<B>> bind,
+        Func<A, B, C> resultSelector
+    )
+    {
+        if (source.HasError)
+        {
+            return source.Error;
+        }
+
+        var middle = bind(source.Value);
+        if (middle.HasError)
+        {
+            return middle.Error;
+        }
+
+        return resultSelector(source.Value, middle.Value);
+    }
+
+    public static Result<IEnumerable<C>> SelectMany<A, B, C>(
+        this Result<A> source,
+        Func<A, IEnumerable<B>> bind,
+        Func<A, B, C> resultSelector
+    )
+    {
+        if (source.HasError)
+        {
+            return source.Error;
+        }
+
+        var a = source.Value;
+
+        var enumerableB = bind(a);
+
+        return new()
+        {
+            Value = from b in enumerableB select resultSelector(a, b)
+        };
+    }
+
+    public static Result<IEnumerable<C>> SelectMany<A, B, C>(
+        this Result<A> source,
+        Func<A, IEnumerable<Result<B>>> bind,
+        Func<A, B, C> resultSelector
+    )
+    {
+        if (source.HasError)
+        {
+            return source.Error;
+        }
+
+        var a = source.Value;
+
+        var enumerable = bind(a);
+
+        List<C> returnList = [];
+
+        foreach (var item in enumerable)
+        {
+            if (item.HasError)
+            {
+                return item.Error;
+            }
+
+            var b = item.Value;
+
+            var c = resultSelector(a, b);
+
+            returnList.Add(c);
+        }
+
+        return returnList;
+    }
+
+    public static IEnumerable<Result<C>> SelectMany<A, B, C>(
+        this IEnumerable<A> source,
+        Func<A, Result<B>> bind,
+        Func<A, B, C> resultSelector
+    )
+    {
+        if (source is null)
+        {
+            return [Result.Fail<C>(new ArgumentNullException(nameof(source)))];
+        }
+
+        if (bind == null)
+        {
+            return [Result.Fail<C>(new ArgumentNullException(nameof(bind)))];
+        }
+
+        if (resultSelector == null)
+        {
+            return [Result.Fail<C>(new ArgumentNullException(nameof(resultSelector)))];
+        }
+
+        List<Result<C>> returnItems = [];
+
+        foreach (var a in source)
+        {
+            var b = bind(a);
+            if (b.HasError)
+            {
+                returnItems.Add(new()
+                {
+                    Error = b.Error
+                });
+
+                return returnItems;
+            }
+
+            var c = resultSelector(a, b.Value);
+
+            returnItems.Add(c);
+        }
+
+        return returnItems;
+    }
+
+    public static IEnumerable<Result<C>> SelectMany<A, B, C>(
+        this IEnumerable<Result<A>> source,
+        Func<A, Result<B>> bind,
+        Func<A, B, C> resultSelector
+    )
+    {
+        if (source is null)
+        {
+            return [Result.Fail<C>(new ArgumentNullException(nameof(source)))];
+        }
+
+        if (bind == null)
+        {
+            return [Result.Fail<C>(new ArgumentNullException(nameof(bind)))];
+        }
+
+        if (resultSelector == null)
+        {
+            return [Result.Fail<C>(new ArgumentNullException(nameof(resultSelector)))];
+        }
+
+        List<Result<C>> returnItems = [];
+
+        foreach (var a in source)
+        {
+            if (a.HasError)
+            {
+                returnItems.Add(new()
+                {
+                    Error = a.Error
+                });
+
+                return returnItems;
+            }
+
+            var b = bind(a.Value);
+            if (b.HasError)
+            {
+                returnItems.Add(new()
+                {
+                    Error = b.Error
+                });
+
+                return returnItems;
+            }
+
+            var c = resultSelector(a.Value, b.Value);
+
+            returnItems.Add(c);
+        }
+
+        return returnItems;
+    }
+
+    public static Result<IEnumerable<C>> SelectMany<A, B, C>(
+        this Result<IEnumerable<A>> result,
+        Func<A, Result<B>> binder,
+        Func<A, B, C> projector
+    )
+    {
+        if (result.HasError)
+        {
+            return result.Error;
+        }
+
+        List<C> returnList = [];
+
+        foreach (var a in result.Value)
+        {
+            var b = binder(a);
+            if (b.HasError)
+            {
+                return b.Error;
+            }
+
+            var c = projector(a, b.Value);
+
+            returnList.Add(c);
+        }
+
+        return returnList;
+    }
+
+    public static async Task<Result<C>> SelectMany<A, B, C>(
+        this Result<A> source,
+        Func<A, Task<Result<B>>> bind,
+        Func<A, B, C> resultSelector
+    )
+    {
+        if (source.HasError)
+        {
+            return source.Error;
+        }
+
+        var middle = await bind(source.Value);
+        if (middle.HasError)
+        {
+            return middle.Error;
+        }
+
+        return resultSelector(source.Value, middle.Value);
+    }
+
+    public static IEnumerable<Result<C>> SelectMany<A, B, C>(
+        this IEnumerable<Result<A>> source,
+        Func<A, IEnumerable<B>> bind,
+        Func<A, B, C> resultSelector
+    )
+    {
+        if (source is null)
+        {
+            return [Result.Fail<C>(new ArgumentNullException(nameof(source)))];
+        }
+
+        if (bind == null)
+        {
+            return [Result.Fail<C>(new ArgumentNullException(nameof(bind)))];
+        }
+
+        if (resultSelector == null)
+        {
+            return [Result.Fail<C>(new ArgumentNullException(nameof(resultSelector)))];
+        }
+
+        List<Result<C>> returnItems = [];
+
+        foreach (var a in source)
+        {
+            if (a.HasError)
+            {
+                returnItems.Add(new()
+                {
+                    Error = a.Error
+                });
+
+                return returnItems;
+            }
+
+            foreach (var b in bind(a.Value))
+            {
+                var c = resultSelector(a.Value, b);
+
+                returnItems.Add(c);
+            }
+        }
+
+        return returnItems;
+    }
+
+    /// <summary>
+    ///     Runs given action for success value then returns same result.
+    /// </summary>
+    public static Result<T> Tap<T>(this Result<T> result, Action<T> action)
+    {
+        if (!result.HasError)
+        {
+            action(result.Value);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    ///     Runs given action for exception then returns same result.
+    /// </summary>
+    public static Result<T> TapError<T>(this Result<T> result, Action<Error> action)
+    {
+        if (result.HasError)
+        {
+            action(result.Error);
+        }
+
+        return result;
+    }
+
+    public static Result<TResult> Traverse<TSource, TResult>(this TSource source, Func<TSource, Result<TResult>> selector) where TSource : class
+    {
+        if (source is null)
+        {
+            return Result.Success<TResult>(default!);
+        }
+
+        return selector(source);
+    }
+
+    public static Result<TResult> Traverse<TSource, TResult>(this TSource source, Func<TSource, TResult> selector) where TSource : class
+    {
+        if (source is null)
+        {
+            return Result.Success<TResult>(default!);
+        }
+
+        return Result.From(() => selector(source));
+    }
+
+    public static T Unwrap<T>(this Result<T> result)
+    {
+        if (result.HasError)
+        {
+            throw new InvalidOperationException(result.Error.Message);
+        }
+
+        return result.Value;
+    }
+
+    public static IEnumerable<Result<A>> Where<A>(
+        this IEnumerable<Result<A>> source,
+        Func<A, bool> predicate
+    )
+    {
+        if (source == null)
+        {
+            return [Result.Fail<A>(new ArgumentNullException(nameof(source)))];
+        }
+
+        if (predicate == null)
+        {
+            return [Result.Fail<A>(new ArgumentNullException(nameof(predicate)))];
+        }
+
+        List<Result<A>> returnList = [];
+
+        foreach (var result in source)
+        {
+            if (result.HasError)
+            {
+                returnList.Add(new() { Error = result.Error });
+
+                return returnList;
+            }
+
+            if (predicate(result.Value))
+            {
+                returnList.Add(result);
+            }
+        }
+
+        return returnList;
+    }
+
+    extension<T>(Result<T> result)
+    {
+        public bool HasError => result.Error is not null;
     }
 }
