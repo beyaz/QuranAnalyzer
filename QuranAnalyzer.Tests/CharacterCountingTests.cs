@@ -195,11 +195,11 @@ public class CharacterCountingTests
 
     static void CountShouldBe(string searchScript, int arabicLetterOrder, int expectedCount)
     {
-        GetVerseList(searchScript).Then(verses => GetCountOfLetter(verses, arabicLetterOrder)).ShouldBe(expectedCount);
+        (from verses in GetVerseList(searchScript) select GetCountOfLetter(verses, arabicLetterOrder)).ShouldBe(expectedCount);
     }
 
     static void CountShouldBe(string searchScript, int arabicLetterOrder, MushafOption option, int expectedCount)
     {
-        GetVerseList(searchScript).Then(verses => GetCountOfLetter(verses, arabicLetterOrder, option)).ShouldBe(expectedCount);
+        (from verses in GetVerseList(searchScript) select GetCountOfLetter(verses, arabicLetterOrder, option)).ShouldBe(expectedCount);
     }
 }

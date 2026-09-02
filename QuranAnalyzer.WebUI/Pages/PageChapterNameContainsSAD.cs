@@ -234,7 +234,7 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
 
         static int CalculateCount(string verseFilter, int[] arabicLetterOrders)
         {
-            return VerseFilter.GetVerseList(verseFilter).Then(verses => arabicLetterOrders.Sum(arabicLetterOrder => QuranAnalyzerMixin.GetCountOfLetter(verses, arabicLetterOrder))).Value;
+            return (from verses in VerseFilter.GetVerseList(verseFilter) select arabicLetterOrders.Sum(arabicLetterOrder => QuranAnalyzerMixin.GetCountOfLetter(verses, arabicLetterOrder))).Value;
         }
 
         var dataList = chapterNumbers.Select(chapterNumber => new
