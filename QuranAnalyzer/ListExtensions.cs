@@ -68,16 +68,7 @@ public static class ListExtensions
         return source.Aggregate(0, selector, (total, value) => total + value);
     }
 
-    public static TValue Unwrap<TValue>(this (TValue value, string exception) tuple)
-    {
-        if (tuple.exception is not null)
-        {
-            throw new Exception(tuple.exception);
-        }
-
-        return tuple.value;
-    }
-
+    
     static Result<TAccumulate> Aggregate<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TSource, Result<TAccumulate>> func, Func<TAccumulate, TAccumulate, TAccumulate> accumulate)
     {
         if (source == null)
