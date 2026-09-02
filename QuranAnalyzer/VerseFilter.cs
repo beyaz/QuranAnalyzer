@@ -209,7 +209,7 @@ public static class VerseFilter
                         return from verse in getVerseWithSpecificRange(chapter, verseFilter) select (IReadOnlyList<Verse>)[verse];
                     }
 
-                    return ParseInt(filters[0]).Then(selectOne);
+                    return from verseIndex in ParseInt(filters[0]) select selectOne(verseIndex);
                 }
 
                 if (filters.Length == 2)
