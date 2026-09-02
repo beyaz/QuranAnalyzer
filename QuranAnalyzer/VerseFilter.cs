@@ -61,12 +61,12 @@ public static class VerseFilter
 
             if (verseBegin.IsFail)
             {
-                return (Error)verseBegin.FailMessage;
+                return verseBegin.Error;
             }
 
             if (verseEnd.IsFail)
             {
-                return (Error)verseEnd.FailMessage;
+                return verseEnd.Error;
             }
 
             if (verseBegin.Value.ChapterNumber > verseEnd.Value.ChapterNumber)
@@ -125,7 +125,7 @@ public static class VerseFilter
             var chapter = ParseInt(arr[0]).Then(findChapterByNumber);
             if (chapter.IsFail)
             {
-                return (Error)chapter.FailMessage;
+                return chapter.Error;
             }
 
             if (verseFilterHasSpecificRange(arr[1]))
@@ -136,7 +136,7 @@ public static class VerseFilter
             var verseNumber = ParseInt(arr[1]);
             if (verseNumber.IsFail)
             {
-                return (Error)verseNumber.FailMessage;
+                return verseNumber.Error;
             }
 
             if (verseNumber.Value <= 0 || verseNumber.Value > chapter.Value.Verses.Count)
