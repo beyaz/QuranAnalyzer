@@ -2,64 +2,6 @@
 
 public static class ListExtensions
 {
-   
-    
-    public static IReadOnlyList<TTarget> AsListOf<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, TTarget> convertFunc)
-    {
-        if (source == null)
-        {
-            throw new ArgumentNullException(nameof(source));
-        }
-
-        if (convertFunc == null)
-        {
-            throw new ArgumentNullException(nameof(convertFunc));
-        }
-
-        return source.Select(convertFunc).ToList();
-    }
-
-    public static IReadOnlyList<TTarget> AsListOf<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, int, TTarget> convertFunc)
-    {
-        if (source == null)
-        {
-            throw new ArgumentNullException(nameof(source));
-        }
-
-        if (convertFunc == null)
-        {
-            throw new ArgumentNullException(nameof(convertFunc));
-        }
-
-        return source.Select(convertFunc).ToList();
-    }
-
-    /// <summary>
-    ///     Removes value from start of str
-    /// </summary>
-    public static string RemoveFromStart(this string data, string value)
-    {
-        return RemoveFromStart(data, value, StringComparison.OrdinalIgnoreCase);
-    }
-
-    /// <summary>
-    ///     Removes value from start of str
-    /// </summary>
-    public static string RemoveFromStart(this string data, string value, StringComparison comparison)
-    {
-        if (data == null)
-        {
-            return null;
-        }
-
-        if (data.StartsWith(value, comparison))
-        {
-            return data.Substring(value.Length, data.Length - value.Length);
-        }
-
-        return data;
-    }
-
     public static Result<int> SumOf<TSource>(this IEnumerable<TSource> source, Func<TSource, Result<int>> selector)
     {
         if (source == null)
@@ -70,7 +12,6 @@ public static class ListExtensions
         return source.Aggregate(0, selector, (total, value) => total + value);
     }
 
-    
     static Result<TAccumulate> Aggregate<TSource, TAccumulate>(this IEnumerable<TSource> source, TAccumulate seed, Func<TSource, Result<TAccumulate>> func, Func<TAccumulate, TAccumulate, TAccumulate> accumulate)
     {
         if (source == null)

@@ -134,7 +134,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                     };
                 }
 
-                summaries.AddRange(searchLetters.AsListOf(getSummaryInfo));
+                summaries.AddRange(from letterInfo in searchLetters select getSummaryInfo(letterInfo));
 
                 foreach (var verse in filteredVerses)
                 {

@@ -60,12 +60,16 @@ public static class DataAccess
     {
         var chapters = ReadChaptersFromXmlFile(xmlFilePath);
 
-        return chapters.AsListOf(chapter => new Chapter
-        {
-            Name   = chapter.Name,
-            Index  = int.Parse(chapter.Index),
-            Verses = chapter.AyaList.AsListOf(v => toVerse(chapter, v))
-        });
+        return
+        [
+            .. from chapter in chapters
+               select new Chapter
+               {
+                   Name   = chapter.Name,
+                   Index  = int.Parse(chapter.Index),
+                   Verses = [.. from v in chapter.AyaList select toVerse(chapter, v)]
+               }
+        ];
 
         static Verse toVerse(Sura chapter, Aya v)
         {
