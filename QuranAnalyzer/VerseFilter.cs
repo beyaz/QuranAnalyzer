@@ -270,7 +270,9 @@ public static class VerseFilter
                 return parseError;
             }
 
-            return ParseInt(verseNumberWithSpecificRangeArray[0]).Then(selectOne).Then(selectSpecificRange);
+            return from verseIndex in ParseInt(verseNumberWithSpecificRangeArray[0])
+                   from verse in selectOne(verseIndex)
+                   from x in selectSpecificRange(verse) select x;
 
             Result<Verse> selectSpecificRange(Verse selectedVerse)
             {
