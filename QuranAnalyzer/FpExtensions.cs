@@ -2,7 +2,7 @@
 
 public static class FpExtensions
 {
-    public static Result<IReadOnlyList<TTarget>> AsListOf<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, Result<TTarget>> convertFunc)
+    public static Result<IReadOnlyList<TTarget>> Traverse<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, Result<TTarget>> convertFunc)
     {
         if (source == null)
         {

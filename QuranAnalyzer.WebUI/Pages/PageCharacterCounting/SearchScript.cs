@@ -17,7 +17,7 @@ class SearchScript
             };
         }
 
-        var lines = parseToLines(value).AsListOf(parseLine);
+        var lines = parseToLines(value).Traverse(parseLine);
 
         if (lines.HasError)
         {
