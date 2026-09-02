@@ -162,51 +162,49 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         }
 
         return calculate().Then((resultVerseList, summaryInfoList) =>
-                                {
+            {
+                Element[] results =
+                [
+                    new h4 { "Sonuçlar" } + TextAlignCenter,
+                    new CountsSummaryView { Counts = summaryInfoList },
+                    SpaceY(30),
+                    new div
+                    {
+                        dangerouslySetInnerHTML = new div
+                        {
+                            resultVerseList
+                        }.ToHtml()
+                    }
+                ];
 
-                                    a downloadAsExcel()
+                return Container(Panel(searchPanel()), Panel(results));
+            },
+            failMessage =>
+            {
+                state.SearchScriptErrorMessage = failMessage;
 
-                                    {
-                                        const string header = "Sure No; Ayet No; Ayet";
+                return Container(Panel(searchPanel()));
+            });
 
-                                        var rows = string.Join('\n', resultVerseList.Select(x => $"{x.ChapterNumber};{x.VerseNumber};{x.VerseText}"));
+        a downloadAsExcel(List<LetterColorizer> resultVerseList)
 
-                                        var data = string.Join('\n', header, rows);
+        {
+            const string header = "Sure No; Ayet No; Ayet";
 
-                                        data = Convert.ToBase64String(Encoding.UTF8.GetBytes(data));
+            var rows = string.Join('\n', resultVerseList.Select(x => $"{x.ChapterNumber};{x.VerseNumber};{x.VerseText}"));
 
-                                        return new a
-                                        {
-                                            href     = "data:text/csv;base64,77u/" + data,
-                                            text     = "Exel olarak indir",
-                                            target   = "_blank",
-                                            download = "Arama Sonuçları.csv"
-                                        };
-                                    }
+            var data = string.Join('\n', header, rows);
 
+            data = Convert.ToBase64String(Encoding.UTF8.GetBytes(data));
 
-                                    Element[] results =
-                                    [
-                                        new h4{"Sonuçlar"} + TextAlignCenter,
-                                        new CountsSummaryView { Counts = summaryInfoList },
-                                        SpaceY(30),
-                                        new div
-                                        {
-                                            dangerouslySetInnerHTML = new div
-                                            {
-                                                resultVerseList
-                                            }.ToHtml()
-                                        }
-                                    ];
-
-                                    return Container(Panel(searchPanel()), Panel(results));
-                                },
-                                failMessage =>
-                                {
-                                    state.SearchScriptErrorMessage = failMessage;
-
-                                    return Container(Panel(searchPanel()));
-                                });
+            return new a
+            {
+                href     = "data:text/csv;base64,77u/" + data,
+                text     = "Exel olarak indir",
+                target   = "_blank",
+                download = "Arama Sonuçları.csv"
+            };
+        }
     }
 
     static Element Backdrop()
@@ -249,14 +247,14 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         state.SearchScriptErrorMessage = null;
 
         state.SearchScript = state.SearchScript?.Trim() + " " + letter;
-        
+
         return Task.CompletedTask;
     }
 
     Task ClearErrorMessage()
     {
         state.SearchScriptErrorMessage = null;
-        
+
         return Task.CompletedTask;
     }
 
@@ -264,7 +262,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
     {
         state.ClickCount   = 0;
         state.MushafOption = mushafOption;
-        
+
         return Task.CompletedTask;
     }
 
@@ -291,7 +289,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
 
         state.ClickCount++;
 
-        if (state.IsBlocked == false)
+        if (!state.IsBlocked)
         {
             state.IsBlocked = true;
             Client.HistoryReplaceState(null, "", $"/?{QueryKey.Page}={PageId.CharacterCounting}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.IncludeBismillah}={state.IncludeBismillah.AsNumber()}");
@@ -300,7 +298,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         }
 
         state.IsBlocked = false;
-        
+
         return Task.CompletedTask;
     }
 
@@ -309,7 +307,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         state.ClickCount = 0;
 
         state.IncludeBismillah = Convert.ToBoolean(changeEvent.target.value);
-        
+
         return Task.CompletedTask;
     }
 }
