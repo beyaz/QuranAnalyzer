@@ -292,10 +292,11 @@ public static class VerseFilter
                 {
                     if (verseNumberWithSpecificRangeArray[1].EndsWith(".."))
                     {
-                        return ParseInt(indexArray[0])
-                            .Then(startIndexShouldBeInValidRangeForVerse)
-                            .Then(startIndex => verse.Text[startIndex..])
-                            .Then(subText);
+                        return from index in ParseInt(indexArray[0])
+                               from startIndex in startIndexShouldBeInValidRangeForVerse(index)
+                               let text = verse.Text[startIndex..]
+                               from x in subText(text)
+                               select x;
                     }
 
                     return ParseInt(indexArray[0])
