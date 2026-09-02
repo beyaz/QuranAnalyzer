@@ -19,7 +19,7 @@ class SearchScript
 
         var lines = parseToLines(value).AsListOf(parseLine);
 
-        if (lines.IsFail)
+        if (lines.HasError)
         {
             return lines.Error;
         }

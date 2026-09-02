@@ -34,7 +34,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         if (value is not null)
         {
             var parseResponse = SearchScript.ParseScript(value);
-            if (parseResponse.IsFail)
+            if (parseResponse.HasError)
             {
                 state.SearchScriptErrorMessage = parseResponse.FailMessage;
                 Client.GotoMethod(3000, ClearErrorMessage);
@@ -108,7 +108,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             foreach (var (chapterFilter, searchWord) in searchScript.Lines)
             {
                 var filteredVersesResponse = VerseFilter.GetVerseList(chapterFilter);
-                if (filteredVersesResponse.IsFail)
+                if (filteredVersesResponse.HasError)
                 {
                     return filteredVersesResponse.Error;
                 }
@@ -266,7 +266,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             }
 
             var scriptParseResponse = SearchScript.ParseScript(state.SearchScript);
-            if (scriptParseResponse.IsFail)
+            if (scriptParseResponse.HasError)
             {
                 state.SearchScriptErrorMessage = scriptParseResponse.FailMessage;
                 Client.GotoMethod(3000, ClearErrorMessage);

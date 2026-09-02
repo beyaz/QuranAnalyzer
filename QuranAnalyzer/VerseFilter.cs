@@ -37,7 +37,7 @@ public static class VerseFilter
             var shouldExtract = item[0] == '-';
 
             var response = process(item.RemoveFromStart("-"));
-            if (response.IsFail)
+            if (response.HasError)
             {
                 return response;
             }
@@ -59,12 +59,12 @@ public static class VerseFilter
             var verseBegin = getVerseById(begin);
             var verseEnd = getVerseById(end);
 
-            if (verseBegin.IsFail)
+            if (verseBegin.HasError)
             {
                 return verseBegin.Error;
             }
 
-            if (verseEnd.IsFail)
+            if (verseEnd.HasError)
             {
                 return verseEnd.Error;
             }
@@ -123,7 +123,7 @@ public static class VerseFilter
             }
 
             var chapter = ParseInt(arr[0]).Then(findChapterByNumber);
-            if (chapter.IsFail)
+            if (chapter.HasError)
             {
                 return chapter.Error;
             }
@@ -134,7 +134,7 @@ public static class VerseFilter
             }
 
             var verseNumber = ParseInt(arr[1]);
-            if (verseNumber.IsFail)
+            if (verseNumber.HasError)
             {
                 return verseNumber.Error;
             }

@@ -6,7 +6,7 @@ public class VerseFilterTest
     [TestMethod]
     public void _4()
     {
-        VerseFilter.GetVerseList("1:*, -1:3, -1:4").IsFail.ShouldBeFalse();
+        VerseFilter.GetVerseList("1:*, -1:3, -1:4").HasError.ShouldBeFalse();
     }
 
     [TestMethod]
@@ -16,7 +16,7 @@ public class VerseFilterTest
 
         VerseFilter.GetVerseList("1:3 --> 2:4").Unwrap().Count.ShouldBe(9);
 
-        VerseFilter.GetVerseList("1:3 --> 4:7").IsFail.ShouldBeFalse();
+        VerseFilter.GetVerseList("1:3 --> 4:7").HasError.ShouldBeFalse();
     }
 
     [TestMethod]
@@ -93,7 +93,7 @@ public class VerseFilterTest
     [TestMethod]
     public void FilterWithStarWithManyWithSpecificAyahNumber_with_Error()
     {
-        VerseFilter.GetVerseList(" 42  : * , 114 : *, 77:50, 115:*").IsFail.ShouldBeTrue();
+        VerseFilter.GetVerseList(" 42  : * , 114 : *, 77:50, 115:*").HasError.ShouldBeTrue();
     }
 
     [TestMethod]

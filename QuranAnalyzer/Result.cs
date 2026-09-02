@@ -75,15 +75,9 @@ public sealed class Result<TValue>
     /// </summary>
     public string FailMessage => string.Join(Environment.NewLine, from e in Errors select e.ToString());
 
-    /// <summary>
-    ///     Gets a value indicating whether this instance is fail.
-    /// </summary>
-    public bool IsFail => Errors.Count > 0;
+    
+    public bool HasError => Errors.Count > 0;
 
-    /// <summary>
-    ///     Gets a value indicating whether this instance is success.
-    /// </summary>
-    public bool IsSuccess => Errors.Count == 0;
 
     /// <summary>
     ///     Gets or sets the value.
@@ -138,7 +132,7 @@ public sealed class Result<TValue>
 
     public TValue Unwrap()
     {
-        if (IsFail)
+        if (HasError)
         {
             throw new Exception(FailMessage);
         }
@@ -151,12 +145,12 @@ public static class FpExtensions
 {
     public static Result<TC> Apply<TA, TB, TC>(Func<TA, TB, Result<TC>> fn, Result<TA> resultA, Result<TB> resultB)
     {
-        if (resultA.IsFail)
+        if (resultA.HasError)
         {
             return resultA.Error;
         }
 
-        if (resultB.IsFail)
+        if (resultB.HasError)
         {
             return resultB.Error;
         }
@@ -181,7 +175,7 @@ public static class FpExtensions
         foreach (var item in source)
         {
             var response = convertFunc(item);
-            if (response.IsFail)
+            if (response.HasError)
             {
                 return response.Error;
             }
@@ -199,7 +193,7 @@ public static class FpExtensions
 
     public static Result<TB> Then<TA, TB>(this Result<TA> result, Func<TA, Result<TB>> nextFunc)
     {
-        if (result.IsFail)
+        if (result.HasError)
         {
             return result.Error;
         }
@@ -209,12 +203,12 @@ public static class FpExtensions
 
     public static Result<TC> Then<TA, TB, TC>(this (Result<TA> a, Result<TB> b) response, Func<TA, TB, Result<TC>> nextFunc)
     {
-        if (response.a.IsFail)
+        if (response.a.HasError)
         {
             return response.a.Error;
         }
 
-        if (response.b.IsFail)
+        if (response.b.HasError)
         {
             return response.b.Error;
         }
@@ -224,7 +218,7 @@ public static class FpExtensions
 
     public static Result<TB> Then<TA, TB>(this Result<TA> result, Func<TA, TB> nextFunc)
     {
-        if (result.IsFail)
+        if (result.HasError)
         {
             return result.Error;
         }
@@ -234,7 +228,7 @@ public static class FpExtensions
 
     public static TC Then<TA, TB, TC>(this Result<(TA, TB)> result, Func<TA, TB, TC> successFunc, Func<string, TC> failFunc)
     {
-        if (result.IsFail)
+        if (result.HasError)
         {
             return failFunc(result.FailMessage);
         }
@@ -244,7 +238,7 @@ public static class FpExtensions
 
     public static TD Then<TA, TB, TC, TD>(this Result<(TA, TB, TC)> result, Func<TA, TB, TC, TD> successFunc, Func<string, TD> failFunc)
     {
-        if (result.IsFail)
+        if (result.HasError)
         {
             return failFunc(result.FailMessage);
         }
@@ -254,7 +248,7 @@ public static class FpExtensions
 
     public static Result<IReadOnlyList<TA>> ToReadOnlyList<TA>(this Result<TA> result)
     {
-        if (result.IsFail)
+        if (result.HasError)
         {
             return result.Error;
         }

@@ -94,7 +94,7 @@ public static class ListExtensions
         foreach (var element in source)
         {
             var response = func(element);
-            if (response.IsFail)
+            if (response.HasError)
             {
                 return response.Error;
             }

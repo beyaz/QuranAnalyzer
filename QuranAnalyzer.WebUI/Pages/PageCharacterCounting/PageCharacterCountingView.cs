@@ -29,7 +29,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         if (value is not null)
         {
             var parseResponse = SearchScript.ParseScript(value);
-            if (parseResponse.IsFail)
+            if (parseResponse.HasError)
             {
                 state.SearchScriptErrorMessage = parseResponse.FailMessage;
                 Client.GotoMethod(3000, ClearErrorMessage);
@@ -118,7 +118,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
             foreach (var (chapterFilter, searchLetters) in searchScript.Lines)
             {
                 var filteredVersesResponse = VerseFilter.GetVerseList(chapterFilter);
-                if (filteredVersesResponse.IsFail)
+                if (filteredVersesResponse.HasError)
                 {
                     return filteredVersesResponse.Error;
                 }
@@ -280,7 +280,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         }
 
         var scriptParseResponse = SearchScript.ParseScript(state.SearchScript);
-        if (scriptParseResponse.IsFail)
+        if (scriptParseResponse.HasError)
         {
             state.SearchScriptErrorMessage = scriptParseResponse.FailMessage;
             Client.GotoMethod(3000, ClearErrorMessage);

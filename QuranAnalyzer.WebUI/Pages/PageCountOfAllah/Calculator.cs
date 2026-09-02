@@ -261,7 +261,7 @@ class Calculator : ReactComponent<CalculatorModel>
         }
 
         var verseList = VerseFilter.GetVerseList(state.SearchScript);
-        if (verseList.IsFail)
+        if (verseList.HasError)
         {
             state.ErrorText = verseList.FailMessage;
             return;
