@@ -21,15 +21,6 @@ public static class FpExtensions
 
    
 
-    public static Result<TB> Then<TA, TB>(this Result<TA> result, Func<TA, TB> nextFunc)
-    {
-        if (result.HasError)
-        {
-            return result.Error;
-        }
-
-        return nextFunc(result.Value);
-    }
 
     public static TC Then<TA, TB, TC>(this Result<(TA, TB)> result, Func<TA, TB, TC> successFunc, Func<string, TC> failFunc)
     {
