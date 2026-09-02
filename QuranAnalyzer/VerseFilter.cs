@@ -182,9 +182,9 @@ public static class VerseFilter
                 return (Error)$"arama kriterlerinde hata var.{searchItem}";
             }
 
-            return parseChapterNumber()
-                .Then(findChapterByNumber)
-                .Then(chapter => collectVerseList(chapter, arr[1]));
+            return from chapterNumber in parseChapterNumber()
+                   from chapter in findChapterByNumber(chapterNumber)
+                   from verses in collectVerseList(chapter, arr[1]) select verses;
 
             Result<int> parseChapterNumber()
             {
