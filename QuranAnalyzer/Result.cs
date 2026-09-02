@@ -1,4 +1,7 @@
-﻿namespace QuranAnalyzer;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
+
+namespace QuranAnalyzer;
 
 /// <summary>
 ///     The error
@@ -73,52 +76,45 @@ public static class Result
     }
 }
 
-/// <summary>
-///     The response
-/// </summary>
-[Serializable]
+[DebuggerDisplay("{ToString()}")]
 public sealed class Result<TValue>
 {
-    public bool HasError => Error is null;
-
     public Error Error { get; init; }
 
-    /// <summary>
-    ///     Gets or sets the value.
-    /// </summary>
-    public TValue Value { get; set; }
+    public TValue Value { get; init; }
 
-    /// <summary>
-    ///     Performs an implicit conversion from <see cref = "Exception" /> to <see cref = "Result{TValue}" />.
-    /// </summary>
-    public static implicit operator Result<TValue>(Exception exception)
-    {
-        return new() { Error = exception };
-    }
-
-    /// <summary>
-    ///     Performs an implicit conversion from <see cref = "QuranAnalyzer.Error" /> to <see cref = "Result{TValue}" />.
-    /// </summary>
     public static implicit operator Result<TValue>(Error error)
     {
         return new() { Error = error };
     }
 
-    /// <summary>
-    ///     Performs an implicit conversion from <see cref = "TValue" /> to <see cref = "Result{TValue}" />.
-    /// </summary>
     public static implicit operator Result<TValue>(TValue value)
     {
-        return new Result<TValue> { Value = value };
+        return new() { Value = value };
     }
 
-    public TValue Unwrap()
+    public static implicit operator Result<TValue>(Exception error)
     {
-        if (HasError)
+        return new() { Error = error };
+    }
+
+    public static implicit operator Task<Result<TValue>>(Result<TValue> result)
+    {
+        return Task.FromResult(result);
+    }
+
+    public override string ToString()
+    {
+        if (Error is not null)
         {
-            throw new Exception(Error.Message);
+            return Error.ToString();
         }
 
-        return Value;
+        if (Value is null)
+        {
+            return "null";
+        }
+
+        return Value.ToString();
     }
 }

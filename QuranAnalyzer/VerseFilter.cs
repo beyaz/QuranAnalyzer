@@ -144,7 +144,7 @@ public static class VerseFilter
                 return (Error)$"Sure seçiminde yanlışlık var.{verseId}";
             }
 
-            return chapter.Value.Verses[--verseNumber.Value];
+            return chapter.Value.Verses[verseNumber.Value - 1];
         }
 
         static Result<Chapter> findChapterByNumber(int chapterNumber)
