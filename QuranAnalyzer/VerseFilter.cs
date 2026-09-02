@@ -279,10 +279,13 @@ public static class VerseFilter
                 var indexArray = verseNumberWithSpecificRangeArray[1].Split('.', StringSplitOptions.RemoveEmptyEntries);
                 if (indexArray.Length == 2)
                 {
-                    return (ParseInt(indexArray[0]), ParseInt(indexArray[1]))
-                        .Then(startIndexAndEndIndexShouldBeInValidRangeForVerse)
-                        .Then(tuple => verse.Text.Substring(tuple.startIndex, tuple.endIndex - tuple.startIndex))
-                        .Then(subText);
+                    return 
+                    from startIndex in ParseInt(indexArray[0])
+                        from endIndex in ParseInt(indexArray[1])
+                        from range in startIndexAndEndIndexShouldBeInValidRangeForVerse(startIndex, endIndex)
+                        let text = verse.Text.Substring(range.startIndex, range.endIndex - range.startIndex)
+                        from x in subText(text) select x;
+                            
                 }
 
                 if (indexArray.Length == 1)

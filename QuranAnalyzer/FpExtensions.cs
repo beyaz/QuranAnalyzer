@@ -19,20 +19,7 @@ public static class FpExtensions
         return nextFunc(result.Value);
     }
 
-    public static Result<TC> Then<TA, TB, TC>(this (Result<TA> a, Result<TB> b) response, Func<TA, TB, Result<TC>> nextFunc)
-    {
-        if (response.a.HasError)
-        {
-            return response.a.Error;
-        }
-
-        if (response.b.HasError)
-        {
-            return response.b.Error;
-        }
-
-        return nextFunc(response.a.Value, response.b.Value);
-    }
+   
 
     public static Result<TB> Then<TA, TB>(this Result<TA> result, Func<TA, TB> nextFunc)
     {
