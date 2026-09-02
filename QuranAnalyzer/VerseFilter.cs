@@ -122,7 +122,7 @@ public static class VerseFilter
                 return (Error)$"arama kriterlerinde hata var.{verseId}";
             }
 
-            var chapter = ParseInt(arr[0]).Then(findChapterByNumber);
+            var chapter = from chapterNumber in ParseInt(arr[0]) from x in findChapterByNumber(chapterNumber) select x;
             if (chapter.HasError)
             {
                 return chapter.Error;
