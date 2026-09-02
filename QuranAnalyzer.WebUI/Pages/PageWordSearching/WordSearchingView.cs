@@ -180,28 +180,32 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             return (resultVerses, summaries, (sumOfChapterNumbers, sumOfVerseNumbers, sumOfCounts));
         }
 
-        return calculate().Then((resultVerseList, summaryInfoList, _) =>
-                                {
-                                    Element[] results =
-                                    [
-                                        new h4{ "Sonuçlar" } + TextAlignCenter,
+        return calculate().Match
+        (
+            success: r =>
+            {
+                Element[] results =
+                [
+                    new h4 { "Sonuçlar" } + TextAlignCenter,
 
-                                        new CountsSummaryView { Counts = summaryInfoList },
-                                        SpaceY(30),
-                                        new div
-                                        {
-                                            resultVerseList
-                                        }
-                                    ];
+                    new CountsSummaryView { Counts = r.summaryInfoList },
+                    SpaceY(30),
+                    new div
+                    {
+                        r.resultVerseList
+                    }
+                ];
 
-                                    return Container(Panel(searchPanel()), Panel(results));
-                                },
-                                failMessage =>
-                                {
-                                    state.SearchScriptErrorMessage = failMessage;
+                return Container(Panel(searchPanel()), Panel(results));
+            },
+            
+            fail =>
+            {
+                state.SearchScriptErrorMessage = fail.Message;
 
-                                    return Container(Panel(searchPanel()));
-                                });
+                return Container(Panel(searchPanel()));
+            }
+        );
     }
 
     static Element Backdrop()

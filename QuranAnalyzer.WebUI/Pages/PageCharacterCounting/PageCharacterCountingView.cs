@@ -161,27 +161,29 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
             return (resultVerses, summaries);
         }
 
-        return calculate().Then((resultVerseList, summaryInfoList) =>
+        return calculate().Match
+        (
+            success: r =>
             {
                 Element[] results =
                 [
                     new h4 { "Sonuçlar" } + TextAlignCenter,
-                    new CountsSummaryView { Counts = summaryInfoList },
+                    new CountsSummaryView { Counts = r.summaryInfoList },
                     SpaceY(30),
                     new div
                     {
                         dangerouslySetInnerHTML = new div
                         {
-                            resultVerseList
+                            r.resultVerseList
                         }.ToHtml()
                     }
                 ];
 
                 return Container(Panel(searchPanel()), Panel(results));
             },
-            failMessage =>
+            fail =>
             {
-                state.SearchScriptErrorMessage = failMessage;
+                state.SearchScriptErrorMessage = fail.Message;
 
                 return Container(Panel(searchPanel()));
             });
