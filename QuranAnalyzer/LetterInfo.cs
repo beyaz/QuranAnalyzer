@@ -1,6 +1,6 @@
 ﻿namespace QuranAnalyzer;
 
-public sealed class LetterInfo
+public sealed record LetterInfo
 {
     public char Letter { get; init; }
 
