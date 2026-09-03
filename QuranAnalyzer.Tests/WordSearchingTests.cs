@@ -311,7 +311,7 @@ public class WordSearchingTests
 
         var b = AnalyzeText(new("brkyöç".Select(c => map[c]).ToArray()));
 
-        matchedVerses.Sum(v => v.TextAnalyzed.Count(IsArabicLetter)).ShouldBe(1444);
+        matchedVerses.Sum(v => v.TextAnalyzed.Count(x=>x.IsArabic)).ShouldBe(1444);
 
         matchedVerses.Sum(v => v.TextAnalyzed.Count(isBRKYÖÇ)).ShouldBe(436);
 
