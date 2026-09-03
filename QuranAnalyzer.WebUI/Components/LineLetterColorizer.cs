@@ -36,9 +36,9 @@ class LineLetterColorizer : ReactPureComponent
             arabicText = verseText;
         }
 
-        var arabicTextLetters = Analyzer.AnalyzeText(arabicText).Where(Analyzer.IsArabicLetter).ToList();
+        IReadOnlyList<LetterInfo> arabicTextLetters = [.. from x in Analyzer.AnalyzeText(arabicText) where x.IsArabic select x];
 
-        var lettersForColorize = Analyzer.AnalyzeText(LettersForColorize).Where(Analyzer.IsArabicLetter).ToList();
+        IReadOnlyList<LetterInfo> lettersForColorize = [.. from x in Analyzer.AnalyzeText(LettersForColorize) where x.IsArabic select x];
 
         var cursor = 0;
 
