@@ -62,7 +62,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (cursor < VerseText.Length - 1)
         {
-            html.Append(VerseText.Substring(cursor));
+            html.Append(VerseText[cursor..]);
         }
 
         var countsView = new FlexRow(FlexWrap, JustifyContentCenter, Padding(5), Gap(13));
