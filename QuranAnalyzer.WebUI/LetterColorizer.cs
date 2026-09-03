@@ -8,8 +8,8 @@ namespace QuranAnalyzer.WebUI;
 public class LetterColorizer : ReactPureComponent
 {
     public required string ChapterNumber { get; init; }
-    public  string LettersForColorize { get; init; }
-    public  IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; set; }
+    public string LettersForColorize { get; init; }
+    public IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; set; }
     public required MushafOption MushafOption { get; init; }
 
     public required Verse Verse { get; init; }
@@ -19,9 +19,9 @@ public class LetterColorizer : ReactPureComponent
 
     protected override Element render()
     {
-        var verseText = VerseTextNodes ??= Analyzer.AnalyzeText(VerseText).Where(Analyzer.IsArabicLetter).ToList();
+        var verseText = VerseTextNodes ??= [.. AnalyzeText(VerseText).Where(IsArabicLetter)];
 
-        var lettersForColorize = LettersForColorizeNodes ??= Analyzer.AnalyzeText(LettersForColorize).Where(Analyzer.IsArabicLetter).ToList();
+        var lettersForColorize = LettersForColorizeNodes ??= [.. AnalyzeText(LettersForColorize).Where(IsArabicLetter)];
 
         var cursor = 0;
 
@@ -131,7 +131,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Alif)
         {
-            if (MushafOption.UseElifReferencesFromTanzil == false)
+            if (!MushafOption.UseElifReferencesFromTanzil)
             {
                 if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
                 {
@@ -150,7 +150,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Laam)
         {
-            if (MushafOption.Use_Laam_SpecifiedByTanzil == false)
+            if (!MushafOption.Use_Laam_SpecifiedByTanzil)
             {
                 if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
                 {
@@ -169,7 +169,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Saad)
         {
-            if (MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten == false)
+            if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
             {
                 if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
                 {
@@ -188,7 +188,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Siin)
         {
-            if (MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten == false)
+            if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
             {
                 if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
                 {
@@ -207,7 +207,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Nun)
         {
-            if (MushafOption.Chapter_68_Should_Single_Nun == false)
+            if (!MushafOption.Chapter_68_Should_Single_Nun)
             {
                 if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
                 {
@@ -226,7 +226,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Waaw)
         {
-            if (MushafOption.Chapter_68_Should_Single_Nun == false)
+            if (!MushafOption.Chapter_68_Should_Single_Nun)
             {
                 if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
                 {
