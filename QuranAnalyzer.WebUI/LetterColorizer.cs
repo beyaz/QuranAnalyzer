@@ -8,13 +8,13 @@ namespace QuranAnalyzer.WebUI;
 public class LetterColorizer : ReactPureComponent
 {
     public required string ChapterNumber { get; init; }
-    public string LettersForColorize { get; set; }
-    public IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; set; }
-    public MushafOption MushafOption { get; set; }
+    public  string LettersForColorize { get; init; }
+    public  IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; set; }
+    public required MushafOption MushafOption { get; init; }
 
-    public Verse Verse { get; set; }
-    public string VerseNumber { get; set; }
-    public string VerseText { get; set; }
+    public required Verse Verse { get; init; }
+    public required string VerseNumber { get; init; }
+    public required string VerseText { get; init; }
     public required IReadOnlyList<LetterInfo> VerseTextNodes { get; set; }
 
     protected override Element render()
