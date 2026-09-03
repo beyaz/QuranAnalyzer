@@ -286,172 +286,172 @@ public class LetterColorizer : ReactPureComponent
         return null;
     }
     
-   Element GetExtraModel(int arabicLetterOrder)
-    {
-        if (Verse == null)
-        {
-            return null;
-        }
+    string GetExtraModel(int arabicLetterOrder)
+  {
+      if (Verse == null)
+      {
+          return null;
+      }
 
-        if (MushafOption == null)
-        {
-            return null;
-        }
+      if (MushafOption == null)
+      {
+          return null;
+      }
 
-        if (arabicLetterOrder == Alif)
-        {
-            if (!MushafOption.UseElifReferencesFromTanzil)
-            {
-                if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
-                {
-                    if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
-                    {
-                        if (count > countAccordingToTanzil)
-                        {
-                            return new div { text = "+" + (count - countAccordingToTanzil) };
-                        }
+      if (arabicLetterOrder == Alif)
+      {
+          if (!MushafOption.UseElifReferencesFromTanzil)
+          {
+              if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+              {
+                  if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                  {
+                      if (count > countAccordingToTanzil)
+                      {
+                          return  "+" + (count - countAccordingToTanzil);
+                      }
 
-                        return new div { text = "-" + (countAccordingToTanzil - count) };
-                    }
-                }
-            }
-        }
+                      return  "-" + (countAccordingToTanzil - count);
+                  }
+              }
+          }
+      }
 
-        if (arabicLetterOrder == Laam)
-        {
-            if (!MushafOption.Use_Laam_SpecifiedByTanzil)
-            {
-                if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
-                {
-                    if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
-                    {
-                        if (count > countAccordingToTanzil)
-                        {
-                            return new div { text = "+" + (count - countAccordingToTanzil) };
-                        }
+      if (arabicLetterOrder == Laam)
+      {
+          if (!MushafOption.Use_Laam_SpecifiedByTanzil)
+          {
+              if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+              {
+                  if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                  {
+                      if (count > countAccordingToTanzil)
+                      {
+                          return  "+" + (count - countAccordingToTanzil);
+                      }
 
-                        return new div { text = "-" + (countAccordingToTanzil - count) };
-                    }
-                }
-            }
-        }
+                      return  "-" + (countAccordingToTanzil - count);
+                  }
+              }
+          }
+      }
 
-        if (arabicLetterOrder == Saad)
-        {
-            if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
-            {
-                if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
-                {
-                    if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
-                    {
-                        if (count > countAccordingToTanzil)
-                        {
-                            return new div { text = "+" + (count - countAccordingToTanzil) };
-                        }
+      if (arabicLetterOrder == Saad)
+      {
+          if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
+          {
+              if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+              {
+                  if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                  {
+                      if (count > countAccordingToTanzil)
+                      {
+                          return  "+" + (count - countAccordingToTanzil);
+                      }
 
-                        return new div { text = "-" + (countAccordingToTanzil - count) };
-                    }
-                }
-            }
-        }
+                      return  "-" + (countAccordingToTanzil - count);
+                  }
+              }
+          }
+      }
 
-        if (arabicLetterOrder == Siin)
-        {
-            if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
-            {
-                if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
-                {
-                    if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
-                    {
-                        if (count > countAccordingToTanzil)
-                        {
-                            return new div { text = "+" + (count - countAccordingToTanzil) };
-                        }
+      if (arabicLetterOrder == Siin)
+      {
+          if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
+          {
+              if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+              {
+                  if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                  {
+                      if (count > countAccordingToTanzil)
+                      {
+                          return  "+" + (count - countAccordingToTanzil);
+                      }
 
-                        return new div { text = "-" + (countAccordingToTanzil - count) };
-                    }
-                }
-            }
-        }
+                      return  "-" + (countAccordingToTanzil - count);
+                  }
+              }
+          }
+      }
 
-        if (arabicLetterOrder == Nun)
-        {
-            if (!MushafOption.Chapter_68_Should_Single_Nun)
-            {
-                if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
-                {
-                    if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
-                    {
-                        if (count > countAccordingToTanzil)
-                        {
-                            return new div { text = "+" + (count - countAccordingToTanzil) };
-                        }
+      if (arabicLetterOrder == Nun)
+      {
+          if (!MushafOption.Chapter_68_Should_Single_Nun)
+          {
+              if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+              {
+                  if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                  {
+                      if (count > countAccordingToTanzil)
+                      {
+                          return  "+" + (count - countAccordingToTanzil);
+                      }
 
-                        return new div { text = "-" + (countAccordingToTanzil - count) };
-                    }
-                }
-            }
-        }
+                      return  "-" + (countAccordingToTanzil - count);
+                  }
+              }
+          }
+      }
 
-        if (arabicLetterOrder == Waaw)
-        {
-            if (!MushafOption.Chapter_68_Should_Single_Nun)
-            {
-                if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
-                {
-                    if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
-                    {
-                        if (count > countAccordingToTanzil)
-                        {
-                            return new div { text = "+" + (count - countAccordingToTanzil) };
-                        }
+      if (arabicLetterOrder == Waaw)
+      {
+          if (!MushafOption.Chapter_68_Should_Single_Nun)
+          {
+              if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+              {
+                  if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                  {
+                      if (count > countAccordingToTanzil)
+                      {
+                          return  "+" + (count - countAccordingToTanzil);
+                      }
 
-                        return new div { text = "-" + (countAccordingToTanzil - count) };
-                    }
-                }
-            }
+                      return  "-" + (countAccordingToTanzil - count);
+                  }
+              }
+          }
 
-            if (!MushafOption.Enba_u_Should_Contains_one_waw)
-            {
-                // [enba'u] Tanzil.net counts extra waw char in these verses
-                if (Verse.Id == "6:5")
-                {
-                    return new div { text = "-1" };
-                }
+          if (!MushafOption.Enba_u_Should_Contains_one_waw)
+          {
+              // [enba'u] Tanzil.net counts extra waw char in these verses
+              if (Verse.Id == "6:5")
+              {
+                  return  "-1";
+              }
 
-                if (Verse.Id == "26:6")
-                {
-                    return new div { text = "-1" };
-                }
-            }
+              if (Verse.Id == "26:6")
+              {
+                  return  "-1";
+              }
+          }
 
-            if (!MushafOption._75_13_yunebbeu_Should_Contains_1_waw)
-            {
-                if (Verse.Id == "75:13")
-                {
-                    return new div { text = "-1" };
-                }
-            }
-        }
+          if (!MushafOption._75_13_yunebbeu_Should_Contains_1_waw)
+          {
+              if (Verse.Id == "75:13")
+              {
+                  return  "-1";
+              }
+          }
+      }
 
-        if (arabicLetterOrder == Yaa)
-        {
-            // Tanzil.net has a bug here. There mush be extra ye here according to utmaine mushaf
-            if (!MushafOption.Ya_sahibeyi_Should_Contains_2_ya)
-            {
-                // [ ya sahibeyi ] - [يَا صَاحِبَيِ]
-                if (Verse.Id == "12:39")
-                {
-                    return new div { text = "+1" };
-                }
+      if (arabicLetterOrder == Yaa)
+      {
+          // Tanzil.net has a bug here. There mush be extra ye here according to utmaine mushaf
+          if (!MushafOption.Ya_sahibeyi_Should_Contains_2_ya)
+          {
+              // [ ya sahibeyi ] - [يَا صَاحِبَيِ]
+              if (Verse.Id == "12:39")
+              {
+                  return  "+1";
+              }
 
-                if (Verse.Id == "12:41")
-                {
-                    return new div { text = "+1" };
-                }
-            }
-        }
+              if (Verse.Id == "12:41")
+              {
+                  return  "+1";
+              }
+          }
+      }
 
-        return null;
-    }
+      return null;
+  }
 }
