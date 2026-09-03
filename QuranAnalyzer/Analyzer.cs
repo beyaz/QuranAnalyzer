@@ -7,7 +7,7 @@ public static class Analyzer
 
     public static IReadOnlyList<LetterInfo> AnalyzeText(string line, bool isHemzeActive = true)
     {
-        return line.Select((c, i) => GetLetterInfo(c, i, isHemzeActive)).ToList();
+        return [.. line.Select((c, i) => GetLetterInfo(c, i, isHemzeActive))];
     }
 
     public static LetterInfo GetLetterInfo(char c, int startIndex, bool isHemzeActive)
