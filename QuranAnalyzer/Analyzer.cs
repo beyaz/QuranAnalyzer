@@ -388,10 +388,7 @@ public static class Analyzer
         return false;
     }
 
-    public static bool IsArabicLetter(LetterInfo info)
-    {
-        return info.NumericValue > 0;
-    }
+    
     
     public static IReadOnlyDictionary<char, LetterInfo> GetLatinCharToArabicCharMap(string latinCharToArabicCharMap)
     {
