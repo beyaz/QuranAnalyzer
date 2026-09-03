@@ -125,15 +125,6 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
 
                 var filteredVerses = filteredVersesResponse.Value;
 
-                SummaryInfo getSummaryInfo(LetterInfo letterInfo)
-                {
-                    return new SummaryInfo
-                    {
-                        Count = QuranAnalyzerMixin.GetCountOfLetter(filteredVerses, letterInfo.OrderValue, state.MushafOption, state.IncludeBismillah),
-                        Name  = letterInfo.Letter.ToString()
-                    };
-                }
-
                 summaries.AddRange(from letterInfo in searchLetters select getSummaryInfo(letterInfo));
 
                 foreach (var verse in filteredVerses)
@@ -155,6 +146,17 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
 
                         resultVerses.Add(letterColorizer);
                     }
+                }
+
+                continue;
+
+                SummaryInfo getSummaryInfo(LetterInfo letterInfo)
+                {
+                    return new SummaryInfo
+                    {
+                        Count = QuranAnalyzerMixin.GetCountOfLetter(filteredVerses, letterInfo.OrderValue, state.MushafOption, state.IncludeBismillah),
+                        Name  = letterInfo.Letter.ToString()
+                    };
                 }
             }
 
