@@ -7,7 +7,12 @@ public static class Mixin
         return Result.From(() => int.Parse(value));
     }
 
+    public static IReadOnlyList<T> ListFrom<T>(IEnumerable<T> source)
+    {
+        return [.. source];
+    }
 
+    
     extension(LetterInfo info)
     {
         public bool IsArabic => info.NumericValue > 0;

@@ -46,7 +46,7 @@ class SearchScript
 
             var letterInfoList = Analyzer.AnalyzeText(clearText(arr[1]));
 
-            var letters = letterInfoList.Where(Analyzer.IsArabicLetter).ToList();
+            var letters = ListFrom(from x in letterInfoList where x.IsArabic select x);
             if (letters.Count == 0)
             {
                 return (Error)"Arama komutunda yanlışlık var. Arap alfabesine ait olmayan bir karakter kullanılmış. Örnek: 3. suredeki Mim(م) harfini aratmak için şöyle yazabilirsiniz. 3:*|م";
