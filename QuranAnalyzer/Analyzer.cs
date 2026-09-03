@@ -9,11 +9,11 @@ public static class Analyzer
     {
         return [.. line.Select((c, i) =>
         {
-            return GetLetterInfo(c, i, isHemzeActive) with { StartIndex = i };
+            return GetLetterInfo(c, isHemzeActive) with { StartIndex = i };
         })];
     }
 
-    public static LetterInfo GetLetterInfo(char c, int startIndex, bool isHemzeActive)
+    public static LetterInfo GetLetterInfo(char c, bool isHemzeActive)
     {
         // elif
         if (c is 'ا' or 'ٱ' or 'إ' or 'أ' or 'ﺍ')
@@ -339,8 +339,7 @@ public static class Analyzer
 
         return new()
         {
-            Letter     = c,
-            StartIndex = startIndex
+            Letter     = c
         };
     }
 
@@ -374,7 +373,7 @@ public static class Analyzer
                     
                 var arabicChar = pair[1][0];
                     
-                map.Add(latinChar, GetLetterInfo(arabicChar, 0, true));
+                map.Add(latinChar, GetLetterInfo(arabicChar, true));
             }
         }
             
