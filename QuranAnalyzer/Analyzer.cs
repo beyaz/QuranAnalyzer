@@ -21,7 +21,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 1,
                 OrderValue   = 1
             };
@@ -35,7 +34,6 @@ public static class Analyzer
                 return new()
                 {
                     Letter       = c,
-                    StartIndex   = startIndex,
                     NumericValue = 1,
                     OrderValue   = 1
                 };
@@ -48,7 +46,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 2,
                 OrderValue   = 2
             };
@@ -60,7 +57,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 3,
                 OrderValue   = 3
             };
@@ -72,7 +68,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 4,
                 OrderValue   = 4
             };
@@ -84,7 +79,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 5,
                 OrderValue   = 5
             };
@@ -96,7 +90,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 6,
                 OrderValue   = 6
             };
@@ -108,7 +101,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 7,
                 OrderValue   = 7
             };
@@ -120,7 +112,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 8,
                 OrderValue   = 8
             };
@@ -132,7 +123,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 9,
                 OrderValue   = 9
             };
@@ -144,7 +134,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 10,
                 OrderValue   = 10
             };
@@ -156,7 +145,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 20,
                 OrderValue   = 11
             };
@@ -168,7 +156,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 30,
                 OrderValue   = 12
             };
@@ -180,7 +167,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 40,
                 OrderValue   = 13
             };
@@ -192,7 +178,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 50,
                 OrderValue   = 14
             };
@@ -204,7 +189,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 60,
                 OrderValue   = 15
             };
@@ -216,7 +200,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 70,
                 OrderValue   = 16
             };
@@ -228,7 +211,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 80,
                 OrderValue   = 17
             };
@@ -240,7 +222,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 90,
                 OrderValue   = 18
             };
@@ -252,7 +233,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 100,
                 OrderValue   = 19
             };
@@ -264,7 +244,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 200,
                 OrderValue   = 20
             };
@@ -276,7 +255,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 300,
                 OrderValue   = 21
             };
@@ -288,7 +266,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 400,
                 OrderValue   = 22
             };
@@ -300,7 +277,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 500,
                 OrderValue   = 23
             };
@@ -312,7 +288,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 600,
                 OrderValue   = 24
             };
@@ -324,7 +299,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 700,
                 OrderValue   = 25
             };
@@ -336,7 +310,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 800,
                 OrderValue   = 26
             };
@@ -348,7 +321,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 900,
                 OrderValue   = 27
             };
@@ -360,7 +332,6 @@ public static class Analyzer
             return new()
             {
                 Letter       = c,
-                StartIndex   = startIndex,
                 NumericValue = 1000,
                 OrderValue   = 28
             };
