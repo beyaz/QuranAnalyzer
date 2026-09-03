@@ -7,6 +7,12 @@ public static class Mixin
         return Result.From(() => int.Parse(value));
     }
 
+
+    extension(LetterInfo info)
+    {
+        public bool IsArabic => info.NumericValue > 0;
+    }
+
     /// <summary>
     ///     Removes value from start of str
     /// </summary>
