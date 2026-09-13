@@ -43,47 +43,35 @@ public class LetterColorizer : ReactPureComponent
     {
         var letterColorizerModel = CalculateModel();
 
-        return new fieldset
+        return new fieldset(DisplayFlex, FlexDirectionColumn, AlignItemsFlexEnd, Border(1, "dashed", rgb(218, 220, 224)), BorderRadiusForPanels)
         {
-            children =
+            new legend(DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(5), UserSelect(none))
             {
-                new legend(DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(5), UserSelect(none))
+                new div(FontWeightBold, MarginLeft(2), FontSize13)
                 {
-                    new div(FontWeightBold, MarginLeft(2), FontSize13)
-                    {
-                        $"{letterColorizerModel.ChapterNumber}:{letterColorizerModel.VerseNumber}"
-                    },
-                    new FlexRow(FlexWrap, JustifyContentCenter, Padding(5), Gap(13))
-                    {
-                        from x in letterColorizerModel.ColorizedLetters
-                        select new FlexRow(AlignItemsCenter)
-                        {
-                            new div { x.Letter, FontWeightBold, Color(x.LetterColor) },
-
-                            new div { ":", MarginLeftRight(4) },
-
-                            new div { x.Count.ToString(), FontSize12 },
-
-                            x.ExtraCount is null ? null : new div { text = x.ExtraCount }
-                        }
-                    }
+                    $"{letterColorizerModel.ChapterNumber}:{letterColorizerModel.VerseNumber}"
                 },
-                new div(FontFamily_Lateef)
+                new FlexRow(FlexWrap, JustifyContentCenter, Padding(5), Gap(13))
                 {
-                    DangerouslySetInnerHTML(letterColorizerModel.ArabicTextInHtmlFormat),
-                    FontSize(32),
-                    Padding(5),
-                    DirectionRtl
+                    from x in letterColorizerModel.ColorizedLetters
+                    select new FlexRow(AlignItemsCenter)
+                    {
+                        new div { x.Letter, FontWeightBold, Color(x.LetterColor) },
+
+                        new div { ":", MarginLeftRight(4) },
+
+                        new div { x.Count.ToString(), FontSize12 },
+
+                        x.ExtraCount is null ? null : new div { text = x.ExtraCount }
+                    }
                 }
             },
-            style =
+            new div(FontFamily_Lateef)
             {
-                DisplayFlex,
-                FlexDirectionColumn,
-                AlignItemsFlexEnd,
-
-                Border(1, "dashed", rgb(218, 220, 224)),
-                BorderRadiusForPanels
+                DangerouslySetInnerHTML(letterColorizerModel.ArabicTextInHtmlFormat),
+                FontSize(32),
+                Padding(5),
+                DirectionRtl
             }
         };
     }
