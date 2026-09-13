@@ -30,7 +30,7 @@ sealed record LetterColorizerLetterModel
 public class LetterColorizer : ReactPureComponent
 {
     public required int ChapterNumber { get; init; }
-    public IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; set; }
+    public required IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; set; }
     public required MushafOption MushafOption { get; init; }
 
     public required Verse Verse { get; init; }
