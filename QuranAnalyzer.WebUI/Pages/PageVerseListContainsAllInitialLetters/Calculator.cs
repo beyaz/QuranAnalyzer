@@ -98,6 +98,8 @@ class Calculator : ReactComponent<CalculatorModel>
 
         Element showVerseList()
         {
+            var thStyle = ComponentBorder + PositionSticky + Top(0) + Zindex1 + Background(White);
+            
             return new FlexColumn(Padding(10), AlignItemsCenter)
             {
                 (strong)$"{verseList.Count} adet ayet bulundu.",
@@ -108,25 +110,25 @@ class Calculator : ReactComponent<CalculatorModel>
                     
                     new table(BorderCollapseCollapse,TableLayout("fixed"), ComponentBorder,BorderRadiusForPanels)
                     {
-                        new thead(ComponentBorder + PositionSticky + Top(0) + Zindex1 + Background(White))
+                        new thead
                         {
                            new tr
                            {
-                               new th(ComponentBorder)
+                               new th(thStyle)
                                {
                                    new FlexRowCentered(Width(70))
                                    {
                                        "Sure No"
                                    }
                                },
-                               new th(ComponentBorder)
+                               new th(thStyle)
                                {
                                    new FlexRowCentered(Width(70))
                                    {
                                        "Ayet No"
                                    }
                                },
-                               from x in letterInfoList select new th(ComponentBorder)
+                               from x in letterInfoList select new th(thStyle)
                                {
                                    new FlexRowCentered(Width(30))
                                    {
@@ -134,7 +136,7 @@ class Calculator : ReactComponent<CalculatorModel>
                                    }
                                    
                                },
-                               new th(ComponentBorder)
+                               new th(thStyle)
                                {
                                    new FlexRowCentered(JustifyContentFlexStart, MarginLeft(40))
                                    {
