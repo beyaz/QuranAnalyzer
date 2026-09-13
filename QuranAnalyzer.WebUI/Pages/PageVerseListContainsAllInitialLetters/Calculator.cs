@@ -110,7 +110,8 @@ class Calculator : ReactComponent<CalculatorModel>
                         VerseTextNodes          = verse.TextWithBismillahAnalyzed,
                         LettersForColorizeNodes = letterInfoList,
                         VerseText               = verse.TextWithBismillah,
-                        Verse                   = verse,
+                        ChapterNumber = verse.ChapterNumber,
+                        VerseNumber = verse.Index,
                         MushafOption            = option
                     })
                 }

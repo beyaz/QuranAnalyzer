@@ -33,11 +33,13 @@ public class LetterColorizer : ReactPureComponent
     
     public required MushafOption MushafOption { get; init; }
 
-    public required Verse Verse { get; init; }
+    public required int ChapterNumber { get; init; }
+    
+    public required int VerseNumber { get; init; }
    
     public required string VerseText { get; init; }
     
-    public required IReadOnlyList<LetterInfo> VerseTextNodes { get; set; }
+    public required IReadOnlyList<LetterInfo> VerseTextNodes { get; init; }
 
     protected override Element render()
     {
@@ -136,8 +138,8 @@ public class LetterColorizer : ReactPureComponent
 
         return new LetterColorizerModel
         {
-            ChapterNumber          = Verse.ChapterNumber,
-            VerseNumber            = Verse.Index,
+            ChapterNumber          = ChapterNumber,
+            VerseNumber            = VerseNumber,
             ColorizedLetters       = letterModels,
             ArabicTextInHtmlFormat = html.ToString()
         };
@@ -145,23 +147,20 @@ public class LetterColorizer : ReactPureComponent
 
     string GetExtraModel(int arabicLetterOrder)
     {
-        if (Verse == null)
-        {
-            return null;
-        }
-
         if (MushafOption == null)
         {
             return null;
         }
 
+        var verseId = $"{ChapterNumber}:{VerseNumber}";
+        
         if (arabicLetterOrder == Alif)
         {
             if (!MushafOption.UseElifReferencesFromTanzil)
             {
-                if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+                if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {
@@ -178,9 +177,9 @@ public class LetterColorizer : ReactPureComponent
         {
             if (!MushafOption.Use_Laam_SpecifiedByTanzil)
             {
-                if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+                if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {
@@ -197,9 +196,9 @@ public class LetterColorizer : ReactPureComponent
         {
             if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
             {
-                if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+                if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {
@@ -216,9 +215,9 @@ public class LetterColorizer : ReactPureComponent
         {
             if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
             {
-                if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+                if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {
@@ -235,9 +234,9 @@ public class LetterColorizer : ReactPureComponent
         {
             if (!MushafOption.Chapter_68_Should_Single_Nun)
             {
-                if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+                if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {
@@ -254,9 +253,9 @@ public class LetterColorizer : ReactPureComponent
         {
             if (!MushafOption.Chapter_68_Should_Single_Nun)
             {
-                if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForRK(Verse.Id), out var count))
+                if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForTanzil(Verse.Id), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {
@@ -271,12 +270,12 @@ public class LetterColorizer : ReactPureComponent
             if (!MushafOption.Enba_u_Should_Contains_one_waw)
             {
                 // [enba'u] Tanzil.net counts extra waw char in these verses
-                if (Verse.Id == "6:5")
+                if (verseId == "6:5")
                 {
                     return "-1";
                 }
 
-                if (Verse.Id == "26:6")
+                if (verseId == "26:6")
                 {
                     return "-1";
                 }
@@ -284,7 +283,7 @@ public class LetterColorizer : ReactPureComponent
 
             if (!MushafOption._75_13_yunebbeu_Should_Contains_1_waw)
             {
-                if (Verse.Id == "75:13")
+                if (verseId == "75:13")
                 {
                     return "-1";
                 }
@@ -297,12 +296,12 @@ public class LetterColorizer : ReactPureComponent
             if (!MushafOption.Ya_sahibeyi_Should_Contains_2_ya)
             {
                 // [ ya sahibeyi ] - [يَا صَاحِبَيِ]
-                if (Verse.Id == "12:39")
+                if (verseId == "12:39")
                 {
                     return "+1";
                 }
 
-                if (Verse.Id == "12:41")
+                if (verseId == "12:41")
                 {
                     return "+1";
                 }

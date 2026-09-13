@@ -138,7 +138,8 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                             VerseTextNodes          = analyzedTextOfVerse,
                             LettersForColorizeNodes = searchLetters,
                             VerseText               = state.IncludeBismillah ? verse.TextWithBismillah : verse.Text,
-                            Verse                   = verse,
+                            ChapterNumber           = verse.ChapterNumber,
+                            VerseNumber             = verse.Index,
                             MushafOption            = state.MushafOption
                         };
 
@@ -193,7 +194,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
         {
             const string header = "Sure No; Ayet No; Ayet";
 
-            var rows = string.Join('\n', resultVerseList.Select(x => $"{x.Verse.ChapterNumber};{x.Verse.Index};{x.VerseText}"));
+            var rows = string.Join('\n', resultVerseList.Select(x => $"{x.ChapterNumber};{x.VerseNumber};{x.VerseText}"));
 
             var data = string.Join('\n', header, rows);
 
