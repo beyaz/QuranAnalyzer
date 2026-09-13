@@ -42,7 +42,7 @@ public static class DataAccess
 
         return new Verse
         {
-            Index                     = verseNumber.ToString(),
+            Index                     = verseNumber,
             IndexAsNumber             = verseNumber,
             Bismillah                 = bismillah,
             Text                      = text,
@@ -143,7 +143,7 @@ public sealed class Verse
     public int ChapterNumber { get; init; }
 
     public string Id { get; init; }
-    public string Index { get; init; }
+    public int Index { get; init; }
     public int IndexAsNumber { get; init; }
     public string Text { get; init; }
     public IReadOnlyList<LetterInfo> TextAnalyzed { get; set; }

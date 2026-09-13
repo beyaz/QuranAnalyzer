@@ -1,5 +1,4 @@
-﻿using ReactWithDotNet.ThirdPartyLibraries.ReactSuite;
-using System.Text;
+﻿using System.Text;
 using static QuranAnalyzer.ArabicLetterOrder;
 using static QuranAnalyzer.QuranAnalyzerMixin;
 using static QuranAnalyzer.WebUI.LetterColorPalette;
@@ -8,37 +7,88 @@ namespace QuranAnalyzer.WebUI;
 
 sealed record LetterColorizerModel
 {
-    public int ChapterNumber { get; init; }
-    
-    public int VerseNumber { get; init; }
-    
-    public IReadOnlyList<LetterColorizerLetterModel> Letters { get; init; }
+    public required int ChapterNumber { get; init; }
+
+    public required int VerseNumber { get; init; }
+
+    public required IReadOnlyList<LetterColorizerLetterModel> ColorizedLetters { get; init; }
+
+    public required string ArabicTextInHtmlFormat { get; init; }
 }
 
 sealed record LetterColorizerLetterModel
 {
-    public string Letter { get; init; }
-    
-    public string LetterColor { get; init; }
+    public required string Letter { get; init; }
 
-    public int Count { get; init; }
-    
-    public string ExtraCount { get; init; }
+    public required string LetterColor { get; init; }
+
+    public required int Count { get; init; }
+
+    public required string ExtraCount { get; init; }
 }
 
 public class LetterColorizer : ReactPureComponent
 {
-    public required string ChapterNumber { get; init; }
+    public required int ChapterNumber { get; init; }
     public string LettersForColorize { get; init; }
     public IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; set; }
     public required MushafOption MushafOption { get; init; }
 
     public required Verse Verse { get; init; }
-    public required string VerseNumber { get; init; }
+    public required int VerseNumber { get; init; }
     public required string VerseText { get; init; }
     public required IReadOnlyList<LetterInfo> VerseTextNodes { get; set; }
 
     protected override Element render()
+    {
+        var letterColorizerModel = CalculateModel();
+
+        return new fieldset
+        {
+            children =
+            {
+                new legend(DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(5), UserSelect(none))
+                {
+                    new div(FontWeightBold, MarginLeft(2), FontSize13)
+                    {
+                        $"{letterColorizerModel.ChapterNumber}:{letterColorizerModel.VerseNumber}"
+                    },
+                    new FlexRow(FlexWrap, JustifyContentCenter, Padding(5), Gap(13))
+                    {
+                        from x in letterColorizerModel.ColorizedLetters
+                        select new FlexRow(AlignItemsCenter)
+                        {
+                            new div { x.Letter, FontWeightBold, Color(x.LetterColor) },
+
+                            new div { ":", MarginLeftRight(4) },
+
+                            new div { x.Count.ToString(), FontSize12 },
+
+                            x.ExtraCount is null ? null : new div { text = x.ExtraCount }
+                        }
+                    }
+                },
+                new div(FontFamily_Lateef)
+                {
+                    DangerouslySetInnerHTML(letterColorizerModel.ArabicTextInHtmlFormat),
+                    FontSize(32),
+                    Padding(5),
+                    DirectionRtl
+                }
+            },
+            style =
+            {
+                DisplayFlex,
+                FlexDirectionColumn,
+                AlignItemsFlexEnd,
+
+                Border(1, "dashed", rgb(218, 220, 224)),
+                BorderRadiusForPanels
+            }
+        };
+    }
+
+    LetterColorizerModel CalculateModel()
     {
         var verseText = VerseTextNodes ??= [.. from x in AnalyzeText(VerseText) where x.IsArabic select x];
 
@@ -86,78 +136,25 @@ public class LetterColorizer : ReactPureComponent
             html.Append(VerseText[cursor..]);
         }
 
-        var countsView = new FlexRow(FlexWrap, JustifyContentCenter, Padding(5), Gap(13));
-
         List<LetterColorizerLetterModel> letterModels = [];
         for (var j = 0; j < lettersForColorize.Count; j++)
         {
             letterModels.Add(new LetterColorizerLetterModel
             {
-                Letter     = lettersForColorize[j].Letter.ToString(),
+                Letter      = lettersForColorize[j].Letter.ToString(),
                 LetterColor = GetColor(j),
-                Count      = counts[j],
-                ExtraCount = GetExtraModel(lettersForColorize[j].OrderValue)
+                Count       = counts[j],
+                ExtraCount  = GetExtraModel(lettersForColorize[j].OrderValue)
             });
         }
 
-        countsView.children.AddRange
-        (
-            from x in letterModels
-            select new FlexRow(AlignItemsCenter)
-            {
-                new div { x.Letter, FontWeightBold, Color(x.LetterColor) },
-
-                new div { ":", MarginLeftRight(4) },
-
-                new div { x.Count.ToString(), FontSize12 },
-
-                x.ExtraCount is null ? null : new div { text = x.ExtraCount }
-            }
-        );
-        
-        var textView = new div(FontFamily_Lateef)
+        return new LetterColorizerModel
         {
-            DangerouslySetInnerHTML(html.ToString()),
-            FontSize(32),
-            Padding(5),
-            DirectionRtl
+            ChapterNumber          = ChapterNumber,
+            VerseNumber            = VerseNumber,
+            ColorizedLetters                = letterModels,
+            ArabicTextInHtmlFormat = html.ToString()
         };
-
-        var verseId = new div(FontWeightBold, MarginLeft(2), FontSize13)
-        {
-            $"{ChapterNumber}:{VerseNumber}"
-        };
-
-        var topLegend = new legend(DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(5), UserSelect(none))
-        {
-            verseId,
-            countsView
-        };
-
-        return new fieldset
-        {
-            children = { topLegend, textView },
-            style =
-            {
-                DisplayFlex,
-                FlexDirectionColumn,
-                AlignItemsFlexEnd,
-
-                Border(1, "dashed", rgb(218, 220, 224)),
-                BorderRadiusForPanels
-            }
-        };
-    }
-
-    Element GetExtra(int arabicLetterOrder)
-    {
-        var model = GetExtraModel(arabicLetterOrder);
-        if (model is null)
-        {
-            return null;
-        }
-
-        return new div { text = model };
     }
 
     string GetExtraModel(int arabicLetterOrder)

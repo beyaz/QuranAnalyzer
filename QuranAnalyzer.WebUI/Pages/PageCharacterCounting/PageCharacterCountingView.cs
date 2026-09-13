@@ -136,7 +136,7 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                         var letterColorizer = new LetterColorizer
                         {
                             VerseTextNodes          = analyzedTextOfVerse,
-                            ChapterNumber           = verse.ChapterNumber.ToString(),
+                            ChapterNumber           = verse.ChapterNumber,
                             VerseNumber             = verse.Index,
                             LettersForColorizeNodes = searchLetters,
                             VerseText               = state.IncludeBismillah ? verse.TextWithBismillah : verse.Text,

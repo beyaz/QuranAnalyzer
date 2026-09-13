@@ -108,7 +108,7 @@ class Calculator : ReactComponent<CalculatorModel>
                     verseList.Select(verse => new LetterColorizer
                     {
                         VerseTextNodes          = verse.TextWithBismillahAnalyzed,
-                        ChapterNumber           = verse.ChapterNumber.ToString(),
+                        ChapterNumber           = verse.ChapterNumber,
                         VerseNumber             = verse.Index,
                         LettersForColorizeNodes = letterInfoList,
                         VerseText               = verse.TextWithBismillah,
