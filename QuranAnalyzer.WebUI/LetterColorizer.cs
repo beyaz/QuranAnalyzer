@@ -5,6 +5,24 @@ using static QuranAnalyzer.QuranAnalyzerMixin;
 
 namespace QuranAnalyzer.WebUI;
 
+sealed record LetterColorizerModel
+{
+    public int ChapterNumber { get; init; }
+    
+    public int VerseNumber { get; init; }
+    
+    public IReadOnlyList<LetterColorizerLetterModel> Letters { get; init; }
+}
+
+sealed record LetterColorizerLetterModel
+{
+    public string Letter { get; init; }
+
+    public int Count { get; init; }
+    
+    public string ExtraCount { get; init; }
+}
+
 public class LetterColorizer : ReactPureComponent
 {
     public required string ChapterNumber { get; init; }
