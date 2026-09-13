@@ -1,4 +1,5 @@
-﻿using System.Collections.Immutable;
+﻿using ReactWithDotNet.ThirdPartyLibraries.ReactSuite;
+using System.Collections.Immutable;
 
 namespace QuranAnalyzer.WebUI.Pages.PageVerseListContainsAllInitialLetters;
 
@@ -104,20 +105,82 @@ class Calculator : ReactComponent<CalculatorModel>
 
                 new FreeScrollBar
                 {
-                    Height(300), WidthFull, ComponentBorder, BorderRadiusForPanels,
-                    verseList.Select(verse => new LetterColorizer
+                    Height(300), WidthFull,
+                    
+                    new table(BorderCollapseCollapse,TableLayout("fixed"), ComponentBorder,BorderRadiusForPanels)
                     {
-                        Input=new()
+                        new thead
                         {
-                            VerseTextNodes          = verse.TextWithBismillahAnalyzed,
-                            LettersForColorizeNodes = letterInfoList,
-                            VerseText               = verse.TextWithBismillah,
-                            ChapterNumber           = verse.ChapterNumber,
-                            VerseNumber             = verse.Index,
-                            MushafOption            = option
-                        }
+                           new tr
+                           {
+                               new th(ComponentBorder)
+                               {
+                                   new FlexRowCentered(Width(70))
+                                   {
+                                       "Sure No"
+                                   }
+                               },
+                               new th(ComponentBorder)
+                               {
+                                   new FlexRowCentered(Width(70))
+                                   {
+                                       "Ayet No"
+                                   }
+                               },
+                               from x in letterInfoList select new th(ComponentBorder)
+                               {
+                                   new FlexRowCentered(Width(30))
+                                   {
+                                       x.Letter.ToString()
+                                   }
+                                   
+                               },
+                               new th(ComponentBorder)
+                               {
+                                   new FlexRowCentered(JustifyContentFlexStart, MarginLeft(40))
+                                   {
+                                       "Arapça Metin"
+                                   }
+                               }
+                           }
+                        },
+                        new tbody
+                        {
+                            from verse in verseList
+                            let model = LetterColorizer.Calculate(new()
+                            {
+                                VerseTextNodes          = verse.TextWithBismillahAnalyzed,
+                                LettersForColorizeNodes = letterInfoList,
+                                VerseText               = verse.TextWithBismillah,
+                                ChapterNumber           = verse.ChapterNumber,
+                                VerseNumber             = verse.Index,
+                                MushafOption            = option
+                            })
+                            select new tr(ComponentBorder)
+                            {
+                                new td(ComponentBorder)
+                                {
+                                    new FlexRowCentered{model.ChapterNumber}
+                                },
+                                new td(ComponentBorder)
+                                {
+                                    new FlexRowCentered{model.VerseNumber}
+                                },
                         
-                    })
+                                from letter in model.ColorizedLetters select new td(ComponentBorder)
+                                {
+                                    new FlexRowCentered{letter.Count}
+                                },
+                        
+                                new td(ComponentBorder,WhiteSpaceNoWrap)
+                                {
+                                    DangerouslySetInnerHTML(model.ArabicTextInHtmlFormat)
+                                }
+                            }
+                        }
+                    },
+                    
+                    
                 }
             };
         }
