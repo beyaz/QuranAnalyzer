@@ -34,7 +34,7 @@ public class LetterColorizer : ReactPureComponent
     public required MushafOption MushafOption { get; init; }
 
     public required Verse Verse { get; init; }
-    public required int VerseNumber { get; init; }
+   
     public required string VerseText { get; init; }
     public required IReadOnlyList<LetterInfo> VerseTextNodes { get; set; }
 
@@ -138,8 +138,8 @@ public class LetterColorizer : ReactPureComponent
         return new LetterColorizerModel
         {
             ChapterNumber          = ChapterNumber,
-            VerseNumber            = VerseNumber,
-            ColorizedLetters                = letterModels,
+            VerseNumber            = Verse.Index,
+            ColorizedLetters       = letterModels,
             ArabicTextInHtmlFormat = html.ToString()
         };
     }
