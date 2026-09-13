@@ -108,7 +108,7 @@ class Calculator : ReactComponent<CalculatorModel>
                     
                     new table(BorderCollapseCollapse,TableLayout("fixed"), ComponentBorder,BorderRadiusForPanels)
                     {
-                        new thead
+                        new thead(ComponentBorder + PositionSticky + Top(0) + Zindex1 + Background(White))
                         {
                            new tr
                            {
