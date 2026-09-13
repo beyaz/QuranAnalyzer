@@ -78,8 +78,6 @@ public class LetterColorizer : ReactPureComponent
 
     LetterColorizerModel CalculateModel()
     {
-        var verseText = VerseTextNodes ??= [.. from x in AnalyzeText(VerseText) where x.IsArabic select x];
-
         var lettersForColorize = LettersForColorizeNodes;
 
         var cursor = 0;
@@ -88,7 +86,7 @@ public class LetterColorizer : ReactPureComponent
 
         var html = new StringBuilder();
 
-        foreach (var letterInfo in verseText)
+        foreach (var letterInfo in VerseTextNodes)
         {
             for (var j = 0; j < lettersForColorize.Count; j++)
             {
