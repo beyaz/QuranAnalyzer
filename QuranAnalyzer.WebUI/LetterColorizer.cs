@@ -27,9 +27,9 @@ sealed record LetterColorizerLetterModel
     public required string ExtraCount { get; init; }
 }
 
-public class LetterColorizer : ReactPureComponent
+public sealed record LetterColorizerInput
 {
-    public required IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; set; }
+    public required IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; init; }
     
     public required MushafOption MushafOption { get; init; }
 
@@ -40,10 +40,85 @@ public class LetterColorizer : ReactPureComponent
     public required string VerseText { get; init; }
     
     public required IReadOnlyList<LetterInfo> VerseTextNodes { get; init; }
+}
+
+public class LetterColorizer : ReactPureComponent
+{
+    internal static LetterColorizerModel Calculate(LetterColorizerInput input)
+    {
+        var lettersForColorize = input.LettersForColorizeNodes;
+
+        var cursor = 0;
+
+        var counts = new int[lettersForColorize.Count];
+
+        var html = new StringBuilder();
+
+        foreach (var letterInfo in input.VerseTextNodes)
+        {
+            for (var j = 0; j < lettersForColorize.Count; j++)
+            {
+                if (letterInfo.NumericValue == lettersForColorize[j].NumericValue)
+                {
+                    html.Append(input.VerseText.Substring(cursor, letterInfo.StartIndex - cursor));
+
+                    var span = new span
+                    {
+                        innerText = letterInfo.Letter.ToString(),
+                        style =
+                        {
+                            FontWeightBold,
+                            BorderRadiusForPanels,
+                            Border("1px dashed rgb(218, 220, 224)"),
+                            Color(GetColor(j))
+                        }
+                    };
+
+                    html.Append(span.ToHtml());
+
+                    cursor = letterInfo.StartIndex + 1;
+
+                    counts[j]++;
+
+                    break;
+                }
+            }
+        }
+
+        if (cursor < input.VerseText.Length - 1)
+        {
+            html.Append(input.VerseText[cursor..]);
+        }
+
+        List<LetterColorizerLetterModel> letterModels = [];
+        for (var j = 0; j < lettersForColorize.Count; j++)
+        {
+            letterModels.Add(new LetterColorizerLetterModel
+            {
+                Letter      = lettersForColorize[j].Letter.ToString(),
+                LetterColor = GetColor(j),
+                Count       = counts[j],
+                ExtraCount  = GetExtraModel(input.MushafOption, input.ChapterNumber, input.VerseNumber, lettersForColorize[j].OrderValue)
+            });
+        }
+
+        return new LetterColorizerModel
+        {
+            ChapterNumber          = input.ChapterNumber,
+            VerseNumber            = input.VerseNumber,
+            ColorizedLetters       = letterModels,
+            ArabicTextInHtmlFormat = html.ToString()
+        };
+    }
+    
+ 
+   
+    public required LetterColorizerInput Input { get; init; }
+    
 
     protected override Element render()
     {
-        var letterColorizerModel = CalculateModel();
+        var letterColorizerModel = Calculate(Input);
 
         return new fieldset(DisplayFlex, FlexDirectionColumn, AlignItemsFlexEnd, Border(1, "dashed", rgb(218, 220, 224)), BorderRadiusForPanels)
         {
@@ -78,76 +153,11 @@ public class LetterColorizer : ReactPureComponent
         };
     }
 
-    LetterColorizerModel CalculateModel()
+   
+
+    static string GetExtraModel(MushafOption mushafOption, int ChapterNumber, int VerseNumber, int arabicLetterOrder)
     {
-        var lettersForColorize = LettersForColorizeNodes;
-
-        var cursor = 0;
-
-        var counts = new int[lettersForColorize.Count];
-
-        var html = new StringBuilder();
-
-        foreach (var letterInfo in VerseTextNodes)
-        {
-            for (var j = 0; j < lettersForColorize.Count; j++)
-            {
-                if (letterInfo.NumericValue == lettersForColorize[j].NumericValue)
-                {
-                    html.Append(VerseText.Substring(cursor, letterInfo.StartIndex - cursor));
-
-                    var span = new span
-                    {
-                        innerText = letterInfo.Letter.ToString(),
-                        style =
-                        {
-                            FontWeightBold,
-                            BorderRadiusForPanels,
-                            Border("1px dashed rgb(218, 220, 224)"),
-                            Color(GetColor(j))
-                        }
-                    };
-
-                    html.Append(span.ToHtml());
-
-                    cursor = letterInfo.StartIndex + 1;
-
-                    counts[j]++;
-
-                    break;
-                }
-            }
-        }
-
-        if (cursor < VerseText.Length - 1)
-        {
-            html.Append(VerseText[cursor..]);
-        }
-
-        List<LetterColorizerLetterModel> letterModels = [];
-        for (var j = 0; j < lettersForColorize.Count; j++)
-        {
-            letterModels.Add(new LetterColorizerLetterModel
-            {
-                Letter      = lettersForColorize[j].Letter.ToString(),
-                LetterColor = GetColor(j),
-                Count       = counts[j],
-                ExtraCount  = GetExtraModel(lettersForColorize[j].OrderValue)
-            });
-        }
-
-        return new LetterColorizerModel
-        {
-            ChapterNumber          = ChapterNumber,
-            VerseNumber            = VerseNumber,
-            ColorizedLetters       = letterModels,
-            ArabicTextInHtmlFormat = html.ToString()
-        };
-    }
-
-    string GetExtraModel(int arabicLetterOrder)
-    {
-        if (MushafOption == null)
+        if (mushafOption == null)
         {
             return null;
         }
@@ -156,7 +166,7 @@ public class LetterColorizer : ReactPureComponent
         
         if (arabicLetterOrder == Alif)
         {
-            if (!MushafOption.UseElifReferencesFromTanzil)
+            if (!mushafOption.UseElifReferencesFromTanzil)
             {
                 if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
@@ -175,7 +185,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Laam)
         {
-            if (!MushafOption.Use_Laam_SpecifiedByTanzil)
+            if (!mushafOption.Use_Laam_SpecifiedByTanzil)
             {
                 if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
@@ -194,7 +204,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Saad)
         {
-            if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
+            if (!mushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
             {
                 if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
@@ -213,7 +223,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Siin)
         {
-            if (!MushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
+            if (!mushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
             {
                 if (MushafTotalCountPerVerseDifference[Siin].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
@@ -232,7 +242,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Nun)
         {
-            if (!MushafOption.Chapter_68_Should_Single_Nun)
+            if (!mushafOption.Chapter_68_Should_Single_Nun)
             {
                 if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
@@ -251,7 +261,7 @@ public class LetterColorizer : ReactPureComponent
 
         if (arabicLetterOrder == Waaw)
         {
-            if (!MushafOption.Chapter_68_Should_Single_Nun)
+            if (!mushafOption.Chapter_68_Should_Single_Nun)
             {
                 if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
@@ -267,7 +277,7 @@ public class LetterColorizer : ReactPureComponent
                 }
             }
 
-            if (!MushafOption.Enba_u_Should_Contains_one_waw)
+            if (!mushafOption.Enba_u_Should_Contains_one_waw)
             {
                 // [enba'u] Tanzil.net counts extra waw char in these verses
                 if (verseId == "6:5")
@@ -281,7 +291,7 @@ public class LetterColorizer : ReactPureComponent
                 }
             }
 
-            if (!MushafOption._75_13_yunebbeu_Should_Contains_1_waw)
+            if (!mushafOption._75_13_yunebbeu_Should_Contains_1_waw)
             {
                 if (verseId == "75:13")
                 {
@@ -293,7 +303,7 @@ public class LetterColorizer : ReactPureComponent
         if (arabicLetterOrder == Yaa)
         {
             // Tanzil.net has a bug here. There mush be extra ye here according to utmaine mushaf
-            if (!MushafOption.Ya_sahibeyi_Should_Contains_2_ya)
+            if (!mushafOption.Ya_sahibeyi_Should_Contains_2_ya)
             {
                 // [ ya sahibeyi ] - [يَا صَاحِبَيِ]
                 if (verseId == "12:39")

@@ -107,12 +107,16 @@ class Calculator : ReactComponent<CalculatorModel>
                     Height(300), WidthFull, ComponentBorder, BorderRadiusForPanels,
                     verseList.Select(verse => new LetterColorizer
                     {
-                        VerseTextNodes          = verse.TextWithBismillahAnalyzed,
-                        LettersForColorizeNodes = letterInfoList,
-                        VerseText               = verse.TextWithBismillah,
-                        ChapterNumber = verse.ChapterNumber,
-                        VerseNumber = verse.Index,
-                        MushafOption            = option
+                        Input=new()
+                        {
+                            VerseTextNodes          = verse.TextWithBismillahAnalyzed,
+                            LettersForColorizeNodes = letterInfoList,
+                            VerseText               = verse.TextWithBismillah,
+                            ChapterNumber           = verse.ChapterNumber,
+                            VerseNumber             = verse.Index,
+                            MushafOption            = option
+                        }
+                        
                     })
                 }
             };
