@@ -29,7 +29,6 @@ sealed record LetterColorizerLetterModel
 
 public class LetterColorizer : ReactPureComponent
 {
-    public required int ChapterNumber { get; init; }
     public required IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; set; }
     public required MushafOption MushafOption { get; init; }
 
@@ -137,7 +136,7 @@ public class LetterColorizer : ReactPureComponent
 
         return new LetterColorizerModel
         {
-            ChapterNumber          = ChapterNumber,
+            ChapterNumber          = Verse.ChapterNumber,
             VerseNumber            = Verse.Index,
             ColorizedLetters       = letterModels,
             ArabicTextInHtmlFormat = html.ToString()
