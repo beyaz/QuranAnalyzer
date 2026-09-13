@@ -1,7 +1,8 @@
-﻿using System.Text;
+﻿using ReactWithDotNet.ThirdPartyLibraries.ReactSuite;
+using System.Text;
 using static QuranAnalyzer.ArabicLetterOrder;
-using static QuranAnalyzer.WebUI.LetterColorPalette;
 using static QuranAnalyzer.QuranAnalyzerMixin;
+using static QuranAnalyzer.WebUI.LetterColorPalette;
 
 namespace QuranAnalyzer.WebUI;
 
@@ -17,6 +18,8 @@ sealed record LetterColorizerModel
 sealed record LetterColorizerLetterModel
 {
     public string Letter { get; init; }
+    
+    public string LetterColor { get; init; }
 
     public int Count { get; init; }
     
@@ -85,22 +88,33 @@ public class LetterColorizer : ReactPureComponent
 
         var countsView = new FlexRow(FlexWrap, JustifyContentCenter, Padding(5), Gap(13));
 
+        List<LetterColorizerLetterModel> letterModels = [];
         for (var j = 0; j < lettersForColorize.Count; j++)
         {
-            var countView = new FlexRow(AlignItemsCenter)
+            letterModels.Add(new LetterColorizerLetterModel
             {
-                new div { lettersForColorize[j].Letter.ToString(), FontWeightBold, Color(GetColor(j)) },
+                Letter     = lettersForColorize[j].Letter.ToString(),
+                LetterColor = GetColor(j),
+                Count      = counts[j],
+                ExtraCount = GetExtraModel(lettersForColorize[j].OrderValue)
+            });
+        }
+
+        countsView.children.AddRange
+        (
+            from x in letterModels
+            select new FlexRow(AlignItemsCenter)
+            {
+                new div { x.Letter, FontWeightBold, Color(x.LetterColor) },
 
                 new div { ":", MarginLeftRight(4) },
 
-                new div { counts[j].ToString(), FontSize12 },
+                new div { x.Count.ToString(), FontSize12 },
 
-                GetExtra(lettersForColorize[j].OrderValue)
-            };
-
-            countsView.children.Add(countView);
-        }
-
+                x.ExtraCount is null ? null : new div { text = x.ExtraCount }
+            }
+        );
+        
         var textView = new div(FontFamily_Lateef)
         {
             DangerouslySetInnerHTML(html.ToString()),
