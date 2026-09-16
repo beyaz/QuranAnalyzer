@@ -118,8 +118,7 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
                         },
                         new tbody
                         {
-                            from input in r.resultVerseList
-                            let model = LetterColorizer.Calculate(input)
+                            from model in r.resultVerseList
                             select new tr(ComponentBorder)
                             {
                                 new td(ComponentBorder)
@@ -157,9 +156,9 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
                 return Container(Panel(searchPanel()));
             });
 
-        Result<(List<LetterColorizerInput> resultVerseList, List<SummaryInfo> summaryInfoList)> calculate()
+        Result<(List<LetterColorizerModel> resultVerseList, List<SummaryInfo> summaryInfoList)> calculate()
         {
-            var resultVerses = new List<LetterColorizerInput>();
+            var resultVerses = new List<LetterColorizerModel>();
 
             var summaries = new List<SummaryInfo>();
 
@@ -181,7 +180,7 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
 
                     if (analyzedTextOfVerse.Any(x => searchLetters.Any(l => l.NumericValue == x.NumericValue)))
                     {
-                        resultVerses.Add(new()
+                        resultVerses.Add(LetterColorizer.Calculate(new()
                         {
                             VerseTextNodes          = analyzedTextOfVerse,
                             LettersForColorizeNodes = searchLetters,
@@ -189,7 +188,7 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
                             ChapterNumber           = verse.ChapterNumber,
                             VerseNumber             = verse.Index,
                             MushafOption            = state.MushafOption
-                        });
+                        }));
                     }
                 }
 
