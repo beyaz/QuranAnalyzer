@@ -1,4 +1,5 @@
-﻿using Switch = ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch;
+﻿using ReactWithDotNet.ThirdPartyLibraries.MUI.Material;
+using Switch = ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch;
 
 namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
 
@@ -165,7 +166,17 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
                         return null;
                     }
 
-                    return new FlexRowCentered(FontWeight400, MarginLeft(2), FontSize10, LineHeight10, PositionAbsolute, TopRight(0)) { count };
+                    return new Tooltip
+                    {
+                        title = $"Tanzil.net 'in sunduğu mushaf üzerindeki fark: {count}",
+                        children =
+                        {
+                            new FlexRowCentered(FontWeight400, MarginLeft(2), FontSize10, LineHeight10, PositionAbsolute, TopRight(0))
+                            {
+                                count
+                            }
+                        }
+                    };
                 }
             },
             fail =>
