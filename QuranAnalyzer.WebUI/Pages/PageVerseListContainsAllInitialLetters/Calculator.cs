@@ -98,7 +98,7 @@ class Calculator : ReactComponent<CalculatorModel>
 
         Element showVerseList()
         {
-            var thStyle = ComponentBorder + PositionSticky + Top(0) + Zindex1 + Background(WhiteSmoke);
+            var thStyle = ComponentBorder + PositionSticky + Top(0) +  Background(WhiteSmoke);
 
             return new FlexColumn(Padding(10), AlignItemsCenter)
             {
@@ -108,7 +108,7 @@ class Calculator : ReactComponent<CalculatorModel>
                 {
                     Height(300), WidthFull,
 
-                    new table(TableLayout("fixed"), ComponentBorder, BorderRadiusForPanels)
+                    new table(TableLayout("fixed"))
                     {
                         new thead
                         {

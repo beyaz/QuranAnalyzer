@@ -67,18 +67,85 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
         (
             success: r =>
             {
+                var thStyle = ComponentBorder + PositionSticky + Top(0) + Background(WhiteSmoke);
+                
                 Element[] results =
                 [
                     new h4 { "Sonuçlar" } + TextAlignCenter,
                     new CountsSummaryView { Counts = r.summaryInfoList },
                     SpaceY(30),
-                    new div
+                    
+                     new FreeScrollBar
+                {
+                    Height(300), WidthFull,
+
+                    new table(TableLayout("fixed"))
                     {
-                        dangerouslySetInnerHTML = new div
+                        new thead
                         {
-                            from model in r.resultVerseList select new LetterColorizer{ Input = model }
-                        }.ToHtml()
+                            new tr
+                            {
+                                new th(thStyle)
+                                {
+                                    new FlexRowCentered(Width(70))
+                                    {
+                                        "Sure No"
+                                    }
+                                },
+                                new th(thStyle)
+                                {
+                                    new FlexRowCentered(Width(70))
+                                    {
+                                        "Ayet No"
+                                    }
+                                },
+                                from x in r.summaryInfoList
+                                select new th(thStyle)
+                                {
+                                    new FlexRowCentered(Width(30))
+                                    {
+                                        x.Name
+                                    }
+                                },
+                                new th(thStyle)
+                                {
+                                    new FlexRowCentered(JustifyContentFlexStart, MarginLeft(40))
+                                    {
+                                        "Arapça Metin"
+                                    }
+                                }
+                            }
+                        },
+                        new tbody
+                        {
+                            from input in r.resultVerseList
+                            let model = LetterColorizer.Calculate(input)
+                            select new tr(ComponentBorder)
+                            {
+                                new td(ComponentBorder)
+                                {
+                                    new FlexRowCentered { model.ChapterNumber }
+                                },
+                                new td(ComponentBorder)
+                                {
+                                    new FlexRowCentered { model.VerseNumber }
+                                },
+
+                                from letter in model.ColorizedLetters
+                                select new td(ComponentBorder)
+                                {
+                                    new FlexRowCentered { letter.Count + letter.ExtraCount }
+                                },
+
+                                new td(ComponentBorder, WhiteSpaceNoWrap)
+                                {
+                                    DangerouslySetInnerHTML(model.ArabicTextInHtmlFormat)
+                                }
+                            }
+                        }
                     }
+                }
+                    
                 ];
 
                 return Container(Panel(searchPanel()), Panel(results));
