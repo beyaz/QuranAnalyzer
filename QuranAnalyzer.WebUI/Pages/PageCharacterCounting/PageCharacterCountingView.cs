@@ -68,86 +68,105 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
             success: r =>
             {
                 var thStyle = ComponentBorder + PositionSticky + Top(0) + Background(WhiteSmoke);
-                
+
                 Element[] results =
                 [
                     new h4 { "Sonuçlar" } + TextAlignCenter,
                     new CountsSummaryView { Counts = r.summaryInfoList },
                     SpaceY(30),
-                    
-                     new FreeScrollBar
-                {
-                    Height(300), WidthFull,
 
-                    new table(TableLayout("fixed"))
+                    new FreeScrollBar
                     {
-                        new thead
+                        Height(300), WidthFull,
+
+                        new table(TableLayout("fixed"))
                         {
-                            new tr
+                            new thead
                             {
-                                new th(thStyle)
+                                new tr
                                 {
-                                    new FlexRowCentered(Width(70))
+                                    new th(thStyle)
                                     {
-                                        "Sure No"
-                                    }
-                                },
-                                new th(thStyle)
-                                {
-                                    new FlexRowCentered(Width(70))
+                                        new FlexRowCentered(Width(70))
+                                        {
+                                            "Sure No"
+                                        }
+                                    },
+                                    new th(thStyle)
                                     {
-                                        "Ayet No"
-                                    }
-                                },
-                                from x in r.summaryInfoList
-                                select new th(thStyle)
-                                {
-                                    new FlexRowCentered(Width(30))
+                                        new FlexRowCentered(Width(70))
+                                        {
+                                            "Ayet No"
+                                        }
+                                    },
+                                    from x in r.summaryInfoList
+                                    select new th(thStyle)
                                     {
-                                        x.Name
-                                    }
-                                },
-                                new th(thStyle)
-                                {
-                                    new FlexRowCentered(JustifyContentFlexStart, MarginLeft(40))
+                                        new FlexRowCentered(Width(40))
+                                        {
+                                            x.Name,
+
+                                            PositionRelative,
+                                            GetDiff(x.Name)
+                                        }
+                                    },
+                                    new th(thStyle)
                                     {
-                                        "Arapça Metin"
+                                        new FlexRowCentered(JustifyContentFlexStart, MarginLeft(40))
+                                        {
+                                            "Arapça Metin"
+                                        }
                                     }
                                 }
-                            }
-                        },
-                        new tbody
-                        {
-                            from model in r.resultVerseList
-                            select new tr(ComponentBorder)
+                            },
+                            new tbody
                             {
-                                new td(ComponentBorder)
+                                from model in r.resultVerseList
+                                select new tr(ComponentBorder)
                                 {
-                                    new FlexRowCentered { model.ChapterNumber }
-                                },
-                                new td(ComponentBorder)
-                                {
-                                    new FlexRowCentered { model.VerseNumber }
-                                },
+                                    new td(ComponentBorder)
+                                    {
+                                        new FlexRowCentered { model.ChapterNumber }
+                                    },
+                                    new td(ComponentBorder)
+                                    {
+                                        new FlexRowCentered { model.VerseNumber }
+                                    },
 
-                                from letter in model.ColorizedLetters
-                                select new td(ComponentBorder)
-                                {
-                                    new FlexRowCentered { letter.Count + letter.ExtraCount }
-                                },
+                                    from letter in model.ColorizedLetters
+                                    select new td(ComponentBorder)
+                                    {
+                                        new FlexRowCentered { letter.Count + letter.ExtraCount }
+                                    },
 
-                                new td(ComponentBorder, WhiteSpaceNoWrap)
-                                {
-                                    DangerouslySetInnerHTML(model.ArabicTextInHtmlFormat)
+                                    new td(ComponentBorder, WhiteSpaceNoWrap)
+                                    {
+                                        DangerouslySetInnerHTML(model.ArabicTextInHtmlFormat)
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                    
                 ];
 
                 return Container(Panel(searchPanel()), Panel(results));
+
+                Element GetDiff(string letterAsString)
+                {
+                    var query = from model in r.resultVerseList
+                                from letter in model.ColorizedLetters
+                                where letter.Letter == letterAsString && letter.ExtraCount is not null
+                                select letter;
+
+                    var count = query.Count();
+
+                    if (count == 0)
+                    {
+                        return null;
+                    }
+
+                    return new FlexRowCentered(FontWeight400, MarginLeft(2), FontSize10, LineHeight10, PositionAbsolute, TopRight(0)) { count };
+                }
             },
             fail =>
             {
