@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Switch = ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch;
+﻿using Switch = ReactWithDotNet.ThirdPartyLibraries.MUI.Material.Switch;
 
 namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
 
@@ -19,7 +18,7 @@ public class PageCharacterCountingViewModel
     public string SearchScriptErrorMessage { get; set; }
 }
 
-class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
+sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
 {
     protected override Task constructor()
     {
@@ -135,15 +134,15 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
                     {
                         var letterColorizer = new LetterColorizer
                         {
-                           Input = new()
-                           {
-                               VerseTextNodes          = analyzedTextOfVerse,
-                               LettersForColorizeNodes = searchLetters,
-                               VerseText               = state.IncludeBismillah ? verse.TextWithBismillah : verse.Text,
-                               ChapterNumber           = verse.ChapterNumber,
-                               VerseNumber             = verse.Index,
-                               MushafOption            = state.MushafOption
-                           }
+                            Input = new()
+                            {
+                                VerseTextNodes          = analyzedTextOfVerse,
+                                LettersForColorizeNodes = searchLetters,
+                                VerseText               = state.IncludeBismillah ? verse.TextWithBismillah : verse.Text,
+                                ChapterNumber           = verse.ChapterNumber,
+                                VerseNumber             = verse.Index,
+                                MushafOption            = state.MushafOption
+                            }
                         };
 
                         resultVerses.Add(letterColorizer);
@@ -191,26 +190,6 @@ class PageCharacterCountingView : ReactComponent<PageCharacterCountingViewModel>
 
                 return Container(Panel(searchPanel()));
             });
-
-        a downloadAsExcel(List<LetterColorizer> resultVerseList)
-
-        {
-            const string header = "Sure No; Ayet No; Ayet";
-
-            var rows = string.Join('\n', resultVerseList.Select(x => $"{x.Input.ChapterNumber};{x.Input.VerseNumber};{x.Input.VerseText}"));
-
-            var data = string.Join('\n', header, rows);
-
-            data = Convert.ToBase64String(Encoding.UTF8.GetBytes(data));
-
-            return new a
-            {
-                href     = "data:text/csv;base64,77u/" + data,
-                text     = "Exel olarak indir",
-                target   = "_blank",
-                download = "Arama Sonuçları.csv"
-            };
-        }
     }
 
     static Element Backdrop()
