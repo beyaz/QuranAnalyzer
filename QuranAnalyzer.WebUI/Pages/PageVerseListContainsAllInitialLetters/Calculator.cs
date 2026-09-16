@@ -61,7 +61,7 @@ class Calculator : ReactComponent<CalculatorModel>
             new FlexRow(AlignItemsCenter, state.ErrorText.HasValue() ? JustifyContentSpaceBetween : JustifyContentFlexEnd)
             {
                 new ErrorText { Text     = state.ErrorText },
-                new ActionButton { Label = "Hesapla", OnClick = ()=>Task.Run(OnClick), IsProcessing = state.IsProcessing }
+                new ActionButton { Label = "Hesapla", OnClick = () => Task.Run(OnClick), IsProcessing = state.IsProcessing }
             },
 
             When(state.ShowResults, GetCalculationText)
@@ -72,7 +72,7 @@ class Calculator : ReactComponent<CalculatorModel>
     {
         state.ShowResults  = true;
         state.IsProcessing = false;
-        
+
         return Task.CompletedTask;
     }
 
@@ -80,7 +80,7 @@ class Calculator : ReactComponent<CalculatorModel>
     {
         var option = new MushafOption();
 
-        var letterInfoList = Analyzer.AnalyzeText(state.Letters.Replace(" ", ""));
+        var letterInfoList = AnalyzeText(state.Letters.Replace(" ", ""));
         var letterOrderList = letterInfoList.Select(x => x.OrderValue).ToImmutableList();
         var verseList = VerseFilter.GetVerseList(state.SearchScript).Unwrap().Where(isContainsGivenLetters).ToList();
 
@@ -99,7 +99,7 @@ class Calculator : ReactComponent<CalculatorModel>
         Element showVerseList()
         {
             var thStyle = ComponentBorder + PositionSticky + Top(0) + Zindex1 + Background(WhiteSmoke);
-            
+
             return new FlexColumn(Padding(10), AlignItemsCenter)
             {
                 (strong)$"{verseList.Count} adet ayet bulundu.",
@@ -107,43 +107,43 @@ class Calculator : ReactComponent<CalculatorModel>
                 new FreeScrollBar
                 {
                     Height(300), WidthFull,
-                    
-                    new table(TableLayout("fixed"), ComponentBorder,BorderRadiusForPanels)
+
+                    new table(TableLayout("fixed"), ComponentBorder, BorderRadiusForPanels)
                     {
                         new thead
                         {
-                           new tr
-                           {
-                               new th(thStyle)
-                               {
-                                   new FlexRowCentered(Width(70))
-                                   {
-                                       "Sure No"
-                                   }
-                               },
-                               new th(thStyle)
-                               {
-                                   new FlexRowCentered(Width(70))
-                                   {
-                                       "Ayet No"
-                                   }
-                               },
-                               from x in letterInfoList select new th(thStyle)
-                               {
-                                   new FlexRowCentered(Width(30))
-                                   {
-                                       x.Letter.ToString()
-                                   }
-                                   
-                               },
-                               new th(thStyle)
-                               {
-                                   new FlexRowCentered(JustifyContentFlexStart, MarginLeft(40))
-                                   {
-                                       "Arapça Metin"
-                                   }
-                               }
-                           }
+                            new tr
+                            {
+                                new th(thStyle)
+                                {
+                                    new FlexRowCentered(Width(70))
+                                    {
+                                        "Sure No"
+                                    }
+                                },
+                                new th(thStyle)
+                                {
+                                    new FlexRowCentered(Width(70))
+                                    {
+                                        "Ayet No"
+                                    }
+                                },
+                                from x in letterInfoList
+                                select new th(thStyle)
+                                {
+                                    new FlexRowCentered(Width(30))
+                                    {
+                                        x.Letter.ToString()
+                                    }
+                                },
+                                new th(thStyle)
+                                {
+                                    new FlexRowCentered(JustifyContentFlexStart, MarginLeft(40))
+                                    {
+                                        "Arapça Metin"
+                                    }
+                                }
+                            }
                         },
                         new tbody
                         {
@@ -161,27 +161,26 @@ class Calculator : ReactComponent<CalculatorModel>
                             {
                                 new td(ComponentBorder)
                                 {
-                                    new FlexRowCentered{model.ChapterNumber}
+                                    new FlexRowCentered { model.ChapterNumber }
                                 },
                                 new td(ComponentBorder)
                                 {
-                                    new FlexRowCentered{model.VerseNumber}
+                                    new FlexRowCentered { model.VerseNumber }
                                 },
-                        
-                                from letter in model.ColorizedLetters select new td(ComponentBorder)
+
+                                from letter in model.ColorizedLetters
+                                select new td(ComponentBorder)
                                 {
-                                    new FlexRowCentered{letter.Count}
+                                    new FlexRowCentered { letter.Count }
                                 },
-                        
-                                new td(ComponentBorder,WhiteSpaceNoWrap)
+
+                                new td(ComponentBorder, WhiteSpaceNoWrap)
                                 {
                                     DangerouslySetInnerHTML(model.ArabicTextInHtmlFormat)
                                 }
                             }
                         }
-                    },
-                    
-                    
+                    }
                 }
             };
         }
@@ -223,8 +222,8 @@ class Calculator : ReactComponent<CalculatorModel>
 
                 currentChapter = verse.ChapterNumber;
 
-                items.Add(new span {currentChapter.ToString(), Color("red") });
-                items.Add(new div {"+", MarginLeftRight(3) });
+                items.Add(new span { currentChapter.ToString(), Color("red") });
+                items.Add(new div { "+", MarginLeftRight(3) });
                 items.Add(verse.Index);
 
                 total += verse.ChapterNumber;
@@ -265,7 +264,7 @@ class Calculator : ReactComponent<CalculatorModel>
             return;
         }
 
-        var letters = Analyzer.AnalyzeText(state.Letters.Replace(" ", ""));
+        var letters = AnalyzeText(state.Letters.Replace(" ", ""));
 
         if (letters.Count == 0)
         {
