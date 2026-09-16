@@ -76,7 +76,7 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
                     {
                         dangerouslySetInnerHTML = new div
                         {
-                            r.resultVerseList
+                            from model in r.resultVerseList select new LetterColorizer{ Input = model }
                         }.ToHtml()
                     }
                 ];
@@ -90,9 +90,9 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
                 return Container(Panel(searchPanel()));
             });
 
-        Result<(List<LetterColorizer> resultVerseList, List<SummaryInfo> summaryInfoList)> calculate()
+        Result<(List<LetterColorizerInput> resultVerseList, List<SummaryInfo> summaryInfoList)> calculate()
         {
-            var resultVerses = new List<LetterColorizer>();
+            var resultVerses = new List<LetterColorizerInput>();
 
             var summaries = new List<SummaryInfo>();
 
@@ -114,20 +114,15 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
 
                     if (analyzedTextOfVerse.Any(x => searchLetters.Any(l => l.NumericValue == x.NumericValue)))
                     {
-                        var letterColorizer = new LetterColorizer
+                        resultVerses.Add(new()
                         {
-                            Input = new()
-                            {
-                                VerseTextNodes          = analyzedTextOfVerse,
-                                LettersForColorizeNodes = searchLetters,
-                                VerseText               = state.IncludeBismillah ? verse.TextWithBismillah : verse.Text,
-                                ChapterNumber           = verse.ChapterNumber,
-                                VerseNumber             = verse.Index,
-                                MushafOption            = state.MushafOption
-                            }
-                        };
-
-                        resultVerses.Add(letterColorizer);
+                            VerseTextNodes          = analyzedTextOfVerse,
+                            LettersForColorizeNodes = searchLetters,
+                            VerseText               = state.IncludeBismillah ? verse.TextWithBismillah : verse.Text,
+                            ChapterNumber           = verse.ChapterNumber,
+                            VerseNumber             = verse.Index,
+                            MushafOption            = state.MushafOption
+                        });
                     }
                 }
 
