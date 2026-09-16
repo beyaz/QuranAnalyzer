@@ -51,51 +51,6 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
 
     protected override Element render()
     {
-        IEnumerable<Element> searchPanel()
-        {
-            return
-            [
-                When(state.IsBlocked, Backdrop),
-                When(state.IsBlocked, ProcessingText),
-
-                new h4 { text = "Harf Arama", style = { TextAlignCenter } },
-                new FlexColumn
-                {
-                    new FlexColumn
-                    {
-                        new div { text = "Arama Komutu", style = { FontWeight500, FontSize14, MarginBottom(2) } },
-
-                        new TextArea { TextArea.Bind(() => state.SearchScript), FontSize17 },
-
-                        new ErrorText { Text = state.SearchScriptErrorMessage }
-                    },
-
-                    SpaceY(10),
-
-                    new FlexRow(AlignItemsFlexStart)
-                    {
-                        new CharacterCountingOptionView { MushafOption = state.MushafOption, MushafOptionChanged = MushafOptionChanged },
-
-                        new FlexRowCentered
-                        {
-                            new Switch
-                            {
-                                @checked = state.IncludeBismillah,
-                                onChange = OnIncludeBismillahChanged,
-                                value    = (!state.IncludeBismillah).ToString()
-                            },
-                            new div { "Besmele'yi dahil et", WhiteSpaceNoWrap, MediaQuery("(max-width: 500px)", WhiteSpaceNormal) }
-                        }
-                    },
-
-                    new FlexRow(JustifyContentFlexEnd)
-                    {
-                        new ActionButton { Label = "Ara", OnClick = OnCalculateClicked, IsProcessing = state.IsBlocked } + Height(22)
-                    }
-                }
-            ];
-        }
-
         if (state.ClickCount == 0)
         {
             return Container(Panel(searchPanel()));
@@ -107,6 +62,33 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
         {
             return Container(Panel(searchPanel()));
         }
+
+        return calculate().Match
+        (
+            success: r =>
+            {
+                Element[] results =
+                [
+                    new h4 { "Sonuçlar" } + TextAlignCenter,
+                    new CountsSummaryView { Counts = r.summaryInfoList },
+                    SpaceY(30),
+                    new div
+                    {
+                        dangerouslySetInnerHTML = new div
+                        {
+                            r.resultVerseList
+                        }.ToHtml()
+                    }
+                ];
+
+                return Container(Panel(searchPanel()), Panel(results));
+            },
+            fail =>
+            {
+                state.SearchScriptErrorMessage = fail.Message;
+
+                return Container(Panel(searchPanel()));
+            });
 
         Result<(List<LetterColorizer> resultVerseList, List<SummaryInfo> summaryInfoList)> calculate()
         {
@@ -164,32 +146,50 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
             return (resultVerses, summaries);
         }
 
-        return calculate().Match
-        (
-            success: r =>
-            {
-                Element[] results =
-                [
-                    new h4 { "Sonuçlar" } + TextAlignCenter,
-                    new CountsSummaryView { Counts = r.summaryInfoList },
-                    SpaceY(30),
-                    new div
+        IEnumerable<Element> searchPanel()
+        {
+            return
+            [
+                When(state.IsBlocked, Backdrop),
+                When(state.IsBlocked, ProcessingText),
+
+                new h4 { text = "Harf Arama", style = { TextAlignCenter } },
+                new FlexColumn
+                {
+                    new FlexColumn
                     {
-                        dangerouslySetInnerHTML = new div
+                        new div { text = "Arama Komutu", style = { FontWeight500, FontSize14, MarginBottom(2) } },
+
+                        new TextArea { TextArea.Bind(() => state.SearchScript), FontSize17 },
+
+                        new ErrorText { Text = state.SearchScriptErrorMessage }
+                    },
+
+                    SpaceY(10),
+
+                    new FlexRow(AlignItemsFlexStart)
+                    {
+                        new CharacterCountingOptionView { MushafOption = state.MushafOption, MushafOptionChanged = MushafOptionChanged },
+
+                        new FlexRowCentered
                         {
-                            r.resultVerseList
-                        }.ToHtml()
+                            new Switch
+                            {
+                                @checked = state.IncludeBismillah,
+                                onChange = OnIncludeBismillahChanged,
+                                value    = (!state.IncludeBismillah).ToString()
+                            },
+                            new div { "Besmele'yi dahil et", WhiteSpaceNoWrap, MediaQuery("(max-width: 500px)", WhiteSpaceNormal) }
+                        }
+                    },
+
+                    new FlexRow(JustifyContentFlexEnd)
+                    {
+                        new ActionButton { Label = "Ara", OnClick = OnCalculateClicked, IsProcessing = state.IsBlocked } + Height(22)
                     }
-                ];
-
-                return Container(Panel(searchPanel()), Panel(results));
-            },
-            fail =>
-            {
-                state.SearchScriptErrorMessage = fail.Message;
-
-                return Container(Panel(searchPanel()));
-            });
+                }
+            ];
+        }
     }
 
     static Element Backdrop()
