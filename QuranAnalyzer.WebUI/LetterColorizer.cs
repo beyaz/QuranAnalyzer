@@ -7,42 +7,40 @@ namespace QuranAnalyzer.WebUI;
 
 sealed record LetterColorizerModel
 {
+    public required string ArabicTextInHtmlFormat { get; init; }
     public required int ChapterNumber { get; init; }
-
-    public required int VerseNumber { get; init; }
 
     public required IReadOnlyList<LetterColorizerLetterModel> ColorizedLetters { get; init; }
 
-    public required string ArabicTextInHtmlFormat { get; init; }
+    public required int VerseNumber { get; init; }
 }
 
 sealed record LetterColorizerLetterModel
 {
-    public required string Letter { get; init; }
-
-    public required string LetterColor { get; init; }
-
     public required int Count { get; init; }
 
     public required string ExtraCount { get; init; }
+    public required string Letter { get; init; }
+
+    public required string LetterColor { get; init; }
 }
 
 public sealed record LetterColorizerInput
 {
+    public required int ChapterNumber { get; init; }
+
     public required IReadOnlyList<LetterInfo> LettersForColorizeNodes { get; init; }
-    
+
     public required MushafOption MushafOption { get; init; }
 
-    public required int ChapterNumber { get; init; }
-    
     public required int VerseNumber { get; init; }
-   
+
     public required string VerseText { get; init; }
-    
+
     public required IReadOnlyList<LetterInfo> VerseTextNodes { get; init; }
 }
 
-public class LetterColorizer : ReactPureComponent
+static class LetterColorizer
 {
     internal static LetterColorizerModel Calculate(LetterColorizerInput input)
     {
@@ -93,7 +91,7 @@ public class LetterColorizer : ReactPureComponent
         List<LetterColorizerLetterModel> letterModels = [];
         for (var j = 0; j < lettersForColorize.Count; j++)
         {
-            letterModels.Add(new LetterColorizerLetterModel
+            letterModels.Add(new()
             {
                 Letter      = lettersForColorize[j].Letter.ToString(),
                 LetterColor = GetColor(j),
@@ -102,7 +100,7 @@ public class LetterColorizer : ReactPureComponent
             });
         }
 
-        return new LetterColorizerModel
+        return new()
         {
             ChapterNumber          = input.ChapterNumber,
             VerseNumber            = input.VerseNumber,
@@ -110,50 +108,6 @@ public class LetterColorizer : ReactPureComponent
             ArabicTextInHtmlFormat = html.ToString()
         };
     }
-    
- 
-   
-    public required LetterColorizerInput Input { get; init; }
-    
-
-    protected override Element render()
-    {
-        var letterColorizerModel = Calculate(Input);
-
-        return new fieldset(DisplayFlex, FlexDirectionColumn, AlignItemsFlexEnd, Border(1, "dashed", rgb(218, 220, 224)), BorderRadiusForPanels)
-        {
-            new legend(DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(5), UserSelect(none))
-            {
-                new div(FontWeightBold, MarginLeft(2), FontSize13)
-                {
-                    $"{letterColorizerModel.ChapterNumber}:{letterColorizerModel.VerseNumber}"
-                },
-                new FlexRow(FlexWrap, JustifyContentCenter, Padding(5), Gap(13))
-                {
-                    from x in letterColorizerModel.ColorizedLetters
-                    select new FlexRow(AlignItemsCenter)
-                    {
-                        new div { x.Letter, FontWeightBold, Color(x.LetterColor) },
-
-                        new div { ":", MarginLeftRight(4) },
-
-                        new div { x.Count.ToString(), FontSize12 },
-
-                        x.ExtraCount is null ? null : new div { text = x.ExtraCount }
-                    }
-                }
-            },
-            new div(FontFamily_Lateef)
-            {
-                DangerouslySetInnerHTML(letterColorizerModel.ArabicTextInHtmlFormat),
-                FontSize(32),
-                Padding(5),
-                DirectionRtl
-            }
-        };
-    }
-
-   
 
     static string GetExtraModel(MushafOption mushafOption, int ChapterNumber, int VerseNumber, int arabicLetterOrder)
     {
@@ -163,7 +117,7 @@ public class LetterColorizer : ReactPureComponent
         }
 
         var verseId = $"{ChapterNumber}:{VerseNumber}";
-        
+
         if (arabicLetterOrder == Alif)
         {
             if (!mushafOption.UseElifReferencesFromTanzil)
