@@ -190,7 +190,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                 }
             }
 
-            var resultVerses = new List<WordColorizedVerseModel>();
+            List<WordColorizedVerseModel> resultVerses = new List<WordColorizedVerseModel>();
 
             foreach (var (verseId, matchList) in matchMap.ToList().OrderBy(x => x.Key, new VerseNumberComparer()))
             {
