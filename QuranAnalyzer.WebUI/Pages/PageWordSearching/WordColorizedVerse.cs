@@ -9,11 +9,9 @@ sealed class WordColorizedVerse : ReactPureComponent
     
     public required Verse Verse { get; init; }
 
-    public IReadOnlyList<LetterInfo> VerseLetters => Verse.TextAnalyzed;
-
     protected override Element render()
     {
-        var verseLetters = VerseLetters.ToList();
+        var verseLetters = Verse.TextAnalyzed.ToList();
 
         var cursor = 0;
 
