@@ -3,27 +3,16 @@ using static QuranAnalyzer.WebUI.LetterColorPalette;
 
 namespace QuranAnalyzer.WebUI.Pages.PageWordSearching;
 
-class WordColorizedVerse : ReactPureComponent
+sealed class WordColorizedVerse : ReactPureComponent
 {
     public IReadOnlyList<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startEndPoints)> MatchList { get; set; }
-    public Verse Verse { get; set; }
+    
+    public required Verse Verse { get; init; }
 
     public IReadOnlyList<LetterInfo> VerseLetters => Verse.TextAnalyzed;
 
     protected override Element render()
     {
-        // T e s t
-        if (Verse == null)
-        {
-            Verse = VerseFilter.GetVerseById("2:286");
-            MatchList = new List<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo first, LetterInfo last)> startPoints)>
-            {
-                (Analyzer.AnalyzeText("واليوم"), [(VerseLetters[6], VerseLetters[9]), (VerseLetters[28], VerseLetters[33]), (VerseLetters[258], VerseLetters[268])]),
-                (Analyzer.AnalyzeText("يوم"), [(VerseLetters[45], VerseLetters[50]), (VerseLetters[68], VerseLetters[78])]),
-                (Analyzer.AnalyzeText("باليوم"), [(VerseLetters[96], VerseLetters[100]), (VerseLetters[178], VerseLetters[184]), (VerseLetters[228], VerseLetters[235])])
-            };
-        }
-
         var verseLetters = VerseLetters.ToList();
 
         var cursor = 0;

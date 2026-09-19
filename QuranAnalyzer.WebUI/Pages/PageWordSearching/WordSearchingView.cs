@@ -97,6 +97,32 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             return Container(Panel(searchPanel()));
         }
 
+        return calculate().Match
+        (
+            success: r =>
+            {
+                Element[] results =
+                [
+                    new h4 { "Sonuçlar" } + TextAlignCenter,
+
+                    new CountsSummaryView { Counts = r.summaryInfoList },
+                    SpaceY(30),
+                    new div
+                    {
+                        r.resultVerseList
+                    }
+                ];
+
+                return Container(Panel(searchPanel()), Panel(results));
+            },
+            fail =>
+            {
+                state.SearchScriptErrorMessage = fail.Message;
+
+                return Container(Panel(searchPanel()));
+            }
+        );
+
         Result<(List<WordColorizedVerse> resultVerseList, List<SummaryInfo> summaryInfoList, (int sumOfChapterNumbers, int sumOfVerseNumbers, int sumOfCounts))> calculate()
         {
             var matchMap = new Dictionary<string, List<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startPoints)>>();
@@ -186,32 +212,6 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
             return (resultVerses, summaries, (sumOfChapterNumbers, sumOfVerseNumbers, sumOfCounts));
         }
-
-        return calculate().Match
-        (
-            success: r =>
-            {
-                Element[] results =
-                [
-                    new h4 { "Sonuçlar" } + TextAlignCenter,
-
-                    new CountsSummaryView { Counts = r.summaryInfoList },
-                    SpaceY(30),
-                    new div
-                    {
-                        r.resultVerseList
-                    }
-                ];
-
-                return Container(Panel(searchPanel()), Panel(results));
-            },
-            fail =>
-            {
-                state.SearchScriptErrorMessage = fail.Message;
-
-                return Container(Panel(searchPanel()));
-            }
-        );
     }
 
     static Element Backdrop()

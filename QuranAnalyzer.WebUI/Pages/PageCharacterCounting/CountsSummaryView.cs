@@ -3,7 +3,9 @@
 public sealed record SummaryInfo
 {
     public  required int Count { get; init; }
+    
     public required string Name { get; init; }
+    
     public string Color { get; init; }
 }
 
