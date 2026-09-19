@@ -52,6 +52,44 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
     protected override Element render()
     {
+        if (state.ClickCount == 0)
+        {
+            return Container(Panel(searchPanel()));
+        }
+
+        var searchScript = SearchScript.ParseScript(state.SearchScript).Unwrap();
+
+        if (state.IsBlocked)
+        {
+            return Container(Panel(searchPanel()));
+        }
+
+        return calculate().Match
+        (
+            success: r =>
+            {
+                Element[] results =
+                [
+                    new h4 { "Sonuçlar" } + TextAlignCenter,
+
+                    new CountsSummaryView { Counts = r.Summaries },
+                    SpaceY(30),
+                    new div
+                    {
+                        from x in r.Details select new WordColorizedVerse { Model = x }
+                    }
+                ];
+
+                return Container(Panel(searchPanel()), Panel(results));
+            },
+            fail =>
+            {
+                state.SearchScriptErrorMessage = fail.Message;
+
+                return Container(Panel(searchPanel()));
+            }
+        );
+
         IEnumerable<Element> searchPanel()
         {
             return
@@ -85,45 +123,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             ];
         }
 
-        if (state.ClickCount == 0)
-        {
-            return Container(Panel(searchPanel()));
-        }
-
-        var searchScript = SearchScript.ParseScript(state.SearchScript).Unwrap();
-
-        if (state.IsBlocked)
-        {
-            return Container(Panel(searchPanel()));
-        }
-
-        return calculate().Match
-        (
-            success: r =>
-            {
-                Element[] results =
-                [
-                    new h4 { "Sonuçlar" } + TextAlignCenter,
-
-                    new CountsSummaryView { Counts = r.summaryInfoList },
-                    SpaceY(30),
-                    new div
-                    {
-                        from x in r.resultVerseList select new WordColorizedVerse { Model = x }
-                    }
-                ];
-
-                return Container(Panel(searchPanel()), Panel(results));
-            },
-            fail =>
-            {
-                state.SearchScriptErrorMessage = fail.Message;
-
-                return Container(Panel(searchPanel()));
-            }
-        );
-
-        Result<(IReadOnlyList<WordColorizedVerseModel> resultVerseList, IReadOnlyList<SummaryInfo> summaryInfoList)> calculate()
+        Result<(IReadOnlyList<WordColorizedVerseModel> Details, IReadOnlyList<SummaryInfo> Summaries)> calculate()
         {
             var matchMap = new Dictionary<string, List<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startPoints)>>();
 
@@ -181,15 +181,16 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                 }
             }
 
-            return (
-                [
-                    ..
-                    from x in matchMap.ToList().OrderBy(x => x.Key, new VerseNumberComparer())
-                    let verseId = x.Key
-                    let matchList = x.Value
-                    select WordColorizedVerse.Calculate(VerseFilter.GetVerseById(verseId), matchList)
-                ],
-                summaries);
+            List<WordColorizedVerseModel> details =
+            [
+                ..
+                from x in matchMap.ToList().OrderBy(x => x.Key, new VerseNumberComparer())
+                let verseId = x.Key
+                let matchList = x.Value
+                select WordColorizedVerse.Calculate(VerseFilter.GetVerseById(verseId), matchList)
+            ];
+
+            return (details, summaries);
         }
     }
 
