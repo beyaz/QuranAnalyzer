@@ -11,7 +11,7 @@ class CountsSummaryView : ReactPureComponent
 {
     static readonly int[] SpecialNumbers = [19, 1230, 505, 667, 109, 7, 238];
 
-    public IReadOnlyList<SummaryInfo> Counts { get; set; } = new List<SummaryInfo>();
+    public required IReadOnlyList<SummaryInfo> Counts { get; set; }
 
     protected override Element render()
     {
