@@ -133,10 +133,13 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                                         new FlexRowCentered { model.VerseNumber }
                                     },
 
-                                    from letter in model.Words
+                                    from summary in r.Summaries
                                     select new td(ComponentBorder)
                                     {
-                                        new FlexRowCentered { letter.Count }
+                                        new FlexRowCentered
+                                        {
+                                            model.Words.FirstOrDefault(x => x.Word == summary.Name)?.Count ?? 0
+                                        }
                                     },
 
                                     new td(ComponentBorder, WhiteSpaceNoWrap)
