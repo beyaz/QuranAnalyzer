@@ -146,7 +146,6 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
                         // update summary
                         {
-
                             summaries.AddOrUpdate
                             (
                                 predicate: x => x.Name == searchWord.AsText(),
@@ -160,8 +159,6 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                                     Count = x.Count + startAndEndPoints.Count
                                 }
                             );
-                            
-                            
                         }
                     }
                 }
@@ -208,7 +205,6 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
                 return Container(Panel(searchPanel()), Panel(results));
             },
-            
             fail =>
             {
                 state.SearchScriptErrorMessage = fail.Message;
@@ -256,14 +252,14 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         state.SearchScriptErrorMessage = null;
         state.ClickCount               = 0;
         state.SearchScript             = state.SearchScript?.Trim() + " " + letter;
-        
+
         return Task.CompletedTask;
     }
 
     Task ClearErrorMessage()
     {
         state.SearchScriptErrorMessage = null;
-        
+
         return Task.CompletedTask;
     }
 
@@ -291,7 +287,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
             state.ClickCount++;
 
-            if (state.IsBlocked == false)
+            if (!state.IsBlocked)
             {
                 state.IsBlocked = true;
                 Client.HistoryReplaceState(null, "", $"/?{QueryKey.Page}={PageId.WordSearching}&{QueryKey.SearchQuery}={script.AsString()}&{QueryKey.SearchOption}={state.SearchOption}");
@@ -321,7 +317,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         state.SearchScriptErrorMessage = null;
 
         state.ClickCount = 0;
-        
+
         return Task.CompletedTask;
     }
 }
