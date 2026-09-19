@@ -18,7 +18,7 @@ sealed record WordColorizedVerseModel
     
     public required int VerseNumber { get; init; }
     
-    public required string HtmlString { get; init; }
+    public required string ArabicTextInHtmlFormat { get; init; }
 
     public required IReadOnlyList<WordColorizedVerseModelItem> Words { get; init; }
 }
@@ -107,7 +107,7 @@ static class WordColorizedVerse
 
         return new()
         {
-            HtmlString = html.ToString(),
+            ArabicTextInHtmlFormat = html.ToString(),
 
             Words = words,
             

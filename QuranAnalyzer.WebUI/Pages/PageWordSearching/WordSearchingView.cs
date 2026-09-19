@@ -144,7 +144,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
                                     new td(ComponentBorder, WhiteSpaceNoWrap)
                                     {
-                                        DangerouslySetInnerHTML(model.HtmlString),
+                                        DangerouslySetInnerHTML(model.ArabicTextInHtmlFormat),
 
                                         FontFamily_Lateef
                                     }

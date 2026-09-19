@@ -8,6 +8,7 @@ namespace QuranAnalyzer.WebUI;
 sealed record LetterColorizerModel
 {
     public required string ArabicTextInHtmlFormat { get; init; }
+
     public required int ChapterNumber { get; init; }
 
     public required IReadOnlyList<LetterColorizerLetterModel> ColorizedLetters { get; init; }
@@ -20,6 +21,7 @@ sealed record LetterColorizerLetterModel
     public required int Count { get; init; }
 
     public required string ExtraCount { get; init; }
+
     public required string Letter { get; init; }
 
     public required string LetterColor { get; init; }
