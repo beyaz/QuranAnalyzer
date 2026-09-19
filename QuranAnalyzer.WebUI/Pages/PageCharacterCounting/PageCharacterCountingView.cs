@@ -171,7 +171,7 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
                         title = $"Tanzil.net 'in sunduğu mushaf üzerindeki fark: {count}",
                         children =
                         {
-                            new FlexRowCentered(FontWeight400, MarginLeft(2), FontSize10, LineHeight10, PositionAbsolute, TopRight(0))
+                            new FlexRowCentered(FontWeight400, MarginLeft(2), FontSize10, LineHeight10, PositionAbsolute, TopRight(0), CursorDefault)
                             {
                                 count
                             }
