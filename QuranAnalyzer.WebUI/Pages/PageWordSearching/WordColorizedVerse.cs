@@ -23,10 +23,8 @@ sealed record WordColorizedVerseModel
     public required IReadOnlyList<WordColorizedVerseModelItem> Words { get; init; }
 }
 
-sealed class WordColorizedVerse : ReactPureComponent
+static class WordColorizedVerse 
 {
-    public required WordColorizedVerseModel Model { get; init; }
-    
     internal static WordColorizedVerseModel Calculate(Verse Verse, IReadOnlyList<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startEndPoints)> MatchList)
     {
         List<WordColorizedVerseModelItem> words = [];
@@ -119,41 +117,4 @@ sealed class WordColorizedVerse : ReactPureComponent
         };
     }
 
-    protected override Element render()
-    {
-        var model = Model;
-
-        return new fieldset(DisplayFlex, FlexDirectionColumn, AlignItemsFlexEnd, Border(1, dashed, rgb(218, 220, 224)), BorderRadiusForPanels)
-        {
-            new legend(DisplayFlex, FlexDirectionRow, AlignItemsCenter, Gap(5), UserSelect(none))
-            {
-                new div(FontWeightBold, MarginLeft(2), FontSize13)
-                {
-                    $"{model.ChapterNumber}:{model.VerseNumber}"
-                },
-                new FlexRow(FlexWrap, JustifyContentCenter, Padding(5), Gap(13))
-                {
-                    from item in model.Words
-                    select new FlexRow(AlignItemsCenter)
-                    {
-                        new div { item.Word, FontWeightBold, Color(item.Color) },
-
-                        new div { ":", MarginLeftRight(4) },
-
-                        new div { item.Count.ToString(), FontSize12 }
-                    }
-                }
-            },
-            new div(FontFamily_Lateef)
-            {
-                innerHTML = model.HtmlString,
-                style =
-                {
-                    FontSize(38),
-                    Padding(5),
-                    DirectionRtl
-                }
-            }
-        };
-    }
 }
