@@ -8,11 +8,16 @@ sealed record WordColorizedVerseModelItem
     public required string Color { get; init; }
 
     public required int Count { get; init; }
+    
     public required string Word { get; init; }
 }
 
 sealed record WordColorizedVerseModel
 {
+    public required int ChapterNumber { get; init; }
+    
+    public required int VerseNumber { get; init; }
+    
     public required string HtmlString { get; init; }
 
     public required IReadOnlyList<WordColorizedVerseModelItem> Words { get; init; }
@@ -20,10 +25,8 @@ sealed record WordColorizedVerseModel
 
 sealed class WordColorizedVerse : ReactPureComponent
 {
-    public required IReadOnlyList<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startEndPoints)> MatchList { get; set; }
-
-    public required Verse Verse { get; init; }
-
+    public required WordColorizedVerseModel Model { get; init; }
+    
     internal static WordColorizedVerseModel Calculate(Verse Verse, IReadOnlyList<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startEndPoints)> MatchList)
     {
         List<WordColorizedVerseModelItem> words = [];
@@ -108,13 +111,17 @@ sealed class WordColorizedVerse : ReactPureComponent
         {
             HtmlString = html.ToString(),
 
-            Words = words
+            Words = words,
+            
+            ChapterNumber = Verse.ChapterNumber,
+            
+            VerseNumber = Verse.Index
         };
     }
 
     protected override Element render()
     {
-        var model = Calculate(Verse, MatchList);
+        var model = Model;
 
         return new fieldset(DisplayFlex, FlexDirectionColumn, AlignItemsFlexEnd, Border(1, dashed, rgb(218, 220, 224)), BorderRadiusForPanels)
         {
@@ -122,7 +129,7 @@ sealed class WordColorizedVerse : ReactPureComponent
             {
                 new div(FontWeightBold, MarginLeft(2), FontSize13)
                 {
-                    $"{Verse.Id}"
+                    $"{model.ChapterNumber}:{model.VerseNumber}"
                 },
                 new FlexRow(FlexWrap, JustifyContentCenter, Padding(5), Gap(13))
                 {

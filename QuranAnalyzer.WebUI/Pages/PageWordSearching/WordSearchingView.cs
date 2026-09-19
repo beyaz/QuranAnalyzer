@@ -109,7 +109,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                     SpaceY(30),
                     new div
                     {
-                        r.resultVerseList
+                        from x in r.resultVerseList select new WordColorizedVerse{ Model = x }
                     }
                 ];
 
@@ -123,7 +123,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             }
         );
 
-        Result<(IReadOnlyList<WordColorizedVerse> resultVerseList, List<SummaryInfo> summaryInfoList, (int sumOfChapterNumbers, int sumOfVerseNumbers, int sumOfCounts))> calculate()
+        Result<(IReadOnlyList<WordColorizedVerseModel> resultVerseList, List<SummaryInfo> summaryInfoList, (int sumOfChapterNumbers, int sumOfVerseNumbers, int sumOfCounts))> calculate()
         {
             var matchMap = new Dictionary<string, List<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startPoints)>>();
 
@@ -194,15 +194,11 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             var sumOfVerseNumbers = 0;
             var sumOfCounts = 0;
 
-            var resultVerses = new List<WordColorizedVerse>();
+            var resultVerses = new List<WordColorizedVerseModel>();
 
             foreach (var (verseId, matchList) in matchMap.ToList().OrderBy(x => x.Key, new VerseNumberComparer()))
             {
-                resultVerses.Add(new()
-                {
-                    Verse     = VerseFilter.GetVerseById(verseId),
-                    MatchList = matchList
-                });
+                resultVerses.Add(WordColorizedVerse.Calculate(Verse: VerseFilter.GetVerseById(verseId), MatchList: matchList));
 
                 sumOfChapterNumbers += int.Parse(verseId.Split(':')[0]);
                 sumOfVerseNumbers   += int.Parse(verseId.Split(':')[1]);
