@@ -143,23 +143,14 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
                 foreach (var verse in filteredVerses)
                 {
-                    IReadOnlyList<(LetterInfo start, LetterInfo end)> startAndEndPoints = null;
-                    if (searchOption == WordSearchOption.Same)
+                    var startAndEndPoints = searchOption switch
                     {
-                        startAndEndPoints = verse.GetStartAndEndPointsOfSameWords(searchWord);
-                    }
-                    else if (searchOption == WordSearchOption.Contains)
-                    {
-                        startAndEndPoints = verse.GetStartAndEndPointsOfContainsWords(searchWord);
-                    }
-                    else if (searchOption == WordSearchOption.EndsWith)
-                    {
-                        startAndEndPoints = verse.GetStartAndEndPointsOfEndsWithWords(searchWord);
-                    }
-                    else if (searchOption == WordSearchOption.StartsWith)
-                    {
-                        startAndEndPoints = verse.GetStartAndEndPointsOfStartsWithWords(searchWord);
-                    }
+                        WordSearchOption.Same       => verse.GetStartAndEndPointsOfSameWords(searchWord),
+                        WordSearchOption.Contains   => verse.GetStartAndEndPointsOfContainsWords(searchWord),
+                        WordSearchOption.EndsWith   => verse.GetStartAndEndPointsOfEndsWithWords(searchWord),
+                        WordSearchOption.StartsWith => verse.GetStartAndEndPointsOfStartsWithWords(searchWord),
+                        _                           => null
+                    };
 
                     if (startAndEndPoints?.Count > 0)
                     {
@@ -189,10 +180,6 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                     }
                 }
             }
-
-           
-
-
 
             return (
                 [
