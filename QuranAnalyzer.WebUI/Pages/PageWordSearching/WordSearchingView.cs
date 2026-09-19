@@ -144,15 +144,13 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
                                     new td(ComponentBorder, WhiteSpaceNoWrap)
                                     {
-                                        DangerouslySetInnerHTML(model.HtmlString)
+                                        DangerouslySetInnerHTML(model.HtmlString),
+
+                                        FontFamily_Lateef
                                     }
                                 }
                             }
                         }
-                    },
-                    new div
-                    {
-                        r.Details.Select(x => new WordColorizedVerse { Model = x })
                     }
                 ];
 
