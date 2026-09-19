@@ -109,7 +109,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                     SpaceY(30),
                     new div
                     {
-                        from x in r.resultVerseList select new WordColorizedVerse{ Model = x }
+                        from x in r.resultVerseList select new WordColorizedVerse { Model = x }
                     }
                 ];
 
@@ -123,7 +123,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             }
         );
 
-        Result<(IReadOnlyList<WordColorizedVerseModel> resultVerseList, List<SummaryInfo> summaryInfoList, (int sumOfChapterNumbers, int sumOfVerseNumbers, int sumOfCounts))> calculate()
+        Result<(IReadOnlyList<WordColorizedVerseModel> resultVerseList, List<SummaryInfo> summaryInfoList)> calculate()
         {
             var matchMap = new Dictionary<string, List<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startPoints)>>();
 
@@ -190,23 +190,14 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                 }
             }
 
-            var sumOfChapterNumbers = 0;
-            var sumOfVerseNumbers = 0;
-            var sumOfCounts = 0;
-
             var resultVerses = new List<WordColorizedVerseModel>();
 
             foreach (var (verseId, matchList) in matchMap.ToList().OrderBy(x => x.Key, new VerseNumberComparer()))
             {
-                resultVerses.Add(WordColorizedVerse.Calculate(Verse: VerseFilter.GetVerseById(verseId), MatchList: matchList));
-
-                sumOfChapterNumbers += int.Parse(verseId.Split(':')[0]);
-                sumOfVerseNumbers   += int.Parse(verseId.Split(':')[1]);
-
-                sumOfCounts += matchList.SumOf(x => x.startPoints.Count).Unwrap();
+                resultVerses.Add(WordColorizedVerse.Calculate(VerseFilter.GetVerseById(verseId), matchList));
             }
 
-            return (resultVerses, summaries, (sumOfChapterNumbers, sumOfVerseNumbers, sumOfCounts));
+            return (resultVerses, summaries);
         }
     }
 
