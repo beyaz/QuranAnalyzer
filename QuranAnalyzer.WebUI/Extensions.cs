@@ -2,6 +2,19 @@
 
 static class Extensions
 {
+    internal static void AddOrUpdate<T>(this List<T> list, Predicate<T> predicate, Func<T> notFound, Func<T,T> found) where T: class
+    {
+        var index = list.FindIndex(predicate);
+        if (index != -1)
+        {
+            list[index] = found(list[index]);
+        }
+        else
+        {
+            list.Add(notFound());
+        }
+    }
+
     public static string ColorForBorder = "#dee2e6";
     public static ReactContextKey<string> KeyForQueryString = new(nameof(KeyForQueryString));
 
