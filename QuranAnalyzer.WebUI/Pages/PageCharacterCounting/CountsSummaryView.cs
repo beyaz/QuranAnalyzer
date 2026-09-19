@@ -1,10 +1,10 @@
 ﻿namespace QuranAnalyzer.WebUI.Pages.PageCharacterCounting;
 
-public class SummaryInfo
+public sealed record SummaryInfo
 {
     public  int Count { get; set; }
-    public string Name { get; set; }
-    public string Color { get; set; }
+    public required string Name { get; init; }
+    public string Color { get; init; }
 }
 
 [Serializable]
