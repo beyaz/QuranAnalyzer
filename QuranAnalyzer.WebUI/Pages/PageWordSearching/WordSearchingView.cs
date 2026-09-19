@@ -190,14 +190,19 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                 }
             }
 
-            List<WordColorizedVerseModel> resultVerses = new List<WordColorizedVerseModel>();
+           
 
-            foreach (var (verseId, matchList) in matchMap.ToList().OrderBy(x => x.Key, new VerseNumberComparer()))
-            {
-                resultVerses.Add(WordColorizedVerse.Calculate(VerseFilter.GetVerseById(verseId), matchList));
-            }
 
-            return (resultVerses, summaries);
+
+            return (
+                [
+                    ..
+                    from x in matchMap.ToList().OrderBy(x => x.Key, new VerseNumberComparer())
+                    let verseId = x.Key
+                    let matchList = x.Value
+                    select WordColorizedVerse.Calculate(VerseFilter.GetVerseById(verseId), matchList)
+                ],
+                summaries);
         }
     }
 
