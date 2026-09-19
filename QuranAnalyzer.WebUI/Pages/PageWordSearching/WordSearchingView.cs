@@ -123,7 +123,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
             }
         );
 
-        Result<(IReadOnlyList<WordColorizedVerseModel> resultVerseList, List<SummaryInfo> summaryInfoList)> calculate()
+        Result<(IReadOnlyList<WordColorizedVerseModel> resultVerseList, IReadOnlyList<SummaryInfo> summaryInfoList)> calculate()
         {
             var matchMap = new Dictionary<string, List<(IReadOnlyList<LetterInfo> searchWord, IReadOnlyList<(LetterInfo start, LetterInfo end)> startPoints)>>();
 
