@@ -146,12 +146,26 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
 
                         // update summary
                         {
-                            if (summaries.All(x => x.Name != searchWord.AsText()))
-                            {
-                                summaries.Add(new() { Name = searchWord.AsText() });
-                            }
+                            var index = summaries.FindIndex(x => x.Name == searchWord.AsText());
 
-                            summaries.First(x => x.Name == searchWord.AsText()).Count += startAndEndPoints.Count;
+
+                            if (index == -1)
+                            {
+                                summaries.Add(new()
+                                {
+                                    Name = searchWord.AsText(),
+                                    Count = startAndEndPoints.Count
+                                });
+                            }
+                            else
+                            {
+                                var item = summaries[index];
+                                
+                                summaries[index] = item with
+                                {
+                                    Count = item.Count + startAndEndPoints.Count
+                                };
+                            }
                         }
                     }
                 }
