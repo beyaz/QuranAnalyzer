@@ -76,7 +76,7 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
                     SpaceY(30),
                     new div
                     {
-                        from x in r.Details select new WordColorizedVerse { Model = x }
+                        r.Details.Select(x => new WordColorizedVerse { Model = x })
                     }
                 ];
 
