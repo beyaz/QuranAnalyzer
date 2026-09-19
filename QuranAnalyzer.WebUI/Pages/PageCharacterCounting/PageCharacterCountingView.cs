@@ -105,7 +105,11 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
                                     {
                                         new FlexRowCentered(Width(40))
                                         {
-                                            x.Name,
+                                            new div
+                                            {
+                                                x.Name,
+                                                Color(x.Color)
+                                            },
 
                                             PositionRelative,
                                             GetDiff(x.Name)
@@ -202,7 +206,7 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
 
                 var filteredVerses = filteredVersesResponse.Value;
 
-                summaries.AddRange(from letterInfo in searchLetters select getSummaryInfo(letterInfo));
+                summaries.AddRange(searchLetters.Select(getSummaryInfo));
 
                 foreach (var verse in filteredVerses)
                 {
@@ -224,12 +228,13 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
 
                 continue;
 
-                SummaryInfo getSummaryInfo(LetterInfo letterInfo)
+                SummaryInfo getSummaryInfo(LetterInfo letterInfo, int index)
                 {
                     return new SummaryInfo
                     {
                         Count = QuranAnalyzerMixin.GetCountOfLetter(filteredVerses, letterInfo.OrderValue, state.MushafOption, state.IncludeBismillah),
-                        Name  = letterInfo.Letter.ToString()
+                        Name  = letterInfo.Letter.ToString(),
+                        Color = LetterColorPalette.GetColor(index)
                     };
                 }
             }
