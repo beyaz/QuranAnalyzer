@@ -68,12 +68,85 @@ class WordSearchingView : ReactComponent<WordSearchingViewModel>
         (
             success: r =>
             {
+                var thStyle = ComponentBorder + PositionSticky + Top(0) + Background(WhiteSmoke);
+
                 Element[] results =
                 [
                     new h4 { "Sonuçlar" } + TextAlignCenter,
 
                     new CountsSummaryView { Counts = r.Summaries },
                     SpaceY(30),
+
+                    new FreeScrollBar
+                    {
+                        Height(300), WidthFull,
+
+                        new table(TableLayout("fixed"))
+                        {
+                            new thead
+                            {
+                                new tr
+                                {
+                                    new th(thStyle)
+                                    {
+                                        new FlexRowCentered(Width(70))
+                                        {
+                                            "Sure No"
+                                        }
+                                    },
+                                    new th(thStyle)
+                                    {
+                                        new FlexRowCentered(Width(70))
+                                        {
+                                            "Ayet No"
+                                        }
+                                    },
+                                    from x in r.Summaries
+                                    select new th(thStyle)
+                                    {
+                                        new FlexRowCentered(Width(40))
+                                        {
+                                            x.Name,
+                                            Color(x.Color)
+                                        }
+                                    },
+                                    new th(thStyle)
+                                    {
+                                        new FlexRowCentered(JustifyContentFlexStart, MarginLeft(40))
+                                        {
+                                            "Arapça Metin"
+                                        }
+                                    }
+                                }
+                            },
+                            new tbody
+                            {
+                                from model in r.Details
+                                select new tr(ComponentBorder)
+                                {
+                                    new td(ComponentBorder)
+                                    {
+                                        new FlexRowCentered { model.ChapterNumber }
+                                    },
+                                    new td(ComponentBorder)
+                                    {
+                                        new FlexRowCentered { model.VerseNumber }
+                                    },
+
+                                    from letter in model.Words
+                                    select new td(ComponentBorder)
+                                    {
+                                        new FlexRowCentered { letter.Count }
+                                    },
+
+                                    new td(ComponentBorder, WhiteSpaceNoWrap)
+                                    {
+                                        DangerouslySetInnerHTML(model.HtmlString)
+                                    }
+                                }
+                            }
+                        }
+                    },
                     new div
                     {
                         r.Details.Select(x => new WordColorizedVerse { Model = x })
