@@ -175,12 +175,23 @@ public static class VerseFilter
                 return byRange(range[0], range[1]);
             }
 
-            var arr = searchItem.Split(":".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            var arr = searchItem.Split(":".ToCharArray(), StringSplitOptions.RemoveEmptyEntries |  StringSplitOptions.TrimEntries);
             if (arr.Length != 2)
             {
                 return (Error)$"arama kriterlerinde hata var.{searchItem}";
             }
 
+            if (arr[0] == "*" && arr[1].All(char.IsNumber))
+            {
+                return (Verse[])
+                [
+                    .. from chapter in AllChapters
+                       from verse in chapter.Verses
+                       where verse.Index.ToString() == arr[1]
+                       select verse
+                ];
+            }
+            
             return from chapterNumber in parseChapterNumber()
                    from chapter in findChapterByNumber(chapterNumber)
                    from verses in collectVerseList(chapter, arr[1]) select verses;
