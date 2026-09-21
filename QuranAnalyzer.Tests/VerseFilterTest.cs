@@ -97,6 +97,12 @@ public class VerseFilterTest
     }
 
     [TestMethod]
+    public void StarForEvery()
+    {
+        VerseFilter.GetVerseList(" * : 110").HasError.ShouldBeFalse();
+    }
+    
+    [TestMethod]
     public void SpecifiedWithRange()
     {
         var records = VerseFilter.GetVerseList(" 20  : 4- 7").Value;
