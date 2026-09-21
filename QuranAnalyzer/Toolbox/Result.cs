@@ -604,6 +604,30 @@ public static partial class ResultExtensions
         return returnList;
     }
 
+    public static Result<IEnumerable<C>> SelectMany<A, B, C>(
+        this Result<IEnumerable<A>> result,
+        Func<A, IEnumerable<B>> binder,
+        Func<A, B, C> projector
+    )
+    {
+        if (result.HasError)
+        {
+            return result.Error;
+        }
+
+        List<C> returnList = [];
+
+        foreach (var a in result.Value)
+        {
+            foreach (var b in binder(a))
+            {
+                returnList.Add(projector(a, b));
+            }
+        }
+
+        return returnList;
+    }
+
     public static async Task<Result<C>> SelectMany<A, B, C>(
         this Result<A> source,
         Func<A, Task<Result<B>>> bind,
