@@ -156,7 +156,7 @@ public static class VerseFilter
             return AllChapters[--chapterNumber];
         }
 
-        Result<IReadOnlyList<Verse>> process(string searchItem)
+        static Result<IReadOnlyList<Verse>> process(string searchItem)
         {
             if (searchItem.Trim() == "*")
             {
