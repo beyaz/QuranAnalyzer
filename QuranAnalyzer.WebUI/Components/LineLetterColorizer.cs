@@ -30,10 +30,10 @@ class LineLetterColorizer : ReactPureComponent
 
         var arabicText = ArabicText;
 
-        var (isParsedSuccessfully, grandVerseNumber, chapterNumber, verseNumber, verseText) = QuranArabicVersionWithNoBismillah.TryParseVerseNumbers(arabicText);
-        if (isParsedSuccessfully)
+        var parseResult = QuranArabicVersionWithNoBismillah.TryParseVerseLine(arabicText);
+        if (!parseResult.HasError)
         {
-            arabicText = verseText;
+            arabicText = parseResult.Value.ArabicText;
         }
 
         IReadOnlyList<LetterInfo> arabicTextLetters = [.. from x in Analyzer.AnalyzeText(arabicText) where x.IsArabic select x];
@@ -81,9 +81,9 @@ class LineLetterColorizer : ReactPureComponent
             html.Append(arabicText.Substring(cursor));
         }
 
-        if (isParsedSuccessfully)
+        if (!parseResult.HasError)
         {
-            return html + $"|{verseNumber}|{chapterNumber}|{grandVerseNumber}";
+            return html + $"|{parseResult.Value.VerseNumber}|{parseResult.Value.ChapterNumber}|{parseResult.Value.GrandVerseNumber}";
         }
 
         return html.ToString();

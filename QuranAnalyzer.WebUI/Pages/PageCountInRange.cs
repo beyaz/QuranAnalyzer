@@ -102,7 +102,7 @@ public class PageCountInRange : ReactComponent
     {
         var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
 
-        var lines = arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseNumbers).ToList();
+        var lines = arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).ToList();
 
         var searchLetterList = Analyzer.AnalyzeText(searchLetters).Where(l => l.OrderValue > 0).ToList();
 
@@ -120,7 +120,7 @@ public class PageCountInRange : ReactComponent
             return sum;
         }
 
-        var allLines = lines.Select(x => (x.chapterNumber, x.verseNumber, Count: calculateCount(x.verseText))).ToList();
+        var allLines = lines.Select(x => (x.Value.ChapterNumber, x.Value.VerseNumber, Count: calculateCount(x.Value.ArabicText))).ToList();
 
         var resultList = new List<(string from, string to, string count)>();
 
@@ -133,7 +133,7 @@ public class PageCountInRange : ReactComponent
 
                 if (total > 0 && total % slicer == 0)
                 {
-                    resultList.Add((from: $"{allLines[i].chapterNumber}:{allLines[i].verseNumber}", to: $"{allLines[j].chapterNumber}:{allLines[j].verseNumber}", count: $"{slicer}x{total / slicer}"));
+                    resultList.Add((from: $"{allLines[i].ChapterNumber}:{allLines[i].VerseNumber}", to: $"{allLines[j].ChapterNumber}:{allLines[j].VerseNumber}", count: $"{slicer}x{total / slicer}"));
                 }
             }
         }
