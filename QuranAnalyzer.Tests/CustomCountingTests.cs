@@ -83,18 +83,20 @@ public class CustomCountingTests
     
     
     [TestMethod]
-    public void LatinAllphabetEbjedCalculate2()
+    public void LatinAlphabet_Calculate2()
     {
         var input = new
         {
-            LatinText = "abc",
+            LatinText = "berker yörgüç",
 
             LatinCharToArabicCharMap
         };
 
         var map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap);
 
-        6.ShouldBe((
+       
+        
+        667.ShouldBe((
             from c in input.LatinText.ToCharArray()
             let letterInfo = map.ContainsKey(c) switch
             {
@@ -104,7 +106,7 @@ public class CustomCountingTests
             select letterInfo.NumericValue
         ).Sum());
 
-        6.ShouldBe((
+        109.ShouldBe((
             from c in input.LatinText.ToCharArray()
             let letterInfo = map.ContainsKey(c) switch
             {
