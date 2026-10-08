@@ -21,7 +21,7 @@ public class PageVerseFilter : ReactComponent
 
         SearchLetters          = "ب ر ك  ي و ج (brk yvc)";
         SliceNumber            = "19";
-        InputVerseListAsString = string.Join("\n", arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(TryParseVerseNumbers).Select(x => ToTextLine(x.grandVerseNumber, x.chapterNumber, x.verseNumber, x.verseText)).Take(7));
+        InputVerseListAsString = string.Join("\n", arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).Select(x => ToTextLine(x.Value.GrandVerseNumber, x.Value.ChapterNumber, x.Value.VerseNumber, x.Value.ArabicText)).Take(7));
 
         return base.constructor();
     }
