@@ -34,26 +34,12 @@ public static class DataAccess
 
     public static Verse ToVerse(int chapterNumber, int verseNumber, string text, string bismillah)
     {
-        var textWithBismillah = bismillah + " " + text;
-
-        var analyzedFullText = AnalyzeText(textWithBismillah);
-
-        var analyzedText = AnalyzeText(text);
-
         return new Verse
         {
             ChapterNumber = chapterNumber,
             VerseNumber   = verseNumber,
-            Bismillah     = bismillah,
-            
             Text          = text,
-            TextAnalyzed  = analyzedText,
-            TextWordList  = analyzedText.GetWords(),
-            
-            
-            TextWithBismillah         = textWithBismillah,
-            TextWithBismillahAnalyzed = analyzedFullText,
-            TextWithBismillahWordList = analyzedFullText.GetWords()
+            Bismillah     = bismillah
         };
     }
 
@@ -142,31 +128,45 @@ public sealed class Chapter
 }
 
 [Serializable]
-public sealed class Verse
+public sealed record Verse
 {
     // @formatter:off
     
-    public int ChapterNumber { get; init; }
+    public required int ChapterNumber { get; init; }
     
-    public int VerseNumber { get; init; }
+    public required int VerseNumber { get; init; }
+    
+    public required string Text { get; init; }
     
     public string Bismillah { get; init; }
     
     // T e x t
-    public string Text { get; init; }
-
-    public IReadOnlyList<LetterInfo> TextAnalyzed { get; set; }
+    public IReadOnlyList<LetterInfo> TextAnalyzed 
+    {
+        get { return field ??= AnalyzeText(Text); }
+    }
     
-    public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWordList { get; set; }
+    public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWordList
+    {
+        get { return field ??= TextAnalyzed.GetWords(); }
+    }
 
 
     // T e x t  +  B i s m i l l a h
-    public string TextWithBismillah { get; init; }
+    public string TextWithBismillah
+     {
+        get { return field ??= Bismillah + " " + Text; }
+    }
   
-    public IReadOnlyList<LetterInfo> TextWithBismillahAnalyzed { get; init; }
+    public IReadOnlyList<LetterInfo> TextWithBismillahAnalyzed
+    {
+        get { return field ??= AnalyzeText(TextWithBismillah); }
+    }
 
-    public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWithBismillahWordList { get; init; }
-    
+    public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWithBismillahWordList
+    {
+        get { return field ??= TextWithBismillahAnalyzed.GetWords(); }
+    }
     
     public string Id => $"{ChapterNumber}:{VerseNumber}";
 
