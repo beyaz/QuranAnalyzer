@@ -42,7 +42,7 @@ public static class DataAccess
 
         return new Verse
         {
-            VerseNumber             = verseNumber,
+            VerseNumber               = verseNumber,
             Bismillah                 = bismillah,
             Text                      = text,
             TextAnalyzed              = analyzedText,
@@ -64,9 +64,9 @@ public static class DataAccess
             .. from chapter in chapters
                select new Chapter
                {
-                   Name   = chapter.Name,
-                   ChapterNumber  = int.Parse(chapter.Index),
-                   Verses = [.. from v in chapter.AyaList select toVerse(chapter, v)]
+                   Name          = chapter.Name,
+                   ChapterNumber = int.Parse(chapter.Index),
+                   Verses        = [.. from v in chapter.AyaList select toVerse(chapter, v)]
                }
         ];
 
@@ -130,19 +130,20 @@ public static class DataAccess
 [Serializable]
 public sealed class Chapter
 {
-    //@formatter:off
+    // @formatter:off
     public int ChapterNumber { get; init; }
-    
+
     public string Name { get; init; }
-    
+
     public IReadOnlyList<Verse> Verses { get; init; }
-    //@formatter:on
+    // @formatter:on
 }
 
 [Serializable]
 public sealed class Verse
 {
     // @formatter:off
+    
     public int ChapterNumber { get; init; }
     
     public int VerseNumber { get; init; }
