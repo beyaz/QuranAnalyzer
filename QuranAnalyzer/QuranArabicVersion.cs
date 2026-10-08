@@ -14,7 +14,7 @@ public record VerseModel
 partial class QuranArabicVersionWithNoBismillah 
 {
 
-    public static Result<VerseModel> ParseLine(string line)
+    public static Result<VerseModel> TryParseVerseLine(string line)
     {
         var arr = line.Split('|', StringSplitOptions.RemoveEmptyEntries);
         if (arr.Length != 4)
