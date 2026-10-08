@@ -29,7 +29,7 @@ static class WordColorizedVerse
     {
         List<WordColorizedVerseModelItem> words = [];
 
-        var verseLetters = Verse.TextAnalyzed.ToList();
+        var verseLetters = Verse.TextLetters.ToList();
 
         var cursor = 0;
 

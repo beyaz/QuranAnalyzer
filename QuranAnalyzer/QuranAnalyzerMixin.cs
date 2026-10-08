@@ -431,7 +431,7 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        return (includeBismillah ? verse.TextWithBismillahAnalyzed : verse.TextAnalyzed).Count(x => x.OrderValue == arabicLetterOrder);
+        return (includeBismillah ? verse.TextWithBismillahLetters : verse.TextLetters).Count(x => x.OrderValue == arabicLetterOrder);
     }
 
     public static string GetDifferencesKeyForRK(string verseId)

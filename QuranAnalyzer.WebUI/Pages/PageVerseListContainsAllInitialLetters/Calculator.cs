@@ -150,7 +150,7 @@ class Calculator : ReactComponent<CalculatorModel>
                             from verse in verseList
                             let model = LetterColorizer.Calculate(new()
                             {
-                                VerseTextNodes          = verse.TextWithBismillahAnalyzed,
+                                VerseTextNodes          = verse.TextWithBismillahLetters,
                                 LettersForColorizeNodes = letterInfoList,
                                 VerseText               = verse.TextWithBismillah,
                                 ChapterNumber           = verse.ChapterNumber,

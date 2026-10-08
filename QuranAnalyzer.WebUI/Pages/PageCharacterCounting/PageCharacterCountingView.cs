@@ -210,7 +210,7 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
 
                 foreach (var verse in filteredVerses)
                 {
-                    var analyzedTextOfVerse = state.IncludeBismillah ? verse.TextWithBismillahAnalyzed : verse.TextAnalyzed;
+                    var analyzedTextOfVerse = state.IncludeBismillah ? verse.TextWithBismillahLetters : verse.TextLetters;
 
                     if (analyzedTextOfVerse.Any(x => searchLetters.Any(l => l.NumericValue == x.NumericValue)))
                     {

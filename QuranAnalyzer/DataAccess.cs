@@ -141,14 +141,14 @@ public sealed class Verse
     public string Bismillah { get; init; }
     
     // T e x t
-    public IReadOnlyList<LetterInfo> TextAnalyzed 
+    public IReadOnlyList<LetterInfo> TextLetters 
     {
         get { return field ??= AnalyzeText(Text); }
     }
     
     public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWordList
     {
-        get { return field ??= TextAnalyzed.GetWords(); }
+        get { return field ??= TextLetters.GetWords(); }
     }
 
 
@@ -158,14 +158,14 @@ public sealed class Verse
         get { return field ??= Bismillah + " " + Text; }
     }
   
-    public IReadOnlyList<LetterInfo> TextWithBismillahAnalyzed
+    public IReadOnlyList<LetterInfo> TextWithBismillahLetters
     {
         get { return field ??= AnalyzeText(TextWithBismillah); }
     }
 
     public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWithBismillahWordList
     {
-        get { return field ??= TextWithBismillahAnalyzed.GetWords(); }
+        get { return field ??= TextWithBismillahLetters.GetWords(); }
     }
     
     public string Id => $"{ChapterNumber}:{VerseNumber}";
