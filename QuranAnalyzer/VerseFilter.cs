@@ -77,30 +77,30 @@ public static class VerseFilter
 
             foreach (var chapter in AllChapters)
             {
-                if (chapter.Index < verseBegin.Value.ChapterNumber || chapter.Index > verseEnd.Value.ChapterNumber)
+                if (chapter.ChapterNumber < verseBegin.Value.ChapterNumber || chapter.ChapterNumber > verseEnd.Value.ChapterNumber)
                 {
                     continue;
                 }
 
                 foreach (var verse in chapter.Verses)
                 {
-                    if (chapter.Index == verseBegin.Value.ChapterNumber && verse.VerseNumber < verseBegin.Value.VerseNumber)
+                    if (chapter.ChapterNumber == verseBegin.Value.ChapterNumber && verse.VerseNumber < verseBegin.Value.VerseNumber)
                     {
                         continue;
                     }
 
-                    if (chapter.Index == verseEnd.Value.ChapterNumber && verse.VerseNumber > verseEnd.Value.VerseNumber)
+                    if (chapter.ChapterNumber == verseEnd.Value.ChapterNumber && verse.VerseNumber > verseEnd.Value.VerseNumber)
                     {
                         continue;
                     }
 
-                    if (chapter.Index == verseBegin.Value.ChapterNumber && verse.VerseNumber == verseBegin.Value.VerseNumber)
+                    if (chapter.ChapterNumber == verseBegin.Value.ChapterNumber && verse.VerseNumber == verseBegin.Value.VerseNumber)
                     {
                         returnList.Add(verseBegin.Value);
                         continue;
                     }
 
-                    if (chapter.Index == verseEnd.Value.ChapterNumber && verse.VerseNumber == verseEnd.Value.VerseNumber)
+                    if (chapter.ChapterNumber == verseEnd.Value.ChapterNumber && verse.VerseNumber == verseEnd.Value.VerseNumber)
                     {
                         returnList.Add(verseEnd.Value);
                         continue;

@@ -65,7 +65,7 @@ public static class DataAccess
                select new Chapter
                {
                    Name   = chapter.Name,
-                   Index  = int.Parse(chapter.Index),
+                   ChapterNumber  = int.Parse(chapter.Index),
                    Verses = [.. from v in chapter.AyaList select toVerse(chapter, v)]
                }
         ];
@@ -130,29 +130,42 @@ public static class DataAccess
 [Serializable]
 public sealed class Chapter
 {
-    public int Index { get; init; }
+    //@formatter:off
+    public int ChapterNumber { get; init; }
+    
     public string Name { get; init; }
+    
     public IReadOnlyList<Verse> Verses { get; init; }
+    //@formatter:on
 }
 
 [Serializable]
 public sealed class Verse
 {
-    public string Bismillah { get; init; }
+    // @formatter:off
     public int ChapterNumber { get; init; }
-
-    public string Id { get; init; }
+    
     public int VerseNumber { get; init; }
+    
+    public string Bismillah { get; init; }
+    
+    // T e x t
     public string Text { get; init; }
-    public IReadOnlyList<LetterInfo> TextAnalyzed { get; set; }
-    public string TextWithBismillah { get; init; }
 
-    /// <summary>
-    ///     bismillah + text
-    /// </summary>
+    public IReadOnlyList<LetterInfo> TextAnalyzed { get; set; }
+    
+    public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWordList { get; set; }
+
+
+    // T e x t  +  B i s m i l l a h
+    public string TextWithBismillah { get; init; }
+  
     public IReadOnlyList<LetterInfo> TextWithBismillahAnalyzed { get; init; }
 
     public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWithBismillahWordList { get; init; }
-
-    public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWordList { get; set; }
+    
+    
+    public string Id { get; init; }
+   
+    // @formatter:on
 }
