@@ -120,7 +120,7 @@ public class PageCountInRange : ReactComponent
             return sum;
         }
 
-        var allLines = lines.Select(x => (x.Value.ChapterNumber, x.Value.VerseNumber, Count: calculateCount(x.Value.ArabicText))).ToList();
+        var allLines = lines.Select(x => (x.Value.ChapterNumber, x.Value.VerseNumber, Count: calculateCount(x.Value.Text))).ToList();
 
         var resultList = new List<(string from, string to, string count)>();
 

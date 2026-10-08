@@ -21,7 +21,7 @@ public class PageVerseFilter : ReactComponent
 
         SearchLetters          = "ب ر ك  ي و ج (brk yvc)";
         SliceNumber            = "19";
-        InputVerseListAsString = string.Join("\n", arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).Select(x => ToTextLine(x.Value.SequenceNumber, x.Value.ChapterNumber, x.Value.VerseNumber, x.Value.ArabicText)).Take(7));
+        InputVerseListAsString = string.Join("\n", arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).Select(x => ToTextLine(x.Value.SequenceNumber, x.Value.ChapterNumber, x.Value.VerseNumber, x.Value.Text)).Take(7));
 
         return base.constructor();
     }
@@ -153,10 +153,10 @@ public class PageVerseFilter : ReactComponent
                 return (hasFail: true, default);
             }
 
-            var count = calculateCount(parseResult.Value.ArabicText);
+            var count = calculateCount(parseResult.Value.Text);
             if (count > 0 && count % slicer == 0)
             {
-                resultList.Add((count: $"{slicer}x{count / slicer}", verseAsText: ToTextLine(parseResult.Value.SequenceNumber, parseResult.Value.ChapterNumber, parseResult.Value.VerseNumber, parseResult.Value.ArabicText)));
+                resultList.Add((count: $"{slicer}x{count / slicer}", verseAsText: ToTextLine(parseResult.Value.SequenceNumber, parseResult.Value.ChapterNumber, parseResult.Value.VerseNumber, parseResult.Value.Text)));
             }
         }
 

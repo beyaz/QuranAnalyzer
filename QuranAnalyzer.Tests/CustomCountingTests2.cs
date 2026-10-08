@@ -39,7 +39,7 @@ public class CustomCountingTests2
         var allWords = new List<string>();
         
 
-        allWords.AddRange(lines.SelectMany(x => x.Value.ArabicText.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
+        allWords.AddRange(lines.SelectMany(x => x.Value.Text.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
         
         allWords.AddRange(QuranArabicVersionChapterNames.ChapterNames);
         
@@ -96,9 +96,9 @@ public class CustomCountingTests2
         {
             ChapterNumber =x.Value.ChapterNumber,
             VerseNumber   = x.Value.VerseNumber, 
-            Letters       = AnalyzeText(x.Value.ArabicText),
-            CountA        = getCountA(x.Value.ArabicText),
-            CountB        = getCountB(x.Value.ArabicText)
+            Letters       = AnalyzeText(x.Value.Text),
+            CountA        = getCountA(x.Value.Text),
+            CountB        = getCountB(x.Value.Text)
         }).ToList();
 
         var matchedIndexes = new List<(int start, int end, int count)>();
@@ -184,7 +184,7 @@ public class CustomCountingTests2
         var allWords = new List<string>();
         
 
-        allWords.AddRange(lines.SelectMany(x => x.Value.ArabicText.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
+        allWords.AddRange(lines.SelectMany(x => x.Value.Text.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
         
         allWords.AddRange(QuranArabicVersionChapterNames.ChapterNames);
         

@@ -6,8 +6,8 @@ public record VerseModel
     public int SequenceNumber { get; init; }
     public int ChapterNumber { get; init; }
     public int VerseNumber { get; init; }
-    public string ArabicText { get; init; }
-    public IReadOnlyList<LetterInfo> Letters { get; init; }
+    public string Text { get; init; }
+    public IReadOnlyList<LetterInfo> TextLetters { get; init; }
 }
 
 
@@ -42,8 +42,8 @@ partial class QuranArabicVersionWithNoBismillah
             SequenceNumber = grandVerseNumber,
             ChapterNumber = chapterNumber,
             VerseNumber = verseNumber,
-            ArabicText = arr[3],
-            Letters = AnalyzeText(arr[3])
+            Text = arr[3],
+            TextLetters = AnalyzeText(arr[3])
         };
     }
    

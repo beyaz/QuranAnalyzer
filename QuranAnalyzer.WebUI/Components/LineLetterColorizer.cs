@@ -33,7 +33,7 @@ class LineLetterColorizer : ReactPureComponent
         var parseResult = QuranArabicVersionWithNoBismillah.TryParseVerseLine(arabicText);
         if (!parseResult.HasError)
         {
-            arabicText = parseResult.Value.ArabicText;
+            arabicText = parseResult.Value.Text;
         }
 
         IReadOnlyList<LetterInfo> arabicTextLetters = [.. from x in Analyzer.AnalyzeText(arabicText) where x.IsArabic select x];
