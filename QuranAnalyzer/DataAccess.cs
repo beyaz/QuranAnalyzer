@@ -128,7 +128,7 @@ public sealed class Chapter
 }
 
 [Serializable]
-public sealed record Verse
+public sealed class Verse
 {
     // @formatter:off
     
