@@ -3,7 +3,7 @@
 
 public record VerseModel
 {
-    public int GrandVerseNumber { get; init; }
+    public int SequenceNumber { get; init; }
     public int ChapterNumber { get; init; }
     public int VerseNumber { get; init; }
     public string ArabicText { get; init; }
@@ -39,7 +39,7 @@ partial class QuranArabicVersionWithNoBismillah
 
         return new VerseModel
         {
-            GrandVerseNumber = grandVerseNumber,
+            SequenceNumber = grandVerseNumber,
             ChapterNumber = chapterNumber,
             VerseNumber = verseNumber,
             ArabicText = arr[3],

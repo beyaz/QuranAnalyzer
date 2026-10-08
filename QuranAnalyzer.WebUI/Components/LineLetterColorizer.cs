@@ -83,7 +83,7 @@ class LineLetterColorizer : ReactPureComponent
 
         if (!parseResult.HasError)
         {
-            return html + $"|{parseResult.Value.VerseNumber}|{parseResult.Value.ChapterNumber}|{parseResult.Value.GrandVerseNumber}";
+            return html + $"|{parseResult.Value.VerseNumber}|{parseResult.Value.ChapterNumber}|{parseResult.Value.SequenceNumber}";
         }
 
         return html.ToString();
