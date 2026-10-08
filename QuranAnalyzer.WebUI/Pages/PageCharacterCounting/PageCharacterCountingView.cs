@@ -220,7 +220,7 @@ sealed class PageCharacterCountingView : ReactComponent<PageCharacterCountingVie
                             LettersForColorizeNodes = searchLetters,
                             VerseText               = state.IncludeBismillah ? verse.TextWithBismillah : verse.Text,
                             ChapterNumber           = verse.ChapterNumber,
-                            VerseNumber             = verse.Index,
+                            VerseNumber             = verse.VerseNumber,
                             MushafOption            = state.MushafOption
                         }));
                     }

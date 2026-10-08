@@ -154,7 +154,7 @@ class Calculator : ReactComponent<CalculatorModel>
                                 LettersForColorizeNodes = letterInfoList,
                                 VerseText               = verse.TextWithBismillah,
                                 ChapterNumber           = verse.ChapterNumber,
-                                VerseNumber             = verse.Index,
+                                VerseNumber             = verse.VerseNumber,
                                 MushafOption            = option
                             })
                             select new tr(ComponentBorder)
@@ -215,8 +215,8 @@ class Calculator : ReactComponent<CalculatorModel>
 
                 if (currentChapter == verse.ChapterNumber)
                 {
-                    items.Add(verse.Index);
-                    total += verse.IndexAsNumber;
+                    items.Add(verse.VerseNumber);
+                    total += verse.VerseNumber;
                     continue;
                 }
 
@@ -224,10 +224,10 @@ class Calculator : ReactComponent<CalculatorModel>
 
                 items.Add(new span { currentChapter.ToString(), Color("red") });
                 items.Add(new div { "+", MarginLeftRight(3) });
-                items.Add(verse.Index);
+                items.Add(verse.VerseNumber);
 
                 total += verse.ChapterNumber;
-                total += verse.IndexAsNumber;
+                total += verse.VerseNumber;
             }
 
             items.Insert(0, total.ToString());

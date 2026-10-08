@@ -103,7 +103,7 @@ class Calculator : ReactComponent<CalculatorModel>
             var count = searchWords.SumOf(searchWord => verse.GetStartAndEndPointsOfSameWords(searchWord).Count).Unwrap();
             if (count > 0)
             {
-                details.Add((verse.ChapterNumber, verse.IndexAsNumber, count));
+                details.Add((verse.ChapterNumber, verse.VerseNumber, count));
             }
         }
 

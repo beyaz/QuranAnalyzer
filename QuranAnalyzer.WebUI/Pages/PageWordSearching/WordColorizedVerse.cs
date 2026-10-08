@@ -113,7 +113,7 @@ static class WordColorizedVerse
             
             ChapterNumber = Verse.ChapterNumber,
             
-            VerseNumber = Verse.Index
+            VerseNumber = Verse.VerseNumber
         };
     }
 

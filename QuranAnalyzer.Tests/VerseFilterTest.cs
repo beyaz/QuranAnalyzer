@@ -113,9 +113,9 @@ public class VerseFilterTest
         records[2].ChapterNumber.ShouldBe(20);
         records[3].ChapterNumber.ShouldBe(20);
 
-        records[0].Index.ShouldBe(4);
-        records[1].Index.ShouldBe(5);
-        records[2].Index.ShouldBe(6);
-        records[3].Index.ShouldBe(7);
+        records[0].VerseNumber.ShouldBe(4);
+        records[1].VerseNumber.ShouldBe(5);
+        records[2].VerseNumber.ShouldBe(6);
+        records[3].VerseNumber.ShouldBe(7);
     }
 }

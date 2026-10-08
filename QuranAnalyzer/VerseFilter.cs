@@ -84,23 +84,23 @@ public static class VerseFilter
 
                 foreach (var verse in chapter.Verses)
                 {
-                    if (chapter.Index == verseBegin.Value.ChapterNumber && verse.IndexAsNumber < verseBegin.Value.IndexAsNumber)
+                    if (chapter.Index == verseBegin.Value.ChapterNumber && verse.VerseNumber < verseBegin.Value.VerseNumber)
                     {
                         continue;
                     }
 
-                    if (chapter.Index == verseEnd.Value.ChapterNumber && verse.IndexAsNumber > verseEnd.Value.IndexAsNumber)
+                    if (chapter.Index == verseEnd.Value.ChapterNumber && verse.VerseNumber > verseEnd.Value.VerseNumber)
                     {
                         continue;
                     }
 
-                    if (chapter.Index == verseBegin.Value.ChapterNumber && verse.IndexAsNumber == verseBegin.Value.IndexAsNumber)
+                    if (chapter.Index == verseBegin.Value.ChapterNumber && verse.VerseNumber == verseBegin.Value.VerseNumber)
                     {
                         returnList.Add(verseBegin.Value);
                         continue;
                     }
 
-                    if (chapter.Index == verseEnd.Value.ChapterNumber && verse.IndexAsNumber == verseEnd.Value.IndexAsNumber)
+                    if (chapter.Index == verseEnd.Value.ChapterNumber && verse.VerseNumber == verseEnd.Value.VerseNumber)
                     {
                         returnList.Add(verseEnd.Value);
                         continue;
@@ -187,7 +187,7 @@ public static class VerseFilter
                 [
                     .. from chapter in AllChapters
                        from verse in chapter.Verses
-                       where verse.Index.ToString() == arr[1]
+                       where verse.VerseNumber.ToString() == arr[1]
                        select verse
                 ];
             }
@@ -382,7 +382,7 @@ public static class VerseFilter
 
                 Result<Verse> subText(string verseText2)
                 {
-                    return ToVerse(verse.ChapterNumber, verse.IndexAsNumber, verseText2, verse.Bismillah);
+                    return ToVerse(verse.ChapterNumber, verse.VerseNumber, verseText2, verse.Bismillah);
                 }
             }
 

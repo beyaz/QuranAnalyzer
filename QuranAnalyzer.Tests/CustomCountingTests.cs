@@ -36,7 +36,7 @@ public class CustomCountingTests
             if (count > 0)
             {
                 sb.Append(verse.ChapterNumber);
-                sb.Append(verse.IndexAsNumber);
+                sb.Append(verse.VerseNumber);
             }
         }
 
