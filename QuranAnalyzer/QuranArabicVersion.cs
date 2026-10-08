@@ -37,7 +37,7 @@ partial class QuranArabicVersionWithNoBismillah
             return new InvalidOperationException($"Invalid verse number: {arr[2]}");
         }
 
-        return new VerseModel
+        return new VerseModel()
         {
             GrandVerseNumber = grandVerseNumber,
             ChapterNumber = chapterNumber,
