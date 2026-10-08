@@ -126,7 +126,7 @@ public class PageVerseFilter : ReactComponent
     {
         var arabicText = InputVerseListAsString;
 
-        var lines = arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(TryParseVerseNumbers).ToList();
+        var lines = arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).ToList();
 
         var searchLetterList = Analyzer.AnalyzeText(searchLetters).Where(l => l.OrderValue > 0).ToList();
 
@@ -146,17 +146,17 @@ public class PageVerseFilter : ReactComponent
 
         var resultList = new List<(string count, string verseAsText)>();
 
-        foreach (var (isParsedSuccessfully, grandVerseNumber, chapterNumber, verseNumber, verseText) in lines)
+        foreach (var parseResult in lines)
         {
-            if (isParsedSuccessfully is false)
+            if (parseResult.HasError)
             {
                 return (hasFail: true, default);
             }
 
-            var count = calculateCount(verseText);
+            var count = calculateCount(parseResult.Value.ArabicText);
             if (count > 0 && count % slicer == 0)
             {
-                resultList.Add((count: $"{slicer}x{count / slicer}", verseAsText: ToTextLine(grandVerseNumber, chapterNumber, verseNumber, verseText)));
+                resultList.Add((count: $"{slicer}x{count / slicer}", verseAsText: ToTextLine(parseResult.Value.GrandVerseNumber, parseResult.Value.ChapterNumber, parseResult.Value.VerseNumber, parseResult.Value.ArabicText)));
             }
         }
 
