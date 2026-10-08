@@ -42,16 +42,18 @@ public static class DataAccess
 
         return new Verse
         {
-            VerseNumber               = verseNumber,
-            Bismillah                 = bismillah,
-            Text                      = text,
-            TextAnalyzed              = analyzedText,
-            TextWordList              = analyzedText.GetWords(),
-            ChapterNumber             = chapterNumber,
-            Id                        = $"{chapterNumber}:{verseNumber}",
-            TextWithBismillahWordList = analyzedFullText.GetWords(),
+            ChapterNumber = chapterNumber,
+            VerseNumber   = verseNumber,
+            Bismillah     = bismillah,
+            
+            Text          = text,
+            TextAnalyzed  = analyzedText,
+            TextWordList  = analyzedText.GetWords(),
+            
+            
+            TextWithBismillah         = textWithBismillah,
             TextWithBismillahAnalyzed = analyzedFullText,
-            TextWithBismillah         = textWithBismillah
+            TextWithBismillahWordList = analyzedFullText.GetWords()
         };
     }
 
@@ -166,7 +168,7 @@ public sealed class Verse
     public IReadOnlyList<IReadOnlyList<LetterInfo>> TextWithBismillahWordList { get; init; }
     
     
-    public string Id { get; init; }
-   
+    public string Id => $"{ChapterNumber}:{VerseNumber}";
+
     // @formatter:on
 }
