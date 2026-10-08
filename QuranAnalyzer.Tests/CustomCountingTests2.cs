@@ -34,12 +34,12 @@ public class CustomCountingTests2
     {
         var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
 
-        var lines = arabicText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseNumbers).ToList();
+        var lines = arabicText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).ToList();
 
         var allWords = new List<string>();
         
 
-        allWords.AddRange(lines.SelectMany(x => x.verseText.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
+        allWords.AddRange(lines.SelectMany(x => x.Value.ArabicText.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
         
         allWords.AddRange(QuranArabicVersionChapterNames.ChapterNames);
         
@@ -90,15 +90,15 @@ public class CustomCountingTests2
         
         var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
 
-        var lines = arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseNumbers).ToList();
+        var lines = arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).ToList();
 
         var allVerseList = lines.Select(x => new
         {
-            ChapterNumber =x.chapterNumber,
-            VerseNumber   = x.verseNumber, 
-            Letters       = AnalyzeText(x.verseText),
-            CountA        = getCountA(x.verseText),
-            CountB        = getCountB(x.verseText)
+            ChapterNumber =x.Value.ChapterNumber,
+            VerseNumber   = x.Value.VerseNumber, 
+            Letters       = AnalyzeText(x.Value.ArabicText),
+            CountA        = getCountA(x.Value.ArabicText),
+            CountB        = getCountB(x.Value.ArabicText)
         }).ToList();
 
         var matchedIndexes = new List<(int start, int end, int count)>();
@@ -179,12 +179,12 @@ public class CustomCountingTests2
     {
         var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
 
-        var lines = arabicText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseNumbers).ToList();
+        var lines = arabicText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).ToList();
 
         var allWords = new List<string>();
         
 
-        allWords.AddRange(lines.SelectMany(x => x.verseText.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
+        allWords.AddRange(lines.SelectMany(x => x.Value.ArabicText.Split(' ', StringSplitOptions.RemoveEmptyEntries)));
         
         allWords.AddRange(QuranArabicVersionChapterNames.ChapterNames);
         
