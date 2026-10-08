@@ -79,4 +79,39 @@ public class CustomCountingTests
             select letterInfo.OrderValue
         ).Sum());
     }
+    
+    
+    
+    [TestMethod]
+    public void LatinAllphabetEbjedCalculate2()
+    {
+        var input = new
+        {
+            LatinText = "abc",
+
+            LatinCharToArabicCharMap
+        };
+
+        var map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap);
+
+        6.ShouldBe((
+            from c in input.LatinText.ToCharArray()
+            let letterInfo = map.ContainsKey(c) switch
+            {
+                true  => map[c],
+                false => new()
+            }
+            select letterInfo.NumericValue
+        ).Sum());
+
+        6.ShouldBe((
+            from c in input.LatinText.ToCharArray()
+            let letterInfo = map.ContainsKey(c) switch
+            {
+                true  => map[c],
+                false => new()
+            }
+            select letterInfo.OrderValue
+        ).Sum());
+    }
 }
