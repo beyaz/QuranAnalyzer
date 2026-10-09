@@ -58,7 +58,7 @@ public static class DataAccess
         ];
     }
 
-    static IReadOnlyList<Sura> ReadChaptersFromXmlFile(string xmlFilePath)
+    static List<Sura> ReadChaptersFromXmlFile(string xmlFilePath)
     {
         Quran quran;
 
