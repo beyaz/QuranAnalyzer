@@ -43,20 +43,19 @@ public static class DataAccess
                {
                    Name          = chapter.Name,
                    ChapterNumber = int.Parse(chapter.Index),
-                   Verses        = [.. from aya in chapter.AyaList select toVerse(chapter, aya)]
+                   Verses =
+                   [
+                       .. from aya in chapter.AyaList
+                          select new Verse
+                          {
+                              ChapterNumber = int.Parse(chapter.Index),
+                              VerseNumber   = int.Parse(aya.Index),
+                              Text          = aya.Text,
+                              Bismillah     = aya.Bismillah
+                          }
+                   ]
                }
         ];
-
-        static Verse toVerse(Sura chapter, Aya aya)
-        {
-            return new Verse
-            {
-                ChapterNumber = int.Parse(chapter.Index),
-                VerseNumber   = int.Parse(aya.Index),
-                Text          = aya.Text,
-                Bismillah     = aya.Bismillah
-            };
-        }
     }
 
     static IReadOnlyList<Sura> ReadChaptersFromXmlFile(string xmlFilePath)
