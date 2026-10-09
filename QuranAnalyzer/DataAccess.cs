@@ -6,12 +6,12 @@ namespace QuranAnalyzer;
 
 public static class DataAccess
 {
-    public static readonly IReadOnlyList<Chapter> AllChapters;
-
-    static DataAccess()
+    public static readonly IReadOnlyList<Chapter>  AllChapters = ReadAllChaptersFromXmlFile();
+    
+    static IReadOnlyList<Chapter> ReadAllChaptersFromXmlFile()
     {
-        AllChapters = ReadAllChaptersFromXmlFile(getFilePath());
-
+        return ReadAllChaptersFromXmlFile(getFilePath());
+        
         static string getFilePath()
         {
             var path = Path.GetDirectoryName(typeof(DataAccess).Assembly.Location) + Path.DirectorySeparatorChar;
@@ -31,7 +31,6 @@ public static class DataAccess
             return filePath;
         }
     }
-    
     static IReadOnlyList<Chapter> ReadAllChaptersFromXmlFile(string xmlFilePath)
     {
         var chapters = ReadChaptersFromXmlFile(xmlFilePath);
