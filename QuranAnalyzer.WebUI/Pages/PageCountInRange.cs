@@ -100,10 +100,6 @@ public class PageCountInRange : ReactComponent
 
     static IReadOnlyList<(string from, string to, string count)> GetAllSubRanges(string searchLetters, int slicer)
     {
-        var arabicText = QuranArabicVersionWithNoBismillah.AllQuranAsString;
-
-        var lines = arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).ToList();
-
         var searchLetterList = Analyzer.AnalyzeText(searchLetters).Where(l => l.OrderValue > 0).ToList();
 
         int calculateCount(string line)
@@ -120,7 +116,7 @@ public class PageCountInRange : ReactComponent
             return sum;
         }
 
-        var allLines = lines.Select(x => (x.Value.ChapterNumber, x.Value.VerseNumber, Count: calculateCount(x.Value.Text))).ToList();
+        var allLines = QuranArabicVersionWithNoBismillah.AllQuranVerses.Select(x => (x.ChapterNumber, x.VerseNumber, Count: calculateCount(x.Text))).ToList();
 
         var resultList = new List<(string from, string to, string count)>();
 

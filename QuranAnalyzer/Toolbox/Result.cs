@@ -747,6 +747,28 @@ public static partial class ResultExtensions
 
         return result;
     }
+    
+    public static Result<IReadOnlyList<T>> Traverse<T>(this IEnumerable<Result<T>> enumerable)
+    {
+        if (enumerable == null)
+        {
+            throw new ArgumentNullException(nameof(enumerable));
+        }
+
+        var result = new List<T>();
+
+        foreach (var item in enumerable)
+        {
+            if (item.HasError)
+            {
+                return item.Error;
+            }
+
+            result.Add(item.Value);
+        }
+
+        return result;
+    }
 
     public static Result<TResult> Traverse<TSource, TResult>(this TSource source, Func<TSource, Result<TResult>> selector) where TSource : class
     {

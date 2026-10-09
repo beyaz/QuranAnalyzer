@@ -23,6 +23,14 @@ public record VerseWithSequence
 partial class QuranArabicVersionWithNoBismillah 
 {
 
+    public  static IReadOnlyList<VerseWithSequence> AllQuranVerses
+    {
+        get
+        {
+            return field ??= AllQuranAsString.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(TryParseVerseLine).Traverse().Unwrap();
+        }
+    }
+    
     public static Result<VerseWithSequence> TryParseVerseLine(string line)
     {
         var arr = line.Split('|', StringSplitOptions.RemoveEmptyEntries);
