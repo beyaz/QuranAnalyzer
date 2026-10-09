@@ -94,11 +94,11 @@ public class CustomCountingTests2
 
         var allVerseList = lines.Select(x => new
         {
-            ChapterNumber =x.Value.ChapterNumber,
-            VerseNumber   = x.Value.VerseNumber, 
-            Letters       = AnalyzeText(x.Value.Text),
-            CountA        = getCountA(x.Value.Text),
-            CountB        = getCountB(x.Value.Text)
+            ChapterNumber =x.Value.Verse.ChapterNumber,
+            VerseNumber   = x.Value.Verse.VerseNumber, 
+            Letters       = AnalyzeText(x.Value.Verse.Text),
+            CountA        = getCountA(x.Value.Verse.Text),
+            CountB        = getCountB(x.Value.Verse.Text)
         }).ToList();
 
         var matchedIndexes = new List<(int start, int end, int count)>();

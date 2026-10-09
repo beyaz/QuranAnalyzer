@@ -4,10 +4,19 @@
 public record VerseWithSequence
 {
     public int SequenceNumber { get; init; }
-    public int ChapterNumber { get; init; }
-    public int VerseNumber { get; init; }
-    public string Text { get; init; }
-    public IReadOnlyList<LetterInfo> TextLetters { get; init; }
+
+    public Verse Verse { get; init; }
+    
+    public int ChapterNumber => Verse.ChapterNumber;
+    
+    public int VerseNumber => Verse.VerseNumber;
+    
+    public string Text => Verse.Text;
+
+    public  string ToTextLine()
+    {
+        return $"{SequenceNumber}|{Verse.ChapterNumber}|{Verse.VerseNumber}|{Verse.Text}";
+    }
 }
 
 
@@ -40,18 +49,16 @@ partial class QuranArabicVersionWithNoBismillah
         return new VerseWithSequence
         {
             SequenceNumber = grandVerseNumber,
-            ChapterNumber = chapterNumber,
-            VerseNumber = verseNumber,
-            Text = arr[3],
-            TextLetters = AnalyzeText(arr[3])
+            Verse = new()
+            {
+                ChapterNumber = chapterNumber,
+                VerseNumber   = verseNumber,
+                Text          = arr[3]
+            }
         };
     }
    
-    public static string ToTextLine(int grandVerseNumber, int chapterNumber, int verseNumber, string verseText)
-    {
-        return $"{grandVerseNumber}|{chapterNumber}|{verseNumber}|{verseText}";
-    }
-
+    
    
     
 
