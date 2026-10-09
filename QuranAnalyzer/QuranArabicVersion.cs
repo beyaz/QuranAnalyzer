@@ -1,7 +1,7 @@
 ﻿namespace QuranAnalyzer;
 
 
-public record VerseModel
+public record VerseWithSequence
 {
     public int SequenceNumber { get; init; }
     public int ChapterNumber { get; init; }
@@ -14,7 +14,7 @@ public record VerseModel
 partial class QuranArabicVersionWithNoBismillah 
 {
 
-    public static Result<VerseModel> TryParseVerseLine(string line)
+    public static Result<VerseWithSequence> TryParseVerseLine(string line)
     {
         var arr = line.Split('|', StringSplitOptions.RemoveEmptyEntries);
         if (arr.Length != 4)
@@ -37,7 +37,7 @@ partial class QuranArabicVersionWithNoBismillah
             return new InvalidOperationException($"Invalid verse number: {arr[2]}");
         }
 
-        return new VerseModel
+        return new VerseWithSequence
         {
             SequenceNumber = grandVerseNumber,
             ChapterNumber = chapterNumber,
