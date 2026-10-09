@@ -382,7 +382,10 @@ public static class VerseFilter
 
                 Result<Verse> subText(string verseText2)
                 {
-                    return ToVerse(verse.ChapterNumber, verse.VerseNumber, verseText2, verse.Bismillah);
+                    return verse with
+                    {
+                        Text = verseText2
+                    };
                 }
             }
 

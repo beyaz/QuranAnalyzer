@@ -31,18 +31,7 @@ public static class DataAccess
             return filePath;
         }
     }
-
-    public static Verse ToVerse(int chapterNumber, int verseNumber, string text, string bismillah)
-    {
-        return new Verse
-        {
-            ChapterNumber = chapterNumber,
-            VerseNumber   = verseNumber,
-            Text          = text,
-            Bismillah     = bismillah
-        };
-    }
-
+    
     static IReadOnlyList<Chapter> ReadAllChaptersFromXmlFile(string xmlFilePath)
     {
         var chapters = ReadChaptersFromXmlFile(xmlFilePath);
@@ -60,7 +49,13 @@ public static class DataAccess
 
         static Verse toVerse(Sura chapter, Aya v)
         {
-            return ToVerse(int.Parse(chapter.Index), int.Parse(v.Index), v.Text, v.Bismillah);
+            return new Verse
+            {
+                ChapterNumber = int.Parse(chapter.Index),
+                VerseNumber   = int.Parse(v.Index),
+                Text          = v.Text,
+                Bismillah     = v.Bismillah
+            };
         }
     }
 
@@ -128,7 +123,7 @@ public sealed class Chapter
 }
 
 [Serializable]
-public sealed class Verse
+public sealed record Verse
 {
     // @formatter:off
     
