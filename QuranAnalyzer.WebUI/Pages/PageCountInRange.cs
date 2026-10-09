@@ -100,23 +100,9 @@ public class PageCountInRange : ReactComponent
 
     static IReadOnlyList<(string from, string to, string count)> GetAllSubRanges(string searchLetters, int slicer)
     {
-        var searchLetterList = Analyzer.AnalyzeText(searchLetters).Where(l => l.OrderValue > 0).ToList();
+        var searchLetterList = AnalyzeText(searchLetters).Where(l => l.OrderValue > 0).ToList();
 
-        int calculateCount(string line)
-        {
-            var letters = Analyzer.AnalyzeText(line).ToList();
-
-            var sum = 0;
-
-            foreach (var letterInfo in searchLetterList)
-            {
-                sum += letters.Count(x => x.OrderValue == letterInfo.OrderValue);
-            }
-
-            return sum;
-        }
-
-        var allLines = QuranArabicVersionWithNoBismillah.AllQuranVerses.Select(x => (x.ChapterNumber, x.VerseNumber, Count: calculateCount(x.Text))).ToList();
+        var allLines = QuranArabicVersionWithNoBismillah.AllQuranVerses.Select(x => (x.ChapterNumber, x.VerseNumber, Count: calculateCount(x.Verse.TextLetters))).ToList();
 
         var resultList = new List<(string from, string to, string count)>();
 
@@ -135,6 +121,18 @@ public class PageCountInRange : ReactComponent
         }
 
         return resultList;
+
+        int calculateCount(IReadOnlyList<LetterInfo> letters)
+        {
+            var sum = 0;
+
+            foreach (var letterInfo in searchLetterList)
+            {
+                sum += letters.Count(x => x.OrderValue == letterInfo.OrderValue);
+            }
+
+            return sum;
+        }
     }
 
     Task OnCalculateClicked(MouseEvent e)
