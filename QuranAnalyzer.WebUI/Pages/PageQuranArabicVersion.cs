@@ -15,8 +15,8 @@ partial class PageQuranArabicVersion : ReactPureComponent
                     
                     new textarea
                     {
-                        defaultValue = AllQuran,
-                        readOnly = true,
+                        defaultValue = QuranArabicVersionWithNoBismillah.AllQuranAsString,
+                        readOnly     = true,
                         style =
                         {
                             Width(60 * vw),

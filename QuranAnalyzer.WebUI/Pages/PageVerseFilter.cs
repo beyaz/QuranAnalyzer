@@ -17,11 +17,9 @@ public class PageVerseFilter : ReactComponent
 
     protected override Task constructor()
     {
-        var arabicText = AllQuranAsString;
-
         SearchLetters          = "ب ر ك  ي و ج (brk yvc)";
         SliceNumber            = "19";
-        InputVerseListAsString = string.Join("\n", arabicText.Split('\n', StringSplitOptions.RemoveEmptyEntries).Select(QuranArabicVersionWithNoBismillah.TryParseVerseLine).Select(x => x.ToTextLine()).Take(7));
+        InputVerseListAsString = string.Join("\n", AllQuranVerses.Select(x => x.ToTextLine()).Take(7));
 
         return base.constructor();
     }

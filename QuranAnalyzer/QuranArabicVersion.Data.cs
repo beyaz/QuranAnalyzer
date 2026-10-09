@@ -2,7 +2,12 @@
 
 public static partial class QuranArabicVersionWithNoBismillah 
 {
-   public const string AllQuranAsString = @"1|1|1|بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+   public static string AllQuranAsString
+   {
+	   get
+	   {
+		   return field ??= 
+	   @"1|1|1|بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
 2|1|2|ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ
 3|1|3|ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
 4|1|4|مَٰلِكِ يَوْمِ ٱلدِّينِ
@@ -6236,5 +6241,8 @@ public static partial class QuranArabicVersionWithNoBismillah
 6232|114|4|مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ
 6233|114|5|ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ
 6234|114|6|مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ";
+
+	   }
+   }
 
 }
