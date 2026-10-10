@@ -9,7 +9,7 @@ using static QuranAnalyzer.VerseFilter;
 namespace QuranAnalyzer;
 
 [TestClass]
-public class CustomCountingTests
+public class Zkr
 {
     const string LatinCharToArabicCharMap =
         """
@@ -50,7 +50,7 @@ public class CustomCountingTests
     }
 
     [TestMethod]
-    public void Zkr()
+    public void ___A()
     {
         var input = new
         {
