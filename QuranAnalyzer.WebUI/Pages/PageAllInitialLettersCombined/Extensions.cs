@@ -6,7 +6,7 @@ static class Extensions
     [
         new()
         {
-            Text = ArabicLetter.Alif, Count = "17152",
+            Text = ArabicLetter.Alef, Count = "17152",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 2, Count  = "4502" },

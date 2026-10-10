@@ -41,7 +41,7 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             "Aşağıdaki program verilen harflerin sayısal değerini (aynen Roma rakamlarında olduğu gibi Arap harflerinin sayısal karşılığını) verir.",
             raisePanel(new NumericValueCalculator
             {
-                Letters = string.Join(" ", Alif, Laam, Miim, Saad, Raa, Kaaf, Haa, Yaa, Ayn, Taa_, Siin, Haa_, Qaaf, Nun)
+                Letters = string.Join(" ", Alef, Laam, Miim, Saad, Raa, Kaaf, Haa, Yaa, Ayn, Taa_, Siin, Haa_, Qaaf, Nun)
             }),
             SpaceY(10),
             "Eğer 693 sayısını görüyor iseniz hesaplamalarımız doğru gidiyor demektir. ",
@@ -56,7 +56,7 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             {
                 ShowVerseList = true,
                 SearchScript  = "*",
-                Letters       = string.Join(" ", Alif, Laam, Miim, Saad, Raa, Kaaf, Haa, Yaa, Ayn, Taa_, Siin, Haa_, Qaaf, Nun)
+                Letters       = string.Join(" ", Alef, Laam, Miim, Saad, Raa, Kaaf, Haa, Yaa, Ayn, Taa_, Siin, Haa_, Qaaf, Nun)
             }),
 
             "Eğer 114 adet buldu iseniz işte burada ilginçlik başlıyor. ",
@@ -71,7 +71,7 @@ class PageVerseListContainsAllInitialLettersView : ReactComponent
             {
                 ShowNumbers  = true,
                 SearchScript = "*",
-                Letters      = string.Join(" ", Alif, Laam, Miim, Saad, Raa, Kaaf, Haa, Yaa, Ayn, Taa_, Siin, Haa_, Qaaf, Nun)
+                Letters      = string.Join(" ", Alef, Laam, Miim, Saad, Raa, Kaaf, Haa, Yaa, Ayn, Taa_, Siin, Haa_, Qaaf, Nun)
             }),
 
             "Eğer sonuç olarak 9702 rakamını görüyor iseniz. Bu rakamı biraz inceleyelim. Bu rakam şu iki sayının çarpımından oluşmaktadır.",

@@ -3,7 +3,7 @@
 public static class ArabicLetter
 {
     // @formatter:off
-    public const char Alif  = 'ا';
+    public const char Alef  = 'ا';
     public const char Baa   = 'ب';
     public const char Jiim  = 'ج';
     public const char Daal  = 'د';

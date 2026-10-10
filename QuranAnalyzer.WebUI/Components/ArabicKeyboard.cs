@@ -4,7 +4,7 @@ class ArabicKeyboard : ReactPureComponent
 {
     public static Element Content => new div(DisplayFlex, FlexWrap, JustifyContentCenter, DirectionRtl)
     {
-        LetterToElement(ArabicLetter.Alif, ArabicLetterTurkishPronunciation.Alif),
+        LetterToElement(ArabicLetter.Alef, ArabicLetterTurkishPronunciation.Alif),
         LetterToElement(ArabicLetter.Baa, ArabicLetterTurkishPronunciation.Baa),
         LetterToElement(ArabicLetter.Taa, ArabicLetterTurkishPronunciation.Taa),
         LetterToElement(ArabicLetter.Thaa, ArabicLetterTurkishPronunciation.Thaa),

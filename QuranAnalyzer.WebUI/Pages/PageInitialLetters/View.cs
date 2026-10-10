@@ -175,7 +175,7 @@ class InitialLetterGroup_Saad : InitialLetterGroup
                             {
                                 new InitialLetterLineGroup
                                 {
-                                    new InitialLetter { Id = Id(7, Alif), Letter = Alif },
+                                    new InitialLetter { Id = Id(7, Alef), Letter = Alef },
                                     new InitialLetter { Id = Id(7, Laam), Letter = Laam },
                                     new InitialLetter { Id = Id(7, Miim), Letter = Miim },
                                     new InitialLetter { Id = Id(7, Saad), Letter = Saad, IsSelected = true }

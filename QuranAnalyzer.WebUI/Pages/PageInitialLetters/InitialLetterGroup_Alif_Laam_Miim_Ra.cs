@@ -24,7 +24,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(13, Alif), Letter = Alif },
+                                new InitialLetter { Id = Id(13, Alef), Letter = Alef },
                                 new InitialLetter { Id = Id(13, Laam), Letter = Laam },
                                 new InitialLetter { Id = Id(13, Miim), Letter = Miim },
                                 new InitialLetter { Id = Id(13, Raa), Letter  = Raa }
@@ -36,7 +36,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(13), MultipleOf = 78, SearchScript = GetLetterCountingScript("13:*", Alif, Laam, Miim, Raa)
+                                    id = IdOfCountingResult(13), MultipleOf = 78, SearchScript = GetLetterCountingScript("13:*", Alef, Laam, Miim, Raa)
                                 }
                             }
                         }
@@ -44,7 +44,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                 }
             },
 
-            new Arrow { start = Id(13, Alif), end = IdOfCountingResult(13) },
+            new Arrow { start = Id(13, Alef), end = IdOfCountingResult(13) },
             new Arrow { start = Id(13, Laam), end = IdOfCountingResult(13) },
             new Arrow { start = Id(13, Miim), end = IdOfCountingResult(13) },
             new Arrow { start = Id(13, Raa), end  = IdOfCountingResult(13) }

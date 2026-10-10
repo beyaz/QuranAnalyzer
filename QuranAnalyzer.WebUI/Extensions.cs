@@ -61,7 +61,7 @@ static class Extensions
 
     public static string GetTurkishPronunciationOfArabicLetter(char arabicLetter)
     {
-        if (ArabicLetter.Alif == arabicLetter) return ArabicLetterTurkishPronunciation.Alif;
+        if (ArabicLetter.Alef == arabicLetter) return ArabicLetterTurkishPronunciation.Alif;
         if (ArabicLetter.Baa == arabicLetter) return ArabicLetterTurkishPronunciation.Baa;
         if (ArabicLetter.Taa == arabicLetter) return ArabicLetterTurkishPronunciation.Taa;
         if (ArabicLetter.Thaa == arabicLetter) return ArabicLetterTurkishPronunciation.Thaa;

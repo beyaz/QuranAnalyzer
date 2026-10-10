@@ -32,7 +32,7 @@ public class PageWhereIsTheProblem : ReactPureComponent
 
                 br,
                 br,
-                "2- Hangi mushafı kullanırsanız kullanın ", AsLetter(ArabicLetter.Alif), " harfi neredeyse tüm mushaflarda farklı sayıdadır. ",
+                "2- Hangi mushafı kullanırsanız kullanın ", AsLetter(ArabicLetter.Alef), " harfi neredeyse tüm mushaflarda farklı sayıdadır. ",
                 "Mesela bazı cümleler bazı mushaflarda 5 elif içerirken başka mushafda 6 elif harfi içerebilir. ",
                 "Özetle burada şu soru haklı olarak soruluyor. Ne malum Reşad'ın Elif harfini doğru saydığı? ",
                 "Neden onun sayımlarını doğru kabul edelim ki? ",

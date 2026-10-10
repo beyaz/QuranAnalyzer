@@ -24,7 +24,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(7, Alif), Letter = Alif },
+                                new InitialLetter { Id = Id(7, Alef), Letter = Alef },
                                 new InitialLetter { Id = Id(7, Laam), Letter = Laam },
                                 new InitialLetter { Id = Id(7, Miim), Letter = Miim },
                                 new InitialLetter { Id = Id(7, Saad), Letter = Saad }
@@ -36,7 +36,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(7), MultipleOf = 280, SearchScript = GetLetterCountingScript("7:*", Alif, Laam, Miim, Saad)
+                                    id = IdOfCountingResult(7), MultipleOf = 280, SearchScript = GetLetterCountingScript("7:*", Alef, Laam, Miim, Saad)
                                 }
                             }
                         }
@@ -44,7 +44,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
                 }
             },
 
-            new Arrow { start = Id(7, Alif), end = IdOfCountingResult(7) },
+            new Arrow { start = Id(7, Alef), end = IdOfCountingResult(7) },
             new Arrow { start = Id(7, Laam), end = IdOfCountingResult(7) },
             new Arrow { start = Id(7, Miim), end = IdOfCountingResult(7) },
             new Arrow { start = Id(7, Saad), end = IdOfCountingResult(7) }
