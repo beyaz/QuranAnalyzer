@@ -67,6 +67,31 @@ public class CustomCountingTests
                select map[c]
         ];
 
+        // Page: 41
+        {
+            {
+                var query =
+                    from verse in Filter(x => x.ChapterNumber == 37 && x.VerseNumber == 181)
+                    from letter in verse.TextLetters
+                    select letter.NumericValue;
+
+                query.Sum().ShouldBe(667);
+            }
+
+            {
+                var searchWord = AnalyzeText("الْمرْسلِي");
+                
+                var query =
+                    from verse in Filter(x => true)
+                    from range in  verse.GetStartAndEndPointsOfSameWords(searchWord)
+                    where range.start.NumericValue >= 0
+                    from letter in verse.TextLetters
+                    select new[]{ArabicLetter.Baa, ArabicLetter.Raa, ArabicLetter.Kaaf }.Select(x => AnalyzeText(x.ToString())[0]).Count(x => IsSame(x, letter));
+
+                query.Sum().ShouldBe(114);
+            }
+        }
+        
         // 19:* should be 109 * 17
         {
             var query =
