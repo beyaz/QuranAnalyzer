@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 using static QuranAnalyzer.QuranAnalyzerMixin;
@@ -49,43 +48,11 @@ public class CustomCountingTests
         remaining.ShouldBe(114);
     }
 
+    
+    
+   
     [TestMethod]
-    public void LatinAllphabetEbjedCalculate()
-    {
-        var input = new
-        {
-            LatinText = "abc",
-
-            LatinCharToArabicCharMap
-        };
-
-        var map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap);
-
-        6.ShouldBe((
-            from c in input.LatinText.ToCharArray()
-            let letterInfo = map.ContainsKey(c) switch
-            {
-                true  => map[c],
-                false => new()
-            }
-            select letterInfo.NumericValue
-        ).Sum());
-
-        6.ShouldBe((
-            from c in input.LatinText.ToCharArray()
-            let letterInfo = map.ContainsKey(c) switch
-            {
-                true  => map[c],
-                false => new()
-            }
-            select letterInfo.OrderValue
-        ).Sum());
-    }
-    
-    
-    
-    [TestMethod]
-    public void LatinAlphabet_Calculate2()
+    public void Zkr()
     {
         var input = new
         {
@@ -93,59 +60,75 @@ public class CustomCountingTests
 
             LatinCharToArabicCharMap
         };
-
-        var map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap);
-
-       
-        
-        667.ShouldBe((
-            from c in input.LatinText.ToCharArray()
-            let letterInfo = map.ContainsKey(c) switch
-            {
-                true  => map[c],
-                false => new()
-            }
-            select letterInfo.NumericValue
-        ).Sum());
-
-        109.ShouldBe((
-            from c in input.LatinText.ToCharArray()
-            let letterInfo = map.ContainsKey(c) switch
-            {
-                true  => map[c],
-                false => new()
-            }
-            select letterInfo.OrderValue
-        ).Sum());
-    }
-    
-    [TestMethod]
-    public void LatinAlphabet_Calculate3()
-    {
-        var input = new
-        {
-            LatinText = "berker yörgüç",
-
-            LatinCharToArabicCharMap
-        };
-
-        var map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap);
-
-
 
         IReadOnlyList<LetterInfo> searchLetters =
         [
-            .. from c in input.LatinText.ToCharArray() where map.ContainsKey(c) && map[c].IsArabic select map[c]
+            .. from c in input.LatinText.ToCharArray()
+               let map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap)
+               where map.ContainsKey(c) && map[c].IsArabic select map[c]
         ];
 
-        var query =
-            from verse in AllQuranVerses.Where(x => x.ChapterNumber == 19).Select(x => x.Verse)
-            from letter in verse.TextLetters
-            where searchLetters.Any(sl => sl.NumericValue == letter.NumericValue)
-            select 1;
 
-        query.Count().ShouldBe(109 * 17);
+        // 19:* should be 109 * 17
+        {
+            var query =
+                from verse in AllQuranVerses.Where(x => x.ChapterNumber == 19).Select(x => x.Verse)
+                from letter in verse.TextLetters
+                select searchLetters.Count(x => IsSame(x, letter));
 
+            query.Sum().ShouldBe(109 * 17);
+        }
 
+        // *:19 should be 114 * 17
+        {
+            var query =
+                from verse in AllQuranVerses.Where(x => x.VerseNumber == 19).Select(x => x.Verse)
+                from letter in verse.TextLetters
+                select searchLetters.Count(x => IsSame(x, letter));
+
+            query.Sum().ShouldBe(114 * 17);
+        }
+
+        // 19:19 should be 17
+        {
+            var query =
+                from verse in AllQuranVerses.Where(x => x.ChapterNumber == 19 && x.VerseNumber == 19).Select(x => x.Verse)
+                from letter in verse.TextLetters
+                select searchLetters.Count(x => IsSame(x, letter));
+
+            query.Sum().ShouldBe(17);
+        }
+
+        // Numeric value should be 667
+        {
+            var query =
+                from letter in searchLetters
+                select letter.NumericValue;
+
+            query.Sum().ShouldBe(667);
+        }
+        
+        // order value should be 109
+        {
+            var query =
+                from letter in searchLetters
+                select letter.OrderValue;
+
+            query.Sum().ShouldBe(109);
+        }
+        return;
+
+        static bool IsSame(LetterInfo a, LetterInfo b)
+        {
+            if (a is null || b is null)
+            {
+                return false;
+            }
+            if (a.NumericValue > 0 && a.NumericValue == b.NumericValue)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
