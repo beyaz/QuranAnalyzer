@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 using static QuranAnalyzer.QuranAnalyzerMixin;
@@ -48,9 +49,6 @@ public class CustomCountingTests
         remaining.ShouldBe(114);
     }
 
-    
-    
-   
     [TestMethod]
     public void Zkr()
     {
@@ -65,14 +63,14 @@ public class CustomCountingTests
         [
             .. from c in input.LatinText.ToCharArray()
                let map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap)
-               where map.ContainsKey(c) && map[c].IsArabic select map[c]
+               where map.ContainsKey(c) && map[c].IsArabic
+               select map[c]
         ];
-
 
         // 19:* should be 109 * 17
         {
             var query =
-                from verse in AllQuranVerses.Where(x => x.ChapterNumber == 19).Select(x => x.Verse)
+                from verse in Filter(x => x.ChapterNumber == 19)
                 from letter in verse.TextLetters
                 select searchLetters.Count(x => IsSame(x, letter));
 
@@ -82,7 +80,7 @@ public class CustomCountingTests
         // *:19 should be 114 * 17
         {
             var query =
-                from verse in AllQuranVerses.Where(x => x.VerseNumber == 19).Select(x => x.Verse)
+                from verse in Filter(x => x.VerseNumber == 19)
                 from letter in verse.TextLetters
                 select searchLetters.Count(x => IsSame(x, letter));
 
@@ -92,7 +90,7 @@ public class CustomCountingTests
         // 19:19 should be 17
         {
             var query =
-                from verse in AllQuranVerses.Where(x => x.ChapterNumber == 19 && x.VerseNumber == 19).Select(x => x.Verse)
+                from verse in Filter(x => x.ChapterNumber == 19 && x.VerseNumber == 19)
                 from letter in verse.TextLetters
                 select searchLetters.Count(x => IsSame(x, letter));
 
@@ -107,7 +105,7 @@ public class CustomCountingTests
 
             query.Sum().ShouldBe(667);
         }
-        
+
         // order value should be 109
         {
             var query =
@@ -118,16 +116,23 @@ public class CustomCountingTests
         }
         return;
 
+        static IEnumerable<Verse> Filter(Func<Verse, bool> predicate)
+        {
+            return AllQuranVerses.Where(x => predicate(x.Verse)).Select(x => x.Verse);
+        }
+
         static bool IsSame(LetterInfo a, LetterInfo b)
         {
             if (a is null || b is null)
             {
                 return false;
             }
+
             if (a.NumericValue > 0 && a.NumericValue == b.NumericValue)
             {
                 return true;
             }
+
             return false;
         }
     }
