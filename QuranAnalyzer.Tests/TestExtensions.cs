@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace QuranAnalyzer;
+﻿namespace QuranAnalyzer;
 
 static class TestExtensions
 {
@@ -9,6 +6,4 @@ static class TestExtensions
     {
         actual.Value.ShouldBe(expected);
     }
-
-    public static int CountOf<T>(this IEnumerable<T> source) => source.Count();
 }

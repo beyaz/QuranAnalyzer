@@ -135,26 +135,17 @@ public class CustomCountingTests
 
         IReadOnlyList<LetterInfo> searchLetters =
         [
-            .. from c in input.LatinText.ToCharArray() where map.ContainsKey(c) select map[c]
+            .. from c in input.LatinText.ToCharArray() where map.ContainsKey(c) && map[c].IsArabic select map[c]
         ];
 
-        var count = 0;
-        
-        foreach (var verse in AllQuranVerses.Where(x=>x.ChapterNumber == 19).Select(x=>x.Verse))
-        {
-            foreach (var letter in verse.TextLetters)
-            {
-                foreach (var searchLetter in searchLetters.Where(x=>x.IsArabic))
-                {
-                    if (searchLetter.NumericValue == letter.NumericValue)
-                    {
-                        count++;
-                    }
-                }
-            }
-        }
+        var query =
+            from verse in AllQuranVerses.Where(x => x.ChapterNumber == 19).Select(x => x.Verse)
+            from letter in verse.TextLetters
+            where searchLetters.Any(sl => sl.NumericValue == letter.NumericValue)
+            select 1;
+
+        query.Count().ShouldBe(109 * 17);
 
 
-        count.ShouldBe(109 * 17);
     }
 }
