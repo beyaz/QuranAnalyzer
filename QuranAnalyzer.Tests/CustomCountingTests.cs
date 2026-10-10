@@ -83,7 +83,7 @@ public class CustomCountingTests
                 
                 var query =
                     from verse in Filter(x => true)
-                    from range in  verse.GetStartAndEndPointsOfSameWords(searchWord)
+                    from range in  verse.GetStartAndEndPointsOfStartsWithWords(searchWord)
                     where range.start.NumericValue >= 0
                     from letter in verse.TextLetters
                     select new[]{ArabicLetter.Baa, ArabicLetter.Raa, ArabicLetter.Kaaf }.Select(x => AnalyzeText(x.ToString())[0]).Count(x => IsSame(x, letter));
