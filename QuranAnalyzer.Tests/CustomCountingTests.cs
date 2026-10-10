@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 using static QuranAnalyzer.QuranAnalyzerMixin;
 using static QuranAnalyzer.ArabicLetterOrder;
@@ -115,5 +117,44 @@ public class CustomCountingTests
             }
             select letterInfo.OrderValue
         ).Sum());
+    }
+    
+    [TestMethod]
+    public void LatinAlphabet_Calculate3()
+    {
+        var input = new
+        {
+            LatinText = "berker yörgüç",
+
+            LatinCharToArabicCharMap
+        };
+
+        var map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap);
+
+
+
+        IReadOnlyList<LetterInfo> searchLetters =
+        [
+            .. from c in input.LatinText.ToCharArray() where map.ContainsKey(c) select map[c]
+        ];
+
+        var count = 0;
+        
+        foreach (var verse in AllQuranVerses.Where(x=>x.ChapterNumber == 19).Select(x=>x.Verse))
+        {
+            foreach (var letter in verse.TextLetters)
+            {
+                foreach (var searchLetter in searchLetters.Where(x=>x.IsArabic))
+                {
+                    if (searchLetter.NumericValue == letter.NumericValue)
+                    {
+                        count++;
+                    }
+                }
+            }
+        }
+
+
+        count.ShouldBe(109 * 17);
     }
 }
