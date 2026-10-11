@@ -77,7 +77,7 @@ public class CharacterCountingTests
         CountShouldBe("19:*", Kaf, 137);
         CountShouldBe("19:*", Heh, 175);
         CountShouldBe("19:*", Yeh, 343);
-        CountShouldBe("19:*", Ayn, 117);
+        CountShouldBe("19:*", Ain, 117);
         CountShouldBe("19:*", Saad, 26);
     }
 
@@ -101,9 +101,9 @@ public class CharacterCountingTests
         CountShouldBe("27:*", Tah, 27);
         CountShouldBe("28:*", Tah, 19);
 
-        CountShouldBe("26:*", Siin, 94);
-        CountShouldBe("27:*", Siin, 94);
-        CountShouldBe("28:*", Siin, 102);
+        CountShouldBe("26:*", Seen, 94);
+        CountShouldBe("27:*", Seen, 94);
+        CountShouldBe("28:*", Seen, 102);
 
         CountShouldBe("26:*", Meem, 484);
         CountShouldBe("28:*", Meem, 460);
@@ -122,7 +122,7 @@ public class CharacterCountingTests
     public void Chapter_36()
     {
         CountShouldBe("36:*", Yeh, 237);
-        CountShouldBe("36:*", Siin, 48);
+        CountShouldBe("36:*", Seen, 48);
     }
 
     [TestMethod]
@@ -188,8 +188,8 @@ public class CharacterCountingTests
     [TestMethod]
     public void Section_38()
     {
-        CountShouldBe("42:*", Ayn, 98);
-        CountShouldBe("42:*", Siin, 54);
+        CountShouldBe("42:*", Ain, 98);
+        CountShouldBe("42:*", Seen, 54);
         CountShouldBe("42:*", Qaaf, 57);
     }
 

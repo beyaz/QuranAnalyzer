@@ -6,8 +6,8 @@ class PageInitialLettersView : ReactPureComponent
     [
         ("Kaf 1", typeof(InitialLetterGroup_Qaaf_50)),
         ("Kaf 2", typeof(InitialLetterGroup_Qaaf_42)),
-        ("Ya Sin", typeof(InitialLetterGroup_Chapter36_YaSin)),
-        ("Ayn Sin Kaf", typeof(InitialLetterGroup_Chapter42_AinSinKaf)),
+        ("Ya Sin", typeof(InitialLetterGroup_Chapter36_YehSeen)),
+        ("Ayn Sin Kaf", typeof(InitialLetterGroup_Chapter42_AinSeenKaf)),
         ("Meryem", typeof(InitialLetterGroup_Chapter19)),
         ("Elif Lam Mim", typeof(InitialLetterGroup_Alef_Lam_Meem)),
         ("Elif Lam Ra", typeof(InitialLetterGroup_Alef_Lam_Raa)),
@@ -18,7 +18,7 @@ class PageInitialLettersView : ReactPureComponent
         ("Ha Mim 1", typeof(InitialLetterGroup_HaMim)),
         ("Ha Mim 2", typeof(InitialLetterGroup_HaMimSeparated)),
         ("Ha Mim 3", typeof(InitialLetterGroup_HaMimAll)),
-        ("Ta Sin Mim He", typeof(InitialLetterGroup_TaSinMim)),
+        ("Ta Sin Mim He", typeof(InitialLetterGroup_TahSeenMeem)),
 
         ("Nun", typeof(InitialLetterGroup_NoonWawNoon))
     ];

@@ -2,7 +2,7 @@
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
-class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
+class InitialLetterGroup_Chapter36_YehSeen : InitialLetterGroup
 {
     static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 15, SearchScript = GetLetterCountingScript("36:*", Yeh, Seen) };
 

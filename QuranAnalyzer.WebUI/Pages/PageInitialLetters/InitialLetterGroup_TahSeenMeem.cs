@@ -2,7 +2,7 @@
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
-class InitialLetterGroup_TaSinMim : InitialLetterGroup
+class InitialLetterGroup_TahSeenMeem : InitialLetterGroup
 {
     static Element countingResult => new CountingResult
     {

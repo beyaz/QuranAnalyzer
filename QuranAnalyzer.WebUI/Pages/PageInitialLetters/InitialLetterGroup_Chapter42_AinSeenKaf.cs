@@ -2,11 +2,11 @@
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
-class InitialLetterGroup_Chapter42_AinSinKaf : InitialLetterGroup
+class InitialLetterGroup_Chapter42_AinSeenKaf : InitialLetterGroup
 {
     static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 11, SearchScript = GetLetterCountingScript("42:*", Ain, Seen, Qaf) };
 
-    static string IdOfCountingResult => $"42_AinSinKaf-{nameof(IdOfCountingResult)}";
+    static string IdOfCountingResult => $"42_AinSeenKaf-{nameof(IdOfCountingResult)}";
 
     protected override Element render()
     {

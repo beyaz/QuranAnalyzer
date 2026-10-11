@@ -15,13 +15,13 @@ class ArabicKeyboard : ReactPureComponent
         LetterToElement(ArabicLetter.Thal, ArabicLetterTurkishPronunciation.Dhaal),
         LetterToElement(ArabicLetter.Reh, ArabicLetterTurkishPronunciation.Raa),
         LetterToElement(ArabicLetter.Zain, ArabicLetterTurkishPronunciation.Zain),
-        LetterToElement(ArabicLetter.Seen, ArabicLetterTurkishPronunciation.Siin),
+        LetterToElement(ArabicLetter.Seen, ArabicLetterTurkishPronunciation.Seen),
         LetterToElement(ArabicLetter.Sheen, ArabicLetterTurkishPronunciation.Shiin),
         LetterToElement(ArabicLetter.Sad, ArabicLetterTurkishPronunciation.Saad),
         LetterToElement(ArabicLetter.Dad, ArabicLetterTurkishPronunciation.Daad),
         LetterToElement(ArabicLetter.Tah, ArabicLetterTurkishPronunciation.Tah),
         LetterToElement(ArabicLetter.Zah, ArabicLetterTurkishPronunciation.Zaa),
-        LetterToElement(ArabicLetter.Ain, ArabicLetterTurkishPronunciation.Ayn),
+        LetterToElement(ArabicLetter.Ain, ArabicLetterTurkishPronunciation.Ain),
         LetterToElement(ArabicLetter.Ghain, ArabicLetterTurkishPronunciation.Ghayn),
         LetterToElement(ArabicLetter.Feh, ArabicLetterTurkishPronunciation.Faa),
         LetterToElement(ArabicLetter.Qaf, ArabicLetterTurkishPronunciation.Qaaf),
@@ -59,13 +59,13 @@ static class ArabicLetterTurkishPronunciation
     public const string Dhaal = "zel";
     public const string Raa = "ra";
     public const string Zain = "ze";
-    public const string Siin = "sin";
+    public const string Seen = "sin";
     public const string Shiin = "şın";
     public const string Saad = "sad";
     public const string Daad = "dad";
     public const string Tah = "tı";
     public const string Zaa = "zı";
-    public const string Ayn = "ayn";
+    public const string Ain = "ayn";
     public const string Ghayn = "ghayn";
     public const string Faa = "fe";
     public const string Qaaf = "kaf";
