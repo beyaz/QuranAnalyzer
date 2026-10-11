@@ -176,9 +176,9 @@ class InitialLetterGroup_Saad : InitialLetterGroup
                                 new InitialLetterLineGroup
                                 {
                                     new InitialLetter { Id = Id(7, Alef), Letter = Alef },
-                                    new InitialLetter { Id = Id(7, Laam), Letter = Laam },
-                                    new InitialLetter { Id = Id(7, Miim), Letter = Miim },
-                                    new InitialLetter { Id = Id(7, Saad), Letter = Saad, IsSelected = true }
+                                    new InitialLetter { Id = Id(7, Lam), Letter = Lam },
+                                    new InitialLetter { Id = Id(7, Meem), Letter = Meem },
+                                    new InitialLetter { Id = Id(7, Sad), Letter = Sad, IsSelected = true }
                                 }
                             }
                         },
@@ -193,11 +193,11 @@ class InitialLetterGroup_Saad : InitialLetterGroup
                             {
                                 new InitialLetterLineGroup
                                 {
-                                    new InitialLetter { Id = Id(19, Kaaf), Letter = Kaaf },
-                                    new InitialLetter { Id = Id(19, Haa), Letter  = Haa_ },
-                                    new InitialLetter { Id = Id(19, Yaa), Letter  = Yaa },
-                                    new InitialLetter { Id = Id(19, Ayn), Letter  = Ayn },
-                                    new InitialLetter { Id = Id(19, Saad), Letter = Saad, IsSelected = true }
+                                    new InitialLetter { Id = Id(19, Kaf), Letter = Kaf },
+                                    new InitialLetter { Id = Id(19, Hah), Letter  = Heh },
+                                    new InitialLetter { Id = Id(19, Yeh), Letter  = Yeh },
+                                    new InitialLetter { Id = Id(19, Ain), Letter  = Ain },
+                                    new InitialLetter { Id = Id(19, Sad), Letter = Sad, IsSelected = true }
                                 }
                             },
                             new td
@@ -213,7 +213,7 @@ class InitialLetterGroup_Saad : InitialLetterGroup
                                             new CountingResult
                                             {
                                                 id           = IdOfCountingResult, MultipleOf = 8,
-                                                SearchScript = GetLetterCountingScript("7:*,19:*,38:*", Saad)
+                                                SearchScript = GetLetterCountingScript("7:*,19:*,38:*", Sad)
                                             }
                                         }
                                     }
@@ -228,7 +228,7 @@ class InitialLetterGroup_Saad : InitialLetterGroup
                             {
                                 new InitialLetterLineGroup
                                 {
-                                    new InitialLetter { Id = Id(38, Saad), Letter = Saad, IsSelected = true, style = { MarginLeft(100) } }
+                                    new InitialLetter { Id = Id(38, Sad), Letter = Sad, IsSelected = true, style = { MarginLeft(100) } }
                                 }
                             }
                         }
@@ -238,18 +238,18 @@ class InitialLetterGroup_Saad : InitialLetterGroup
 
             new Note
             {
-                AsLetter(Saad), " başlangıç harfi olarak 3 surenin başında vardır.",
+                AsLetter(Sad), " başlangıç harfi olarak 3 surenin başında vardır.",
                 " Bu üç suredeki toplam geçiş adeti ise ", 152.AsMultipleOf19(), "'dir.",
                 " Buradaki girift yapıya dikkatli bakınız.",
-                " Mesela 19. suredeki ", AsLetter(Saad),
+                " Mesela 19. suredeki ", AsLetter(Sad),
                 " harfi hem 19. suredeki toplam ile uyumlu ",
                 " hemde bu 3 suredeki geçiş adeti ile uyumludur.",
-                " Eğer 19.surede bir tane fazla ", AsLetter(Saad), " harfi olsaydı bu ahenk bozulurdu."
+                " Eğer 19.surede bir tane fazla ", AsLetter(Sad), " harfi olsaydı bu ahenk bozulurdu."
             },
 
-            new Arrow { start = Id(7, Saad), end  = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(19, Saad), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(38, Saad), end = IdOfCountingResult, StartAnchorFromRight = true }
+            new Arrow { start = Id(7, Sad), end  = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(19, Sad), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(38, Sad), end = IdOfCountingResult, StartAnchorFromRight = true }
         };
     }
 

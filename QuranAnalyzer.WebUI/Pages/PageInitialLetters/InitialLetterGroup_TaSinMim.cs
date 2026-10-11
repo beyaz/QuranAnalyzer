@@ -9,11 +9,11 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
         id         = IdOfCountingResult,
         MultipleOf = 93,
 
-        SearchScript = GetLetterCountingScript("19:*", Haa_) + ";" +
-                       GetLetterCountingScript("20:*", Taa_, Haa_) + ";" +
-                       GetLetterCountingScript("26:*", Taa_, Siin, Miim) + ";" +
-                       GetLetterCountingScript("27:*", Taa_, Siin) + ";" +
-                       GetLetterCountingScript("28:*", Taa_, Siin, Miim)
+        SearchScript = GetLetterCountingScript("19:*", Heh) + ";" +
+                       GetLetterCountingScript("20:*", Tah, Heh) + ";" +
+                       GetLetterCountingScript("26:*", Tah, Seen, Meem) + ";" +
+                       GetLetterCountingScript("27:*", Tah, Seen) + ";" +
+                       GetLetterCountingScript("28:*", Tah, Seen, Meem)
     };
 
     static string IdOfCountingResult => $"TaSinMim-{nameof(IdOfCountingResult)}";
@@ -38,11 +38,11 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(19, Qaaf), Letter = Qaaf },
-                                new InitialLetter { Id = Id(19, Haa), Letter  = Haa_, IsSelected = true },
-                                new InitialLetter { Id = Id(19, Yaa), Letter  = Yaa },
-                                new InitialLetter { Id = Id(19, Ayn), Letter  = Ayn },
-                                new InitialLetter { Id = Id(19, Saad), Letter = Saad }
+                                new InitialLetter { Id = Id(19, Qaf), Letter = Qaf },
+                                new InitialLetter { Id = Id(19, Hah), Letter  = Heh, IsSelected = true },
+                                new InitialLetter { Id = Id(19, Yeh), Letter  = Yeh },
+                                new InitialLetter { Id = Id(19, Ain), Letter  = Ain },
+                                new InitialLetter { Id = Id(19, Sad), Letter = Sad }
                             }
                         },
                         new td
@@ -65,8 +65,8 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(20, Taa_), Letter = Taa_, IsSelected = true },
-                                new InitialLetter { Id = Id(20, Haa_), Letter = Haa_, IsSelected  = true }
+                                new InitialLetter { Id = Id(20, Tah), Letter = Tah, IsSelected = true },
+                                new InitialLetter { Id = Id(20, Heh), Letter = Heh, IsSelected  = true }
                             }
                         }
                     },
@@ -79,9 +79,9 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(26, Taa_), Letter = Taa_, IsSelected = true },
-                                new InitialLetter { Id = Id(26, Siin), Letter = Siin, IsSelected = true },
-                                new InitialLetter { Id = Id(26, Miim), Letter = Miim, IsSelected = true }
+                                new InitialLetter { Id = Id(26, Tah), Letter = Tah, IsSelected = true },
+                                new InitialLetter { Id = Id(26, Seen), Letter = Seen, IsSelected = true },
+                                new InitialLetter { Id = Id(26, Meem), Letter = Meem, IsSelected = true }
                             }
                         }
                     },
@@ -94,8 +94,8 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(27, Taa_), Letter = Taa_, IsSelected = true },
-                                new InitialLetter { Id = Id(27, Siin), Letter = Siin, IsSelected = true }
+                                new InitialLetter { Id = Id(27, Tah), Letter = Tah, IsSelected = true },
+                                new InitialLetter { Id = Id(27, Seen), Letter = Seen, IsSelected = true }
                             }
                         }
                     },
@@ -108,31 +108,31 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(28, Taa_), Letter = Taa_, IsSelected = true },
-                                new InitialLetter { Id = Id(28, Siin), Letter = Siin, IsSelected = true },
-                                new InitialLetter { Id = Id(28, Miim), Letter = Miim, IsSelected = true }
+                                new InitialLetter { Id = Id(28, Tah), Letter = Tah, IsSelected = true },
+                                new InitialLetter { Id = Id(28, Seen), Letter = Seen, IsSelected = true },
+                                new InitialLetter { Id = Id(28, Meem), Letter = Meem, IsSelected = true }
                             }
                         }
                     }
                 }
             },
 
-            new Arrow { start = Id(19, Haa), end  = IdOfCountingResult },
-            new Arrow { start = Id(20, Taa_), end = IdOfCountingResult },
-            new Arrow { start = Id(20, Haa_), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(26, Taa_), end = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(26, Siin), end = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(26, Miim), end = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(27, Taa_), end = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(27, Siin), end = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(28, Taa_), end = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(28, Siin), end = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(28, Miim), end = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(19, Hah), end  = IdOfCountingResult },
+            new Arrow { start = Id(20, Tah), end = IdOfCountingResult },
+            new Arrow { start = Id(20, Heh), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(26, Tah), end = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(26, Seen), end = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(26, Meem), end = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(27, Tah), end = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(27, Seen), end = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(28, Tah), end = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(28, Seen), end = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(28, Meem), end = IdOfCountingResult, StartAnchorFromTop   = true },
 
             new Note
             {
-                AsLetter(Taa_), " harfi başlangıç harfi olarak ilk defa 20. surede karşımıza çıkar.",
-                " Kuranda bulunan tüm ", AsLetter(Taa_), " harflerinin tam ortasındadır. Solunda toplamda ",
+                AsLetter(Tah), " harfi başlangıç harfi olarak ilk defa 20. surede karşımıza çıkar.",
+                " Kuranda bulunan tüm ", AsLetter(Tah), " harflerinin tam ortasındadır. Solunda toplamda ",
                 new a
                 {
                     Href(GetPageLink(PageId.CharacterCounting) + "&" + QueryKey.SearchQuery + "=" + "1:1-->19:98|ط"),
@@ -144,7 +144,7 @@ class InitialLetterGroup_TaSinMim : InitialLetterGroup
                     Href(GetPageLink(PageId.CharacterCounting) + "&" + QueryKey.SearchQuery + "=" + "20:2-->114:6|ط"),
                     " 636 tane "
                 },
-                AsLetter(Taa_), " harfi bulunur.",
+                AsLetter(Tah), " harfi bulunur.",
                 br,
                 "Ta-Sin-Mim-He grubu Kurandaki diğer başlangıç harf gruplarına pek benzemiyor.",
                 " Belki ileride burası ile ilgili daha başka veriler açığa çıkabilir diye düşünüyorum."

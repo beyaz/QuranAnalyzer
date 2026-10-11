@@ -48,7 +48,7 @@ public class Zkr
                     from range in  verse.GetStartAndEndPointsOfStartsWithWords(searchWord)
                     where range.start.NumericValue >= 0
                     from letter in verse.TextLetters
-                    select new[]{ArabicLetter.Baa, ArabicLetter.Raa, ArabicLetter.Kaaf }.Select(x => AnalyzeText(x.ToString())[0]).Count(x => IsSame(x, letter));
+                    select new[]{ArabicLetter.Beh, ArabicLetter.Reh, ArabicLetter.Kaf }.Select(x => AnalyzeText(x.ToString())[0]).Count(x => IsSame(x, letter));
 
                 query.Sum().ShouldBe(114);
             }

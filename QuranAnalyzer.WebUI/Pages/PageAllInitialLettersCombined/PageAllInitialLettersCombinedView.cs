@@ -52,9 +52,9 @@ class PageAllInitialLettersCombinedView : ReactPureComponent
                 br,
                 "Burada insanı hayrete düşüren olayı bir örnek ile açıklayalım.",
                 br,
-                "Sadece ", AsLetter(ArabicLetter.Miim), " harfini ele alalım. Bu başlangıç harfi ile başlayan 17 surelerde toplamda 8659 adet geçer. ",
+                "Sadece ", AsLetter(ArabicLetter.Meem), " harfini ele alalım. Bu başlangıç harfi ile başlayan 17 surelerde toplamda 8659 adet geçer. ",
 
-                "Eğer 46. suredeki ", AsLetter(ArabicLetter.Miim), " harfi bir fazla veya eksik olsaydı  hem bu yukarıda hesaplanan  büyük rakamlar 19'un katı olmazdı. ",
+                "Eğer 46. suredeki ", AsLetter(ArabicLetter.Meem), " harfi bir fazla veya eksik olsaydı  hem bu yukarıda hesaplanan  büyük rakamlar 19'un katı olmazdı. ",
                 "Hem 'Başlangıç Harfleri' kısmında gözlemlediğimiz Ha-Mim ile ilgili veriler olmazdı.",
                 " Sadece bir yerden değil bir çok yerden kitlenen iç içe geçmeli bir yapı gibi düşünülebilir."
             },

@@ -25,9 +25,9 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(7, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(7, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(7, Miim), Letter = Miim },
-                                new InitialLetter { Id = Id(7, Saad), Letter = Saad }
+                                new InitialLetter { Id = Id(7, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(7, Meem), Letter = Meem },
+                                new InitialLetter { Id = Id(7, Sad), Letter = Sad }
                             }
                         },
                         new td
@@ -36,7 +36,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(7), MultipleOf = 280, SearchScript = GetLetterCountingScript("7:*", Alef, Laam, Miim, Saad)
+                                    id = IdOfCountingResult(7), MultipleOf = 280, SearchScript = GetLetterCountingScript("7:*", Alef, Lam, Meem, Sad)
                                 }
                             }
                         }
@@ -45,9 +45,9 @@ class InitialLetterGroup_Alif_Laam_Miim_Sad : InitialLetterGroup
             },
 
             new Arrow { start = Id(7, Alef), end = IdOfCountingResult(7) },
-            new Arrow { start = Id(7, Laam), end = IdOfCountingResult(7) },
-            new Arrow { start = Id(7, Miim), end = IdOfCountingResult(7) },
-            new Arrow { start = Id(7, Saad), end = IdOfCountingResult(7) }
+            new Arrow { start = Id(7, Lam), end = IdOfCountingResult(7) },
+            new Arrow { start = Id(7, Meem), end = IdOfCountingResult(7) },
+            new Arrow { start = Id(7, Sad), end = IdOfCountingResult(7) }
         };
     }
 

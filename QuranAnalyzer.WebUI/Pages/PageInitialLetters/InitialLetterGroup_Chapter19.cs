@@ -17,7 +17,7 @@ class Note : ReactPureComponent
 
 class InitialLetterGroup_Chapter19 : InitialLetterGroup
 {
-    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 42, SearchScript = GetLetterCountingScript("19:*", Kaaf, Haa_, Yaa, Ayn, Saad) };
+    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 42, SearchScript = GetLetterCountingScript("19:*", Kaf, Heh, Yeh, Ain, Sad) };
 
     static string IdOfCountingResult => $"Chapter19-{nameof(IdOfCountingResult)}";
 
@@ -41,11 +41,11 @@ class InitialLetterGroup_Chapter19 : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(19, Kaaf), Letter = Kaaf },
-                                new InitialLetter { Id = Id(19, Haa_), Letter = Haa_ },
-                                new InitialLetter { Id = Id(19, Yaa), Letter  = Yaa },
-                                new InitialLetter { Id = Id(19, Ayn), Letter  = Ayn },
-                                new InitialLetter { Id = Id(19, Saad), Letter = Saad }
+                                new InitialLetter { Id = Id(19, Kaf), Letter = Kaf },
+                                new InitialLetter { Id = Id(19, Heh), Letter = Heh },
+                                new InitialLetter { Id = Id(19, Yeh), Letter  = Yeh },
+                                new InitialLetter { Id = Id(19, Ain), Letter  = Ain },
+                                new InitialLetter { Id = Id(19, Sad), Letter = Sad }
                             }
                         },
                         new td
@@ -63,11 +63,11 @@ class InitialLetterGroup_Chapter19 : InitialLetterGroup
                 }
             },
 
-            new Arrow { start = Id(19, Kaaf), end = IdOfCountingResult },
-            new Arrow { start = Id(19, Haa_), end = IdOfCountingResult },
-            new Arrow { start = Id(19, Yaa), end  = IdOfCountingResult },
-            new Arrow { start = Id(19, Ayn), end  = IdOfCountingResult },
-            new Arrow { start = Id(19, Saad), end = IdOfCountingResult },
+            new Arrow { start = Id(19, Kaf), end = IdOfCountingResult },
+            new Arrow { start = Id(19, Heh), end = IdOfCountingResult },
+            new Arrow { start = Id(19, Yeh), end  = IdOfCountingResult },
+            new Arrow { start = Id(19, Ain), end  = IdOfCountingResult },
+            new Arrow { start = Id(19, Sad), end = IdOfCountingResult },
 
             new Note
             {

@@ -27,8 +27,8 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(10, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(10, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(10, Raa), Letter  = Raa }
+                                new InitialLetter { Id = Id(10, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(10, Reh), Letter  = Reh }
                             }
                         },
                         new td
@@ -37,7 +37,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(10), MultipleOf = 131, SearchScript = GetLetterCountingScript("10:*", Alef, Laam, Raa)
+                                    id = IdOfCountingResult(10), MultipleOf = 131, SearchScript = GetLetterCountingScript("10:*", Alef, Lam, Reh)
                                 }
                             }
                         }
@@ -56,8 +56,8 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(11, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(11, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(11, Raa), Letter  = Raa }
+                                new InitialLetter { Id = Id(11, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(11, Reh), Letter  = Reh }
                             }
                         },
                         new td
@@ -66,7 +66,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(11), MultipleOf = 131, SearchScript = GetLetterCountingScript("11:*", Alef, Laam, Raa)
+                                    id = IdOfCountingResult(11), MultipleOf = 131, SearchScript = GetLetterCountingScript("11:*", Alef, Lam, Reh)
                                 }
                             }
                         }
@@ -85,8 +85,8 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(12, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(12, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(12, Raa), Letter  = Raa }
+                                new InitialLetter { Id = Id(12, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(12, Reh), Letter  = Reh }
                             }
                         },
                         new td
@@ -95,7 +95,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(12), MultipleOf = 125, SearchScript = GetLetterCountingScript("12:*", Alef, Laam, Raa)
+                                    id = IdOfCountingResult(12), MultipleOf = 125, SearchScript = GetLetterCountingScript("12:*", Alef, Lam, Reh)
                                 }
                             }
                         }
@@ -114,8 +114,8 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(14, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(14, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(14, Raa), Letter  = Raa }
+                                new InitialLetter { Id = Id(14, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(14, Reh), Letter  = Reh }
                             }
                         },
                         new td
@@ -124,7 +124,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(14), MultipleOf = 63, SearchScript = GetLetterCountingScript("14:*", Alef, Laam, Raa)
+                                    id = IdOfCountingResult(14), MultipleOf = 63, SearchScript = GetLetterCountingScript("14:*", Alef, Lam, Reh)
                                 }
                             }
                         }
@@ -143,8 +143,8 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(15, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(15, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(15, Raa), Letter  = Raa }
+                                new InitialLetter { Id = Id(15, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(15, Reh), Letter  = Reh }
                             }
                         },
                         new td
@@ -153,7 +153,7 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(15), MultipleOf = 48, SearchScript = GetLetterCountingScript("15:*", Alef, Laam, Raa)
+                                    id = IdOfCountingResult(15), MultipleOf = 48, SearchScript = GetLetterCountingScript("15:*", Alef, Lam, Reh)
                                 }
                             }
                         }
@@ -162,24 +162,24 @@ class InitialLetterGroup_Alif_Laam_Raa : InitialLetterGroup
             },
 
             new Arrow { start = Id(10, Alef), end = IdOfCountingResult(10) },
-            new Arrow { start = Id(10, Laam), end = IdOfCountingResult(10) },
-            new Arrow { start = Id(10, Raa), end  = IdOfCountingResult(10) },
+            new Arrow { start = Id(10, Lam), end = IdOfCountingResult(10) },
+            new Arrow { start = Id(10, Reh), end  = IdOfCountingResult(10) },
 
             new Arrow { start = Id(11, Alef), end = IdOfCountingResult(11) },
-            new Arrow { start = Id(11, Laam), end = IdOfCountingResult(11) },
-            new Arrow { start = Id(11, Raa), end  = IdOfCountingResult(11) },
+            new Arrow { start = Id(11, Lam), end = IdOfCountingResult(11) },
+            new Arrow { start = Id(11, Reh), end  = IdOfCountingResult(11) },
 
             new Arrow { start = Id(12, Alef), end = IdOfCountingResult(12) },
-            new Arrow { start = Id(12, Laam), end = IdOfCountingResult(12) },
-            new Arrow { start = Id(12, Raa), end  = IdOfCountingResult(12) },
+            new Arrow { start = Id(12, Lam), end = IdOfCountingResult(12) },
+            new Arrow { start = Id(12, Reh), end  = IdOfCountingResult(12) },
 
             new Arrow { start = Id(14, Alef), end = IdOfCountingResult(14) },
-            new Arrow { start = Id(14, Laam), end = IdOfCountingResult(14) },
-            new Arrow { start = Id(14, Raa), end  = IdOfCountingResult(14) },
+            new Arrow { start = Id(14, Lam), end = IdOfCountingResult(14) },
+            new Arrow { start = Id(14, Reh), end  = IdOfCountingResult(14) },
 
             new Arrow { start = Id(15, Alef), end = IdOfCountingResult(15) },
-            new Arrow { start = Id(15, Laam), end = IdOfCountingResult(15) },
-            new Arrow { start = Id(15, Raa), end  = IdOfCountingResult(15) }
+            new Arrow { start = Id(15, Lam), end = IdOfCountingResult(15) },
+            new Arrow { start = Id(15, Reh), end  = IdOfCountingResult(15) }
         };
     }
 

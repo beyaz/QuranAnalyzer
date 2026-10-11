@@ -26,7 +26,7 @@ public class PageWhereIsTheProblem : ReactPureComponent
                 br,
                 br,
 
-                "1 - Elinizdeki mushafta 68. sureyi açtığınızda surenin en başında sadece bir tane ", AsLetter(ArabicLetter.Nun), " harfi görürsünüz.",
+                "1 - Elinizdeki mushafta 68. sureyi açtığınızda surenin en başında sadece bir tane ", AsLetter(ArabicLetter.Noon), " harfi görürsünüz.",
                 " 19 sistemini ilk keşfeden kişi burada tek nun değil çift nun harfi olduğunu söylüyor. ",
                 " Hatta bu 19 sistemini ilk bu nun ile başlayan surede fark ediyor. Orijinal mushafta bunun iki nun ile yazıldığını gördüm diyor.",
 

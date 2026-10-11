@@ -88,8 +88,8 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(40, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(40, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(40, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(40, Meem), Letter = Meem }
                             }
                         },
                         new td
@@ -103,7 +103,7 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                     {
                                         id             = IdOfCountingResult_19_59,
                                         MultipleOf     = 59,
-                                        SearchScript   = GetLetterCountingScript("40:*,41:*,42:*", Haa, Miim),
+                                        SearchScript   = GetLetterCountingScript("40:*,41:*,42:*", Hah, Meem),
                                         OnMouseEntered = onMouseEntered
                                     }
                                 },
@@ -117,7 +117,7 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                     {
                                         id             = IdOfCountingResult_19_55,
                                         MultipleOf     = 55,
-                                        SearchScript   = GetLetterCountingScript("41:*,42:*,43:*", Haa, Miim),
+                                        SearchScript   = GetLetterCountingScript("41:*,42:*,43:*", Hah, Meem),
                                         OnMouseEntered = onMouseEntered
                                     }
                                 },
@@ -130,7 +130,7 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                     {
                                         id           = IdOfCountingResult_19_113,
                                         MultipleOf   = 113,
-                                        SearchScript = GetLetterCountingScript("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Haa, Miim),
+                                        SearchScript = GetLetterCountingScript("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Hah, Meem),
 
                                         OnMouseEntered = onMouseEntered
                                     }
@@ -144,7 +144,7 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                     {
                                         id           = IdOfCountingResult_19_54,
                                         MultipleOf   = 54,
-                                        SearchScript = GetLetterCountingScript("43:*,44:*,45:*,46:*", Haa, Miim),
+                                        SearchScript = GetLetterCountingScript("43:*,44:*,45:*,46:*", Hah, Meem),
 
                                         OnMouseEntered = onMouseEntered
                                     }
@@ -161,7 +161,7 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                                     {
                                         id             = IdOfCountingResult_19_58,
                                         MultipleOf     = 58,
-                                        SearchScript   = GetLetterCountingScript("40:*,44:*,45:*,46:*", Haa, Miim),
+                                        SearchScript   = GetLetterCountingScript("40:*,44:*,45:*,46:*", Hah, Meem),
                                         OnMouseEntered = onMouseEntered
                                     }
                                 },
@@ -179,8 +179,8 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(41, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(41, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(41, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(41, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -196,8 +196,8 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(42, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(42, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(42, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(42, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -213,8 +213,8 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(43, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(43, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(43, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(43, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -230,8 +230,8 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(44, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(44, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(44, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(44, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -247,8 +247,8 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(45, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(45, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(45, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(45, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -264,8 +264,8 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(46, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(46, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(46, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(46, Meem), Letter = Meem }
                             }
                         }
                     }
@@ -274,34 +274,34 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
 
             new Note
             {
-                "Şekilden de anlaşılacağı üzere ", AsLetter(Haa), " ve ", AsLetter(Miim), " harfleri bu 7 sure boyunca kendi içinde alt gruplar oluşturmaktadır.",
+                "Şekilden de anlaşılacağı üzere ", AsLetter(Hah), " ve ", AsLetter(Meem), " harfleri bu 7 sure boyunca kendi içinde alt gruplar oluşturmaktadır.",
             },
 
             SelectedCountResultId == IdOfCountingResult_19_59
                 ? new div
                 {
-                    new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true },
-                    new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    new Arrow { start = Id(40, Hah), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    new Arrow { start = Id(40, Meem), end = IdOfCountingResult_19_59, StartAnchorFromRight = true },
                     
-                    new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true },
-                    new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    new Arrow { start = Id(41, Hah), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    new Arrow { start = Id(41, Meem), end = IdOfCountingResult_19_59, StartAnchorFromRight = true },
                     
-                    new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true },
-                    new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    new Arrow { start = Id(42, Hah), end  = IdOfCountingResult_19_59, StartAnchorFromRight = true },
+                    new Arrow { start = Id(42, Meem), end = IdOfCountingResult_19_59, StartAnchorFromRight = true },
                 }
                 : null,
 
             SelectedCountResultId == IdOfCountingResult_19_55
                 ? new div
                 {
-                    new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true, },
-                    new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true },
+                    new Arrow { start = Id(41, Hah), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true, },
+                    new Arrow { start = Id(41, Meem), end = IdOfCountingResult_19_55, StartAnchorFromRight = true },
 
-                    new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true },
-                    new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true },
+                    new Arrow { start = Id(42, Hah), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true },
+                    new Arrow { start = Id(42, Meem), end = IdOfCountingResult_19_55, StartAnchorFromRight = true },
 
-                    new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true, },
-                    new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_55, StartAnchorFromRight = true },
+                    new Arrow { start = Id(43, Hah), end  = IdOfCountingResult_19_55, StartAnchorFromRight = true, },
+                    new Arrow { start = Id(43, Meem), end = IdOfCountingResult_19_55, StartAnchorFromRight = true },
                 }
                 : null,
 
@@ -311,20 +311,20 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
 
 
                     // 19 x 113
-                    new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_113 },
-                    new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-                    new Arrow { start = Id(41, Haa), end  = IdOfCountingResult_19_113 },
-                    new Arrow { start = Id(41, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-                    new Arrow { start = Id(42, Haa), end  = IdOfCountingResult_19_113 },
-                    new Arrow { start = Id(42, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-                    new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
-                    new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-                    new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
-                    new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-                    new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
-                    new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
-                    new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
-                    new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(40, Hah), end  = IdOfCountingResult_19_113 },
+                    new Arrow { start = Id(40, Meem), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(41, Hah), end  = IdOfCountingResult_19_113 },
+                    new Arrow { start = Id(41, Meem), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(42, Hah), end  = IdOfCountingResult_19_113 },
+                    new Arrow { start = Id(42, Meem), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(43, Hah), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+                    new Arrow { start = Id(43, Meem), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(44, Hah), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+                    new Arrow { start = Id(44, Meem), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(45, Hah), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+                    new Arrow { start = Id(45, Meem), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
+                    new Arrow { start = Id(46, Hah), end  = IdOfCountingResult_19_113, StartAnchorFromTop   = true },
+                    new Arrow { start = Id(46, Meem), end = IdOfCountingResult_19_113, StartAnchorFromRight = true },
                 }
                 : null,
 
@@ -333,17 +333,17 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                 {
 
 
-                    new Arrow { start = Id(43, Haa), end  = IdOfCountingResult_19_54, StartAnchorFromRight  = true },
-                    new Arrow { start = Id(43, Miim), end = IdOfCountingResult_19_54 , StartAnchorFromRight = true},
+                    new Arrow { start = Id(43, Hah), end  = IdOfCountingResult_19_54, StartAnchorFromRight  = true },
+                    new Arrow { start = Id(43, Meem), end = IdOfCountingResult_19_54 , StartAnchorFromRight = true},
 
-                    new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_54 , StartAnchorFromRight = true},
-                    new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight  = true },
+                    new Arrow { start = Id(44, Hah), end  = IdOfCountingResult_19_54 , StartAnchorFromRight = true},
+                    new Arrow { start = Id(44, Meem), end = IdOfCountingResult_19_54, StartAnchorFromRight  = true },
 
-                    new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_54, StartAnchorFromRight = true },
-                    new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+                    new Arrow { start = Id(45, Hah), end  = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+                    new Arrow { start = Id(45, Meem), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
 
-                    new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_54, StartAnchorFromRight = true },
-                    new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+                    new Arrow { start = Id(46, Hah), end  = IdOfCountingResult_19_54, StartAnchorFromRight = true },
+                    new Arrow { start = Id(46, Meem), end = IdOfCountingResult_19_54, StartAnchorFromRight = true },
                 }
                 : null,
 
@@ -351,17 +351,17 @@ class InitialLetterGroup_HaMimAll : InitialLetterGroup
                 ? new div
                 {
                     // 19 x 58
-                    new Arrow { start = Id(40, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromRight = true },
-                    new Arrow { start = Id(40, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(40, Hah), end  = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(40, Meem), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
 
-                    new Arrow { start = Id(44, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromRight = true },
-                    new Arrow { start = Id(44, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(44, Hah), end  = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(44, Meem), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
 
-                    new Arrow { start = Id(45, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromRight = true },
-                    new Arrow { start = Id(45, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(45, Hah), end  = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(45, Meem), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
 
-                    new Arrow { start = Id(46, Haa), end  = IdOfCountingResult_19_58, StartAnchorFromRight   = true },
-                    new Arrow { start = Id(46, Miim), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
+                    new Arrow { start = Id(46, Hah), end  = IdOfCountingResult_19_58, StartAnchorFromRight   = true },
+                    new Arrow { start = Id(46, Meem), end = IdOfCountingResult_19_58, StartAnchorFromRight = true },
 
                 }
                 : null

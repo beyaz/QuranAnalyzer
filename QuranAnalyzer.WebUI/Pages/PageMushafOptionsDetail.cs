@@ -48,7 +48,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
             new p
             {
                 "İşte bu farklılıklar beraberinde bazı zorlukları da getiriyor. ",
-                "Bir örnek vermek gerekir ise 7. surenin 69. ayetindeki bestaten kelimesi yazılırken ", AsLetter(Siin), " ve ", AsLetter(Saad), " harfleri üst üste yazılmış. ",
+                "Bir örnek vermek gerekir ise 7. surenin 69. ayetindeki bestaten kelimesi yazılırken ", AsLetter(Seen), " ve ", AsLetter(Sad), " harfleri üst üste yazılmış. ",
                 " Böyle yazılmış çünkü bazı mushaflarda sin harfi var bazılarında sin harfinin olduğu yerde sad harfi var. ",
                 new img
                 {
@@ -66,7 +66,7 @@ En bilindik mushaflara örnek verecek olur isek Medine mushafı ve Osman mushaf�
             br,
             "Tanzil.net 'den de önce bu bilgisayara aktarma işlemini ilk olarak Reşad Halife 1970 li yıllarda yapmış. ",
             "Düşünün ki 70 li yıllarda zaten bilgisayar herkesin erişebileceği bir alet değil. Hatta o zamanki yazılım dünyasında Arap harleri dahi yok. ",
-            "Reşad Halife farklı mushafları da önüne dizip tek tek inceleyip Arap alfabesine karşılık gelen herbir harf için İngilizce harf karşılığını mesela Arapçadaki ", AsLetter(Miim), " yerine İngilizcedeki M harfini yazarak tüm Kuranı bilgisayara aktarıyor ve bu başlangıç harflerini araştırmaya koyuluyor.",
+            "Reşad Halife farklı mushafları da önüne dizip tek tek inceleyip Arap alfabesine karşılık gelen herbir harf için İngilizce harf karşılığını mesela Arapçadaki ", AsLetter(Meem), " yerine İngilizcedeki M harfini yazarak tüm Kuranı bilgisayara aktarıyor ve bu başlangıç harflerini araştırmaya koyuluyor.",
             br,
             br,
             "Bu konuyu araştırırken bulabildiğim tek elektronik mushaf olan tanzil.net 'den aldığım mushafı kullandım.",

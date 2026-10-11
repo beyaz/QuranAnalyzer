@@ -26,7 +26,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Laam, Count = "11797",
+            Text = ArabicLetter.Lam, Count = "11797",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 2, Count  = "3202" },
@@ -46,7 +46,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Miim, Count = "8659",
+            Text = ArabicLetter.Meem, Count = "8659",
 
             Details = new List<CountInfo>
             {
@@ -71,7 +71,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Saad, Count = "152",
+            Text = ArabicLetter.Sad, Count = "152",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 7, Count  = "97" },
@@ -81,7 +81,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Raa, Count = "1232",
+            Text = ArabicLetter.Reh, Count = "1232",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 10, Count = "257" },
@@ -94,7 +94,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Kaaf, Count = "137",
+            Text = ArabicLetter.Kaf, Count = "137",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 19, Count = "137" }
@@ -102,7 +102,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Haa_, Count = "426",
+            Text = ArabicLetter.Heh, Count = "426",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 19, Count = "175" },
@@ -111,7 +111,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Yaa, Count = "580",
+            Text = ArabicLetter.Yeh, Count = "580",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 19, Count = "343" },
@@ -120,7 +120,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Ayn, Count = "215",
+            Text = ArabicLetter.Ain, Count = "215",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 19, Count = "117" },
@@ -129,7 +129,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Taa_, Count = "107",
+            Text = ArabicLetter.Tah, Count = "107",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 20, Count = "28" },
@@ -140,7 +140,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Siin, Count = "392",
+            Text = ArabicLetter.Seen, Count = "392",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 26, Count = "94" },
@@ -152,7 +152,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Haa, Count = "292",
+            Text = ArabicLetter.Hah, Count = "292",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 40, Count = "64" },
@@ -166,7 +166,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Qaaf, Count = "114",
+            Text = ArabicLetter.Qaf, Count = "114",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 42, Count = "57" },
@@ -175,7 +175,7 @@ static class Extensions
         },
         new()
         {
-            Text = ArabicLetter.Nun, Count = "133",
+            Text = ArabicLetter.Noon, Count = "133",
             Details = new List<CountInfo>
             {
                 new() { ChapterNumber = 68, Count = "133" }

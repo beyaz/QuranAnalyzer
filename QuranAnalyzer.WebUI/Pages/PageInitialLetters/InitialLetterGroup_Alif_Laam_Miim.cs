@@ -27,8 +27,8 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(2, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(2, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(2, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(2, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(2, Meem), Letter = Meem }
                             }
                         },
                         new td
@@ -37,7 +37,7 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(2), MultipleOf = 521, SearchScript = GetLetterCountingScript("2:*", Alef, Laam, Miim)
+                                    id = IdOfCountingResult(2), MultipleOf = 521, SearchScript = GetLetterCountingScript("2:*", Alef, Lam, Meem)
                                 }
                             }
                         }
@@ -55,8 +55,8 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(3, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(3, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(3, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(3, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(3, Meem), Letter = Meem }
                             }
                         },
                         new td
@@ -65,7 +65,7 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(3), MultipleOf = 298, SearchScript = GetLetterCountingScript("3:*", Alef, Laam, Miim)
+                                    id = IdOfCountingResult(3), MultipleOf = 298, SearchScript = GetLetterCountingScript("3:*", Alef, Lam, Meem)
                                 }
                             }
                         }
@@ -84,8 +84,8 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(29, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(29, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(29, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(29, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(29, Meem), Letter = Meem }
                             }
                         },
                         new td
@@ -94,7 +94,7 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(29), MultipleOf = 88, SearchScript = GetLetterCountingScript("29:*", Alef, Laam, Miim)
+                                    id = IdOfCountingResult(29), MultipleOf = 88, SearchScript = GetLetterCountingScript("29:*", Alef, Lam, Meem)
                                 }
                             }
                         }
@@ -113,8 +113,8 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(30, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(30, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(30, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(30, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(30, Meem), Letter = Meem }
                             }
                         },
                         new td
@@ -123,7 +123,7 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(30), MultipleOf = 66, SearchScript = GetLetterCountingScript("30:*", Alef, Laam, Miim)
+                                    id = IdOfCountingResult(30), MultipleOf = 66, SearchScript = GetLetterCountingScript("30:*", Alef, Lam, Meem)
                                 }
                             }
                         }
@@ -142,8 +142,8 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(31, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(31, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(31, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(31, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(31, Meem), Letter = Meem }
                             }
                         },
                         new td
@@ -152,7 +152,7 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(31), MultipleOf = 43, SearchScript = GetLetterCountingScript("31:*", Alef, Laam, Miim)
+                                    id = IdOfCountingResult(31), MultipleOf = 43, SearchScript = GetLetterCountingScript("31:*", Alef, Lam, Meem)
                                 }
                             }
                         }
@@ -171,8 +171,8 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(32, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(32, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(32, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(32, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(32, Meem), Letter = Meem }
                             }
                         },
                         new td
@@ -181,7 +181,7 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(32), MultipleOf = 30, SearchScript = GetLetterCountingScript("32:*", Alef, Laam, Miim)
+                                    id = IdOfCountingResult(32), MultipleOf = 30, SearchScript = GetLetterCountingScript("32:*", Alef, Lam, Meem)
                                 }
                             }
                         }
@@ -190,28 +190,28 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
             },
 
             new Arrow { start = Id(2, Alef), end = IdOfCountingResult(2) },
-            new Arrow { start = Id(2, Laam), end = IdOfCountingResult(2) },
-            new Arrow { start = Id(2, Miim), end = IdOfCountingResult(2) },
+            new Arrow { start = Id(2, Lam), end = IdOfCountingResult(2) },
+            new Arrow { start = Id(2, Meem), end = IdOfCountingResult(2) },
 
             new Arrow { start = Id(3, Alef), end = IdOfCountingResult(3) },
-            new Arrow { start = Id(3, Laam), end = IdOfCountingResult(3) },
-            new Arrow { start = Id(3, Miim), end = IdOfCountingResult(3) },
+            new Arrow { start = Id(3, Lam), end = IdOfCountingResult(3) },
+            new Arrow { start = Id(3, Meem), end = IdOfCountingResult(3) },
 
             new Arrow { start = Id(29, Alef), end = IdOfCountingResult(29) },
-            new Arrow { start = Id(29, Laam), end = IdOfCountingResult(29) },
-            new Arrow { start = Id(29, Miim), end = IdOfCountingResult(29) },
+            new Arrow { start = Id(29, Lam), end = IdOfCountingResult(29) },
+            new Arrow { start = Id(29, Meem), end = IdOfCountingResult(29) },
 
             new Arrow { start = Id(30, Alef), end = IdOfCountingResult(30) },
-            new Arrow { start = Id(30, Laam), end = IdOfCountingResult(30) },
-            new Arrow { start = Id(30, Miim), end = IdOfCountingResult(30) },
+            new Arrow { start = Id(30, Lam), end = IdOfCountingResult(30) },
+            new Arrow { start = Id(30, Meem), end = IdOfCountingResult(30) },
 
             new Arrow { start = Id(31, Alef), end = IdOfCountingResult(31) },
-            new Arrow { start = Id(31, Laam), end = IdOfCountingResult(31) },
-            new Arrow { start = Id(31, Miim), end = IdOfCountingResult(31) },
+            new Arrow { start = Id(31, Lam), end = IdOfCountingResult(31) },
+            new Arrow { start = Id(31, Meem), end = IdOfCountingResult(31) },
 
             new Arrow { start = Id(32, Alef), end = IdOfCountingResult(32) },
-            new Arrow { start = Id(32, Laam), end = IdOfCountingResult(32) },
-            new Arrow { start = Id(32, Miim), end = IdOfCountingResult(32) }
+            new Arrow { start = Id(32, Lam), end = IdOfCountingResult(32) },
+            new Arrow { start = Id(32, Meem), end = IdOfCountingResult(32) }
         };
     }
 

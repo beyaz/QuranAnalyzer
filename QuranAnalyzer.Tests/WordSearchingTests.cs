@@ -183,9 +183,9 @@ public class WordSearchingTests
     {
         // " abc".EndsWith("abc")
         {
-            var source = AnalyzeText("" + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf);
+            var source = AnalyzeText("" + ArabicLetter.Meem + ArabicLetter.Feh + ArabicLetter.Qaf);
 
-            var searchWord = AnalyzeText("" + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf);
+            var searchWord = AnalyzeText("" + ArabicLetter.Meem + ArabicLetter.Feh + ArabicLetter.Qaf);
 
             var response = source.EndsWith(searchWord);
 
@@ -197,9 +197,9 @@ public class WordSearchingTests
 
         // "dabc".EndsWith("abc")
         {
-            var source = AnalyzeText("" + ArabicLetter.Yaa + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf);
+            var source = AnalyzeText("" + ArabicLetter.Yeh + ArabicLetter.Meem + ArabicLetter.Feh + ArabicLetter.Qaf);
 
-            var searchWord = AnalyzeText("" + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf);
+            var searchWord = AnalyzeText("" + ArabicLetter.Meem + ArabicLetter.Feh + ArabicLetter.Qaf);
 
             var response = source.EndsWith(searchWord);
 
@@ -211,9 +211,9 @@ public class WordSearchingTests
 
         // "abc".EndsWith("abcd")
         {
-            var source = AnalyzeText("" + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf);
+            var source = AnalyzeText("" + ArabicLetter.Meem + ArabicLetter.Feh + ArabicLetter.Qaf);
 
-            var searchWord = AnalyzeText("" + ArabicLetter.Miim + ArabicLetter.Faa + ArabicLetter.Qaaf + ArabicLetter.Yaa);
+            var searchWord = AnalyzeText("" + ArabicLetter.Meem + ArabicLetter.Feh + ArabicLetter.Qaf + ArabicLetter.Yeh);
 
             var response = source.EndsWith(searchWord);
 
@@ -283,16 +283,16 @@ public class WordSearchingTests
     {
         var map = new Dictionary<char, char>
         {
-            { 'z', ArabicLetter.Dhaal },
-            { 'k', ArabicLetter.Kaaf },
-            { 'r', ArabicLetter.Raa },
-            { 'y', ArabicLetter.Yaa },
+            { 'z', ArabicLetter.Thal },
+            { 'k', ArabicLetter.Kaf },
+            { 'r', ArabicLetter.Reh },
+            { 'y', ArabicLetter.Yeh },
 
-            { 'b', ArabicLetter.Baa },
-            { 'ö', ArabicLetter.Waaw },
-            { 'g', ArabicLetter.Kaaf },
-            { 'ü', ArabicLetter.Waaw },
-            { 'ç', ArabicLetter.Jiim }
+            { 'b', ArabicLetter.Beh },
+            { 'ö', ArabicLetter.Waw },
+            { 'g', ArabicLetter.Kaf },
+            { 'ü', ArabicLetter.Waw },
+            { 'ç', ArabicLetter.Jeem }
         };
 
         var searchWord = "zkry";

@@ -57,7 +57,7 @@ class HelpComponentDetail : ReactPureComponent
         {
             if (ShowHelpMessageForLetterSearch)
             {
-                return ArabicLetter.Qaaf.ToString();
+                return ArabicLetter.Qaf.ToString();
             }
 
             return "الله";

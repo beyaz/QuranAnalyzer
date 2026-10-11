@@ -4,7 +4,7 @@ namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
 class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
 {
-    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 15, SearchScript = GetLetterCountingScript("36:*", Yaa, Siin) };
+    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 15, SearchScript = GetLetterCountingScript("36:*", Yeh, Seen) };
 
     static string IdOfCountingResult => $"Chapter36_YaSin-{nameof(IdOfCountingResult)}";
 
@@ -28,8 +28,8 @@ class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(36, Yaa), Letter  = Yaa },
-                                new InitialLetter { Id = Id(36, Siin), Letter = Siin }
+                                new InitialLetter { Id = Id(36, Yeh), Letter  = Yeh },
+                                new InitialLetter { Id = Id(36, Seen), Letter = Seen }
                             }
                         },
                         new td
@@ -50,12 +50,12 @@ class InitialLetterGroup_Chapter36_YaSin : InitialLetterGroup
             new Note
             {
                 "Belki de ismi en yaygın olarak bilinen sure Yasin suresidir.",
-                " Bu sure ", AsLetter(Yaa), " ve ", AsLetter(Siin), " olmak üzere iki tane başlangıç harfi ile başlar.",
+                " Bu sure ", AsLetter(Yeh), " ve ", AsLetter(Seen), " olmak üzere iki tane başlangıç harfi ile başlar.",
                 " Bu iki harfin bu suredeki toplam geçiş adeti ise ", 285.AsMultipleOf19(), "' tir."
             },
 
-            new Arrow { start = Id(36, Yaa), end  = IdOfCountingResult },
-            new Arrow { start = Id(36, Siin), end = IdOfCountingResult }
+            new Arrow { start = Id(36, Yeh), end  = IdOfCountingResult },
+            new Arrow { start = Id(36, Seen), end = IdOfCountingResult }
         };
     }
 

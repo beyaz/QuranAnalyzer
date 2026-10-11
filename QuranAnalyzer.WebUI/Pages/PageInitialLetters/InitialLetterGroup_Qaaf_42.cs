@@ -4,7 +4,7 @@ namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
 class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
 {
-    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 3, SearchScript = GetLetterCountingScript("42:*", Qaaf) };
+    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 3, SearchScript = GetLetterCountingScript("42:*", Qaf) };
 
     static string IdOfCountingResult => $"Qaaf_42-{nameof(IdOfCountingResult)}";
 
@@ -28,7 +28,7 @@ class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(42, Qaaf), Letter = Qaaf }
+                                new InitialLetter { Id = Id(42, Qaf), Letter = Qaf }
                             }
                         },
                         new td
@@ -48,14 +48,14 @@ class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
 
             new Note
             {
-                "42. surede yine ", AsLetter(Qaaf), " başlangıç harfi vardır.",
-                " Bu surede toplamda ", 57.AsMultipleOf19(), " adet ", AsLetter(Qaaf), " harfi vardır.",
+                "42. surede yine ", AsLetter(Qaf), " başlangıç harfi vardır.",
+                " Bu surede toplamda ", 57.AsMultipleOf19(), " adet ", AsLetter(Qaf), " harfi vardır.",
                 br, br,
-                "Kuranda ", AsLetter(Qaaf), " başlangıç harfi içeren iki tane sure vardır.",
-                "  Bu iki sure de kendi içlerinde eşit sayıda yani ", 57.AsMultipleOf19(), " adet ", AsLetter(Qaaf), " harfi içerir."
+                "Kuranda ", AsLetter(Qaf), " başlangıç harfi içeren iki tane sure vardır.",
+                "  Bu iki sure de kendi içlerinde eşit sayıda yani ", 57.AsMultipleOf19(), " adet ", AsLetter(Qaf), " harfi içerir."
             },
 
-            new Arrow { start = Id(42, Qaaf), end = IdOfCountingResult, StartAnchorFromRight = true }
+            new Arrow { start = Id(42, Qaf), end = IdOfCountingResult, StartAnchorFromRight = true }
         };
     }
 

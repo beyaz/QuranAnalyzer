@@ -25,9 +25,9 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                             new InitialLetterLineGroup
                             {
                                 new InitialLetter { Id = Id(13, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(13, Laam), Letter = Laam },
-                                new InitialLetter { Id = Id(13, Miim), Letter = Miim },
-                                new InitialLetter { Id = Id(13, Raa), Letter  = Raa }
+                                new InitialLetter { Id = Id(13, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(13, Meem), Letter = Meem },
+                                new InitialLetter { Id = Id(13, Reh), Letter  = Reh }
                             }
                         },
                         new td
@@ -36,7 +36,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(13), MultipleOf = 78, SearchScript = GetLetterCountingScript("13:*", Alef, Laam, Miim, Raa)
+                                    id = IdOfCountingResult(13), MultipleOf = 78, SearchScript = GetLetterCountingScript("13:*", Alef, Lam, Meem, Reh)
                                 }
                             }
                         }
@@ -45,9 +45,9 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
             },
 
             new Arrow { start = Id(13, Alef), end = IdOfCountingResult(13) },
-            new Arrow { start = Id(13, Laam), end = IdOfCountingResult(13) },
-            new Arrow { start = Id(13, Miim), end = IdOfCountingResult(13) },
-            new Arrow { start = Id(13, Raa), end  = IdOfCountingResult(13) }
+            new Arrow { start = Id(13, Lam), end = IdOfCountingResult(13) },
+            new Arrow { start = Id(13, Meem), end = IdOfCountingResult(13) },
+            new Arrow { start = Id(13, Reh), end  = IdOfCountingResult(13) }
         };
     }
 

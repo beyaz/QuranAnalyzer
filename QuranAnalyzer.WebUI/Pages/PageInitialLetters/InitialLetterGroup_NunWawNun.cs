@@ -4,7 +4,7 @@ namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
 class InitialLetterGroup_NunWawNun : InitialLetterGroup
 {
-    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 7, SearchScript = GetLetterCountingScript("68:*", Nun) };
+    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 7, SearchScript = GetLetterCountingScript("68:*", Noon) };
 
     static string IdOfCountingResult => $"NunWawNun-{nameof(IdOfCountingResult)}";
 
@@ -28,7 +28,7 @@ class InitialLetterGroup_NunWawNun : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(68, Nun), Letter = Nun }
+                                new InitialLetter { Id = Id(68, Noon), Letter = Noon }
                             }
                         },
                         new td
@@ -46,11 +46,11 @@ class InitialLetterGroup_NunWawNun : InitialLetterGroup
                 }
             },
 
-            new Arrow { start = Id(68, Nun), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(68, Noon), end = IdOfCountingResult, StartAnchorFromRight = true },
 
             new Note
             {
-                "Bu surenin başlangıç harfinin tek ", AsLetter(Nun), " değil ", AsLetter(Nun), AsLetter(Waaw), AsLetter(Nun), " şeklinde yazıldığı iddiası vardır.",
+                "Bu surenin başlangıç harfinin tek ", AsLetter(Noon), " değil ", AsLetter(Noon), AsLetter(Waw), AsLetter(Noon), " şeklinde yazıldığı iddiası vardır.",
                 " Soru-cevap kısmında açıklanmıştır."
             }
         };

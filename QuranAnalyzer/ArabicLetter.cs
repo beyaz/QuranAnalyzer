@@ -4,33 +4,33 @@ public static class ArabicLetter
 {
     // @formatter:off
     public const char Alef  = 'ا';
-    public const char Baa   = 'ب';
-    public const char Jiim  = 'ج';
-    public const char Daal  = 'د';
-    public const char Haa_  = 'ه';
-    public const char Waaw  = 'و';
-    public const char Zay   = 'ز';
-    public const char Haa   = 'ح';
-    public const char Taa_  = 'ط';
-    public const char Yaa   = 'ي';
-    public const char Kaaf  = 'ك';
-    public const char Laam  = 'ل';
-    public const char Miim  = 'م';
-    public const char Nun   = 'ن';
-    public const char Siin  = 'س';
-    public const char Ayn   = 'ع';
-    public const char Faa   = 'ف';
-    public const char Saad  = 'ص';
-    public const char Qaaf  = 'ق';
-    public const char Raa   = 'ر';
-    public const char Shiin = 'ش';
-    public const char Taa   = 'ت';
-    public const char Thaa  = 'ث';
-    public const char Khaa  = 'خ';
-    public const char Dhaal = 'ذ';
-    public const char Daad  = 'ض';
-    public const char Zaa   = 'ظ';
-    public const char Ghayn = 'غ';
+    public const char Beh   = 'ب';
+    public const char Jeem  = 'ج';
+    public const char Dal  = 'د';
+    public const char Heh  = 'ه';
+    public const char Waw  = 'و';
+    public const char Zain   = 'ز';
+    public const char Hah   = 'ح';
+    public const char Tah  = 'ط';
+    public const char Yeh   = 'ي';
+    public const char Kaf  = 'ك';
+    public const char Lam  = 'ل';
+    public const char Meem  = 'م';
+    public const char Noon   = 'ن';
+    public const char Seen  = 'س';
+    public const char Ain   = 'ع';
+    public const char Feh   = 'ف';
+    public const char Sad  = 'ص';
+    public const char Qaf  = 'ق';
+    public const char Reh   = 'ر';
+    public const char Sheen = 'ش';
+    public const char Teh   = 'ت';
+    public const char Theh  = 'ث';
+    public const char Khah  = 'خ';
+    public const char Thal = 'ذ';
+    public const char Dad  = 'ض';
+    public const char Zah   = 'ظ';
+    public const char Ghain = 'غ';
     // @formatter:on
 }
 

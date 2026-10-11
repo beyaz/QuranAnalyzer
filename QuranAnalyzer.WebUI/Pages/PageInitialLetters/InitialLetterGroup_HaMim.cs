@@ -4,7 +4,7 @@ namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
 class InitialLetterGroup_HaMim : InitialLetterGroup
 {
-    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 113, SearchScript = GetLetterCountingScript("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Haa, Miim) };
+    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 113, SearchScript = GetLetterCountingScript("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Hah, Meem) };
 
     static string IdOfCountingResult => $"HaMim-{nameof(IdOfCountingResult)}";
 
@@ -28,8 +28,8 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(40, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(40, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(40, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(40, Meem), Letter = Meem }
                             }
                         },
                         new td
@@ -55,8 +55,8 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(41, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(41, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(41, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(41, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -72,8 +72,8 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(42, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(42, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(42, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(42, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -89,8 +89,8 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(43, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(43, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(43, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(43, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -106,8 +106,8 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(44, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(44, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(44, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(44, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -123,8 +123,8 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(45, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(45, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(45, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(45, Meem), Letter = Meem }
                             }
                         }
                     },
@@ -140,8 +140,8 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(46, Haa), Letter  = Haa },
-                                new InitialLetter { Id = Id(46, Miim), Letter = Miim }
+                                new InitialLetter { Id = Id(46, Hah), Letter  = Hah },
+                                new InitialLetter { Id = Id(46, Meem), Letter = Meem }
                             }
                         }
                     }
@@ -150,7 +150,7 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
 
             new Note
             {
-                AsLetter(Haa), " ve ", AsLetter(Miim), " ile başlayan 7 tane sure vardır.",
+                AsLetter(Hah), " ve ", AsLetter(Meem), " ile başlayan 7 tane sure vardır.",
                 " Bu iki harfin bu 7 suredeki geçiş adeti ise ", 2147.AsMultipleOf19(), "'tür.",
                 br,
                 " Bu 7 sure neredeyse Kuranın 5 de 1'ine tekabül eder.",
@@ -159,23 +159,23 @@ class InitialLetterGroup_HaMim : InitialLetterGroup
                 br,
                 "Mesela Mekke şehri bu surelerde 'Mekke' yerine 'Bekke' şeklinde yazılmıştır.",
                 " Neden Bekke şeklinde yazıldığı ile ilgili başka yorumlar da elbet var. Ama Yukarıdaki şekil incelendiğinde sanırım nedeni daha net anlaşılıyor.",
-                " Eğer Mekke şeklinde yazılsaydı ", AsLetter(Miim), " harfleri bir fazla olurdu ve bu şekildeki ahenk olmazdı."
+                " Eğer Mekke şeklinde yazılsaydı ", AsLetter(Meem), " harfleri bir fazla olurdu ve bu şekildeki ahenk olmazdı."
             },
 
-            new Arrow { start = Id(40, Haa), end  = IdOfCountingResult },
-            new Arrow { start = Id(40, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(41, Haa), end  = IdOfCountingResult },
-            new Arrow { start = Id(41, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(42, Haa), end  = IdOfCountingResult },
-            new Arrow { start = Id(42, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(43, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(43, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(44, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(44, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(45, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(45, Miim), end = IdOfCountingResult, StartAnchorFromRight = true },
-            new Arrow { start = Id(46, Haa), end  = IdOfCountingResult, StartAnchorFromTop   = true },
-            new Arrow { start = Id(46, Miim), end = IdOfCountingResult, StartAnchorFromRight = true }
+            new Arrow { start = Id(40, Hah), end  = IdOfCountingResult },
+            new Arrow { start = Id(40, Meem), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(41, Hah), end  = IdOfCountingResult },
+            new Arrow { start = Id(41, Meem), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(42, Hah), end  = IdOfCountingResult },
+            new Arrow { start = Id(42, Meem), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(43, Hah), end  = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(43, Meem), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(44, Hah), end  = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(44, Meem), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(45, Hah), end  = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(45, Meem), end = IdOfCountingResult, StartAnchorFromRight = true },
+            new Arrow { start = Id(46, Hah), end  = IdOfCountingResult, StartAnchorFromTop   = true },
+            new Arrow { start = Id(46, Meem), end = IdOfCountingResult, StartAnchorFromRight = true }
         };
     }
 
