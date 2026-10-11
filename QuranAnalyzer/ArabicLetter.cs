@@ -106,9 +106,13 @@ public static class Letter
     public static readonly LetterInfo AlefMaksura  = new (){ Letter = 'ى', OrderValue = 10, NumericValue = 10};
     public static readonly LetterInfo YehWithHamzaAbove  = new (){ Letter = 'ئ', OrderValue = 10, NumericValue = 10};
    
+    // 11
+    public static readonly LetterInfo Kaf  = new (){ Letter = ArabicLetter.Kaf, OrderValue = 11, NumericValue = 20};
  
-    public const char Kaf  = 'ك';
-    public const char Lam  = 'ل';
+    // 12
+    public static readonly LetterInfo Lam  = new (){ Letter = ArabicLetter.Lam, OrderValue = 12, NumericValue = 30};
+    
+    
     public const char Meem  = 'م';
     public const char Noon   = 'ن';
     public const char Seen  = 'س';
