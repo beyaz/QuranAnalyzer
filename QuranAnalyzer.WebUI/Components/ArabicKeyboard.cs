@@ -30,7 +30,7 @@ class ArabicKeyboard : ReactPureComponent
         LetterToElement(ArabicLetter.Meem, ArabicLetterTurkishPronunciation.Miim),
         LetterToElement(ArabicLetter.Noon, ArabicLetterTurkishPronunciation.Nun),
         LetterToElement(ArabicLetter.Heh, ArabicLetterTurkishPronunciation.Heh),
-        LetterToElement(ArabicLetter.Waw, ArabicLetterTurkishPronunciation.Waaw),
+        LetterToElement(ArabicLetter.Waw, ArabicLetterTurkishPronunciation.Waw),
         LetterToElement(ArabicLetter.Yeh, ArabicLetterTurkishPronunciation.Yaa)
     };
 
@@ -74,7 +74,7 @@ static class ArabicLetterTurkishPronunciation
     public const string Miim = "mim";
     public const string Nun = "nun";
     public const string Heh = "he";
-    public const string Waaw = "vav";
+    public const string Waw = "vav";
     public const string Yaa = "yâ";
     // @formatter:on
 }

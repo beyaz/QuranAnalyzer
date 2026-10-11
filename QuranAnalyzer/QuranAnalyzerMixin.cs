@@ -25,7 +25,7 @@ public static class QuranAnalyzerMixin
         },
 
         {
-            Waaw, new()
+            Waw, new()
             {
                 // Chapter 68
                 { GetDifferencesKeyForTanzil("68:1"), 3 },
@@ -373,18 +373,18 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterOrder == Waaw)
+        if (arabicLetterOrder == Waw)
         {
             if (option.Chapter_68_Should_Single_Nun == false)
             {
-                if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
+                if (MushafTotalCountPerVerseDifference[Waw].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
                 {
                     return totalCount;
                 }
             }
             else
             {
-                if (MushafTotalCountPerVerseDifference[Waaw].TryGetValue(GetDifferencesKeyForTanzil(verse.Id), out var totalCount))
+                if (MushafTotalCountPerVerseDifference[Waw].TryGetValue(GetDifferencesKeyForTanzil(verse.Id), out var totalCount))
                 {
                     return totalCount;
                 }
