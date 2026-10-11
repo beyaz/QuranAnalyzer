@@ -5,15 +5,15 @@ public static class Analyzer
     public const char Hamza = 'ء';
     public const char HamzaAbove = 'ٔ';
 
-    public static IReadOnlyList<LetterInfo> AnalyzeText(string line, bool isHemzeActive = true)
+    public static IReadOnlyList<LetterInfo> AnalyzeText(string line, bool isHamzaActive = true)
     {
         return [.. line.Select((c, i) =>
         {
-            return GetLetterInfo(c, isHemzeActive) with { StartIndex = i };
+            return GetLetterInfo(c, isHamzaActive) with { StartIndex = i };
         })];
     }
 
-    public static LetterInfo GetLetterInfo(char c, bool isHemzeActive)
+    public static LetterInfo GetLetterInfo(char c, bool isHamzaActive)
     {
         // elif
         if (c is 'ا' or 'ٱ' or 'إ' or 'أ' or 'ﺍ')
@@ -27,7 +27,7 @@ public static class Analyzer
         }
 
         // elif
-        if (isHemzeActive)
+        if (isHamzaActive)
         {
             if (c is Hamza or HamzaAbove)
             {
