@@ -47,7 +47,7 @@ public class CharacterCountingTests
     public void Chapter_13()
     {
         CountShouldBe("13:*", Raa, 137);
-        CountShouldBe("13:*", Miim, 260);
+        CountShouldBe("13:*", Meem, 260);
         CountShouldBe("13:*", Lam, 480);
         CountShouldBe("13:*", Alef, AlefAccordingToTanzil, 610);
         CountShouldBe("13:*", Alef, 605);
@@ -84,7 +84,7 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_2()
     {
-        CountShouldBe("2:*", Miim, 2195);
+        CountShouldBe("2:*", Meem, 2195);
         CountShouldBe("2:*", Lam, 3202);
         CountShouldBe("2:*", Alef, AlefAccordingToTanzil, 4504);
         CountShouldBe("2:*", Alef, 4502);
@@ -105,14 +105,14 @@ public class CharacterCountingTests
         CountShouldBe("27:*", Siin, 94);
         CountShouldBe("28:*", Siin, 102);
 
-        CountShouldBe("26:*", Miim, 484);
-        CountShouldBe("28:*", Miim, 460);
+        CountShouldBe("26:*", Meem, 484);
+        CountShouldBe("28:*", Meem, 460);
     }
 
     [TestMethod]
     public void Chapter_3()
     {
-        CountShouldBe("3:*", Miim, 1249);
+        CountShouldBe("3:*", Meem, 1249);
         CountShouldBe("3:*", Lam, 1892);
         CountShouldBe("3:*", Alef, AlefAccordingToTanzil, 2511);
         CountShouldBe("3:*", Alef, 2521);
@@ -129,7 +129,7 @@ public class CharacterCountingTests
     public void Chapter_40_41_42_43_44_45_46_Ha_Mim()
     {
         CountShouldBe("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Hah, 292);
-        CountShouldBe("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Miim, 1855);
+        CountShouldBe("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Meem, 1855);
     }
 
     [TestMethod]
@@ -157,7 +157,7 @@ public class CharacterCountingTests
         CountShouldBe("7:*", Saad, 97);
         CountShouldBe("7:*", Saad, new MushafOption { Use_Sad_in_Surah_7_Verse_69_in_word_bestaten = true }, 98);
 
-        CountShouldBe("7:*", Miim, 1164);
+        CountShouldBe("7:*", Meem, 1164);
         CountShouldBe("7:*", Lam, 1530);
         CountShouldBe("7:*", Alef, AlefAccordingToTanzil, 2521);
         CountShouldBe("7:*", Alef, 2529);
@@ -179,10 +179,10 @@ public class CharacterCountingTests
         CountShouldBe("45:*", Hah, 31);
         CountShouldBe("46:*", Hah, 36);
 
-        CountShouldBe("40:*", Miim, 380);
-        CountShouldBe("44:*", Miim, 150);
-        CountShouldBe("45:*", Miim, 200);
-        CountShouldBe("46:*", Miim, 225);
+        CountShouldBe("40:*", Meem, 380);
+        CountShouldBe("44:*", Meem, 150);
+        CountShouldBe("45:*", Meem, 200);
+        CountShouldBe("46:*", Meem, 225);
     }
 
     [TestMethod]

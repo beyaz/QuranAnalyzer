@@ -191,7 +191,7 @@ public class WordSearchingTests
 
             response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Miim);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Meem);
             response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Qaaf);
         }
 
@@ -205,7 +205,7 @@ public class WordSearchingTests
 
             response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Miim);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Meem);
             response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Qaaf);
         }
 
