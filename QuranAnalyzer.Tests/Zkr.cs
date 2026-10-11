@@ -6,27 +6,18 @@ namespace QuranAnalyzer;
 [TestClass]
 public class Zkr
 {
-    static IReadOnlyList<LetterInfo> FullName = AnalyzeText("");
-
-    
-   
-
     [TestMethod]
-    public void ___A()
+    public void Pages()
     {
-        var input = new
-        {
-            LatinText = "berker yörgüç",
-
-            LatinCharToArabicCharMap
-        };
-
-        IReadOnlyList<LetterInfo> searchLetters =
+        IReadOnlyList<LetterInfo> fullName =
         [
-            .. from c in input.LatinText.ToCharArray()
-               let map = GetLatinCharToArabicCharMap(input.LatinCharToArabicCharMap)
-               where map.ContainsKey(c) && map[c].IsArabic
-               select map[c]
+            Letter.Beh, Letter.Reh, Letter.Kaf, Letter.Reh,
+            Letter.Yeh, Letter.Waw, Letter.Reh, Letter.Kaf, Letter.Waw, Letter.Jeem
+        ];
+
+        IReadOnlyList<LetterInfo> brk =
+        [
+            Letter.Beh, Letter.Reh, Letter.Kaf
         ];
 
         // Page: 41
@@ -42,24 +33,24 @@ public class Zkr
 
             {
                 var searchWord = AnalyzeText("الْمرْسلِي");
-                
+
                 var query =
-                    from verse in Filter(x => true)
-                    from range in  verse.GetStartAndEndPointsOfStartsWithWords(searchWord)
+                    from verse in Filter(_ => true)
+                    from range in verse.GetStartAndEndPointsOfStartsWithWords(searchWord)
                     where range.start.NumericValue >= 0
                     from letter in verse.TextLetters
-                    select new[]{ArabicLetter.Beh, ArabicLetter.Reh, ArabicLetter.Kaf }.Select(x => AnalyzeText(x.ToString())[0]).Count(x => IsSame(x, letter));
+                    select brk.Count(x => IsSame(x, letter));
 
                 query.Sum().ShouldBe(114);
             }
         }
-        
+
         // 19:* should be 109 * 17
         {
             var query =
                 from verse in Filter(x => x.ChapterNumber == 19)
                 from letter in verse.TextLetters
-                select searchLetters.Count(x => IsSame(x, letter));
+                select fullName.Count(x => IsSame(x, letter));
 
             query.Sum().ShouldBe(109 * 17);
         }
@@ -69,7 +60,7 @@ public class Zkr
             var query =
                 from verse in Filter(x => x.VerseNumber == 19)
                 from letter in verse.TextLetters
-                select searchLetters.Count(x => IsSame(x, letter));
+                select fullName.Count(x => IsSame(x, letter));
 
             query.Sum().ShouldBe(114 * 17);
         }
@@ -79,7 +70,7 @@ public class Zkr
             var query =
                 from verse in Filter(x => x.ChapterNumber == 19 && x.VerseNumber == 19)
                 from letter in verse.TextLetters
-                select searchLetters.Count(x => IsSame(x, letter));
+                select fullName.Count(x => IsSame(x, letter));
 
             query.Sum().ShouldBe(17);
         }
@@ -87,7 +78,7 @@ public class Zkr
         // Numeric value should be 667
         {
             var query =
-                from letter in searchLetters
+                from letter in fullName
                 select letter.NumericValue;
 
             query.Sum().ShouldBe(667);
@@ -96,7 +87,7 @@ public class Zkr
         // order value should be 109
         {
             var query =
-                from letter in searchLetters
+                from letter in fullName
                 select letter.OrderValue;
 
             query.Sum().ShouldBe(109);
