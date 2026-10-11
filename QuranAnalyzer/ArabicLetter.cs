@@ -48,7 +48,7 @@ public static class ArabicLetterOrder
     public const int Tah  = 9;
     public const int Yeh   = 10;
     public const int Kaf  = 11;
-    public const int Laam  = 12;
+    public const int Lam  = 12;
     public const int Miim  = 13;
     public const int Nun   = 14;
     public const int Siin  = 15;

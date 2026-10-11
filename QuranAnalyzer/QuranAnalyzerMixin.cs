@@ -56,7 +56,7 @@ public static class QuranAnalyzerMixin
         },
 
         {
-            Laam, new()
+            Lam, new()
             {
                 // Chapter 11
                 { GetDifferencesKeyForTanzil("11:70"), 9 },
@@ -344,11 +344,11 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterOrder == Laam)
+        if (arabicLetterOrder == Lam)
         {
             if (option.Use_Laam_SpecifiedByTanzil == false)
             {
-                if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
+                if (MushafTotalCountPerVerseDifference[Lam].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
                 {
                     return totalCount;
                 }

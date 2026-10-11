@@ -9,9 +9,9 @@ class PageInitialLettersView : ReactPureComponent
         ("Ya Sin", typeof(InitialLetterGroup_Chapter36_YaSin)),
         ("Ayn Sin Kaf", typeof(InitialLetterGroup_Chapter42_AinSinKaf)),
         ("Meryem", typeof(InitialLetterGroup_Chapter19)),
-        ("Elif Lam Mim", typeof(InitialLetterGroup_Alef_Laam_Miim)),
-        ("Elif Lam Ra", typeof(InitialLetterGroup_Alef_Laam_Raa)),
-        ("Elif Lam Mim Sad", typeof(InitialLetterGroup_Alef_Laam_Miim_Sad)),
+        ("Elif Lam Mim", typeof(InitialLetterGroup_Alef_Lam_Miim)),
+        ("Elif Lam Ra", typeof(InitialLetterGroup_Alef_Lam_Raa)),
+        ("Elif Lam Mim Sad", typeof(InitialLetterGroup_Alef_Lam_Miim_Sad)),
         ("Elif Lam Mim Ra", typeof(InitialLetterGroup_Alef_Laam_Miim_Ra)),
 
         ("Saad", typeof(InitialLetterGroup_Saad)),

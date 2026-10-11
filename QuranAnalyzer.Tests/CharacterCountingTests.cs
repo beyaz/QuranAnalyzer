@@ -19,7 +19,7 @@ public class CharacterCountingTests
     public void Chapter_10()
     {
         CountShouldBe("10:*", Raa, 257);
-        CountShouldBe("10:*", Laam, 913);
+        CountShouldBe("10:*", Lam, 913);
         CountShouldBe("10:*", Alef, AlefAccordingToTanzil, 1323);
         CountShouldBe("10:*", Alef, 1319);
     }
@@ -28,8 +28,8 @@ public class CharacterCountingTests
     public void Chapter_11()
     {
         CountShouldBe("11:*", Raa, 325);
-        CountShouldBe("11:*", Laam, new MushafOption { Use_Laam_SpecifiedByTanzil = true }, 795);
-        CountShouldBe("11:*", Laam, 794);
+        CountShouldBe("11:*", Lam, new MushafOption { Use_Laam_SpecifiedByTanzil = true }, 795);
+        CountShouldBe("11:*", Lam, 794);
         CountShouldBe("11:*", Alef, AlefAccordingToTanzil, 1373);
         CountShouldBe("11:*", Alef, 1370);
     }
@@ -38,7 +38,7 @@ public class CharacterCountingTests
     public void Chapter_12()
     {
         CountShouldBe("12:*", Raa, 257);
-        CountShouldBe("12:*", Laam, 812);
+        CountShouldBe("12:*", Lam, 812);
         CountShouldBe("12:*", Alef, AlefAccordingToTanzil, 1315);
         CountShouldBe("12:*", Alef, 1306);
     }
@@ -48,7 +48,7 @@ public class CharacterCountingTests
     {
         CountShouldBe("13:*", Raa, 137);
         CountShouldBe("13:*", Miim, 260);
-        CountShouldBe("13:*", Laam, 480);
+        CountShouldBe("13:*", Lam, 480);
         CountShouldBe("13:*", Alef, AlefAccordingToTanzil, 610);
         CountShouldBe("13:*", Alef, 605);
     }
@@ -57,7 +57,7 @@ public class CharacterCountingTests
     public void Chapter_14()
     {
         CountShouldBe("14:*", Raa, 160);
-        CountShouldBe("14:*", Laam, 452);
+        CountShouldBe("14:*", Lam, 452);
         CountShouldBe("14:*", Alef, AlefAccordingToTanzil, 589);
         CountShouldBe("14:*", Alef, 585);
     }
@@ -66,7 +66,7 @@ public class CharacterCountingTests
     public void Chapter_15()
     {
         CountShouldBe("15:*", Raa, 96);
-        CountShouldBe("15:*", Laam, 323);
+        CountShouldBe("15:*", Lam, 323);
         CountShouldBe("15:*", Alef, AlefAccordingToTanzil, 493);
         CountShouldBe("15:*", Alef, 493);
     }
@@ -85,7 +85,7 @@ public class CharacterCountingTests
     public void Chapter_2()
     {
         CountShouldBe("2:*", Miim, 2195);
-        CountShouldBe("2:*", Laam, 3202);
+        CountShouldBe("2:*", Lam, 3202);
         CountShouldBe("2:*", Alef, AlefAccordingToTanzil, 4504);
         CountShouldBe("2:*", Alef, 4502);
     }
@@ -113,7 +113,7 @@ public class CharacterCountingTests
     public void Chapter_3()
     {
         CountShouldBe("3:*", Miim, 1249);
-        CountShouldBe("3:*", Laam, 1892);
+        CountShouldBe("3:*", Lam, 1892);
         CountShouldBe("3:*", Alef, AlefAccordingToTanzil, 2511);
         CountShouldBe("3:*", Alef, 2521);
     }
@@ -158,7 +158,7 @@ public class CharacterCountingTests
         CountShouldBe("7:*", Saad, new MushafOption { Use_Sad_in_Surah_7_Verse_69_in_word_bestaten = true }, 98);
 
         CountShouldBe("7:*", Miim, 1164);
-        CountShouldBe("7:*", Laam, 1530);
+        CountShouldBe("7:*", Lam, 1530);
         CountShouldBe("7:*", Alef, AlefAccordingToTanzil, 2521);
         CountShouldBe("7:*", Alef, 2529);
     }

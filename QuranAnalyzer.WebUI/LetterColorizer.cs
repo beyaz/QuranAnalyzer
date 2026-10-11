@@ -139,13 +139,13 @@ static class LetterColorizer
             }
         }
 
-        if (arabicLetterOrder == Laam)
+        if (arabicLetterOrder == Lam)
         {
             if (!mushafOption.Use_Laam_SpecifiedByTanzil)
             {
-                if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
+                if (MushafTotalCountPerVerseDifference[Lam].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Laam].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Lam].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {

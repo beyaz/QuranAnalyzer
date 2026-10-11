@@ -2,7 +2,7 @@
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
-class InitialLetterGroup_Alef_Laam_Miim : InitialLetterGroup
+class InitialLetterGroup_Alef_Lam_Miim : InitialLetterGroup
 {
     protected override Element render()
     {
