@@ -346,7 +346,7 @@ public static class QuranAnalyzerMixin
 
         if (arabicLetterOrder == Lam)
         {
-            if (option.Use_Laam_SpecifiedByTanzil == false)
+            if (option.Use_Lam_SpecifiedByTanzil == false)
             {
                 if (MushafTotalCountPerVerseDifference[Lam].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
                 {

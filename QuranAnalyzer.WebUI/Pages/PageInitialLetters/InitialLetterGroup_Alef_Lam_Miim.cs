@@ -217,11 +217,11 @@ class InitialLetterGroup_Alef_Lam_Miim : InitialLetterGroup
 
     static string Id(int chapterNumber, char letter)
     {
-        return $"Alef_Laam_Miim-{chapterNumber}-{letter}";
+        return $"Alef_Lam_Miim-{chapterNumber}-{letter}";
     }
 
     static string IdOfCountingResult(int chapterNumber)
     {
-        return $"Alef_Laam_Miim-{chapterNumber}";
+        return $"Alef_Lam_Miim-{chapterNumber}";
     }
 }

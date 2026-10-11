@@ -141,7 +141,7 @@ static class LetterColorizer
 
         if (arabicLetterOrder == Lam)
         {
-            if (!mushafOption.Use_Laam_SpecifiedByTanzil)
+            if (!mushafOption.Use_Lam_SpecifiedByTanzil)
             {
                 if (MushafTotalCountPerVerseDifference[Lam].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {

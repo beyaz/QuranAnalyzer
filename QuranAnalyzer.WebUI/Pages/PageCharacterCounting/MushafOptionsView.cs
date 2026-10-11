@@ -65,10 +65,10 @@ sealed class MushafOptionsView : ReactComponent<MushafOption>
             {
                 Label         = "11:70 ve 30:21 surelerdeki Lam harf farklılığında Tanzil.neti tercih et",
                 LabelMaxWidth = 250,
-                Value         = state.Use_Laam_SpecifiedByTanzil,
+                Value         = state.Use_Lam_SpecifiedByTanzil,
                 ValueChange = (changeEvent,_) =>
                 {
-                    state.Use_Laam_SpecifiedByTanzil = Convert.ToBoolean(changeEvent.target.value);
+                    state.Use_Lam_SpecifiedByTanzil = Convert.ToBoolean(changeEvent.target.value);
                     FireMushafOptionChanged();
                     return Task.CompletedTask;
                 }
