@@ -88,11 +88,17 @@ public static class Letter
     public static readonly LetterInfo Beh  = new (){ Letter = ArabicLetter.Beh, OrderValue = 2, NumericValue = 2};
     public static readonly LetterInfo Jeem  = new (){ Letter = ArabicLetter.Jeem, OrderValue = 3, NumericValue = 3};
     public static readonly LetterInfo Dal  = new (){ Letter = ArabicLetter.Dal, OrderValue = 4, NumericValue = 4};
-    public static readonly LetterInfo Dal  = new (){ Letter = ArabicLetter.Dal, OrderValue = 4, NumericValue = 4};
     
-    public const char Heh  = 'ه';
-    public const char Waw  = 'و';
-    public const char Zain   = 'ز';
+    public static readonly LetterInfo Heh  = new (){ Letter = ArabicLetter.Heh, OrderValue = 5, NumericValue = 5};
+    public static readonly LetterInfo HehMarbuta  = new (){ Letter = 'ة', OrderValue = 5, NumericValue = 5};
+    
+    public static readonly LetterInfo Waw  = new (){ Letter = ArabicLetter.Waw, OrderValue = 6, NumericValue = 6};
+    public static readonly LetterInfo Gaf  = new (){ Letter = 'ٯ', OrderValue = 6, NumericValue = 6};
+    public static readonly LetterInfo WawWithHamzaAbove  = new (){ Letter = 'ؤ', OrderValue = 6, NumericValue = 6};
+   
+    public static readonly LetterInfo Zain  = new (){ Letter = ArabicLetter.Zain, OrderValue = 7, NumericValue = 7};
+   
+   
     public const char Hah   = 'ح';
     public const char Tah  = 'ط';
     public const char Yeh   = 'ي';
