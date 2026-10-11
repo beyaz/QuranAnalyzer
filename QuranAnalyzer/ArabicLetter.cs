@@ -124,11 +124,14 @@ public static class Letter
     // 16
     public static readonly LetterInfo Ain  = new (){ Letter = ArabicLetter.Ain, OrderValue = 16, NumericValue = 70};
     
+    // 17
+    public static readonly LetterInfo Feh  = new (){ Letter = ArabicLetter.Feh, OrderValue = 17, NumericValue = 80};
+    
+    // 18
+    public static readonly LetterInfo Sad  = new (){ Letter = ArabicLetter.Sad, OrderValue = 18, NumericValue = 90};
+    
+    
 
-
-
-    public const char Feh   = 'ف';
-    public const char Sad  = 'ص';
     public const char Qaf  = 'ق';
     public const char Reh   = 'ر';
     public const char Sheen = 'ش';
