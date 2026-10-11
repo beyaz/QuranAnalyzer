@@ -63,7 +63,7 @@ static class Extensions
     {
         if (ArabicLetter.Alef == arabicLetter) return ArabicLetterTurkishPronunciation.Alef;
         if (ArabicLetter.Beh == arabicLetter) return ArabicLetterTurkishPronunciation.Beh;
-        if (ArabicLetter.Teh == arabicLetter) return ArabicLetterTurkishPronunciation.Taa;
+        if (ArabicLetter.Teh == arabicLetter) return ArabicLetterTurkishPronunciation.Teh;
         if (ArabicLetter.Theh == arabicLetter) return ArabicLetterTurkishPronunciation.Thaa;
         if (ArabicLetter.Jeem == arabicLetter) return ArabicLetterTurkishPronunciation.Jeem;
         if (ArabicLetter.Hah == arabicLetter) return ArabicLetterTurkishPronunciation.Hah;
