@@ -112,9 +112,13 @@ public static class Letter
     // 12
     public static readonly LetterInfo Lam  = new (){ Letter = ArabicLetter.Lam, OrderValue = 12, NumericValue = 30};
     
+    // 13
+    public static readonly LetterInfo Meem  = new (){ Letter = ArabicLetter.Meem, OrderValue = 13, NumericValue = 40};
     
-    public const char Meem  = 'م';
-    public const char Noon   = 'ن';
+    // 14
+    public static readonly LetterInfo Noon  = new (){ Letter = ArabicLetter.Noon, OrderValue = 14, NumericValue = 50};
+
+
     public const char Seen  = 'س';
     public const char Ain   = 'ع';
     public const char Feh   = 'ف';
