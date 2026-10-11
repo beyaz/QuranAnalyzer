@@ -20,7 +20,7 @@ class PageInitialLettersView : ReactPureComponent
         ("Ha Mim 3", typeof(InitialLetterGroup_HaMimAll)),
         ("Ta Sin Mim He", typeof(InitialLetterGroup_TaSinMim)),
 
-        ("Nun", typeof(InitialLetterGroup_NunWawNun))
+        ("Nun", typeof(InitialLetterGroup_NoonWawNoon))
     ];
 
     int SelectedTabIndex

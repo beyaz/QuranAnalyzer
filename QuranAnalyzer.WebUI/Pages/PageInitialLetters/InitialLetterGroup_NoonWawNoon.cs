@@ -2,7 +2,7 @@
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
-class InitialLetterGroup_NunWawNun : InitialLetterGroup
+class InitialLetterGroup_NoonWawNoon : InitialLetterGroup
 {
     static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 7, SearchScript = GetLetterCountingScript("68:*", Noon) };
 

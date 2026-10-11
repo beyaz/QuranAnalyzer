@@ -52,10 +52,10 @@ sealed class MushafOptionsView : ReactComponent<MushafOption>
             {
                 Label         = "68:1 tek nun olarak say",
                 LabelMaxWidth = 250,
-                Value         = state.Chapter_68_Should_Single_Nun,
+                Value         = state.Chapter_68_Should_Single_Noon,
                 ValueChange = (changeEvent,_) =>
                 {
-                    state.Chapter_68_Should_Single_Nun = Convert.ToBoolean(changeEvent.target.value);
+                    state.Chapter_68_Should_Single_Noon = Convert.ToBoolean(changeEvent.target.value);
                     FireMushafOptionChanged();
                     return Task.CompletedTask;
                 }

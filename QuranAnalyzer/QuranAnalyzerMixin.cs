@@ -16,7 +16,7 @@ public static class QuranAnalyzerMixin
     public static readonly IReadOnlyDictionary<int, Dictionary<string, int>> MushafTotalCountPerVerseDifference = new Dictionary<int, Dictionary<string, int>>
     {
         {
-            Nun, new()
+            Noon, new()
             {
                 // Chapter 68
                 { GetDifferencesKeyForTanzil("68:1"), 3 },
@@ -355,18 +355,18 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterOrder == Nun)
+        if (arabicLetterOrder == Noon)
         {
-            if (option.Chapter_68_Should_Single_Nun == false)
+            if (option.Chapter_68_Should_Single_Noon == false)
             {
-                if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
+                if (MushafTotalCountPerVerseDifference[Noon].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
                 {
                     return totalCount;
                 }
             }
             else
             {
-                if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForTanzil(verse.Id), out var totalCount))
+                if (MushafTotalCountPerVerseDifference[Noon].TryGetValue(GetDifferencesKeyForTanzil(verse.Id), out var totalCount))
                 {
                     return totalCount;
                 }
@@ -375,7 +375,7 @@ public static class QuranAnalyzerMixin
 
         if (arabicLetterOrder == Waw)
         {
-            if (option.Chapter_68_Should_Single_Nun == false)
+            if (option.Chapter_68_Should_Single_Noon == false)
             {
                 if (MushafTotalCountPerVerseDifference[Waw].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
                 {

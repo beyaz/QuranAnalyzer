@@ -50,7 +50,7 @@ public static class ArabicLetterOrder
     public const int Kaf  = 11;
     public const int Lam  = 12;
     public const int Meem  = 13;
-    public const int Nun   = 14;
+    public const int Noon   = 14;
     public const int Siin  = 15;
     public const int Ayn   = 16;
     public const int Faa   = 17;

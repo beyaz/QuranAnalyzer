@@ -5,7 +5,7 @@ public sealed class MushafOption
 {
     public bool _75_13_yunebbeu_Should_Contains_1_waw { get; set; }
 
-    public bool Chapter_68_Should_Single_Nun { get; set; }
+    public bool Chapter_68_Should_Single_Noon { get; set; }
 
     public bool Enba_u_Should_Contains_one_waw { get; set; }
 

@@ -196,13 +196,13 @@ static class LetterColorizer
             }
         }
 
-        if (arabicLetterOrder == Nun)
+        if (arabicLetterOrder == Noon)
         {
-            if (!mushafOption.Chapter_68_Should_Single_Nun)
+            if (!mushafOption.Chapter_68_Should_Single_Noon)
             {
-                if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
+                if (MushafTotalCountPerVerseDifference[Noon].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Nun].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Noon].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {
@@ -217,7 +217,7 @@ static class LetterColorizer
 
         if (arabicLetterOrder == Waw)
         {
-            if (!mushafOption.Chapter_68_Should_Single_Nun)
+            if (!mushafOption.Chapter_68_Should_Single_Noon)
             {
                 if (MushafTotalCountPerVerseDifference[Waw].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {

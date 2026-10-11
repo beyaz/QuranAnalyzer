@@ -171,7 +171,7 @@ public class WordSearchingTests
     }
 
     [TestMethod]
-    public void EndsWithNunVavNun()
+    public void EndsWithNoonWawNoon()
     {
         var nunVavNun = AnalyzeText("نون");
 
@@ -234,8 +234,8 @@ public class WordSearchingTests
 
             response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
-            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Noon);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Noon);
         }
 
         // " abcd".StartsWith("abc")
@@ -248,8 +248,8 @@ public class WordSearchingTests
 
             response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
-            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Noon);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Noon);
         }
 
         // " abc".StartsWith("abcd")
@@ -273,8 +273,8 @@ public class WordSearchingTests
 
             response.HasValue.ShouldBeTrue();
 
-            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
-            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Nun);
+            response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Noon);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Noon);
         }
     }
 
