@@ -12,7 +12,7 @@ public class CharacterCountingTests
     [TestMethod]
     public void AnalyzeVerseTest()
     {
-        CountShouldBe("*", Daad, 1686);
+        CountShouldBe("*", Dad, 1686);
     }
 
     [TestMethod]
