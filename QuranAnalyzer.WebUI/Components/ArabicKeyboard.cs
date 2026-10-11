@@ -23,7 +23,7 @@ class ArabicKeyboard : ReactPureComponent
         LetterToElement(ArabicLetter.Zah, ArabicLetterTurkishPronunciation.Zaa),
         LetterToElement(ArabicLetter.Ain, ArabicLetterTurkishPronunciation.Ain),
         LetterToElement(ArabicLetter.Ghain, ArabicLetterTurkishPronunciation.Ghayn),
-        LetterToElement(ArabicLetter.Feh, ArabicLetterTurkishPronunciation.Faa),
+        LetterToElement(ArabicLetter.Feh, ArabicLetterTurkishPronunciation.Feh),
         LetterToElement(ArabicLetter.Qaf, ArabicLetterTurkishPronunciation.Qaaf),
         LetterToElement(ArabicLetter.Kaf, ArabicLetterTurkishPronunciation.Kaf),
         LetterToElement(ArabicLetter.Lam, ArabicLetterTurkishPronunciation.Lam),
@@ -67,7 +67,7 @@ static class ArabicLetterTurkishPronunciation
     public const string Zaa = "zı";
     public const string Ain = "ayn";
     public const string Ghayn = "ghayn";
-    public const string Faa = "fe";
+    public const string Feh = "fe";
     public const string Qaaf = "kaf";
     public const string Kaf = "kef";
     public const string Lam = "lam";
