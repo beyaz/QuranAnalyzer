@@ -228,7 +228,7 @@ class PageChapterNameContainsSAD : ReactComponent<PageChapterNameContainsSAD.Sta
         var searchLetters = AnalyzeText(searchLettersAsString).Select(letter => letter.OrderValue).ToArray();
 
         //var chapterNumbers = new[] { 42, 50 };
-        //var searchLetters = new[] { ArabicLetterOrder.Qaaf };
+        //var searchLetters = new[] { ArabicLetterOrder.Qaf };
 
         var sharedStyle = Border(Solid(1, "black")) + BorderCollapseCollapse+ TextAlignCenter + Padding(5);
 

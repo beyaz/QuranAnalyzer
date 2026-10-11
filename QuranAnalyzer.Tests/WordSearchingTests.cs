@@ -192,7 +192,7 @@ public class WordSearchingTests
             response.HasValue.ShouldBeTrue();
 
             response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Meem);
-            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Qaaf);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Qaf);
         }
 
         // "dabc".EndsWith("abc")
@@ -206,7 +206,7 @@ public class WordSearchingTests
             response.HasValue.ShouldBeTrue();
 
             response!.Value.start.OrderValue.ShouldBe(ArabicLetterOrder.Meem);
-            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Qaaf);
+            response!.Value.end.OrderValue.ShouldBe(ArabicLetterOrder.Qaf);
         }
 
         // "abc".EndsWith("abcd")

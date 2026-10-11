@@ -33,7 +33,7 @@ class ViewSurahVerseCountsAsVisual: ReactComponent
                 //},
                 new div
                 {
-                    Height( getCountInChapter(chapter,[ArabicLetterOrder.Qaaf])),Width(2), Background(Red600)
+                    Height( getCountInChapter(chapter,[ArabicLetterOrder.Qaf])),Width(2), Background(Red600)
                 }
             });
         }

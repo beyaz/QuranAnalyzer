@@ -4,8 +4,8 @@ class PageInitialLettersView : ReactPureComponent
 {
     static readonly List<(string TabHeader, Type contenType)> Tabs =
     [
-        ("Kaf 1", typeof(InitialLetterGroup_Qaaf_50)),
-        ("Kaf 2", typeof(InitialLetterGroup_Qaaf_42)),
+        ("Kaf 1", typeof(InitialLetterGroup_Qaf_50)),
+        ("Kaf 2", typeof(InitialLetterGroup_Qaf_42)),
         ("Ya Sin", typeof(InitialLetterGroup_Chapter36_YehSeen)),
         ("Ayn Sin Kaf", typeof(InitialLetterGroup_Chapter42_AinSeenKaf)),
         ("Meryem", typeof(InitialLetterGroup_Chapter19)),

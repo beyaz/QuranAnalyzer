@@ -135,13 +135,13 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_42()
     {
-        CountShouldBe("42:*", Qaaf, 57);
+        CountShouldBe("42:*", Qaf, 57);
     }
 
     [TestMethod]
     public void Chapter_50()
     {
-        CountShouldBe("50:*", Qaaf, 57);
+        CountShouldBe("50:*", Qaf, 57);
     }
 
     [TestMethod]
@@ -190,7 +190,7 @@ public class CharacterCountingTests
     {
         CountShouldBe("42:*", Ain, 98);
         CountShouldBe("42:*", Seen, 54);
-        CountShouldBe("42:*", Qaaf, 57);
+        CountShouldBe("42:*", Qaf, 57);
     }
 
     static void CountShouldBe(string searchScript, int arabicLetterOrder, int expectedCount)

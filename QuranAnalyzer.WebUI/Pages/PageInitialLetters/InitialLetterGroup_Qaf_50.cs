@@ -2,11 +2,11 @@
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
-class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
+class InitialLetterGroup_Qaf_50 : InitialLetterGroup
 {
-    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 3, SearchScript = GetLetterCountingScript("42:*", Qaf) };
+    static Element countingResult => new CountingResult { id = IdOfCountingResult, MultipleOf = 3, SearchScript = GetLetterCountingScript("50:*", Qaf) };
 
-    static string IdOfCountingResult => $"Qaaf_42-{nameof(IdOfCountingResult)}";
+    static string IdOfCountingResult => $"Qaf_50-{nameof(IdOfCountingResult)}";
 
     protected override Element render()
     {
@@ -22,13 +22,13 @@ class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
                     {
                         new td
                         {
-                            new Chapter { ChapterNumber = 42, ChapterName = "Şura" }
+                            new Chapter { ChapterNumber = 50, ChapterName = "Kaf" }
                         },
                         new td
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(42, Qaf), Letter = Qaf }
+                                new InitialLetter { Id = Id(50, Qaf), Letter = Qaf }
                             }
                         },
                         new td
@@ -48,19 +48,18 @@ class InitialLetterGroup_Qaaf_42 : InitialLetterGroup
 
             new Note
             {
-                "42. surede yine ", AsLetter(Qaf), " başlangıç harfi vardır.",
-                " Bu surede toplamda ", 57.AsMultipleOf19(), " adet ", AsLetter(Qaf), " harfi vardır.",
-                br, br,
-                "Kuranda ", AsLetter(Qaf), " başlangıç harfi içeren iki tane sure vardır.",
-                "  Bu iki sure de kendi içlerinde eşit sayıda yani ", 57.AsMultipleOf19(), " adet ", AsLetter(Qaf), " harfi içerir."
+                "Kuranda 50. surenin adı  'Kaf Suresi' dir. Surenin başında sadece bir tane ", AsLetter(Qaf), " harfi vardır.",
+
+                " Bu surede toplamda ", 57.AsMultipleOf19(), " tane ", AsLetter(Qaf), " harfi içerir.",
+                " İsterseniz incele linkine tıklayarak bu sayımları kendiniz yapabilirsiniz."
             },
 
-            new Arrow { start = Id(42, Qaf), end = IdOfCountingResult, StartAnchorFromRight = true }
+            new Arrow { start = Id(50, Qaf), end = IdOfCountingResult, StartAnchorFromRight = true }
         };
     }
 
     static string Id(int chapterNumber, char letter)
     {
-        return $"Qaaf_42-{chapterNumber}-{letter}";
+        return $"Qaf_50-{chapterNumber}-{letter}";
     }
 }
