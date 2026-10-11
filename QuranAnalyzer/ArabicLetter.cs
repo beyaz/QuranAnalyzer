@@ -97,10 +97,11 @@ public static class Letter
     public static readonly LetterInfo WawWithHamzaAbove  = new (){ Letter = 'ؤ', OrderValue = 6, NumericValue = 6};
    
     public static readonly LetterInfo Zain  = new (){ Letter = ArabicLetter.Zain, OrderValue = 7, NumericValue = 7};
+    public static readonly LetterInfo Hah  = new (){ Letter = ArabicLetter.Hah, OrderValue = 8, NumericValue = 8};
+ 
+    public static readonly LetterInfo Tah  = new (){ Letter = ArabicLetter.Tah, OrderValue = 9, NumericValue = 9};
+    
    
-   
-    public const char Hah   = 'ح';
-    public const char Tah  = 'ط';
     public const char Yeh   = 'ي';
     public const char Kaf  = 'ك';
     public const char Lam  = 'ل';
