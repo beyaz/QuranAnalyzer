@@ -70,11 +70,26 @@ public static class ArabicLetterOrder
 
 public static class Letter
 {
+   
     // @formatter:off
+    
+    public static IReadOnlyList<LetterInfo> All
+    {
+        get
+        {
+            return field ??= 
+            [
+                Beh
+            ];
+        }
+    }
+    
     public const char Alef  = 'ا';
     public static readonly LetterInfo Beh  = new (){ Letter = ArabicLetter.Beh, OrderValue = 2, NumericValue = 2};
-    public const char Jeem  = 'ج';
-    public const char Dal  = 'د';
+    public static readonly LetterInfo Jeem  = new (){ Letter = ArabicLetter.Jeem, OrderValue = 3, NumericValue = 3};
+    public static readonly LetterInfo Dal  = new (){ Letter = ArabicLetter.Dal, OrderValue = 4, NumericValue = 4};
+    public static readonly LetterInfo Dal  = new (){ Letter = ArabicLetter.Dal, OrderValue = 4, NumericValue = 4};
+    
     public const char Heh  = 'ه';
     public const char Waw  = 'و';
     public const char Zain   = 'ز';

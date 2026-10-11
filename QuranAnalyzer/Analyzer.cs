@@ -40,38 +40,17 @@ public static class Analyzer
             }
         }
 
-        // be
-        if (c == 'ب')
+        foreach (var letter in Letter.All)
         {
-            return new()
+            if (letter.Letter == c)
             {
-                Letter       = c,
-                NumericValue = 2,
-                OrderValue   = 2
-            };
+                return letter;
+            }
         }
+        
+        
 
-        // cim
-        if (c == 'ج' || c == 'ج')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 3,
-                OrderValue   = 3
-            };
-        }
-
-        // dal
-        if (c == 'د')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 4,
-                OrderValue   = 4
-            };
-        }
+        
 
         // he
         if (c == 'ه' || c == 'ة')
