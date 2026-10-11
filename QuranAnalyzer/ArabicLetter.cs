@@ -79,7 +79,34 @@ public static class Letter
         {
             return field ??= 
             [
-                Beh
+                Alef, Alef_Wasla, Alef_With_Hamza_Below, Alef_With_Hamza_Above, Alef_Isolated_Form,
+                Beh,
+                Jeem,
+                Dal,
+                Heh, Heh_Marbuta,
+                Waw, Waw_Gaf, Waw_With_Hamza_Above,
+                Zain,
+                Hah,
+                Tah,
+                Yeh, Yeh_Alef_Maksura, Yeh_With_Hamza_Above,
+                Kaf,
+                Lam,
+                Meem,
+                Noon,
+                Seen,
+                Ain,
+                Feh,
+                Sad,
+                Qaf,
+                Reh,
+                Sheen,
+                Teh,
+                The,
+                Khah,
+                Thal,
+                Dad,
+                Zah,
+                Ghain
             ];
         }
     }
@@ -106,7 +133,7 @@ public static class Letter
     
     // 6
     public static readonly LetterInfo Waw  = new (){ Letter = ArabicLetter.Waw, OrderValue = 6, NumericValue = 6};
-    public static readonly LetterInfo Gaf  = new (){ Letter = 'ٯ', OrderValue = 6, NumericValue = 6};
+    public static readonly LetterInfo Waw_Gaf  = new (){ Letter = 'ٯ', OrderValue = 6, NumericValue = 6};
     public static readonly LetterInfo Waw_With_Hamza_Above  = new (){ Letter = 'ؤ', OrderValue = 6, NumericValue = 6};
    
     // 7
