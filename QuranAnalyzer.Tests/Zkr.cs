@@ -43,6 +43,16 @@ public class Zkr
 
                 query.Sum().ShouldBe(114);
             }
+            
+            
+            {
+                var query =
+                    from verse in Filter(x => x.VerseNumber % 114 == 0)
+                    from letter in verse.TextLetters
+                    select brk.Count(x => IsSame(x, letter));
+
+                query.Sum().ShouldBe(114);
+            }
         }
 
         // 19:* should be 109 * 17
