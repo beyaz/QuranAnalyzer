@@ -120,13 +120,13 @@ static class LetterColorizer
 
         var verseId = $"{ChapterNumber}:{VerseNumber}";
 
-        if (arabicLetterOrder == Alif)
+        if (arabicLetterOrder == Alef)
         {
             if (!mushafOption.UseElifReferencesFromTanzil)
             {
-                if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
+                if (MushafTotalCountPerVerseDifference[Alef].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Alef].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {

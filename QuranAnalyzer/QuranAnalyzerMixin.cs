@@ -69,7 +69,7 @@ public static class QuranAnalyzerMixin
         },
 
         {
-            Alif, new()
+            Alef, new()
             {
                 // Chapter 2
                 { GetDifferencesKeyForTanzil("2:31"), 17 },
@@ -311,11 +311,11 @@ public static class QuranAnalyzerMixin
             throw new ArgumentNullException(nameof(option));
         }
 
-        if (arabicLetterOrder == Alif)
+        if (arabicLetterOrder == Alef)
         {
             if (option.UseElifReferencesFromTanzil == false)
             {
-                if (MushafTotalCountPerVerseDifference[Alif].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
+                if (MushafTotalCountPerVerseDifference[Alef].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
                 {
                     return totalCount;
                 }

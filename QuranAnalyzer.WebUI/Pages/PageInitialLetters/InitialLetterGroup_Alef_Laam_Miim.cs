@@ -2,7 +2,7 @@
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
-class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
+class InitialLetterGroup_Alef_Laam_Miim : InitialLetterGroup
 {
     protected override Element render()
     {
@@ -217,11 +217,11 @@ class InitialLetterGroup_Alif_Laam_Miim : InitialLetterGroup
 
     static string Id(int chapterNumber, char letter)
     {
-        return $"Alif_Laam_Miim-{chapterNumber}-{letter}";
+        return $"Alef_Laam_Miim-{chapterNumber}-{letter}";
     }
 
     static string IdOfCountingResult(int chapterNumber)
     {
-        return $"Alif_Laam_Miim-{chapterNumber}";
+        return $"Alef_Laam_Miim-{chapterNumber}";
     }
 }

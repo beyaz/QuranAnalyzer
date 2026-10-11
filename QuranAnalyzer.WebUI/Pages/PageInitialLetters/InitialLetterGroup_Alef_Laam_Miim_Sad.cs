@@ -2,7 +2,7 @@
 
 namespace QuranAnalyzer.WebUI.Pages.PageInitialLetters;
 
-class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
+class InitialLetterGroup_Alef_Laam_Miim_Sad : InitialLetterGroup
 {
     protected override Element render()
     {
@@ -18,16 +18,16 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                     {
                         new td
                         {
-                            new Chapter { ChapterNumber = 13, ChapterName = "Rad" }
+                            new Chapter { ChapterNumber = 7, ChapterName = "Araf" }
                         },
                         new td
                         {
                             new InitialLetterLineGroup
                             {
-                                new InitialLetter { Id = Id(13, Alef), Letter = Alef },
-                                new InitialLetter { Id = Id(13, Lam), Letter = Lam },
-                                new InitialLetter { Id = Id(13, Meem), Letter = Meem },
-                                new InitialLetter { Id = Id(13, Reh), Letter  = Reh }
+                                new InitialLetter { Id = Id(7, Alef), Letter = Alef },
+                                new InitialLetter { Id = Id(7, Lam), Letter = Lam },
+                                new InitialLetter { Id = Id(7, Meem), Letter = Meem },
+                                new InitialLetter { Id = Id(7, Sad), Letter = Sad }
                             }
                         },
                         new td
@@ -36,7 +36,7 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                             {
                                 new CountingResult
                                 {
-                                    id = IdOfCountingResult(13), MultipleOf = 78, SearchScript = GetLetterCountingScript("13:*", Alef, Lam, Meem, Reh)
+                                    id = IdOfCountingResult(7), MultipleOf = 280, SearchScript = GetLetterCountingScript("7:*", Alef, Lam, Meem, Sad)
                                 }
                             }
                         }
@@ -44,20 +44,20 @@ class InitialLetterGroup_Alif_Laam_Miim_Ra : InitialLetterGroup
                 }
             },
 
-            new Arrow { start = Id(13, Alef), end = IdOfCountingResult(13) },
-            new Arrow { start = Id(13, Lam), end = IdOfCountingResult(13) },
-            new Arrow { start = Id(13, Meem), end = IdOfCountingResult(13) },
-            new Arrow { start = Id(13, Reh), end  = IdOfCountingResult(13) }
+            new Arrow { start = Id(7, Alef), end = IdOfCountingResult(7) },
+            new Arrow { start = Id(7, Lam), end = IdOfCountingResult(7) },
+            new Arrow { start = Id(7, Meem), end = IdOfCountingResult(7) },
+            new Arrow { start = Id(7, Sad), end = IdOfCountingResult(7) }
         };
     }
 
     static string Id(int chapterNumber, char letter)
     {
-        return $"Alif_Laam_Miim_Ra-{chapterNumber}-{letter}";
+        return $"Alif_Laam_Miim_Sad-{chapterNumber}-{letter}";
     }
 
     static string IdOfCountingResult(int chapterNumber)
     {
-        return $"Alif_Laam_Miim_Ra-{chapterNumber}";
+        return $"Alif_Laam_Miim_Sad-{chapterNumber}";
     }
 }

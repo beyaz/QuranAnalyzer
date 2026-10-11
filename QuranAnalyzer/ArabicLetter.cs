@@ -37,7 +37,7 @@ public static class ArabicLetter
 public static class ArabicLetterOrder
 {
     // @formatter:off
-    public const int Alif  = 1;
+    public const int Alef  = 1;
     public const int Baa   = 2;
     public const int Jiim  = 3;
     public const int Daal  = 4;
