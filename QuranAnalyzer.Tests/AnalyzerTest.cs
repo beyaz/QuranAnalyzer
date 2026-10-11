@@ -10,11 +10,11 @@ public class AnalyzerTest
     public void _1_()
     {
         AnalyzeText("يَٰصَىٰحِبَىِ")
-            .Count(x => x.OrderValue == ArabicLetterOrder.Yaa)
+            .Count(x => x.OrderValue == ArabicLetterOrder.Yeh)
             .ShouldBe(3);
 
         AnalyzeText("يَٰصَىٰحِبَىِ ٱلسِّجْنِ أَمَّآ أَحَدُكُمَا فَيَسْقِى رَبَّهُۥ خَمْرًا وَأَمَّا ٱلْءَاخَرُ فَيُصْلَبُ فَتَأْكُلُ ٱلطَّيْرُ مِن رَّأْسِهِۦ قُضِىَ ٱلْأَمْرُ ٱلَّذِى فِيهِ تَسْتَفْتِيَانِ")
-            .Count(x => x.OrderValue == ArabicLetterOrder.Yaa)
+            .Count(x => x.OrderValue == ArabicLetterOrder.Yeh)
             .ShouldBe(11);
     }
 

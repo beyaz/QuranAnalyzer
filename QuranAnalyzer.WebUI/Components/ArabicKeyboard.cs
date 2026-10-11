@@ -9,7 +9,7 @@ class ArabicKeyboard : ReactPureComponent
         LetterToElement(ArabicLetter.Teh, ArabicLetterTurkishPronunciation.Taa),
         LetterToElement(ArabicLetter.Theh, ArabicLetterTurkishPronunciation.Thaa),
         LetterToElement(ArabicLetter.Jeem, ArabicLetterTurkishPronunciation.Jeem),
-        LetterToElement(ArabicLetter.Hah, ArabicLetterTurkishPronunciation.Haa),
+        LetterToElement(ArabicLetter.Hah, ArabicLetterTurkishPronunciation.Hah),
         LetterToElement(ArabicLetter.Khah, ArabicLetterTurkishPronunciation.Khaa),
         LetterToElement(ArabicLetter.Dal, ArabicLetterTurkishPronunciation.Dal),
         LetterToElement(ArabicLetter.Thal, ArabicLetterTurkishPronunciation.Dhaal),
@@ -19,19 +19,19 @@ class ArabicKeyboard : ReactPureComponent
         LetterToElement(ArabicLetter.Sheen, ArabicLetterTurkishPronunciation.Shiin),
         LetterToElement(ArabicLetter.Sad, ArabicLetterTurkishPronunciation.Saad),
         LetterToElement(ArabicLetter.Dad, ArabicLetterTurkishPronunciation.Daad),
-        LetterToElement(ArabicLetter.Tah, ArabicLetterTurkishPronunciation.Taa_),
+        LetterToElement(ArabicLetter.Tah, ArabicLetterTurkishPronunciation.Tah),
         LetterToElement(ArabicLetter.Zah, ArabicLetterTurkishPronunciation.Zaa),
         LetterToElement(ArabicLetter.Ain, ArabicLetterTurkishPronunciation.Ayn),
         LetterToElement(ArabicLetter.Ghain, ArabicLetterTurkishPronunciation.Ghayn),
         LetterToElement(ArabicLetter.Feh, ArabicLetterTurkishPronunciation.Faa),
         LetterToElement(ArabicLetter.Qaf, ArabicLetterTurkishPronunciation.Qaaf),
-        LetterToElement(ArabicLetter.Kaf, ArabicLetterTurkishPronunciation.Kaaf),
+        LetterToElement(ArabicLetter.Kaf, ArabicLetterTurkishPronunciation.Kaf),
         LetterToElement(ArabicLetter.Lam, ArabicLetterTurkishPronunciation.Laam),
         LetterToElement(ArabicLetter.Meem, ArabicLetterTurkishPronunciation.Miim),
         LetterToElement(ArabicLetter.Noon, ArabicLetterTurkishPronunciation.Nun),
         LetterToElement(ArabicLetter.Heh, ArabicLetterTurkishPronunciation.Heh),
         LetterToElement(ArabicLetter.Waw, ArabicLetterTurkishPronunciation.Waw),
-        LetterToElement(ArabicLetter.Yeh, ArabicLetterTurkishPronunciation.Yaa)
+        LetterToElement(ArabicLetter.Yeh, ArabicLetterTurkishPronunciation.Yeh)
     };
 
     protected override Element render()
@@ -53,7 +53,7 @@ static class ArabicLetterTurkishPronunciation
     public const string Taa = "te";
     public const string Thaa = "se";
     public const string Jeem = "cim";
-    public const string Haa = "hâ";
+    public const string Hah = "hâ";
     public const string Khaa = "hı";
     public const string Dal = "dal";
     public const string Dhaal = "zel";
@@ -63,19 +63,19 @@ static class ArabicLetterTurkishPronunciation
     public const string Shiin = "şın";
     public const string Saad = "sad";
     public const string Daad = "dad";
-    public const string Taa_ = "tı";
+    public const string Tah = "tı";
     public const string Zaa = "zı";
     public const string Ayn = "ayn";
     public const string Ghayn = "ghayn";
     public const string Faa = "fe";
     public const string Qaaf = "kaf";
-    public const string Kaaf = "kef";
+    public const string Kaf = "kef";
     public const string Laam = "lam";
     public const string Miim = "mim";
     public const string Nun = "nun";
     public const string Heh = "he";
     public const string Waw = "vav";
-    public const string Yaa = "yâ";
+    public const string Yeh = "yâ";
     // @formatter:on
 }
 

@@ -74,9 +74,9 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_19()
     {
-        CountShouldBe("19:*", Kaaf, 137);
+        CountShouldBe("19:*", Kaf, 137);
         CountShouldBe("19:*", Heh, 175);
-        CountShouldBe("19:*", Yaa, 343);
+        CountShouldBe("19:*", Yeh, 343);
         CountShouldBe("19:*", Ayn, 117);
         CountShouldBe("19:*", Saad, 26);
     }
@@ -96,10 +96,10 @@ public class CharacterCountingTests
         CountShouldBe("19:*", Heh, 175);
         CountShouldBe("20:*", Heh, 251);
 
-        CountShouldBe("20:*", Taa_, 28);
-        CountShouldBe("26:*", Taa_, 33);
-        CountShouldBe("27:*", Taa_, 27);
-        CountShouldBe("28:*", Taa_, 19);
+        CountShouldBe("20:*", Tah, 28);
+        CountShouldBe("26:*", Tah, 33);
+        CountShouldBe("27:*", Tah, 27);
+        CountShouldBe("28:*", Tah, 19);
 
         CountShouldBe("26:*", Siin, 94);
         CountShouldBe("27:*", Siin, 94);
@@ -121,14 +121,14 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_36()
     {
-        CountShouldBe("36:*", Yaa, 237);
+        CountShouldBe("36:*", Yeh, 237);
         CountShouldBe("36:*", Siin, 48);
     }
 
     [TestMethod]
     public void Chapter_40_41_42_43_44_45_46_Ha_Mim()
     {
-        CountShouldBe("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Haa, 292);
+        CountShouldBe("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Hah, 292);
         CountShouldBe("40:*,41:*,42:*,43:*,44:*,45:*,46:*", Miim, 1855);
     }
 
@@ -174,10 +174,10 @@ public class CharacterCountingTests
     [TestMethod]
     public void Section_37()
     {
-        CountShouldBe("40:*", Haa, 64);
-        CountShouldBe("44:*", Haa, 16);
-        CountShouldBe("45:*", Haa, 31);
-        CountShouldBe("46:*", Haa, 36);
+        CountShouldBe("40:*", Hah, 64);
+        CountShouldBe("44:*", Hah, 16);
+        CountShouldBe("45:*", Hah, 31);
+        CountShouldBe("46:*", Hah, 36);
 
         CountShouldBe("40:*", Miim, 380);
         CountShouldBe("44:*", Miim, 150);

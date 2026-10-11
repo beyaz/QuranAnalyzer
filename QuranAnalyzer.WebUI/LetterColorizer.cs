@@ -256,7 +256,7 @@ static class LetterColorizer
             }
         }
 
-        if (arabicLetterOrder == Yaa)
+        if (arabicLetterOrder == Yeh)
         {
             // Tanzil.net has a bug here. There mush be extra ye here according to utmaine mushaf
             if (!mushafOption.Ya_sahibeyi_Should_Contains_2_ya)
