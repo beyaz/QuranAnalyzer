@@ -40,7 +40,7 @@ public static class ArabicLetterOrder
     public const int Alef  = 1;
     public const int Beh   = 2;
     public const int Jeem  = 3;
-    public const int Daal  = 4;
+    public const int Dal  = 4;
     public const int Haa_  = 5;
     public const int Waaw  = 6;
     public const int Zay   = 7;

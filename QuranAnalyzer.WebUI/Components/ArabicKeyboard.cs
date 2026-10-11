@@ -11,7 +11,7 @@ class ArabicKeyboard : ReactPureComponent
         LetterToElement(ArabicLetter.Jeem, ArabicLetterTurkishPronunciation.Jeem),
         LetterToElement(ArabicLetter.Hah, ArabicLetterTurkishPronunciation.Haa),
         LetterToElement(ArabicLetter.Khah, ArabicLetterTurkishPronunciation.Khaa),
-        LetterToElement(ArabicLetter.Dal, ArabicLetterTurkishPronunciation.Daal),
+        LetterToElement(ArabicLetter.Dal, ArabicLetterTurkishPronunciation.Dal),
         LetterToElement(ArabicLetter.Thal, ArabicLetterTurkishPronunciation.Dhaal),
         LetterToElement(ArabicLetter.Reh, ArabicLetterTurkishPronunciation.Raa),
         LetterToElement(ArabicLetter.Zain, ArabicLetterTurkishPronunciation.Zay),
@@ -55,7 +55,7 @@ static class ArabicLetterTurkishPronunciation
     public const string Jeem = "cim";
     public const string Haa = "hâ";
     public const string Khaa = "hı";
-    public const string Daal = "dal";
+    public const string Dal = "dal";
     public const string Dhaal = "zel";
     public const string Raa = "ra";
     public const string Zay = "ze";
