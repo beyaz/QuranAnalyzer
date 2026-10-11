@@ -84,27 +84,44 @@ public static class Letter
         }
     }
     
-    public const char Alef  = 'ا';
+    // 1
+    public static readonly LetterInfo Alef  = new (){ Letter = ArabicLetter.Alef, OrderValue = 1, NumericValue = 1};
+    public static readonly LetterInfo Alef_Wasla  = new (){ Letter = 'ٱ', OrderValue = 1, NumericValue = 1};
+    public static readonly LetterInfo Alef_With_Hamza_Below  = new (){ Letter = 'إ', OrderValue = 1, NumericValue = 1};
+    public static readonly LetterInfo Alef_With_Hamza_Above  = new (){ Letter = 'أ', OrderValue = 1, NumericValue = 1};
+    public static readonly LetterInfo Alef_Isolated_Form  = new (){ Letter = 'ﺍ', OrderValue = 1, NumericValue = 1};
+
+    // 2
     public static readonly LetterInfo Beh  = new (){ Letter = ArabicLetter.Beh, OrderValue = 2, NumericValue = 2};
+    
+    // 3
     public static readonly LetterInfo Jeem  = new (){ Letter = ArabicLetter.Jeem, OrderValue = 3, NumericValue = 3};
+    
+    // 4
     public static readonly LetterInfo Dal  = new (){ Letter = ArabicLetter.Dal, OrderValue = 4, NumericValue = 4};
     
+    // 5
     public static readonly LetterInfo Heh  = new (){ Letter = ArabicLetter.Heh, OrderValue = 5, NumericValue = 5};
-    public static readonly LetterInfo HehMarbuta  = new (){ Letter = 'ة', OrderValue = 5, NumericValue = 5};
+    public static readonly LetterInfo Heh_Marbuta  = new (){ Letter = 'ة', OrderValue = 5, NumericValue = 5};
     
+    // 6
     public static readonly LetterInfo Waw  = new (){ Letter = ArabicLetter.Waw, OrderValue = 6, NumericValue = 6};
     public static readonly LetterInfo Gaf  = new (){ Letter = 'ٯ', OrderValue = 6, NumericValue = 6};
-    public static readonly LetterInfo WawWithHamzaAbove  = new (){ Letter = 'ؤ', OrderValue = 6, NumericValue = 6};
+    public static readonly LetterInfo Waw_With_Hamza_Above  = new (){ Letter = 'ؤ', OrderValue = 6, NumericValue = 6};
    
+    // 7
     public static readonly LetterInfo Zain  = new (){ Letter = ArabicLetter.Zain, OrderValue = 7, NumericValue = 7};
+    
+    // 8
     public static readonly LetterInfo Hah  = new (){ Letter = ArabicLetter.Hah, OrderValue = 8, NumericValue = 8};
  
+    // 9
     public static readonly LetterInfo Tah  = new (){ Letter = ArabicLetter.Tah, OrderValue = 9, NumericValue = 9};
     
-    
+    // 10
     public static readonly LetterInfo Yeh  = new (){ Letter = ArabicLetter.Yeh, OrderValue = 10, NumericValue = 10};
-    public static readonly LetterInfo AlefMaksura  = new (){ Letter = 'ى', OrderValue = 10, NumericValue = 10};
-    public static readonly LetterInfo YehWithHamzaAbove  = new (){ Letter = 'ئ', OrderValue = 10, NumericValue = 10};
+    public static readonly LetterInfo Yeh_Alef_Maksura  = new (){ Letter = 'ى', OrderValue = 10, NumericValue = 10};
+    public static readonly LetterInfo Yeh_With_Hamza_Above  = new (){ Letter = 'ئ', OrderValue = 10, NumericValue = 10};
    
     // 11
     public static readonly LetterInfo Kaf  = new (){ Letter = ArabicLetter.Kaf, OrderValue = 11, NumericValue = 20};
