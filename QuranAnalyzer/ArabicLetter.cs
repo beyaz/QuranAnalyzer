@@ -64,6 +64,6 @@ public static class ArabicLetterOrder
     public const int Thal = 25;
     public const int Dad  = 26;
     public const int Zah   = 27;
-    public const int Ghayn = 28;
+    public const int Ghain = 28;
     // @formatter:on
 }
