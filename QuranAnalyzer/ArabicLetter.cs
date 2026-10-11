@@ -67,3 +67,37 @@ public static class ArabicLetterOrder
     public const int Ghain = 28;
     // @formatter:on
 }
+
+public static class Letter
+{
+    // @formatter:off
+    public const char Alef  = 'ا';
+    public static readonly LetterInfo Beh  = new (){ Letter = ArabicLetter.Beh, OrderValue = 2, NumericValue = 2};
+    public const char Jeem  = 'ج';
+    public const char Dal  = 'د';
+    public const char Heh  = 'ه';
+    public const char Waw  = 'و';
+    public const char Zain   = 'ز';
+    public const char Hah   = 'ح';
+    public const char Tah  = 'ط';
+    public const char Yeh   = 'ي';
+    public const char Kaf  = 'ك';
+    public const char Lam  = 'ل';
+    public const char Meem  = 'م';
+    public const char Noon   = 'ن';
+    public const char Seen  = 'س';
+    public const char Ain   = 'ع';
+    public const char Feh   = 'ف';
+    public const char Sad  = 'ص';
+    public const char Qaf  = 'ق';
+    public const char Reh   = 'ر';
+    public const char Sheen = 'ش';
+    public const char Teh   = 'ت';
+    public const char The  = 'ث';
+    public const char Khah  = 'خ';
+    public const char Thal = 'ذ';
+    public const char Dad  = 'ض';
+    public const char Zah   = 'ظ';
+    public const char Ghain = 'غ';
+    // @formatter:on
+}
