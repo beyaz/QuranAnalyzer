@@ -139,11 +139,16 @@ public static class Letter
     // 21
     public static readonly LetterInfo Sheen  = new (){ Letter = ArabicLetter.Sheen, OrderValue = 21, NumericValue = 300};
     
-    
+    // 22
+    public static readonly LetterInfo Teh  = new (){ Letter = ArabicLetter.Teh, OrderValue = 22, NumericValue = 400};
 
-    public const char Teh   = 'ت';
-    public const char The  = 'ث';
-    public const char Khah  = 'خ';
+    // 23
+    public static readonly LetterInfo The  = new (){ Letter = ArabicLetter.The, OrderValue = 23, NumericValue = 500};
+
+    // 24
+    public static readonly LetterInfo Khah  = new (){ Letter = ArabicLetter.Khah, OrderValue = 24, NumericValue = 600};
+
+
     public const char Thal = 'ذ';
     public const char Dad  = 'ض';
     public const char Zah   = 'ظ';
