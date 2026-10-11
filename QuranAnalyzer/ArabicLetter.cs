@@ -25,7 +25,7 @@ public static class ArabicLetter
     public const char Reh   = 'ر';
     public const char Sheen = 'ش';
     public const char Teh   = 'ت';
-    public const char Theh  = 'ث';
+    public const char The  = 'ث';
     public const char Khah  = 'خ';
     public const char Thal = 'ذ';
     public const char Dad  = 'ض';
@@ -59,7 +59,7 @@ public static class ArabicLetterOrder
     public const int Reh   = 20;
     public const int Sheen = 21;
     public const int Teh   = 22;
-    public const int Thaa  = 23;
+    public const int The  = 23;
     public const int Khah  = 24;
     public const int Thal = 25;
     public const int Dad  = 26;
