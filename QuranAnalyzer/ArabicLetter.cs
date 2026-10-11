@@ -148,10 +148,17 @@ public static class Letter
     // 24
     public static readonly LetterInfo Khah  = new (){ Letter = ArabicLetter.Khah, OrderValue = 24, NumericValue = 600};
 
+    // 25
+    public static readonly LetterInfo Thal  = new (){ Letter = ArabicLetter.Thal, OrderValue = 25, NumericValue = 700};
+    
+    // 26
+    public static readonly LetterInfo Dad  = new (){ Letter = ArabicLetter.Dad, OrderValue = 26, NumericValue = 800};
 
-    public const char Thal = 'ذ';
-    public const char Dad  = 'ض';
-    public const char Zah   = 'ظ';
-    public const char Ghain = 'غ';
+    // 27
+    public static readonly LetterInfo Zah  = new (){ Letter = ArabicLetter.Zah, OrderValue = 27, NumericValue = 900};
+    
+    // 28
+    public static readonly LetterInfo Ghain  = new (){ Letter = ArabicLetter.Ghain, OrderValue = 28, NumericValue = 1000};
+    
     // @formatter:on
 }
