@@ -56,7 +56,7 @@ public static class ArabicLetterOrder
     public const int Feh   = 17;
     public const int Sad  = 18;
     public const int Qaf  = 19;
-    public const int Raa   = 20;
+    public const int Reh   = 20;
     public const int Shiin = 21;
     public const int Taa   = 22;
     public const int Thaa  = 23;

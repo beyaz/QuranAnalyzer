@@ -18,7 +18,7 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_10()
     {
-        CountShouldBe("10:*", Raa, 257);
+        CountShouldBe("10:*", Reh, 257);
         CountShouldBe("10:*", Lam, 913);
         CountShouldBe("10:*", Alef, AlefAccordingToTanzil, 1323);
         CountShouldBe("10:*", Alef, 1319);
@@ -27,7 +27,7 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_11()
     {
-        CountShouldBe("11:*", Raa, 325);
+        CountShouldBe("11:*", Reh, 325);
         CountShouldBe("11:*", Lam, new MushafOption { Use_Lam_SpecifiedByTanzil = true }, 795);
         CountShouldBe("11:*", Lam, 794);
         CountShouldBe("11:*", Alef, AlefAccordingToTanzil, 1373);
@@ -37,7 +37,7 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_12()
     {
-        CountShouldBe("12:*", Raa, 257);
+        CountShouldBe("12:*", Reh, 257);
         CountShouldBe("12:*", Lam, 812);
         CountShouldBe("12:*", Alef, AlefAccordingToTanzil, 1315);
         CountShouldBe("12:*", Alef, 1306);
@@ -46,7 +46,7 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_13()
     {
-        CountShouldBe("13:*", Raa, 137);
+        CountShouldBe("13:*", Reh, 137);
         CountShouldBe("13:*", Meem, 260);
         CountShouldBe("13:*", Lam, 480);
         CountShouldBe("13:*", Alef, AlefAccordingToTanzil, 610);
@@ -56,7 +56,7 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_14()
     {
-        CountShouldBe("14:*", Raa, 160);
+        CountShouldBe("14:*", Reh, 160);
         CountShouldBe("14:*", Lam, 452);
         CountShouldBe("14:*", Alef, AlefAccordingToTanzil, 589);
         CountShouldBe("14:*", Alef, 585);
@@ -65,7 +65,7 @@ public class CharacterCountingTests
     [TestMethod]
     public void Chapter_15()
     {
-        CountShouldBe("15:*", Raa, 96);
+        CountShouldBe("15:*", Reh, 96);
         CountShouldBe("15:*", Lam, 323);
         CountShouldBe("15:*", Alef, AlefAccordingToTanzil, 493);
         CountShouldBe("15:*", Alef, 493);

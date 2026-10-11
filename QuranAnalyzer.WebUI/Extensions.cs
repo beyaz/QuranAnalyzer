@@ -70,7 +70,7 @@ static class Extensions
         if (ArabicLetter.Khah == arabicLetter) return ArabicLetterTurkishPronunciation.Khaa;
         if (ArabicLetter.Dal == arabicLetter) return ArabicLetterTurkishPronunciation.Dal;
         if (ArabicLetter.Thal == arabicLetter) return ArabicLetterTurkishPronunciation.Dhaal;
-        if (ArabicLetter.Reh == arabicLetter) return ArabicLetterTurkishPronunciation.Raa;
+        if (ArabicLetter.Reh == arabicLetter) return ArabicLetterTurkishPronunciation.Reh;
         if (ArabicLetter.Zain == arabicLetter) return ArabicLetterTurkishPronunciation.Zain;
         if (ArabicLetter.Seen == arabicLetter) return ArabicLetterTurkishPronunciation.Seen;
         if (ArabicLetter.Sheen == arabicLetter) return ArabicLetterTurkishPronunciation.Shiin;
