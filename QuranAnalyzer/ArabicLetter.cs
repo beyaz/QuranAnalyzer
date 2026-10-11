@@ -118,9 +118,15 @@ public static class Letter
     // 14
     public static readonly LetterInfo Noon  = new (){ Letter = ArabicLetter.Noon, OrderValue = 14, NumericValue = 50};
 
+    // 15
+    public static readonly LetterInfo Seen  = new (){ Letter = ArabicLetter.Seen, OrderValue = 15, NumericValue = 60};
+    
+    // 16
+    public static readonly LetterInfo Ain  = new (){ Letter = ArabicLetter.Ain, OrderValue = 16, NumericValue = 70};
+    
 
-    public const char Seen  = 'س';
-    public const char Ain   = 'ع';
+
+
     public const char Feh   = 'ف';
     public const char Sad  = 'ص';
     public const char Qaf  = 'ق';
