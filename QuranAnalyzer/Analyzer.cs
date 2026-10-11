@@ -4,6 +4,20 @@ public static class Analyzer
 {
     public const char Hamza = 'ء';
     public const char HamzaAbove = 'ٔ';
+    
+    static readonly LetterInfo LetterHamza = new()
+    {
+        Letter = Hamza,
+        NumericValue = 1,
+        OrderValue = 1
+    };
+    
+    static readonly LetterInfo LetterHamzaAbove = new()
+    {
+        Letter = HamzaAbove,
+        NumericValue = 1,
+        OrderValue = 1
+    };
 
     public static IReadOnlyList<LetterInfo> AnalyzeText(string line, bool isHamzaActive = true)
     {
@@ -12,21 +26,18 @@ public static class Analyzer
 
     public static LetterInfo GetLetterInfo(char c, bool isHamzaActive)
     {
-        // elif
-        if (c is 'ا' or 'ٱ' or 'إ' or 'أ' or 'ﺍ')
+        foreach (var letter in Letter.All)
         {
-            return new()
+            if (letter.Letter == c)
             {
-                Letter       = c,
-                NumericValue = 1,
-                OrderValue   = 1
-            };
+                return letter;
+            }
         }
 
         // elif
         if (isHamzaActive)
         {
-            if (c is Hamza or HamzaAbove)
+            if (c == LetterHamza.Letter || c == LetterHamzaAbove.Letter)
             {
                 return new()
                 {
@@ -35,282 +46,6 @@ public static class Analyzer
                     OrderValue   = 1
                 };
             }
-        }
-
-        foreach (var letter in Letter.All)
-        {
-            if (letter.Letter == c)
-            {
-                return letter;
-            }
-        }
-        
-        
-
-        
-
-        // he
-        if (c == 'ه' || c == 'ة')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 5,
-                OrderValue   = 5
-            };
-        }
-
-        // vav
-        if (c == 'و' || c == 'ٯ' || c == 'ؤ')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 6,
-                OrderValue   = 6
-            };
-        }
-
-        // ze
-        if (c == 'ز' || c == 'ز')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 7,
-                OrderValue   = 7
-            };
-        }
-
-        // ha
-        if (c == 'ح')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 8,
-                OrderValue   = 8
-            };
-        }
-
-        // tı
-        if (c == 'ط')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 9,
-                OrderValue   = 9
-            };
-        }
-
-        // ye
-        if (c is 'ي' or 'ى' or 'ئ')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 10,
-                OrderValue   = 10
-            };
-        }
-
-        // kef
-        if (c == 'ك')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 20,
-                OrderValue   = 11
-            };
-        }
-
-        // lam
-        if (c == 'ل')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 30,
-                OrderValue   = 12
-            };
-        }
-
-        // mim
-        if (c == 'م')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 40,
-                OrderValue   = 13
-            };
-        }
-
-        // nun
-        if (c == 'ن')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 50,
-                OrderValue   = 14
-            };
-        }
-
-        // sin
-        if (c == 'س')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 60,
-                OrderValue   = 15
-            };
-        }
-
-        // ayn
-        if (c == 'ع')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 70,
-                OrderValue   = 16
-            };
-        }
-
-        // fe
-        if (c == 'ف')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 80,
-                OrderValue   = 17
-            };
-        }
-
-        // sad
-        if (c == 'ص')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 90,
-                OrderValue   = 18
-            };
-        }
-
-        // kaf
-        if (c == 'ق')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 100,
-                OrderValue   = 19
-            };
-        }
-
-        // re
-        if (c == 'ر')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 200,
-                OrderValue   = 20
-            };
-        }
-
-        //şin
-        if (c == 'ش')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 300,
-                OrderValue   = 21
-            };
-        }
-
-        // te
-        if (c == 'ت')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 400,
-                OrderValue   = 22
-            };
-        }
-
-        // se
-        if (c == 'ث')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 500,
-                OrderValue   = 23
-            };
-        }
-
-        // hı
-        if (c == 'خ')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 600,
-                OrderValue   = 24
-            };
-        }
-
-        // zel
-        if (c == 'ذ')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 700,
-                OrderValue   = 25
-            };
-        }
-
-        // dad
-        if (c == 'ض')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 800,
-                OrderValue   = 26
-            };
-        }
-
-        // zı
-        if (c == 'ظ')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 900,
-                OrderValue   = 27
-            };
-        }
-
-        // ğayn
-        if (c == 'غ')
-        {
-            return new()
-            {
-                Letter       = c,
-                NumericValue = 1000,
-                OrderValue   = 28
-            };
         }
 
         return new()
