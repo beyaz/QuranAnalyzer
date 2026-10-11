@@ -133,9 +133,13 @@ public static class Letter
     // 19
     public static readonly LetterInfo Qaf  = new (){ Letter = ArabicLetter.Qaf, OrderValue = 19, NumericValue = 100};
     
+    // 20
+    public static readonly LetterInfo Reh  = new (){ Letter = ArabicLetter.Reh, OrderValue = 20, NumericValue = 200};
 
 
-    public const char Reh   = 'ر';
+    
+    
+    
     public const char Sheen = 'ش';
     public const char Teh   = 'ت';
     public const char The  = 'ث';
