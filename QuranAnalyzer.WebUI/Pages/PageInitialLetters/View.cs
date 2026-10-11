@@ -151,7 +151,7 @@ abstract class InitialLetterGroup : ReactComponent
     protected tr RowSpace => new() { Height(10), new td(), new td(), new td() };
 }
 
-class InitialLetterGroup_Saad : InitialLetterGroup
+class InitialLetterGroup_Sad : InitialLetterGroup
 {
     static string IdOfCountingResult => $"ThreeSaad-{nameof(IdOfCountingResult)}";
 

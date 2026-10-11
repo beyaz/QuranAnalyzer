@@ -7,7 +7,7 @@ namespace QuranAnalyzer;
 public class MaybeUnknow
 {
     [TestMethod]
-    public void All_Saad_Combined_as_ChapterNumber_VerseNumber_is_114_667()
+    public void All_Sad_Combined_as_ChapterNumber_VerseNumber_is_114_667()
     {
         var sb = new StringBuilder();
 
@@ -16,7 +16,7 @@ public class MaybeUnknow
         var verseList = VerseFilter.GetVerseList("*,-9:128,-9:129").Value;
         foreach (var verse in verseList)
         {
-            var count = QuranAnalyzerMixin.GetCountOfLetterInVerse(verse, ArabicLetterOrder.Saad, option, true);
+            var count = QuranAnalyzerMixin.GetCountOfLetterInVerse(verse, ArabicLetterOrder.Sad, option, true);
             if (count > 0)
             {
                 sb.Append(verse.ChapterNumber);

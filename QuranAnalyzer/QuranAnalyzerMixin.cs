@@ -34,7 +34,7 @@ public static class QuranAnalyzerMixin
         },
 
         {
-            Saad, new()
+            Sad, new()
             {
                 { GetDifferencesKeyForTanzil("7:69"), 1 }, // bestaten: *بَسْطَةً*
                 { GetDifferencesKeyForRK("7:69"), 0 }, // bestaten: *بَصْۜطَةً*
@@ -322,11 +322,11 @@ public static class QuranAnalyzerMixin
             }
         }
 
-        if (arabicLetterOrder == Saad)
+        if (arabicLetterOrder == Sad)
         {
             if (option.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten == false)
             {
-                if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
+                if (MushafTotalCountPerVerseDifference[Sad].TryGetValue(GetDifferencesKeyForRK(verse.Id), out var totalCount))
                 {
                     return totalCount;
                 }

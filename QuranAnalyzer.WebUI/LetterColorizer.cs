@@ -158,13 +158,13 @@ static class LetterColorizer
             }
         }
 
-        if (arabicLetterOrder == Saad)
+        if (arabicLetterOrder == Sad)
         {
             if (!mushafOption.Use_Sad_in_Surah_7_Verse_69_in_word_bestaten)
             {
-                if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
+                if (MushafTotalCountPerVerseDifference[Sad].TryGetValue(GetDifferencesKeyForRK(verseId), out var count))
                 {
-                    if (MushafTotalCountPerVerseDifference[Saad].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
+                    if (MushafTotalCountPerVerseDifference[Sad].TryGetValue(GetDifferencesKeyForTanzil(verseId), out var countAccordingToTanzil))
                     {
                         if (count > countAccordingToTanzil)
                         {
