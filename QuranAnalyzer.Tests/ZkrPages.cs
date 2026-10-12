@@ -147,6 +147,42 @@ public class ZkrPages
         }
     }
 
+     [TestMethod]
+    public void _47_to_()
+    {
+        IReadOnlyList<LetterInfo> fullNameNonRepetitive =
+        [
+            Letter.Beh, Letter.Reh, Letter.Kaf, 
+            Letter.Yeh, Letter.Waw, Letter.Jeem
+        ];
+
+        {
+            var query =
+                from verse in Filter(isParenthesesNoName)
+                from letter in AnalyzeText(verse.Text)
+                select fullNameNonRepetitive.Count(x => IsSame(x, letter));
+            
+            var query2 =
+               
+                from letter in AllQuranVerses[0].Verse.TextLetters
+                select fullNameNonRepetitive.Count(x => IsSame(x, letter));
+
+            (query.Sum() + query2.Sum()).ShouldBe(19 * 6);
+        }
+        return;
+
+        static bool isParenthesesNoName(Verse verse)
+        {
+            return (verse.ChapterNumber is 4 && verse.VerseNumber is 41) ||
+                   (verse.ChapterNumber is 7 && verse.VerseNumber is 184) ||
+                   (verse.ChapterNumber is 9 && verse.VerseNumber is 40) ||
+                   (verse.ChapterNumber is 36 && verse.VerseNumber is 69) ||
+                   (verse.ChapterNumber is 43 && verse.VerseNumber is 24) ||
+                   (verse.ChapterNumber is 48 && verse.VerseNumber is 1) ||
+                   (verse.ChapterNumber is 72 && verse.VerseNumber is 7);
+        }
+    }
+
     static IEnumerable<Verse> Filter(Func<Verse, bool> predicate)
     {
         return AllQuranVerses.Where(x => predicate(x.Verse)).Select(x => x.Verse);
