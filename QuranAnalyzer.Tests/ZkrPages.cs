@@ -151,11 +151,23 @@ public class ZkrPages
      [TestMethod]
     public void _47_to_()
     {
+        IReadOnlyList<LetterInfo> nameNonRepetitive =
+        [
+            Letter.Beh, Letter.Reh, Letter.Kaf
+        ];
+        
+        IReadOnlyList<LetterInfo> lastNameNonRepetitive =
+        [
+            Letter.Yeh, Letter.Waw, Letter.Jeem
+        ];
+        
         IReadOnlyList<LetterInfo> fullNameNonRepetitive =
         [
             Letter.Beh, Letter.Reh, Letter.Kaf, 
             Letter.Yeh, Letter.Waw, Letter.Jeem
         ];
+        
+        
 
         IReadOnlyList<Verse> versesWithParenthesesNoName = [.. AllQuranVersesWithBismillah.Where(x => isParenthesesNoName(x.Verse)).Select(x => x.Verse)];
 
@@ -173,14 +185,77 @@ public class ZkrPages
             )
         ];
         
+        // 1
         {
             (from x in counts select x.Count).Sum().ShouldBe(19 * 6);
         }
-
-
+        
+        // 2
         {
             (from x in counts select GetNumberSum(x.Count)).Sum().ShouldBe(96);
         }
+        
+        // 3
+        {
+            {
+                var query =
+                    from letter in nameNonRepetitive
+                    from verse in versesWithParenthesesNoName
+                    let count = verse.TextWithBismillahLetters.Count(x => IsSame(x, letter))
+                    where count > 0
+                    select GetNumberSum(count);
+
+                query.Sum().ShouldBe(48);
+            }
+            
+            {
+                var query =
+                    from letter in lastNameNonRepetitive
+                    from verse in versesWithParenthesesNoName
+                    let count = verse.TextWithBismillahLetters.Count(x => IsSame(x, letter))
+                    where count > 0
+                    select GetNumberSum(count);
+
+                query.Sum().ShouldBe(48);
+            }
+            
+            // çift - tek
+            {
+                var query =
+                    from letter in nameNonRepetitive
+                    from verse in versesWithParenthesesNoName
+                    let count = verse.TextWithBismillahLetters.Count(x => IsSame(x, letter))
+                    where count > 0 && count % 2 == 0
+                    select GetNumberSum(count);
+
+                query.Sum().ShouldBe(24);
+            }
+            
+            {
+                var query =
+                    from letter in nameNonRepetitive
+                    from verse in versesWithParenthesesNoName
+                    let count = verse.TextWithBismillahLetters.Count(x => IsSame(x, letter))
+                    where count > 0 && count % 2 == 1
+                    select GetNumberSum(count);
+
+                query.Sum().ShouldBe(24);
+            }
+            
+            //
+            {
+                var query =
+                    from letter in fullNameNonRepetitive
+                    from verse in AllQuranVerses.Where(x => x.ChapterNumber < 4 || (x.ChapterNumber == 4 && x.VerseNumber < 41)).Select(x => x.Verse)
+                    let count = verse.TextLetters.Count(x => IsSame(x, letter))
+                    where count > 0
+                    select count;
+
+                query.Sum().ShouldBe(667*18);
+            }
+            
+        }
+        
         
         return;
 
