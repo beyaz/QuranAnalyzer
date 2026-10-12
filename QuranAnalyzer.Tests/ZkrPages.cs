@@ -242,7 +242,6 @@ public class ZkrPages
                 query.Sum().ShouldBe(24);
             }
             
-            //
             {
                 var query =
                     from letter in fullNameNonRepetitive
@@ -252,6 +251,27 @@ public class ZkrPages
                     select count;
 
                 query.Sum().ShouldBe(667*18);
+            }
+             
+            {
+                var query =
+                    from letter in fullNameNonRepetitive
+                    from verse in AllQuranVerses.Where(x => x.ChapterNumber is > 4 and < 72 
+                                                             || 
+                                                             (x.ChapterNumber == 4 && x.VerseNumber >= 41)
+                                                             ||
+                                                             (x.ChapterNumber == 72 && x.VerseNumber <= 7)
+                                                             
+                                                             
+                                                             
+                                                             ).Select(x => x.Verse)
+
+                    where  !versesWithParenthesesNoName.Any(x=>x.ChapterNumber == verse.ChapterNumber && x.VerseNumber == verse.VerseNumber)
+                    let count = verse.TextLetters.Count(x => IsSame(x, letter))
+                    where count > 0
+                    select count;
+
+                query.Sum().ShouldBe(667*109);
             }
             
         }
