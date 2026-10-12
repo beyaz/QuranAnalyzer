@@ -158,16 +158,12 @@ public class ZkrPages
 
         {
             var query =
-                from verse in Filter(isParenthesesNoName)
-                from letter in AnalyzeText(verse.Text)
+                from verse in AllQuranVersesWithBismillah.Where(x=>isParenthesesNoName(x.Verse)).Select(x=>x.Verse)
+                from letter in verse.TextWithBismillahLetters
                 select fullNameNonRepetitive.Count(x => IsSame(x, letter));
             
-            var query2 =
-               
-                from letter in AllQuranVerses[0].Verse.TextLetters
-                select fullNameNonRepetitive.Count(x => IsSame(x, letter));
 
-            (query.Sum() + query2.Sum()).ShouldBe(19 * 6);
+            query.Sum().ShouldBe(19 * 6);
         }
         return;
 
