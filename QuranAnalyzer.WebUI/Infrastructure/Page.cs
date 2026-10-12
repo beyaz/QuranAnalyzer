@@ -16,4 +16,6 @@ static class Routes
     public const string PageVerseFilter = "/" + nameof(PageVerseFilter);
     
     public const string PageQuranArabicVersion = "/" + nameof(PageQuranArabicVersion);
+    
+    public const string PageQuranArabicVersionWithBismillah = "/" + nameof(PageQuranArabicVersionWithBismillah);
 }

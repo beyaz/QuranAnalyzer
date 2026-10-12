@@ -15,7 +15,7 @@ public record VerseWithSequence
 
     public  string ToTextLine()
     {
-        return $"{SequenceNumber}|{Verse.ChapterNumber}|{Verse.VerseNumber}|{Verse.Text}";
+        return $"{SequenceNumber}|{Verse.ChapterNumber}|{Verse.VerseNumber}|{Verse.Bismillah}{Verse.Text}";
     }
 }
 
@@ -31,9 +31,37 @@ partial class QuranArabicVersionWithNoBismillah
         }
     }
     
+    public  static IReadOnlyList<VerseWithSequence> AllQuranVersesWithBismillah
+    {
+        get
+        {
+            return field ??= [..from x in AllQuranVerses select TryAddBismillah(x)];
+            
+            static VerseWithSequence TryAddBismillah(VerseWithSequence item)
+            {
+                var verse = item.Verse;
+                
+                if ((verse.ChapterNumber is 1 && verse.VerseNumber is 1) || 
+                    (verse.ChapterNumber is 9 && verse.VerseNumber is 1) ||
+                    verse.VerseNumber > 1)
+                {
+                    return item;
+                }
+                
+                return item with
+                {
+                    Verse = verse with
+                    {
+                        Bismillah = AllQuranVerses[0].Verse.Text
+                    }
+                };
+            }
+        }
+    }
+    
     public static Result<VerseWithSequence> TryParseVerseLine(string line)
     {
-        var arr = line.Split('|', StringSplitOptions.RemoveEmptyEntries);
+        var arr = line.Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         if (arr.Length != 4)
         {
             return new InvalidOperationException($"Invalid line format: {line}");

@@ -26,7 +26,20 @@ class PageLetterAnalyzer : ReactComponent<PageLetterAnalyzerModel>
 
             return new a
             {
-                "Download Quran", Href(href), TargetBlank, FontWeightMedium, FontSize12, TextDecorationUnderline, CursorPointer
+                "Download Quran (-Bismillah)", Href(href), TargetBlank, FontWeightMedium, FontSize12, TextDecorationUnderline, CursorPointer
+            };
+        }
+    }
+    
+    class DownloadQuranWithBismillahLink : ReactComponent
+    { 
+        protected override Element render()
+        {
+            const string href = nameof(PageQuranArabicVersionWithBismillah);
+
+            return new a
+            {
+                "Download Quran (+Bismillah)", Href(href), TargetBlank, FontWeightMedium, FontSize12, TextDecorationUnderline, CursorPointer
             };
         }
     }
@@ -53,7 +66,11 @@ class PageLetterAnalyzer : ReactComponent<PageLetterAnalyzerModel>
                     {
                         new span { "Arabic Text", FontWeightBold, FontSize12 },
 
-                        new DownloadQuranLink(),
+                        new FlexRow(Gap(16))
+                        {
+                            new DownloadQuranLink(),
+                            new DownloadQuranWithBismillahLink()
+                        }
                     },
                     When(state.IsShowingResults, () => new FlexColumn(Height(400), Background(White), FontFamily("lateef"), FontSize24, OverflowScroll)
                     {
