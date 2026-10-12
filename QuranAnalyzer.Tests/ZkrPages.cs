@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 
 namespace QuranAnalyzer;
 
@@ -156,15 +157,31 @@ public class ZkrPages
             Letter.Yeh, Letter.Waw, Letter.Jeem
         ];
 
-        {
-            var query =
-                from verse in AllQuranVersesWithBismillah.Where(x=>isParenthesesNoName(x.Verse)).Select(x=>x.Verse)
-                from letter in verse.TextWithBismillahLetters
-                select fullNameNonRepetitive.Count(x => IsSame(x, letter));
-            
+        IReadOnlyList<Verse> versesWithParenthesesNoName = [.. AllQuranVersesWithBismillah.Where(x => isParenthesesNoName(x.Verse)).Select(x => x.Verse)];
 
-            query.Sum().ShouldBe(19 * 6);
+        (LetterInfo Letter, int Count)[] counts = 
+        [
+            ..
+            from letter in fullNameNonRepetitive
+            from verse in versesWithParenthesesNoName
+            let count = verse.TextWithBismillahLetters.Count(x => IsSame(x, letter))
+            where count > 0
+            select
+            (
+                Letter: letter,
+                Count: count
+            )
+        ];
+        
+        {
+            (from x in counts select x.Count).Sum().ShouldBe(19 * 6);
         }
+
+
+        {
+            (from x in counts select GetNumberSum(x.Count)).Sum().ShouldBe(96);
+        }
+        
         return;
 
         static bool isParenthesesNoName(Verse verse)
@@ -177,6 +194,20 @@ public class ZkrPages
                    (verse.ChapterNumber is 48 && verse.VerseNumber is 1) ||
                    (verse.ChapterNumber is 72 && verse.VerseNumber is 7);
         }
+    }
+
+    static int GetNumberSum(int number)
+    {
+        int sum = 0;
+        number = Math.Abs(number);
+
+        while (number > 0)
+        {
+            sum += number % 10;
+            number /= 10;
+        }
+
+        return sum;
     }
 
     static IEnumerable<Verse> Filter(Func<Verse, bool> predicate)
