@@ -149,7 +149,7 @@ public class ZkrPages
     }
 
      [TestMethod]
-    public void _47_to_()
+    public void _47_to_51()
     {
         IReadOnlyList<LetterInfo> nameNonRepetitive =
         [
