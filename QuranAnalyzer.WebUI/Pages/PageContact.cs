@@ -28,13 +28,7 @@ public class PageContact : ReactPureComponent
                     imageSrc = "https://upload.wikimedia.org/wikipedia/commons/archive/7/7e/20221017173629%21Gmail_icon_%282020%29.svg"
                 },
 
-                br,
-                new Link
-                {
-                    href     = "https://twitter.com/Abdullah__Beyaz",
-                    text     = "twitter",
-                    imageSrc = "https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg"
-                }
+                br
             },
             new span(DisplayFlexRowCentered)
             {
