@@ -25,8 +25,7 @@ abstract class PageQuranArabicVersionBase : ReactPureComponent
                             Height("70vh"),
                             WhenMediaMaxWidth(MD, WidthFull),
                             FontFamily("Lateef"),
-                            FontSize24,
-                            WhiteSpaceNoWrap
+                            FontSize24
                         }
                     }
                 }
